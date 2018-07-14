@@ -63,7 +63,7 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		int validacion = controlador.validarUsuario(nombreUsuarioTXT.getText(), contrasenaTXT.getText());
+		int validacion = controlador.validarUsuario(nombreUsuarioTXT.getText(), contrasenaTXT.getText(), 1);
 		
 		if (validacion==1) {
 			

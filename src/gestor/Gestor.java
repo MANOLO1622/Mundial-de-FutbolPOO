@@ -36,52 +36,77 @@ public class Gestor {
 	}
 	
 	
-	public int validarUsuario(String nombreLectura,String contrasenaLectura) {
-		int comprobante=0;
+	public int validarUsuario(String nombreLectura, String contrasenaLectura, int eleccion) {
+		int comprobante=2;
+		int comprobanteNombreUsuario=0;
+		int posicion=0;
 		String validador="";
 		
 		ArrayList<Usuario> listaComparacion = capaLogica.listarUsuarios();
 		
-		for(Usuario e: listaComparacion) {
-			
-			if(nombreLectura.equals("") && contrasenaLectura.equals("")) {
+		switch(eleccion) {
+		
+			case 0: 
+				//Estas seran las evaluaciones a nivel de login.
 				
-				validador = "EL usuario no ha ingresado datos en los campos de texto";
-			
-			}
-			else {
-				
-				if(e.getNombreUsuario().equals(nombreLectura) && e.getContrasena().equals(contrasenaLectura)) {
-					comprobante = 1;
+				if(nombreLectura.equals("") || contrasenaLectura.equals("")) {
+					
+					comprobante = 3;
+					
 				}
 				
-			}				
+				else {
+					
+					for(Usuario e: listaComparacion) {
+						
+						if(nombreLectura.equals(e.getNombreUsuario())) {
+							
+							comprobanteNombreUsuario = 1;
+							posicion = listaComparacion.indexOf(e);
+							
+						}
+						
+					}
+					
+					if(comprobanteNombreUsuario == 1) {
+						
+						if(contrasenaLectura.equals(listaComparacion.get(posicion).getContrasena())) {
+							
+							comprobante = 0;
+							
+						}
+						else {
+							
+							comprobante = 2;
+							
+						}
+						
+					}
+					else {
+						
+						comprobante = 1;
+						
+					}
+						
+				}
 				
-		}
-		
-
-		if(comprobante == 1) {	
-			JOptionPane.showMessageDialog(null, "Este Usuario se encuentra registrado en el sistema.");	
-		}
-		else {
-			JOptionPane.showMessageDialog(null, "Usuario no se encuentra registrado en el sistema.");
-		}
-		
-		
-		
-		if(validador.equals("")) {
+				break;
+				
+			case 1: 
+				//Estas seran las evaluaciones a nivel de registro de usuarios.
+				
+				
+				break;
+				
+			default: 
+				//Indefinido, sujeto a cambios y a ingresar mas opciones al switch.
+				break;
 			
-			System.out.println("El usuario no ha ingresado datos en los campos de texto.");
-			
-		}
-		else {
-			System.out.println(validador);
-			
-		}
-		
-		
+			}
 		return comprobante;
 	}
+	
+	
 	
 	
 	public Perfiles retornarTipoUsuario(String nombreUsuario, String contrasena) {

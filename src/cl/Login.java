@@ -54,7 +54,7 @@ public class Login extends JPanel implements ActionListener {
 		else {
 			
 			Gestor controlador = new Gestor();
-			validacion = controlador.validarUsuario(lecturaUsuario, lecturaContrasena);
+			validacion = controlador.validarUsuario(lecturaUsuario, lecturaContrasena, 0);
 			
 			if (validacion==1) {
 				
