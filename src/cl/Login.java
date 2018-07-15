@@ -17,28 +17,24 @@ public class Login extends JPanel implements ActionListener{
 	private static JButton btnIngreso = new JButton("Ingresar");
 	private static JButton btnRegistrarUsuario = new JButton("Registrate con nosotros");
 	
-    private static Image imagen = new ImageIcon("src\\graficos\\Login.jpg").getImage();
+    private static Image imagen; // = new ImageIcon("src\\graficos\\Login.jpg").getImage();
     
-	//-------------------------------------------------------------------------------------------------
-	
-	/*public void paint(Graphics g){
-		super.paint(g);
-        g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
 
-    }*/
-	
-	//-------------------------------------------------------------------------------------------------
-	
+
 	public Login () {
 		
 		this.setLayout(null);
 		
 		this.add(labelNomUsuario);
+		labelNomUsuario.setForeground(Color.WHITE);
 		labelNomUsuario.setBounds(280,40,150,40);
 		this.add(usuarioTXT);
 		usuarioTXT.setBounds(230, 80, 210, 25);
+		
 		this.add(labelContrasenaUsuario);
+		labelContrasenaUsuario.setForeground(Color.WHITE);
 		labelContrasenaUsuario.setBounds(300, 105, 150, 40);
+		
 		this.add(contrasenaTXT);
 		contrasenaTXT.setBounds(250, 150, 170, 25);
 		char valor = contrasenaTXT.getEchoChar();
@@ -147,6 +143,30 @@ public class Login extends JPanel implements ActionListener{
 				
 	}
 	
+	//-------------------------------------------------------------------------------------------------    
+    
+    public void paintComponent(Graphics g) {
+    	 
+		int width = this.getSize().width;
+		int height = this.getSize().height;
+ 
+		this.setBackground("src\\graficos\\Login.jpg");
+		if (this.imagen != null) {
+			g.drawImage(this.imagen, 0, 0, width, height, null);
+		}
+ 
+		super.paintComponent(g);
+	}
+ 
+	public void setBackground(String imagePath) {
+		
+		this.setOpaque(false);
+		this.imagen = new ImageIcon(imagePath).getImage();
+		repaint();
+		
+	}
+	
+	//-------------------------------------------------------------------------------------------------
 
 
 }
