@@ -17,8 +17,20 @@ public class Login extends JPanel implements ActionListener{
 	private static JButton btnIngreso = new JButton("Ingresar");
 	private static JButton btnRegistrarUsuario = new JButton("Registrate con nosotros");
 	
-	public Login () {
+    private static Image imagen = new ImageIcon("src\\graficos\\Login.jpg").getImage();
+    
+	//-------------------------------------------------------------------------------------------------
+	
+	public void paint(Graphics g){
+		super.paint(g);
+        g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
 
+    }
+	
+	//-------------------------------------------------------------------------------------------------
+	
+	public Login () {
+		
 		this.setLayout(null);
 		
 		this.add(labelNomUsuario);
@@ -37,7 +49,7 @@ public class Login extends JPanel implements ActionListener{
 		
 		this.add(btnIngreso);
 		btnIngreso.setBounds(285, 200, 100, 25);
-		this.setBackground(Color.BLUE);
+
 		
 		this.add(btnRegistrarUsuario);
 		btnRegistrarUsuario.setBounds(10, 310, 200, 25);
@@ -64,9 +76,6 @@ public class Login extends JPanel implements ActionListener{
 			
 		});
 		
-		
-		
-		
 	}
 
 	
@@ -85,7 +94,7 @@ public class Login extends JPanel implements ActionListener{
 			
 			Ventana ventanaRegistro = new Ventana();
 			ventanaRegistro.ventanaRegistroUsuarios();
-			this.setBackground(Color.YELLOW);
+
 			
 		}
 		
@@ -113,7 +122,6 @@ public class Login extends JPanel implements ActionListener{
 				
 				if (validacion == 2) {
 					
-					this.setBackground(Color.GREEN);
 					Perfiles perfil = controlador.retornarTipoUsuario(usuarioTXT.getText(), contrasenaTXT.getText());
 					Ventana ventanaUsuario = new Ventana();
 					ventanaUsuario.ventanaMenuUsuarios(perfil, usuarioTXT.getText(), ventanaUsuario);
@@ -123,7 +131,6 @@ public class Login extends JPanel implements ActionListener{
 				}
 				if (validacion == 1){
 					
-					this.setBackground(Color.RED);
 					usuarioTXT.setText("");
 					contrasenaTXT.setText("");
 					JOptionPane.showMessageDialog(null, "Porfavor registrese antes de ingresar.");
@@ -139,5 +146,7 @@ public class Login extends JPanel implements ActionListener{
 		}
 				
 	}
+	
+
 
 }
