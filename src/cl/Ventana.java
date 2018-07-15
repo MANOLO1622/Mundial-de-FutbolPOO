@@ -32,7 +32,8 @@ public class Ventana extends JFrame{
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Login");
-		this.show();	
+		this.show();
+		
 		
 	}
 	

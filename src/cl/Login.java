@@ -21,11 +21,11 @@ public class Login extends JPanel implements ActionListener{
     
 	//-------------------------------------------------------------------------------------------------
 	
-	public void paint(Graphics g){
+	/*public void paint(Graphics g){
 		super.paint(g);
         g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
 
-    }
+    }*/
 	
 	//-------------------------------------------------------------------------------------------------
 	
