@@ -13,6 +13,7 @@ public class Login extends JPanel implements ActionListener {
 	private static JLabel labelContrasenaUsuario = new JLabel("Contraseña");
 	private static JTextField contrasenaTXT = new JTextField(10);
 	private static JButton btnIngreso = new JButton("Ingresar");
+	private static JButton btnRegistrarUsuario = new JButton("Registrate con nosotros");
 	
 	public Login () {
 
@@ -30,6 +31,10 @@ public class Login extends JPanel implements ActionListener {
 		btnIngreso.setBounds(285, 200, 100, 25);
 		this.setBackground(Color.BLUE);
 		
+		this.add(btnRegistrarUsuario);
+		btnRegistrarUsuario.setBounds(10, 310, 200, 25);
+		
+		btnRegistrarUsuario.addActionListener(this);
 		btnIngreso.addActionListener(this);
 		
 	}
@@ -44,40 +49,62 @@ public class Login extends JPanel implements ActionListener {
 		String lecturaUsuario= usuarioTXT.getText();
 		String lecturaContrasena = contrasenaTXT.getText();
 		
-		if (lecturaUsuario.equals("") || lecturaContrasena.equals("")) {
+		Object evento = e.getSource();
+		
+		if(evento == btnRegistrarUsuario) {
 			
-			JOptionPane.showMessageDialog(null, "Por favor ingrese el Usuario y la contraseña.");
-			System.out.println("No se han ingresado datos en la pantalla de login.");
+			Ventana ventanaRegistro = new Ventana();
+			ventanaRegistro.ventanaRegistroUsuarios();
+			this.setBackground(Color.YELLOW);
 			
 		}
 		
-		else {
+		if(evento == btnIngreso) {
 			
-			Gestor controlador = new Gestor();
-			validacion = controlador.validarUsuario(lecturaUsuario, lecturaContrasena, 0);
-			
-			if (validacion==1) {
+			if (lecturaUsuario.equals("") || lecturaContrasena.equals("")) {
 				
-				this.setBackground(Color.GREEN);
-				Perfiles perfil = controlador.retornarTipoUsuario(usuarioTXT.getText(), contrasenaTXT.getText());
-				Ventana ventanaUsuario = new Ventana();
-				ventanaUsuario.ventanaMenuUsuarios(perfil, usuarioTXT.getText(), ventanaUsuario);
-				
+				JOptionPane.showMessageDialog(null, "Por favor ingrese el Usuario y la contraseña.");
+				System.out.println("No se han ingresado datos en la pantalla de login.");
 				
 			}
+			
 			else {
 				
-				this.setBackground(Color.RED);
-				usuarioTXT.setText("");
-				contrasenaTXT.setText("");
-				Ventana ventanaRegistro = new Ventana();
-				ventanaRegistro.ventanaRegistroUsuarios();
+				Gestor controlador = new Gestor();
+				validacion = controlador.validarUsuario(lecturaUsuario, lecturaContrasena,"", 0);
 				
+				if(validacion == 3) {
+					
+					JOptionPane.showMessageDialog(null, "Contraseña incorrecta.");
+					
+				}
+				
+				if (validacion == 2) {
+					
+					this.setBackground(Color.GREEN);
+					Perfiles perfil = controlador.retornarTipoUsuario(usuarioTXT.getText(), contrasenaTXT.getText());
+					Ventana ventanaUsuario = new Ventana();
+					ventanaUsuario.ventanaMenuUsuarios(perfil, usuarioTXT.getText(), ventanaUsuario);
+					JOptionPane.showMessageDialog(null, "Bienvenido.");
+					
+					
+				}
+				if (validacion == 1){
+					
+					this.setBackground(Color.RED);
+					usuarioTXT.setText("");
+					contrasenaTXT.setText("");
+					JOptionPane.showMessageDialog(null, "Porfavor registrese antes de ingresar.");
+					
+				}
+				if (validacion == 0) {
+					
+					JOptionPane.showMessageDialog(null, "Porfavor ingrese el usuario y la contraseña.");
+					
+				}
 			}
 			
 		}
-		
-		
 				
 	}
 

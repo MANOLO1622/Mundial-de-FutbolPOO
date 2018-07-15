@@ -89,7 +89,6 @@ switch(perfil) {
 		setIconImage(icono);
 		
 	}
-	
 
 }
 

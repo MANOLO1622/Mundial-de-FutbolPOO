@@ -9,18 +9,22 @@ public class Usuario {
 	private String nombre;
 	private String apellido;
 	private String nombreUsuario;
+	private String avatar;
+	private String correoElectronico;
 	private String contrasena;
 	private Date fechaRegistro;
 	private Perfiles tipoUsuario;
 	
-	public Usuario (String nombre, String apellido, String nombreUsuario, String contrasena, int tipoUsuario) {
+	public Usuario (String nombre, String apellido, String nombreUsuario, String contrasena,String avatar, String correoElectronico, int tipoUsuario) {
 		
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.nombreUsuario = nombreUsuario;
 		this.fechaRegistro = new Date();
+		this.avatar = avatar;
+		this.correoElectronico = correoElectronico;
 		this.contrasena = contrasena;
-		this.tipoUsuario = setTipoUsuario(tipoUsuario);
+		this.tipoUsuario = getTipoUsuario(tipoUsuario);
 		
 	}
 	
@@ -110,12 +114,7 @@ public class Usuario {
 		this.fechaRegistro = fechaRegistro;
 	}
 	
-	public Perfiles getTipoUsuario() {
-		return this.tipoUsuario;
-	}
-	
-	
-	public Perfiles setTipoUsuario(int i) {
+	public Perfiles getTipoUsuario(int i) {
 		Perfiles tipo;
 		
 		switch (i) {
@@ -145,23 +144,69 @@ public class Usuario {
 			break;
 			
 		}
+		
 		return tipo;
+	}
+	
+	public Perfiles retornarTipoUsuario() {
+		
+		return tipoUsuario;
+	}
+	
+	
+	/**
+	 * @return the avatar
+	 */
+	public String getAvatar() {
+		return avatar;
 	}
 
 
+	/**
+	 * @param avatar the avatar to set
+	 */
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
+
+	/**
+	 * @return the correoElectronico
+	 */
+	public String getCorreoElectronico() {
+		return correoElectronico;
+	}
+
+
+	/**
+	 * @param correoElectronico the correoElectronico to set
+	 */
+	public void setCorreoElectronico(String correoElectronico) {
+		this.correoElectronico = correoElectronico;
+	}
+
+	
 	
 	//---------------------------------------------------------------------------------------------------------
 	
 	//Metodo toString.
-
 	
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Usuario : nombre= " + nombre + ", apellido= " + apellido + ", nombreUsuario= " + nombreUsuario
-				+ ", contrasena= " + contrasena + ", fechaRegistro= " + fechaRegistro + ", tipoUsuario= " + tipoUsuario;
+		return "Usuario: nombre=" + nombre + ", apellido=" + apellido + ", nombreUsuario=" + nombreUsuario + ", avatar="
+				+ avatar + ", correoElectronico=" + correoElectronico + ", contrasena=" + contrasena
+				+ ", fechaRegistro=" + fechaRegistro + ", tipoUsuario=" + tipoUsuario;
 	}
+
+
+	
+
+
+	
+	
 	
 }

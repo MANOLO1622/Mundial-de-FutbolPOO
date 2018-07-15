@@ -10,9 +10,9 @@ public class Gestor {
 	
 	private static CL capaLogica = new CL();
 	
-	public void registrarUsuario(String nombre, String apellido, String nombreUsuario,String contrasena, int tipoUsuario) {
+	public void registrarUsuario(String nombre, String apellido, String nombreUsuario,String contrasena,String avatar,String correoElectronico, int tipoUsuario) {
 		
-		Usuario registro = new Usuario(nombre, apellido, nombreUsuario,contrasena, tipoUsuario);
+		Usuario registro = new Usuario(nombre, apellido, nombreUsuario,contrasena, avatar, correoElectronico, tipoUsuario);
 		capaLogica.registrarUsuario(registro);
 		
 	}
@@ -36,10 +36,10 @@ public class Gestor {
 	}
 	
 	
-	public int validarUsuario(String nombreLectura, String contrasenaLectura, int eleccion) {
-		int comprobante=2;
+	public int validarUsuario(String nombreLectura, String contrasenaLectura,String avatarLectura, int eleccion) {
+		int comprobante=0;
 		int comprobanteNombreUsuario=0;
-		int posicion=0;
+		int posicion=-1;
 		String validador="";
 		
 		ArrayList<Usuario> listaComparacion = capaLogica.listarUsuarios();
@@ -51,7 +51,7 @@ public class Gestor {
 				
 				if(nombreLectura.equals("") || contrasenaLectura.equals("")) {
 					
-					comprobante = 3;
+					comprobante = 0;
 					
 				}
 				
@@ -59,30 +59,29 @@ public class Gestor {
 					
 					for(Usuario e: listaComparacion) {
 						
-						if(nombreLectura.equals(e.getNombreUsuario())) {
+						if(nombreLectura.equals(e.getNombreUsuario()) && contrasenaLectura.equals(e.getContrasena())) {
 							
-							comprobanteNombreUsuario = 1;
+							comprobante = 2;
 							posicion = listaComparacion.indexOf(e);
 							
 						}
 						
 					}
 					
-					if(comprobanteNombreUsuario == 1) {
+					if (posicion != -1) {
 						
 						if(contrasenaLectura.equals(listaComparacion.get(posicion).getContrasena())) {
-							
-							comprobante = 0;
-							
+	
 						}
 						else {
 							
-							comprobante = 2;
+							comprobante = 3;
 							
 						}
 						
 					}
-					else {
+					
+					if(posicion == -1) {
 						
 						comprobante = 1;
 						
@@ -95,6 +94,21 @@ public class Gestor {
 			case 1: 
 				//Estas seran las evaluaciones a nivel de registro de usuarios.
 				
+				for(Usuario e: listaComparacion) {
+					
+					if(nombreLectura.equals(e.getNombreUsuario()) && avatarLectura.equals(e.getAvatar())) {
+						
+						comprobante = 1;
+						
+					}
+					
+				}
+				
+				if (comprobante != 1) {
+					
+					comprobante = 0;
+					
+				}
 				
 				break;
 				
@@ -118,7 +132,7 @@ public class Gestor {
 			
 			if(nombreUsuario.equals(e.getNombreUsuario()) && contrasena.equals(e.getContrasena())) {
 				
-				tipoPerfil = e.getTipoUsuario();
+				tipoPerfil = e.retornarTipoUsuario();
 				
 			}
 			
