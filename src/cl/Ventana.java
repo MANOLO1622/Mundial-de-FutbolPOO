@@ -90,6 +90,8 @@ public class Ventana extends JFrame{
 		setIconImage(icono);
 		
 	}
+	
+	//--------------------------------------------------------------------------
 
 }
 
