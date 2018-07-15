@@ -8,7 +8,7 @@ import gestor.*;
 
 public class RegistroUsuarios extends JPanel implements ActionListener{
 	
-	private static Gestor controlador = new Gestor();
+	private static Gestor controlador = new Gestor(); 
 	
 	private static JLabel labelNombre = new JLabel("Nombre: ");
 	private static JTextField nombreTXT = new JTextField(10);

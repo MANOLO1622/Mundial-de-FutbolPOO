@@ -6,12 +6,14 @@ import javax.swing.*;
 
 import gestor.*;
 
-public class Login extends JPanel implements ActionListener {
+public class Login extends JPanel implements ActionListener{
 	
 	private static JLabel labelNomUsuario = new JLabel("Nombre de usuario");
 	private static JTextField usuarioTXT = new JTextField(10);
 	private static JLabel labelContrasenaUsuario = new JLabel("Contraseña");
-	private static JTextField contrasenaTXT = new JTextField(10);
+	private static JPasswordField contrasenaTXT = new JPasswordField(10);
+	private static JLabel labelMostrarContrasena = new JLabel();
+	private static ImageIcon ojo = new ImageIcon("src\\graficos\\Ojo.png");
 	private static JButton btnIngreso = new JButton("Ingresar");
 	private static JButton btnRegistrarUsuario = new JButton("Registrate con nosotros");
 	
@@ -27,6 +29,12 @@ public class Login extends JPanel implements ActionListener {
 		labelContrasenaUsuario.setBounds(300, 105, 150, 40);
 		this.add(contrasenaTXT);
 		contrasenaTXT.setBounds(250, 150, 170, 25);
+		char valor = contrasenaTXT.getEchoChar();
+		
+		labelMostrarContrasena.setIcon(ojo);
+		this.add(labelMostrarContrasena);
+		labelMostrarContrasena.setBounds(430, 150, 170,25);
+		
 		this.add(btnIngreso);
 		btnIngreso.setBounds(285, 200, 100, 25);
 		this.setBackground(Color.BLUE);
@@ -36,6 +44,28 @@ public class Login extends JPanel implements ActionListener {
 		
 		btnRegistrarUsuario.addActionListener(this);
 		btnIngreso.addActionListener(this);
+		
+		
+		//En el siguiente evento creo un adaptador para poder implementar la funcionalidad en el ojo de mostrar la contraseña.
+		labelMostrarContrasena.addMouseListener(new MouseAdapter(){
+			
+			public void mouseEntered(MouseEvent e) {
+				
+				contrasenaTXT.setEchoChar((char)0); 
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				
+				contrasenaTXT.setEchoChar(valor);
+				
+			}
+			
+		});
+		
+		
+		
 		
 	}
 
@@ -65,6 +95,8 @@ public class Login extends JPanel implements ActionListener {
 				
 				JOptionPane.showMessageDialog(null, "Por favor ingrese el Usuario y la contraseña.");
 				System.out.println("No se han ingresado datos en la pantalla de login.");
+				usuarioTXT.setText("");
+				contrasenaTXT.setText("");
 				
 			}
 			
