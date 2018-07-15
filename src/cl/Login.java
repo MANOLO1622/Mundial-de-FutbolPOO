@@ -17,7 +17,7 @@ public class Login extends JPanel implements ActionListener{
 	private static JButton btnIngreso = new JButton("Ingresar");
 	private static JButton btnRegistrarUsuario = new JButton("Registrate con nosotros");
 	
-    private static Image imagen; // = new ImageIcon("src\\graficos\\Login.jpg").getImage();
+    private static Image imagen;
     
 
 
@@ -90,7 +90,7 @@ public class Login extends JPanel implements ActionListener{
 			
 			Ventana ventanaRegistro = new Ventana();
 			ventanaRegistro.ventanaRegistroUsuarios();
-
+			ventanaRegistro.setExtendedState(Ventana.MAXIMIZED_BOTH);	
 			
 		}
 		
@@ -121,7 +121,11 @@ public class Login extends JPanel implements ActionListener{
 					Perfiles perfil = controlador.retornarTipoUsuario(usuarioTXT.getText(), contrasenaTXT.getText());
 					Ventana ventanaUsuario = new Ventana();
 					ventanaUsuario.ventanaMenuUsuarios(perfil, usuarioTXT.getText(), ventanaUsuario);
+					ventanaUsuario.setExtendedState(Ventana.MAXIMIZED_BOTH);
 					JOptionPane.showMessageDialog(null, "Bienvenido.");
+					
+					usuarioTXT.setText("");
+					contrasenaTXT.setText("");
 					
 					
 				}

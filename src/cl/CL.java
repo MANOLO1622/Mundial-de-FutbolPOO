@@ -1,11 +1,13 @@
 package cl;
 
+import java.io.IOException;
 import java.util.*;
 
 
 public class CL {
 	
 	private static ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
+	private static TextFileIO UsuariosRegLog = new TextFileIO("logs//Login.txt");
 	
 	public static void registrarUsuario(Usuario registro) {
 		

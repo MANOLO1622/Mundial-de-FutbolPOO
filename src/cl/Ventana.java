@@ -6,15 +6,16 @@ import javax.swing.*;
 public class Ventana extends JFrame{
 	
 	private static Toolkit miPantalla = Toolkit.getDefaultToolkit();
+	private static Dimension dimenPantalla = miPantalla.getScreenSize();
+	public static int ancho = dimenPantalla.width;
+	public static int alto = dimenPantalla.height;
 	
 	@SuppressWarnings("deprecation")
 	public Ventana() {
 		
 		
-		Dimension dimenPantalla = miPantalla.getScreenSize();		
-		
 		this.setVisible(true);
-		this.setSize(dimenPantalla.width/2, dimenPantalla.height/2);
+		this.setSize(ancho/2, alto/2);
 		this.setLocation(dimenPantalla.width/4, dimenPantalla.height/4);
 		
 		Image icono = miPantalla.getImage("src\\graficos\\Futbol.png");
@@ -34,17 +35,15 @@ public class Ventana extends JFrame{
 		this.setTitle("Login");
 		this.show();
 		
-		
+
 	}
 	
-	
-	
+
 	public void ventanaRegistroUsuarios() {
 		
 		
 		RegistroUsuarios regUsu = new RegistroUsuarios();
 		this.add(regUsu);
-		
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setTitle("Registro de Usuario");
 		this.show();	
@@ -53,24 +52,25 @@ public class Ventana extends JFrame{
 	
 	public void ventanaMenuUsuarios(Perfiles perfil, String nombreUsuario, Ventana vent) {
 		
-switch(perfil) {
+		switch(perfil) {
 		
 		case ADMIN: 
-			
-//			Ventana menuAdministrador = new Ventana();
 			vent.setTitle("Administrador " + nombreUsuario);
 			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			
 			break;
 			
 		case PLAYER: 
-//			Ventana menuJugador = new Ventana();
+			
+			MenuJugador mj = new MenuJugador();
+			this.add(mj);
 			vent.setTitle("Jugador " + nombreUsuario);
 			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			break;
 			
 		case VIEWER:
-//			Ventana menuObservador = new Ventana();
+			MenuObservador mo = new MenuObservador();
+			this.add(mo);
 			vent.setTitle("Observador " + nombreUsuario);
 			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			break;

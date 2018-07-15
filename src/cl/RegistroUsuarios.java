@@ -2,6 +2,8 @@ package cl;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
+
 import javax.swing.*;
 
 import gestor.*;
@@ -30,6 +32,8 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 	
 	private static JButton btnRegistro = new JButton("Registrar");
 	
+    private static Image imagen;
+	
 	
 	public RegistroUsuarios () {
 		
@@ -37,36 +41,42 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 		this.setBackground(Color.CYAN);
 		
 		this.add(labelNombre);
+		labelNombre.setForeground(Color.RED);
 		labelNombre.setBounds(10,0,200,30);
 		
 		this.add(nombreTXT);
 		nombreTXT.setBounds(125,6,200,20);
 		
 		this.add(labelApellido);
+		labelApellido.setForeground(Color.RED);
 		labelApellido.setBounds(10,25,200,30);
 		
 		this.add(apellidoTXT);
 		apellidoTXT.setBounds(125,31,200,20);
 		
 		this.add(labelAvatar);
+		labelAvatar.setForeground(Color.RED);
 		labelAvatar.setBounds(10,50,200,30);
 		
 		this.add(avatarTXT);
 		avatarTXT.setBounds(125,56,200,20);
 		
 		this.add(labelNombreUsuario);
+		labelNombreUsuario.setForeground(Color.RED);
 		labelNombreUsuario.setBounds(10,75,200,30);
 		
 		this.add(nombreUsuarioTXT);
 		nombreUsuarioTXT.setBounds(125,81,200,20);
 		
 		this.add(labelCorreo);
+		labelCorreo.setForeground(Color.RED);
 		labelCorreo.setBounds(10,100,200,30);
 		
 		this.add(correoTXT);
 		correoTXT.setBounds(125,106,200,20);
 		
 		this.add(labelContrasena);
+		labelContrasena.setForeground(Color.RED);
 		labelContrasena.setBounds(10,125,200,30);
 		
 		this.add(contrasenaTXT);
@@ -94,33 +104,65 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 		}
 		else {
 			
-			if (validacion == 1) {
+			if((contrasenaTXT.getText()).length()<6 || (contrasenaTXT.getText()).length()>8) {
 				
-				this.setBackground(Color.RED);
-				JOptionPane.showMessageDialog(null, "Este usuario ya se encuentra registrado.");
+				JOptionPane.showMessageDialog(null, "Por favor registrar una contraseña entre 6 y 8 caracteres.");
 				
 			}
+			else {
+				
+				if (validacion == 1) {
+					
+					this.setBackground(Color.RED);
+					JOptionPane.showMessageDialog(null, "Este usuario ya se encuentra registrado.");
+					
+				}
+				
+				if(validacion == 0) {
+					
+					this.setBackground(Color.GREEN);
+					controlador.registrarUsuario(nombreTXT.getText(), apellidoTXT.getText(), nombreUsuarioTXT.getText(), contrasenaTXT.getText(),avatarTXT.getText() ,correoTXT.getText() , 2);
+					controlador.listarUsuarios();
+					JOptionPane.showMessageDialog(null, "Usuario registrado.");
+					
+					nombreTXT.setText("");
+					apellidoTXT.setText("");
+					nombreUsuarioTXT.setText("");
+					avatarTXT.setText("");
+					correoTXT.setText("");
+					contrasenaTXT.setText("");
 			
-			if(validacion == 0) {
+				}
 				
-				this.setBackground(Color.GREEN);
-				controlador.registrarUsuario(nombreTXT.getText(), apellidoTXT.getText(), nombreUsuarioTXT.getText(), contrasenaTXT.getText(),avatarTXT.getText() ,correoTXT.getText() , 2);
-				controlador.listarUsuarios();
-				JOptionPane.showMessageDialog(null, "Usuario registrado.");
-				
-				nombreTXT.setText("");
-				apellidoTXT.setText("");
-				nombreUsuarioTXT.setText("");
-				avatarTXT.setText("");
-				correoTXT.setText("");
-				contrasenaTXT.setText("");
-		
 			}
 			
 		}
 				
 	}
 	
+	//-------------------------------------------------------------------------------------------------    
+    
+    public void paintComponent(Graphics g) {
+    	 
+		int width = this.getSize().width;
+		int height = this.getSize().height;
+ 
+		this.setBackground("src\\graficos\\registro.jpg");
+		if (this.imagen != null) {
+			g.drawImage(this.imagen, 0, 0, width, height, null);
+		}
+ 
+		super.paintComponent(g);
+	}
+ 
+	public void setBackground(String imagePath) {
+		
+		this.setOpaque(false);
+		this.imagen = new ImageIcon(imagePath).getImage();
+		repaint();
+		
+	}
 	
+	//-------------------------------------------------------------------------------------------------
 
 }
