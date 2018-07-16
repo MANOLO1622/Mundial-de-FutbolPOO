@@ -8,7 +8,7 @@ import gestor.*;
 
 public class MenuAdministrador extends JPanel{
 	
-	  private static Image imagen;
+	    private static Image imagen;
 	  
 		//-------------------------------------------------------------------------------------------------    
 	    
@@ -17,7 +17,7 @@ public class MenuAdministrador extends JPanel{
 			int width = this.getSize().width;
 			int height = this.getSize().height;
 	 
-			this.setBackground("src\\graficos\\menuAdm.jpg");
+			this.setBackground("src\\graficos\\MenuAdministrador.jpg");
 			if (this.imagen != null) {
 				g.drawImage(this.imagen, 0, 0, width, height, null);
 			}
