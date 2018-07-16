@@ -55,9 +55,11 @@ public class Ventana extends JFrame{
 		switch(perfil) {
 		
 		case ADMIN: 
+			MenuAdministrador ma = new MenuAdministrador();
+			this.add(ma);
 			vent.setTitle("Administrador " + nombreUsuario);
 			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			
+		
 			break;
 			
 		case PLAYER: 
