@@ -27,7 +27,7 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 	private static JLabel labelCorreo = new JLabel("Correo electronico:");
 	private static JTextField correoTXT = new JTextField(10);
 	
-	private static JLabel labelContrasena = new JLabel("Contrasena:");
+	private static JLabel labelContrasena = new JLabel("Contraseña:");
 	private static JTextField contrasenaTXT = new JTextField(10);
 	
 	private static JButton btnRegistro = new JButton("Registrar");
@@ -41,49 +41,49 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 		this.setBackground(Color.CYAN);
 		
 		this.add(labelNombre);
-		labelNombre.setForeground(Color.RED);
-		labelNombre.setBounds(10,0,200,30);
+		labelNombre.setForeground(Color.WHITE);
+		labelNombre.setBounds(10,30,200,30);
 		
 		this.add(nombreTXT);
-		nombreTXT.setBounds(125,6,200,20);
+		nombreTXT.setBounds(125,30,200,20);
 		
 		this.add(labelApellido);
-		labelApellido.setForeground(Color.RED);
-		labelApellido.setBounds(10,25,200,30);
+		labelApellido.setForeground(Color.WHITE);
+		labelApellido.setBounds(10,70,200,30);
 		
 		this.add(apellidoTXT);
-		apellidoTXT.setBounds(125,31,200,20);
+		apellidoTXT.setBounds(125,70,200,20);
 		
 		this.add(labelAvatar);
-		labelAvatar.setForeground(Color.RED);
-		labelAvatar.setBounds(10,50,200,30);
+		labelAvatar.setForeground(Color.WHITE);
+		labelAvatar.setBounds(10,110,200,30);
 		
 		this.add(avatarTXT);
-		avatarTXT.setBounds(125,56,200,20);
+		avatarTXT.setBounds(125,110,200,20);
 		
 		this.add(labelNombreUsuario);
-		labelNombreUsuario.setForeground(Color.RED);
-		labelNombreUsuario.setBounds(10,75,200,30);
+		labelNombreUsuario.setForeground(Color.WHITE);
+		labelNombreUsuario.setBounds(10,150,200,30);
 		
 		this.add(nombreUsuarioTXT);
-		nombreUsuarioTXT.setBounds(125,81,200,20);
+		nombreUsuarioTXT.setBounds(125,150,200,20);
 		
 		this.add(labelCorreo);
-		labelCorreo.setForeground(Color.RED);
-		labelCorreo.setBounds(10,100,200,30);
+		labelCorreo.setForeground(Color.WHITE);
+		labelCorreo.setBounds(10,190,200,30);
 		
 		this.add(correoTXT);
-		correoTXT.setBounds(125,106,200,20);
+		correoTXT.setBounds(125,190,200,20);
 		
 		this.add(labelContrasena);
-		labelContrasena.setForeground(Color.RED);
-		labelContrasena.setBounds(10,125,200,30);
+		labelContrasena.setForeground(Color.WHITE);
+		labelContrasena.setBounds(10,225,200,30);
 		
 		this.add(contrasenaTXT);
-		contrasenaTXT.setBounds(125,131,200,20);
+		contrasenaTXT.setBounds(125,225,200,20);
 		
 		this.add(btnRegistro);
-		btnRegistro.setBounds(10, 160, 100, 25);
+		btnRegistro.setBounds(10, 270, 100, 25);
 		
 		btnRegistro.addActionListener(this);
 		
@@ -99,7 +99,7 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 		   nombreUsuarioTXT.getText().equals("") || contrasenaTXT.equals("") ||
 		   avatarTXT.getText().equals("") || correoTXT.getText().equals("")) {
 			
-			JOptionPane.showMessageDialog(null, "Por favor ingrese los datos del formulario.");
+			JOptionPane.showMessageDialog(null, "Hay campos vacios, debe llenar todos los campos.");
 			
 		}
 		else {
