@@ -14,6 +14,7 @@ public class MenuJugador extends JPanel{
 	JButton boton4;
 	JButton boton5;
 	JButton boton6;
+	JButton boton7;
 
 	
 	
