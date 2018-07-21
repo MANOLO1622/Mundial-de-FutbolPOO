@@ -15,7 +15,7 @@ public class Ventana extends JFrame{
 		
 		
 		this.setVisible(true);
-		this.setSize(ancho/2, alto/2);
+		this.setSize(683,384);
 		this.setLocation(dimenPantalla.width/4, dimenPantalla.height/4);
 		
 		Image icono = miPantalla.getImage("src\\graficos\\Futbol.png");

@@ -14,8 +14,8 @@ public class Login extends JPanel implements ActionListener{
 	private static JPasswordField contrasenaTXT = new JPasswordField(10);
 	private static JLabel labelMostrarContrasena = new JLabel();
 	private static ImageIcon ojo = new ImageIcon("src\\graficos\\Ojo.png");
-	private static JButton btnIngreso = new JButton("Ingresar");
-	private static JButton btnRegistrarUsuario = new JButton("Registrate con nosotros");
+	private static JButton btnIngreso = new JButton("Iniciar Session.");
+	private static JButton btnRegistrarUsuario = new JButton("Registrarse");
 	
     private static Image imagen;
     
@@ -27,13 +27,13 @@ public class Login extends JPanel implements ActionListener{
 		
 		this.add(labelNomUsuario);
 		labelNomUsuario.setForeground(Color.WHITE);
-		labelNomUsuario.setBounds(280,40,150,40);
+		labelNomUsuario.setBounds(250,110,150,40);
 		this.add(usuarioTXT);
-		usuarioTXT.setBounds(230, 80, 210, 25);
+		usuarioTXT.setBounds(250, 140, 170, 25);
 		
 		this.add(labelContrasenaUsuario);
 		labelContrasenaUsuario.setForeground(Color.WHITE);
-		labelContrasenaUsuario.setBounds(300, 105, 150, 40);
+		labelContrasenaUsuario.setBounds(250, 160, 150, 40);
 		
 		this.add(contrasenaTXT);
 		contrasenaTXT.setBounds(250, 150, 170, 25);
@@ -44,11 +44,11 @@ public class Login extends JPanel implements ActionListener{
 		labelMostrarContrasena.setBounds(430, 150, 170,25);
 		
 		this.add(btnIngreso);
-		btnIngreso.setBounds(285, 200, 100, 25);
+		btnIngreso.setBounds(280, 240, 100, 25);
 
 		
 		this.add(btnRegistrarUsuario);
-		btnRegistrarUsuario.setBounds(10, 310, 200, 25);
+		btnRegistrarUsuario.setBounds(10, 310, 101, 25);
 		
 		btnRegistrarUsuario.addActionListener(this);
 		btnIngreso.addActionListener(this);

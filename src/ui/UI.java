@@ -19,7 +19,9 @@ public class UI {
 		controlador.listarUsuarios();
 		
 		Ventana ventLogin = new Ventana();
+		ventLogin.setResizable(false);
 		ventLogin.ventanaLogin();
+		
 		
 		
 		
