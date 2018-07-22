@@ -31,7 +31,7 @@ public class MenuAdministrador extends JPanel{
 		boton2.setBounds(10, 115, 180, 50);
 		this.add(boton2);
 		
-		boton3 = new JButton("Crear competicion");
+		boton3 = new JButton("Crear mundial");
 		this.setLayout(null);
 		boton3.setBounds(10, 185, 180, 50);
 		this.add(boton3);
