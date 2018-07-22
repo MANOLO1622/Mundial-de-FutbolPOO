@@ -15,7 +15,7 @@ public class MenuAdministrador extends JPanel{
 	JButton boton10;
 	JButton boton11;
 	JButton boton12;
-	JButton boton13;
+
 
 	
 	
@@ -31,7 +31,7 @@ public class MenuAdministrador extends JPanel{
 		boton2.setBounds(10, 115, 180, 50);
 		this.add(boton2);
 		
-		boton3 = new JButton("Crear competicion");
+		boton3 = new JButton("Crear mundial");
 		this.setLayout(null);
 		boton3.setBounds(10, 185, 180, 50);
 		this.add(boton3);
@@ -46,15 +46,11 @@ public class MenuAdministrador extends JPanel{
 		boton11.setBounds(10, 325, 180, 50);
 		this.add(boton11);
 		
-		boton12 = new JButton("Crear copas");
-		this.setLayout(null);
-		boton12.setBounds(10, 400, 180, 50);
-		this.add(boton12);
 		
-		boton13 = new JButton("Crear ligas");
+		boton12 = new JButton("Crear ligas");
 		this.setLayout(null);
-		boton13.setBounds(10, 475, 180, 50);
-		this.add(boton13);
+		boton12.setBounds(10, 475, 180, 50);
+		this.add(boton12);
 		
 	 
 		

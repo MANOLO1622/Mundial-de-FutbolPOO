@@ -4,13 +4,13 @@ public class Equipos {
 
     private String codigoIso;
     private String nombrePais;
-    private String rankingFifa;
+    private int rankingFifa;
     private String bandera;
 
     public Equipos() {
     }
 
-    public Equipos(String codigoIso, String nombrePais, String rankingFifa, String bandera) {
+    public Equipos(String codigoIso, String nombrePais, int rankingFifa, String bandera) {
         this.codigoIso = codigoIso;
         this.nombrePais = nombrePais;
         this.rankingFifa = rankingFifa;
@@ -25,7 +25,7 @@ public class Equipos {
         return nombrePais;
     }
 
-    public String getRankingFifa() {
+    public int getRankingFifa() {
         return rankingFifa;
     }
 
@@ -41,7 +41,7 @@ public class Equipos {
         this.nombrePais = nombrePais;
     }
 
-    public void setRankingFifa(String rankingFifa) {
+    public void setRankingFifa(int rankingFifa) {
         this.rankingFifa = rankingFifa;
     }
 
