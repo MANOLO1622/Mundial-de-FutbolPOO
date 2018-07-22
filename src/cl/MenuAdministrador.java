@@ -66,7 +66,7 @@ public class MenuAdministrador extends JPanel implements ActionListener{
 		Ventana ventanaRegistro = new Ventana();
 		ventanaRegistro.ventanaRegistroMundiales();
 		ventanaRegistro.setExtendedState(Ventana.MAXIMIZED_BOTH);
-		
+		//prueba
 	}
 	
 	
