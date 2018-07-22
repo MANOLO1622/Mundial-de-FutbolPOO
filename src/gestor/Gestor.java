@@ -16,6 +16,12 @@ public class Gestor {
 		capaLogica.registrarUsuario(registro);
 		
 	}
+	public void registrarMundial(int ano, String paisOrganizador, boolean estado) {
+			
+			Mundiales registro = new Mundiales(ano, paisOrganizador, estado);
+			capaLogica.registrarMundial(registro);
+		
+	}
 	
 	
 	public void listarUsuarios() {
