@@ -29,6 +29,10 @@ public class UI {
 		ventLogin.setResizable(false);
 		ventLogin.ventanaLogin();
 		
+		Ventana juego = new Ventana();
+		Juego j = new Juego();
+		juego.add(j);
+		
 		
 		
 		
