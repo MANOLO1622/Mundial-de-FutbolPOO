@@ -8,13 +8,13 @@ import gestor.*;
 
 public class Login extends JPanel implements ActionListener{
 	
-	private static JLabel labelNomUsuario = new JLabel("Nombre de usuario");
+	private static JLabel labelNomUsuario = new JLabel("Usuario");
 	private static JTextField usuarioTXT = new JTextField(10);
 	private static JLabel labelContrasenaUsuario = new JLabel("Contraseña");
 	private static JPasswordField contrasenaTXT = new JPasswordField(10);
 	private static JLabel labelMostrarContrasena = new JLabel();
 	private static ImageIcon ojo = new ImageIcon("src\\graficos\\Ojo.png");
-	private static JButton btnIngreso = new JButton("Iniciar Session.");
+	private static JButton btnIngreso = new JButton("Iniciar Sesión");
 	private static JButton btnRegistrarUsuario = new JButton("Registrarse");
 	
     private static Image imagen;
@@ -36,15 +36,15 @@ public class Login extends JPanel implements ActionListener{
 		labelContrasenaUsuario.setBounds(250, 160, 150, 40);
 		
 		this.add(contrasenaTXT);
-		contrasenaTXT.setBounds(250, 150, 170, 25);
+		contrasenaTXT.setBounds(250, 190, 170, 25);
 		char valor = contrasenaTXT.getEchoChar();
 		
 		labelMostrarContrasena.setIcon(ojo);
 		this.add(labelMostrarContrasena);
-		labelMostrarContrasena.setBounds(430, 150, 170,25);
+		labelMostrarContrasena.setBounds(430, 190, 170,25);
 		
 		this.add(btnIngreso);
-		btnIngreso.setBounds(280, 240, 100, 25);
+		btnIngreso.setBounds(280, 240, 115, 25);
 
 		
 		this.add(btnRegistrarUsuario);
@@ -67,6 +67,7 @@ public class Login extends JPanel implements ActionListener{
 			public void mouseExited(MouseEvent arg0) {
 				
 				contrasenaTXT.setEchoChar(valor);
+				
 				
 			}
 			
@@ -98,7 +99,7 @@ public class Login extends JPanel implements ActionListener{
 			
 			if (lecturaUsuario.equals("") || lecturaContrasena.equals("")) {
 				
-				JOptionPane.showMessageDialog(null, "Por favor ingrese el Usuario y la contraseña.");
+				JOptionPane.showMessageDialog(null, "Por favor ingrese el usuario y la contraseña.");
 				System.out.println("No se han ingresado datos en la pantalla de login.");
 				usuarioTXT.setText("");
 				contrasenaTXT.setText("");
@@ -167,6 +168,8 @@ public class Login extends JPanel implements ActionListener{
 		this.setOpaque(false);
 		this.imagen = new ImageIcon(imagePath).getImage();
 		repaint();
+		
+		
 		
 	}
 	
