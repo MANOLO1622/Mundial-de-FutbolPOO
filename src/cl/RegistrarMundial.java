@@ -1,10 +1,12 @@
 package cl;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -64,6 +66,7 @@ private static Gestor controlador = new Gestor();
 		
 		btnRegistrarMundial.addActionListener(this);
 		
+		
     }
 	
 	
@@ -71,12 +74,34 @@ private static Gestor controlador = new Gestor();
 	public void actionPerformed(ActionEvent e) {
 		
 		
-				
-			
-		
 		
 		
 	}
+	
 
+	// -------------------------------------------------------------------------------------------------
+
+	public void paintComponent(Graphics g) {
+
+		int width = this.getSize().width;
+		int height = this.getSize().height;
+
+		this.setBackground("src\\graficos\\mundial.jpg");
+		if (this.imagen != null) {
+			g.drawImage(this.imagen, 0, 0, width, height, null);
+		}
+
+		super.paintComponent(g);
+	}
+
+	public void setBackground(String imagePath) {
+
+		this.setOpaque(false);
+		this.imagen = new ImageIcon(imagePath).getImage();
+		repaint();
+
+	}
+
+	// -
 	
 }
