@@ -50,6 +50,17 @@ public class Ventana extends JFrame{
 		
 	}
 	
+	public void ventanaRegistroMundiales() {
+	
+		
+		RegistrarMundial regUsu = new RegistrarMundial();
+		this.add(regUsu);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setTitle("Registro de Mundial");
+		this.show();	
+		
+	}
+	
 	public void ventanaMenuUsuarios(Perfiles perfil, String nombreUsuario, Ventana vent) {
 		
 		switch(perfil) {

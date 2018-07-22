@@ -2,11 +2,13 @@ package cl;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import gestor.*;
 
-public class MenuAdministrador extends JPanel{
+public class MenuAdministrador extends JPanel implements ActionListener{
 	
 	
 	JButton boton1;
@@ -52,7 +54,18 @@ public class MenuAdministrador extends JPanel{
 		boton12.setBounds(10, 475, 180, 50);
 		this.add(boton12);
 		
-	 
+		boton3.addActionListener(this);
+		
+		
+		
+	}
+	
+	
+	public void actionPerformed(ActionEvent e) {
+		
+		Ventana ventanaRegistro = new Ventana();
+		ventanaRegistro.ventanaRegistroMundiales();
+		ventanaRegistro.setExtendedState(Ventana.MAXIMIZED_BOTH);
 		
 	}
 	
