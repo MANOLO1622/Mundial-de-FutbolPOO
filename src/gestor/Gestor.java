@@ -1,6 +1,7 @@
 package gestor;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.*;
 
@@ -21,6 +22,16 @@ public class Gestor {
 			Mundiales registro = new Mundiales(ano, paisOrganizador, estado);
 			capaLogica.registrarMundial(registro);
 		
+	}
+	public static void registrarLigaPublicas(String nombreLiga, String equipos, LocalDate fechaCreacion, boolean estado, int puntos, int bono) {
+		LigasPublicas registro = new LigasPublicas(nombreLiga, equipos, fechaCreacion, estado, puntos, bono);
+		CL.registrarLigaPublicas(registro);
+	
+	}
+	public static void registrarLigaPrivadas(String nombreLiga, String equipos, LocalDate fechaCreacion, boolean estado, int puntos, int bono) {
+		LigasPrivadas registro = new LigasPrivadas(nombreLiga, equipos, fechaCreacion, estado, puntos, bono);
+		CL.registrarLigaPrivadas(registro);
+	
 	}
 	
 	
