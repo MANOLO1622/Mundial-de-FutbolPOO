@@ -1,6 +1,5 @@
 package gestor;
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -146,6 +145,27 @@ public class Gestor {
 		}
 		
 		return tipoPerfil;
+	}
+	
+	//-------------------------------------------------------------------------------------------------------------
+	
+	public static void registrarEquipos(String nombre, int ranking, String bandera, ISOPaises iso) {
+		
+		capaLogica.registrarEquipos( nombre, ranking, bandera, iso);
+		
+	}
+	
+	
+	public static void listarEquiposFIFA() {
+		
+		ArrayList<Equipo> listaTemp= capaLogica.listarEquiposFIFA();
+		
+		for(Equipo e: listaTemp) {
+			
+			System.out.println(e.toString());
+			
+		}
+		
 	}
 	
 
