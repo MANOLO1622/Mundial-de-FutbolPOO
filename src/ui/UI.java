@@ -29,8 +29,8 @@ public class UI {
 		ventLogin.setResizable(false);
 		ventLogin.ventanaLogin();
 		
-		
-		
+		Ventana juego = new Ventana();
+		juego.ventanaJuego();
 		
 		
 	}
@@ -39,18 +39,18 @@ public class UI {
 	public static void registrarEquiposFIFA() {
 		
 		Gestor controlador = new Gestor();
-		controlador.registrarEquipos("Alemania", 1, "Bandera", ISOPaises.DE);
-		controlador.registrarEquipos("Brazil", 2, "Bandera", ISOPaises.BR);
-		controlador.registrarEquipos("Belgica", 3, "Bandera", ISOPaises.BE);
-		controlador.registrarEquipos("Portugal", 4, "Bandera", ISOPaises.PT);
-		controlador.registrarEquipos("Argentina", 5, "Bandera", ISOPaises.AR);
-		controlador.registrarEquipos("SUiza", 6, "Bandera", ISOPaises.CH);
-		controlador.registrarEquipos("France", 7, "Bandera", ISOPaises.FR);
-		controlador.registrarEquipos("Polonia", 8, "Bandera", ISOPaises.PL);
-		controlador.registrarEquipos("Chile", 9, "Bandera", ISOPaises.CL);
-		controlador.registrarEquipos("España", 10, "Bandera", ISOPaises.ES);
-		controlador.registrarEquipos("Peru", 11, "Bandera", ISOPaises.PE);
-		controlador.registrarEquipos("Dinamarca", 12, "Bandera", ISOPaises.DK);
+		controlador.registrarEquipos("Alemania", 1, "src\\graficos\\Banderas\\Alemania.png", ISOPaises.DE);
+		controlador.registrarEquipos("Brazil", 2, "src\\graficos\\Banderas\\Brazil.png", ISOPaises.BR);
+		controlador.registrarEquipos("Belgica", 3, "src\\graficos\\\\Banderas\\Belgica.png", ISOPaises.BE);
+		controlador.registrarEquipos("Portugal", 4, "src\\graficos\\\\Banderas\\Portugal.png", ISOPaises.PT);
+		controlador.registrarEquipos("Argentina", 5, "src\\graficos\\\\Banderas\\Argentina.png", ISOPaises.AR);
+		controlador.registrarEquipos("Suiza", 6, "src\\graficos\\\\Banderas\\Suiza.png", ISOPaises.CH);
+		controlador.registrarEquipos("France", 7, "src\\graficos\\\\Banderas\\France.png", ISOPaises.FR);
+		controlador.registrarEquipos("Polonia", 8, "src\\graficos\\\\Banderas\\Polonia.png", ISOPaises.PL);
+		controlador.registrarEquipos("Chile", 9, "src\\graficos\\\\Banderas\\Chile.png", ISOPaises.CL);
+		controlador.registrarEquipos("España", 10, "src\\graficos\\\\Banderas\\Espana.png", ISOPaises.ES);
+		controlador.registrarEquipos("Peru", 11, "src\\graficos\\\\Banderas\\Peru.png", ISOPaises.PE);
+		controlador.registrarEquipos("Dinamarca", 12, "src\\graficos\\Banderas\\Dinamarca.png", ISOPaises.DK);
 		
 		
 	}

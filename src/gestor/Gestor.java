@@ -199,6 +199,15 @@ public class Gestor {
 	}
 
 	
+	
+	//-------------------------------------------------------------------------------------------------------------
+	
+	
+	public static String retornarBanderaEquipo(String nombreEquipo) {
+		
+		String bandera = capaLogica.retornarBanderaEquipo(nombreEquipo);
+		return bandera;
+	}
 
 	
 

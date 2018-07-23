@@ -80,4 +80,23 @@ public class CL {
 		
 	}
 	
+	
+	public static String retornarBanderaEquipo(String nombreEquipo) {
+		String bandera="";
+		for(Equipo e: listaEquiposFIFA) {
+			
+			if(nombreEquipo.equals(e.getNombre())) {
+				
+				bandera = e.getBandera();
+				
+			}
+			
+		}
+		
+		return bandera;
+	}
+	
+	
+	
+	
 }
