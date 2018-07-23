@@ -30,14 +30,14 @@ public class Gestor {
 	public static void registrarLigaPublicas(String nombreLiga, LocalDate fechaCreacion, boolean estado,
 			int puntos, int bono) {
 		LigasPublicas registro = new LigasPublicas(nombreLiga, fechaCreacion, estado, puntos, bono);
-		CL.registrarLigaPublicas(registro);
+		capaLogica.registrarLigaPublicas(registro);
 
 	}
 
 	public static void registrarLigaPrivadas(String nombreLiga, LocalDate fechaCreacion, boolean estado,
 			int puntos, int bono) {
 		LigasPrivadas registro = new LigasPrivadas(nombreLiga, fechaCreacion, estado, puntos, bono);
-		CL.registrarLigaPrivadas(registro);
+		capaLogica.registrarLigaPrivadas(registro);
 
 	}
 
@@ -58,6 +58,22 @@ public class Gestor {
 		System.out.println("");
 
 	}
+	
+	public void listarMundiales() {
+
+		ArrayList<Mundiales> listaImpresion = capaLogica.listarMundiales();
+
+		System.out.println("");
+
+		for (Mundiales e : listaImpresion) {
+
+			System.out.println(e.toString());
+
+		}
+
+		System.out.println("");
+
+	}
 
 	public void listarLigasPublicas() {
 
@@ -66,6 +82,22 @@ public class Gestor {
 		System.out.println("");
 
 		for (LigasPublicas e : listaImpresion) {
+
+			System.out.println(e.toString());
+
+		}
+
+		System.out.println("");
+
+	}
+	
+	public void listarLigasPrivadas() {
+
+		ArrayList<LigasPrivadas> listaImpresion = capaLogica.listaLigasPrivadas();
+
+		System.out.println("");
+
+		for (LigasPrivadas e : listaImpresion) {
 
 			System.out.println(e.toString());
 

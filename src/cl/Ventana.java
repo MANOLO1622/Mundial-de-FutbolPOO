@@ -50,7 +50,7 @@ public class Ventana extends JFrame{
 		
 	}
 	
-	public void ventanaRegistroMundiales() {
+	/*public void ventanaRegistroMundiales() {
 	
 		
 		RegistrarMundial regUsu = new RegistrarMundial();
@@ -59,7 +59,7 @@ public class Ventana extends JFrame{
 		this.setTitle("Registro de Mundial");
 		this.show();	
 		
-	}
+	}*/
 	
 	public void ventanaMenuUsuarios(Perfiles perfil, String nombreUsuario, Ventana vent) {
 		

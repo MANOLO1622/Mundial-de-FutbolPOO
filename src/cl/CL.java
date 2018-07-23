@@ -74,7 +74,7 @@ public class CL {
 		listaLigasPrivadas.add(registro);
 		
 	}
-	public static ArrayList<LigasPrivadas> listarLigasPrivadas() {
+	public static ArrayList<LigasPrivadas> listaLigasPrivadas() {
 		
 		return listaLigasPrivadas;
 		
