@@ -14,6 +14,9 @@ import gestor.*;
 
 public class MenuAdministrador extends JPanel implements ActionListener {
 
+	public Usuario miUsuario;
+	
+	
 	JButton boton1;
 	JButton boton2;
 	JButton boton3;
@@ -34,7 +37,11 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	private static Image imagen2;
 
-	public MenuAdministrador() {
+	public MenuAdministrador(Usuario miUsuario) {
+		
+		this.miUsuario = miUsuario;
+		
+		
 		boton1 = new JButton("Usuarios");
 		this.setLayout(null);
 		boton1.setBounds(10, 50, 180, 50);

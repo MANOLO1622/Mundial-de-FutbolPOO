@@ -67,24 +67,24 @@ public class Ventana extends JFrame{
 		switch(perfil) {
 		
 		case ADMIN: 
-			MenuAdministrador ma = new MenuAdministrador();
+			MenuAdministrador ma = new MenuAdministrador(this.UsuarioActual);
 			this.add(ma);
-			vent.setTitle("Administrador " + /*nombreUsuario*/UsuarioActual.getAvatar());
+			vent.setTitle("Administrador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			break;
 			
 		case PLAYER: 
 			
-			MenuJugador mj = new MenuJugador();
+			MenuJugador mj = new MenuJugador(this.UsuarioActual);
 			this.add(mj);
-			vent.setTitle("Jugador " + /*nombreUsuario*/UsuarioActual.getAvatar());
+			vent.setTitle("Jugador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			break;
 			
 		case VIEWER:
-			MenuObservador mo = new MenuObservador();
+			MenuObservador mo = new MenuObservador(this.UsuarioActual);
 			this.add(mo);
-			vent.setTitle("Observador " + /*nombreUsuario*/UsuarioActual.getAvatar());
+			vent.setTitle("Observador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			break;
 		

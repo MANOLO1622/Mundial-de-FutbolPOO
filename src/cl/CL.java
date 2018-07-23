@@ -115,6 +115,8 @@ public class CL {
 				temp.setAvatar(e.getAvatar());
 				temp.setCorreoElectronico(e.getCorreoElectronico());
 				temp.setTipoUSuario(e.retornarTipoUsuario());
+				temp.setMiLigaPrivada(e.getMiLigaPrivada());
+				temp.setMiLigaPublica(e.getMiLigaPublica());
 					
 			}	
 		}
@@ -142,6 +144,28 @@ public class CL {
 		}
 		
 		return temp;
+		
+	}
+	
+	
+	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
+		
+		int indice=0;
+		
+			for(Usuario e: listaUsuarios) {
+				
+				if(nombreUsuario.equals(e.getNombreUsuario())) {
+					
+					indice = listaUsuarios.indexOf(e);
+					
+				}
+				
+			}
+			
+			Usuario miUsuario = listaUsuarios.get(indice);
+			miUsuario.setMiLigaPublica(liga);
+			listaUsuarios.set(indice, miUsuario);
+			System.out.println("Se agrego la liga publica en el arraylist" + listaUsuarios.get(indice).getMiLigaPublica().getNombreLiga());				
 		
 	}
 	

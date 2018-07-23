@@ -4,6 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 
 public class MenuObservador extends JPanel{
+	
+	public Usuario miUsuario;
 
 	JButton boton7;
 	JButton boton8;
@@ -11,7 +13,10 @@ public class MenuObservador extends JPanel{
 
     private static Image imagen;
 	
-	public MenuObservador() {
+	public MenuObservador(Usuario miUsuario) {
+		
+		this.miUsuario = miUsuario;
+		
 		boton7 = new JButton("Ver apuestas");
 		this.setLayout(null);
 		boton7.setBounds(10, 250, 180, 50);

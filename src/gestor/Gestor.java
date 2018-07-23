@@ -286,5 +286,13 @@ public class Gestor {
 
 		return true;
 	}
+	
+	//-------------------------------------------------------------------------------------------------------------
+	
+	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
+		
+		CL.asignarLigaPublicaUsuario( nombreUsuario, liga);
+		
+	}
 
 }

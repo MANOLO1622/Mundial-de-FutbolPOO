@@ -214,8 +214,6 @@ public class Usuario {
 		this.miLigaPrivada = miLigaPrivada;
 	}
 	
-	
-	
 
 	//---------------------------------------------------------------------------------------------------------
 	
@@ -223,21 +221,13 @@ public class Usuario {
 	
 	
 	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "Usuario: nombre=" + nombre + ", apellido=" + apellido + ", nombreUsuario=" + nombreUsuario + ", avatar="
 				+ avatar + ", correoElectronico=" + correoElectronico + ", contrasena=" + contrasena
-				+ ", fechaRegistro=" + fechaRegistro + ", tipoUsuario=" + tipoUsuario;
+				+ ", fechaRegistro=" + fechaRegistro + ", tipoUsuario=" + tipoUsuario + ", miLigaPublica="
+				+ miLigaPublica + ", miLigaPrivada=" + miLigaPrivada;
 	}
-
-
-	
-
-
-	
 	
 	
 }

@@ -7,6 +7,7 @@ public class LigasPublicas extends Ligas {
 	int puntos;
 	int bono;
 	
+	
 
 	final int unaConstante = 100;
 	

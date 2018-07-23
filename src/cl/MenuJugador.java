@@ -15,6 +15,7 @@ import gestor.Gestor;
 public class MenuJugador extends JPanel implements ActionListener{
 	
 	private static Image imagen;
+	public Usuario miUsuario;
 	
 	JButton boton4;
 	JButton boton5;
@@ -35,9 +36,11 @@ public class MenuJugador extends JPanel implements ActionListener{
 	
 	
 
-	public MenuJugador() {
+	public MenuJugador(Usuario miUsuario) {
 		
 		this.setLayout(null);
+		
+		this.miUsuario = miUsuario;
 		
 		boton4 = new JButton("Jugar");
 		boton4.setBounds(10, 50, 180, 50);
@@ -99,6 +102,8 @@ public class MenuJugador extends JPanel implements ActionListener{
 			this.add(UnirseLiga);
 			UnirseLiga.setBounds(1160, 50, 100, 30);
 			
+			
+			
 		}
 		
 		if (e.getSource() == ligasRegistradas) {
@@ -140,7 +145,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 				System.out.println(ligaPublicaTemp.getNombreLiga());
 				
 				
-				if(ligaPublicaTemp.getEstado()==true) {
+				if(ligaPublicaTemp.getEstado() == true) {
 					
 					estadoLigaPublica = "Activo";
 					
@@ -165,7 +170,27 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		if(e.getSource() == UnirseLiga) {
 			
-			//Pendiente, el  registrar la liga hasta que logre agarrar la informacion del usuario dentro del menu del jugador.
+			LigasPublicas ligaPublicaTemp = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());
+			
+			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+			
+			if(this.miUsuario.getMiLigaPublica() == null) {
+				
+				System.out.println(this.miUsuario.getMiLigaPublica().getNombreLiga());
+				
+				this.miUsuario.setMiLigaPublica(ligaPublicaTemp);
+				Gestor.asignarLigaPublicaUsuario(this.miUsuario.getNombreUsuario(),this.miUsuario.getMiLigaPublica());
+				
+			}
+			else {
+				
+				JOptionPane.showMessageDialog(null, "El usuario ya se encuentra en una liga publica.");
+				
+			}
+			
+			
+			
+			
 			
 		}
 		
