@@ -1,6 +1,7 @@
 package cl;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.*;
 
 import javax.swing.JOptionPane;
@@ -119,6 +120,29 @@ public class CL {
 		}
 		
 		return temp;
+	}
+	
+	
+	public static LigasPublicas retornarLigaPublica(String nombreLiga) {
+		
+		LigasPublicas temp = new LigasPublicas("", null, false, 0, 0);
+		
+		for(LigasPublicas e: listaLigasPublicas) {
+			
+			if(e.getNombreLiga().equals(nombreLiga)) {
+				
+				temp.setNombreLiga(e.getNombreLiga());
+				temp.setFechaCreacion(e.getFechaCreacion());
+				temp.setFechaCreacion(e.getFechaCreacion());
+				temp.setEstado(e.getEstado());
+				temp.setPuntos(e.getPuntos());
+				temp.setBono(e.getBono());
+						
+			}	
+		}
+		
+		return temp;
+		
 	}
 	
 	

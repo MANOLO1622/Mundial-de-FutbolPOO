@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
+import gestor.Gestor;
+
 public class MenuJugador extends JPanel implements ActionListener{
 	
 	private static Image imagen;
@@ -23,11 +25,15 @@ public class MenuJugador extends JPanel implements ActionListener{
 	JComboBox ligasRegistradas = new JComboBox();
 	JButton UnirseLiga = new JButton("Unirse");
 	
-	JLabel informacionLiga = new JLabel("Informacion de la Liga\n");
+	JLabel informacionLiga1 = new JLabel("Informacion de la Liga");
+	JLabel informacionLiga2 = new JLabel("");
+	JLabel informacionLiga3 = new JLabel("");
+	JLabel informacionLiga4 = new JLabel("");
+	JLabel informacionLiga5 = new JLabel("");
+	JLabel informacionLiga6 = new JLabel("");
+
 	
 	
-	
-    
 
 	public MenuJugador() {
 		
@@ -68,6 +74,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		CL capaLogica = new CL();
 		ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.listaLigasPublicas();
 		int contadorLigasPublicas=listaLigasPublicas.size();
+		String estadoLigaPublica="";
 		
 		if(e.getSource() == boton5) {
 			
@@ -103,10 +110,53 @@ public class MenuJugador extends JPanel implements ActionListener{
 			}
 			else {
 				
-				this.add(informacionLiga);
-				informacionLiga.setBounds(950,10, 300,300);
-				informacionLiga.setForeground(Color.ORANGE);
-				informacionLiga.setAutoscrolls(true);
+				this.add(informacionLiga1);
+				informacionLiga1.setBounds(950,90, 300,20);
+				informacionLiga1.setForeground(Color.ORANGE);
+				
+				
+				this.add(informacionLiga2);
+				informacionLiga2.setBounds(950,120, 300,20);
+				informacionLiga2.setForeground(Color.ORANGE);
+				
+				this.add(informacionLiga3);
+				informacionLiga3.setBounds(950,150, 300,20);
+				informacionLiga3.setForeground(Color.ORANGE);
+				
+				this.add(informacionLiga4);
+				informacionLiga4.setBounds(950,180, 300,20);
+				informacionLiga4.setForeground(Color.ORANGE);
+				
+				this.add(informacionLiga5);
+				informacionLiga5.setBounds(950,210, 300,20);
+				informacionLiga5.setForeground(Color.ORANGE);
+				
+				this.add(informacionLiga6);
+				informacionLiga6.setBounds(950,240, 300,20);
+				informacionLiga6.setForeground(Color.ORANGE);
+				
+				
+				LigasPublicas ligaPublicaTemp = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());
+				System.out.println(ligaPublicaTemp.getNombreLiga());
+				
+				
+				if(ligaPublicaTemp.getEstado()==true) {
+					
+					estadoLigaPublica = "Activo";
+					
+				}
+				else {
+					
+					estadoLigaPublica = "Inactivo";
+					
+				}
+				
+				informacionLiga2.setText("Nombre de la Liga: " + ligaPublicaTemp.getNombreLiga());
+				informacionLiga3.setText("Fecha de creacion: " + ligaPublicaTemp.getFechaCreacion());
+				informacionLiga4.setText("Estado: " + estadoLigaPublica);
+				informacionLiga5.setText("Puntos: " + ligaPublicaTemp.getPuntos());
+				informacionLiga6.setText("Bono: " + ligaPublicaTemp.getBono());
+				
 
 			}
 			

@@ -14,6 +14,8 @@ public class Usuario {
 	private String contrasena;
 	private Date fechaRegistro;
 	private Perfiles tipoUsuario;
+	private LigasPublicas miLigaPublica;
+	private LigasPublicas miLigaPrivada;
 	
 	public Usuario (String nombre, String apellido, String nombreUsuario, String contrasena,String avatar, String correoElectronico, int tipoUsuario) {
 		
@@ -193,12 +195,34 @@ public class Usuario {
 	}
 
 	
+	public LigasPublicas getMiLigaPublica() {
+		return miLigaPublica;
+	}
+
+
+	public void setMiLigaPublica(LigasPublicas miLigaPublica) {
+		this.miLigaPublica = miLigaPublica;
+	}
+
+
+	public LigasPublicas getMiLigaPrivada() {
+		return miLigaPrivada;
+	}
+
+
+	public void setMiLigaPrivada(LigasPublicas miLigaPrivada) {
+		this.miLigaPrivada = miLigaPrivada;
+	}
 	
+	
+	
+
 	//---------------------------------------------------------------------------------------------------------
 	
 	//Metodo toString.
 	
-
+	
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

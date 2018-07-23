@@ -244,7 +244,13 @@ public class Gestor {
 	public static Usuario retornarUsuario(String nombreUsuario) {
 		
 		Usuario temp = CL.retornarUsuario(nombreUsuario);
-		System.out.println(temp.getNombreUsuario());
+		
+		return temp;
+	}
+	
+	public static LigasPublicas retornarLigaPublica(String nombreLiga) {
+		
+		LigasPublicas temp = CL.retornarLigaPublica(nombreLiga);
 		
 		return temp;
 	}

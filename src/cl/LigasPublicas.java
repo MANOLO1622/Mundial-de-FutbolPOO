@@ -17,6 +17,39 @@ public class LigasPublicas extends Ligas {
 		this.puntos = puntos;
 		this.bono = bono;
 	}
+
+
+	public int getPuntos() {
+		return puntos;
+	}
+
+
+	public void setPuntos(int puntos) {
+		this.puntos = puntos;
+	}
+
+
+	public int getBono() {
+		return bono;
+	}
+
+
+	public void setBono(int bono) {
+		this.bono = bono;
+	}
+
+
+	public int getUnaConstante() {
+		return unaConstante;
+	}
+
+
+	@Override
+	public String toString() {
+		return "LigasPublicas: puntos=" + puntos + ", bono=" + bono + ", unaConstante=" + unaConstante;
+	}
+	
+	
 	
 	
 	

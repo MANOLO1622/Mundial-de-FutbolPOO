@@ -28,7 +28,7 @@ public class Ligas {
         return fechaCreacion;
     }
 
-    public boolean isEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
