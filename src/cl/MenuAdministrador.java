@@ -17,6 +17,7 @@ public class MenuAdministrador extends JPanel implements ActionListener{
 	JButton boton10;
 	JButton boton11;
 	JButton boton12;
+	JButton boton13;
 
 
 	
@@ -49,12 +50,20 @@ public class MenuAdministrador extends JPanel implements ActionListener{
 		this.add(boton11);
 		
 		
-		boton12 = new JButton("Crear ligas");
+		boton12 = new JButton("Crear liga publica");
 		this.setLayout(null);
-		boton12.setBounds(10, 475, 180, 50);
+		boton12.setBounds(10, 400, 180, 50);
 		this.add(boton12);
 		
+		boton13 = new JButton("Crear liga privada");
+		this.setLayout(null);
+		boton13.setBounds(10, 465, 180, 50);
+		this.add(boton13);
+		
+		
+		
 		boton3.addActionListener(this);
+		
 		
 		
 		
