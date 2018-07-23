@@ -22,8 +22,19 @@ public class MenuAdministrador extends JPanel implements ActionListener{
 	JButton boton11;
 	JButton boton12;
 	JButton boton13;
+	
 
-
+	private static Gestor controlador = new Gestor(); 
+	private static JLabel labelNombreLiga = new JLabel("Nombre de la Liga: ");
+	private static JTextField nombreLigaTXT = new JTextField(10);
+	private static JLabel labelEquipos = new JLabel("Participante:");
+	private static JTextField equiposTXT = new JTextField(10);
+	private static JLabel labelEstado = new JLabel("Estado:");
+	private static JTextField estadoTXT = new JTextField(10);
+	private static JButton btnRegistrarLiga = new JButton("Registrar Liga");
+	private static JButton btnCancelar = new JButton("Cancelar.");
+	
+    private static Image imagen2;
 	
 	
 	public MenuAdministrador() {
@@ -69,6 +80,7 @@ public class MenuAdministrador extends JPanel implements ActionListener{
 		boton3.addActionListener(this);
 		boton12.addActionListener(this);
 		btnRegistrarLiga.addActionListener(this);
+		btnCancelar.addActionListener(this);
 		
 		
 		
@@ -86,12 +98,20 @@ public class MenuAdministrador extends JPanel implements ActionListener{
 		}
 		
 		if(e.getSource()==boton12) {
+			
 			registrarLigaPublicas();
+			boton1.setEnabled(false);			
+			boton2.setEnabled(false);			
+			boton3.setEnabled(false);			
+			boton10.setEnabled(false);			
+			boton11.setEnabled(false);				
+			boton12.setEnabled(false);			
+			boton13.setEnabled(false); 
 		}
 		
 		if(e.getSource()==btnRegistrarLiga) {
 			
-			
+					
 			if(nombreLigaTXT.getText().equals("") || equiposTXT.getText().equals("") || estadoTXT.getText().equals("")) {
 				
 				JOptionPane.showMessageDialog(null, "Hay campos vacios, debe llenar todos los campos.");
@@ -113,11 +133,9 @@ public class MenuAdministrador extends JPanel implements ActionListener{
 					Date fecha = new Date();
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 					
-					
-					
-					
 					controlador.registrarLigaPublicas(nombreLigaTXT.getText(),fechaRegistro, true, 1, 2);
 					controlador.listarLigasPublicas();
+					
 					JOptionPane.showMessageDialog(null, "¡Liga registrada Exitosamente!.");
 					
 					this.remove(labelNombreLiga);
@@ -127,6 +145,14 @@ public class MenuAdministrador extends JPanel implements ActionListener{
 					this.remove(labelEstado);
 					this.remove(estadoTXT);
 					this.remove(btnRegistrarLiga);
+					
+					boton1.setEnabled(true);			
+					boton2.setEnabled(true);			
+					boton3.setEnabled(true);			
+					boton10.setEnabled(true);			
+					boton11.setEnabled(true);				
+					boton12.setEnabled(true);			
+					boton13.setEnabled(true); 
 				
 			
 				}
@@ -137,7 +163,27 @@ public class MenuAdministrador extends JPanel implements ActionListener{
 			
 		}
 		
-		
+		if(e.getSource()==btnCancelar) {
+			
+			this.remove(labelNombreLiga);
+			this.remove(nombreLigaTXT);
+			this.remove(labelEquipos);
+			this.remove(equiposTXT);
+			this.remove(labelEstado);
+			this.remove(estadoTXT);
+			this.remove(btnRegistrarLiga);
+			this.remove(btnCancelar);
+			
+			boton1.setEnabled(true);			
+			boton2.setEnabled(true);			
+			boton3.setEnabled(true);			
+			boton10.setEnabled(true);			
+			boton11.setEnabled(true);				
+			boton12.setEnabled(true);			
+			boton13.setEnabled(true);
+			
+			
+		}
 				
 		
 
@@ -175,22 +221,7 @@ public class MenuAdministrador extends JPanel implements ActionListener{
 
 	// -------------------------------------------------------------------------------------------------
 	
-private static Gestor controlador = new Gestor(); 
-	
-	private static JLabel labelNombreLiga = new JLabel("Nombre de la Liga: ");
-	private static JTextField nombreLigaTXT = new JTextField(10);
-	
-	private static JLabel labelEquipos = new JLabel("Participante:");
-	private static JTextField equiposTXT = new JTextField(10);
-	
-	private static JLabel labelEstado = new JLabel("Estado:");
-	private static JTextField estadoTXT = new JTextField(10);
-	
-	
-	
-	private static JButton btnRegistrarLiga = new JButton("Registrar Liga");
-	
-    private static Image imagen2;
+
     
     public void registrarLigaPublicas(){
     	
@@ -222,6 +253,9 @@ private static Gestor controlador = new Gestor();
 		
 		this.add(btnRegistrarLiga);
 		btnRegistrarLiga.setBounds(950, 200, 120, 25);
+		
+		this.add(btnCancelar);
+		btnCancelar.setBounds(1080, 200, 120, 25);
 		
 		btnRegistrarLiga.addActionListener(this);
     	
