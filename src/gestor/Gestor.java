@@ -20,7 +20,7 @@ public class Gestor {
 
 	}
 
-	public void registrarMundial(int ano, String paisOrganizador, boolean estado) {
+	public void registrarMundial(LocalDate ano, String paisOrganizador, boolean estado) {
 
 		Mundiales registro = new Mundiales(ano, paisOrganizador, estado);
 		capaLogica.registrarMundial(registro);
@@ -61,7 +61,7 @@ public class Gestor {
 	
 	public void listarMundiales() {
 
-		ArrayList<Mundiales> listaImpresion = capaLogica.listarMundiales();
+		ArrayList<Mundiales> listaImpresion = capaLogica.listaMundiales();
 
 		System.out.println("");
 
@@ -250,6 +250,20 @@ public class Gestor {
 		boolean buscar = false;
 		for (LigasPublicas LigasPublica : listaLigasPublicas) {
 			if (LigasPublica.getNombreLiga().equals(nombre)) {
+				buscar = true;
+			}
+		}
+
+		return true;
+	}
+	
+	public boolean validarLigaMundial(String paisOrganizador) {
+		
+		ArrayList<Mundiales> listaMundiales = capaLogica.listaMundiales();
+
+		boolean buscar = false;
+		for (Mundiales Mundial : listaMundiales) {
+			if (Mundial.getPaisOrganizador().equals(paisOrganizador)) {
 				buscar = true;
 			}
 		}

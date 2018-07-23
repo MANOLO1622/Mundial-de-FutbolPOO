@@ -50,7 +50,7 @@ public class CL {
 		listaMundiales.add(registro);
 		
 	}
-	public static ArrayList<Mundiales> listarMundiales() {
+	public static ArrayList<Mundiales> listaMundiales() {
 		
 		return listaMundiales;
 		

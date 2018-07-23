@@ -1,22 +1,24 @@
 
 package cl;
 
+import java.time.LocalDate;
+
 public class Mundiales {
     
-    private int ano;
+    private LocalDate ano;
     private String paisOrganizador;
     private boolean estado;
 
     public Mundiales() {
     }
 
-    public Mundiales(int ano, String paisOrganizador, boolean estado) {
+    public Mundiales(LocalDate ano, String paisOrganizador, boolean estado) {
         this.ano = ano;
         this.paisOrganizador = paisOrganizador;
         this.estado = estado;
     }
 
-    public int getAno() {
+    public LocalDate getAno() {
         return ano;
     }
 
@@ -28,7 +30,7 @@ public class Mundiales {
         return estado;
     }
 
-    public void setAno(int ano) {
+    public void setAno(LocalDate ano) {
         this.ano = ano;
     }
 

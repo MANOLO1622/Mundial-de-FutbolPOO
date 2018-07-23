@@ -81,6 +81,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 
+	//--------------------------------------------------MUNDIAL------------------------------------------------	
+		
 		if (e.getSource() == boton3) {
 
 			registrarMundial();
@@ -93,27 +95,82 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			boton13.setEnabled(false);
 
 		}
-		if (e.getSource() == btnCancelar) {
+		
+		
+		
+		if (e.getSource() == btnRegistrarMundial) {
 
-			this.remove(labelAno);
-			this.remove(anoTXT);
-			this.remove(labelPaisOrganizador);
-			this.remove(paisOrganizadorTXT);
-			this.remove(labelEstados);
-			this.remove(estadosTXT);
-			this.remove(btnRegistrarMundial);
-			this.remove(btnCancelar);
+			if (anoTXT.getText().equals("") || paisOrganizadorTXT.getText().equals("")
+					|| estadosTXT.getText().equals("")) {
 
-			boton1.setEnabled(true);
-			boton2.setEnabled(true);
-			boton3.setEnabled(true);
-			boton10.setEnabled(true);
-			boton11.setEnabled(true);
-			boton12.setEnabled(true);
-			boton13.setEnabled(true);
+				JOptionPane.showMessageDialog(null, "Hay campos vacios, debe llenar todos los campos.");
 
+			}
+			else {
+
+				boolean b = controlador.validarLigaMundial(paisOrganizadorTXT.getText());
+
+				if (b == false) {
+
+					JOptionPane.showMessageDialog(null, "Este Mundial ya se encuentra registrado.");
+
+				}
+				if (b == true) {
+
+					Date fecha = new Date();
+					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+					controlador.registrarMundial(fechaRegistro, paisOrganizadorTXT.getText(), true);
+					controlador.listarMundiales();
+
+					JOptionPane.showMessageDialog(null, "¡Mundial registrada Exitosamente!.");
+
+					this.remove(labelAno);
+					this.remove(anoTXT);
+					this.remove(labelPaisOrganizador);
+					this.remove(paisOrganizadorTXT);
+					this.remove(labelEstados);
+					this.remove(estadosTXT);
+					this.remove(btnRegistrarMundial);
+					this.remove(btnCancelar);
+
+					boton1.setEnabled(true);
+					boton2.setEnabled(true);
+					boton3.setEnabled(true);
+					boton10.setEnabled(true);
+					boton11.setEnabled(true);
+					boton12.setEnabled(true);
+					boton13.setEnabled(true);
+
+				}
+			}
 		}
-	//----------------------------------------------PUBLICA-----------------------------------------------------------
+			
+			if (e.getSource() == btnCancelar) {
+
+				this.remove(labelAno);
+				this.remove(anoTXT);
+				this.remove(labelPaisOrganizador);
+				this.remove(paisOrganizadorTXT);
+				this.remove(labelEstados);
+				this.remove(estadosTXT);
+				this.remove(btnRegistrarMundial);
+				this.remove(btnCancelar);
+
+				boton1.setEnabled(true);
+				boton2.setEnabled(true);
+				boton3.setEnabled(true);
+				boton10.setEnabled(true);
+				boton11.setEnabled(true);
+				boton12.setEnabled(true);
+				boton13.setEnabled(true);
+
+				
+			}
+			
+		
+
+	//----------------------------------------------PUBLICAS-----------------------------------------------------------
 		if (e.getSource() == boton12) {
 
 			registrarLigaPublicas();
@@ -200,6 +257,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		}
 		// ------------------------------------------------LIGA PRIVADA--------------------------------------------------
 
+		
+	  
+		
 		if (e.getSource() == boton13) {
 
 			registrarLigaPublicas();
@@ -280,9 +340,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 				}
 			}
-		}
-
-	}
+		 }
+   }
 
 	private static Image imagen;
 
@@ -313,7 +372,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	public void registrarLigaPublicas() {
 
-		this.setLayout(null);
+		
 		this.setBackground(Color.CYAN);
 
 		this.add(labelNombreLiga);
@@ -349,7 +408,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	public void registrarLigaPrivadas() {
 
-		this.setLayout(null);
+		
 		this.setBackground(Color.CYAN);
 
 		this.add(labelNombreLiga);
@@ -401,7 +460,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	public void registrarMundial () {
     	
     	
-    	this.setLayout(null);
+    	
 		this.setBackground(Color.CYAN);
 		
 		this.add(labelAno);
@@ -432,6 +491,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		btnCancelar.setBounds(1080, 200, 120, 25);
 		
 		btnRegistrarMundial.addActionListener(this);
+		
+		
+		
 		
 		
     }
