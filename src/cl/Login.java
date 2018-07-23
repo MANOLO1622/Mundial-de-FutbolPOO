@@ -53,6 +53,7 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 		contrasenaTXT.addKeyListener(this);
 		
 		
+		
 		//En el siguiente evento creo un adaptador para poder implementar la funcionalidad en el ojo de mostrar la contraseña.
 		labelMostrarContrasena.addMouseListener(new MouseAdapter(){
 			
@@ -196,7 +197,7 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 		
 		if(e.getSource() == usuarioTXT || e.getSource() == contrasenaTXT) {
 			
-			if(e.getKeyChar() == KeyEvent.VK_ENTER) {
+			if(e.getKeyChar() == KeyEvent.VK_ENTER ) {
 				
 				
 				if (lecturaUsuario.equals("") || lecturaContrasena.equals("")) {
