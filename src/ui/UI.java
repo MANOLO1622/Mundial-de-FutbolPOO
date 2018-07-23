@@ -13,7 +13,7 @@ public class UI {
 		
 		Gestor controlador = new Gestor();
 		controlador.registrarUsuario("admin", "Proyecto", "q","q","Mr.Administrador","admin@POO.com", 1);
-		controlador.registrarUsuario("Jugador","Proyecto","Player","playerPOO","Mr.Jugador","player@POO.com",2);
+		controlador.registrarUsuario("Jugador","Proyecto","j","j","Mr.Jugador","player@POO.com",2);
 		controlador.registrarUsuario("Viewer","Proyecto","Viewer","viewerPOO","Mr.Observador","viewer@POO.com",3);
 		
 		
@@ -28,9 +28,6 @@ public class UI {
 		Ventana ventLogin = new Ventana();
 		ventLogin.setResizable(false);
 		ventLogin.ventanaLogin();
-		
-		Ventana juego = new Ventana();
-		juego.ventanaJuego();
 		
 		
 	}
