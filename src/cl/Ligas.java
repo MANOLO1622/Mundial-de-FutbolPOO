@@ -7,16 +7,14 @@ import java.time.LocalDate;
 public class Ligas {
     
     private String nombreLiga;
-    private String equipos;
     private LocalDate fechaCreacion;
     private boolean estado;
 
     public Ligas() {
     }
 
-    public Ligas(String nombreLiga, String equipos, LocalDate fechaCreacion, boolean estado) {
+    public Ligas(String nombreLiga, LocalDate fechaCreacion, boolean estado) {
         this.nombreLiga = nombreLiga;
-        this.equipos = equipos;
         this.fechaCreacion = fechaCreacion;
         this.estado = estado;
     }
@@ -25,9 +23,6 @@ public class Ligas {
         return nombreLiga;
     }
 
-    public String getEquipos() {
-        return equipos;
-    }
 
     public LocalDate getFechaCreacion() {
         return fechaCreacion;
@@ -41,9 +36,6 @@ public class Ligas {
         this.nombreLiga = nombreLiga;
     }
 
-    public void setEquipos(String equipos) {
-        this.equipos= equipos;
-    }
 
     public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
@@ -55,7 +47,7 @@ public class Ligas {
 
     @Override
     public String toString() {
-        return "Ligas{" + "nombreLiga=" + nombreLiga + ", participantes=" + equipos + ", fechaCreacion=" + fechaCreacion + ", estado=" + estado + '}';
+        return "Ligas{" + "nombreLiga=" + nombreLiga + ", fechaCreacion=" + fechaCreacion + ", estado=" + estado + '}';
     }
     
     

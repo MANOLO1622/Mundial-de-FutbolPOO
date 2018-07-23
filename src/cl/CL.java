@@ -8,7 +8,8 @@ public class CL {
 	
 	private static ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
 	private static ArrayList<Mundiales> listaMundiales = new ArrayList<Mundiales>();
-	private static ArrayList<Ligas> listaLigas = new ArrayList<Ligas>();
+	private static ArrayList<LigasPublicas> listaLigasPublicas = new ArrayList<LigasPublicas>();
+	private static ArrayList<LigasPrivadas> listaLigasPrivadas = new ArrayList<LigasPrivadas>();
 	private static TextFileIO UsuariosRegLog = new TextFileIO("logs//Login.txt");
 	private static ArrayList<Equipo> listaEquiposFIFA = new ArrayList();
 	
@@ -56,26 +57,26 @@ public class CL {
 	}
 	
 	//----------------------------------------------------------------------------------------------------------------
-	public static void registrarLigaPublicas(Ligas registro) {
+	public static void registrarLigaPublicas(LigasPublicas registro) {
 		
-		listaLigas.add(registro);
+		listaLigasPublicas.add(registro);
 		
 	}
-	public static ArrayList<Ligas> listarLigasPublicas() {
+	public static ArrayList<LigasPublicas> listaLigasPublicas() {
 		
-		return listaLigas;
+		return listaLigasPublicas;
 		
 	}
 	
 	//-----------------------------------------------------------------------------------------------------------
-	public static void registrarLigaPrivadas(Ligas registro) {
+	public static void registrarLigaPrivadas(LigasPrivadas registro) {
 		
-		listaLigas.add(registro);
+		listaLigasPrivadas.add(registro);
 		
 	}
-	public static ArrayList<Ligas> listarLigasPrivadas() {
+	public static ArrayList<LigasPrivadas> listarLigasPrivadas() {
 		
-		return listaLigas;
+		return listaLigasPrivadas;
 		
 	}
 	

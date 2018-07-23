@@ -1,9 +1,13 @@
 package cl;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 
 import javax.swing.*;
 import gestor.*;
@@ -63,8 +67,8 @@ public class MenuAdministrador extends JPanel implements ActionListener{
 		
 		//-------Botones con los Accesos a vetanas
 		boton3.addActionListener(this);
-		//boton12.addActionListener(this);
-		
+		boton12.addActionListener(this);
+		btnRegistrarLiga.addActionListener(this);
 		
 		
 		
@@ -73,10 +77,70 @@ public class MenuAdministrador extends JPanel implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		
-		Ventana ventanaRegistro = new Ventana();
-		ventanaRegistro.ventanaRegistroMundiales();
-		ventanaRegistro.setExtendedState(Ventana.MAXIMIZED_BOTH);
+		if(e.getSource()==boton3) {
+        
+        	Ventana ventanaRegistro = new Ventana();
+    		ventanaRegistro.ventanaRegistroMundiales();
+    		ventanaRegistro.setExtendedState(Ventana.MAXIMIZED_BOTH);
+            
+		}
 		
+		if(e.getSource()==boton12) {
+			registrarLigaPublicas();
+		}
+		
+		if(e.getSource()==btnRegistrarLiga) {
+			
+			
+			if(nombreLigaTXT.getText().equals("") || equiposTXT.getText().equals("") || estadoTXT.getText().equals("")) {
+				
+				JOptionPane.showMessageDialog(null, "Hay campos vacios, debe llenar todos los campos.");
+						
+			}
+			
+			else {
+				
+				boolean b = controlador.validarLigaPublica(nombreLigaTXT.getText());
+				
+				if (b == false) {
+					
+					JOptionPane.showMessageDialog(null, "Esta Liga ya se encuentra registrada.");
+					
+				}
+				
+				if(b == true) {
+				
+					Date fecha = new Date();
+					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+					
+					
+					
+					
+					controlador.registrarLigaPublicas(nombreLigaTXT.getText(),fechaRegistro, true, 1, 2);
+					controlador.listarLigasPublicas();
+					JOptionPane.showMessageDialog(null, "¡Liga registrada Exitosamente!.");
+					
+					this.remove(labelNombreLiga);
+					this.remove(nombreLigaTXT);
+					this.remove(labelEquipos);
+					this.remove(equiposTXT);
+					this.remove(labelEstado);
+					this.remove(estadoTXT);
+					this.remove(btnRegistrarLiga);
+				
+			
+				}
+			}
+			
+			
+			
+			
+		}
+		
+		
+				
+		
+
 	}
 	
 	
@@ -111,6 +175,70 @@ public class MenuAdministrador extends JPanel implements ActionListener{
 
 	// -------------------------------------------------------------------------------------------------
 	
+private static Gestor controlador = new Gestor(); 
 	
+	private static JLabel labelNombreLiga = new JLabel("Nombre de la Liga: ");
+	private static JTextField nombreLigaTXT = new JTextField(10);
+	
+	private static JLabel labelEquipos = new JLabel("Participante:");
+	private static JTextField equiposTXT = new JTextField(10);
+	
+	private static JLabel labelEstado = new JLabel("Estado:");
+	private static JTextField estadoTXT = new JTextField(10);
+	
+	
+	
+	private static JButton btnRegistrarLiga = new JButton("Registrar Liga");
+	
+    private static Image imagen2;
+    
+    public void registrarLigaPublicas(){
+    	
 
+    	this.setLayout(null);
+		this.setBackground(Color.CYAN);
+		
+		this.add(labelNombreLiga);
+		labelNombreLiga.setForeground(Color.WHITE);
+		labelNombreLiga.setBounds(950,30,200,30);
+		
+		this.add(nombreLigaTXT);
+		nombreLigaTXT.setBounds(1080,30,200,20);
+		
+		this.add(labelEquipos);
+		labelEquipos.setForeground(Color.WHITE);
+		labelEquipos.setBounds(950,70,200,30);
+		
+		this.add(equiposTXT);
+		equiposTXT.setBounds(1080,70,200,20);
+
+		
+		this.add(labelEstado);
+		labelEstado.setForeground(Color.WHITE);
+		labelEstado.setBounds(950,110,200,30);
+		
+		this.add(estadoTXT);
+		estadoTXT.setBounds(1080,110,200,20);
+		
+		this.add(btnRegistrarLiga);
+		btnRegistrarLiga.setBounds(950, 200, 120, 25);
+		
+		btnRegistrarLiga.addActionListener(this);
+    	
+    }
+    
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+

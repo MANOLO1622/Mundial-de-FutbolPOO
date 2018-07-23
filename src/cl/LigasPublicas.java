@@ -11,9 +11,9 @@ public class LigasPublicas extends Ligas {
 	final int unaConstante = 100;
 	
 	
-	public LigasPublicas(String nombreLiga, String equipos, LocalDate fechaCreacion, boolean estado,int puntos, int bono) {
+	public LigasPublicas(String nombreLiga, LocalDate fechaCreacion, boolean estado,int puntos, int bono) {
 		
-		super (nombreLiga, equipos, fechaCreacion, estado);
+		super (nombreLiga, fechaCreacion, estado);
 		this.puntos = puntos;
 		this.bono = bono;
 	}

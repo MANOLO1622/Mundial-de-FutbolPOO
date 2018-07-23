@@ -10,9 +10,9 @@ public class LigasPrivadas extends Ligas{
 
 	final int unaConstante = 100;
 	
-public LigasPrivadas(String nombreLiga, String equipos, LocalDate fechaCreacion, boolean estado,int puntos, int bono) {
+public LigasPrivadas(String nombreLiga, LocalDate fechaCreacion, boolean estado,int puntos, int bono) {
 		
-		super (nombreLiga, equipos, fechaCreacion, estado);
+		super (nombreLiga,fechaCreacion, estado);
 		this.puntos = puntos;
 		this.bono = bono;
 	}
