@@ -57,12 +57,13 @@ public class MenuAdministrador extends JPanel implements ActionListener{
 		
 		boton13 = new JButton("Crear liga privada");
 		this.setLayout(null);
-		boton13.setBounds(10, 465, 180, 50);
+		boton13.setBounds(10, 475, 180, 50);
 		this.add(boton13);
 		
 		
-		
+		//-------Botones con los Accesos a vetanas
 		boton3.addActionListener(this);
+		//boton12.addActionListener(this);
 		
 		
 		
@@ -109,6 +110,7 @@ public class MenuAdministrador extends JPanel implements ActionListener{
 	}
 
 	// -------------------------------------------------------------------------------------------------
+	
 	
 
 }
