@@ -1,5 +1,7 @@
 package cl;
 
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -20,6 +22,8 @@ public class MenuJugador extends JPanel implements ActionListener{
 	
 	JComboBox ligasRegistradas = new JComboBox();
 	JButton UnirseLiga = new JButton("Unirse");
+	
+	JLabel informacionLiga = new JLabel("Informacion de la Liga\n");
 	
 	
 	
@@ -52,17 +56,20 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		boton5.addActionListener(this);
 		ligasRegistradas.addActionListener(this);
+		UnirseLiga.addActionListener(this);
 	}
 	
 	//------------------------------------------------------------------------------------------------- 
 	
 
+	@SuppressWarnings("deprecation")
 	public void actionPerformed(ActionEvent e) {
 		
+		CL capaLogica = new CL();
+		ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.listaLigasPublicas();
+		int contadorLigasPublicas=listaLigasPublicas.size();
+		
 		if(e.getSource() == boton5) {
-			
-			CL capaLogica = new CL();
-			ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.listaLigasPublicas();
 			
 			boton4.setEnabled(false);
 			boton5.setEnabled(false);
@@ -76,6 +83,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 			for(LigasPublicas a: listaLigasPublicas) {
 				
 				ligasRegistradas.addItem(a.getNombreLiga());
+				contadorLigasPublicas = capaLogica.listaLigasPublicas().size();
 				
 			}
 			
@@ -83,6 +91,31 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			this.add(UnirseLiga);
 			UnirseLiga.setBounds(1160, 50, 100, 30);
+			
+		}
+		
+		if (e.getSource() == ligasRegistradas) {
+			
+			if(contadorLigasPublicas == 0) {
+				
+				JOptionPane.showMessageDialog(null, "No hay ligas publicas para mostrar.");
+				
+			}
+			else {
+				
+				this.add(informacionLiga);
+				informacionLiga.setBounds(950,10, 300,300);
+				informacionLiga.setForeground(Color.ORANGE);
+				informacionLiga.setAutoscrolls(true);
+
+			}
+			
+			
+		}
+		
+		if(e.getSource() == UnirseLiga) {
+			
+			//Pendiente, el  registrar la liga hasta que logre agarrar la informacion del usuario dentro del menu del jugador.
 			
 		}
 		

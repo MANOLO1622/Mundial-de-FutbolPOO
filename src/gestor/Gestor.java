@@ -240,7 +240,17 @@ public class Gestor {
 		String bandera = capaLogica.retornarBanderaEquipo(nombreEquipo);
 		return bandera;
 	}
+	
+	public static Usuario retornarUsuario(String nombreUsuario) {
+		
+		Usuario temp = CL.retornarUsuario(nombreUsuario);
+		System.out.println(temp.getNombreUsuario());
+		
+		return temp;
+	}
 
+	//-------------------------------------------------------------------------------------------------------------
+	
 	
 
 	public boolean validarLigaPublica(String nombre) {

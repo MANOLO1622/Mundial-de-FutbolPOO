@@ -3,6 +3,8 @@ package cl;
 import java.io.IOException;
 import java.util.*;
 
+import javax.swing.JOptionPane;
+
 
 public class CL {
 	
@@ -94,6 +96,29 @@ public class CL {
 		}
 		
 		return bandera;
+	}
+	
+	
+	public static Usuario retornarUsuario(String nombreUsuario) {
+		
+		Usuario temp = new Usuario("Generico", "Generico", "Generico", "Generico", "Generico", "Generico", 0);
+		
+		for(Usuario e: listaUsuarios) {
+			
+			if(e.getNombreUsuario().equals(nombreUsuario)) {
+				
+				temp.setNombre(e.getNombre());
+				temp.setApellido(e.getApellido());
+				temp.setNombreUsuario(e.getNombreUsuario());
+				temp.setContrasena(e.getContrasena());
+				temp.setAvatar(e.getAvatar());
+				temp.setCorreoElectronico(e.getCorreoElectronico());
+				temp.setTipoUSuario(e.retornarTipoUsuario());
+					
+			}	
+		}
+		
+		return temp;
 	}
 	
 	

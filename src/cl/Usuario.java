@@ -114,7 +114,14 @@ public class Usuario {
 		this.fechaRegistro = fechaRegistro;
 	}
 	
+	public void setTipoUSuario(Perfiles perfil) {
+		
+		this.tipoUsuario = perfil;
+		
+	}
+	
 	public Perfiles getTipoUsuario(int i) {
+		
 		Perfiles tipo;
 		
 		switch (i) {
