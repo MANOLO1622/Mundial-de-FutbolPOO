@@ -153,7 +153,7 @@ public class Gestor {
 			break;
 
 		default:
-			// Indefinido, sujeto a cambios y a ingresar mas opciones al switch.
+			// Indefinido, sujeto a cambios y a ingresar mas opciones al switch..
 			break;
 
 		}
