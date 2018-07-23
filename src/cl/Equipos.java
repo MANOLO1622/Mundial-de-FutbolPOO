@@ -5,7 +5,7 @@ public class Equipos {
     private String codigoIso;
     private String nombrePais;
     private int rankingFifa;
-    private String bandera;
+    private String bandera;//http://flagpedia.net/index
 
     public Equipos() {
     }
@@ -54,7 +54,7 @@ public class Equipos {
         return "Equipos{" + "codigoIso=" + codigoIso + ", nombrePais=" + nombrePais + ", rankingFifa=" + rankingFifa + ", bandera=" + bandera + '}';
     }
     
-    
+    //----------------------------------------------------------------------------------------------------------------------------------------------------
     
     
 }

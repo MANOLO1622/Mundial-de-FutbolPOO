@@ -1,30 +1,45 @@
 package cl;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.*;
 
-public class Juego extends JPanel{
+import gestor.Gestor;
+
+public class Juego extends JPanel implements ActionListener{
 	
 	private static Image imagen;
+	private static Gestor controlador = new Gestor();
 	
 	
-	JComboBox ligas = new JComboBox<Object>();
-	JComboBox equipos = new JComboBox<Object>();
+	private JComboBox ligas = new JComboBox<Object>();
+	private JComboBox equipos = new JComboBox<Object>();
+	private JButton btnIngresoJuego = new JButton("Ingresar");
+	private JLabel bandera = new JLabel();
+	private ImageIcon banderaImagen;
 	
 	public Juego() {
-		
-		this.add(ligas);
-		ligas.addItem("Liga Publica");
-		ligas.addItem("Liga Privada");
-		
-		this.add(equipos);
-		
 		
 		CL capaLogica = new CL();
 		ArrayList<Equipo> listaEquipos = capaLogica.listarEquiposFIFA();
 		
+		this.setLayout(null);		
+		
+		this.add(ligas);
+		ligas.setBounds(10, 10, 100, 25);
+		ligas.addItem("Liga Publica");
+		ligas.addItem("Liga Privada");
+		
+		this.add(equipos);
+		equipos.setBounds(120, 10, 100, 25);
+		
+		this.add(bandera);
+		bandera.setBounds(10, 45, 145, 87);
+		
+		
+
 		for(Equipo e: listaEquipos) {
 			
 			equipos.addItem(e.getNombre());
@@ -32,7 +47,38 @@ public class Juego extends JPanel{
 		}
 		
 		
+		equipos.addActionListener(this);
+		
 	}
+		
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+		if(e.getSource() == equipos) {
+			
+			String b = controlador.retornarBanderaEquipo((String) equipos.getSelectedItem());
+			System.out.println((String) equipos.getSelectedItem());
+			banderaImagen = new ImageIcon(b);
+			Icon icono = new ImageIcon(banderaImagen.getImage().getScaledInstance(bandera.getWidth(), bandera.getHeight(), Image.SCALE_DEFAULT));
+			bandera.setIcon(icono);
+			
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -64,6 +110,11 @@ public class Juego extends JPanel{
 		repaint();
 		
 	}
+
+	
+	
+	
+
 	
 
 }

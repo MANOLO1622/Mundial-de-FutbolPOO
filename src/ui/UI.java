@@ -34,21 +34,18 @@ public class UI {
 		juego.add(j);
 		
 		
-		
-		
-		
 	}
 	
 	
 	public static void registrarEquiposFIFA() {
 		
 		Gestor controlador = new Gestor();
-		controlador.registrarEquipos("Alemania", 1, "Bandera", ISOPaises.DE);
-		controlador.registrarEquipos("Brazil", 2, "Bandera", ISOPaises.BR);
+		controlador.registrarEquipos("Alemania", 1, "src\\graficos\\Banderas\\Alemania.png", ISOPaises.DE);
+		controlador.registrarEquipos("Brazil", 2, "src\\\\graficos\\\\Banderas\\\\Brazil.png", ISOPaises.BR);
 		controlador.registrarEquipos("Belgica", 3, "Bandera", ISOPaises.BE);
 		controlador.registrarEquipos("Portugal", 4, "Bandera", ISOPaises.PT);
 		controlador.registrarEquipos("Argentina", 5, "Bandera", ISOPaises.AR);
-		controlador.registrarEquipos("SUiza", 6, "Bandera", ISOPaises.CH);
+		controlador.registrarEquipos("Suiza", 6, "Bandera", ISOPaises.CH);
 		controlador.registrarEquipos("France", 7, "Bandera", ISOPaises.FR);
 		controlador.registrarEquipos("Polonia", 8, "Bandera", ISOPaises.PL);
 		controlador.registrarEquipos("Chile", 9, "Bandera", ISOPaises.CL);
