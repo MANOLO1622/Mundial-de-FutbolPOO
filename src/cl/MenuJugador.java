@@ -179,9 +179,9 @@ public class MenuJugador extends JPanel implements ActionListener{
 			String opcionEscogida = (String) ligasRegistradas.getSelectedItem();
 			this.setMiUsuario(Gestor.retornarUsuario(opcionEscogida));
 			
-			System.out.println("Funciono "+ this.miUsuario.getMiLigaPublica().getNombreLiga());
+			System.out.println("Funciono: "+ this.miUsuario.getMiLigaPublica().getNombreLiga());
 			
-			/*if(this.miUsuario.getMiLigaPublica() == null) {
+			if(this.miUsuario.getMiLigaPublica() == null) {
 				
 				System.out.println(this.miUsuario.getMiLigaPublica().getNombreLiga());
 				
@@ -192,8 +192,10 @@ public class MenuJugador extends JPanel implements ActionListener{
 			else {
 				
 				JOptionPane.showMessageDialog(null, "El usuario ya se encuentra en una liga publica.");
+				this.miUsuario.setMiLigaPublica(ligaPublicaTemporal);
+				Gestor.asignarLigaPublicaUsuario(this.miUsuario.getNombreUsuario(), ligaPublicaTemporal);
 				
-			}*/
+			}
 			
 			
 			
