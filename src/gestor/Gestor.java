@@ -273,6 +273,21 @@ public class Gestor {
 		return true;
 	}
 	
+	public boolean validarLigaPrivada(String nombre) {
+		
+		ArrayList<LigasPrivadas> listaLigasPrivadas = capaLogica.listaLigasPrivadas();
+
+		boolean buscar = false;
+		for (LigasPrivadas LigasPriavada : listaLigasPrivadas) {
+			if (LigasPriavada.getNombreLiga().equals(nombre)) {
+				buscar = true;
+			}
+		}
+
+		return true;
+	}
+	
+	
 	public boolean validarLigaMundial(String paisOrganizador) {
 		
 		ArrayList<Mundiales> listaMundiales = capaLogica.listaMundiales();
