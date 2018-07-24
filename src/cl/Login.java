@@ -123,7 +123,7 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 					Ventana ventanaUsuario = new Ventana();
 					ventanaUsuario.ventanaMenuUsuarios(perfil, usuarioTXT.getText(), ventanaUsuario);
 					ventanaUsuario.setExtendedState(Ventana.MAXIMIZED_BOTH);
-					JOptionPane.showMessageDialog(null, "Bienvenido.");
+					//JOptionPane.showMessageDialog(null, "BienvenidoX.");
 					
 					usuarioTXT.setText("");
 					contrasenaTXT.setText("");
@@ -226,7 +226,7 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 						Ventana ventanaUsuario = new Ventana();
 						ventanaUsuario.ventanaMenuUsuarios(perfil, usuarioTXT.getText(), ventanaUsuario);
 						ventanaUsuario.setExtendedState(Ventana.MAXIMIZED_BOTH);
-						JOptionPane.showMessageDialog(null, "Bienvenido.");
+						JOptionPane.showMessageDialog(null, "Bienvenidos.");
 						
 						usuarioTXT.setText("");
 						contrasenaTXT.setText("");
