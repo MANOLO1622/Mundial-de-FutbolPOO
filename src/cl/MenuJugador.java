@@ -76,6 +76,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		btnUnirseLiga.addActionListener(this);
 		btncancelarInclusion.addActionListener(this);
 		btnCancelarRetiro.addActionListener(this);
+		btnRetirarseLiga.addActionListener(this);
 	}
 	
 	//------------------------------------------------------------------------------------------------- 
@@ -96,6 +97,31 @@ public class MenuJugador extends JPanel implements ActionListener{
 			boton6.setEnabled(false);
 			boton7.setEnabled(false);
 			boton8.setEnabled(false);
+			
+			this.add(informacionLiga1);
+			informacionLiga1.setBounds(950,90, 300,20);
+			informacionLiga1.setForeground(Color.ORANGE);
+			
+			
+			this.add(informacionLiga2);
+			informacionLiga2.setBounds(950,120, 300,20);
+			informacionLiga2.setForeground(Color.ORANGE);
+			
+			this.add(informacionLiga3);
+			informacionLiga3.setBounds(950,150, 300,20);
+			informacionLiga3.setForeground(Color.ORANGE);
+			
+			this.add(informacionLiga4);
+			informacionLiga4.setBounds(950,180, 300,20);
+			informacionLiga4.setForeground(Color.ORANGE);
+			
+			this.add(informacionLiga5);
+			informacionLiga5.setBounds(950,210, 300,20);
+			informacionLiga5.setForeground(Color.ORANGE);
+			
+			this.add(informacionLiga6);
+			informacionLiga6.setBounds(950,240, 300,20);
+			informacionLiga6.setForeground(Color.ORANGE);
 						
 			
 			this.add(ligasRegistradas);
@@ -126,33 +152,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 				JOptionPane.showMessageDialog(null, "No hay ligas publicas para mostrar.");
 				
 			}
-			else {
-				
-				this.add(informacionLiga1);
-				informacionLiga1.setBounds(950,90, 300,20);
-				informacionLiga1.setForeground(Color.ORANGE);
-				
-				
-				this.add(informacionLiga2);
-				informacionLiga2.setBounds(950,120, 300,20);
-				informacionLiga2.setForeground(Color.ORANGE);
-				
-				this.add(informacionLiga3);
-				informacionLiga3.setBounds(950,150, 300,20);
-				informacionLiga3.setForeground(Color.ORANGE);
-				
-				this.add(informacionLiga4);
-				informacionLiga4.setBounds(950,180, 300,20);
-				informacionLiga4.setForeground(Color.ORANGE);
-				
-				this.add(informacionLiga5);
-				informacionLiga5.setBounds(950,210, 300,20);
-				informacionLiga5.setForeground(Color.ORANGE);
-				
-				this.add(informacionLiga6);
-				informacionLiga6.setBounds(950,240, 300,20);
-				informacionLiga6.setForeground(Color.ORANGE);
-				
+			else {				
 				
 				LigasPublicas ligaPublicaTemp = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());				
 				
@@ -228,6 +228,28 @@ public class MenuJugador extends JPanel implements ActionListener{
 			this.add(btnCancelarRetiro);
 			btnCancelarRetiro.setBounds(1160, 90, 100, 30);
 			
+			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+			
+			LigasPrivadas ligaPrivadaTemp = this.miUsuario.getMiLigaPrivada();
+			LigasPublicas ligaPublicaTemp = this.miUsuario.getMiLigaPublica();
+			
+			if(ligaPrivadaTemp == null) {
+				
+				JOptionPane.showMessageDialog(null, "No hay ligas Privadas");
+				
+			}else {
+				ligasRegistradaUsuario.addItem(ligaPrivadaTemp.getNombreLiga());
+			}
+			
+			if(ligaPublicaTemp == null) {
+				
+				JOptionPane.showMessageDialog(null, "No hay ligas Publicas");
+				
+			}else {
+				ligasRegistradaUsuario.addItem(ligaPublicaTemp.getNombreLiga());
+			}
+			
+			
 		}
 		if(e.getSource()==btnCancelarRetiro) {
 			
@@ -237,7 +259,22 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		if(e.getSource() == btnRetirarseLiga) {
 			
+			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+			LigasPrivadas ligaPrivadaTemp = this.miUsuario.getMiLigaPrivada();
+			LigasPublicas ligaPublicaTemp = this.miUsuario.getMiLigaPublica();
 			
+			
+			
+			
+			
+			Gestor.removerLigaPublicaUsuario(this.miUsuario.getMiLigaPublica().getNombreLiga(), ligaPublicaTemp);
+			Gestor.removerLigaPrivadaUsuario(this.miUsuario.getMiLigaPrivada().getNombreLiga(), ligaPrivadaTemp);
+			
+			
+			
+			
+			
+			removerMenus();
 			
 		}
 		
@@ -245,7 +282,30 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
 			
-			/*AGREGAR AQUI PARA PODER AGREGAR VALORES EN EL JCOMBOBOX.*/
+			this.add(informacionLiga1);
+			informacionLiga1.setBounds(950,90, 300,20);
+			informacionLiga1.setForeground(Color.ORANGE);
+			
+			
+			this.add(informacionLiga2);
+			informacionLiga2.setBounds(950,120, 300,20);
+			informacionLiga2.setForeground(Color.ORANGE);
+			
+			this.add(informacionLiga3);
+			informacionLiga3.setBounds(950,150, 300,20);
+			informacionLiga3.setForeground(Color.ORANGE);
+			
+			this.add(informacionLiga4);
+			informacionLiga4.setBounds(950,180, 300,20);
+			informacionLiga4.setForeground(Color.ORANGE);
+			
+			this.add(informacionLiga5);
+			informacionLiga5.setBounds(950,210, 300,20);
+			informacionLiga5.setForeground(Color.ORANGE);
+			
+			this.add(informacionLiga6);
+			informacionLiga6.setBounds(950,240, 300,20);
+			informacionLiga6.setForeground(Color.ORANGE);
 			
 			
 		}
@@ -275,27 +335,38 @@ public class MenuJugador extends JPanel implements ActionListener{
 	
 	public void removerMenus() {
 		
+		informacionLiga1.setText("");
+		informacionLiga2.setText("");
+		informacionLiga3.setText("");
+		informacionLiga4.setText("");
+		informacionLiga5.setText("");
+		informacionLiga6.setText("");
+		
 		boton4.setEnabled(true);
 		boton5.setEnabled(true);
 		boton6.setEnabled(true);
 		boton7.setEnabled(true);
 		boton8.setEnabled(true);
+		
 		this.remove(ligasRegistradas);
-		this.remove(btnUnirseLiga);
+		this.remove(ligasRegistradaUsuario);
+		
 		this.remove(informacionLiga1);
 		this.remove(informacionLiga2);
 		this.remove(informacionLiga3);
 		this.remove(informacionLiga4);
 		this.remove(informacionLiga5);
 		this.remove(informacionLiga6);
-		this.remove(btncancelarInclusion);
 		
-		this.remove(ligasRegistradaUsuario);
+		this.remove(btnUnirseLiga);
+		this.remove(btncancelarInclusion);
 		this.remove(btnRetirarseLiga);
 		this.remove(btnCancelarRetiro);
 		
 	}
    
+	//-------------------------------------------------------------------------------------------------
+	
     
     public void paintComponent(Graphics g) {
     	 

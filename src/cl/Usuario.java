@@ -15,7 +15,7 @@ public class Usuario {
 	private Date fechaRegistro;
 	private Perfiles tipoUsuario;
 	private LigasPublicas miLigaPublica;
-	private LigasPublicas miLigaPrivada;
+	private LigasPrivadas miLigaPrivada;
 	
 	public Usuario (String nombre, String apellido, String nombreUsuario, String contrasena,String avatar, String correoElectronico, int tipoUsuario) {
 		
@@ -205,13 +205,13 @@ public class Usuario {
 	}
 
 
-	public LigasPublicas getMiLigaPrivada() {
-		return miLigaPrivada;
+	public LigasPrivadas getMiLigaPrivada() {
+		return this.miLigaPrivada;
 	}
 
 
-	public void setMiLigaPrivada(LigasPublicas miLigaPrivada) {
-		this.miLigaPrivada = miLigaPrivada;
+	public void setMiLigaPrivada(LigasPrivadas liga) {
+		this.miLigaPrivada = liga;
 	}
 	
 

@@ -253,6 +253,13 @@ public class Gestor {
 		
 		return temp;
 	}
+	
+	public static LigasPrivadas retornarLigaPrivada(String nombreLiga) {
+		
+		LigasPrivadas temp = CL.retornarLigaPrivada(nombreLiga);
+		
+		return temp;
+	}
 
 	//-------------------------------------------------------------------------------------------------------------
 	
@@ -308,5 +315,37 @@ public class Gestor {
 		CL.asignarLigaPublicaUsuario( nombreUsuario, liga);
 		
 	}
+	
+	public static void asignarLigaPrivadaUsuario(String nombreUsuario, LigasPrivadas liga) {
+		
+		CL.asignarLigaPrivadaUsuario( nombreUsuario, liga);
+		
+	}
+	
+	//-------------------------------------------------------------------------------------------------------------
+	
+	
+	public static void removerLigaPublicaUsuario(String nombreLiga, LigasPublicas liga) {
+		
+		CL.removerLigaPublicaUsuario( nombreLiga, liga);
+		
+	}
+	
+	public static void removerLigaPrivadaUsuario(String nombreLiga, LigasPrivadas liga) {
+		
+		CL.removerLigaPrivadaUsuario( nombreLiga, liga);
+		
+	}
+	
+	//-------------------------------------------------------------------------------------------------------------
+	
+	public static String comprobarTipoLiga(String nombreLiga) {
+		String comprobante="";
+		
+		CL.comprobarTipoLiga(nombreLiga);
+		
+		return comprobante;
+	}
+
 
 }

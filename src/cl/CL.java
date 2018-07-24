@@ -145,6 +145,26 @@ public class CL {
 		
 	}
 	
+	public static LigasPrivadas retornarLigaPrivada(String nombreLiga) {
+		
+		LigasPrivadas temp = new LigasPrivadas("", null, false, 0, 0);
+		
+		for(LigasPrivadas e: listaLigasPrivadas) {
+			
+			if(e.getNombreLiga().equals(nombreLiga)) {
+				
+				temp.setNombreLiga(e.getNombreLiga());
+				temp.setFechaCreacion(e.getFechaCreacion());
+				temp.setFechaCreacion(e.getFechaCreacion());
+				temp.setEstado(e.getEstado());
+				temp.setPuntos(e.getPuntos());
+				temp.setBono(e.getBono());
+			}	
+		}
+		
+		return temp;
+	}
+	
 	
 	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
 		
@@ -162,12 +182,104 @@ public class CL {
 			
 			Usuario miUsuario = listaUsuarios.get(indice);
 			miUsuario.setMiLigaPublica(liga);
-			listaUsuarios.set(indice, miUsuario);
-			JOptionPane.showMessageDialog(null, "CL\nAsignar liga a Usuario\nParametros: "+ nombreUsuario + " "+ liga.getNombreLiga() + "\nSe guarda en: " + listaUsuarios.get(indice).getNombreUsuario() + " " +  listaUsuarios.get(indice).getMiLigaPublica().getNombreLiga());		
+			listaUsuarios.set(indice, miUsuario);		
 		
 	}
 	
+	public static void asignarLigaPrivadaUsuario(String nombreUsuario, LigasPrivadas liga) {
+		
+		int indice=0;
+		
+			for(Usuario e: listaUsuarios) {
+				
+				if(nombreUsuario.equals(e.getNombreUsuario())) {
+					
+					indice = listaUsuarios.indexOf(e);
+					
+				}
+				
+			}
+			
+			Usuario miUsuario = listaUsuarios.get(indice);
+			miUsuario.setMiLigaPrivada(liga);
+			listaUsuarios.set(indice, miUsuario);		
+		
+	}
 	
+	//---------------------------------------------------------------------------------------------------------------------------------------
+	
+	public static void removerLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
+		
+		int indice=0;
+		
+		for(Usuario e: listaUsuarios) {
+			
+			if(nombreUsuario.equals(e.getNombreUsuario())) {
+				
+				indice = listaUsuarios.indexOf(e);
+				
+			}
+			
+		}
+		
+		Usuario miUsuario = listaUsuarios.get(indice);
+		miUsuario.setMiLigaPublica(null);
+		listaUsuarios.set(indice, miUsuario);
+		
+	}
+	
+	public static void removerLigaPrivadaUsuario(String nombreUsuario, LigasPrivadas liga) {
+		
+		int indice=0;
+		
+		for(Usuario e: listaUsuarios) {
+			
+			if(nombreUsuario.equals(e.getNombreUsuario())) {
+				
+				indice = listaUsuarios.indexOf(e);
+				
+			}
+			
+		}
+		
+		Usuario miUsuario = listaUsuarios.get(indice);
+		miUsuario.setMiLigaPrivada(null);
+		listaUsuarios.set(indice, miUsuario);
+		
+	}
+	
+	//-------------------------------------------------------------------------------------------------------------
+	
+		public static String comprobarTipoLiga(String nombreLiga) {
+			String comprobante="";
+			
+			for(LigasPrivadas e: listaLigasPrivadas) {
+				
+				if(nombreLiga.equals(e.getNombreLiga())) {
+					
+					comprobante = "privada";
+					
+				}
+				
+			}
+			
+			for(LigasPublicas e: listaLigasPublicas) {
+				
+				if(nombreLiga.equals(e.getNombreLiga())) {
+					
+					comprobante = "publica";
+					
+				}
+				
+			}
+			if(comprobante != "") {
+				
+				comprobante = "ninguno";
+				
+			}
+			
+			return comprobante;
+		}
 	
 	
 }
