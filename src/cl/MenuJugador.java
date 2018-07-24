@@ -2,6 +2,7 @@ package cl;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -25,7 +26,11 @@ public class MenuJugador extends JPanel implements ActionListener{
 	
 	JComboBox ligasRegistradas = new JComboBox();
 	JButton btnUnirseLiga = new JButton("Unirse");
-	JButton btnCancelar = new JButton("Cancelar");
+	JButton btncancelarInclusion = new JButton("Cancelar");
+	
+	JComboBox ligasRegistradaUsuario = new JComboBox();
+	JButton btnRetirarseLiga = new JButton("Retirarse");
+	JButton btnCancelarRetiro = new JButton("Cancelar");
 	
 	JLabel informacionLiga1 = new JLabel("Informacion de la Liga");
 	JLabel informacionLiga2 = new JLabel("");
@@ -65,9 +70,12 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		
 		boton5.addActionListener(this);
+		boton6.addActionListener(this);
+		boton8.addActionListener(this);
 		ligasRegistradas.addActionListener(this);
 		btnUnirseLiga.addActionListener(this);
-		btnCancelar.addActionListener(this);
+		btncancelarInclusion.addActionListener(this);
+		btnCancelarRetiro.addActionListener(this);
 	}
 	
 	//------------------------------------------------------------------------------------------------- 
@@ -104,8 +112,8 @@ public class MenuJugador extends JPanel implements ActionListener{
 			this.add(btnUnirseLiga);
 			btnUnirseLiga.setBounds(1160, 50, 100, 30);
 			
-			this.add(btnCancelar);
-			btnCancelar.setBounds(1160, 90, 100, 30);
+			this.add(btncancelarInclusion);
+			btncancelarInclusion.setBounds(1160, 90, 100, 30);
 			
 			
 			
@@ -146,9 +154,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 				informacionLiga6.setForeground(Color.ORANGE);
 				
 				
-				LigasPublicas ligaPublicaTemp = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());
-				System.out.println(ligaPublicaTemp.getNombreLiga());
-				
+				LigasPublicas ligaPublicaTemp = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());				
 				
 				if(ligaPublicaTemp.getEstado() == true) {
 					
@@ -196,43 +202,62 @@ public class MenuJugador extends JPanel implements ActionListener{
 				
 			}
 			
-			boton4.setEnabled(true);
-			boton5.setEnabled(true);
-			boton6.setEnabled(true);
-			boton7.setEnabled(true);
-			boton8.setEnabled(true);
-			this.remove(ligasRegistradas);
-			this.remove(btnUnirseLiga);
-			this.remove(informacionLiga1);
-			this.remove(informacionLiga2);
-			this.remove(informacionLiga3);
-			this.remove(informacionLiga4);
-			this.remove(informacionLiga5);
-			this.remove(informacionLiga6);
+			removerMenus();
 	
 		}
 		
-		if(e.getSource()==btnCancelar) {
+		if(e.getSource()==btncancelarInclusion) {
 			
-			boton4.setEnabled(true);
-			boton5.setEnabled(true);
-			boton6.setEnabled(true);
-			boton7.setEnabled(true);
-			boton8.setEnabled(true);
-			this.remove(ligasRegistradas);
-			this.remove(btnUnirseLiga);
-			this.remove(informacionLiga1);
-			this.remove(informacionLiga2);
-			this.remove(informacionLiga3);
-			this.remove(informacionLiga4);
-			this.remove(informacionLiga5);
-			this.remove(informacionLiga6);
-			this.remove(btnCancelar);
+			removerMenus();		
+			
+			
+		}
+		
+		//Apartir de aqui agregare los eventos de retiro de liga publica en un usuario.
+		
+		
+		if(e.getSource() == boton6) {
+			
+			
+			this.add(ligasRegistradaUsuario);
+			ligasRegistradaUsuario.setBounds(950, 50, 200, 30);
+			
+			this.add(btnRetirarseLiga);
+			btnRetirarseLiga.setBounds(1160, 50, 100, 30);
+			
+			this.add(btnCancelarRetiro);
+			btnCancelarRetiro.setBounds(1160, 90, 100, 30);
+			
+		}
+		if(e.getSource()==btnCancelarRetiro) {
+			
+			removerMenus();	
+			
+		}
+		
+		if(e.getSource() == btnRetirarseLiga) {
+			
+			
+			
+		}
+		
+		if(e.getSource() == ligasRegistradaUsuario) {
+			
+			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+			
+			/*AGREGAR AQUI PARA PODER AGREGAR VALORES EN EL JCOMBOBOX.*/
 			
 			
 		}
 		
 		
+		//Evento de boton 8: Salir de la ventana.
+		
+		if(e.getSource()==boton8) {
+			
+			
+			
+		}
 	}
 	
 	//-------------------------------------------------------------------------------------------------
@@ -248,7 +273,28 @@ public class MenuJugador extends JPanel implements ActionListener{
 	
 	//-------------------------------------------------------------------------------------------------
 	
-	
+	public void removerMenus() {
+		
+		boton4.setEnabled(true);
+		boton5.setEnabled(true);
+		boton6.setEnabled(true);
+		boton7.setEnabled(true);
+		boton8.setEnabled(true);
+		this.remove(ligasRegistradas);
+		this.remove(btnUnirseLiga);
+		this.remove(informacionLiga1);
+		this.remove(informacionLiga2);
+		this.remove(informacionLiga3);
+		this.remove(informacionLiga4);
+		this.remove(informacionLiga5);
+		this.remove(informacionLiga6);
+		this.remove(btncancelarInclusion);
+		
+		this.remove(ligasRegistradaUsuario);
+		this.remove(btnRetirarseLiga);
+		this.remove(btnCancelarRetiro);
+		
+	}
    
     
     public void paintComponent(Graphics g) {

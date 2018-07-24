@@ -117,7 +117,6 @@ public class CL {
 				temp.setTipoUSuario(e.retornarTipoUsuario());
 				temp.setMiLigaPrivada(e.getMiLigaPrivada());
 				temp.setMiLigaPublica(e.getMiLigaPublica());
-				System.out.println("En ciclo: " + e.getNombreUsuario()+ e.getAvatar());
 			}	
 		}
 		return temp;
