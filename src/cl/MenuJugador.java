@@ -24,7 +24,8 @@ public class MenuJugador extends JPanel implements ActionListener{
 	JButton boton8;
 	
 	JComboBox ligasRegistradas = new JComboBox();
-	JButton UnirseLiga = new JButton("Unirse");
+	JButton btnUnirseLiga = new JButton("Unirse");
+	JButton btnCancelar = new JButton("Cancelar");
 	
 	JLabel informacionLiga1 = new JLabel("Informacion de la Liga");
 	JLabel informacionLiga2 = new JLabel("");
@@ -65,7 +66,8 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		boton5.addActionListener(this);
 		ligasRegistradas.addActionListener(this);
-		UnirseLiga.addActionListener(this);
+		btnUnirseLiga.addActionListener(this);
+		btnCancelar.addActionListener(this);
 	}
 	
 	//------------------------------------------------------------------------------------------------- 
@@ -99,8 +101,11 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			ligasRegistradas.setBounds(950, 50, 200, 30);
 			
-			this.add(UnirseLiga);
-			UnirseLiga.setBounds(1160, 50, 100, 30);
+			this.add(btnUnirseLiga);
+			btnUnirseLiga.setBounds(1160, 50, 100, 30);
+			
+			this.add(btnCancelar);
+			btnCancelar.setBounds(1160, 90, 100, 30);
 			
 			
 			
@@ -171,7 +176,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		
 		
-		if(e.getSource() == UnirseLiga) {
+		if(e.getSource() == btnUnirseLiga) {
 			
 			LigasPublicas ligaPublicaTemporal = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());
 			
@@ -180,21 +185,49 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			if(this.miUsuario.getMiLigaPublica() == null) {
 				
-				JOptionPane.showMessageDialog(null, "Es null.");
 				this.miUsuario.setMiLigaPublica(ligaPublicaTemporal);
 				Gestor.asignarLigaPublicaUsuario(this.miUsuario.getNombreUsuario(), ligaPublicaTemporal);
+				JOptionPane.showMessageDialog(null,this.miUsuario.getAvatar() + " fue agregado a la liga Publica: " + this.miUsuario.getMiLigaPublica().getNombreLiga());
 				
 			}
 			else {
 				
-				JOptionPane.showMessageDialog(null,"No es null.");
+				JOptionPane.showMessageDialog(null,this.miUsuario.getAvatar() + " ya te encuentras registrado en la liga Publica: " + this.miUsuario.getMiLigaPublica().getNombreLiga());
 				
 			}
 			
+			boton4.setEnabled(true);
+			boton5.setEnabled(true);
+			boton6.setEnabled(true);
+			boton7.setEnabled(true);
+			boton8.setEnabled(true);
+			this.remove(ligasRegistradas);
+			this.remove(btnUnirseLiga);
+			this.remove(informacionLiga1);
+			this.remove(informacionLiga2);
+			this.remove(informacionLiga3);
+			this.remove(informacionLiga4);
+			this.remove(informacionLiga5);
+			this.remove(informacionLiga6);
+	
+		}
+		
+		if(e.getSource()==btnCancelar) {
 			
-			
-			
-			
+			boton4.setEnabled(true);
+			boton5.setEnabled(true);
+			boton6.setEnabled(true);
+			boton7.setEnabled(true);
+			boton8.setEnabled(true);
+			this.remove(ligasRegistradas);
+			this.remove(btnUnirseLiga);
+			this.remove(informacionLiga1);
+			this.remove(informacionLiga2);
+			this.remove(informacionLiga3);
+			this.remove(informacionLiga4);
+			this.remove(informacionLiga5);
+			this.remove(informacionLiga6);
+			this.remove(btnCancelar);
 			
 			
 		}
