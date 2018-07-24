@@ -14,6 +14,8 @@ public class Usuario {
 	private String contrasena;
 	private Date fechaRegistro;
 	private Perfiles tipoUsuario;
+	private LigasPublicas miLigaPublica;
+	private LigasPublicas miLigaPrivada;
 	
 	public Usuario (String nombre, String apellido, String nombreUsuario, String contrasena,String avatar, String correoElectronico, int tipoUsuario) {
 		
@@ -114,7 +116,14 @@ public class Usuario {
 		this.fechaRegistro = fechaRegistro;
 	}
 	
+	public void setTipoUSuario(Perfiles perfil) {
+		
+		this.tipoUsuario = perfil;
+		
+	}
+	
 	public Perfiles getTipoUsuario(int i) {
+		
 		Perfiles tipo;
 		
 		switch (i) {
@@ -186,27 +195,39 @@ public class Usuario {
 	}
 
 	
+	public LigasPublicas getMiLigaPublica() {
+		return miLigaPublica;
+	}
+
+
+	public void setMiLigaPublica(LigasPublicas miLigaPublica) {
+		this.miLigaPublica = miLigaPublica;
+	}
+
+
+	public LigasPublicas getMiLigaPrivada() {
+		return miLigaPrivada;
+	}
+
+
+	public void setMiLigaPrivada(LigasPublicas miLigaPrivada) {
+		this.miLigaPrivada = miLigaPrivada;
+	}
 	
+
 	//---------------------------------------------------------------------------------------------------------
 	
 	//Metodo toString.
 	
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+	
+	
 	@Override
 	public String toString() {
 		return "Usuario: nombre=" + nombre + ", apellido=" + apellido + ", nombreUsuario=" + nombreUsuario + ", avatar="
 				+ avatar + ", correoElectronico=" + correoElectronico + ", contrasena=" + contrasena
-				+ ", fechaRegistro=" + fechaRegistro + ", tipoUsuario=" + tipoUsuario;
+				+ ", fechaRegistro=" + fechaRegistro + ", tipoUsuario=" + tipoUsuario + ", miLigaPublica="
+				+ miLigaPublica + ", miLigaPrivada=" + miLigaPrivada;
 	}
-
-
-	
-
-
-	
 	
 	
 }

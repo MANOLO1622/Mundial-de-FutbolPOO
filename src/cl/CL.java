@@ -1,7 +1,10 @@
 package cl;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.*;
+
+import javax.swing.JOptionPane;
 
 
 public class CL {
@@ -94,6 +97,76 @@ public class CL {
 		}
 		
 		return bandera;
+	}
+	
+	
+	public static Usuario retornarUsuario(String nombreUsuario) {
+		
+		Usuario temp = new Usuario("Generico", "Generico", "Generico", "Generico", "Generico", "Generico", 0);
+		
+		for(Usuario e: listaUsuarios) {
+			
+			if(e.getNombreUsuario().equals(nombreUsuario)) {
+				
+				temp.setNombre(e.getNombre());
+				temp.setApellido(e.getApellido());
+				temp.setNombreUsuario(e.getNombreUsuario());
+				temp.setContrasena(e.getContrasena());
+				temp.setAvatar(e.getAvatar());
+				temp.setCorreoElectronico(e.getCorreoElectronico());
+				temp.setTipoUSuario(e.retornarTipoUsuario());
+				temp.setMiLigaPrivada(e.getMiLigaPrivada());
+				temp.setMiLigaPublica(e.getMiLigaPublica());
+					
+			}	
+		}
+		
+		return temp;
+	}
+	
+	
+	public static LigasPublicas retornarLigaPublica(String nombreLiga) {
+		
+		LigasPublicas temp = new LigasPublicas("", null, false, 0, 0);
+		
+		for(LigasPublicas e: listaLigasPublicas) {
+			
+			if(e.getNombreLiga().equals(nombreLiga)) {
+				
+				temp.setNombreLiga(e.getNombreLiga());
+				temp.setFechaCreacion(e.getFechaCreacion());
+				temp.setFechaCreacion(e.getFechaCreacion());
+				temp.setEstado(e.getEstado());
+				temp.setPuntos(e.getPuntos());
+				temp.setBono(e.getBono());
+						
+			}	
+		}
+		
+		return temp;
+		
+	}
+	
+	
+	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
+		
+		int indice=0;
+		
+			for(Usuario e: listaUsuarios) {
+				
+				if(nombreUsuario.equals(e.getNombreUsuario())) {
+					
+					indice = listaUsuarios.indexOf(e);
+					
+				}
+				
+			}
+			
+			Usuario miUsuario = listaUsuarios.get(indice);
+			miUsuario.setMiLigaPublica(liga);
+			listaUsuarios.set(indice, miUsuario);
+			System.out.println("Se agrego la liga publica en el arraylist" + listaUsuarios.get(indice).getMiLigaPublica().getNombreLiga());				
+		
 	}
 	
 	

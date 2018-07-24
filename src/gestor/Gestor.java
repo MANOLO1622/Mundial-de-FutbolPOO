@@ -240,7 +240,23 @@ public class Gestor {
 		String bandera = capaLogica.retornarBanderaEquipo(nombreEquipo);
 		return bandera;
 	}
+	
+	public static Usuario retornarUsuario(String nombreUsuario) {
+		
+		Usuario temp = CL.retornarUsuario(nombreUsuario);
+		
+		return temp;
+	}
+	
+	public static LigasPublicas retornarLigaPublica(String nombreLiga) {
+		
+		LigasPublicas temp = CL.retornarLigaPublica(nombreLiga);
+		
+		return temp;
+	}
 
+	//-------------------------------------------------------------------------------------------------------------
+	
 	
 
 	public boolean validarLigaPublica(String nombre) {
@@ -284,6 +300,14 @@ public class Gestor {
 		}
 
 		return true;
+	}
+	
+	//-------------------------------------------------------------------------------------------------------------
+	
+	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
+		
+		CL.asignarLigaPublicaUsuario( nombreUsuario, liga);
+		
 	}
 
 }

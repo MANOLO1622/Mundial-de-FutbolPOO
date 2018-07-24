@@ -9,7 +9,8 @@ public class Ventana extends JFrame{
 	private static Dimension dimenPantalla = miPantalla.getScreenSize();
 	public static int ancho = dimenPantalla.width;
 	public static int alto = dimenPantalla.height;
-	
+	public Usuario UsuarioActual;
+
 	@SuppressWarnings("deprecation")
 	public Ventana() {
 		
@@ -22,6 +23,17 @@ public class Ventana extends JFrame{
 		this.setIconImage(icono);
 		
 		
+	}
+	
+	
+	//--------------------------------------------------------------------------
+	
+	public Usuario getUsuarioActual() {
+		return UsuarioActual;
+	}
+
+	public void setUsuarioActual(Usuario usuarioActual) {
+		this.UsuarioActual = usuarioActual;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -50,41 +62,29 @@ public class Ventana extends JFrame{
 		
 	}
 	
-	/*public void ventanaRegistroMundiales() {
-	
-		
-		RegistrarMundial regUsu = new RegistrarMundial();
-		this.add(regUsu);
-		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		this.setTitle("Registro de Mundial");
-		this.show();	
-		
-	}*/
-	
-	public void ventanaMenuUsuarios(Perfiles perfil, String nombreUsuario, Ventana vent) {
+	public void ventanaMenuUsuarios(Perfiles perfil, /*String nombreUsuario*/ Usuario UsuarioActual, Ventana vent) {
 		
 		switch(perfil) {
 		
 		case ADMIN: 
-			MenuAdministrador ma = new MenuAdministrador();
+			MenuAdministrador ma = new MenuAdministrador(this.UsuarioActual);
 			this.add(ma);
-			vent.setTitle("Administrador " + nombreUsuario);
+			vent.setTitle("Administrador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		
 			break;
 			
 		case PLAYER: 
 			
-			MenuJugador mj = new MenuJugador();
+			MenuJugador mj = new MenuJugador(this.UsuarioActual);
 			this.add(mj);
-			vent.setTitle("Jugador " + nombreUsuario);
+			vent.setTitle("Jugador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			break;
 			
 		case VIEWER:
-			MenuObservador mo = new MenuObservador();
+			MenuObservador mo = new MenuObservador(this.UsuarioActual);
 			this.add(mo);
-			vent.setTitle("Observador " + nombreUsuario);
+			vent.setTitle("Observador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			break;
 		
@@ -119,7 +119,7 @@ public class Ventana extends JFrame{
 		
 	}
 	
-	//--------------------------------------------------------------------------
+
 
 }
 

@@ -42,7 +42,6 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 		
 		this.add(btnIngreso);
 		btnIngreso.setBounds(280, 240, 115, 25);
-
 		
 		this.add(btnRegistrarUsuario);
 		btnRegistrarUsuario.setBounds(10, 310, 101, 25);
@@ -80,6 +79,7 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		
 		int validacion=0;		
 		String lecturaUsuario= usuarioTXT.getText();
@@ -121,7 +121,9 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 					
 					Perfiles perfil = controlador.retornarTipoUsuario(usuarioTXT.getText(), contrasenaTXT.getText());
 					Ventana ventanaUsuario = new Ventana();
-					ventanaUsuario.ventanaMenuUsuarios(perfil, usuarioTXT.getText(), ventanaUsuario);
+					Usuario UsuarioActual = controlador.retornarUsuario(usuarioTXT.getText());
+					ventanaUsuario.setUsuarioActual(UsuarioActual);
+					ventanaUsuario.ventanaMenuUsuarios(perfil, UsuarioActual, ventanaUsuario);
 					ventanaUsuario.setExtendedState(Ventana.MAXIMIZED_BOTH);
 					//JOptionPane.showMessageDialog(null, "BienvenidoX.");
 					
@@ -150,28 +152,6 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 	
 	//-------------------------------------------------------------------------------------------------    
     
-    public void paintComponent(Graphics g) {
-    	 
-		int width = this.getSize().width;
-		int height = this.getSize().height;
- 
-		this.setBackground("src\\graficos\\Login.jpg");
-		if (this.imagen != null) {
-			g.drawImage(this.imagen, 0, 0, width, height, null);
-		}
- 
-		super.paintComponent(g);
-	}
- 
-	public void setBackground(String imagePath) {
-		
-		this.setOpaque(false);
-		this.imagen = new ImageIcon(imagePath).getImage();
-		repaint();
-		
-		
-		
-	}
 
 
 	@Override
@@ -224,7 +204,9 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 						
 						Perfiles perfil = controlador.retornarTipoUsuario(usuarioTXT.getText(), contrasenaTXT.getText());
 						Ventana ventanaUsuario = new Ventana();
-						ventanaUsuario.ventanaMenuUsuarios(perfil, usuarioTXT.getText(), ventanaUsuario);
+						Usuario UsuarioActual = controlador.retornarUsuario(usuarioTXT.getText());
+						ventanaUsuario.setUsuarioActual(UsuarioActual);
+						ventanaUsuario.ventanaMenuUsuarios(perfil, UsuarioActual, ventanaUsuario);
 						ventanaUsuario.setExtendedState(Ventana.MAXIMIZED_BOTH);
 						JOptionPane.showMessageDialog(null, "Bienvenidos.");
 						
@@ -258,8 +240,32 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 	
 	//-------------------------------------------------------------------------------------
 	
-	
-	
+    public void paintComponent(Graphics g) {
+   	 
+		int width = this.getSize().width;
+		int height = this.getSize().height;
+ 
+		this.setBackground("src\\graficos\\Login.jpg");
+		if (this.imagen != null) {
+			g.drawImage(this.imagen, 0, 0, width, height, null);
+		}
+ 
+		super.paintComponent(g);
+	}
+ 
+	public void setBackground(String imagePath) {
+		
+		this.setOpaque(false);
+		this.imagen = new ImageIcon(imagePath).getImage();
+		repaint();
+		
+		
+		
+	}
 
+	
+	//-------------------------------------------------------------------------------------
+	
+	
 
 }

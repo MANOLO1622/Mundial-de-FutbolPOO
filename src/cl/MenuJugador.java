@@ -1,5 +1,7 @@
 package cl;
 
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -8,9 +10,12 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
+import gestor.Gestor;
+
 public class MenuJugador extends JPanel implements ActionListener{
 	
 	private static Image imagen;
+	public Usuario miUsuario;
 	
 	JButton boton4;
 	JButton boton5;
@@ -21,13 +26,21 @@ public class MenuJugador extends JPanel implements ActionListener{
 	JComboBox ligasRegistradas = new JComboBox();
 	JButton UnirseLiga = new JButton("Unirse");
 	
-	
-	
-    
+	JLabel informacionLiga1 = new JLabel("Informacion de la Liga");
+	JLabel informacionLiga2 = new JLabel("");
+	JLabel informacionLiga3 = new JLabel("");
+	JLabel informacionLiga4 = new JLabel("");
+	JLabel informacionLiga5 = new JLabel("");
+	JLabel informacionLiga6 = new JLabel("");
 
-	public MenuJugador() {
+	
+	
+
+	public MenuJugador(Usuario miUsuario) {
 		
 		this.setLayout(null);
+		
+		this.miUsuario = miUsuario;
 		
 		boton4 = new JButton("Jugar");
 		boton4.setBounds(10, 50, 180, 50);
@@ -52,17 +65,21 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		boton5.addActionListener(this);
 		ligasRegistradas.addActionListener(this);
+		UnirseLiga.addActionListener(this);
 	}
 	
 	//------------------------------------------------------------------------------------------------- 
 	
 
+	@SuppressWarnings("deprecation")
 	public void actionPerformed(ActionEvent e) {
 		
+		CL capaLogica = new CL();
+		ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.listaLigasPublicas();
+		int contadorLigasPublicas=listaLigasPublicas.size();
+		String estadoLigaPublica="";
+		
 		if(e.getSource() == boton5) {
-			
-			CL capaLogica = new CL();
-			ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.listaLigasPublicas();
 			
 			boton4.setEnabled(false);
 			boton5.setEnabled(false);
@@ -76,6 +93,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 			for(LigasPublicas a: listaLigasPublicas) {
 				
 				ligasRegistradas.addItem(a.getNombreLiga());
+				contadorLigasPublicas = capaLogica.listaLigasPublicas().size();
 				
 			}
 			
@@ -83,6 +101,96 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			this.add(UnirseLiga);
 			UnirseLiga.setBounds(1160, 50, 100, 30);
+			
+			
+			
+		}
+		
+		if (e.getSource() == ligasRegistradas) {
+			
+			if(contadorLigasPublicas == 0) {
+				
+				JOptionPane.showMessageDialog(null, "No hay ligas publicas para mostrar.");
+				
+			}
+			else {
+				
+				this.add(informacionLiga1);
+				informacionLiga1.setBounds(950,90, 300,20);
+				informacionLiga1.setForeground(Color.ORANGE);
+				
+				
+				this.add(informacionLiga2);
+				informacionLiga2.setBounds(950,120, 300,20);
+				informacionLiga2.setForeground(Color.ORANGE);
+				
+				this.add(informacionLiga3);
+				informacionLiga3.setBounds(950,150, 300,20);
+				informacionLiga3.setForeground(Color.ORANGE);
+				
+				this.add(informacionLiga4);
+				informacionLiga4.setBounds(950,180, 300,20);
+				informacionLiga4.setForeground(Color.ORANGE);
+				
+				this.add(informacionLiga5);
+				informacionLiga5.setBounds(950,210, 300,20);
+				informacionLiga5.setForeground(Color.ORANGE);
+				
+				this.add(informacionLiga6);
+				informacionLiga6.setBounds(950,240, 300,20);
+				informacionLiga6.setForeground(Color.ORANGE);
+				
+				
+				LigasPublicas ligaPublicaTemp = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());
+				System.out.println(ligaPublicaTemp.getNombreLiga());
+				
+				
+				if(ligaPublicaTemp.getEstado() == true) {
+					
+					estadoLigaPublica = "Activo";
+					
+				}
+				else {
+					
+					estadoLigaPublica = "Inactivo";
+					
+				}
+				
+				informacionLiga2.setText("Nombre de la Liga: " + ligaPublicaTemp.getNombreLiga());
+				informacionLiga3.setText("Fecha de creacion: " + ligaPublicaTemp.getFechaCreacion());
+				informacionLiga4.setText("Estado: " + estadoLigaPublica);
+				informacionLiga5.setText("Puntos: " + ligaPublicaTemp.getPuntos());
+				informacionLiga6.setText("Bono: " + ligaPublicaTemp.getBono());
+				
+
+			}
+			
+			
+		}
+		
+		if(e.getSource() == UnirseLiga) {
+			
+			LigasPublicas ligaPublicaTemp = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());
+			
+			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+			
+			if(this.miUsuario.getMiLigaPublica() == null) {
+				
+				System.out.println(this.miUsuario.getMiLigaPublica().getNombreLiga());
+				
+				this.miUsuario.setMiLigaPublica(ligaPublicaTemp);
+				Gestor.asignarLigaPublicaUsuario(this.miUsuario.getNombreUsuario(),this.miUsuario.getMiLigaPublica());
+				
+			}
+			else {
+				
+				JOptionPane.showMessageDialog(null, "El usuario ya se encuentra en una liga publica.");
+				
+			}
+			
+			
+			
+			
 			
 		}
 		
