@@ -1,6 +1,10 @@
 package ui;
 
 import java.awt.*;
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import javax.swing.*;
 import cl.*;
 import gestor.*;
@@ -15,6 +19,10 @@ public class UI {
 		controlador.registrarUsuario("admin", "Proyecto", "q","q","Mr.Administrador","admin@POO.com", 1);
 		controlador.registrarUsuario("Jugador","Proyecto","j","j","Mr.Jugador","player@POO.com",2);
 		controlador.registrarUsuario("Viewer","Proyecto","Viewer","viewerPOO","Mr.Observador","viewer@POO.com",3);
+		
+		
+		LocalDate fechaPrueba = null;
+		controlador.registrarLigaPublicas("Liga Prueba", fechaPrueba, true, 100, 100);
 		
 		
 		registrarEquiposFIFA();
