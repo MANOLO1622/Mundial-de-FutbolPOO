@@ -161,24 +161,31 @@ public class MenuJugador extends JPanel implements ActionListener{
 				informacionLiga4.setText("Estado: " + estadoLigaPublica);
 				informacionLiga5.setText("Puntos: " + ligaPublicaTemp.getPuntos());
 				informacionLiga6.setText("Bono: " + ligaPublicaTemp.getBono());
-				
 
-			}
-			
-			
+			}			
 		}
+		
+		
+		
+		
+		
+		
 		
 		if(e.getSource() == UnirseLiga) {
 			
-			LigasPublicas ligaPublicaTemp = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());
+			LigasPublicas ligaPublicaTemporal = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());
 			
-			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+			System.out.println("Lo que recoge del combobox es: " + (String) ligasRegistradas.getSelectedItem());
+			String opcionEscogida = (String) ligasRegistradas.getSelectedItem();
+			this.setMiUsuario(Gestor.retornarUsuario(opcionEscogida));
 			
-			if(this.miUsuario.getMiLigaPublica() == null) {
+			System.out.println("Funciono "+ this.miUsuario.getMiLigaPublica().getNombreLiga());
+			
+			/*if(this.miUsuario.getMiLigaPublica() == null) {
 				
 				System.out.println(this.miUsuario.getMiLigaPublica().getNombreLiga());
 				
-				this.miUsuario.setMiLigaPublica(ligaPublicaTemp);
+				this.miUsuario.setMiLigaPublica(ligaPublicaTemporal);
 				Gestor.asignarLigaPublicaUsuario(this.miUsuario.getNombreUsuario(),this.miUsuario.getMiLigaPublica());
 				
 			}
@@ -186,7 +193,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 				
 				JOptionPane.showMessageDialog(null, "El usuario ya se encuentra en una liga publica.");
 				
-			}
+			}*/
 			
 			
 			
@@ -199,7 +206,13 @@ public class MenuJugador extends JPanel implements ActionListener{
 	
 	//-------------------------------------------------------------------------------------------------
 	
-	
+	public Usuario getMiUsuario() {
+		return miUsuario;
+	}
+
+	public void setMiUsuario(Usuario miUsuario) {
+		this.miUsuario = miUsuario;
+	}
 	
 	
 	//-------------------------------------------------------------------------------------------------
@@ -220,6 +233,8 @@ public class MenuJugador extends JPanel implements ActionListener{
 		super.paintComponent(g);
 	}
  
+
+
 	public void setBackground(String imagePath) {
 		
 		this.setOpaque(false);

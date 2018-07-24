@@ -89,7 +89,7 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 		
 		if(evento == btnRegistrarUsuario) {
 			
-			Ventana ventanaRegistro = new Ventana();
+			Ventana ventanaRegistro = new Ventana(new Usuario("", "", "", "", "", "", 0));
 			ventanaRegistro.ventanaRegistroUsuarios();
 			ventanaRegistro.setExtendedState(Ventana.MAXIMIZED_BOTH);	
 			
@@ -120,10 +120,10 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 				if (validacion == 2) {
 					
 					Perfiles perfil = controlador.retornarTipoUsuario(usuarioTXT.getText(), contrasenaTXT.getText());
-					Ventana ventanaUsuario = new Ventana();
+					Ventana ventanaUsuario = new Ventana(controlador.retornarUsuario(usuarioTXT.getText()));
 					Usuario UsuarioActual = controlador.retornarUsuario(usuarioTXT.getText());
 					ventanaUsuario.setUsuarioActual(UsuarioActual);
-					ventanaUsuario.ventanaMenuUsuarios(perfil, UsuarioActual, ventanaUsuario);
+					ventanaUsuario.ventanaMenuUsuarios(perfil, ventanaUsuario);
 					ventanaUsuario.setExtendedState(Ventana.MAXIMIZED_BOTH);
 					JOptionPane.showMessageDialog(null, "Bienvenido.");
 					
@@ -203,10 +203,10 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 					if (validacion == 2) {
 						
 						Perfiles perfil = controlador.retornarTipoUsuario(usuarioTXT.getText(), contrasenaTXT.getText());
-						Ventana ventanaUsuario = new Ventana();
+						Ventana ventanaUsuario = new Ventana(controlador.retornarUsuario(usuarioTXT.getText()));
 						Usuario UsuarioActual = controlador.retornarUsuario(usuarioTXT.getText());
 						ventanaUsuario.setUsuarioActual(UsuarioActual);
-						ventanaUsuario.ventanaMenuUsuarios(perfil, UsuarioActual, ventanaUsuario);
+						ventanaUsuario.ventanaMenuUsuarios(perfil, ventanaUsuario);
 						ventanaUsuario.setExtendedState(Ventana.MAXIMIZED_BOTH);
 						JOptionPane.showMessageDialog(null, "Bienvenido.");
 						

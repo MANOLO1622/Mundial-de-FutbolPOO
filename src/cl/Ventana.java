@@ -12,8 +12,9 @@ public class Ventana extends JFrame{
 	public Usuario UsuarioActual;
 
 	@SuppressWarnings("deprecation")
-	public Ventana() {
+	public Ventana(Usuario usuarioActual) {
 		
+		this.UsuarioActual = usuarioActual;
 		
 		this.setVisible(true);
 		this.setSize(683,384);
@@ -62,26 +63,28 @@ public class Ventana extends JFrame{
 		
 	}
 	
-	public void ventanaMenuUsuarios(Perfiles perfil, /*String nombreUsuario*/ Usuario UsuarioActual, Ventana vent) {
+	public void ventanaMenuUsuarios(Perfiles perfil , Ventana vent) {
 		
 		switch(perfil) {
 		
 		case ADMIN: 
-			MenuAdministrador ma = new MenuAdministrador(this.UsuarioActual);
+			this.setUsuarioActual(this.UsuarioActual);
+			MenuAdministrador ma = new MenuAdministrador(UsuarioActual);
 			this.add(ma);
 			vent.setTitle("Administrador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			break;
 			
 		case PLAYER: 
-			
-			MenuJugador mj = new MenuJugador(this.UsuarioActual);
+			this.setUsuarioActual(this.UsuarioActual);
+			MenuJugador mj = new MenuJugador(UsuarioActual);
 			this.add(mj);
 			vent.setTitle("Jugador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			break;
 			
 		case VIEWER:
+			this.setUsuarioActual(UsuarioActual);
 			MenuObservador mo = new MenuObservador(this.UsuarioActual);
 			this.add(mo);
 			vent.setTitle("Observador " + UsuarioActual.getAvatar());
