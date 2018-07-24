@@ -244,7 +244,6 @@ public class Gestor {
 	public static Usuario retornarUsuario(String nombreUsuario) {
 		
 		Usuario temp = CL.retornarUsuario(nombreUsuario);
-		
 		return temp;
 	}
 	

@@ -22,7 +22,8 @@ public class UI {
 		
 		
 		LocalDate fechaPrueba = null;
-		controlador.registrarLigaPublicas("Liga Prueba", fechaPrueba, true, 100, 100);
+		controlador.registrarLigaPublicas("Liga Publica 1", fechaPrueba, true, 100, 100);
+		controlador.registrarLigaPublicas("Liga Publica 2", fechaPrueba, true, 100, 100);
 		
 		
 		registrarEquiposFIFA();

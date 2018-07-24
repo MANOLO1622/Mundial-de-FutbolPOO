@@ -15,7 +15,7 @@ import gestor.Gestor;
 public class MenuJugador extends JPanel implements ActionListener{
 	
 	private static Image imagen;
-	public Usuario miUsuario;
+	public Usuario miUsuario = null;
 	
 	JButton boton4;
 	JButton boton5;
@@ -175,27 +175,23 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			LigasPublicas ligaPublicaTemporal = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());
 			
-			System.out.println("Lo que recoge del combobox es: " + (String) ligasRegistradas.getSelectedItem());
 			String opcionEscogida = (String) ligasRegistradas.getSelectedItem();
-			this.setMiUsuario(Gestor.retornarUsuario(opcionEscogida));
-			
-			System.out.println("Funciono: "+ this.miUsuario.getMiLigaPublica().getNombreLiga());
+			this.setMiUsuario(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
 			
 			if(this.miUsuario.getMiLigaPublica() == null) {
 				
-				System.out.println(this.miUsuario.getMiLigaPublica().getNombreLiga());
-				
-				this.miUsuario.setMiLigaPublica(ligaPublicaTemporal);
-				Gestor.asignarLigaPublicaUsuario(this.miUsuario.getNombreUsuario(),this.miUsuario.getMiLigaPublica());
-				
-			}
-			else {
-				
-				JOptionPane.showMessageDialog(null, "El usuario ya se encuentra en una liga publica.");
+				JOptionPane.showMessageDialog(null, "Es null.");
 				this.miUsuario.setMiLigaPublica(ligaPublicaTemporal);
 				Gestor.asignarLigaPublicaUsuario(this.miUsuario.getNombreUsuario(), ligaPublicaTemporal);
 				
 			}
+			else {
+				
+				JOptionPane.showMessageDialog(null,"No es null.");
+				
+			}
+			
+			
 			
 			
 			

@@ -120,7 +120,6 @@ public class CL {
 				System.out.println("En ciclo: " + e.getNombreUsuario()+ e.getAvatar());
 			}	
 		}
-		System.out.println("capaLogica: " +temp.getNombreUsuario()+temp.getAvatar());
 		return temp;
 	}
 	
@@ -165,7 +164,7 @@ public class CL {
 			Usuario miUsuario = listaUsuarios.get(indice);
 			miUsuario.setMiLigaPublica(liga);
 			listaUsuarios.set(indice, miUsuario);
-			System.out.println("Se agrego la liga publica en el arraylist" + listaUsuarios.get(indice).getMiLigaPublica().getNombreLiga());				
+			JOptionPane.showMessageDialog(null, "CL\nAsignar liga a Usuario\nParametros: "+ nombreUsuario + " "+ liga.getNombreLiga() + "\nSe guarda en: " + listaUsuarios.get(indice).getNombreUsuario() + " " +  listaUsuarios.get(indice).getMiLigaPublica().getNombreLiga());		
 		
 	}
 	
