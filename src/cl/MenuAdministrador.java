@@ -297,7 +297,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			
 			}
 		 }
-   }
+   }//prueba
 
 
 
