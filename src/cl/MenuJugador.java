@@ -10,9 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
-
 import javax.swing.*;
-
 import gestor.Gestor;
 
 public class MenuJugador extends JPanel implements ActionListener{
@@ -20,11 +18,11 @@ public class MenuJugador extends JPanel implements ActionListener{
 	private static Image imagen;
 	public Usuario miUsuario = null;
 	
-	JButton boton4;
-	JButton boton5;
-	JButton boton6;
-	JButton boton7;
-	JButton boton8;
+	JButton boton4 = new JButton("Jugar");
+	JButton boton5 = new JButton("Unirse a liga Publica");
+	JButton boton6 = new JButton("Retirarse de Liga");
+	JButton boton7 = new JButton("Cronograma");
+	JButton boton8 = new JButton("Salir");
 	
 	JComboBox ligasRegistradas = new JComboBox();
 	JButton btnUnirseLiga = new JButton("Unirse");
@@ -50,25 +48,21 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		this.miUsuario = miUsuario;
 		
-		boton4.setText("Jugar");
-		boton4.setBounds(10, 50, 180, 50);
 		this.add(boton4);
+		boton4.setBounds(10, 50, 180, 50);
 		
-		boton5 = new JButton("Unirse a liga Publica");
-		boton5.setBounds(10, 120, 180, 50);
 		this.add(boton5);
+		boton5.setBounds(10, 120, 180, 50);
 		
-		boton6 = new JButton("Retirarse de Liga");
-		boton6.setBounds(10, 190, 180, 50);
 		this.add(boton6);
+		boton6.setBounds(10, 190, 180, 50);
 		
-		boton7 = new JButton("Cronograma");
-		boton7.setBounds(10, 260, 180, 50);
 		this.add(boton7);
+		boton7.setBounds(10, 260, 180, 50);
 		
-		boton8 = new JButton("Salir");
-		boton8.setBounds(10, 330, 180, 50);
 		this.add(boton8);
+		boton8.setBounds(10, 330, 180, 50);
+		
 		
 		boton4.addActionListener(this);
 		boton5.addActionListener(this);
@@ -84,8 +78,10 @@ public class MenuJugador extends JPanel implements ActionListener{
 	//------------------------------------------------------------------------------------------------- 
 	
 
-	@SuppressWarnings("deprecation")
+
 	public void actionPerformed(ActionEvent e) {
+		
+		
 		
 		CL capaLogica = new CL();
 		ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.listaLigasPublicas();
@@ -268,21 +264,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		if(e.getSource() == btnRetirarseLiga) {
 			
-			/*
-			
-			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
-			LigasPrivadas ligaPrivadaTemp = this.miUsuario.getMiLigaPrivada();
-			LigasPublicas ligaPublicaTemp = this.miUsuario.getMiLigaPublica();
-			
-			
-			
-			
-			
-			Gestor.removerLigaPublicaUsuario(this.miUsuario.getMiLigaPublica().getNombreLiga(), ligaPublicaTemp);
-			Gestor.removerLigaPrivadaUsuario(this.miUsuario.getMiLigaPrivada().getNombreLiga(), ligaPrivadaTemp);
-			
-			
-			*/
+
 			
 			
 			removerMenus();

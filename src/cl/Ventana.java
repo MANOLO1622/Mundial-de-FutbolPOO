@@ -72,14 +72,16 @@ public class Ventana extends JFrame{
 			this.add(ma);
 			vent.setTitle("Administrador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			break;
 			
 		case PLAYER: 
 			this.setUsuarioActual(this.UsuarioActual);
 			MenuJugador mj = new MenuJugador(UsuarioActual);
 			this.add(mj);
-			vent.setTitle("Jugador " + UsuarioActual.getAvatar());
+			vent.setTitle("Administrador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			break;
 			
 		case VIEWER:
@@ -88,6 +90,7 @@ public class Ventana extends JFrame{
 			this.add(mo);
 			vent.setTitle("Observador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			break;
 		
 		}

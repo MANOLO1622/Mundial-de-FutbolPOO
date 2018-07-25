@@ -5,6 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import gestor.*;
 
+@SuppressWarnings("serial")
 public class Login extends JPanel implements ActionListener, KeyListener{
 	
 	private static JLabel labelNomUsuario = new JLabel("Usuario");
@@ -124,8 +125,7 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 					Usuario UsuarioActual = controlador.retornarUsuario(usuarioTXT.getText());
 					ventanaUsuario.setUsuarioActual(UsuarioActual);
 					ventanaUsuario.ventanaMenuUsuarios(perfil, ventanaUsuario);
-					ventanaUsuario.setExtendedState(Ventana.MAXIMIZED_BOTH);
-					//JOptionPane.showMessageDialog(null, "BienvenidoX.");
+					JOptionPane.showMessageDialog(null, "Bienvenidos.");
 					
 					usuarioTXT.setText("");
 					contrasenaTXT.setText("");
