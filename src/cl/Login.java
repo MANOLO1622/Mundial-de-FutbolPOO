@@ -13,9 +13,10 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 	private static JLabel labelContrasenaUsuario = new JLabel("Contraseña");
 	private static JPasswordField contrasenaTXT = new JPasswordField(10);
 	private static JLabel labelMostrarContrasena = new JLabel();
-	private static ImageIcon ojo = new ImageIcon("src\\graficos\\Ojo.png");
+	private static ImageIcon ojo = new ImageIcon("src\\graficos\\eye.png");
 	private static JButton btnIngreso = new JButton("Iniciar Sesión");
 	private static JButton btnRegistrarUsuario = new JButton("Registrarse");
+	private static JButton btnSalir = new JButton("Salir");
     private static Image imagen;
     
     
@@ -26,6 +27,7 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 		this.add(labelNomUsuario);
 		labelNomUsuario.setForeground(Color.WHITE);
 		labelNomUsuario.setBounds(250,110,150,40);
+		
 		this.add(usuarioTXT);
 		usuarioTXT.setBounds(250, 140, 170, 25);
 		
@@ -45,10 +47,16 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 		btnIngreso.setBounds(280, 240, 115, 25);
 		
 		this.add(btnRegistrarUsuario);
-		btnRegistrarUsuario.setBounds(10, 310, 101, 25);
+		btnRegistrarUsuario.setBounds(30, 310, 101, 25);
+		
+		this.add(btnSalir);
+		btnSalir.setBounds(550, 310, 101, 25);
+		
+		//------------Eventos
 		
 		btnRegistrarUsuario.addActionListener(this);
 		btnIngreso.addActionListener(this);
+		btnSalir.addActionListener(this);
 		usuarioTXT.addKeyListener(this);
 		contrasenaTXT.addKeyListener(this);
 		
@@ -59,7 +67,7 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 			
 			public void mouseEntered(MouseEvent e) {
 				
-				contrasenaTXT.setEchoChar((char)0); 
+				contrasenaTXT.setEchoChar((char)0);
 				
 			}
 
@@ -146,6 +154,12 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 					
 				}
 			}
+			
+		}
+		if(e.getSource()==btnSalir) {
+			
+			JOptionPane.showMessageDialog(null, "Muchas Gracias por usar nuestra App", "Agradecimiento", JOptionPane.INFORMATION_MESSAGE);
+			System.exit(0);
 			
 		}
 				
