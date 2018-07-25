@@ -12,7 +12,7 @@ public class Gestor {
 	private static CL capaLogica = new CL();
 
 	public void registrarUsuario(String nombre, String apellido, String nombreUsuario, String contrasena, String avatar,
-			String correoElectronico, int tipoUsuario) {
+		String correoElectronico, int tipoUsuario) {
 
 		Usuario registro = new Usuario(nombre, apellido, nombreUsuario, contrasena, avatar, correoElectronico,
 				tipoUsuario);

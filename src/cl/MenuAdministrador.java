@@ -98,7 +98,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.add(botonSalir);
 
 		// -------Botones con los Accesos a ventanas
+		
+		boton1.addActionListener(this);
+		boton2.addActionListener(this);
 		boton3.addActionListener(this);
+		boton10.addActionListener(this);
+		boton11.addActionListener(this);
 		botonLigaPublica.addActionListener(this);
 		botonLigaPrivada.addActionListener(this);
 		btnRegistrarLigaPublica.addActionListener(this);
@@ -117,10 +122,39 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	//--------------------------------------------------MUNDIAL------------------------------------------------	
 		
+		if (e.getSource() == boton1) {
+			
+			desabilitarMenu();
+
+		}
+		
+		if (e.getSource() == boton2) {
+			
+			desabilitarMenu();
+
+		}		
+		
+		
 		if (e.getSource() == boton3) {
 			
 			registrarMundial();
+			desabilitarMenu();
 
+		}
+		
+		if (e.getSource() == boton10) {
+			
+			registrarMundial();
+			desabilitarMenu();
+
+		}
+		
+		if(e.getSource()==boton11) {
+			
+			Ventana ventanaRegistro = new Ventana(new Usuario("", "", "", "", "", "", 0));
+			ventanaRegistro.ventanaRegistroUsuarios();
+			ventanaRegistro.setExtendedState(Ventana.MAXIMIZED_BOTH);
+			
 		}
 
 		if (e.getSource() == btnRegistrarMundial) {
@@ -208,6 +242,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 					JOptionPane.showMessageDialog(null, "¡Liga Publica registrada Exitosamente!.");
 
 
+
 					this.remove(labelNombreLiga);
 					this.remove(nombreLigaTXT);
 					this.remove(labelEquipos);
@@ -229,11 +264,14 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 					btnRegistrarLigaPrivada.setEnabled(true);
 					botonSalir.setEnabled(true);
 
+					
+
 					removerMenus();
 
 
 				}
 			}
+
 		}
 
 
@@ -258,6 +296,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			botonSalir.setEnabled(true);
 
 		}
+
+
+		
 
 		
 		// ----------------------------------------------LIGA PRIVADA--------------------------------------------------

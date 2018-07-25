@@ -100,7 +100,7 @@ public class Ventana extends JFrame{
 	
 		public void ventanaJuego() {
 			
-			Juego j = new Juego();
+			Juego j = new Juego(UsuarioActual);
 			this.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			this.add(j);	
 			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
