@@ -132,10 +132,7 @@ public class Juego extends JPanel implements ActionListener{
 		
 	}
 	
-	
-	
-	
-	
+
 	public void mostrarInformacionLiga(int tipoLiga) {
 		
 		this.add(informacionLiga1);
