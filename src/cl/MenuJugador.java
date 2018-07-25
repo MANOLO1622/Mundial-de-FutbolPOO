@@ -259,6 +259,8 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		if(e.getSource() == btnRetirarseLiga) {
 			
+			/*
+			
 			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
 			LigasPrivadas ligaPrivadaTemp = this.miUsuario.getMiLigaPrivada();
 			LigasPublicas ligaPublicaTemp = this.miUsuario.getMiLigaPublica();
@@ -271,7 +273,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 			Gestor.removerLigaPrivadaUsuario(this.miUsuario.getMiLigaPrivada().getNombreLiga(), ligaPrivadaTemp);
 			
 			
-			
+			*/
 			
 			
 			removerMenus();
