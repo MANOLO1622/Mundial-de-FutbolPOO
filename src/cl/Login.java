@@ -74,8 +74,7 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 			@Override
 			public void mouseExited(MouseEvent arg0) {
 				
-				contrasenaTXT.setEchoChar(valor);
-				
+				contrasenaTXT.setEchoChar(valor);	
 				
 			}
 			
