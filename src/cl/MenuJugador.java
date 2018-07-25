@@ -68,7 +68,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		boton8.setBounds(10, 330, 180, 50);
 		this.add(boton8);
 		
-		
+		boton4.addActionListener(this);
 		boton5.addActionListener(this);
 		boton6.addActionListener(this);
 		boton8.addActionListener(this);
@@ -89,6 +89,15 @@ public class MenuJugador extends JPanel implements ActionListener{
 		ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.listaLigasPublicas();
 		int contadorLigasPublicas=listaLigasPublicas.size();
 		String estadoLigaPublica="";
+		
+		
+		
+		if(e.getSource()== boton4) {
+			
+			Ventana ventJuego = new Ventana(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
+			ventJuego.ventanaJuego();
+			
+		}
 		
 		if(e.getSource() == boton5) {
 			

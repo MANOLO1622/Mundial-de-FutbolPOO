@@ -9,7 +9,7 @@ public class Equipo {
 	private static ISOPaises iso;
 	private String nombre;
 	private int ranking;
-	private String bandera;
+	private String bandera;//http://flagpedia.net/index
 	
 	
 	
