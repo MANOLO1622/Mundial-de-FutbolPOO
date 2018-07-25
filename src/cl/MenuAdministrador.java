@@ -8,9 +8,9 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
-
 import javax.swing.*;
 import gestor.*;
+
 
 public class MenuAdministrador extends JPanel implements ActionListener {
 
@@ -24,6 +24,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JButton boton11;
 	JButton botonLigaPublica;
 	JButton botonLigaPrivada;
+	JButton botonSalir;
+	
 
 
 	Gestor controlador = new Gestor();
@@ -47,6 +49,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JButton btnRegistrarMundial = new JButton("Registrar");
 	JButton btnRegistroLigaPublica = new JButton("Registrar");
 	JButton btnRegistroLigaPrivada = new JButton("Registrar");
+	JButton btnSalir = new JButton("Salir");
+	
+	
 
 	private static Image imagen2;
 
@@ -84,9 +89,13 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		botonLigaPublica.setBounds(10, 400, 180, 50);
 		this.add(botonLigaPublica);
 
-		botonLigaPrivada = new JButton("Registrar liga privada");
+		botonLigaPrivada = new JButton("Crear liga privada");
 		botonLigaPrivada.setBounds(10, 475, 180, 50);
 		this.add(botonLigaPrivada);
+		
+		botonSalir = new JButton("Salir");
+		botonSalir.setBounds(10, 550, 180, 50);
+		this.add(botonSalir);
 
 		// -------Botones con los Accesos a ventanas
 		boton3.addActionListener(this);
@@ -98,7 +107,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		btnRegistrarMundial.addActionListener(this);
 		btnRegistroLigaPrivada.addActionListener(this);
 		btnRegistroLigaPublica.addActionListener(this);
-
+		botonSalir.addActionListener(this);
 	}
 	
 	//------------------------------------------------------------------------------
@@ -198,7 +207,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 					JOptionPane.showMessageDialog(null, "¡Liga Publica registrada Exitosamente!.");
 
-<<<<<<< HEAD
+
 					this.remove(labelNombreLiga);
 					this.remove(nombreLigaTXT);
 					this.remove(labelEquipos);
@@ -218,14 +227,15 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 					boton11.setEnabled(true);
 					botonLigaPublica.setEnabled(true);
 					btnRegistrarLigaPrivada.setEnabled(true);
-=======
+					botonSalir.setEnabled(true);
+
 					removerMenus();
->>>>>>> refs/remotes/origin/master
+
 
 				}
 			}
 		}
-<<<<<<< HEAD
+
 
 		if (e.getSource() == btnCancelar) {
 			//--- REMUEVE LO BOTONES DEL FORMULARIO
@@ -245,10 +255,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			boton11.setEnabled(true);
 			botonLigaPublica.setEnabled(true);
 			btnRegistrarLigaPublica.setEnabled(true);
+			botonSalir.setEnabled(true);
 
 		}
-=======
->>>>>>> refs/remotes/origin/master
+
 		
 		// ----------------------------------------------LIGA PRIVADA--------------------------------------------------
 
@@ -297,7 +307,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			
 			}
 		 }
-   }//prueba
+   }
 
 
 
@@ -325,10 +335,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		estadoTXT.setBounds(1080, 110, 200, 20);
 
 		this.add(btnRegistroLigaPublica);
-		btnRegistroLigaPublica.setBounds(1000, 200, 190, 25);
+		btnRegistroLigaPublica.setBounds(950, 200, 120, 25);
 
 		this.add(btnCancelar);
-		btnCancelar.setBounds(1199, 200, 160, 25);
+		btnCancelar.setBounds(1080, 200, 120, 25	);
 
 	}
 
@@ -356,10 +366,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		estadoTXT.setBounds(1080, 110, 200, 20);
 
 		this.add(btnRegistroLigaPrivada);
-		btnRegistroLigaPrivada.setBounds(1000, 200, 190, 25);
+		btnRegistroLigaPrivada.setBounds(950, 200, 120, 25);
 
 		this.add(btnCancelar);
-		btnCancelar.setBounds(1199, 200, 160, 25);
+		btnCancelar.setBounds(1080, 200, 120, 25);
 
 
 	}
@@ -416,6 +426,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.remove(btnRegistroLigaPublica);
 		this.remove(btnRegistrarMundial);
 		
+		
+		
 		this.remove(labelAno);
 		this.remove(anoTXT);
 		this.remove(labelPaisOrganizador);
@@ -423,6 +435,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.remove(labelEstados);
 		this.remove(estadosTXT);
 		this.remove(btnRegistroLigaPrivada);
+		
 		
 		
 		boton1.setEnabled(true);
@@ -433,7 +446,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		botonLigaPrivada.setEnabled(true);
 		botonLigaPublica.setEnabled(true);
 		btnRegistrarLigaPrivada.setEnabled(true);
-		
+		botonSalir.setEnabled(true);
 		
 	}
 	
@@ -446,6 +459,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		boton11.setEnabled(false);
 		botonLigaPublica.setEnabled(false);
 		botonLigaPrivada.setEnabled(false);
+		botonSalir.setEnabled(false);
 		
 		nombreLigaTXT.setText("");
 		equiposTXT.setText("");
@@ -482,4 +496,15 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	// -------------------------------------------------------------------------------------------------
 	
 	
+
+	
+	
+	
+	
+	
+	
+	
+	
 }
+	
+

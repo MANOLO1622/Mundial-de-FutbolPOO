@@ -1,5 +1,7 @@
 package ui;
-
+import java.awt.*;
+//import java.awt.Toolkit;
+//import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDate;
 import java.util.Date;
@@ -8,8 +10,12 @@ import java.util.GregorianCalendar;
 import javax.swing.*;
 import cl.*;
 import gestor.*;
-
-
+import java.awt.*;
+import java.awt.Toolkit;
+import javax.swing.*;
+import java.awt.*;
+//import java.awt.Toolkit;
+import javax.swing.*;
 
 public class UI {
 	
@@ -37,6 +43,8 @@ public class UI {
 		Ventana ventLogin = new Ventana(new Usuario(null, null, null, null, null, null, 0));
 		ventLogin.setResizable(false);
 		ventLogin.ventanaLogin();
+		
+		
 		
 		
 	}
@@ -79,8 +87,18 @@ public class UI {
 		controlador.registrarEquipos("Paraguay", 32, "src\\graficos\\Banderas\\Paraguay.png", ISOPaises.DK);
 		
 	}
+	
+	
+	
+	//---------------------------------------- fase de grupos 
+
+
 
 }
+
+	
+
+
 
 
 
