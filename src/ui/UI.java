@@ -24,7 +24,7 @@ public class UI {
 		Gestor controlador = new Gestor();
 		controlador.registrarUsuario("admin", "Proyecto", "q","q","Mr.Administrador","admin@POO.com", 1);
 		controlador.registrarUsuario("Jugador","Proyecto","j","j","Mr.Jugador","player@POO.com",2);
-		controlador.registrarUsuario("Viewer","Proyecto","Viewer","viewerPOO","Mr.Observador","viewer@POO.com",3);
+		controlador.registrarUsuario("Viewer","Proyecto","v","v","Mr.Observador","viewer@POO.com",3);
 		
 		
 		LocalDate fechaPrueba = null;

@@ -1,39 +1,67 @@
 package cl;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
-public class MenuObservador extends JPanel{
+public class MenuObservador extends JPanel implements ActionListener{
 	
 	public Usuario miUsuario;
 
-	JButton boton7;
-	JButton boton8;
-	JButton boton9;
+	JButton boton7 = new JButton("Ver apuestas");
+	JButton boton8 = new JButton("Ver apuestas");
+	JButton boton9 = new JButton("Ver cronograma");
+	JButton boton10 = new JButton("Salir");
 
     private static Image imagen;
 	
 	public MenuObservador(Usuario miUsuario) {
 		
 		this.miUsuario = miUsuario;
-		
-		boton7 = new JButton("Ver apuestas");
 		this.setLayout(null);
-		boton7.setBounds(10, 250, 180, 50);
+		
 		this.add(boton7);
+		boton7.setBounds(10, 250, 180, 50);
 		
-		
-		boton8 = new JButton("Ver cronograma");
-		this.setLayout(null);
-		boton8.setBounds(10, 315, 180, 50);
 		this.add(boton8);
+		boton8.setBounds(10, 315, 180, 50);
 		
-		boton9 = new JButton("Ver Competiciones");
-		this.setLayout(null);
-		boton9.setBounds(10, 385, 180, 50);
 		this.add(boton9);
-			
+		boton9.setBounds(10, 385, 180, 50);
+		
+		this.add(boton10);
+		boton10.setBounds(10, 455, 180, 50);
+		
+		//----------------Eventos
+		
+		boton10.addActionListener(this);
+		
 	}
+	
+	//------------------------------------------------------------------------------------------------- 
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()== boton10) {
+			
+			Ventana ventLogin = new Ventana(null);
+			ventLogin.ventanaLogin();
+			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
+			
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 //-------------------------------------------------------------------------------------------------    
@@ -58,6 +86,8 @@ public class MenuObservador extends JPanel{
 		repaint();
 		
 	}
+
+
 	
 	//-------------------------------------------------------------------------------------------------
 	
