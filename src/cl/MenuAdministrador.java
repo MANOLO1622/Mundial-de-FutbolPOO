@@ -239,8 +239,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 					boton3.setEnabled(true);
 					boton10.setEnabled(true);
 					boton11.setEnabled(true);
-					//botonLigaPublica.setEnabled(true);
-					//btnRegistrarLigaPrivada.setEnabled(true);
+					botonLigaPublica.setEnabled(true);
+					btnRegistrarLigaPrivada.setEnabled(true);
 
 				}
 			}
@@ -262,8 +262,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			boton3.setEnabled(true);
 			boton10.setEnabled(true);
 			boton11.setEnabled(true);
-			//botonLigaPublica.setEnabled(true);
-			//btnRegistrarLigaPublica.setEnabled(true);
+			botonLigaPublica.setEnabled(true);
+			btnRegistrarLigaPublica.setEnabled(true);
 
 		}
 		
