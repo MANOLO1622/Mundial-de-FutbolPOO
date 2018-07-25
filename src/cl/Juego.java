@@ -19,6 +19,7 @@ public class Juego extends JPanel implements ActionListener{
 	private JComboBox ligas = new JComboBox<Object>();
 	private JComboBox equipos = new JComboBox<Object>();
 	private JButton btnIngresoJuego = new JButton("Ingresar");
+	private JButton btnSalir = new JButton("Salir");
 	private JLabel bandera = new JLabel();
 	private ImageIcon banderaImagen;
 	
@@ -34,10 +35,13 @@ public class Juego extends JPanel implements ActionListener{
 		
 		this.miUsuarioActual = miUsuarioActual;
 		
+		inicializarComponentes();
+		this.setLayout(null);
+		/*
 		CL capaLogica = new CL();
 		ArrayList<Equipo> listaEquipos = capaLogica.listarEquiposFIFA();
 		
-		this.setLayout(null);		
+				
 		
 		this.add(ligas);
 		ligas.setBounds(10, 10, 100, 25);
@@ -58,8 +62,17 @@ public class Juego extends JPanel implements ActionListener{
 			
 		}
 		
+		
+		this.add(btnSalir);
+		btnSalir.setBounds(400, 100, 100, 25);
+		
+		*/
+		//-----------Eventos.
+		
+		
 		equipos.addActionListener(this);
 		ligas.addActionListener(this);
+		btnSalir.addActionListener(this);
 		
 	}
 		
@@ -109,6 +122,11 @@ public class Juego extends JPanel implements ActionListener{
 				}
 				
 			}
+			
+		}
+		if(e.getSource()==btnSalir) {
+			
+			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 			
 		}
 		
@@ -197,7 +215,53 @@ public class Juego extends JPanel implements ActionListener{
 	}
 	
 	
+	public void removerComponentes() {
+		
+		this.remove(ligas);
+		this.remove(equipos);
+		this.remove(btnIngresoJuego);
+		this.remove(btnSalir);
+		this.remove(bandera);
+		
+		this.remove(informacionLiga1);
+		this.remove(informacionLiga2);
+		this.remove(informacionLiga3);
+		this.remove(informacionLiga4);
+		this.remove(informacionLiga5);
+		this.remove(informacionLiga6);
+		this.remove(btnSalir);
+		
+	}
 	
+	public void inicializarComponentes() {
+		
+		CL capaLogica = new CL();
+		ArrayList<Equipo> listaEquipos = capaLogica.listarEquiposFIFA();
+		
+		this.add(ligas);
+		ligas.setBounds(10, 10, 100, 25);
+		ligas.addItem("Liga Publica");
+		ligas.addItem("Liga Privada");
+		
+		this.add(equipos);
+		equipos.setBounds(120, 10, 100, 25);
+		
+		this.add(bandera);
+		bandera.setBounds(10, 45, 145, 87);
+		
+		
+
+		for(Equipo e: listaEquipos) {
+			
+			equipos.addItem(e.getNombre());
+			
+		}
+		
+		
+		this.add(btnSalir);
+		btnSalir.setBounds(1450, 850, 180, 50);
+		
+	}
 	
 	
 	

@@ -7,6 +7,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -18,7 +20,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 	private static Image imagen;
 	public Usuario miUsuario = null;
 	
-	JButton boton4;
+	JButton boton4 = new JButton("Jugar");
 	JButton boton5;
 	JButton boton6;
 	JButton boton7;
@@ -48,7 +50,6 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		this.miUsuario = miUsuario;
 		
-		boton4 = new JButton("Jugar");
 		boton4.setBounds(10, 50, 180, 50);
 		this.add(boton4);
 		
@@ -326,7 +327,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		if(e.getSource()==boton8) {
 			
-			
+			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 			
 		}
 	}

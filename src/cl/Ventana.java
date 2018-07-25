@@ -23,7 +23,6 @@ public class Ventana extends JFrame{
 		Image icono = miPantalla.getImage("src\\graficos\\Futbol.png");
 		this.setIconImage(icono);
 		
-		
 	}
 	
 	
@@ -105,7 +104,7 @@ public class Ventana extends JFrame{
 			this.add(j);	
 			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			this.setTitle("Juego Mundiales");
-			this.show();
+			this.setVisible(true);
 			
 	
 		}
