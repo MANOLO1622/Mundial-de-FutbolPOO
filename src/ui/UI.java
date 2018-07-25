@@ -57,8 +57,43 @@ public class UI {
 		controlador.registrarEquipos("España", 10, "src\\graficos\\\\Banderas\\Espana.png", ISOPaises.ES);
 		controlador.registrarEquipos("Peru", 11, "src\\graficos\\\\Banderas\\Peru.png", ISOPaises.PE);
 		controlador.registrarEquipos("Dinamarca", 12, "src\\graficos\\Banderas\\Dinamarca.png", ISOPaises.DK);
-		
+		controlador.registrarEquipos("Inglaterra", 13, "src\\graficos\\Banderas\\Inglaterra.png", ISOPaises.DK);
+		controlador.registrarEquipos("Uruguay", 14, "src\\graficos\\Banderas\\Uruguay.png", ISOPaises.DK);
+		controlador.registrarEquipos("Mexico", 15, "src\\graficos\\Banderas\\Mexico.png", ISOPaises.DK);
+		controlador.registrarEquipos("Colombia", 16, "src\\graficos\\Banderas\\Colombia.png", ISOPaises.DK);
+		controlador.registrarEquipos("PaisesBajos", 17, "src\\graficos\\Banderas\\PaisesBajos.png", ISOPaises.DK);
+		controlador.registrarEquipos("Gales", 18, "src\\graficos\\Banderas\\Gales.png", ISOPaises.DK);
+		controlador.registrarEquipos("Italy", 19, "src\\graficos\\Banderas\\Italy.png", ISOPaises.DK);
+		controlador.registrarEquipos("Croatia", 20, "src\\graficos\\Banderas\\Croatia.png", ISOPaises.DK);
+		controlador.registrarEquipos("Tunez", 21, "src\\graficos\\Banderas\\Tunez.png", ISOPaises.DK);
+		controlador.registrarEquipos("Islandia", 22, "src\\graficos\\Banderas\\Islandia.png", ISOPaises.DK);
+		controlador.registrarEquipos("CostaRica", 23, "src\\graficos\\Banderas\\CostaRica.png", ISOPaises.DK);
+		controlador.registrarEquipos("Suecia", 24, "src\\graficos\\Banderas\\Suecia.png", ISOPaises.DK);
+		controlador.registrarEquipos("EEUU", 25, "src\\graficos\\Banderas\\EEUU.png", ISOPaises.DK);
+		controlador.registrarEquipos("Austria", 26, "src\\graficos\\Banderas\\Austria.png", ISOPaises.DK);
+		controlador.registrarEquipos("Senegal", 27, "src\\graficos\\Banderas\\Senegal.png", ISOPaises.DK);
+		controlador.registrarEquipos("Eslovaquia", 28, "src\\graficos\\Banderas\\Eslovaquia.png", ISOPaises.DK);
+		controlador.registrarEquipos("IrlandaNorte", 29, "src\\graficos\\Banderas\\IrlandaNorte.png", ISOPaises.DK);
+		controlador.registrarEquipos("Rumania", 30, "src\\graficos\\Banderas\\Rumania.png", ISOPaises.DK);
+		controlador.registrarEquipos("RepublicaIrlanda", 31, "src\\graficos\\Banderas\\RepublicaIrlanda.png", ISOPaises.DK);
+		controlador.registrarEquipos("Paraguay", 32, "src\\graficos\\Banderas\\Paraguay.png", ISOPaises.DK);
 		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

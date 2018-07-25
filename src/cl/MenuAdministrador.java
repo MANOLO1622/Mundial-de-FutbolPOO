@@ -232,11 +232,57 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 					JOptionPane.showMessageDialog(null, "¡Liga Publica registrada Exitosamente!.");
 
+<<<<<<< HEAD
+					this.remove(labelNombreLiga);
+					this.remove(nombreLigaTXT);
+					this.remove(labelEquipos);
+					this.remove(equiposTXT);
+					this.remove(labelEstado);
+					this.remove(estadoTXT);
+					this.remove(btnCancelar);
+
+					
+					
+					
+
+					boton1.setEnabled(true);
+					boton2.setEnabled(true);
+					boton3.setEnabled(true);
+					boton10.setEnabled(true);
+					boton11.setEnabled(true);
+					botonLigaPublica.setEnabled(true);
+					btnRegistrarLigaPrivada.setEnabled(true);
+=======
 					removerMenus();
+>>>>>>> refs/remotes/origin/master
 
 				}
 			}
 		}
+<<<<<<< HEAD
+
+		if (e.getSource() == btnCancelar) {
+			//--- REMUEVE LO BOTONES DEL FORMULARIO
+			this.remove(labelNombreLiga);
+			this.remove(nombreLigaTXT);
+			this.remove(labelEquipos);
+			this.remove(equiposTXT);
+			this.remove(labelEstado);
+			this.remove(estadoTXT);
+			this.remove(btnCancelar);
+			
+
+			boton1.setEnabled(true);
+			boton2.setEnabled(true);
+			boton3.setEnabled(true);
+			boton10.setEnabled(true);
+			boton11.setEnabled(true);
+			botonLigaPublica.setEnabled(true);
+			btnRegistrarLigaPublica.setEnabled(true);
+
+		}
+=======
+>>>>>>> refs/remotes/origin/master
 		
 		// ----------------------------------------------LIGA PRIVADA--------------------------------------------------
 
@@ -285,7 +331,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			
 			}
 		 }
-   }
+   }//prueba
 
 
 
