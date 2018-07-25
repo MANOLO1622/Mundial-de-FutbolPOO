@@ -71,7 +71,7 @@ public class Ventana extends JFrame{
 			MenuAdministrador ma = new MenuAdministrador(UsuarioActual);
 			this.add(ma);
 			vent.setTitle("Administrador " + UsuarioActual.getAvatar());
-			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			vent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			break;
 			
@@ -80,7 +80,7 @@ public class Ventana extends JFrame{
 			MenuJugador mj = new MenuJugador(UsuarioActual);
 			this.add(mj);
 			vent.setTitle("Administrador " + UsuarioActual.getAvatar());
-			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			vent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			break;
 			
@@ -89,7 +89,7 @@ public class Ventana extends JFrame{
 			MenuObservador mo = new MenuObservador(this.UsuarioActual);
 			this.add(mo);
 			vent.setTitle("Observador " + UsuarioActual.getAvatar());
-			vent.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			vent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			break;
 		

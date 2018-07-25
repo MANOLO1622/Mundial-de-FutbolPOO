@@ -348,6 +348,13 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			
 			}
 		 }
+		if(e.getSource() == botonSalir) {
+			
+			Ventana ventLogin = new Ventana(null);
+			ventLogin.ventanaLogin();
+			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
+			
+		}
    }
 
 

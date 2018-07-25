@@ -308,6 +308,8 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		if(e.getSource()==boton8) {
 			
+			Ventana ventLogin = new Ventana(null);
+			ventLogin.ventanaLogin();
 			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 			
 		}

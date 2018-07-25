@@ -125,10 +125,11 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 					Usuario UsuarioActual = controlador.retornarUsuario(usuarioTXT.getText());
 					ventanaUsuario.setUsuarioActual(UsuarioActual);
 					ventanaUsuario.ventanaMenuUsuarios(perfil, ventanaUsuario);
-					JOptionPane.showMessageDialog(null, "Bienvenidos.");
-					
+										
 					usuarioTXT.setText("");
 					contrasenaTXT.setText("");
+					
+					SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 					
 					
 				}
@@ -207,11 +208,11 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 						Usuario UsuarioActual = controlador.retornarUsuario(usuarioTXT.getText());
 						ventanaUsuario.setUsuarioActual(UsuarioActual);
 						ventanaUsuario.ventanaMenuUsuarios(perfil, ventanaUsuario);
-						ventanaUsuario.setExtendedState(Ventana.MAXIMIZED_BOTH);
-						
-						
+											
 						usuarioTXT.setText("");
 						contrasenaTXT.setText("");
+						
+						SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 						
 						
 					}
