@@ -10,8 +10,7 @@ import gestor.Gestor;
 
 public class Juego extends JPanel implements ActionListener{
 	
-	Usuario miUsuarioActual;
-	
+	public Usuario miUsuarioActual;
 	private static Image imagen;
 	private static Gestor controlador = new Gestor();
 	
@@ -23,13 +22,12 @@ public class Juego extends JPanel implements ActionListener{
 	private JLabel bandera = new JLabel();
 	private ImageIcon banderaImagen;
 	
-	private JLabel informacionLiga1 = new JLabel("Informacion de la Liga");
-	private JLabel informacionLiga2 = new JLabel("");
-	private JLabel informacionLiga3 = new JLabel("");
-	private JLabel informacionLiga4 = new JLabel("");
-	private JLabel informacionLiga5 = new JLabel("");
-	private JLabel informacionLiga6 = new JLabel("");
-	
+	private JLabel informacionLiga1 = new JLabel();
+	private JLabel informacionLiga2 = new JLabel();
+	private JLabel informacionLiga3 = new JLabel();
+	private JLabel informacionLiga4 = new JLabel();
+	private JLabel informacionLiga5 = new JLabel();
+	private JLabel informacionLiga6 = new JLabel();
 	
 	public Juego(Usuario miUsuarioActual) {
 		
@@ -63,6 +61,7 @@ public class Juego extends JPanel implements ActionListener{
 		}
 		
 		
+<<<<<<< HEAD
 		this.add(btnSalir);
 		btnSalir.setBounds(400, 100, 100, 25);
 		
@@ -70,6 +69,7 @@ public class Juego extends JPanel implements ActionListener{
 		//-----------Eventos.
 		
 		
+
 		equipos.addActionListener(this);
 		ligas.addActionListener(this);
 		btnSalir.addActionListener(this);
@@ -80,6 +80,7 @@ public class Juego extends JPanel implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
 		
 		if(e.getSource() == equipos) {
 			
@@ -91,6 +92,7 @@ public class Juego extends JPanel implements ActionListener{
 			
 		}
 		
+
 		if(e.getSource()==ligas) {
 			
 			if(ligas.getSelectedIndex() == 0 ) {
@@ -132,6 +134,7 @@ public class Juego extends JPanel implements ActionListener{
 		
 	}
 	
+
 
 	public void mostrarInformacionLiga(int tipoLiga) {
 		

@@ -20,7 +20,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 	private static Image imagen;
 	public Usuario miUsuario = null;
 	
-	JButton boton4 = new JButton("Jugar");
+	JButton boton4;
 	JButton boton5;
 	JButton boton6;
 	JButton boton7;
@@ -50,6 +50,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		this.miUsuario = miUsuario;
 		
+		boton4.setText("Jugar");
 		boton4.setBounds(10, 50, 180, 50);
 		this.add(boton4);
 		
@@ -91,9 +92,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		int contadorLigasPublicas=listaLigasPublicas.size();
 		String estadoLigaPublica="";
 		
-		
-		
-		if(e.getSource()== boton4) {
+		if(e.getSource()==boton4) {
 			
 			Ventana ventJuego = new Ventana(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
 			ventJuego.ventanaJuego();
