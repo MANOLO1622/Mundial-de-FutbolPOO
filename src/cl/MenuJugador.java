@@ -3,6 +3,7 @@ package cl;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -103,31 +104,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 			boton7.setEnabled(false);
 			boton8.setEnabled(false);
 			
-			this.add(informacionLiga1);
-			informacionLiga1.setBounds(950,90, 300,20);
-			informacionLiga1.setForeground(Color.ORANGE);
-			
-			
-			this.add(informacionLiga2);
-			informacionLiga2.setBounds(950,120, 300,20);
-			informacionLiga2.setForeground(Color.ORANGE);
-			
-			this.add(informacionLiga3);
-			informacionLiga3.setBounds(950,150, 300,20);
-			informacionLiga3.setForeground(Color.ORANGE);
-			
-			this.add(informacionLiga4);
-			informacionLiga4.setBounds(950,180, 300,20);
-			informacionLiga4.setForeground(Color.ORANGE);
-			
-			this.add(informacionLiga5);
-			informacionLiga5.setBounds(950,210, 300,20);
-			informacionLiga5.setForeground(Color.ORANGE);
-			
-			this.add(informacionLiga6);
-			informacionLiga6.setBounds(950,240, 300,20);
-			informacionLiga6.setForeground(Color.ORANGE);
-						
+			mostrarInformacionLiga();						
 			
 			this.add(ligasRegistradas);
 			
@@ -275,32 +252,8 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
 			
-			this.add(informacionLiga1);
-			informacionLiga1.setBounds(950,90, 300,20);
-			informacionLiga1.setForeground(Color.ORANGE);
-			
-			
-			this.add(informacionLiga2);
-			informacionLiga2.setBounds(950,120, 300,20);
-			informacionLiga2.setForeground(Color.ORANGE);
-			
-			this.add(informacionLiga3);
-			informacionLiga3.setBounds(950,150, 300,20);
-			informacionLiga3.setForeground(Color.ORANGE);
-			
-			this.add(informacionLiga4);
-			informacionLiga4.setBounds(950,180, 300,20);
-			informacionLiga4.setForeground(Color.ORANGE);
-			
-			this.add(informacionLiga5);
-			informacionLiga5.setBounds(950,210, 300,20);
-			informacionLiga5.setForeground(Color.ORANGE);
-			
-			this.add(informacionLiga6);
-			informacionLiga6.setBounds(950,240, 300,20);
-			informacionLiga6.setForeground(Color.ORANGE);
-			
-			
+			mostrarInformacionLiga();
+					
 		}
 		
 		
@@ -359,7 +312,45 @@ public class MenuJugador extends JPanel implements ActionListener{
 		this.remove(btnCancelarRetiro);
 		
 	}
-   
+	//-------------------------------------------------------------------------------------------------
+	
+	public void mostrarInformacionLiga() {
+		
+		
+		this.add(informacionLiga1);
+		informacionLiga1.setBounds(950,140, 600,40);
+		informacionLiga1.setForeground(Color.ORANGE);
+		informacionLiga1.setFont(new Font(informacionLiga1.getFont().getFontName(), Font.PLAIN, 30));
+		
+		
+		this.add(informacionLiga2);
+		informacionLiga2.setBounds(950,200, 600,40);
+		informacionLiga2.setForeground(Color.ORANGE);
+		informacionLiga2.setFont(new Font(informacionLiga2.getFont().getFontName(), Font.PLAIN, 30));
+		
+		this.add(informacionLiga3);
+		informacionLiga3.setBounds(950,240, 600,40);
+		informacionLiga3.setForeground(Color.ORANGE);
+		informacionLiga3.setFont(new Font(informacionLiga3.getFont().getFontName(), Font.PLAIN, 30));
+		
+		this.add(informacionLiga4);
+		informacionLiga4.setBounds(950,280, 600,40);
+		informacionLiga4.setForeground(Color.ORANGE);
+		informacionLiga4.setFont(new Font(informacionLiga4.getFont().getFontName(), Font.PLAIN, 30));
+		
+		this.add(informacionLiga5);
+		informacionLiga5.setBounds(950,320, 600,40);
+		informacionLiga5.setForeground(Color.ORANGE);
+		informacionLiga5.setFont(new Font(informacionLiga5.getFont().getFontName(), Font.PLAIN, 30));
+		
+		this.add(informacionLiga6);
+		informacionLiga6.setBounds(950,370, 600,40);
+		informacionLiga6.setForeground(Color.ORANGE);
+		informacionLiga6.setFont(new Font(informacionLiga6.getFont().getFontName(), Font.PLAIN, 30));
+		
+	}
+	
+	
 	//-------------------------------------------------------------------------------------------------
 	
     

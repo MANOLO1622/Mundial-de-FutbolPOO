@@ -44,9 +44,6 @@ public class UI {
 		ventLogin.setResizable(false);
 		ventLogin.ventanaLogin();
 		
-		
-		
-		
 	}
 	
 	

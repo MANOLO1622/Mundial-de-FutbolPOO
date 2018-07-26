@@ -35,37 +35,15 @@ public class Juego extends JPanel implements ActionListener{
 		
 		inicializarComponentes();
 		this.setLayout(null);
-		/*
+
 		CL capaLogica = new CL();
 		ArrayList<Equipo> listaEquipos = capaLogica.listarEquiposFIFA();
 		
-				
-		
-		this.add(ligas);
-		ligas.setBounds(10, 10, 100, 25);
-		ligas.addItem("Liga Publica");
-		ligas.addItem("Liga Privada");
-		
-		this.add(equipos);
-		equipos.setBounds(120, 10, 100, 25);
-		
-		this.add(bandera);
-		bandera.setBounds(10, 45, 145, 87);
-		
-		
 
-		for(Equipo e: listaEquipos) {
-			
-			equipos.addItem(e.getNombre());
-			
-		}
-		
-		
-<<<<<<< HEAD
 		this.add(btnSalir);
 		btnSalir.setBounds(400, 100, 100, 25);
 		
-		*/
+		
 		//-----------Eventos.
 		
 		
@@ -259,7 +237,7 @@ public class Juego extends JPanel implements ActionListener{
 		
 		
 		this.add(btnSalir);
-		btnSalir.setBounds(1450, 850, 180, 50);
+		btnSalir.setBounds(1530, 830, 100, 60);
 		
 	}
 	

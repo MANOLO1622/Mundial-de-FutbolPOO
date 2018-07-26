@@ -10,27 +10,28 @@ import gestor.*;
 
 public class RegistroUsuarios extends JPanel implements ActionListener{
 	
-	private static Gestor controlador = new Gestor(); 
+	private  Gestor controlador = new Gestor(); 
 	
-	private static JLabel labelNombre = new JLabel("Nombre: ");
-	private static JTextField nombreTXT = new JTextField(10);
+	private JLabel labelNombre = new JLabel("Nombre: ");
+	private JTextField nombreTXT = new JTextField(10);
 	
-	private static JLabel labelApellido = new JLabel("Apellido:");
-	private static JTextField apellidoTXT = new JTextField(10);
+	private JLabel labelApellido = new JLabel("Apellido:");
+	private JTextField apellidoTXT = new JTextField(10);
 	
-	private static JLabel labelAvatar = new JLabel("Avatar:");
-	private static JTextField avatarTXT = new JTextField(10);
+	private JLabel labelAvatar = new JLabel("Avatar:");
+	private JTextField avatarTXT = new JTextField(10);
 	
-	private static JLabel labelNombreUsuario = new JLabel("Nombre de Usuario:");
-	private static JTextField nombreUsuarioTXT = new JTextField(10);
+	private JLabel labelNombreUsuario = new JLabel("Nombre de Usuario:");
+	private JTextField nombreUsuarioTXT = new JTextField(10);
 	
-	private static JLabel labelCorreo = new JLabel("Correo electronico:");
-	private static JTextField correoTXT = new JTextField(10);
+	private JLabel labelCorreo = new JLabel("Correo electronico:");
+	private JTextField correoTXT = new JTextField(10);
 	
-	private static JLabel labelContrasena = new JLabel("Contraseña:");
-	private static JTextField contrasenaTXT = new JTextField(10);
+	private JLabel labelContrasena = new JLabel("Contraseña:");
+	private JTextField contrasenaTXT = new JTextField(10);
 	
-	private static JButton btnRegistro = new JButton("Registrar");
+	private JButton btnRegistro = new JButton("Registrar");
+	private JButton btnSalir = new JButton("Salir");
 	
     private static Image imagen;
 	
@@ -38,7 +39,6 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 	public RegistroUsuarios () {
 		
 		this.setLayout(null);
-		this.setBackground(Color.CYAN);
 		
 		this.add(labelNombre);
 		labelNombre.setForeground(Color.WHITE);
@@ -85,7 +85,12 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 		this.add(btnRegistro);
 		btnRegistro.setBounds(10, 270, 100, 25);
 		
+		this.add(btnSalir);
+		btnSalir.setBounds(1530, 830, 100, 60);
+		
+		//-----------------------Eventos
 		btnRegistro.addActionListener(this);
+		btnSalir.addActionListener(this);
 		
 	}
 
@@ -95,46 +100,57 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 		int validacion = controlador.validarUsuario(nombreUsuarioTXT.getText(), contrasenaTXT.getText(),avatarTXT.getText(), 1);
 		
 		
-		if(nombreTXT.getText().equals("") || apellidoTXT.getText().equals("") || 
-		   nombreUsuarioTXT.getText().equals("") || contrasenaTXT.equals("") ||
-		   avatarTXT.getText().equals("") || correoTXT.getText().equals("")) {
+		if(e.getSource()==btnRegistro) {
 			
-			JOptionPane.showMessageDialog(null, "Hay campos vacios, debe llenar todos los campos.");
+			if(nombreTXT.getText().equals("") || apellidoTXT.getText().equals("") || 
+					   nombreUsuarioTXT.getText().equals("") || contrasenaTXT.equals("") ||
+					   avatarTXT.getText().equals("") || correoTXT.getText().equals("")) {
+						
+						JOptionPane.showMessageDialog(null, "Hay campos vacios, debe llenar todos los campos.");
+						
+					}
+					else {
+						
+						if((contrasenaTXT.getText()).length()<6 || (contrasenaTXT.getText()).length()>8) {
+							
+							JOptionPane.showMessageDialog(null, "Por favor registrar una contraseña entre 6 y 8 caracteres.");
+							
+						}
+						else {
+							
+							if (validacion == 1) {
+								
+								this.setBackground(Color.RED);
+								JOptionPane.showMessageDialog(null, "Este usuario ya se encuentra registrado.");
+								
+							}
+							
+							if(validacion == 0) {
+								
+								this.setBackground(Color.GREEN);
+								controlador.registrarUsuario(nombreTXT.getText(), apellidoTXT.getText(), nombreUsuarioTXT.getText(), contrasenaTXT.getText(),avatarTXT.getText() ,correoTXT.getText() , 2);
+								controlador.listarUsuarios();
+								JOptionPane.showMessageDialog(null, "Usuario registrado.");
+								
+								nombreTXT.setText("");
+								apellidoTXT.setText("");
+								nombreUsuarioTXT.setText("");
+								avatarTXT.setText("");
+								correoTXT.setText("");
+								contrasenaTXT.setText("");
+						
+							}
+							
+						}
+						
+					}
 			
 		}
-		else {
+		
+		
+		if(e.getSource()==btnSalir) {
 			
-			if((contrasenaTXT.getText()).length()<6 || (contrasenaTXT.getText()).length()>8) {
-				
-				JOptionPane.showMessageDialog(null, "Por favor registrar una contraseña entre 6 y 8 caracteres.");
-				
-			}
-			else {
-				
-				if (validacion == 1) {
-					
-					this.setBackground(Color.RED);
-					JOptionPane.showMessageDialog(null, "Este usuario ya se encuentra registrado.");
-					
-				}
-				
-				if(validacion == 0) {
-					
-					this.setBackground(Color.GREEN);
-					controlador.registrarUsuario(nombreTXT.getText(), apellidoTXT.getText(), nombreUsuarioTXT.getText(), contrasenaTXT.getText(),avatarTXT.getText() ,correoTXT.getText() , 2);
-					controlador.listarUsuarios();
-					JOptionPane.showMessageDialog(null, "Usuario registrado.");
-					
-					nombreTXT.setText("");
-					apellidoTXT.setText("");
-					nombreUsuarioTXT.setText("");
-					avatarTXT.setText("");
-					correoTXT.setText("");
-					contrasenaTXT.setText("");
-			
-				}
-				
-			}
+			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 			
 		}
 				
