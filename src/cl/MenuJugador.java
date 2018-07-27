@@ -33,16 +33,14 @@ public class MenuJugador extends JPanel implements ActionListener{
 	JButton btnRetirarseLiga = new JButton("Retirarse");
 	JButton btnCancelarRetiro = new JButton("Cancelar");
 	
-	JLabel informacionLiga1 = new JLabel("Informacion de la Liga");
+	JLabel informacionLiga1 = new JLabel("");
 	JLabel informacionLiga2 = new JLabel("");
 	JLabel informacionLiga3 = new JLabel("");
 	JLabel informacionLiga4 = new JLabel("");
 	JLabel informacionLiga5 = new JLabel("");
 	JLabel informacionLiga6 = new JLabel("");
-
 	
 	
-
 	public MenuJugador(Usuario miUsuario) {
 		
 		this.setLayout(null);
@@ -92,14 +90,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 	
 
 
-	public void actionPerformed(ActionEvent e) {
-		
-		
-		/*
-		CL capaLogica = new CL();
-		ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.listaLigasPublicas();
-		int contadorLigasPublicas=listaLigasPublicas.size();*/
-	
+	public void actionPerformed(ActionEvent e) {	
 
 		String estadoLigaPublica="";
 		
@@ -118,12 +109,6 @@ public class MenuJugador extends JPanel implements ActionListener{
 			this.add(ligasRegistradas);
 			ligasRegistradas.removeAll();
 			
-			/*for(LigasPublicas a: listaLigasPublicas) {
-			
-				ligasRegistradas.addItem(a.getNombreLiga());
-				
-			}*/
-			
 			ligasRegistradas.setBounds(950, 50, 200, 30);
 			
 			this.add(btnUnirseLiga);
@@ -138,40 +123,27 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		if (e.getSource() == ligasRegistradas) {
 			
-			/*if(contadorLigasPublicas == 0) {
+			LigasPublicas ligaPublicaTemp = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());				
+			
+			if(ligaPublicaTemp.getEstado() == true) {
 				
-				JOptionPane.showMessageDialog(null, "No hay ligas publicas para mostrar.");
+				estadoLigaPublica = "Activo";
 				
 			}
-			else {				
+			else {
 				
-				LigasPublicas ligaPublicaTemp = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());				
+				estadoLigaPublica = "Inactivo";
 				
-				if(ligaPublicaTemp.getEstado() == true) {
-					
-					estadoLigaPublica = "Activo";
-					
-				}
-				else {
-					
-					estadoLigaPublica = "Inactivo";
-					
-				}
-				
-				informacionLiga2.setText("Nombre de la Liga: " + ligaPublicaTemp.getNombreLiga());
-				informacionLiga3.setText("Fecha de creacion: " + ligaPublicaTemp.getFechaCreacion());
-				informacionLiga4.setText("Estado: " + estadoLigaPublica);
-				informacionLiga5.setText("Puntos: " + ligaPublicaTemp.getPuntos());
-				informacionLiga6.setText("Bono: " + ligaPublicaTemp.getBono());
-
-			}	*/	
+			}
+			
+			informacionLiga1.setText("Informacion de la Liga.");
+			informacionLiga2.setText("Nombre de la Liga: " + ligaPublicaTemp.getNombreLiga());
+			informacionLiga3.setText("Fecha de creacion: " + ligaPublicaTemp.getFechaCreacion());
+			informacionLiga4.setText("Estado: " + estadoLigaPublica);
+			informacionLiga5.setText("Puntos: " + ligaPublicaTemp.getPuntos());
+			informacionLiga6.setText("Bono: " + ligaPublicaTemp.getBono());
+			
 		}
-		
-		
-		
-		
-		
-		
 		
 		if(e.getSource() == btnUnirseLiga) {
 			
