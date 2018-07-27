@@ -65,6 +65,18 @@ public class MenuJugador extends JPanel implements ActionListener{
 		boton8.setBounds(10, 330, 180, 50);
 		
 		
+		CL capaLogica = new CL();
+		ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.listaLigasPublicas();
+		int contadorLigasPublicas=listaLigasPublicas.size();
+		
+		
+		for(LigasPublicas a: listaLigasPublicas) {
+		
+		ligasRegistradas.addItem(a.getNombreLiga());
+		
+		}
+		
+		
 		boton4.addActionListener(this);
 		boton5.addActionListener(this);
 		boton6.addActionListener(this);
@@ -83,10 +95,12 @@ public class MenuJugador extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		
-		
+		/*
 		CL capaLogica = new CL();
 		ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.listaLigasPublicas();
-		int contadorLigasPublicas=listaLigasPublicas.size();
+		int contadorLigasPublicas=listaLigasPublicas.size();*/
+	
+
 		String estadoLigaPublica="";
 		
 		if(e.getSource()==boton4) {
@@ -98,22 +112,17 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		if(e.getSource() == boton5) {
 			
-			boton4.setEnabled(false);
-			boton5.setEnabled(false);
-			boton6.setEnabled(false);
-			boton7.setEnabled(false);
-			boton8.setEnabled(false);
-			
+			desabilitarMenuPrincipal();
 			mostrarInformacionLiga();						
 			
 			this.add(ligasRegistradas);
+			ligasRegistradas.removeAll();
 			
-			for(LigasPublicas a: listaLigasPublicas) {
-				
+			/*for(LigasPublicas a: listaLigasPublicas) {
+			
 				ligasRegistradas.addItem(a.getNombreLiga());
-				contadorLigasPublicas = capaLogica.listaLigasPublicas().size();
 				
-			}
+			}*/
 			
 			ligasRegistradas.setBounds(950, 50, 200, 30);
 			
@@ -129,7 +138,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		if (e.getSource() == ligasRegistradas) {
 			
-			if(contadorLigasPublicas == 0) {
+			/*if(contadorLigasPublicas == 0) {
 				
 				JOptionPane.showMessageDialog(null, "No hay ligas publicas para mostrar.");
 				
@@ -155,7 +164,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 				informacionLiga5.setText("Puntos: " + ligaPublicaTemp.getPuntos());
 				informacionLiga6.setText("Bono: " + ligaPublicaTemp.getBono());
 
-			}			
+			}	*/	
 		}
 		
 		
@@ -176,6 +185,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 				this.miUsuario.setMiLigaPublica(ligaPublicaTemporal);
 				Gestor.asignarLigaPublicaUsuario(this.miUsuario.getNombreUsuario(), ligaPublicaTemporal);
 				JOptionPane.showMessageDialog(null,this.miUsuario.getAvatar() + " fue agregado a la liga Publica: " + this.miUsuario.getMiLigaPublica().getNombreLiga());
+				ligasRegistradas.removeAll();
 				
 			}
 			else {
@@ -190,7 +200,8 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		if(e.getSource()==btncancelarInclusion) {
 			
-			removerMenus();		
+			removerMenus();	
+			ligasRegistradas.removeAll();
 			
 			
 		}
@@ -280,6 +291,18 @@ public class MenuJugador extends JPanel implements ActionListener{
 	
 	
 	//-------------------------------------------------------------------------------------------------
+	
+	public void desabilitarMenuPrincipal() {
+		
+		boton4.setEnabled(false);
+		boton5.setEnabled(false);
+		boton6.setEnabled(false);
+		boton7.setEnabled(false);
+		boton8.setEnabled(false);	
+		
+	}
+	
+	
 	
 	public void removerMenus() {
 		
