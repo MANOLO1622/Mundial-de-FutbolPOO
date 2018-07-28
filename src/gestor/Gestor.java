@@ -191,6 +191,8 @@ public class Gestor {
 		}
 		return comprobante;
 	}
+	
+	//--------------------------------------------------------------------------------------------------
 
 	public Perfiles retornarTipoUsuario(String nombreUsuario, String contrasena) {
 
@@ -208,6 +210,13 @@ public class Gestor {
 		}
 
 		return tipoPerfil;
+	}
+	
+	public static ArrayList<Equipo> retornarEquiposRegistrados(){
+		
+		ArrayList<Equipo> listaEquiposRegistrados = CL.retornarEquiposRegistrados();
+		
+		return listaEquiposRegistrados;
 	}
 
 	// -------------------------------------------------------------------------------------------------------------

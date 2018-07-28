@@ -18,8 +18,8 @@ public class Ventana extends JFrame{
 		
 		this.setVisible(true);
 		this.setSize(683,384);
-		this.setLocation(dimenPantalla.width/4, dimenPantalla.height/4);
-		
+		this.setLocationRelativeTo(null);
+//		this.setLocation(dimenPantalla.width/4, dimenPantalla.height/4);
 		Image icono = miPantalla.getImage("src\\graficos\\Futbol.png");
 		this.setIconImage(icono);
 		
@@ -42,7 +42,6 @@ public class Ventana extends JFrame{
 		
 		Login l = new Login();
 		this.add(l);
-		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Login");
 		this.show();
@@ -52,7 +51,6 @@ public class Ventana extends JFrame{
 	
 
 	public void ventanaRegistroUsuarios() {
-		
 		
 		RegistroUsuarios regUsu = new RegistroUsuarios();
 		this.add(regUsu);
@@ -72,6 +70,7 @@ public class Ventana extends JFrame{
 			this.add(ma);
 			vent.setTitle("Administrador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			vent.setSize(1060,640);
 			vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			break;
 			
@@ -81,6 +80,7 @@ public class Ventana extends JFrame{
 			this.add(mj);
 			vent.setTitle("Administrador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			vent.setSize(1060,640);
 			vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			break;
 			
@@ -90,6 +90,7 @@ public class Ventana extends JFrame{
 			this.add(mo);
 			vent.setTitle("Observador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			vent.setSize(1060,640);
 			vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			break;
 		

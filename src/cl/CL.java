@@ -83,6 +83,7 @@ public class CL {
 		
 	}
 	
+	//-----------------------------------------------------------------------------------------------------------
 	
 	public static String retornarBanderaEquipo(String nombreEquipo) {
 		String bandera="";
@@ -165,6 +166,13 @@ public class CL {
 		return temp;
 	}
 	
+	public static ArrayList<Equipo> retornarEquiposRegistrados(){
+		
+		return listaEquiposFIFA;		
+		
+	}
+	
+	//------------------------------------------------------------------------------------------------
 	
 	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
 		

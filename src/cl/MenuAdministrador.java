@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.*;
 import gestor.*;
@@ -27,7 +28,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JButton botonSalir;
 	
 
-
 	Gestor controlador = new Gestor();
 	JLabel labelNombreLiga = new JLabel("Nombre de la Liga: ");
 	JTextField nombreLigaTXT = new JTextField(10);
@@ -39,7 +39,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JLabel labelAno = new JLabel("Año: ");
 	JTextField anoTXT = new JTextField(10);
 	JLabel labelPaisOrganizador = new JLabel("Pais Organizador:");
-	JTextField paisOrganizadorTXT = new JTextField(10);
+//	JTextField paisOrganizadorTXT = new JTextField(10);
+	JComboBox paisOrganizadorTXT = new JComboBox();
 	JLabel labelEstados = new JLabel("Estado:");
 	JTextField estadosTXT = new JTextField(10);
 	
@@ -62,7 +63,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	public MenuAdministrador(Usuario miUsuario) {
 		
 		this.miUsuario = miUsuario;
-		
+		ingresarPaises();
 		
 		boton1 = new JButton("Usuarios");
 		this.setLayout(null);
@@ -159,7 +160,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		if (e.getSource() == btnRegistrarMundial) {
 
-			if (anoTXT.getText().equals("") || paisOrganizadorTXT.getText().equals("")
+			if (anoTXT.getText().equals("") || "".equals((String)paisOrganizadorTXT.getSelectedItem())
 					|| estadosTXT.getText().equals("")) {
 
 				JOptionPane.showMessageDialog(null, "Hay campos vacios, debe llenar todos los campos.");
@@ -167,7 +168,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			}
 			else {
 
-				boolean b = controlador.validarLigaMundial(paisOrganizadorTXT.getText());
+				boolean b = controlador.validarLigaMundial((String)paisOrganizadorTXT.getSelectedItem());
 
 				if (b == false) {
 
@@ -180,7 +181,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 					Date fecha = new Date();
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-					controlador.registrarMundial(fechaRegistro, paisOrganizadorTXT.getText(), true);
+					controlador.registrarMundial(fechaRegistro, (String)paisOrganizadorTXT.getSelectedItem(), true);
 					controlador.listarMundiales();
 
 					JOptionPane.showMessageDialog(null, "¡Mundial registrada Exitosamente!.");
@@ -513,10 +514,27 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		equiposTXT.setText("");
 		estadoTXT.setText("");
 		anoTXT.setText("");
-		paisOrganizadorTXT.setText("");
+		paisOrganizadorTXT.removeAll();
+//		paisOrganizadorTXT.setText("");
 		estadosTXT.setText("");
 		
 	}
+	
+	// -------------------------------------------------------------------------------------------------
+	
+	
+	public void ingresarPaises() {
+		
+		ArrayList<Equipo> listaTemporal = Gestor.retornarEquiposRegistrados();
+		
+		for(Equipo e: listaTemporal) {
+			
+			paisOrganizadorTXT.addItem(e.getNombre());
+			
+		}
+		
+	}
+	
 	
 	// -------------------------------------------------------------------------------------------------
 
