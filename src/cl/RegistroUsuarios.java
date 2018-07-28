@@ -86,7 +86,7 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 		btnRegistro.setBounds(10, 270, 100, 25);
 		
 		this.add(btnSalir);
-		btnSalir.setBounds(1530, 830, 100, 60);
+		btnSalir.setBounds(120, 270, 100, 25);
 		
 		//-----------------------Eventos
 		btnRegistro.addActionListener(this);
