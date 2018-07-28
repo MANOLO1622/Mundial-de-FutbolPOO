@@ -67,11 +67,23 @@ public class MenuJugador extends JPanel implements ActionListener{
 		ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.listaLigasPublicas();
 		int contadorLigasPublicas=listaLigasPublicas.size();
 		
+		ligasRegistradas.removeAllItems();
 		
 		for(LigasPublicas a: listaLigasPublicas) {
 		
 		ligasRegistradas.addItem(a.getNombreLiga());
 		
+		}
+		
+		
+		if(ligasRegistradas.getItemCount()==0) {
+			
+			btnUnirseLiga.setEnabled(false);
+			
+		}else {
+			
+			btnUnirseLiga.setEnabled(true);
+			
 		}
 		
 		
@@ -107,15 +119,86 @@ public class MenuJugador extends JPanel implements ActionListener{
 			mostrarInformacionLiga();						
 			
 			this.add(ligasRegistradas);
-			ligasRegistradas.removeAll();
+			ligasRegistradas.setBounds(950, 50, 200, 30);			
 			
-			ligasRegistradas.setBounds(950, 50, 200, 30);
 			
 			this.add(btnUnirseLiga);
 			btnUnirseLiga.setBounds(1160, 50, 100, 30);
 			
 			this.add(btncancelarInclusion);
 			btncancelarInclusion.setBounds(1160, 90, 100, 30);
+			
+			
+			
+		}
+		
+		if(e.getSource() == boton6) {
+			
+			
+			this.add(ligasRegistradaUsuario);
+			ligasRegistradaUsuario.setBounds(950, 50, 200, 30);
+			
+			this.add(btnRetirarseLiga);
+			btnRetirarseLiga.setBounds(1160, 50, 100, 30);
+			
+			this.add(btnCancelarRetiro);
+			btnCancelarRetiro.setBounds(1160, 90, 100, 30);
+			
+			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+			
+			LigasPrivadas ligaPrivadaTemp = this.miUsuario.getMiLigaPrivada();
+			LigasPublicas ligaPublicaTemp = this.miUsuario.getMiLigaPublica();
+			
+			if(ligaPrivadaTemp == null && ligaPublicaTemp == null) {
+				
+				btnRetirarseLiga.setEnabled(false);
+				
+			}
+			
+			if(ligaPrivadaTemp == null) {
+				
+				JOptionPane.showMessageDialog(null, "No hay ligas Privadas");
+				
+				
+			}else {
+				ligasRegistradaUsuario.addItem(ligaPrivadaTemp.getNombreLiga());
+			}
+			
+			if(ligaPublicaTemp == null) {
+				
+				JOptionPane.showMessageDialog(null, "No hay ligas Publicas");
+				
+			}else {
+				ligasRegistradaUsuario.addItem(ligaPublicaTemp.getNombreLiga());
+			}
+			
+			
+			
+			//-------------------------------------------Trabajando en esta seccion
+			
+			/*String seleccionado = (String)ligasRegistradas.getSelectedItem();
+			
+			if(seleccionado.equals(this.miUsuario.getMiLigaPublica().getNombreLiga())) {
+				
+				
+				this.miUsuario.setMiLigaPublica(null);
+				Gestor.removerLigaPublicaUsuario(this.miUsuario.getMiLigaPublica().getNombreLiga(), this.miUsuario.getMiLigaPublica());
+				
+				
+			}
+			
+			else if(seleccionado.equals(this.miUsuario.getMiLigaPrivada().getNombreLiga())) {
+				
+				
+				this.miUsuario.setMiLigaPrivada(null);
+				Gestor.removerLigaPrivadaUsuario(this.miUsuario.getMiLigaPrivada().getNombreLiga(), this.miUsuario.getMiLigaPrivada());
+				
+			}*/
+			
+			//--------------------------------------------------------------------------------------
+			
+			
+			
 			
 			
 			
@@ -181,41 +264,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		//Apartir de aqui agregare los eventos de retiro de liga publica en un usuario.
 		
 		
-		if(e.getSource() == boton6) {
-			
-			
-			this.add(ligasRegistradaUsuario);
-			ligasRegistradaUsuario.setBounds(950, 50, 200, 30);
-			
-			this.add(btnRetirarseLiga);
-			btnRetirarseLiga.setBounds(1160, 50, 100, 30);
-			
-			this.add(btnCancelarRetiro);
-			btnCancelarRetiro.setBounds(1160, 90, 100, 30);
-			
-			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
-			
-			LigasPrivadas ligaPrivadaTemp = this.miUsuario.getMiLigaPrivada();
-			LigasPublicas ligaPublicaTemp = this.miUsuario.getMiLigaPublica();
-			
-			if(ligaPrivadaTemp == null) {
-				
-				JOptionPane.showMessageDialog(null, "No hay ligas Privadas");
-				
-			}else {
-				ligasRegistradaUsuario.addItem(ligaPrivadaTemp.getNombreLiga());
-			}
-			
-			if(ligaPublicaTemp == null) {
-				
-				JOptionPane.showMessageDialog(null, "No hay ligas Publicas");
-				
-			}else {
-				ligasRegistradaUsuario.addItem(ligaPublicaTemp.getNombreLiga());
-			}
-			
-			
-		}
+
 		if(e.getSource()==btnCancelarRetiro) {
 			
 			removerMenus();	
