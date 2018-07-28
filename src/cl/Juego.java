@@ -41,7 +41,7 @@ public class Juego extends JPanel implements ActionListener{
 		
 
 		this.add(btnSalir);
-		btnSalir.setBounds(400, 100, 100, 25);
+		btnSalir.setBounds(230, 10, 100, 25);
 		
 		
 		//-----------Eventos.
