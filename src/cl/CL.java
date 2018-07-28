@@ -216,7 +216,7 @@ public class CL {
 	
 	//---------------------------------------------------------------------------------------------------------------------------------------
 	
-	public static void removerLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
+	public static void removerLigaPublicaUsuario(String nombreUsuario) {
 		
 		int indice=0;
 		
@@ -236,7 +236,7 @@ public class CL {
 		
 	}
 	
-	public static void removerLigaPrivadaUsuario(String nombreUsuario, LigasPrivadas liga) {
+	public static void removerLigaPrivadaUsuario(String nombreUsuario) {
 		
 		int indice=0;
 		

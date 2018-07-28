@@ -149,11 +149,10 @@ public class MenuJugador extends JPanel implements ActionListener{
 			LigasPrivadas ligaPrivadaTemp = this.miUsuario.getMiLigaPrivada();
 			LigasPublicas ligaPublicaTemp = this.miUsuario.getMiLigaPublica();
 			
-			if(ligaPrivadaTemp == null && ligaPublicaTemp == null) {
-				
-				btnRetirarseLiga.setEnabled(false);
-				
-			}
+			
+			
+			
+			
 			
 			if(ligaPrivadaTemp == null) {
 				
@@ -174,33 +173,42 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			
 			
-			//-------------------------------------------Trabajando en esta seccion
 			
-			/*String seleccionado = (String)ligasRegistradas.getSelectedItem();
-			
-			if(seleccionado.equals(this.miUsuario.getMiLigaPublica().getNombreLiga())) {
+			if(ligaPrivadaTemp == null && ligaPublicaTemp == null) {
+				
+				btnRetirarseLiga.setEnabled(false);
+				
+			}else {
 				
 				
-				this.miUsuario.setMiLigaPublica(null);
-				Gestor.removerLigaPublicaUsuario(this.miUsuario.getMiLigaPublica().getNombreLiga(), this.miUsuario.getMiLigaPublica());
 				
 				
+				//-------------------------------------------Trabajando en esta seccion
+				
+				/*String seleccionado = (String)ligasRegistradas.getSelectedItem();
+				
+				if(seleccionado.equals(this.miUsuario.getMiLigaPublica().getNombreLiga())) {
+					
+					
+					this.miUsuario.setMiLigaPublica(null);
+					Gestor.removerLigaPublicaUsuario(this.miUsuario.getNombreUsuario());
+					
+					
+				}
+				
+				else if(seleccionado.equals(this.miUsuario.getMiLigaPrivada().getNombreLiga())) {
+					
+					
+					this.miUsuario.setMiLigaPrivada(null);
+					Gestor.removerLigaPrivadaUsuario(this.miUsuario.getNombreUsuario());
+					
+				}*/
+				
+				//--------------------------------------------------------------------------------------
+				
+				
+
 			}
-			
-			else if(seleccionado.equals(this.miUsuario.getMiLigaPrivada().getNombreLiga())) {
-				
-				
-				this.miUsuario.setMiLigaPrivada(null);
-				Gestor.removerLigaPrivadaUsuario(this.miUsuario.getMiLigaPrivada().getNombreLiga(), this.miUsuario.getMiLigaPrivada());
-				
-			}*/
-			
-			//--------------------------------------------------------------------------------------
-			
-			
-			
-			
-			
 			
 		}
 		

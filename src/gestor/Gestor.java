@@ -334,15 +334,15 @@ public class Gestor {
 	//-------------------------------------------------------------------------------------------------------------
 	
 	
-	public static void removerLigaPublicaUsuario(String nombreLiga, LigasPublicas liga) {
+	public static void removerLigaPublicaUsuario(String nombreUsuario) {
 		
-		CL.removerLigaPublicaUsuario( nombreLiga, liga);
+		CL.removerLigaPublicaUsuario( nombreUsuario);
 		
 	}
 	
-	public static void removerLigaPrivadaUsuario(String nombreLiga, LigasPrivadas liga) {
+	public static void removerLigaPrivadaUsuario(String nombreUsuario) {
 		
-		CL.removerLigaPrivadaUsuario( nombreLiga, liga);
+		CL.removerLigaPrivadaUsuario( nombreUsuario);
 		
 	}
 	
