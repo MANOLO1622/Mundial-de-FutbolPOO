@@ -229,8 +229,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 
 			else {
-
-				boolean b = controlador.validarMundial((String)MundialAnfitrion.getSelectedItem());
+				
+				boolean b = controlador.validarMundial( Gestor.retornarMundial((String)MundialAnfitrion.getSelectedItem()));
 
 				if (b == false) {
 
@@ -240,13 +240,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			
 		
 				if (b == true) {
-
+					
 					Date fecha = new Date();
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
-					controlador.registrarLigaPublicas(nombreLigaTXT.getText(),fechaRegistro, true,1,2,(String)MundialAnfitrion.getSelectedItem());
-					controlador.listarLigasPublicas();
-
+					controlador.registrarLigaPublicas(nombreLigaTXT.getText(),fechaRegistro, true,1,2,Gestor.retornarMundial((String)MundialAnfitrion.getSelectedItem()));
 					JOptionPane.showMessageDialog(null, "¡Liga Publica registrada Exitosamente!.");
 
 					removerMenus();
@@ -291,8 +288,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			}
 
 			else {
-
-				boolean b = controlador.validarMundial((String)MundialAnfitrion.getSelectedItem());
+				
+				boolean b = controlador.validarMundial(Gestor.retornarMundial((String)MundialAnfitrion.getSelectedItem()));
 
 				if (b == false) {
 

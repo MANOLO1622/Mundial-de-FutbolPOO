@@ -15,7 +15,7 @@ public class CL {
 	private static ArrayList<LigasPrivadas> listaLigasPrivadas = new ArrayList<LigasPrivadas>();
 	private static TextFileIO UsuariosRegLog = new TextFileIO("logs//Login.txt");
 	private static ArrayList<Equipo> listaEquiposFIFA = new ArrayList();
-//	private static ArrayList<Anfitrion> listaAnfitrionesFIFA = new ArrayList();
+
 	
 	
 	
@@ -82,11 +82,7 @@ public class CL {
 		listaLigasPublicas.add(registro);
 		
 	}
-	public static ArrayList<LigasPublicas> listaLigasPublicas() {
-		
-		return listaLigasPublicas;
-		
-	}
+
 	
 	//-----------------------------------------------------------------------------------------------------------
 	public static void registrarLigaPrivadas(LigasPrivadas registro) {
@@ -143,7 +139,7 @@ public class CL {
 	
 	public static LigasPublicas retornarLigaPublica(String nombreLiga) {
 		
-		LigasPublicas temp = new LigasPublicas("", null, false, 0, 0, "");
+		LigasPublicas temp = new LigasPublicas("", null, false, 0, 0, null);
 		
 		for(LigasPublicas e: listaLigasPublicas) {
 			
@@ -227,6 +223,13 @@ public class CL {
 		}
 		
 		return equipoTemp;
+		
+	}
+	
+	
+	public static ArrayList<LigasPublicas> retornarLigasPublicas() {
+		
+		return listaLigasPublicas;
 		
 	}
 	

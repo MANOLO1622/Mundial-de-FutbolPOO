@@ -64,7 +64,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		
 		CL capaLogica = new CL();
-		ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.listaLigasPublicas();
+		ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.retornarLigasPublicas();
 		int contadorLigasPublicas=listaLigasPublicas.size();
 		
 		ligasRegistradas.removeAllItems();
@@ -152,8 +152,6 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			
 			
-			
-			
 			if(ligaPrivadaTemp == null) {
 				
 				JOptionPane.showMessageDialog(null, "No hay ligas Privadas");
@@ -178,36 +176,6 @@ public class MenuJugador extends JPanel implements ActionListener{
 				
 				btnRetirarseLiga.setEnabled(false);
 				
-			}else {
-				
-				
-				
-				
-				//-------------------------------------------Trabajando en esta seccion
-				
-				/*String seleccionado = (String)ligasRegistradas.getSelectedItem();
-				
-				if(seleccionado.equals(this.miUsuario.getMiLigaPublica().getNombreLiga())) {
-					
-					
-					this.miUsuario.setMiLigaPublica(null);
-					Gestor.removerLigaPublicaUsuario(this.miUsuario.getNombreUsuario());
-					
-					
-				}
-				
-				else if(seleccionado.equals(this.miUsuario.getMiLigaPrivada().getNombreLiga())) {
-					
-					
-					this.miUsuario.setMiLigaPrivada(null);
-					Gestor.removerLigaPrivadaUsuario(this.miUsuario.getNombreUsuario());
-					
-				}*/
-				
-				//--------------------------------------------------------------------------------------
-				
-				
-
 			}
 			
 		}

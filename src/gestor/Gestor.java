@@ -28,7 +28,7 @@ public class Gestor {
 	}
 
 	public static void registrarLigaPublicas(String nombreLiga, LocalDate fechaCreacion, boolean estado, int puntos,
-			int bono,String mundialAnfitrion) {
+			int bono,Mundiales mundialAnfitrion) {
 		LigasPublicas registro = new LigasPublicas(nombreLiga, fechaCreacion, estado, puntos, bono, mundialAnfitrion);
 		capaLogica.registrarLigaPublicas(registro);
 
@@ -77,7 +77,7 @@ public class Gestor {
 
 	public void listarLigasPublicas() {
 
-		ArrayList<LigasPublicas> listaImpresion = capaLogica.listaLigasPublicas();
+		ArrayList<LigasPublicas> listaImpresion = capaLogica.retornarLigasPublicas();
 
 		System.out.println("");
 
@@ -225,6 +225,15 @@ public class Gestor {
 
 		return listaMundialesRegistrados;
 	}
+	
+	
+	public static Mundiales retornarMundial(String nombreMundial) {
+		
+		Mundiales mundialTemp = CL.retornarMundial(nombreMundial);
+		
+		return mundialTemp;
+		
+	}
 
 	// -------------------------------------------------------------------------------------------------------------
 
@@ -303,7 +312,7 @@ public class Gestor {
 
 	public boolean validarLigaPublica(String nombre) {
 
-		ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.listaLigasPublicas();
+		ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.retornarLigasPublicas();
 
 		boolean buscar = false;
 		for (LigasPublicas LigasPublica : listaLigasPublicas) {
@@ -343,13 +352,14 @@ public class Gestor {
 		return true;
 	}
 
-	public boolean validarMundial(String mundialAnfitrion) {
+	public boolean validarMundial(Mundiales mundialAnfitrion) {
 
-		ArrayList<LigasPublicas> listaMundiales = capaLogica.listaLigasPublicas();
-
+		ArrayList<Mundiales> listaMundiales = capaLogica.retornarMundialesRegistrados();
 		boolean buscar = false;
-		for (LigasPublicas LigasPublicas : listaMundiales) {
-			if (LigasPublicas.getMundialAnfitrion().equals(mundialAnfitrion)) {
+		
+		for (Mundiales e: listaMundiales) {
+			
+			if (e.getNombreMundial().equals(mundialAnfitrion.getNombreMundial())) {
 				buscar = true;
 			}
 		}
