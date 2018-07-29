@@ -36,8 +36,8 @@ public class UI {
 		registrarEquiposFIFA();
 		controlador.listarEquiposFIFA();
 		
-		registrarAnfitrionesFIFA();
-		controlador.listarAnfitrionesFIFA();
+//		registrarAnfitrionesFIFA();
+//		controlador.listarAnfitrionesFIFA();
 		
 		controlador.listarUsuarios();
 		
@@ -90,12 +90,12 @@ public class UI {
 	
 
 
-	public static void registrarAnfitrionesFIFA() {
+	/*public static void registrarAnfitrionesFIFA() {
 		
 		Gestor controlador = new Gestor();
 		controlador.registrarAnfitriones("Costa Rica");
 		
-	}
+	}*/
 
 }
 

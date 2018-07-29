@@ -259,6 +259,13 @@ public class Gestor {
 		Usuario temp = CL.retornarUsuario(nombreUsuario);
 		return temp;
 	}
+	
+	public static Equipo retornarEquipo(String nombreEquipo) {
+
+		Equipo temp = CL.retornarEquipo(nombreEquipo);
+		return temp;
+	}
+	
 
 	public static LigasPublicas retornarLigaPublica(String nombreLiga) {
 
@@ -275,7 +282,7 @@ public class Gestor {
 	}
 	//--------------------------------------------------------------------------------------------------------------
 	
-	public static void registrarAnfitriones(String nombre) {
+	/*public static void registrarAnfitriones(String nombre) {
 
 		capaLogica.registrarAnfitriones(nombre);
 
@@ -291,7 +298,7 @@ public class Gestor {
 
 		}
 
-	}
+	}*/
 	// -------------------------------------------------------------------------------------------------------------
 
 	public boolean validarLigaPublica(String nombre) {

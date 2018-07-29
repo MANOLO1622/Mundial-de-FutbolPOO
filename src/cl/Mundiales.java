@@ -32,7 +32,7 @@ public class Mundiales {
     
     
 
-    public boolean isEstado() {
+    public boolean getEstado() {
         return estado;
     }
 

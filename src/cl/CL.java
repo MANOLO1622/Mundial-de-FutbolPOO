@@ -15,7 +15,7 @@ public class CL {
 	private static ArrayList<LigasPrivadas> listaLigasPrivadas = new ArrayList<LigasPrivadas>();
 	private static TextFileIO UsuariosRegLog = new TextFileIO("logs//Login.txt");
 	private static ArrayList<Equipo> listaEquiposFIFA = new ArrayList();
-	private static ArrayList<Anfitrion> listaAnfitrionesFIFA = new ArrayList();
+//	private static ArrayList<Anfitrion> listaAnfitrionesFIFA = new ArrayList();
 	
 	
 	
@@ -49,7 +49,7 @@ public class CL {
 	}
 	
 	
-	//---------------------------------------------------------------------------------------------------------------
+	/*//---------------------------------------------------------------------------------------------------------------
 	
 	public static void registrarAnfitriones(String nombre) {
 		
@@ -62,7 +62,7 @@ public class CL {
 	public static ArrayList<Anfitrion> listarAnfitrionesFIFA() {
 		
 		return listaAnfitrionesFIFA;
-	}
+	}*/
 	
 	//---------------------------------------------------------------------------------------------------------------
 	public static void registrarMundial(Mundiales registro) {
@@ -195,6 +195,41 @@ public class CL {
 		
 	}
 	
+	public static Mundiales retornarMundial(String nombreMundial) {
+		Mundiales mundialTemp=null;
+		
+		for(Mundiales e: listaMundiales) {
+			
+			if(nombreMundial.equals(e.getNombreMundial())) {
+				
+				mundialTemp = new Mundiales(e.getNombreMundial(),e.getAno(),e.getPaisOrganizador(),e.getEstado());
+				
+			}
+			
+		}
+		
+		return mundialTemp;
+		
+	}
+	
+	
+	public static Equipo retornarEquipo(String nombreEquipo) {
+		Equipo equipoTemp=null;
+		
+		for(Equipo e: listaEquiposFIFA) {
+			
+			if(nombreEquipo.equals(e.getNombre())) {
+				
+				equipoTemp = new Equipo(e.getNombre(),e.getRanking(), e.getBandera(), e.getIso());
+				
+			}
+			
+		}
+		
+		return equipoTemp;
+		
+	}
+	
 	//------------------------------------------------------------------------------------------------
 	
 	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
@@ -317,10 +352,48 @@ public class CL {
 		
 		public static void sortearEquipoMundial(String nombreMundial) {
 			
-			int valorAleatorio = (int) (Math.random()*32);
-			JOptionPane.showMessageDialog(null, valorAleatorio);
+			Mundiales mundialTemp = CL.retornarMundial(nombreMundial);
+			
+			for(int i=0; i<31; i++) {
+					
+				Random aleatorio = new Random();
+				int valorAleatorio = aleatorio.nextInt(listaEquiposFIFA.size());
+				mundialTemp.getEquiposMundial().add(CL.retornarEquipo(listaEquiposFIFA.get(valorAleatorio).getNombre()));
+
+				/*for() {
+					
+					
+					
+				}*/
+				
+				
+			}
+			
+			
+			
 			
 		}
 	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
