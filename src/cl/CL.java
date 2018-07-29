@@ -15,6 +15,7 @@ public class CL {
 	private static ArrayList<LigasPrivadas> listaLigasPrivadas = new ArrayList<LigasPrivadas>();
 	private static TextFileIO UsuariosRegLog = new TextFileIO("logs//Login.txt");
 	private static ArrayList<Equipo> listaEquiposFIFA = new ArrayList();
+	private static ArrayList<Anfitrion> listaAnfitrionesFIFA = new ArrayList();
 	
 	
 	
@@ -45,6 +46,22 @@ public class CL {
 	public static ArrayList<Equipo> listarEquiposFIFA() {
 		
 		return listaEquiposFIFA;
+	}
+	
+	
+	//---------------------------------------------------------------------------------------------------------------
+	
+	public static void registrarAnfitriones(String nombre) {
+		
+		Anfitrion anfitrionTemp = new Anfitrion(nombre);
+		
+		listaAnfitrionesFIFA.add(anfitrionTemp);
+		
+	}
+	
+	public static ArrayList<Anfitrion> listarAnfitrionesFIFA() {
+		
+		return listaAnfitrionesFIFA;
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------
@@ -126,7 +143,7 @@ public class CL {
 	
 	public static LigasPublicas retornarLigaPublica(String nombreLiga) {
 		
-		LigasPublicas temp = new LigasPublicas("", null, false, 0, 0);
+		LigasPublicas temp = new LigasPublicas("", null, false, 0, 0, "");
 		
 		for(LigasPublicas e: listaLigasPublicas) {
 			
@@ -138,17 +155,22 @@ public class CL {
 				temp.setEstado(e.getEstado());
 				temp.setPuntos(e.getPuntos());
 				temp.setBono(e.getBono());
+				temp.setMundialAnfitrion(e.getMundialAnfitrion());
 						
 			}	
 		}
 		
 		return temp;
+	}
+	public static ArrayList<Anfitrion> retornarAnfitrionesgistrados(){
+		
+		return listaAnfitrionesFIFA;
 		
 	}
 	
 	public static LigasPrivadas retornarLigaPrivada(String nombreLiga) {
 		
-		LigasPrivadas temp = new LigasPrivadas("", null, false, 0, 0);
+		LigasPrivadas temp = new LigasPrivadas("", null, false, 0, 0, "");
 		
 		for(LigasPrivadas e: listaLigasPrivadas) {
 			
@@ -160,6 +182,7 @@ public class CL {
 				temp.setEstado(e.getEstado());
 				temp.setPuntos(e.getPuntos());
 				temp.setBono(e.getBono());
+				temp.setMundialAnfitrion(e.getMundialAnfitrion());
 			}	
 		}
 		

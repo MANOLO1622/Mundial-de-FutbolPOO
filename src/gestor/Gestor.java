@@ -12,7 +12,7 @@ public class Gestor {
 	private static CL capaLogica = new CL();
 
 	public void registrarUsuario(String nombre, String apellido, String nombreUsuario, String contrasena, String avatar,
-		String correoElectronico, int tipoUsuario) {
+			String correoElectronico, int tipoUsuario) {
 
 		Usuario registro = new Usuario(nombre, apellido, nombreUsuario, contrasena, avatar, correoElectronico,
 				tipoUsuario);
@@ -22,21 +22,21 @@ public class Gestor {
 
 	public void registrarMundial(LocalDate ano, String paisOrganizador, boolean estado) {
 
-		Mundiales registro = new Mundiales(ano, paisOrganizador, estado);
+		Mundiales registro = new Mundiales(ano, paisOrganizador,  estado);
 		capaLogica.registrarMundial(registro);
 
 	}
 
-	public static void registrarLigaPublicas(String nombreLiga, LocalDate fechaCreacion, boolean estado,
-			int puntos, int bono) {
-		LigasPublicas registro = new LigasPublicas(nombreLiga, fechaCreacion, estado, puntos, bono);
+	public static void registrarLigaPublicas(String nombreLiga, LocalDate fechaCreacion, boolean estado, int puntos,
+			int bono,String mundialAnfitrion) {
+		LigasPublicas registro = new LigasPublicas(nombreLiga, fechaCreacion, estado, puntos, bono, mundialAnfitrion);
 		capaLogica.registrarLigaPublicas(registro);
 
 	}
 
-	public static void registrarLigaPrivadas(String nombreLiga, LocalDate fechaCreacion, boolean estado,
-			int puntos, int bono) {
-		LigasPrivadas registro = new LigasPrivadas(nombreLiga, fechaCreacion, estado, puntos, bono);
+	public static void registrarLigaPrivadas(String nombreLiga, LocalDate fechaCreacion, boolean estado, int puntos,
+			int bono,String mundialAnfitrion) {
+		LigasPrivadas registro = new LigasPrivadas(nombreLiga, fechaCreacion, estado, puntos, bono,mundialAnfitrion);
 		capaLogica.registrarLigaPrivadas(registro);
 
 	}
@@ -58,7 +58,7 @@ public class Gestor {
 		System.out.println("");
 
 	}
-	
+
 	public void listarMundiales() {
 
 		ArrayList<Mundiales> listaImpresion = capaLogica.listaMundiales();
@@ -90,7 +90,7 @@ public class Gestor {
 		System.out.println("");
 
 	}
-	
+
 	public void listarLigasPrivadas() {
 
 		ArrayList<LigasPrivadas> listaImpresion = capaLogica.listaLigasPrivadas();
@@ -191,8 +191,8 @@ public class Gestor {
 		}
 		return comprobante;
 	}
-	
-	//--------------------------------------------------------------------------------------------------
+
+	// --------------------------------------------------------------------------------------------------
 
 	public Perfiles retornarTipoUsuario(String nombreUsuario, String contrasena) {
 
@@ -211,12 +211,19 @@ public class Gestor {
 
 		return tipoPerfil;
 	}
-	
-	public static ArrayList<Equipo> retornarEquiposRegistrados(){
-		
+
+	public static ArrayList<Equipo> retornarEquiposRegistrados() {
+
 		ArrayList<Equipo> listaEquiposRegistrados = CL.retornarEquiposRegistrados();
-		
+
 		return listaEquiposRegistrados;
+	}
+	
+	public static ArrayList<Anfitrion> retornarAnfitrionesRegistrados() {
+
+		ArrayList<Anfitrion> listaAnfitrionesRegistrados = CL.retornarAnfitrionesgistrados();
+
+		return listaAnfitrionesRegistrados;
 	}
 
 	// -------------------------------------------------------------------------------------------------------------
@@ -239,43 +246,56 @@ public class Gestor {
 
 	}
 
-	
-	
-	//-------------------------------------------------------------------------------------------------------------
-	
-	
+	// -------------------------------------------------------------------------------------------------------------
+
 	public static String retornarBanderaEquipo(String nombreEquipo) {
-		
+
 		String bandera = capaLogica.retornarBanderaEquipo(nombreEquipo);
 		return bandera;
 	}
-	
+
 	public static Usuario retornarUsuario(String nombreUsuario) {
-		
+
 		Usuario temp = CL.retornarUsuario(nombreUsuario);
 		return temp;
 	}
-	
+
 	public static LigasPublicas retornarLigaPublica(String nombreLiga) {
-		
+
 		LigasPublicas temp = CL.retornarLigaPublica(nombreLiga);
-		
-		return temp;
-	}
-	
-	public static LigasPrivadas retornarLigaPrivada(String nombreLiga) {
-		
-		LigasPrivadas temp = CL.retornarLigaPrivada(nombreLiga);
-		
+
 		return temp;
 	}
 
-	//-------------------------------------------------------------------------------------------------------------
+	public static LigasPrivadas retornarLigaPrivada(String nombreLiga) {
+
+		LigasPrivadas temp = CL.retornarLigaPrivada(nombreLiga);
+
+		return temp;
+	}
+	//--------------------------------------------------------------------------------------------------------------
 	
-	
+	public static void registrarAnfitriones(String nombre) {
+
+		capaLogica.registrarAnfitriones(nombre);
+
+	}
+
+	public static void listarAnfitrionesFIFA() {
+
+		ArrayList<Anfitrion> ListaTemp = capaLogica.listarAnfitrionesFIFA();
+
+		for (Anfitrion e : ListaTemp) {
+
+			System.out.println(e.toString());
+
+		}
+
+	}
+	// -------------------------------------------------------------------------------------------------------------
 
 	public boolean validarLigaPublica(String nombre) {
-		
+
 		ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.listaLigasPublicas();
 
 		boolean buscar = false;
@@ -287,9 +307,9 @@ public class Gestor {
 
 		return true;
 	}
-	
+
 	public boolean validarLigaPrivada(String nombre) {
-		
+
 		ArrayList<LigasPrivadas> listaLigasPrivadas = capaLogica.listaLigasPrivadas();
 
 		boolean buscar = false;
@@ -301,8 +321,7 @@ public class Gestor {
 
 		return true;
 	}
-	
-	
+
 	public boolean validarLigaMundial(String paisOrganizador) {
 		
 		ArrayList<Mundiales> listaMundiales = capaLogica.listaMundiales();
@@ -316,45 +335,56 @@ public class Gestor {
 
 		return true;
 	}
-	
-	//-------------------------------------------------------------------------------------------------------------
-	
-	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
-		
-		CL.asignarLigaPublicaUsuario( nombreUsuario, liga);
-		
-	}
-	
-	public static void asignarLigaPrivadaUsuario(String nombreUsuario, LigasPrivadas liga) {
-		
-		CL.asignarLigaPrivadaUsuario( nombreUsuario, liga);
-		
-	}
-	
-	//-------------------------------------------------------------------------------------------------------------
-	
-	
-	public static void removerLigaPublicaUsuario(String nombreLiga, LigasPublicas liga) {
-		
-		CL.removerLigaPublicaUsuario( nombreLiga, liga);
-		
-	}
-	
-	public static void removerLigaPrivadaUsuario(String nombreLiga, LigasPrivadas liga) {
-		
-		CL.removerLigaPrivadaUsuario( nombreLiga, liga);
-		
-	}
-	
-	//-------------------------------------------------------------------------------------------------------------
-	
-	public static String comprobarTipoLiga(String nombreLiga) {
-		String comprobante="";
-		
-		CL.comprobarTipoLiga(nombreLiga);
-		
-		return comprobante;
+	public boolean validarMundial(String mundialAnfitrion) {
+
+		ArrayList<LigasPublicas> listaMundiales = capaLogica.listaLigasPublicas();
+
+		boolean buscar = false;
+		for (LigasPublicas LigasPublicas : listaMundiales) {
+			if (LigasPublicas.getMundialAnfitrion().equals(mundialAnfitrion)) {
+				buscar = true;
+			}
+		}
+
+		return true;
 	}
 
+	// -------------------------------------------------------------------------------------------------------------
+
+	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
+
+		CL.asignarLigaPublicaUsuario(nombreUsuario, liga);
+
+	}
+
+	public static void asignarLigaPrivadaUsuario(String nombreUsuario, LigasPrivadas liga) {
+
+		CL.asignarLigaPrivadaUsuario(nombreUsuario, liga);
+
+	}
+
+	// -------------------------------------------------------------------------------------------------------------
+
+	public static void removerLigaPublicaUsuario(String nombreLiga, LigasPublicas liga) {
+
+		CL.removerLigaPublicaUsuario(nombreLiga, liga);
+
+	}
+
+	public static void removerLigaPrivadaUsuario(String nombreLiga, LigasPrivadas liga) {
+
+		CL.removerLigaPrivadaUsuario(nombreLiga, liga);
+
+	}
+
+	// -------------------------------------------------------------------------------------------------------------
+
+	public static String comprobarTipoLiga(String nombreLiga) {
+		String comprobante = "";
+
+		CL.comprobarTipoLiga(nombreLiga);
+
+		return comprobante;
+	}
 
 }

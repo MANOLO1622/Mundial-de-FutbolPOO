@@ -154,6 +154,9 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			if(this.miUsuario.getMiLigaPublica() == null) {
 				
+				
+				
+				
 				this.miUsuario.setMiLigaPublica(ligaPublicaTemporal);
 				Gestor.asignarLigaPublicaUsuario(this.miUsuario.getNombreUsuario(), ligaPublicaTemporal);
 				JOptionPane.showMessageDialog(null,this.miUsuario.getAvatar() + " fue agregado a la liga Publica: " + this.miUsuario.getMiLigaPublica().getNombreLiga());

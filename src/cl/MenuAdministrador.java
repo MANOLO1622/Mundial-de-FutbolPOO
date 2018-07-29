@@ -39,10 +39,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JTextField anoTXT = new JTextField(10);
 	JLabel labelPaisOrganizador = new JLabel("Pais Organizador:");
 	JComboBox paisesOrganizadores = new JComboBox();
+	JLabel labelMundialAnfitrion = new JLabel("Mundial Anfitrión:");
+	JComboBox MundialAnfitrion = new JComboBox();
 	JLabel labelEstados = new JLabel("Estado:");
 	JTextField estadosTXT = new JTextField(10);
 	
-	JButton btnRegistrarLigaPublica = new JButton("PRUEBA");
+	JButton btnRegistrarLigaPublica = new JButton("Registrar");
 	JButton btnRegistrarLigaPrivada = new JButton("");
 	JButton btnCancelar = new JButton("Cancelar");
 	JButton btnRegistrarMundial = new JButton("Registrar");
@@ -212,7 +214,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 			
 			if (nombreLigaTXT.getText().equals("") || equiposTXT.getText().equals("")
-					|| estadoTXT.getText().equals("")) {
+					|| "".equals((String)MundialAnfitrion.getSelectedItem())) {
 
 				JOptionPane.showMessageDialog(null, "Hay campos vacios, debe llenar todos los campos.");
 
@@ -221,7 +223,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 			else {
 
-				boolean b = controlador.validarLigaPublica(nombreLigaTXT.getText());
+				boolean b = controlador.validarMundial((String)MundialAnfitrion.getSelectedItem());
 
 				if (b == false) {
 
@@ -235,7 +237,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 					Date fecha = new Date();
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-					controlador.registrarLigaPublicas( nombreLigaTXT.getText(),fechaRegistro, true,1,2);
+					controlador.registrarLigaPublicas(nombreLigaTXT.getText(),fechaRegistro, true,1,2,(String)MundialAnfitrion.getSelectedItem());
 					controlador.listarLigasPublicas();
 
 					JOptionPane.showMessageDialog(null, "¡Liga Publica registrada Exitosamente!.");
@@ -315,7 +317,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		if (e.getSource() == btnRegistroLigaPrivada) {
 
 			if (nombreLigaTXT.getText().equals("") || equiposTXT.getText().equals("")
-					|| estadoTXT.getText().equals("")) {
+					|| "".equals((String)MundialAnfitrion.getSelectedItem())) {
 
 				JOptionPane.showMessageDialog(null, "Hay campos vacios, debe llenar todos los campos.");
 
@@ -323,7 +325,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 			else {
 
-				boolean b = controlador.validarLigaPrivada(nombreLigaTXT.getText());
+				boolean b = controlador.validarMundial((String)MundialAnfitrion.getSelectedItem());
 
 				if (b == false) {
 
@@ -336,7 +338,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 					Date fecha = new Date();
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-					controlador.registrarLigaPrivadas(nombreLigaTXT.getText(), fechaRegistro, true, 1, 2);
+					controlador.registrarLigaPrivadas(nombreLigaTXT.getText(), fechaRegistro, true, 1, 2,(String)MundialAnfitrion.getSelectedItem());
 					controlador.listarLigasPrivadas();
 
 					JOptionPane.showMessageDialog(null, "¡Liga Privada registrada Exitosamente!.");
@@ -374,12 +376,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.add(equiposTXT);
 		equiposTXT.setBounds(1080, 70, 200, 20);
 
-		this.add(labelEstado);
-		labelEstado.setForeground(Color.WHITE);
-		labelEstado.setBounds(950, 110, 200, 30);
-
-		this.add(estadoTXT);
-		estadoTXT.setBounds(1080, 110, 200, 20);
+		this.add(labelMundialAnfitrion);
+		labelMundialAnfitrion.setForeground(Color.WHITE);
+		labelMundialAnfitrion.setBounds(950, 110, 200, 30);
+		
+		this.add(MundialAnfitrion);
+		MundialAnfitrion.setBounds(1080, 110, 200, 20);
 
 		this.add(btnRegistroLigaPublica);
 		btnRegistroLigaPublica.setBounds(950, 200, 120, 25);
@@ -405,12 +407,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.add(equiposTXT);
 		equiposTXT.setBounds(1080, 70, 200, 20);
 
-		this.add(labelEstado);
-		labelEstado.setForeground(Color.WHITE);
-		labelEstado.setBounds(950, 110, 200, 30);
-
-		this.add(estadoTXT);
-		estadoTXT.setBounds(1080, 110, 200, 20);
+		this.add(labelMundialAnfitrion);
+		labelMundialAnfitrion.setForeground(Color.WHITE);
+		labelMundialAnfitrion.setBounds(950, 110, 200, 30);
+		
+		this.add(MundialAnfitrion);
+		MundialAnfitrion.setBounds(1080, 110, 200, 20);
 
 		this.add(btnRegistroLigaPrivada);
 		btnRegistroLigaPrivada.setBounds(950, 200, 120, 25);
@@ -440,12 +442,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.add(paisesOrganizadores);
 		paisesOrganizadores.setBounds(1080, 70, 200, 20);
 		
-		this.add(labelEstados);
+		/*this.add(labelEstados);
 		labelEstados.setForeground(Color.WHITE);
 		labelEstados.setBounds(950, 110, 200, 30);
 		
 		this.add(estadosTXT);
-		estadosTXT.setBounds(1080, 110, 200, 20);
+		estadosTXT.setBounds(1080, 110, 200, 20);*/
 		
 		this.add(btnRegistrarMundial);
 		btnRegistrarMundial.setBounds(950, 200, 120, 25);
@@ -478,7 +480,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.remove(labelAno);
 		this.remove(anoTXT);
 		this.remove(labelPaisOrganizador);
+		this.remove(labelMundialAnfitrion);
 		this.remove(paisesOrganizadores);
+		this.remove(MundialAnfitrion);
 		this.remove(labelEstados);
 		this.remove(estadosTXT);
 		this.remove(btnRegistroLigaPrivada);
@@ -513,6 +517,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		estadoTXT.setText("");
 		anoTXT.setText("");
 		paisesOrganizadores.removeAll();
+		MundialAnfitrion.removeAll();
 		estadosTXT.setText("");
 		
 	}
@@ -525,6 +530,18 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		ArrayList<Equipo> listaTemporal = Gestor.retornarEquiposRegistrados();
 		
 		for(Equipo e: listaTemporal) {
+			
+			paisesOrganizadores.addItem(e.getNombre());
+			
+		}
+		
+	}
+	
+	public void ingresarAnfitriones() {
+		
+		ArrayList<Equipo> listaTemporal = Gestor.retornarEquiposRegistrados();
+		
+		for(Equipo e: listaTemporal) {	
 			
 			paisesOrganizadores.addItem(e.getNombre());
 			
