@@ -8,16 +8,16 @@ import gestor.*;
 @SuppressWarnings("serial")
 public class Login extends JPanel implements ActionListener, KeyListener{
 	
-	private static JLabel labelNomUsuario = new JLabel("Usuario");
-	private static JTextField usuarioTXT = new JTextField(10);
-	private static JLabel labelContrasenaUsuario = new JLabel("Contraseña");
-	private static JPasswordField contrasenaTXT = new JPasswordField(10);
-	private static JLabel labelMostrarContrasena = new JLabel();
-	private static ImageIcon ojo = new ImageIcon("src\\graficos\\eye.png");
-	private static JButton btnIngreso = new JButton("Iniciar Sesión");
-	private static JButton btnRegistrarUsuario = new JButton("Registrarse");
-	private static JButton btnSalir = new JButton("Salir");
-    private static Image imagen;
+	private JLabel labelNomUsuario = new JLabel("Usuario");
+	private JTextField usuarioTXT = new JTextField(10);
+	private JLabel labelContrasenaUsuario = new JLabel("Contraseña");
+	private JPasswordField contrasenaTXT = new JPasswordField(10);
+	private JLabel labelMostrarContrasena = new JLabel();
+	private ImageIcon ojo = new ImageIcon("src\\graficos\\eye.png");
+	private JButton btnIngreso = new JButton("Iniciar Sesión");
+	private JButton btnRegistrarUsuario = new JButton("Registrarse");
+	private JButton btnSalir = new JButton("Salir");
+    private Image imagen;
     
     
 	public Login () {
@@ -133,8 +133,8 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 					ventanaUsuario.setUsuarioActual(UsuarioActual);
 					ventanaUsuario.ventanaMenuUsuarios(perfil, ventanaUsuario);
 										
-					usuarioTXT.setText("");
-					contrasenaTXT.setText("");
+//					usuarioTXT.setText("");
+//					contrasenaTXT.setText("");
 					
 					SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 					
@@ -222,8 +222,8 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 						ventanaUsuario.setUsuarioActual(UsuarioActual);
 						ventanaUsuario.ventanaMenuUsuarios(perfil, ventanaUsuario);
 											
-						usuarioTXT.setText("");
-						contrasenaTXT.setText("");
+//						usuarioTXT.setText("");
+//						contrasenaTXT.setText("");
 						
 						SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 						

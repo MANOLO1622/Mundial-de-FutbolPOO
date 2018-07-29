@@ -335,6 +335,7 @@ public class Gestor {
 
 		return true;
 	}
+<<<<<<< HEAD
 	public boolean validarMundial(String mundialAnfitrion) {
 
 		ArrayList<LigasPublicas> listaMundiales = capaLogica.listaLigasPublicas();
@@ -347,6 +348,46 @@ public class Gestor {
 		}
 
 		return true;
+=======
+	
+	//-------------------------------------------------------------------------------------------------------------
+	
+	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
+		
+		CL.asignarLigaPublicaUsuario( nombreUsuario, liga);
+		
+	}
+	
+	public static void asignarLigaPrivadaUsuario(String nombreUsuario, LigasPrivadas liga) {
+		
+		CL.asignarLigaPrivadaUsuario( nombreUsuario, liga);
+		
+	}
+	
+	//-------------------------------------------------------------------------------------------------------------
+	
+	
+	public static void removerLigaPublicaUsuario(String nombreUsuario) {
+		
+		CL.removerLigaPublicaUsuario( nombreUsuario);
+		
+	}
+	
+	public static void removerLigaPrivadaUsuario(String nombreUsuario) {
+		
+		CL.removerLigaPrivadaUsuario( nombreUsuario);
+		
+	}
+	
+	//-------------------------------------------------------------------------------------------------------------
+	
+	public static String comprobarTipoLiga(String nombreLiga) {
+		String comprobante="";
+		
+		CL.comprobarTipoLiga(nombreLiga);
+		
+		return comprobante;
+>>>>>>> branch 'master' of https://github.com/MANOLO1622/Mundial-de-FutbolPOO.git
 	}
 
 	// -------------------------------------------------------------------------------------------------------------
