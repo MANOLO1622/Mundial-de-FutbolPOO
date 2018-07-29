@@ -219,11 +219,7 @@ public class CL {
 	//------------------------------------------------------------------------------------------------
 	
 	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
-		
-		
-		JOptionPane.showMessageDialog(null, "asignacion de liga a usuario" + liga.toString());
-		
-		
+				
 		int indice=0;
 		
 			for(Usuario e: listaUsuarios) {
