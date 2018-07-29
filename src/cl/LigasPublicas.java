@@ -2,6 +2,8 @@ package cl;
 
 import java.time.LocalDate;
 
+import javax.swing.JOptionPane;
+
 public class LigasPublicas extends Ligas {
 
 	int puntos;
@@ -41,7 +43,7 @@ public class LigasPublicas extends Ligas {
         return mundialAnfitrion;
     }
 
-	public void setMundialAnfitrion(Mundiales MundialAnfitrion) {
+	public void setMundialAnfitrion(Mundiales mundialAnfitrion) {
         this.mundialAnfitrion = mundialAnfitrion;
     }
 	
@@ -56,8 +58,8 @@ public class LigasPublicas extends Ligas {
 
 	@Override
 	public String toString() {
-		return "LigasPublicas [puntos=" + puntos + ", bono=" + bono + ", mundialAnfitrion=" + mundialAnfitrion
-				+ ", unaConstante=" + unaConstante + "]";
+		return "LigasPublicas: " + super.toString() + " puntos=" + puntos + ", bono=" + bono + ", mundialAnfitrion=" + mundialAnfitrion
+				+ ", unaConstante=" + unaConstante;
 	}
 
 

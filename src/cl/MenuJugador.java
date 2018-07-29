@@ -149,9 +149,6 @@ public class MenuJugador extends JPanel implements ActionListener{
 			LigasPrivadas ligaPrivadaTemp = this.miUsuario.getMiLigaPrivada();
 			LigasPublicas ligaPublicaTemp = this.miUsuario.getMiLigaPublica();
 			
-			
-			
-			
 			if(ligaPrivadaTemp == null) {
 				
 				JOptionPane.showMessageDialog(null, "No hay ligas Privadas");
@@ -207,14 +204,15 @@ public class MenuJugador extends JPanel implements ActionListener{
 		if(e.getSource() == btnUnirseLiga) {
 			
 			LigasPublicas ligaPublicaTemporal = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());
+			JOptionPane.showMessageDialog(null,Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem()).toString());
+			
+			
+			
 			
 			String opcionEscogida = (String) ligasRegistradas.getSelectedItem();
 			this.setMiUsuario(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
 			
 			if(this.miUsuario.getMiLigaPublica() == null) {
-				
-				
-				
 				
 				this.miUsuario.setMiLigaPublica(ligaPublicaTemporal);
 				Gestor.asignarLigaPublicaUsuario(this.miUsuario.getNombreUsuario(), ligaPublicaTemporal);
@@ -228,6 +226,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 				
 			}
 			
+			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
 			removerMenus();
 	
 		}

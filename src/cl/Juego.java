@@ -31,7 +31,7 @@ public class Juego extends JPanel implements ActionListener{
 	
 	public Juego(Usuario miUsuarioActual) {
 		
-		this.miUsuarioActual = miUsuarioActual;
+		this.miUsuarioActual = Gestor.retornarUsuario(miUsuarioActual.getNombreUsuario());
 		
 		inicializarComponentes();
 		this.setLayout(null);

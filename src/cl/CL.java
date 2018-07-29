@@ -136,10 +136,9 @@ public class CL {
 				temp.setPuntos(e.getPuntos());
 				temp.setBono(e.getBono());
 				temp.setMundialAnfitrion(e.getMundialAnfitrion());
-						
+										
 			}	
 		}
-		
 		return temp;
 	}
 	public static ArrayList<Mundiales> retornarMundialesRegistrados(){
@@ -220,6 +219,10 @@ public class CL {
 	//------------------------------------------------------------------------------------------------
 	
 	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
+		
+		
+		JOptionPane.showMessageDialog(null, "asignacion de liga a usuario" + liga.toString());
+		
 		
 		int indice=0;
 		
