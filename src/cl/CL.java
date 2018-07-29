@@ -348,7 +348,6 @@ public class CL {
 				
 				
 				for(Equipo e: mundialTemp.getEquiposMundial()) {
-					System.out.println(e.getNombre()+ " lectura" + listaEquiposFIFA.get(valorAleatorio).getNombre());
 					
 					if(e==listaEquiposFIFA.get(valorAleatorio)){
 						

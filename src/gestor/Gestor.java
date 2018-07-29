@@ -289,26 +289,6 @@ public class Gestor {
 
 		return temp;
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	
-	/*public static void registrarAnfitriones(String nombre) {
-
-		capaLogica.registrarAnfitriones(nombre);
-
-	}
-
-	public static void listarAnfitrionesFIFA() {
-
-		ArrayList<Anfitrion> ListaTemp = capaLogica.listarAnfitrionesFIFA();
-
-		for (Anfitrion e : ListaTemp) {
-
-			System.out.println(e.toString());
-
-		}
-
-	}*/
-	// -------------------------------------------------------------------------------------------------------------
 
 	public boolean validarLigaPublica(String nombre) {
 

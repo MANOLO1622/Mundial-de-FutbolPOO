@@ -63,7 +63,6 @@ public class Juego extends JPanel implements ActionListener{
 		if(e.getSource() == equipos) {
 			
 			String b = controlador.retornarBanderaEquipo((String) equipos.getSelectedItem());
-			System.out.println((String) equipos.getSelectedItem());
 			banderaImagen = new ImageIcon(b);
 			Icon icono = new ImageIcon(banderaImagen.getImage().getScaledInstance(bandera.getWidth(), bandera.getHeight(), Image.SCALE_DEFAULT));
 			bandera.setIcon(icono);
