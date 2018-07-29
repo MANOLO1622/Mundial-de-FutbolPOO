@@ -48,22 +48,6 @@ public class CL {
 		return listaEquiposFIFA;
 	}
 	
-	
-	/*//---------------------------------------------------------------------------------------------------------------
-	
-	public static void registrarAnfitriones(String nombre) {
-		
-		Anfitrion anfitrionTemp = new Anfitrion(nombre);
-		
-		listaAnfitrionesFIFA.add(anfitrionTemp);
-		
-	}
-	
-	public static ArrayList<Anfitrion> listarAnfitrionesFIFA() {
-		
-		return listaAnfitrionesFIFA;
-	}*/
-	
 	//---------------------------------------------------------------------------------------------------------------
 	public static void registrarMundial(Mundiales registro) {
 		
