@@ -52,7 +52,7 @@ public class LigasPublicas extends Ligas {
 	
 	public void setMundialAnfitrion(String MundialAnfitrion) {
         this.mundialAnfitrion = mundialAnfitrion;
-    }
+    }//
 
 
 	@Override
