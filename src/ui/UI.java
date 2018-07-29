@@ -24,23 +24,9 @@ public class UI {
 		Gestor controlador = new Gestor();
 		controlador.registrarUsuario("admin", "Proyecto", "q","q","Mr.Administrador","admin@POO.com", 1);
 		controlador.registrarUsuario("Jugador","Proyecto","j","j","Mr.Jugador","player@POO.com",2);
-		controlador.registrarUsuario("Viewer","Proyecto","v","v","Mr.Observador","viewer@POO.com",3);
-		
-		
-		LocalDate fechaPrueba = null;
-
-		controlador.registrarLigaPublicas("Liga Publica 1", fechaPrueba, true, 100, 100, null);
-		controlador.registrarLigaPublicas("Liga Publica 2", fechaPrueba, true, 100, 100,null);
-
-		
+		controlador.registrarUsuario("Viewer","Proyecto","v","v","Mr.Observador","viewer@POO.com",3);		
 		registrarEquiposFIFA();
-		controlador.listarEquiposFIFA();
-		
-//		registrarAnfitrionesFIFA();
-//		controlador.listarAnfitrionesFIFA();
-		
-		controlador.listarUsuarios();
-		
+
 		Ventana ventLogin = new Ventana(new Usuario(null, null, null, null, null, null, 0));
 		ventLogin.setResizable(false);
 		ventLogin.ventanaLogin();
