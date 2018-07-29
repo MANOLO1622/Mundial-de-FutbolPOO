@@ -9,6 +9,7 @@ public class Ligas {
     private String nombreLiga;
     private LocalDate fechaCreacion;
     private boolean estado;
+    private boolean tipoLiga;
 
     public Ligas() {
     }
@@ -45,7 +46,15 @@ public class Ligas {
         this.estado = estado;
     }
 
-    @Override
+    public boolean isTipoLiga() {
+		return tipoLiga;
+	}
+
+	public void setTipoLiga(boolean tipoLiga) {
+		this.tipoLiga = tipoLiga;
+	}
+
+	@Override
     public String toString() {
         return "Ligas{" + "nombreLiga=" + nombreLiga + ", fechaCreacion=" + fechaCreacion + ", estado=" + estado + '}';
     }

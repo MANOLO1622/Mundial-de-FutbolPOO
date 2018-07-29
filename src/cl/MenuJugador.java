@@ -174,16 +174,14 @@ public class MenuJugador extends JPanel implements ActionListener{
 				}
 					
 			}
-			
-			
-			
-			
-			
-			
-			
+
 			if(ligaPrivadaTemp == null && ligaPublicaTemp == null) {
 				
 				btnRetirarseLiga.setEnabled(false);
+				
+			}else {
+				
+				btnRetirarseLiga.setEnabled(true);
 				
 			}
 			
@@ -216,7 +214,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		if(e.getSource() == btnUnirseLiga) {
 			
 			LigasPublicas ligaPublicaTemporal = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());
-
+			
 			String opcionEscogida = (String) ligasRegistradas.getSelectedItem();
 			this.setMiUsuario(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
 			
@@ -259,7 +257,15 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		if(e.getSource() == btnRetirarseLiga) {
 			
-
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			
 			
 			removerMenus();
