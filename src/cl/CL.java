@@ -356,12 +356,15 @@ public class CL {
 			Mundiales mundialTemp = CL.retornarMundial(nombreMundial);
 			
 			while(cupoEquipos<32) {
+				registroEstado = false;
 				Random aleatorio = new Random();
 				int valorAleatorio = aleatorio.nextInt(listaEquiposFIFA.size());
-
+				
+				
 				for(Equipo e: mundialTemp.getEquiposMundial()) {
+					System.out.println(e.getNombre()+ " lectura" + listaEquiposFIFA.get(valorAleatorio).getNombre());
 					
-					if(e == listaEquiposFIFA.get(valorAleatorio)){
+					if(e==listaEquiposFIFA.get(valorAleatorio)){
 						
 						registroEstado = true;
 						
@@ -376,20 +379,16 @@ public class CL {
 				}
 				
 			}
-			
-			
-			System.out.println("===========================Equipos Registrados en el mundial"+mundialTemp.getNombreMundial()+"===========================");
-			
-			for(Equipo e: mundialTemp.getEquiposMundial()) {
+			for(Mundiales e: listaMundiales) {
 				
-				System.out.println(mundialTemp.getEquiposMundial().indexOf(e)+e.getNombre());
-				
+				if(e.getNombreMundial().equals(mundialTemp.getNombreMundial())) {
+
+					listaMundiales.set(listaMundiales.indexOf(e), mundialTemp);					
+				}	
 			}
 			
-			
 		}
-	
-	
+
 }
 
 

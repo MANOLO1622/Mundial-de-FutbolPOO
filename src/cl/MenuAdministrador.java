@@ -54,8 +54,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JButton btnRegistroLigaPublica = new JButton("Registrar");
 	JButton btnRegistroLigaPrivada = new JButton("Registrar");
 	JButton btnSalir = new JButton("Salir");
-	
-	
+
 
 	private static Image imagen2;
 
@@ -186,10 +185,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
 					controlador.registrarMundial(nombreMundialTXT.getText(), fechaRegistro, (String)paisesOrganizadores.getSelectedItem(), true);
-//					controlador.sortearEquipoMundial(nombreMundialTXT.getText());
+					controlador.sortearEquipoMundial(nombreMundialTXT.getText());
 					controlador.listarMundiales();
 
 					JOptionPane.showMessageDialog(null, "¡Mundial registrada Exitosamente!.");
+					
+					
 
 					removerMenus();
 					
