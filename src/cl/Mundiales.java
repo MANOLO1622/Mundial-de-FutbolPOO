@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 public class Mundiales {
     
+	private String nombreMundial;
     private LocalDate ano;
     private String paisOrganizador;
    
@@ -13,8 +14,9 @@ public class Mundiales {
     public Mundiales() {
     }
 
-    public Mundiales(LocalDate ano, String paisOrganizador,  boolean estado) {
-        this.ano = ano;
+    public Mundiales( String nombreMundial, LocalDate ano, String paisOrganizador,  boolean estado) {
+        this.nombreMundial = nombreMundial;
+    	this.ano = ano;
         this.paisOrganizador = paisOrganizador;
         this.estado = estado;
     }
@@ -45,6 +47,14 @@ public class Mundiales {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
+	public String getNombreMundial() {
+		return nombreMundial;
+	}
+
+	public void setNombreMundial(String nombreMundial) {
+		this.nombreMundial = nombreMundial;
+	}
 
 	@Override
 	public String toString() {

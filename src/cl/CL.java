@@ -162,9 +162,9 @@ public class CL {
 		
 		return temp;
 	}
-	public static ArrayList<Anfitrion> retornarAnfitrionesgistrados(){
+	public static ArrayList<Mundiales> retornarMundialesRegistrados(){
 		
-		return listaAnfitrionesFIFA;
+		return listaMundiales;
 		
 	}
 	

@@ -35,11 +35,14 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JLabel labelEstado = new JLabel("Estado:");
 	JTextField estadoTXT = new JTextField(10);
 	
+	JLabel labelNombreMundial = new JLabel("Nombre del Mundial.");
+	JTextField nombreMundialTXT = new JTextField();
+	
 	JLabel labelAno = new JLabel("Año: ");
 	JTextField anoTXT = new JTextField(10);
 	JLabel labelPaisOrganizador = new JLabel("Pais Organizador:");
 	JComboBox paisesOrganizadores = new JComboBox();
-	JLabel labelMundialAnfitrion = new JLabel("Mundial Anfitrión:");
+	JLabel labelMundialAnfitrion = new JLabel("Pais Anfitrión:");
 	JComboBox MundialAnfitrion = new JComboBox();
 	JLabel labelEstados = new JLabel("Estado:");
 	JTextField estadosTXT = new JTextField(10);
@@ -63,7 +66,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	public MenuAdministrador(Usuario miUsuario) {
 		
 		this.miUsuario = miUsuario;
-		ingresarPaises();
+		ingresarComboBox();
 		
 		boton1 = new JButton("Usuarios");
 		this.setLayout(null);
@@ -145,8 +148,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		if (e.getSource() == boton10) {
 			
-			registrarMundial();
-			desabilitarMenu();
+			JOptionPane.showMessageDialog(null, "Arreglelo");
 
 		}
 		
@@ -160,8 +162,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		if (e.getSource() == btnRegistrarMundial) {
 
+			ingresarComboBox();
+			
 			if (anoTXT.getText().equals("") || "".equals((String)paisesOrganizadores.getSelectedItem())
-					|| estadosTXT.getText().equals("")) {
+					|| nombreMundialTXT.getText().equals("")) {
 
 				JOptionPane.showMessageDialog(null, "Hay campos vacios, debe llenar todos los campos.");
 
@@ -181,7 +185,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 					Date fecha = new Date();
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-					controlador.registrarMundial(fechaRegistro, (String)paisesOrganizadores.getSelectedItem(), true);
+					controlador.registrarMundial(nombreMundialTXT.getText(), fechaRegistro, (String)paisesOrganizadores.getSelectedItem(), true);
 					controlador.listarMundiales();
 
 					JOptionPane.showMessageDialog(null, "¡Mundial registrada Exitosamente!.");
@@ -207,11 +211,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 				desabilitarMenu();
 				registrarLigaPublicas();
+				ingresarComboBox();
+
 			
 		}
 
 		if (e.getSource() == btnRegistroLigaPublica) {
-
 			
 			if (nombreLigaTXT.getText().equals("") || equiposTXT.getText().equals("")
 					|| "".equals((String)MundialAnfitrion.getSelectedItem())) {
@@ -242,31 +247,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 					JOptionPane.showMessageDialog(null, "¡Liga Publica registrada Exitosamente!.");
 
-
-
-					this.remove(labelNombreLiga);
-					this.remove(nombreLigaTXT);
-					this.remove(labelEquipos);
-					this.remove(equiposTXT);
-					this.remove(labelEstado);
-					this.remove(estadoTXT);
-					this.remove(btnCancelar);
-
-					
-					
-					
-
-					boton1.setEnabled(true);
-					boton2.setEnabled(true);
-					boton3.setEnabled(true);
-					boton10.setEnabled(true);
-					boton11.setEnabled(true);
-					botonLigaPublica.setEnabled(true);
-					btnRegistrarLigaPrivada.setEnabled(true);
-					botonSalir.setEnabled(true);
-
-					
-
 					removerMenus();
 
 
@@ -277,25 +257,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 
 		if (e.getSource() == btnCancelar) {
-			//--- REMUEVE LO BOTONES DEL FORMULARIO
-			this.remove(labelNombreLiga);
-			this.remove(nombreLigaTXT);
-			this.remove(labelEquipos);
-			this.remove(equiposTXT);
-			this.remove(labelEstado);
-			this.remove(estadoTXT);
-			this.remove(btnCancelar);
 			
-
-			boton1.setEnabled(true);
-			boton2.setEnabled(true);
-			boton3.setEnabled(true);
-			boton10.setEnabled(true);
-			boton11.setEnabled(true);
-			botonLigaPublica.setEnabled(true);
-			btnRegistrarLigaPublica.setEnabled(true);
-			botonSalir.setEnabled(true);
-
+			removerMenus();
+			
 		}
 
 
@@ -311,6 +275,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 			registrarLigaPrivadas();
 			desabilitarMenu();
+			ingresarComboBox();
 		}
 		
 		
@@ -387,7 +352,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		btnRegistroLigaPublica.setBounds(950, 200, 120, 25);
 
 		this.add(btnCancelar);
-		btnCancelar.setBounds(1080, 200, 120, 25	);
+		btnCancelar.setBounds(1080, 200, 120, 25);
 
 	}
 
@@ -426,7 +391,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	//----------------------------------MUNDIALES-----------------------------------------------------------------
 
 
-	public void registrarMundial () {
+	public void registrarMundial() {
     		
 		this.add(labelAno);
 		labelAno.setForeground(Color.WHITE);
@@ -442,12 +407,13 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.add(paisesOrganizadores);
 		paisesOrganizadores.setBounds(1080, 70, 200, 20);
 		
-		/*this.add(labelEstados);
-		labelEstados.setForeground(Color.WHITE);
-		labelEstados.setBounds(950, 110, 200, 30);
 		
-		this.add(estadosTXT);
-		estadosTXT.setBounds(1080, 110, 200, 20);*/
+		this.add(labelNombreMundial);
+		labelNombreMundial.setForeground(Color.WHITE);
+		labelNombreMundial.setBounds(950, 110, 200, 30);
+		
+		this.add(nombreMundialTXT);
+		nombreMundialTXT.setBounds(1080, 110, 200, 20);
 		
 		this.add(btnRegistrarMundial);
 		btnRegistrarMundial.setBounds(950, 200, 120, 25);
@@ -487,6 +453,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.remove(estadosTXT);
 		this.remove(btnRegistroLigaPrivada);
 		
+		this.remove(labelNombreMundial);
+		this.remove(nombreMundialTXT);
 		
 		
 		boton1.setEnabled(true);
@@ -516,18 +484,28 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		equiposTXT.setText("");
 		estadoTXT.setText("");
 		anoTXT.setText("");
-		paisesOrganizadores.removeAll();
-		MundialAnfitrion.removeAll();
 		estadosTXT.setText("");
+		nombreMundialTXT.setText("");
 		
 	}
+	
+
 	
 	// -------------------------------------------------------------------------------------------------
 	
 	
+	public void ingresarComboBox() {
+		
+		ingresarPaises();
+		ingresarMundiales();
+		
+	}
+	
 	public void ingresarPaises() {
 		
 		ArrayList<Equipo> listaTemporal = Gestor.retornarEquiposRegistrados();
+		
+		paisesOrganizadores.removeAllItems();
 		
 		for(Equipo e: listaTemporal) {
 			
@@ -537,17 +515,25 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 	}
 	
-	public void ingresarAnfitriones() {
+	public void ingresarMundiales() {
 		
-		ArrayList<Equipo> listaTemporal = Gestor.retornarEquiposRegistrados();
+		ArrayList<Mundiales> listaTemporal = Gestor.retornarMundialesRegistrados();
 		
-		for(Equipo e: listaTemporal) {	
+		MundialAnfitrion.removeAllItems();
+		
+		for(Mundiales e: listaTemporal) {	
 			
-			paisesOrganizadores.addItem(e.getNombre());
+			MundialAnfitrion.addItem(e.getNombreMundial());
 			
 		}
 		
 	}
+	
+	
+	
+	
+	
+	
 	
 	
 	// -------------------------------------------------------------------------------------------------
@@ -574,16 +560,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	}
 
 	// -------------------------------------------------------------------------------------------------
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
 	
 }
 	

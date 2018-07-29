@@ -20,9 +20,9 @@ public class Gestor {
 
 	}
 
-	public void registrarMundial(LocalDate ano, String paisOrganizador, boolean estado) {
+	public void registrarMundial(String nombreMundial, LocalDate ano, String paisOrganizador, boolean estado) {
 
-		Mundiales registro = new Mundiales(ano, paisOrganizador,  estado);
+		Mundiales registro = new Mundiales(nombreMundial, ano, paisOrganizador,  estado);
 		capaLogica.registrarMundial(registro);
 
 	}
@@ -219,11 +219,11 @@ public class Gestor {
 		return listaEquiposRegistrados;
 	}
 	
-	public static ArrayList<Anfitrion> retornarAnfitrionesRegistrados() {
+	public static ArrayList<Mundiales> retornarMundialesRegistrados() {
 
-		ArrayList<Anfitrion> listaAnfitrionesRegistrados = CL.retornarAnfitrionesgistrados();
+		ArrayList<Mundiales> listaMundialesRegistrados = CL.retornarMundialesRegistrados();
 
-		return listaAnfitrionesRegistrados;
+		return listaMundialesRegistrados;
 	}
 
 	// -------------------------------------------------------------------------------------------------------------
@@ -335,7 +335,7 @@ public class Gestor {
 
 		return true;
 	}
-<<<<<<< HEAD
+
 	public boolean validarMundial(String mundialAnfitrion) {
 
 		ArrayList<LigasPublicas> listaMundiales = capaLogica.listaLigasPublicas();
@@ -348,7 +348,8 @@ public class Gestor {
 		}
 
 		return true;
-=======
+	}
+
 	
 	//-------------------------------------------------------------------------------------------------------------
 	
@@ -377,55 +378,6 @@ public class Gestor {
 		
 		CL.removerLigaPrivadaUsuario( nombreUsuario);
 		
-	}
-	
-	//-------------------------------------------------------------------------------------------------------------
-	
-	public static String comprobarTipoLiga(String nombreLiga) {
-		String comprobante="";
-		
-		CL.comprobarTipoLiga(nombreLiga);
-		
-		return comprobante;
->>>>>>> branch 'master' of https://github.com/MANOLO1622/Mundial-de-FutbolPOO.git
-	}
-
-	// -------------------------------------------------------------------------------------------------------------
-
-	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
-
-		CL.asignarLigaPublicaUsuario(nombreUsuario, liga);
-
-	}
-
-	public static void asignarLigaPrivadaUsuario(String nombreUsuario, LigasPrivadas liga) {
-
-		CL.asignarLigaPrivadaUsuario(nombreUsuario, liga);
-
-	}
-
-	// -------------------------------------------------------------------------------------------------------------
-
-	public static void removerLigaPublicaUsuario(String nombreLiga, LigasPublicas liga) {
-
-		CL.removerLigaPublicaUsuario(nombreLiga, liga);
-
-	}
-
-	public static void removerLigaPrivadaUsuario(String nombreLiga, LigasPrivadas liga) {
-
-		CL.removerLigaPrivadaUsuario(nombreLiga, liga);
-
-	}
-
-	// -------------------------------------------------------------------------------------------------------------
-
-	public static String comprobarTipoLiga(String nombreLiga) {
-		String comprobante = "";
-
-		CL.comprobarTipoLiga(nombreLiga);
-
-		return comprobante;
 	}
 
 }
