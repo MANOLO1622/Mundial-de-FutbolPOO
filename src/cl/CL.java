@@ -351,25 +351,40 @@ public class CL {
 		
 		
 		public static void sortearEquipoMundial(String nombreMundial) {
-			
+			int cupoEquipos = 0;
+			boolean registroEstado = false;
 			Mundiales mundialTemp = CL.retornarMundial(nombreMundial);
 			
-			for(int i=0; i<31; i++) {
-					
+			while(cupoEquipos<32) {
 				Random aleatorio = new Random();
 				int valorAleatorio = aleatorio.nextInt(listaEquiposFIFA.size());
-				mundialTemp.getEquiposMundial().add(CL.retornarEquipo(listaEquiposFIFA.get(valorAleatorio).getNombre()));
 
-				/*for() {
+				for(Equipo e: mundialTemp.getEquiposMundial()) {
 					
+					if(e == listaEquiposFIFA.get(valorAleatorio)){
+						
+						registroEstado = true;
+						
+					}
 					
-					
-				}*/
+				}
 				
+				if(registroEstado == false) {
+					
+					mundialTemp.getEquiposMundial().add(listaEquiposFIFA.get(valorAleatorio));
+					cupoEquipos++;
+				}
 				
 			}
 			
 			
+			System.out.println("===========================Equipos Registrados en el mundial"+mundialTemp.getNombreMundial()+"===========================");
+			
+			for(Equipo e: mundialTemp.getEquiposMundial()) {
+				
+				System.out.println(mundialTemp.getEquiposMundial().indexOf(e)+e.getNombre());
+				
+			}
 			
 			
 		}
