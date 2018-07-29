@@ -367,7 +367,7 @@ public class Gestor {
 	
 	public static void removerLigaPublicaUsuario(String nombreUsuario) {
 		
-		CL.removerLigaPublicaUsuario( nombreUsuario);
+		CL.removerLigaPublicaUsuario(nombreUsuario);
 		
 	}
 	

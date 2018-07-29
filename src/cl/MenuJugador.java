@@ -257,17 +257,22 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		if(e.getSource() == btnRetirarseLiga) {
 			
+			String seleccion = (String)ligasRegistradaUsuario.getSelectedItem();
+
 			
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+			if(seleccion.equals(this.miUsuario.getMiLigaPublica().getNombreLiga())) {
+				JOptionPane.showMessageDialog(null, "Llego a publicas.");
+				Gestor.removerLigaPublicaUsuario(this.miUsuario.getNombreUsuario());
+				
+			}else if(seleccion.equals(this.miUsuario.getMiLigaPrivada().getNombreLiga())) {
+				
+				JOptionPane.showMessageDialog(null, "Llego a privadas.");
+				Gestor.removerLigaPrivadaUsuario(this.miUsuario.getNombreUsuario());
+				
+			}
+
+			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
 			removerMenus();
 			
 		}
