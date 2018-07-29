@@ -35,7 +35,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JLabel labelEstado = new JLabel("Estado:");
 	JTextField estadoTXT = new JTextField(10);
 	
-	JLabel labelNombreMundial = new JLabel("Nombre del Mundial.");
+	JLabel labelNombreMundial = new JLabel("Nombre del Mundial:");
 	JTextField nombreMundialTXT = new JTextField();
 	
 	JLabel labelAno = new JLabel("Año: ");
@@ -186,6 +186,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
 					controlador.registrarMundial(nombreMundialTXT.getText(), fechaRegistro, (String)paisesOrganizadores.getSelectedItem(), true);
+					controlador.sortearEquipoMundial(nombreMundialTXT.getText());
 					controlador.listarMundiales();
 
 					JOptionPane.showMessageDialog(null, "¡Mundial registrada Exitosamente!.");

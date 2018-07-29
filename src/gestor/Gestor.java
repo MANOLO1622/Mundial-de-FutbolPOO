@@ -379,5 +379,14 @@ public class Gestor {
 		CL.removerLigaPrivadaUsuario( nombreUsuario);
 		
 	}
+	
+	
+	//-------------------------------------------------------------------------------------------------------------
+	
+	public static void sortearEquipoMundial(String nombreMundial) {
+		
+		CL.sortearEquipoMundial(nombreMundial);
+		
+	}
 
 }

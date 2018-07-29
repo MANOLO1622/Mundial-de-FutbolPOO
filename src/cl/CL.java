@@ -311,6 +311,16 @@ public class CL {
 			
 			return comprobante;
 		}
+		
+		//-------------------------------------------------------------------------------------------------------------
+		
+		
+		public static void sortearEquipoMundial(String nombreMundial) {
+			
+			int valorAleatorio = (int) (Math.random()*32);
+			JOptionPane.showMessageDialog(null, valorAleatorio);
+			
+		}
 	
 	
 }

@@ -2,13 +2,14 @@
 package cl;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Mundiales {
     
 	private String nombreMundial;
     private LocalDate ano;
     private String paisOrganizador;
-   
+    private ArrayList<Equipo> equiposMundial;
     private boolean estado;
 
     public Mundiales() {
@@ -54,6 +55,16 @@ public class Mundiales {
 
 	public void setNombreMundial(String nombreMundial) {
 		this.nombreMundial = nombreMundial;
+	}
+
+
+	
+	public ArrayList<Equipo> getEquiposMundial() {
+		return equiposMundial;
+	}
+
+	public void setEquiposMundial(ArrayList<Equipo> equiposMundial) {
+		this.equiposMundial = equiposMundial;
 	}
 
 	@Override
