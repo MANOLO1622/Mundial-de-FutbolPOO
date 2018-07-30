@@ -23,6 +23,8 @@ public class UI {
 		
 		Gestor controlador = new Gestor();
 		controlador.registrarUsuario("admin", "Proyecto", "q","q","Mr.Administrador","admin@POO.com", 1);
+		controlador.registrarUsuario("Dennis", "Ly", "Dennis","123456","Kenny","Dennis@POO.com", 1);
+		controlador.registrarUsuario("Manuel", "Elizondo", "Manuel","123456","manolo","Manuel@POO.com", 1);
 		controlador.registrarUsuario("Jugador","Proyecto","j","j","Mr.Jugador","player@POO.com",2);
 		controlador.registrarUsuario("Viewer","Proyecto","v","v","Mr.Observador","viewer@POO.com",3);		
 		registrarEquiposFIFA();
