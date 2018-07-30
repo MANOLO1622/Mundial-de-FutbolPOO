@@ -51,6 +51,34 @@ public class CL {
 	//---------------------------------------------------------------------------------------------------------------
 	public static void registrarMundial(Mundiales registro) {
 		
+		int cupoEquipos = 0;
+		int indice=0;
+		boolean registroEstado = false;
+		
+		while(cupoEquipos<32) {
+			registroEstado = false;
+			Random aleatorio = new Random();
+			
+			int valorAleatorio = aleatorio.nextInt(listaEquiposFIFA.size());
+			
+			
+			for(Equipo e: registro.getEquiposMundial()) {
+				
+				if(e==listaEquiposFIFA.get(valorAleatorio)){
+					
+					registroEstado = true;
+					
+				}
+				
+			}
+			
+			if(registroEstado == false) {
+				
+				registro.getEquiposMundial().add(listaEquiposFIFA.get(valorAleatorio));
+				cupoEquipos++;
+			}	
+		}
+			
 		listaMundiales.add(registro);
 		
 	}
@@ -64,6 +92,8 @@ public class CL {
 	public static void registrarLigaPublicas(LigasPublicas registro) {
 		
 		listaLigasPublicas.add(registro);
+		System.out.println("Mundial"+registro.getMundialAnfitrion().getNombreMundial());
+		System.out.println("El tamano de el mundial en la liga publica es: "+registro.getMundialAnfitrion().getEquiposMundial().size());
 		
 	}
 
@@ -182,6 +212,10 @@ public class CL {
 			if(nombreMundial.equals(e.getNombreMundial())) {
 				
 				mundialTemp = new Mundiales(e.getNombreMundial(),e.getAno(),e.getPaisOrganizador(),e.getEstado());
+				mundialTemp.setEquiposMundial(e.getEquiposMundial());
+				mundialTemp.setEquipoPrimerLugar(e.getEquipoPrimerLugar());
+				mundialTemp.setEquipoSegundoLugar(e.getEquipoSegundoLugar());
+				mundialTemp.setEquipoTercerLugar(e.getEquipoTercerLugar());
 				
 			}
 			
@@ -234,7 +268,7 @@ public class CL {
 			
 			Usuario miUsuario = listaUsuarios.get(indice);
 			miUsuario.setMiLigaPublica(liga);
-			listaUsuarios.set(indice, miUsuario);		
+			listaUsuarios.set(indice, miUsuario);
 		
 	}
 	
@@ -334,65 +368,5 @@ public class CL {
 		}
 		
 		//-------------------------------------------------------------------------------------------------------------
-		
-		
-		public static void sortearEquipoMundial(String nombreMundial) {
-			int cupoEquipos = 0;
-			boolean registroEstado = false;
-			Mundiales mundialTemp = CL.retornarMundial(nombreMundial);
-			
-			while(cupoEquipos<32) {
-				registroEstado = false;
-				Random aleatorio = new Random();
-				int valorAleatorio = aleatorio.nextInt(listaEquiposFIFA.size());
-				
-				
-				for(Equipo e: mundialTemp.getEquiposMundial()) {
-					
-					if(e==listaEquiposFIFA.get(valorAleatorio)){
-						
-						registroEstado = true;
-						
-					}
-					
-				}
-				
-				if(registroEstado == false) {
-					
-					mundialTemp.getEquiposMundial().add(listaEquiposFIFA.get(valorAleatorio));
-					cupoEquipos++;
-				}
-				
-			}
-			for(Mundiales e: listaMundiales) {
-				
-				if(e.getNombreMundial().equals(mundialTemp.getNombreMundial())) {
-
-					listaMundiales.set(listaMundiales.indexOf(e), mundialTemp);					
-				}	
-			}
-			
-		}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

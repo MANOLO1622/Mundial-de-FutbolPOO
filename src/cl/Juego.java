@@ -21,6 +21,7 @@ public class Juego extends JPanel implements ActionListener{
 	private JButton btnSalir = new JButton("Salir");
 	private JLabel bandera = new JLabel();
 	private ImageIcon banderaImagen;
+	private JEditorPane paisesIncluidos = new JEditorPane();
 	
 	private JLabel informacionLiga1 = new JLabel();
 	private JLabel informacionLiga2 = new JLabel();
@@ -43,7 +44,6 @@ public class Juego extends JPanel implements ActionListener{
 		this.add(btnSalir);
 		btnSalir.setBounds(230, 10, 100, 25);
 		
-		
 		//-----------Eventos.
 		
 		
@@ -65,6 +65,7 @@ public class Juego extends JPanel implements ActionListener{
 			banderaImagen = new ImageIcon(b);
 			Icon icono = new ImageIcon(banderaImagen.getImage().getScaledInstance(bandera.getWidth(), bandera.getHeight(), Image.SCALE_DEFAULT));
 			bandera.setIcon(icono);
+			
 			
 		}
 		
@@ -114,56 +115,85 @@ public class Juego extends JPanel implements ActionListener{
 
 	public void mostrarInformacionLiga(int tipoLiga) {
 		
+		String paisesMundial="";
+		
 		this.add(informacionLiga1);
 		informacionLiga1.setBounds(10,110, 600,100);
-		informacionLiga1.setForeground(Color.WHITE);
+		informacionLiga1.setForeground(new Color(139,252,99));
 		informacionLiga1.setFont(new Font(informacionLiga1.getFont().getFontName(), Font.PLAIN, 30));
 		
 		this.add(informacionLiga2);
 		informacionLiga2.setBounds(10,160, 600,100);
-		informacionLiga2.setForeground(Color.WHITE);
+		informacionLiga2.setForeground(new Color(139,252,99));
 		informacionLiga2.setFont(new Font(informacionLiga2.getFont().getFontName(), Font.PLAIN, 30));
 		
 		this.add(informacionLiga3);
 		informacionLiga3.setBounds(10,190, 600,100);
-		informacionLiga3.setForeground(Color.WHITE);
+		informacionLiga3.setForeground(new Color(139,252,99));
 		informacionLiga3.setFont(new Font(informacionLiga3.getFont().getFontName(), Font.PLAIN, 30));
 		
 		this.add(informacionLiga4);
 		informacionLiga4.setBounds(10,220, 600,100);
-		informacionLiga4.setForeground(Color.WHITE);
+		informacionLiga4.setForeground(new Color(139,252,99));
 		informacionLiga4.setFont(new Font(informacionLiga4.getFont().getFontName(), Font.PLAIN, 30));
 		
 		this.add(informacionLiga5);
 		informacionLiga5.setBounds(10,250, 600,100);
-		informacionLiga5.setForeground(Color.WHITE);
+		informacionLiga5.setForeground(new Color(139,252,99));
 		informacionLiga5.setFont(new Font(informacionLiga5.getFont().getFontName(), Font.PLAIN, 30));
 		
 		this.add(informacionLiga6);
 		informacionLiga6.setBounds(10,280, 600,100);
-		informacionLiga6.setForeground(Color.WHITE);
+		informacionLiga6.setForeground(new Color(139,252,99));
 		informacionLiga6.setFont(new Font(informacionLiga6.getFont().getFontName(), Font.PLAIN, 30));
 		
 
 		switch(tipoLiga) {
 		
 		case 0:
+			
+			
+			this.add(paisesIncluidos);
+			paisesIncluidos.setEditable(false);
+			paisesIncluidos.setBackground(new Color(139,252,99));
+			paisesIncluidos.setFont(new Font(informacionLiga1.getFont().getFontName(), Font.PLAIN, 13));
+			paisesIncluidos.setBounds(500, 10, 300, 630);
+			
 			informacionLiga1.setText("Informacion de la Liga " + this.miUsuarioActual.getMiLigaPublica().getNombreLiga());
 			informacionLiga2.setText("Nombre de la Liga: " + this.miUsuarioActual.getMiLigaPublica().getNombreLiga());
 			informacionLiga3.setText("Fecha de creacion: " + this.miUsuarioActual.getMiLigaPublica().getFechaCreacion());
 			informacionLiga4.setText("Estado: " + this.miUsuarioActual.getMiLigaPublica().getEstado());
 			informacionLiga5.setText("Puntos: " + this.miUsuarioActual.getMiLigaPublica().getPuntos());
-			informacionLiga6.setText("Bono: " + this.miUsuarioActual.getMiLigaPublica().getBono());	
+			informacionLiga6.setText("Bono: " + this.miUsuarioActual.getMiLigaPublica().getBono());
+			
+			paisesMundial = "Paises Registrados en Mundial: "+this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getNombreMundial()+"\n\n";
+			
+			for(Equipo e: this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getEquiposMundial()) {
+				
+				paisesMundial = paisesMundial + e.getNombre() +"\n";
+				
+			}
+			System.out.println(paisesMundial);
+			paisesIncluidos.setText(paisesMundial);
 			
 			break;
 			
 		case 1:
+			
+			this.add(paisesIncluidos);
+			paisesIncluidos.setEditable(false);
+			paisesIncluidos.setBackground(new Color(139,252,99));
+			paisesIncluidos.setFont(new Font(informacionLiga1.getFont().getFontName(), Font.PLAIN, 13));
+			paisesIncluidos.setBounds(500, 10, 300, 630);
+			
 			informacionLiga1.setText("Informacion de la Liga " + this.miUsuarioActual.getMiLigaPrivada().getNombreLiga());
 			informacionLiga2.setText("Nombre de la Liga: " + this.miUsuarioActual.getMiLigaPrivada().getNombreLiga());
 			informacionLiga3.setText("Fecha de creacion: " + this.miUsuarioActual.getMiLigaPrivada().getFechaCreacion());
 			informacionLiga4.setText("Estado: " + this.miUsuarioActual.getMiLigaPrivada().getEstado());
 			informacionLiga5.setText("Puntos: " + this.miUsuarioActual.getMiLigaPrivada().getPuntos());
 			informacionLiga6.setText("Bono: " + this.miUsuarioActual.getMiLigaPrivada().getBono());
+			paisesIncluidos.setText("Mundial "+this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getNombreMundial() +"\n"
+					+ "Paises Registrados en Mundial:");
 			
 			break;
 			
@@ -175,6 +205,7 @@ public class Juego extends JPanel implements ActionListener{
 			informacionLiga4.setText("");
 			informacionLiga5.setText("");
 			informacionLiga6.setText("");
+			paisesIncluidos.setText("No hay informacion para mostrar.");
 			
 			break;
 			
@@ -206,6 +237,7 @@ public class Juego extends JPanel implements ActionListener{
 		this.remove(informacionLiga5);
 		this.remove(informacionLiga6);
 		this.remove(btnSalir);
+		this.remove(paisesIncluidos);
 		
 	}
 	

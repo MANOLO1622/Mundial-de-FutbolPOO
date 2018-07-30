@@ -189,6 +189,8 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		if (e.getSource() == ligasRegistradas) {
 			
+			btnUnirseLiga.setEnabled(true);
+			
 			LigasPublicas ligaPublicaTemp = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());				
 			
 			if(ligaPublicaTemp.getEstado() == true) {
@@ -316,7 +318,8 @@ public class MenuJugador extends JPanel implements ActionListener{
 		boton5.setEnabled(false);
 		boton6.setEnabled(false);
 		boton7.setEnabled(false);
-		boton8.setEnabled(false);	
+		boton8.setEnabled(false);
+		btnUnirseLiga.setEnabled(false);
 		
 	}
 	
