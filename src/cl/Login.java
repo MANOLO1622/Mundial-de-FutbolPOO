@@ -221,9 +221,6 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 						Usuario UsuarioActual = controlador.retornarUsuario(usuarioTXT.getText());
 						ventanaUsuario.setUsuarioActual(UsuarioActual);
 						ventanaUsuario.ventanaMenuUsuarios(perfil, ventanaUsuario);
-											
-//						usuarioTXT.setText("");
-//						contrasenaTXT.setText("");
 						
 						SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 						

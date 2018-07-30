@@ -26,10 +26,17 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 	private JTextField correoTXT = new JTextField(10);
 	
 	private JLabel labelContrasena = new JLabel("Contraseña:");
-	private JTextField contrasenaTXT = new JTextField(10);
+	private JPasswordField contrasenaTXT = new JPasswordField(10);
 	
 	private JButton btnRegistro = new JButton("Registrar");
 	private JButton btnSalir = new JButton("Salir");
+	
+	private JLabel labelMostrarContrasena = new JLabel();
+	private ImageIcon ojo = new ImageIcon("src\\graficos\\eye.png");
+	
+	
+	
+	
 	
     private static Image imagen;
 	
@@ -78,7 +85,12 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 		labelContrasena.setBounds(10,225,200,30);
 		
 		this.add(contrasenaTXT);
+		char valor = contrasenaTXT.getEchoChar();
 		contrasenaTXT.setBounds(125,225,200,20);
+		
+		labelMostrarContrasena.setIcon(ojo);
+		this.add(labelMostrarContrasena);
+		labelMostrarContrasena.setBounds(330,225,200,20);
 		
 		this.add(btnRegistro);
 		btnRegistro.setBounds(10, 270, 100, 25);
@@ -89,6 +101,25 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 		//-----------------------Eventos
 		btnRegistro.addActionListener(this);
 		btnSalir.addActionListener(this);
+		
+		//En el siguiente evento creo un adaptador para poder implementar la funcionalidad en el ojo de mostrar la contraseña.
+		labelMostrarContrasena.addMouseListener(new MouseAdapter(){
+			
+			public void mouseEntered(MouseEvent e) {
+				
+				contrasenaTXT.setEchoChar((char)0);
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				
+				contrasenaTXT.setEchoChar(valor);	
+				
+			}
+			
+		});
+		
 		
 	}
 
@@ -136,6 +167,8 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 								avatarTXT.setText("");
 								correoTXT.setText("");
 								contrasenaTXT.setText("");
+								
+								SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 						
 							}
 							

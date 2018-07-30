@@ -155,7 +155,6 @@ public class Juego extends JPanel implements ActionListener{
 			
 			this.add(paisesIncluidos);
 			paisesIncluidos.setEditable(false);
-			paisesIncluidos.setBackground(new Color(139,252,99));
 			paisesIncluidos.setFont(new Font(informacionLiga1.getFont().getFontName(), Font.PLAIN, 13));
 			paisesIncluidos.setBounds(500, 10, 300, 630);
 			
