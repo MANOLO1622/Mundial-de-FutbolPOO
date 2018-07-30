@@ -1,21 +1,11 @@
 package ui;
 import java.awt.*;
-//import java.awt.Toolkit;
-//import javax.swing.*;
-import java.awt.*;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.GregorianCalendar;
-
 import javax.swing.*;
 import cl.*;
 import gestor.*;
-import java.awt.*;
-import java.awt.Toolkit;
-import javax.swing.*;
-import java.awt.*;
-//import java.awt.Toolkit;
-import javax.swing.*;
 
 public class UI {
 	
