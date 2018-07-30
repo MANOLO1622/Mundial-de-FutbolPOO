@@ -3,9 +3,7 @@ package cl;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
-
 import javax.swing.*;
-
 import gestor.*;
 
 public class RegistroUsuarios extends JPanel implements ActionListener{

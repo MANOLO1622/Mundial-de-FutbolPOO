@@ -161,7 +161,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		if (e.getSource() == btnRegistrarMundial) {
 
-			ingresarComboBox();
 			
 			if (anoTXT.getText().equals("") || "".equals((String)paisesOrganizadores.getSelectedItem())
 					|| nombreMundialTXT.getText().equals("")) {
@@ -183,17 +182,13 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 					Date fecha = new Date();
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
 					controlador.registrarMundial(nombreMundialTXT.getText(), fechaRegistro, (String)paisesOrganizadores.getSelectedItem(), true);
-					controlador.listarMundiales();
 
 					JOptionPane.showMessageDialog(null, "¡Mundial registrada Exitosamente!.");
 					
 					
 
 					removerMenus();
-					
-
 				}
 			}
 		}
@@ -300,12 +295,11 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 					Date fecha = new Date();
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
 					controlador.registrarLigaPrivadas(nombreLigaTXT.getText(), fechaRegistro, true, 1, 2,(String)MundialAnfitrion.getSelectedItem());
 					controlador.listarLigasPrivadas();
 
 					JOptionPane.showMessageDialog(null, "¡Liga Privada registrada Exitosamente!.");
-
+					
 					removerMenus();
 
 				}
@@ -439,8 +433,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.remove(btnRegistroLigaPublica);
 		this.remove(btnRegistrarMundial);
 		
-		
-		
 		this.remove(labelAno);
 		this.remove(anoTXT);
 		this.remove(labelPaisOrganizador);
@@ -453,7 +445,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		this.remove(labelNombreMundial);
 		this.remove(nombreMundialTXT);
-		
 		
 		boton1.setEnabled(true);
 		boton2.setEnabled(true);
