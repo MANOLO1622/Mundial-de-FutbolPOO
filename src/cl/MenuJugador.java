@@ -50,6 +50,8 @@ public class MenuJugador extends JPanel implements ActionListener{
 		this.add(boton4);
 		boton4.setBounds(10, 50, 180, 50);
 		
+		evaluarCondicionJuego();
+		
 		this.add(boton5);
 		boton5.setBounds(10, 120, 180, 50);
 		
@@ -264,18 +266,22 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			
 			if(seleccion.equals(this.miUsuario.getMiLigaPublica().getNombreLiga())) {
-				JOptionPane.showMessageDialog(null, "Llego a publicas.");
+				
 				Gestor.removerLigaPublicaUsuario(this.miUsuario.getNombreUsuario());
+				JOptionPane.showMessageDialog(null, "Liga publica " + (String)ligasRegistradaUsuario.getSelectedItem() + " removida.");
+				ligasRegistradaUsuario.removeItem(ligasRegistradaUsuario.getSelectedItem());
 				
 			}else if(seleccion.equals(this.miUsuario.getMiLigaPrivada().getNombreLiga())) {
 				
-				JOptionPane.showMessageDialog(null, "Llego a privadas.");
 				Gestor.removerLigaPrivadaUsuario(this.miUsuario.getNombreUsuario());
+				JOptionPane.showMessageDialog(null, "Liga privada " + (String)ligasRegistradaUsuario.getSelectedItem() + " removida.");
+				ligasRegistradaUsuario.removeItem(ligasRegistradaUsuario.getSelectedItem());
 				
 			}
 
 			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
 			removerMenus();
+			
 			
 		}
 		
@@ -334,7 +340,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		informacionLiga5.setText("");
 		informacionLiga6.setText("");
 		
-		boton4.setEnabled(true);
+		evaluarCondicionJuego();
 		boton5.setEnabled(true);
 		boton6.setEnabled(true);
 		boton7.setEnabled(true);
@@ -391,6 +397,21 @@ public class MenuJugador extends JPanel implements ActionListener{
 		informacionLiga6.setBounds(950,370, 600,40);
 		informacionLiga6.setForeground(Color.ORANGE);
 		informacionLiga6.setFont(new Font(informacionLiga6.getFont().getFontName(), Font.PLAIN, 30));
+		
+	}
+	
+	
+	public void evaluarCondicionJuego(){
+		
+		if(this.miUsuario.getMiLigaPrivada() == null && this.miUsuario.getMiLigaPublica() == null) {
+			
+			boton4.setEnabled(false);
+			
+		}else {
+			
+			boton4.setEnabled(true);
+			
+		}
 		
 	}
 	
