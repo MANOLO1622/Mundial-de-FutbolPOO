@@ -1,15 +1,11 @@
 package cl;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
+import java.awt.*;
+import java.awt.event.*;
+import java.time.*;
+import java.util.*;
 import javax.swing.*;
+import com.toedter.calendar.*;
 import gestor.*;
 
 
@@ -38,8 +34,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JLabel labelNombreMundial = new JLabel("Nombre del Mundial:");
 	JTextField nombreMundialTXT = new JTextField();
 	
-	JLabel labelAno = new JLabel("Año: ");
-	JTextField anoTXT = new JTextField(10);
+	JLabel labelAno = new JLabel("Fecha: ");	
+	JCalendar fechaMundial = new JCalendar();	
+	
 	JLabel labelPaisOrganizador = new JLabel("Pais Organizador:");
 	JComboBox paisesOrganizadores = new JComboBox();
 	JLabel labelMundialAnfitrion = new JLabel("Pais Anfitrión:");
@@ -99,7 +96,11 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		botonSalir = new JButton("Salir");
 		botonSalir.setBounds(10, 550, 180, 50);
 		this.add(botonSalir);
-
+		
+		this.add(fechaMundial);
+		fechaMundial.setVisible(false);
+		fechaMundial.setDecorationBordersVisible(true);
+		
 		// -------Botones con los Accesos a ventanas
 		
 		boton1.addActionListener(this);
@@ -143,6 +144,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			registrarMundial();
 			desabilitarMenu();
 
+
 		}
 		
 		if (e.getSource() == boton10) {
@@ -162,7 +164,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		if (e.getSource() == btnRegistrarMundial) {
 
 			
-			if (anoTXT.getText().equals("") || "".equals((String)paisesOrganizadores.getSelectedItem())
+			if ("".equals((String)paisesOrganizadores.getSelectedItem())
 					|| nombreMundialTXT.getText().equals("")) {
 
 				JOptionPane.showMessageDialog(null, "Hay campos vacios, debe llenar todos los campos.");
@@ -180,7 +182,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 				
 				if (b == true) {
 
-					Date fecha = new Date();
+					Date fecha = fechaMundial.getDate();
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 					controlador.registrarMundial(nombreMundialTXT.getText(), fechaRegistro, (String)paisesOrganizadores.getSelectedItem(), true);
 
@@ -385,34 +387,32 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	public void registrarMundial() {
     		
-		this.add(labelAno);
-		labelAno.setForeground(Color.WHITE);
-		labelAno.setBounds(950, 30, 200, 30);
+		this.add(labelNombreMundial);
+		labelNombreMundial.setForeground(Color.WHITE);
+		labelNombreMundial.setBounds(950, 30, 200, 30);
 		
-		this.add(anoTXT);
-		anoTXT.setBounds(1080, 30, 200, 20);
+		this.add(nombreMundialTXT);
+		nombreMundialTXT.setBounds(1080, 30, 300, 20);
 		
 		this.add(labelPaisOrganizador);
 		labelPaisOrganizador.setForeground(Color.WHITE);
 		labelPaisOrganizador.setBounds(950, 70, 200, 30);
 		
 		this.add(paisesOrganizadores);
-		paisesOrganizadores.setBounds(1080, 70, 200, 20);
+		paisesOrganizadores.setBounds(1080, 70, 300, 20);
 		
+		this.add(labelAno);
+		labelAno.setForeground(Color.WHITE);
+		labelAno.setBounds(950, 175, 200, 30);
 		
-		this.add(labelNombreMundial);
-		labelNombreMundial.setForeground(Color.WHITE);
-		labelNombreMundial.setBounds(950, 110, 200, 30);
-		
-		this.add(nombreMundialTXT);
-		nombreMundialTXT.setBounds(1080, 110, 200, 20);
-		
+		fechaMundial.setBounds(1080, 110, 300, 300);
+		fechaMundial.setVisible(true);
+
 		this.add(btnRegistrarMundial);
-		btnRegistrarMundial.setBounds(950, 200, 120, 25);
+		btnRegistrarMundial.setBounds(950, 420, 120, 25);
 		
 		this.add(btnCancelar);
-		btnCancelar.setBounds(1080, 200, 120, 25);
-		
+		btnCancelar.setBounds(1080, 420, 120, 25);
 			
     }
 	
@@ -434,7 +434,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.remove(btnRegistrarMundial);
 		
 		this.remove(labelAno);
-		this.remove(anoTXT);
+//		this.remove(fechaMundial);
+		fechaMundial.setVisible(false);
 		this.remove(labelPaisOrganizador);
 		this.remove(labelMundialAnfitrion);
 		this.remove(paisesOrganizadores);
@@ -472,7 +473,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		nombreLigaTXT.setText("");
 		equiposTXT.setText("");
 		estadoTXT.setText("");
-		anoTXT.setText("");
 		estadosTXT.setText("");
 		nombreMundialTXT.setText("");
 		
