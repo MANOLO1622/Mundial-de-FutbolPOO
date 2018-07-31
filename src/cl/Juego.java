@@ -126,7 +126,7 @@ public class Juego extends JPanel implements ActionListener{
 		
 		
 		gbc.gridx = 0;
-		gbc.gridy = 1;
+		gbc.gridy = 3;
 		this.add(informacionLiga1, gbc);
 //		informacionLiga1.setBounds(10,110, 600,100);
 		informacionLiga1.setForeground(new Color(139,252,99));
@@ -169,7 +169,7 @@ public class Juego extends JPanel implements ActionListener{
 		case 0:
 			
 			gbc.gridx = 1;
-			gbc.gridy = 1;
+			gbc.gridy = 2;
 			gbc.gridheight = 10;
 			this.add(paisesIncluidos, gbc);
 			paisesIncluidos.setEditable(false);
@@ -197,6 +197,8 @@ public class Juego extends JPanel implements ActionListener{
 			
 		case 1:
 			
+			gbc.gridx = 1;
+			gbc.gridy = 2;
 			this.add(paisesIncluidos);
 			paisesIncluidos.setEditable(false);
 			paisesIncluidos.setBackground(new Color(139,252,99));
@@ -275,7 +277,7 @@ public class Juego extends JPanel implements ActionListener{
 		ligas.addItem("Liga Privada");
 		
 
-		gbc.gridx++;
+		gbc.gridx = 1;
 //		equipos.setSize(100, 25);
 		this.add(equipos, gbc);
 //		equipos.setBounds(120, 10, 100, 25);
@@ -287,8 +289,8 @@ public class Juego extends JPanel implements ActionListener{
 			
 		}
 		
-
-		gbc.gridx++;
+		gbc.gridx = 3;
+		gbc.gridy = 1;
 		gbc.gridwidth = 2;
 		gbc.gridheight = 2;
 		gbc.weighty = 1.0;
@@ -296,7 +298,8 @@ public class Juego extends JPanel implements ActionListener{
 		this.add(bandera, gbc);
 //		bandera.setBounds(10, 45, 145, 87);
 
-
+		gbc.gridx = 3;
+		gbc.gridy = 0;
 		gbc.gridwidth = 1;
 		gbc.gridheight = 1;
 //		btnSalir.setSize(400, 60);
