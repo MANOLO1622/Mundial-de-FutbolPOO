@@ -1,4 +1,7 @@
 package ui;
+import java.time.LocalDate;
+import java.util.Date;
+
 import cl.*;
 import gestor.*;
 
@@ -11,7 +14,8 @@ public class UI {
 		controlador.registrarUsuario("Dennis", "Ly", "Dennis","123456","Kenny","Dennis@POO.com", 1);
 		controlador.registrarUsuario("Manuel", "Elizondo", "Manuel","123456","manolo","Manuel@POO.com", 1);
 		controlador.registrarUsuario("Jugador","Proyecto","j","j","Mr.Jugador","player@POO.com",2);
-		controlador.registrarUsuario("Viewer","Proyecto","v","v","Mr.Observador","viewer@POO.com",3);		
+		controlador.registrarUsuario("Viewer","Proyecto","v","v","Mr.Observador","viewer@POO.com",3);
+		
 		registrarEquiposFIFA();
 
 		Ventana ventLogin = new Ventana(new Usuario(null, null, null, null, null, null, 0));
