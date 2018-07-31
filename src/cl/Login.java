@@ -288,11 +288,11 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 		
 		try {
 			
-			btnRegistrarUsuario.setBackground(new Color(0, 153, 153));
+			btnRegistrarUsuario.setBackground(new Color(153, 204, 0));
 			btnRegistrarUsuario.setForeground(Color.WHITE);
-			btnIngreso.setBackground(new Color(0, 204, 254));
+			btnIngreso.setBackground(new Color(153, 204, 0));
 			btnIngreso.setForeground(Color.WHITE);
-			btnSalir.setBackground(new Color(0, 153, 153));
+			btnSalir.setBackground(new Color(153, 204, 0));
 			btnSalir.setForeground(Color.WHITE);
 			
 			
