@@ -57,17 +57,6 @@ public class UI {
 		Gestor.registrarEquipos("Paraguay", 32, "src\\graficos\\Banderas\\Paraguay.png", ISOPaises.DK);
 		
 	}
-	
-	
-	
-
-
-	/*public static void registrarAnfitrionesFIFA() {
-		
-		Gestor controlador = new Gestor();
-		controlador.registrarAnfitriones("Costa Rica");
-		
-	}*/
 
 }
 
