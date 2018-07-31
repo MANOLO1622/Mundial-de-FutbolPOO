@@ -8,6 +8,7 @@ import gestor.*;
 @SuppressWarnings("serial")
 public class Login extends JPanel implements ActionListener, KeyListener{
 	
+    private Image imagen;
 	private JLabel labelNomUsuario = new JLabel("Usuario");
 	private JTextField usuarioTXT = new JTextField(10);
 	private JLabel labelContrasenaUsuario = new JLabel("Contraseña");
@@ -17,12 +18,14 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 	private JButton btnIngreso = new JButton("Iniciar Sesión");
 	private JButton btnRegistrarUsuario = new JButton("Registrarse");
 	private JButton btnSalir = new JButton("Salir");
-    private Image imagen;
+
     
     
 	public Login () {
 		
 		this.setLayout(null);
+		
+		darEstilosComponentes();
 		
 		this.add(labelNomUsuario);
 		labelNomUsuario.setForeground(Color.WHITE);
@@ -45,12 +48,15 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 		
 		this.add(btnIngreso);
 		btnIngreso.setBounds(280, 240, 115, 25);
+
 		
 		this.add(btnRegistrarUsuario);
 		btnRegistrarUsuario.setBounds(30, 310, 101, 25);
 		
 		this.add(btnSalir);
 		btnSalir.setBounds(550, 310, 101, 25);
+		
+
 		
 		//------------Eventos
 		
@@ -276,6 +282,37 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 
 	
 	//-------------------------------------------------------------------------------------
+	
+	
+	public void darEstilosComponentes(){
+		
+		try {
+			
+			btnRegistrarUsuario.setBackground(new Color(0, 153, 153));
+			btnRegistrarUsuario.setForeground(Color.WHITE);
+			btnIngreso.setBackground(new Color(0, 204, 254));
+			btnIngreso.setForeground(Color.WHITE);
+			btnSalir.setBackground(new Color(0, 153, 153));
+			btnSalir.setForeground(Color.WHITE);
+			
+			
+			labelNomUsuario.setForeground(Color.WHITE);
+			usuarioTXT.setBackground(new Color(230, 255, 230));
+			usuarioTXT.setForeground(new Color(0, 102, 0));
+			usuarioTXT.setFont(new Font(usuarioTXT.getFont().getFontName(), Font.BOLD, 15));
+			
+			labelContrasenaUsuario.setForeground(Color.WHITE);
+			contrasenaTXT.setBackground(new Color(230, 255, 230));
+			contrasenaTXT.setForeground(new Color(0, 102, 0));
+			contrasenaTXT.setFont(new Font(usuarioTXT.getFont().getFontName(), Font.BOLD, 15));
+			
+		}catch(Exception e) {
+			
+			
+			
+		}
+		
+	}
 	
 	
 
