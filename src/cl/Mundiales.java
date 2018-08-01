@@ -3,11 +3,12 @@ package cl;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Mundiales {
     
 	private String nombreMundial;
-    private LocalDate ano;
+    private Date ano;
     private String paisOrganizador;
     private ArrayList<Equipo> equiposMundial;
     private boolean estado;
@@ -18,7 +19,7 @@ public class Mundiales {
     public Mundiales() {
     }
 
-    public Mundiales( String nombreMundial, LocalDate ano, String paisOrganizador,  boolean estado) {
+    public Mundiales( String nombreMundial, Date ano, String paisOrganizador,  boolean estado) {
         this.equiposMundial = new ArrayList();
     	this.nombreMundial = nombreMundial;
     	this.ano = ano;
@@ -26,7 +27,7 @@ public class Mundiales {
         this.estado = estado;
     }
 
-    public LocalDate getAno() {
+    public Date getAno() {
         return ano;
     }
 
@@ -40,7 +41,7 @@ public class Mundiales {
         return estado;
     }
 
-    public void setAno(LocalDate ano) {
+    public void setAno(Date ano) {
         this.ano = ano;
     }
 
