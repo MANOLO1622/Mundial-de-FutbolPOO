@@ -32,6 +32,7 @@ public class Gestor {
 	public static void registrarLigaPublicas(String nombreLiga, LocalDate fechaCreacion, boolean estado, int puntos,
 			int bono,Mundiales mundialAnfitrion) {
 		LigasPublicas registro = new LigasPublicas(nombreLiga, fechaCreacion, estado, puntos, bono, mundialAnfitrion);
+//		JOptionPane.showMessageDialog(null, mundialAnfitrion.toString());
 		capaLogica.registrarLigaPublicas(registro);
 
 	}

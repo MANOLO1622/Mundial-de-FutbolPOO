@@ -78,7 +78,6 @@ public class CL {
 				cupoEquipos++;
 			}	
 		}
-		
 		registro.generarCuadrosJuego();
 		listaMundiales.add(registro);
 		
@@ -93,6 +92,7 @@ public class CL {
 	public static void registrarLigaPublicas(LigasPublicas registro) {
 		
 		listaLigasPublicas.add(registro);
+		JOptionPane.showMessageDialog(null,"Devolver ronda: " + registro.getMundialAnfitrion().getRonda1().toString());
 		
 	}
 
@@ -215,6 +215,7 @@ public class CL {
 				mundialTemp.setEquipoPrimerLugar(e.getEquipoPrimerLugar());
 				mundialTemp.setEquipoSegundoLugar(e.getEquipoSegundoLugar());
 				mundialTemp.setEquipoTercerLugar(e.getEquipoTercerLugar());
+				mundialTemp.setRonda1(e.getRonda1());
 				
 			}
 			

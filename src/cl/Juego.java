@@ -21,7 +21,8 @@ public class Juego extends JPanel implements ActionListener{
 	private JButton btnSalir = new JButton("Salir");
 	private JLabel bandera = new JLabel();
 	private ImageIcon banderaImagen;
-	private JEditorPane paisesIncluidos = new JEditorPane();
+
+	//Estos componentes se utilizaran para poder mostrar la informacion de la liga.
 	
 	private JLabel informacionLiga1 = new JLabel();
 	private JLabel informacionLiga2 = new JLabel();
@@ -30,10 +31,77 @@ public class Juego extends JPanel implements ActionListener{
 	private JLabel informacionLiga5 = new JLabel();
 	private JLabel informacionLiga6 = new JLabel();
 	
+	//Estos componentes se utilizaran para poder mostrar las bandera de los paises dentro de los cuadros de juego.
+	
+	private JLabel labelPais1 = new JLabel();
+	private JLabel labelPais2 = new JLabel();
+	private JLabel labelPais3 = new JLabel();
+	private JLabel labelPais4 = new JLabel();
+	private JLabel labelPais5 = new JLabel();
+	private JLabel labelPais6 = new JLabel();
+	private JLabel labelPais7 = new JLabel();
+	private JLabel labelPais8 = new JLabel();
+	private JLabel labelPais9 = new JLabel();
+	private JLabel labelPais10 = new JLabel();
+	private JLabel labelPais11 = new JLabel();
+	private JLabel labelPais12 = new JLabel();
+	private JLabel labelPais13 = new JLabel();
+	private JLabel labelPais14 = new JLabel();
+	private JLabel labelPais15 = new JLabel();
+	private JLabel labelPais16 = new JLabel();
+	private JLabel labelPais17 = new JLabel();
+	private JLabel labelPais18 = new JLabel();
+	private JLabel labelPais19 = new JLabel();
+	private JLabel labelPais20 = new JLabel();
+	private JLabel labelPais21 = new JLabel();
+	private JLabel labelPais22 = new JLabel();
+	private JLabel labelPais23 = new JLabel();
+	private JLabel labelPais24 = new JLabel();
+	private JLabel labelPais25 = new JLabel();
+	private JLabel labelPais26 = new JLabel();
+	private JLabel labelPais27 = new JLabel();
+	private JLabel labelPais28 = new JLabel();
+	private JLabel labelPais29 = new JLabel();
+	private JLabel labelPais30 = new JLabel();
+	private JLabel labelPais31 = new JLabel();
+	private JLabel labelPais32 = new JLabel();
 	
 	
+	private ImageIcon imagenPais1;
+	private ImageIcon imagenPais2;
+	private ImageIcon imagenPais3;
+	private ImageIcon imagenPais4;
+	private ImageIcon imagenPais5;
+	private ImageIcon imagenPais6;
+	private ImageIcon imagenPais7;
+	private ImageIcon imagenPais8;
+	private ImageIcon imagenPais9;
+	private ImageIcon imagenPais10;
+	private ImageIcon imagenPais11;
+	private ImageIcon imagenPais12;
+	private ImageIcon imagenPais13;
+	private ImageIcon imagenPais14;
+	private ImageIcon imagenPais15;
+	private ImageIcon imagenPais16;
+	private ImageIcon imagenPais17;
+	private ImageIcon imagenPais18;
+	private ImageIcon imagenPais19;
+	private ImageIcon imagenPais20;
+	private ImageIcon imagenPais21;
+	private ImageIcon imagenPais22;
+	private ImageIcon imagenPais23;
+	private ImageIcon imagenPais24;
+	private ImageIcon imagenPais25;
+	private ImageIcon imagenPais26;
+	private ImageIcon imagenPais27;
+	private ImageIcon imagenPais28;
+	private ImageIcon imagenPais29;
+	private ImageIcon imagenPais30;
+	private ImageIcon imagenPais31;
+	private ImageIcon imagenPais32;
 	
 	
+
 	
 	
 	public Juego(Usuario miUsuarioActual) {
@@ -88,6 +156,7 @@ public class Juego extends JPanel implements ActionListener{
 				}else {
 					
 					mostrarInformacionLiga(0);
+					mostrarCuadros();
 					
 				}
 				
@@ -119,10 +188,7 @@ public class Juego extends JPanel implements ActionListener{
 
 
 	public void mostrarInformacionLiga(int tipoLiga) {
-		
-		String paisesMundial="";
-
-
+	
 		informacionLiga1.setBounds(10,110, 600,100);
 		informacionLiga1.setForeground(new Color(139,252,99));
 		informacionLiga1.setFont(new Font(informacionLiga1.getFont().getFontName(), Font.PLAIN, 30));
@@ -158,11 +224,6 @@ public class Juego extends JPanel implements ActionListener{
 		
 		case 0:
 			
-			this.add(paisesIncluidos);
-			paisesIncluidos.setEditable(false);
-			paisesIncluidos.setFont(new Font(informacionLiga1.getFont().getFontName(), Font.PLAIN, 13));
-			paisesIncluidos.setBounds(500, 10, 300, 630);
-			
 			informacionLiga1.setText("Informacion de la Liga " + this.miUsuarioActual.getMiLigaPublica().getNombreLiga());
 			informacionLiga2.setText("Nombre de la Liga: " + this.miUsuarioActual.getMiLigaPublica().getNombreLiga());
 			informacionLiga3.setText("Fecha de creacion: " + this.miUsuarioActual.getMiLigaPublica().getFechaCreacion());
@@ -170,24 +231,9 @@ public class Juego extends JPanel implements ActionListener{
 			informacionLiga5.setText("Puntos: " + this.miUsuarioActual.getMiLigaPublica().getPuntos());
 			informacionLiga6.setText("Bono: " + this.miUsuarioActual.getMiLigaPublica().getBono());
 			
-			paisesMundial = "Paises Registrados en Mundial: "+this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getNombreMundial()+"\n\n";
-			
-			for(Equipo e: this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getEquiposMundial()) {
-				
-				paisesMundial = paisesMundial + e.getNombre() +"\n";
-				
-			}
-			paisesIncluidos.setText(paisesMundial);
-			
 			break;
 			
 		case 1:
-			
-			this.add(paisesIncluidos);
-			paisesIncluidos.setEditable(false);
-			paisesIncluidos.setBackground(new Color(139,252,99));
-			paisesIncluidos.setFont(new Font(informacionLiga1.getFont().getFontName(), Font.PLAIN, 13));
-			paisesIncluidos.setBounds(500, 10, 300, 630);
 			
 			informacionLiga1.setText("Informacion de la Liga " + this.miUsuarioActual.getMiLigaPrivada().getNombreLiga());
 			informacionLiga2.setText("Nombre de la Liga: " + this.miUsuarioActual.getMiLigaPrivada().getNombreLiga());
@@ -195,8 +241,6 @@ public class Juego extends JPanel implements ActionListener{
 			informacionLiga4.setText("Estado: " + this.miUsuarioActual.getMiLigaPrivada().getEstado());
 			informacionLiga5.setText("Puntos: " + this.miUsuarioActual.getMiLigaPrivada().getPuntos());
 			informacionLiga6.setText("Bono: " + this.miUsuarioActual.getMiLigaPrivada().getBono());
-			paisesIncluidos.setText("Mundial "+this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getNombreMundial() +"\n"
-					+ "Paises Registrados en Mundial:");
 			
 			break;
 			
@@ -208,7 +252,6 @@ public class Juego extends JPanel implements ActionListener{
 			informacionLiga4.setText("");
 			informacionLiga5.setText("");
 			informacionLiga6.setText("");
-			paisesIncluidos.setText("No hay informacion para mostrar.");
 			
 			break;
 			
@@ -240,7 +283,6 @@ public class Juego extends JPanel implements ActionListener{
 		this.remove(informacionLiga5);
 		this.remove(informacionLiga6);
 		this.remove(btnSalir);
-		this.remove(paisesIncluidos);
 		
 	}
 	
@@ -276,9 +318,25 @@ public class Juego extends JPanel implements ActionListener{
 
 	}
 	
+	//----------------------------------------------------------------------------------------------------------
 	
-	
-	
+	public void mostrarCuadros() {
+		
+		
+		this.add(labelPais1);
+		labelPais1.setBounds(300, 300, 70, 50);
+		labelPais1.setText("Aqui puto");
+		
+		Equipo[] temp= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPrimerCuadro();
+		
+		
+		
+		imagenPais1 = new ImageIcon(temp[0].getBandera());
+		Icon icono = new ImageIcon(imagenPais1.getImage().getScaledInstance(bandera.getWidth(), bandera.getHeight(), Image.SCALE_DEFAULT));
+		labelPais1.setIcon(icono);
+		
+		
+	}
 	
 	
 	

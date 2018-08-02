@@ -104,7 +104,10 @@ public class Ventana extends JFrame{
 		public void ventanaJuego() {
 			
 			Juego j = new Juego(UsuarioActual);
-			this.setExtendedState(Ventana.MAXIMIZED_BOTH);
+//			this.setExtendedState(Ventana.MAXIMIZED_BOTH);
+			this.setLocation(10, 10);//arreglar despues.
+			this.setResizable(false);
+			this.setSize(1260,690);
 			this.add(j);	
 			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			this.setTitle("Juego Mundiales");
