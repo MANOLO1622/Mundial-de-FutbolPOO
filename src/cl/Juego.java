@@ -148,6 +148,7 @@ public class Juego extends JPanel implements ActionListener{
 			Icon icono = new ImageIcon(banderaImagen.getImage().getScaledInstance(bandera.getWidth(), bandera.getHeight(), Image.SCALE_DEFAULT));
 			bandera.setIcon(icono);
 			
+//			
 			mostrarinformacionPaisSeleccionado();
 			
 			
