@@ -148,10 +148,6 @@ public class Juego extends JPanel implements ActionListener{
 			Icon icono = new ImageIcon(banderaImagen.getImage().getScaledInstance(bandera.getWidth(), bandera.getHeight(), Image.SCALE_DEFAULT));
 			bandera.setIcon(icono);
 			
-			this.add(informacionPais);
-			informacionPais.setEditable(false);
-			informacionPais.setBounds(230, 500, 700,128);
-			
 			mostrarinformacionPaisSeleccionado();
 			
 			
@@ -160,8 +156,7 @@ public class Juego extends JPanel implements ActionListener{
 
 		if(e.getSource()==ligas) {
 			
-//			inicializarComponentes();
-//			equipos.removeAllItems();
+//			removerMenu();
 			
 			if(ligas.getSelectedIndex() == 0 ) {
 				
@@ -679,12 +674,85 @@ public class Juego extends JPanel implements ActionListener{
 	
 	
 	public void mostrarinformacionPaisSeleccionado(){
+		
+		this.add(bandera);
+		this.add(informacionPais);
+		informacionPais.setEditable(false);
+		informacionPais.setBounds(230, 500, 700,128);
+		
 		String InformacionPais = "Equipo: " + Gestor.retornarEquipo((String)equipos.getSelectedItem()).getNombre() + "\n";
 		InformacionPais = InformacionPais + "Posicion FIFA: " + Gestor.retornarEquipo((String)equipos.getSelectedItem()).getRanking() + "\n";
 		InformacionPais = InformacionPais + "Codigo: " + Gestor.retornarEquipo((String)equipos.getSelectedItem()).getIso();
 		informacionPais.setText(InformacionPais);
 		
 	}
+	
+	
+	
+	public void removerMenu() {
+		
+		
+		this.remove(bandera);
+
+		//Estos componentes se utilizaran para poder mostrar informacion de la liga y del pais que se seleccione.
+		
+		this.remove(informacionLiga1);
+		this.remove(informacionLiga2);
+		this.remove(informacionLiga3);
+		this.remove(informacionLiga4);
+		this.remove(informacionLiga5);
+		this.remove(informacionLiga6);
+		
+		this.remove(informacionPais);
+		
+		//Estos componentes se utilizaran para poder mostrar las bandera de los paises dentro de los cuadros de juego.
+		
+		this.remove(cuadro1);
+		this.remove(cuadro2);
+		this.remove(cuadro3);
+		this.remove(cuadro4);
+		this.remove(cuadro5);
+		this.remove(cuadro6);
+		this.remove(cuadro7);
+		this.remove(cuadro8);
+		
+		this.remove(labelPais1);
+		this.remove(labelPais2);
+		this.remove(labelPais3);
+		this.remove(labelPais4);
+		this.remove(labelPais5);
+		this.remove(labelPais6);
+		this.remove(labelPais7);
+		this.remove(labelPais8);
+		this.remove(labelPais9);
+		this.remove(labelPais10);
+		this.remove(labelPais11);
+		this.remove(labelPais12);
+		this.remove(labelPais13);
+		this.remove(labelPais14);
+		this.remove(labelPais15);
+		this.remove(labelPais16);
+		this.remove(labelPais17);
+		this.remove(labelPais18);
+		this.remove(labelPais19);
+		this.remove(labelPais20);
+		this.remove(labelPais21);
+		this.remove(labelPais22);
+		this.remove(labelPais23);
+		this.remove(labelPais24);
+		this.remove(labelPais25);
+		this.remove(labelPais26);
+		this.remove(labelPais27);
+		this.remove(labelPais28);
+		this.remove(labelPais29);
+		this.remove(labelPais30);
+		this.remove(labelPais31);
+		this.remove(labelPais32);
+		
+		
+	}
+	
+	
 	
 
 	//----------------------------------------------------------------------------------------------------------
