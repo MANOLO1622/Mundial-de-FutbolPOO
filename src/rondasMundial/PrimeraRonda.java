@@ -1,6 +1,7 @@
 package rondasMundial;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import cl.Equipo;
 
@@ -15,6 +16,7 @@ public class PrimeraRonda {
     private Equipo[] septimoCuadro = new Equipo[4];
     private Equipo[] octavoCuadro = new Equipo[4];
     
+	//---------------------------------------------------------------------------------------Constructor.
     
     public PrimeraRonda(ArrayList<Equipo> equiposMundial) {
     	
@@ -37,18 +39,116 @@ public class PrimeraRonda {
     	
     	//-----------------------------------------------------Segundo
     	
+    	System.out.println("Segundo cuadro de juego:");
+    	System.out.println("");
+    	
     	for(int i=0; i<4;i++) {
     		
-    		primerCuadro[i] = equiposMundial.get(i);
-    		System.out.println(primerCuadro[i]);
+    		segundoCuadro[i] = equiposMundial.get(contador);
+    		System.out.println(segundoCuadro[i]);
+    		contador++;
     		
     	}
+    	
+    	System.out.println("");
+    	
+    	//-----------------------------------------------------Tercero
+    	
+    	System.out.println("Tercer cuadro de juego:");
+    	System.out.println("");
+    	
+    	for(int i=0; i<4;i++) {
+    		
+    		tercerCuadro[i] = equiposMundial.get(contador);
+    		System.out.println(tercerCuadro[i]);
+    		contador++;
+    		
+    	}
+    	
+    	System.out.println("");
+    	
+    	//-----------------------------------------------------Cuarto
+    	
+    	System.out.println("Cuarto cuadro de juego:");
+    	System.out.println("");
+    	
+    	for(int i=0; i<4;i++) {
+    		
+    		cuartoCuadro[i] = equiposMundial.get(contador);
+    		System.out.println(cuartoCuadro[i]);
+    		contador++;
+    		
+    	}
+    	
+    	System.out.println("");
+    	
+    	//-----------------------------------------------------Quinto
+    	
+    	System.out.println("Quinto cuadro de juego:");
+    	System.out.println("");
+    	
+    	for(int i=0; i<4;i++) {
+    		
+    		quintoCuadro[i] = equiposMundial.get(contador);
+    		System.out.println(quintoCuadro[i]);
+    		contador++;
+    		
+    	}
+    	
+    	System.out.println("");
+    	
+    	//-----------------------------------------------------Sexto
+    	
+    	System.out.println("Sexto cuadro de juego:");
+    	System.out.println("");
+    	
+    	for(int i=0; i<4;i++) {
+    		
+    		sextoCuadro[i] = equiposMundial.get(contador);
+    		System.out.println(sextoCuadro[i]);
+    		contador++;
+    		
+    	}
+    	
+    	System.out.println("");
+    	
+    	//-----------------------------------------------------Septimo
+    	
+    	System.out.println("Septimo cuadro de juego:");
+    	System.out.println("");
+    	
+    	for(int i=0; i<4;i++) {
+    		
+    		septimoCuadro[i] = equiposMundial.get(contador);
+    		System.out.println(septimoCuadro[i]);
+    		contador++;
+    		
+    	}
+    	
+    	System.out.println("");
+    	
+    	
+    	//-----------------------------------------------------Octavo
+    	
+    	System.out.println("Octavo cuadro de juego:");
+    	System.out.println("");
+    	
+    	for(int i=0; i<4;i++) {
+    		
+    		octavoCuadro[i] = equiposMundial.get(contador);
+    		System.out.println(octavoCuadro[i]);
+    		contador++;
+    		
+    	}
+    	
+    	System.out.println("");
     	
     	
     }
     
     
     
+	//---------------------------------------------------------------------------------------Gets y Sets.
     
     
 	public Equipo[] getPrimerCuadro() {
@@ -98,6 +198,18 @@ public class PrimeraRonda {
 	}
 	public void setOctavoCuadro(Equipo[] octavoCuadro) {
 		this.octavoCuadro = octavoCuadro;
+	}
+
+
+	//---------------------------------------------------------------------------------------metodo to String
+	
+	@Override
+	public String toString() {
+		return "PrimeraRonda: primerCuadro= " + Arrays.toString(primerCuadro) + ", segundoCuadro= "
+				+ Arrays.toString(segundoCuadro) + ", tercerCuadro= " + Arrays.toString(tercerCuadro) + ", cuartoCuadro= "
+				+ Arrays.toString(cuartoCuadro) + ", quintoCuadro " + Arrays.toString(quintoCuadro) + ", sextoCuadro= "
+				+ Arrays.toString(sextoCuadro) + ", septimoCuadro= " + Arrays.toString(septimoCuadro) + ", octavoCuadro= "
+				+ Arrays.toString(octavoCuadro);
 	}
     
     
