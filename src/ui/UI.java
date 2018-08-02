@@ -21,7 +21,7 @@ public class UI {
 		Ventana ventLogin = new Ventana(new Usuario(null, null, null, null, null, null, 0));
 		ventLogin.setResizable(false);
 		ventLogin.ventanaLogin();
-//		
+		
 		
 	}
 	

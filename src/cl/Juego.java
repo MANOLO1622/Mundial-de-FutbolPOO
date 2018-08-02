@@ -171,7 +171,7 @@ public class Juego extends JPanel implements ActionListener{
 				}else {
 					
 					mostrarInformacionLiga(0);
-					mostrarCuadros();
+					mostrarCuadros(0);
 					equipos.setEnabled(true);
 					for(Equipo a: this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getEquiposMundial()) {
 						
@@ -192,14 +192,14 @@ public class Juego extends JPanel implements ActionListener{
 				}else {
 					
 					mostrarInformacionLiga(1);
-					/*mostrarCuadros();
+					mostrarCuadros(1);
 					equipos.setEnabled(true);
 					
 					for(Equipo a: this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getEquiposMundial()) {
 						
 						equipos.addItem((String)a.getNombre());
 						
-					}*/
+					}
 					
 				}
 				
@@ -347,7 +347,7 @@ public class Juego extends JPanel implements ActionListener{
 	
 	//----------------------------------------------------------------------------------------------------------
 	
-	public void mostrarCuadros() {
+	public void mostrarCuadros(int tipoLiga) {
 		
 		
 		int ancho = 97;
@@ -490,22 +490,47 @@ public class Juego extends JPanel implements ActionListener{
 
 		//----------------------------------------------
 		
-		mostrarBanderas( ancho,  alto);
+		mostrarBanderas( ancho,  alto, tipoLiga);
 		
 	}
 	
 	
-	public void mostrarBanderas(int ancho, int alto) {
+	public void mostrarBanderas(int ancho, int alto, int tipoLiga) {
 		
+		Equipo[] temp1= null;
+		Equipo[] temp2= null;
+		Equipo[] temp3= null;
+		Equipo[] temp4= null;
+		Equipo[] temp5= null;
+		Equipo[] temp6= null;
+		Equipo[] temp7= null;
+		Equipo[] temp8= null;
 		
-		Equipo[] temp1= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPrimerCuadro();
-		Equipo[] temp2= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getSegundoCuadro();
-		Equipo[] temp3= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getTercerCuadro();
-		Equipo[] temp4= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getCuartoCuadro();
-		Equipo[] temp5= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getQuintoCuadro();
-		Equipo[] temp6= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getSextoCuadro();
-		Equipo[] temp7= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getSeptimoCuadro();
-		Equipo[] temp8= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getOctavoCuadro();
+		if(tipoLiga == 0) {
+			
+			temp1= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPrimerCuadro();
+			temp2= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getSegundoCuadro();
+			temp3= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getTercerCuadro();
+			temp4= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getCuartoCuadro();
+			temp5= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getQuintoCuadro();
+			temp6= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getSextoCuadro();
+			temp7= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getSeptimoCuadro();
+			temp8= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getOctavoCuadro();
+			
+		}else if(tipoLiga == 1) {
+			
+			temp1= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPrimerCuadro();
+			temp2= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getSegundoCuadro();
+			temp3= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getTercerCuadro();
+			temp4= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getCuartoCuadro();
+			temp5= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getQuintoCuadro();
+			temp6= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getSextoCuadro();
+			temp7= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getSeptimoCuadro();
+			temp8= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getOctavoCuadro();
+			
+		}
+		
+
 		
 		//-----------------------------------------------------------------Primer cuadro
 		
@@ -652,6 +677,9 @@ public class Juego extends JPanel implements ActionListener{
 		labelPais32.setIcon(icono32);
 
 	}
+	
+	
+	
 	
 	public void mostrarinformacionPaisSeleccionado(){
 		String InformacionPais = "Equipo: " + Gestor.retornarEquipo((String)equipos.getSelectedItem()).getNombre() + "\n";

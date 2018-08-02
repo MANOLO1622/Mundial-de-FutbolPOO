@@ -102,6 +102,8 @@ public class CL {
 		listaLigasPrivadas.add(registro);
 		
 	}
+	
+	
 	public static ArrayList<LigasPrivadas> listaLigasPrivadas() {
 		
 		return listaLigasPrivadas;
@@ -159,7 +161,6 @@ public class CL {
 				
 				temp.setNombreLiga(e.getNombreLiga());
 				temp.setFechaCreacion(e.getFechaCreacion());
-				temp.setFechaCreacion(e.getFechaCreacion());
 				temp.setEstado(e.getEstado());
 				temp.setPuntos(e.getPuntos());
 				temp.setBono(e.getBono());
@@ -169,15 +170,12 @@ public class CL {
 		}
 		return temp;
 	}
-	public static ArrayList<Mundiales> retornarMundialesRegistrados(){
-		
-		return listaMundiales;
-		
-	}
+	
+
 	
 	public static LigasPrivadas retornarLigaPrivada(String nombreLiga) {
 		
-		LigasPrivadas temp = new LigasPrivadas("", null, false, 0, 0, "");
+		LigasPrivadas temp = new LigasPrivadas("", null, false, 0, 0, null);
 		
 		for(LigasPrivadas e: listaLigasPrivadas) {
 			
@@ -185,16 +183,26 @@ public class CL {
 				
 				temp.setNombreLiga(e.getNombreLiga());
 				temp.setFechaCreacion(e.getFechaCreacion());
-				temp.setFechaCreacion(e.getFechaCreacion());
 				temp.setEstado(e.getEstado());
 				temp.setPuntos(e.getPuntos());
 				temp.setBono(e.getBono());
 				temp.setMundialAnfitrion(e.getMundialAnfitrion());
+				
 			}	
 		}
 		
 		return temp;
 	}
+	
+	
+	
+	public static ArrayList<Mundiales> retornarMundialesRegistrados(){
+		
+		return listaMundiales;
+		
+	}
+	
+	
 	
 	public static ArrayList<Equipo> retornarEquiposRegistrados(){
 		
@@ -287,7 +295,7 @@ public class CL {
 			
 			Usuario miUsuario = listaUsuarios.get(indice);
 			miUsuario.setMiLigaPrivada(liga);
-			listaUsuarios.set(indice, miUsuario);		
+			listaUsuarios.set(indice, miUsuario);
 		
 	}
 	

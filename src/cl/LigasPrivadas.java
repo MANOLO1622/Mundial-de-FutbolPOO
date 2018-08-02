@@ -6,11 +6,10 @@ public class LigasPrivadas extends Ligas{
 	
 	int puntos;
 	int bono;
-	private String mundialAnfitrion;
-
+	private Mundiales mundialAnfitrion;
 	final int unaConstante = 100;
 	
-	public LigasPrivadas(String nombreLiga, LocalDate fechaCreacion, boolean estado,int puntos, int bono,String mundialAnfitrion) {
+	public LigasPrivadas(String nombreLiga, LocalDate fechaCreacion, boolean estado,int puntos, int bono,Mundiales mundialAnfitrion) {
 		
 		super (nombreLiga,fechaCreacion, estado);
 		this.setTipoLiga(false);
@@ -39,16 +38,18 @@ public class LigasPrivadas extends Ligas{
 		return unaConstante;
 	}
 	
-	public String getMundialAnfitrion() {
+	public Mundiales getMundialAnfitrion() {
         return mundialAnfitrion;
     }
-	
-	public void setMundialAnfitrion(String MundialAnfitrion) {
+
+	public void setMundialAnfitrion(Mundiales mundialAnfitrion) {
         this.mundialAnfitrion = mundialAnfitrion;
     }
+	
+	
 	@Override
 	public String toString() {
-		return "LigasPublicas [puntos=" + puntos + ", bono=" + bono + ", mundialAnfitrion=" + mundialAnfitrion
+		return "LigasPrivadas [puntos=" + puntos + ", bono=" + bono + ", mundialAnfitrion=" + mundialAnfitrion
 				+ ", unaConstante=" + unaConstante + "]";
 	}
 	

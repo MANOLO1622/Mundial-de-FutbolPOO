@@ -22,6 +22,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JButton botonLigaPublica;
 	JButton botonLigaPrivada;
 	JButton botonSalir;
+	JButton btnIncJugLigaPrivada;
 
 	Gestor controlador = new Gestor();
 	JLabel labelNombreLiga = new JLabel("Nombre de la Liga: ");
@@ -93,10 +94,15 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		botonLigaPrivada.setBounds(10, 475, 180, 50);
 		this.add(botonLigaPrivada);
 		
+		btnIncJugLigaPrivada = new JButton("Incluir en LigaPrivada");
+		btnIncJugLigaPrivada.setBounds(10, 550, 180, 50);
+		this.add(btnIncJugLigaPrivada);
+		
 		botonSalir = new JButton("Salir");
-		botonSalir.setBounds(10, 550, 180, 50);
+		botonSalir.setBounds(10, 615, 180, 50);
 		this.add(botonSalir);
 		
+
 		this.add(fechaMundial);
 		fechaMundial.setVisible(false);
 		fechaMundial.setDecorationBordersVisible(true);
@@ -116,6 +122,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		btnRegistrarMundial.addActionListener(this);
 		btnRegistroLigaPrivada.addActionListener(this);
 		btnRegistroLigaPublica.addActionListener(this);
+		btnIncJugLigaPrivada.addActionListener(this);
 		botonSalir.addActionListener(this);
 	}
 	
@@ -295,7 +302,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 					Date fecha = new Date();
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-					controlador.registrarLigaPrivadas(nombreLigaTXT.getText(), fechaRegistro, true, 1, 2,(String)MundialAnfitrion.getSelectedItem());
+					controlador.registrarLigaPrivadas(nombreLigaTXT.getText(), fechaRegistro, true, 1, 2,Gestor.retornarMundial((String)MundialAnfitrion.getSelectedItem()));
 					controlador.listarLigasPrivadas();
 
 					JOptionPane.showMessageDialog(null, "¡Liga Privada registrada Exitosamente!.");
@@ -313,6 +320,17 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 			
 		}
+		
+		
+		
+		if(e.getSource()==btnIncJugLigaPrivada) {
+			
+
+			Gestor.asignarLigaPrivadaUsuario("j",Gestor.retornarLigaPrivada("q"));
+			JOptionPane.showMessageDialog(null, Gestor.retornarUsuario("j").toString());
+			
+		}
+		
    }
 
 

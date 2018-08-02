@@ -9,10 +9,6 @@ public class LigasPublicas extends Ligas {
 	int puntos;
 	int bono;
 	private Mundiales mundialAnfitrion;
-	
-	
-	
-
 	final int unaConstante = 100;
 	
 	
