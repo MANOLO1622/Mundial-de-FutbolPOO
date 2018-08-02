@@ -160,6 +160,9 @@ public class Juego extends JPanel implements ActionListener{
 
 		if(e.getSource()==ligas) {
 			
+//			inicializarComponentes();
+//			equipos.removeAllItems();
+			
 			if(ligas.getSelectedIndex() == 0 ) {
 				
 				if(this.miUsuarioActual.getMiLigaPublica() == null) {
@@ -173,6 +176,7 @@ public class Juego extends JPanel implements ActionListener{
 					mostrarInformacionLiga(0);
 					mostrarCuadros(0);
 					equipos.setEnabled(true);
+					
 					for(Equipo a: this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getEquiposMundial()) {
 						
 						equipos.addItem((String)a.getNombre());
@@ -326,13 +330,6 @@ public class Juego extends JPanel implements ActionListener{
 		this.add(equipos);
 		equipos.setEnabled(false);
 		equipos.setBounds(145, 30, 100, 25);
-
-		
-		/*for(Equipo e: listaEquipos) {
-			
-			equipos.addItem(e.getNombre());
-			
-		}*/
 		
 		this.add(bandera);
 		bandera.setBounds(30, 500, 193,128);
