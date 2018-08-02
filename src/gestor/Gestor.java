@@ -3,6 +3,8 @@ package gestor;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
+
 import javax.swing.*;
 
 import cl.*;
@@ -20,7 +22,7 @@ public class Gestor {
 
 	}
 
-	public void registrarMundial(String nombreMundial, LocalDate ano, String paisOrganizador, boolean estado) {
+	public void registrarMundial(String nombreMundial, Date ano, String paisOrganizador, boolean estado) {
 
 		Mundiales registro = new Mundiales(nombreMundial, ano, paisOrganizador,  estado);
 		capaLogica.registrarMundial(registro);

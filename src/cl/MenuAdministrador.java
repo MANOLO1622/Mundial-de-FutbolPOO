@@ -182,8 +182,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 				if (b == true) {
 
 					Date fecha = fechaMundial.getDate();
-					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-					controlador.registrarMundial(nombreMundialTXT.getText(), fechaRegistro, (String)paisesOrganizadores.getSelectedItem(), true);
+					controlador.registrarMundial(nombreMundialTXT.getText(), fecha, (String)paisesOrganizadores.getSelectedItem(), true);
 
 					JOptionPane.showMessageDialog(null, "¡Mundial registrada Exitosamente!.");
 					

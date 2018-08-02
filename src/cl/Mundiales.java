@@ -4,11 +4,13 @@ package cl;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import rondasMundial.*;
+import java.util.Date;
+
 
 public class Mundiales {
     
-	private LocalDate ano;
 	private String nombreMundial;
+    private Date ano;
     private String paisOrganizador;
     private boolean estado;
     private ArrayList<Equipo> equiposMundial;
@@ -22,7 +24,7 @@ public class Mundiales {
     public Mundiales() {
     }
 
-    public Mundiales( String nombreMundial, LocalDate ano, String paisOrganizador,  boolean estado) {
+    public Mundiales( String nombreMundial, Date ano, String paisOrganizador,  boolean estado) {
         this.equiposMundial = new ArrayList();
     	this.nombreMundial = nombreMundial;
     	this.ano = ano;
@@ -30,7 +32,7 @@ public class Mundiales {
         this.estado = estado;
     }
 
-    public LocalDate getAno() {
+    public Date getAno() {
         return ano;
     }
 
@@ -44,7 +46,7 @@ public class Mundiales {
         return estado;
     }
 
-    public void setAno(LocalDate ano) {
+    public void setAno(Date ano) {
         this.ano = ano;
     }
 
