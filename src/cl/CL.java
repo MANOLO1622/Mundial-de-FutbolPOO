@@ -78,7 +78,8 @@ public class CL {
 				cupoEquipos++;
 			}	
 		}
-			
+		
+		registro.generarCuadrosJuego();
 		listaMundiales.add(registro);
 		
 	}
@@ -92,8 +93,6 @@ public class CL {
 	public static void registrarLigaPublicas(LigasPublicas registro) {
 		
 		listaLigasPublicas.add(registro);
-		System.out.println("Mundial"+registro.getMundialAnfitrion().getNombreMundial());
-		System.out.println("El tamano de el mundial en la liga publica es: "+registro.getMundialAnfitrion().getEquiposMundial().size());
 		
 	}
 

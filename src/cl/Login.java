@@ -105,7 +105,6 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 			
 			Ventana ventanaRegistro = new Ventana(new Usuario("", "", "", "", "", "", 0));
 			ventanaRegistro.ventanaRegistroUsuarios();
-			ventanaRegistro.setExtendedState(Ventana.MAXIMIZED_BOTH);	
 			
 		}
 		

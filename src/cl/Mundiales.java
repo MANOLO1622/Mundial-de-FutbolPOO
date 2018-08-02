@@ -3,14 +3,18 @@ package cl;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import rondasMundial.*;
 
 public class Mundiales {
     
+	private LocalDate ano;
 	private String nombreMundial;
-    private LocalDate ano;
     private String paisOrganizador;
-    private ArrayList<Equipo> equiposMundial;
     private boolean estado;
+    private ArrayList<Equipo> equiposMundial;
+    
+    private PrimeraRonda ronda1= null;
+    
     private String EquipoPrimerLugar;
     private String EquipoSegundoLugar;
     private String EquipoTercerLugar;
@@ -97,12 +101,20 @@ public class Mundiales {
 	}
 
 	
-	
 	@Override
 	public String toString() {
 		return "Mundiales: ano=" + ano + ", paisOrganizador=" + paisOrganizador + ", estado=" + estado;
 	}
 
+	
+	//---------------------------------------------------------------------------------------------------
+	
+	public void generarCuadrosJuego() {
+		
+		this.ronda1 = new PrimeraRonda(this.equiposMundial);
+		
+		
+	}
 
    
     
