@@ -26,9 +26,6 @@ public class LigasPrivadas extends Ligas{
 	public void setPuntos(int puntos) {
 		this.puntos = puntos;
 	}
-	public String getMundialAnfitrion() {
-        return mundialAnfitrion;
-    }
 
 	public int getBono() {
 		return bono;
@@ -41,6 +38,10 @@ public class LigasPrivadas extends Ligas{
 	public int getUnaConstante() {
 		return unaConstante;
 	}
+	
+	public String getMundialAnfitrion() {
+        return mundialAnfitrion;
+    }
 	
 	public void setMundialAnfitrion(String MundialAnfitrion) {
         this.mundialAnfitrion = mundialAnfitrion;

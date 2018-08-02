@@ -6,7 +6,7 @@ package cl;
  */
 public class Equipo {
 	
-	private static ISOPaises iso;
+	private ISOPaises iso;
 	private String nombre;
 	private int ranking;
 	private String bandera;//http://flagpedia.net/index
@@ -21,27 +21,34 @@ public class Equipo {
 	}
 	
 	
-	public static ISOPaises getIso() {
+	public ISOPaises getIso() {
 		return iso;
 	}
-	public static void setIso(ISOPaises iso) {
-		Equipo.iso = iso;
+	
+	public void setIso(ISOPaises iso) {
+		this.iso = iso;
 	}
-	public String getNombre() {
+	
+	public String getNombre(){
 		return nombre;
 	}
+	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
 	public int getRanking() {
 		return ranking;
 	}
+	
 	public void setRanking(int ranking) {
 		this.ranking = ranking;
 	}
+	
 	public String getBandera() {
 		return bandera;
 	}
+	
 	public void setBandera(String bandera) {
 		this.bandera = bandera;
 	}

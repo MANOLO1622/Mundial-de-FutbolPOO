@@ -5,24 +5,28 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
+import javax.swing.border.Border;
 
 import gestor.Gestor;
 
 public class Juego extends JPanel implements ActionListener{
 	
+	private static Gestor controlador = new Gestor();
 	public Usuario miUsuarioActual;
 	private static Image imagen;
-	private static Gestor controlador = new Gestor();
 	
-	
-	private JComboBox ligas = new JComboBox<Object>();
-	private JComboBox equipos = new JComboBox<Object>();
-	private JButton btnIngresoJuego = new JButton("Ingresar");
-	private JButton btnSalir = new JButton("Salir");
 	private JLabel bandera = new JLabel();
 	private ImageIcon banderaImagen;
+	
+	//Estos componentes son los principales del panel de jugador, con el fin de dar una interaccion al usuario.
+	
+	private JComboBox ligas = new JComboBox();
+	private JComboBox equipos = new JComboBox<Equipo>();
+	private JButton btnSalir = new JButton("Salir");
+	private JButton btnJugar = new JButton("Jugar");
 
-	//Estos componentes se utilizaran para poder mostrar la informacion de la liga.
+
+	//Estos componentes se utilizaran para poder mostrar informacion de la liga y del pais que se seleccione.
 	
 	private JLabel informacionLiga1 = new JLabel();
 	private JLabel informacionLiga2 = new JLabel();
@@ -31,7 +35,18 @@ public class Juego extends JPanel implements ActionListener{
 	private JLabel informacionLiga5 = new JLabel();
 	private JLabel informacionLiga6 = new JLabel();
 	
+	private JTextPane informacionPais = new JTextPane();
+	
 	//Estos componentes se utilizaran para poder mostrar las bandera de los paises dentro de los cuadros de juego.
+	
+	private JLabel cuadro1 = new JLabel("Cuadro 1");
+	private JLabel cuadro2 = new JLabel("Cuadro 2");
+	private JLabel cuadro3 = new JLabel("Cuadro 3");
+	private JLabel cuadro4 = new JLabel("Cuadro 4");
+	private JLabel cuadro5 = new JLabel("Cuadro 5");
+	private JLabel cuadro6 = new JLabel("Cuadro 6");
+	private JLabel cuadro7 = new JLabel("Cuadro 7");
+	private JLabel cuadro8 = new JLabel("Cuadro 8");
 	
 	private JLabel labelPais1 = new JLabel();
 	private JLabel labelPais2 = new JLabel();
@@ -114,13 +129,7 @@ public class Juego extends JPanel implements ActionListener{
 		CL capaLogica = new CL();
 		ArrayList<Equipo> listaEquipos = capaLogica.listarEquiposFIFA();
 		
-
-		this.add(btnSalir);
-		btnSalir.setBounds(230, 10, 100, 25);
-		
 		//-----------Eventos.
-		
-		
 
 		equipos.addActionListener(this);
 		ligas.addActionListener(this);
@@ -138,6 +147,12 @@ public class Juego extends JPanel implements ActionListener{
 			banderaImagen = new ImageIcon(b);
 			Icon icono = new ImageIcon(banderaImagen.getImage().getScaledInstance(bandera.getWidth(), bandera.getHeight(), Image.SCALE_DEFAULT));
 			bandera.setIcon(icono);
+			
+			this.add(informacionPais);
+			informacionPais.setEditable(false);
+			informacionPais.setBounds(230, 500, 700,128);
+			
+			mostrarinformacionPaisSeleccionado();
 			
 			
 		}
@@ -157,6 +172,12 @@ public class Juego extends JPanel implements ActionListener{
 					
 					mostrarInformacionLiga(0);
 					mostrarCuadros();
+					equipos.setEnabled(true);
+					for(Equipo a: this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getEquiposMundial()) {
+						
+						equipos.addItem((String)a.getNombre());
+						
+					}
 					
 				}
 				
@@ -171,6 +192,14 @@ public class Juego extends JPanel implements ActionListener{
 				}else {
 					
 					mostrarInformacionLiga(1);
+					/*mostrarCuadros();
+					equipos.setEnabled(true);
+					
+					for(Equipo a: this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getEquiposMundial()) {
+						
+						equipos.addItem((String)a.getNombre());
+						
+					}*/
 					
 				}
 				
@@ -189,35 +218,30 @@ public class Juego extends JPanel implements ActionListener{
 
 	public void mostrarInformacionLiga(int tipoLiga) {
 	
-		informacionLiga1.setBounds(10,110, 600,100);
-		informacionLiga1.setForeground(new Color(139,252,99));
-		informacionLiga1.setFont(new Font(informacionLiga1.getFont().getFontName(), Font.PLAIN, 15));
+		this.add(informacionLiga1);
+		informacionLiga1.setBounds(30,60, 600,80);
+		informacionLiga1.setFont(new Font(informacionLiga1.getFont().getFontName(), Font.PLAIN, 20));
 		
 		
 		this.add(informacionLiga2);
-		informacionLiga2.setBounds(10,160, 600,100);
-		informacionLiga2.setForeground(new Color(139,252,99));
-		informacionLiga2.setFont(new Font(informacionLiga2.getFont().getFontName(), Font.PLAIN, 15));
+		informacionLiga2.setBounds(30,90, 600,100);
+		informacionLiga2.setFont(new Font(informacionLiga2.getFont().getFontName(), Font.PLAIN, 20));
 		
 		this.add(informacionLiga3);
-		informacionLiga3.setBounds(10,190, 600,100);
-		informacionLiga3.setForeground(new Color(139,252,99));
-		informacionLiga3.setFont(new Font(informacionLiga3.getFont().getFontName(), Font.PLAIN, 15));
+		informacionLiga3.setBounds(30,120, 600,100);
+		informacionLiga3.setFont(new Font(informacionLiga3.getFont().getFontName(), Font.PLAIN, 20));
 		
 		this.add(informacionLiga4);
-		informacionLiga4.setBounds(10,220, 600,100);
-		informacionLiga4.setForeground(new Color(139,252,99));
-		informacionLiga4.setFont(new Font(informacionLiga4.getFont().getFontName(), Font.PLAIN, 15));
+		informacionLiga4.setBounds(30,150, 600,100);
+		informacionLiga4.setFont(new Font(informacionLiga4.getFont().getFontName(), Font.PLAIN, 20));
 		
 		this.add(informacionLiga5);
-		informacionLiga5.setBounds(10,250, 600,100);
-		informacionLiga5.setForeground(new Color(139,252,99));
-		informacionLiga5.setFont(new Font(informacionLiga5.getFont().getFontName(), Font.PLAIN, 15));
+		informacionLiga5.setBounds(30,180, 600,100);
+		informacionLiga5.setFont(new Font(informacionLiga5.getFont().getFontName(), Font.PLAIN, 20));
 		
 		this.add(informacionLiga6);
-		informacionLiga6.setBounds(10,280, 600,100);
-		informacionLiga6.setForeground(new Color(139,252,99));
-		informacionLiga6.setFont(new Font(informacionLiga6.getFont().getFontName(), Font.PLAIN, 15));
+		informacionLiga6.setBounds(30,210, 600,100);
+		informacionLiga6.setFont(new Font(informacionLiga6.getFont().getFontName(), Font.PLAIN, 20));
 		
 
 		switch(tipoLiga) {
@@ -226,7 +250,7 @@ public class Juego extends JPanel implements ActionListener{
 			
 			informacionLiga1.setText("Informacion de la Liga " + this.miUsuarioActual.getMiLigaPublica().getNombreLiga());
 			informacionLiga2.setText("Nombre de la Liga: " + this.miUsuarioActual.getMiLigaPublica().getNombreLiga());
-			informacionLiga3.setText("Fecha de creacion: " + this.miUsuarioActual.getMiLigaPublica().getFechaCreacion());
+			informacionLiga3.setText("Registro: " + this.miUsuarioActual.getMiLigaPublica().getFechaCreacion());
 			informacionLiga4.setText("Estado: " + this.miUsuarioActual.getMiLigaPublica().getEstado());
 			informacionLiga5.setText("Puntos: " + this.miUsuarioActual.getMiLigaPublica().getPuntos());
 			informacionLiga6.setText("Bono: " + this.miUsuarioActual.getMiLigaPublica().getBono());
@@ -272,7 +296,6 @@ public class Juego extends JPanel implements ActionListener{
 		
 		this.remove(ligas);
 		this.remove(equipos);
-		this.remove(btnIngresoJuego);
 		this.remove(btnSalir);
 		this.remove(bandera);
 		
@@ -294,27 +317,31 @@ public class Juego extends JPanel implements ActionListener{
 		
 
 		this.add(ligas);
-		ligas.setBounds(10, 10, 100, 25);
+		ligas.setBounds(30, 30, 100, 25);
 		ligas.addItem("Liga Publica");
 		ligas.addItem("Liga Privada");
 		
 
 
 		this.add(equipos);
-		equipos.setBounds(120, 10, 100, 25);
+		equipos.setEnabled(false);
+		equipos.setBounds(145, 30, 100, 25);
 
 		
-		for(Equipo e: listaEquipos) {
+		/*for(Equipo e: listaEquipos) {
 			
 			equipos.addItem(e.getNombre());
 			
-		}
+		}*/
 		
 		this.add(bandera);
-		bandera.setBounds(10, 45, 145, 87);
+		bandera.setBounds(30, 500, 193,128);
+		
+		this.add(btnJugar);
+		btnJugar.setBounds(1130, 550, 100, 40);
 
 		this.add(btnSalir);
-		btnSalir.setBounds(1530, 830, 100, 60);
+		btnSalir.setBounds(1130, 600, 100, 40);
 
 	}
 	
@@ -328,115 +355,137 @@ public class Juego extends JPanel implements ActionListener{
 		
 		//-----------------------------------------------Primer Cuadro
 		
+		this.add(cuadro1);
+		cuadro1.setBounds(335, 59, 100, 25);
+		
 		this.add(labelPais1);
-		labelPais1.setBounds(335, 40, ancho, alto);
+		labelPais1.setBounds(335, 90, ancho, alto);
 
 		this.add(labelPais2);
-		labelPais2.setBounds(435, 40, ancho, alto);
+		labelPais2.setBounds(435, 90, ancho, alto);
 		
 		this.add(labelPais3);
-		labelPais3.setBounds(335, 107, ancho, alto);
+		labelPais3.setBounds(335, 157, ancho, alto);
 
 		this.add(labelPais4);
-		labelPais4.setBounds(435, 107, ancho, alto);
+		labelPais4.setBounds(435, 157, ancho, alto);
 		
 		//-----------------------------------------------Segundo Cuadro
+		this.add(cuadro2);
+		cuadro2.setBounds(552, 59, 100, 25);
 		
 		this.add(labelPais5);
-		labelPais5.setBounds(552, 40, ancho, alto);
+		labelPais5.setBounds(552, 90, ancho, alto);
 
 		this.add(labelPais6);
-		labelPais6.setBounds(652, 40, ancho, alto);
+		labelPais6.setBounds(652, 90, ancho, alto);
 
 		this.add(labelPais7);
-		labelPais7.setBounds(552, 107, ancho, alto);
+		labelPais7.setBounds(552, 157, ancho, alto);
 		
 		this.add(labelPais8);
-		labelPais8.setBounds(652, 107, ancho, alto);
+		labelPais8.setBounds(652, 157, ancho, alto);
 		
 		//----------------------------------------------Tercer Cuadro
-
+		this.add(cuadro3);
+		cuadro3.setBounds(769, 59, 100, 25);
+		
 		this.add(labelPais9);
-		labelPais9.setBounds(769, 40, ancho, alto);
+		labelPais9.setBounds(769, 90, ancho, alto);
 		
 		this.add(labelPais10);
-		labelPais10.setBounds(869, 40, ancho, alto);
+		labelPais10.setBounds(869, 90, ancho, alto);
 		
 		this.add(labelPais11);
-		labelPais11.setBounds(769, 107, ancho, alto);
+		labelPais11.setBounds(769, 157, ancho, alto);
 
 		this.add(labelPais12);
-		labelPais12.setBounds(869, 107, ancho, alto);
+		labelPais12.setBounds(869, 157, ancho, alto);
 		
 		//-----------------------------------------------Cuarto Cuadro
 		
+		this.add(cuadro4);
+		cuadro4.setBounds(986, 59, 100, 25);
+		
 		this.add(labelPais13);
-		labelPais13.setBounds(986, 40, ancho, alto);
+		labelPais13.setBounds(986, 90, ancho, alto);
 
 		this.add(labelPais14);
-		labelPais14.setBounds(1086, 40, ancho, alto);
+		labelPais14.setBounds(1086, 90, ancho, alto);
 		
 		this.add(labelPais15);
-		labelPais15.setBounds(986, 107, ancho, alto);
+		labelPais15.setBounds(986, 157, ancho, alto);
 
 		this.add(labelPais16);
-		labelPais16.setBounds(1086, 107, ancho, alto);
+		labelPais16.setBounds(1086, 157, ancho, alto);
 		
 		//----------------------------------------------Quinto Cuadro
 		
+		this.add(cuadro5);
+		cuadro5.setBounds(335, 260, 100, 25);
+		
 		this.add(labelPais17);
-		labelPais17.setBounds(335, 191, ancho, alto);
+		labelPais17.setBounds(335, 291, ancho, alto);
 
 		this.add(labelPais18);
-		labelPais18.setBounds(435, 191, ancho, alto);
+		labelPais18.setBounds(435, 291, ancho, alto);
 		
 		this.add(labelPais19);
-		labelPais19.setBounds(335, 258, ancho, alto);
+		labelPais19.setBounds(335, 358, ancho, alto);
 
 		this.add(labelPais20);
-		labelPais20.setBounds(435, 258, ancho, alto);
+		labelPais20.setBounds(435, 358, ancho, alto);
 		
 		//-----------------------------------------------Sexto Cuadro
 		
+		this.add(cuadro6);
+		cuadro6.setBounds(552, 260, 100, 25);
+		
 		this.add(labelPais21);
-		labelPais21.setBounds(552, 191, ancho, alto);
+		labelPais21.setBounds(552, 291, ancho, alto);
 
 		this.add(labelPais22);
-		labelPais22.setBounds(652, 191, ancho, alto);
+		labelPais22.setBounds(652, 291, ancho, alto);
 		
 		this.add(labelPais23);
-		labelPais23.setBounds(552, 258, ancho, alto);
+		labelPais23.setBounds(552, 358, ancho, alto);
 
 		this.add(labelPais24);
-		labelPais24.setBounds(652, 258, ancho, alto);
+		labelPais24.setBounds(652, 358, ancho, alto);
 		
 		//----------------------------------------------Septimo Cuadro
 		
+		this.add(cuadro7);
+		cuadro7.setBounds(769, 260, 100, 25);
+		
 		this.add(labelPais25);
-		labelPais25.setBounds(769, 191, ancho, alto);
+		labelPais25.setBounds(769, 291, ancho, alto);
 
 		this.add(labelPais26);
-		labelPais26.setBounds(869, 191, ancho, alto);
+		labelPais26.setBounds(869, 291, ancho, alto);
 		
 		this.add(labelPais27);
-		labelPais27.setBounds(769, 258, ancho, alto);
+		labelPais27.setBounds(769, 358, ancho, alto);
 
 		this.add(labelPais28);
-		labelPais28.setBounds(869, 258, ancho, alto);
+		labelPais28.setBounds(869, 358, ancho, alto);
 		
 		//----------------------------------------------Octavo Cuadro
 		
+		this.add(cuadro8);
+		cuadro8.setBounds(986, 260, 100, 25);
+		
 		this.add(labelPais29);
-		labelPais29.setBounds(986, 191, ancho, alto);
+		labelPais29.setBounds(986, 291, ancho, alto);
 
 		this.add(labelPais30);
-		labelPais30.setBounds(1086, 191, ancho, alto);
+		labelPais30.setBounds(1086, 291, ancho, alto);
 		
 		this.add(labelPais31);
-		labelPais31.setBounds(986, 258, ancho, alto);
+		labelPais31.setBounds(986, 358, ancho, alto);
 
 		this.add(labelPais32);
-		labelPais32.setBounds(1086, 258, ancho, alto);
+		labelPais32.setBounds(1086, 358, ancho, alto);
 		
 
 		//----------------------------------------------
@@ -601,13 +650,18 @@ public class Juego extends JPanel implements ActionListener{
 		imagenPais32 = new ImageIcon(temp8[2].getBandera());
 		Icon icono32 = new ImageIcon(imagenPais32.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPais32.setIcon(icono32);
-				
+
+	}
+	
+	public void mostrarinformacionPaisSeleccionado(){
+		String InformacionPais = "Equipo: " + Gestor.retornarEquipo((String)equipos.getSelectedItem()).getNombre() + "\n";
+		InformacionPais = InformacionPais + "Posicion FIFA: " + Gestor.retornarEquipo((String)equipos.getSelectedItem()).getRanking() + "\n";
+		InformacionPais = InformacionPais + "Codigo: " + Gestor.retornarEquipo((String)equipos.getSelectedItem()).getIso();
+		informacionPais.setText(InformacionPais);
 		
 	}
 	
-	
-	
-	
+
 	//----------------------------------------------------------------------------------------------------------
 	
 	public void paintComponent(Graphics g) {
