@@ -34,6 +34,7 @@ public class PrimeraRonda {
     		contador = i;
     		
     	}
+    	contador++;
     	
     	System.out.println("");
     	

@@ -92,7 +92,6 @@ public class CL {
 	public static void registrarLigaPublicas(LigasPublicas registro) {
 		
 		listaLigasPublicas.add(registro);
-		JOptionPane.showMessageDialog(null,"Devolver ronda: " + registro.getMundialAnfitrion().getRonda1().toString());
 		
 	}
 
