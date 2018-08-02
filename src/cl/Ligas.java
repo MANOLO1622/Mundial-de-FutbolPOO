@@ -56,7 +56,7 @@ public class Ligas {
 
 	@Override
     public String toString() {
-        return "Ligas{" + "nombreLiga=" + nombreLiga + ", fechaCreacion=" + fechaCreacion + ", estado=" + estado + '}';
+        return "Liga: " + "nombreLiga=" + nombreLiga + ", fechaCreacion=" + fechaCreacion + ", estado=" + estado + " ";
     }
     
     

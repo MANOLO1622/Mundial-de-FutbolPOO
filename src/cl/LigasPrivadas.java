@@ -49,7 +49,7 @@ public class LigasPrivadas extends Ligas{
 	
 	@Override
 	public String toString() {
-		return "LigasPrivadas [puntos=" + puntos + ", bono=" + bono + ", mundialAnfitrion=" + mundialAnfitrion
+		return super.toString() + " puntos=" + puntos + ", bono=" + bono + ", mundialAnfitrion=" + mundialAnfitrion
 				+ ", unaConstante=" + unaConstante + "]";
 	}
 	

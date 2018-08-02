@@ -51,13 +51,15 @@ public class LigasPublicas extends Ligas {
 	public int getUnaConstante() {
 		return unaConstante;
 	}
-	
+
 
 	@Override
 	public String toString() {
-		return "LigasPublicas: " + super.toString() + " puntos=" + puntos + ", bono=" + bono + ", mundialAnfitrion=" + mundialAnfitrion
-				+ ", unaConstante=" + unaConstante;
+		return super.toString() + " puntos=" + puntos + ", bono=" + bono + ", mundialAnfitrion=" + mundialAnfitrion
+				+ ", unaConstante=" + unaConstante + "]";
 	}
+	
+
 
 
 
