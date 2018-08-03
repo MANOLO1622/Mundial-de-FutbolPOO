@@ -290,23 +290,24 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 		
 		try {
 			
-			btnRegistrarUsuario.setBackground(new Color(153, 204, 0));
-			btnRegistrarUsuario.setForeground(Color.WHITE);
-			btnIngreso.setBackground(new Color(153, 204, 0));
-			btnIngreso.setForeground(Color.WHITE);
-			btnSalir.setBackground(new Color(153, 204, 0));
-			btnSalir.setForeground(Color.WHITE);
+			btnRegistrarUsuario.setBackground(new Color(227, 242, 253));
+			btnRegistrarUsuario.setForeground(Color.BLACK);
+			btnIngreso.setBackground(new Color(227, 242, 253));
+			btnIngreso.setForeground(Color.BLACK);
+			btnSalir.setBackground(new Color(227, 242, 253));
+			btnSalir.setForeground(Color.BLACK);
+			
 			
 			
 			labelNomUsuario.setForeground(Color.WHITE);
 			usuarioTXT.setBackground(new Color(250, 250, 250));
-			usuarioTXT.setForeground(new Color(0, 102, 0));
-			usuarioTXT.setFont(new Font(usuarioTXT.getFont().getFontName(), Font.BOLD, 15));
+			usuarioTXT.setForeground(new Color(0, 0, 0));
+			usuarioTXT.setFont(new Font(usuarioTXT.getFont().getFontName(), Font.BOLD, 12));
 			
 			labelContrasenaUsuario.setForeground(Color.WHITE);
 			contrasenaTXT.setBackground(new Color(250, 250, 250));
-			contrasenaTXT.setForeground(new Color(0, 102, 0));
-			contrasenaTXT.setFont(new Font(usuarioTXT.getFont().getFontName(), Font.BOLD, 15));
+			contrasenaTXT.setForeground(new Color(0, 0, 0));
+			contrasenaTXT.setFont(new Font(usuarioTXT.getFont().getFontName(), Font.BOLD, 12));
 			
 		}catch(Exception e) {
 			
