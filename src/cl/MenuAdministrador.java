@@ -121,7 +121,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		botonLigaPublica.addActionListener(this);
 		botonLigaPrivada.addActionListener(this);
 		btnRegistrarLigaPublica.addActionListener(this);
+		btnEliminarLigaPublica.addActionListener(this);
 		btnRegistrarLigaPrivada.addActionListener(this);
+		btnEliminarLigaPrivada.addActionListener(this);
 		btnCancelar.addActionListener(this);
 		btnRegistrarMundial.addActionListener(this);
 		btnRegistroLigaPrivada.addActionListener(this);
@@ -258,6 +260,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			}
 
 		}
+		
+		if(e.getSource() == btnEliminarLigaPublica) {
+			
+			Gestor.eliminarLigaPublica("a");
+			
+		}
 
 
 		if (e.getSource() == btnCancelar) {
@@ -317,6 +325,24 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			
 			}
 		 }
+		
+		
+		if(e.getSource()==btnIncJugLigaPrivada) {
+			
+
+			Gestor.asignarLigaPrivadaUsuario("j",Gestor.retornarLigaPrivada("q"));
+			JOptionPane.showMessageDialog(null, Gestor.retornarUsuario("j").toString());
+			
+		}
+		
+		
+		
+		if(e.getSource() == btnEliminarLigaPrivada) {
+			
+			
+			
+		}
+		
 		if(e.getSource() == botonSalir) {
 			
 			Ventana ventLogin = new Ventana(null);
@@ -327,13 +353,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		
 		
-		if(e.getSource()==btnIncJugLigaPrivada) {
-			
 
-			Gestor.asignarLigaPrivadaUsuario("j",Gestor.retornarLigaPrivada("q"));
-			JOptionPane.showMessageDialog(null, Gestor.retornarUsuario("j").toString());
-			
-		}
 		
    }
 

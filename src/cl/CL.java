@@ -375,5 +375,68 @@ public class CL {
 		}
 		
 		//-------------------------------------------------------------------------------------------------------------
+		
+		
+		public static void eliminarLigaPublica(String nombreLiga) {
+			
+			int index=-1;
+			
+			for(LigasPublicas e: listaLigasPublicas) {
+				
+				if(e.getNombreLiga().equals(nombreLiga)) {
+					
+					index = listaLigasPublicas.indexOf(e);
+					
+				}
+				
+			}
+			
+			if(index != -1) {
+				
+				listaLigasPublicas.remove(index);
+				//En este punto se realizara un ciclo for para analizar que usuarios tienen esta liga incluida y se les removera.
+				
+			}
+			
+		}
+		
+		
+		public static void eliminarLigaPrivada(String nombreLiga) {
+			
+			int index=-1;
+			
+			for(LigasPrivadas e: listaLigasPrivadas) {
+				
+				if(e.getNombreLiga().equals(nombreLiga)) {
+					
+					index = listaLigasPrivadas.indexOf(e);
+					
+				}
+				
+			}
+			
+			if(index != -1) {
+				
+				listaLigasPrivadas.remove(index);
+				//En este punto se realizara un ciclo for para analizar que usuarios tienen esta liga incluida y se les removera.
+				
+			}
+	
+		}
+
+		
+		//-------------------------------------------------------------------------------------------------------------
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 }
