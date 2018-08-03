@@ -12,9 +12,9 @@ import gestor.Gestor;
 public class Juego extends JPanel implements ActionListener{
 	
 	private static Gestor controlador = new Gestor();
-	public Usuario miUsuarioActual;
 	private static Image imagen;
-	
+	public Usuario miUsuarioActual;
+
 	private JLabel bandera = new JLabel();
 	private ImageIcon banderaImagen;
 	
@@ -119,10 +119,9 @@ public class Juego extends JPanel implements ActionListener{
 
 	
 	
-	public Juego(Usuario miUsuarioActual) {
+	public Juego(Usuario miUsuarioActual){
 		
 		this.miUsuarioActual = Gestor.retornarUsuario(miUsuarioActual.getNombreUsuario());
-		
 		this.setLayout(null);
 		inicializarComponentes();
 		
@@ -147,8 +146,7 @@ public class Juego extends JPanel implements ActionListener{
 			banderaImagen = new ImageIcon(b);
 			Icon icono = new ImageIcon(banderaImagen.getImage().getScaledInstance(bandera.getWidth(), bandera.getHeight(), Image.SCALE_DEFAULT));
 			bandera.setIcon(icono);
-			
-//			
+						
 			mostrarinformacionPaisSeleccionado();
 			
 			
@@ -692,23 +690,67 @@ public class Juego extends JPanel implements ActionListener{
 	
 	public void removerMenu() {
 		
-		
+		bandera.setText("");
 		this.remove(bandera);
 
 		//Estos componentes se utilizaran para poder mostrar informacion de la liga y del pais que se seleccione.
 		
-		this.remove(informacionLiga1);
-		this.remove(informacionLiga2);
-		this.remove(informacionLiga3);
-		this.remove(informacionLiga4);
-		this.remove(informacionLiga5);
-		this.remove(informacionLiga6);
+		informacionLiga1.setText("");
+		informacionLiga2.setText("");
+		informacionLiga3.setText("");
+		informacionLiga4.setText("");
+		informacionLiga5.setText("");
+		informacionLiga6.setText("");
 		
 		this.remove(informacionPais);
 		
 		//Estos componentes se utilizaran para poder mostrar las bandera de los paises dentro de los cuadros de juego.
 		
-		this.remove(cuadro1);
+		cuadro1.setText("");
+		cuadro2.setText("");
+		cuadro3.setText("");
+		cuadro4.setText("");
+		cuadro5.setText("");
+		cuadro6.setText("");
+		cuadro7.setText("");
+		cuadro8.setText("");
+		
+		labelPais1.setText("");
+		labelPais2.setText("");
+		labelPais3.setText("");
+		labelPais4.setText("");
+		labelPais5.setText("");
+		labelPais6.setText("");
+		labelPais7.setText("");
+		labelPais8.setText("");
+		labelPais9.setText("");
+		labelPais10.setText("");
+		labelPais11.setText("");
+		labelPais12.setText("");
+		labelPais13.setText("");
+		labelPais14.setText("");
+		labelPais15.setText("");
+		labelPais16.setText("");
+		labelPais17.setText("");
+		labelPais18.setText("");
+		labelPais19.setText("");
+		labelPais20.setText("");
+		labelPais21.setText("");
+		labelPais22.setText("");
+		labelPais23.setText("");
+		labelPais24.setText("");
+		labelPais25.setText("");
+		labelPais26.setText("");
+		labelPais27.setText("");
+		labelPais28.setText("");
+		labelPais29.setText("");
+		labelPais30.setText("");
+		labelPais31.setText("");
+		labelPais32.setText("");
+		
+		
+		
+		/*this.remove(cuadro1);
 		this.remove(cuadro2);
 		this.remove(cuadro3);
 		this.remove(cuadro4);
@@ -748,8 +790,9 @@ public class Juego extends JPanel implements ActionListener{
 		this.remove(labelPais29);
 		this.remove(labelPais30);
 		this.remove(labelPais31);
-		this.remove(labelPais32);
+		this.remove(labelPais32);*/
 		
+//		equipos.removeAllItems();
 		
 	}
 	

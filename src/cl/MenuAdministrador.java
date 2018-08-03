@@ -20,7 +20,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JButton boton10 = new JButton("Crear equipos");
 	JButton boton11 = new JButton("Crear jugadores");
 	JButton botonLigaPublica = new JButton("Crear liga publica");
+	JButton btnEliminarLigaPublica = new JButton("Eliminar Liga Publica");
 	JButton botonLigaPrivada = new JButton("Crear liga privada");
+	JButton btnEliminarLigaPrivada = new JButton("Eliminar Liga Privada");
 	JButton btnIncJugLigaPrivada = new JButton("Incluir en LigaPrivada");
 	JButton botonSalir = new JButton("Salir");
 	
@@ -74,31 +76,37 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		boton1.setBounds(10, 50, 180, 50);
 		this.add(boton1);
 
-		boton2.setBounds(10, 115, 180, 50);
+		boton2.setBounds(10, 120, 180, 50);
 		this.add(boton2);
 
-		boton3.setBounds(10, 185, 180, 50);
+		boton3.setBounds(10, 190, 180, 50);
 		this.add(boton3);
 
-		boton10.setBounds(10, 255, 180, 50);
+		boton10.setBounds(10, 260, 180, 50);
 		this.add(boton10);
 
-		boton11.setBounds(10, 325, 180, 50);
+		boton11.setBounds(10, 330, 180, 50);
 		this.add(boton11);
 
 		botonLigaPublica.setBounds(10, 400, 180, 50);
 		this.add(botonLigaPublica);
+		
+		btnEliminarLigaPublica.setBounds(10, 470,  180, 50);
+		this.add(btnEliminarLigaPublica);
 
-		botonLigaPrivada.setBounds(10, 475, 180, 50);
+		botonLigaPrivada.setBounds(10, 540, 180, 50);
 		this.add(botonLigaPrivada);
 		
-		btnIncJugLigaPrivada.setBounds(10, 550, 180, 50);
+		btnIncJugLigaPrivada.setBounds(10, 620, 180, 50);
 		this.add(btnIncJugLigaPrivada);
-			
-		botonSalir.setBounds(10, 615, 180, 50);
-		this.add(botonSalir);
 		
+		btnEliminarLigaPrivada.setBounds(10, 690,  180, 50);
+		this.add(btnEliminarLigaPrivada);
+			
+		botonSalir.setBounds(10, 760, 180, 50);
+		this.add(botonSalir);
 
+		
 		this.add(fechaMundial);
 		fechaMundial.setVisible(false);
 		fechaMundial.setDecorationBordersVisible(true);
@@ -446,7 +454,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.remove(btnRegistrarMundial);
 		
 		this.remove(labelAno);
-//		this.remove(fechaMundial);
 		fechaMundial.setVisible(false);
 		this.remove(labelPaisOrganizador);
 		this.remove(labelMundialAnfitrion);
@@ -465,10 +472,14 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		boton10.setEnabled(true);
 		boton11.setEnabled(true);
 		botonLigaPrivada.setEnabled(true);
+		btnEliminarLigaPrivada.setEnabled(true);
+		btnIncJugLigaPrivada.setEnabled(true);
 		botonLigaPublica.setEnabled(true);
+		btnEliminarLigaPublica.setEnabled(true);
 		btnRegistrarLigaPrivada.setEnabled(true);
 		botonSalir.setEnabled(true);
 		
+	
 	}
 	
 	public void desabilitarMenu() {
@@ -478,8 +489,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		boton3.setEnabled(false);
 		boton10.setEnabled(false);
 		boton11.setEnabled(false);
-		botonLigaPublica.setEnabled(false);
 		botonLigaPrivada.setEnabled(false);
+		btnEliminarLigaPrivada.setEnabled(false);
+		btnIncJugLigaPrivada.setEnabled(false);
+		botonLigaPublica.setEnabled(false);
+		btnEliminarLigaPublica.setEnabled(false);
+		btnRegistrarLigaPrivada.setEnabled(false);
 		botonSalir.setEnabled(false);
 		
 		nombreLigaTXT.setText("");
