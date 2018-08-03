@@ -14,16 +14,19 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	public Usuario miUsuario;
 	private static Image imagen;
 	
-	JButton boton1;
-	JButton boton2;
-	JButton boton3;
-	JButton boton10;
-	JButton boton11;
-	JButton botonLigaPublica;
-	JButton botonLigaPrivada;
-	JButton botonSalir;
-	JButton btnIncJugLigaPrivada;
+	JButton boton1  = new JButton("Usuarios");
+	JButton boton2 = new JButton("Apuestas");
+	JButton boton3 = new JButton("Crear mundial");
+	JButton boton10 = new JButton("Crear equipos");
+	JButton boton11 = new JButton("Crear jugadores");
+	JButton botonLigaPublica = new JButton("Crear liga publica");
+	JButton botonLigaPrivada = new JButton("Crear liga privada");
+	JButton btnIncJugLigaPrivada = new JButton("Incluir en LigaPrivada");
+	JButton botonSalir = new JButton("Salir");
+	
 
+	//----------------------------------------------------------------------
+	
 	Gestor controlador = new Gestor();
 	JLabel labelNombreLiga = new JLabel("Nombre de la Liga: ");
 	JTextField nombreLigaTXT = new JTextField(10);
@@ -65,40 +68,33 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.miUsuario = miUsuario;
 		ingresarComboBox();
 		
-		boton1 = new JButton("Usuarios");
 		this.setLayout(null);
+		
+		
 		boton1.setBounds(10, 50, 180, 50);
 		this.add(boton1);
 
-		boton2 = new JButton("Apuestas");
 		boton2.setBounds(10, 115, 180, 50);
 		this.add(boton2);
 
-		boton3 = new JButton("Crear mundial");
 		boton3.setBounds(10, 185, 180, 50);
 		this.add(boton3);
 
-		boton10 = new JButton("Crear equipos");
 		boton10.setBounds(10, 255, 180, 50);
 		this.add(boton10);
 
-		boton11 = new JButton("Crear jugadores");
 		boton11.setBounds(10, 325, 180, 50);
 		this.add(boton11);
 
-		botonLigaPublica = new JButton("Crear liga publica");
 		botonLigaPublica.setBounds(10, 400, 180, 50);
 		this.add(botonLigaPublica);
 
-		botonLigaPrivada = new JButton("Crear liga privada");
 		botonLigaPrivada.setBounds(10, 475, 180, 50);
 		this.add(botonLigaPrivada);
 		
-		btnIncJugLigaPrivada = new JButton("Incluir en LigaPrivada");
 		btnIncJugLigaPrivada.setBounds(10, 550, 180, 50);
 		this.add(btnIncJugLigaPrivada);
-		
-		botonSalir = new JButton("Salir");
+			
 		botonSalir.setBounds(10, 615, 180, 50);
 		this.add(botonSalir);
 		
