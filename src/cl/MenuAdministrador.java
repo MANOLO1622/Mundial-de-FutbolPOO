@@ -11,8 +11,12 @@ import gestor.*;
 
 public class MenuAdministrador extends JPanel implements ActionListener {
 
+	
+	
 	public Usuario miUsuario;
 	private static Image imagen;
+	
+	
 	
 	JButton boton1  = new JButton("Usuarios");
 	JButton boton2 = new JButton("Apuestas");
@@ -69,8 +73,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		this.miUsuario = miUsuario;
 		ingresarComboBox();
-		
 		this.setLayout(null);
+		
+		
 		
 		
 		boton1.setBounds(10, 50, 180, 50);
@@ -100,10 +105,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		btnIncJugLigaPrivada.setBounds(10, 620, 180, 50);
 		this.add(btnIncJugLigaPrivada);
 		
-		btnEliminarLigaPrivada.setBounds(10, 690,  180, 50);
+		btnEliminarLigaPrivada.setBounds(210, 620,  180, 50);
 		this.add(btnEliminarLigaPrivada);
 			
-		botonSalir.setBounds(10, 760, 180, 50);
+		botonSalir.setBounds(1190, 650, 160, 50);
 		this.add(botonSalir);
 
 		

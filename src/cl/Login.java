@@ -7,6 +7,7 @@ import gestor.*;
 
 @SuppressWarnings("serial")
 public class Login extends JPanel implements ActionListener, KeyListener{
+
 	
     private Image imagen;
 	private JLabel labelNomUsuario = new JLabel("Usuario");
@@ -287,6 +288,8 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 	
 	
 	public void darEstilosComponentes(){
+	
+		
 		
 		try {
 			
