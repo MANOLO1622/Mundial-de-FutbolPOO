@@ -14,7 +14,8 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 	private JLabel labelContrasenaUsuario = new JLabel("Contraseña");
 	private JPasswordField contrasenaTXT = new JPasswordField(10);
 	private JLabel labelMostrarContrasena = new JLabel();
-	private ImageIcon ojo = new ImageIcon("src\\graficos\\eye.png");
+	private ImageIcon ojo = new ImageIcon("src\\graficos\\ojo.png");
+	private ImageIcon ojo2 = new ImageIcon("src\\graficos\\ojo2.png");
 	private JButton btnIngreso = new JButton("Iniciar Sesión");
 	private JButton btnRegistrarUsuario = new JButton("Registrarse");
 	private JButton btnSalir = new JButton("Salir");
@@ -44,7 +45,7 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 		
 		labelMostrarContrasena.setIcon(ojo);
 		this.add(labelMostrarContrasena);
-		labelMostrarContrasena.setBounds(430, 190, 170,25);
+		labelMostrarContrasena.setBounds(430, 185, 165,35);
 		
 		this.add(btnIngreso);
 		btnIngreso.setBounds(280, 240, 115, 25);
@@ -74,13 +75,15 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 			public void mouseEntered(MouseEvent e) {
 				
 				contrasenaTXT.setEchoChar((char)0);
+				labelMostrarContrasena.setIcon(ojo2);
 				
 			}
 
 			@Override
 			public void mouseExited(MouseEvent arg0) {
 				
-				contrasenaTXT.setEchoChar(valor);	
+				contrasenaTXT.setEchoChar(valor);
+				labelMostrarContrasena.setIcon(ojo);
 				
 			}
 			

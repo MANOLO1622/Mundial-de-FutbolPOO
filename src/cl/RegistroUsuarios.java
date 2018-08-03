@@ -32,7 +32,8 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 	private JButton btnSalir = new JButton("Salir");
 	
 	private JLabel labelMostrarContrasena = new JLabel();
-	private ImageIcon ojo = new ImageIcon("src\\graficos\\eye.png");
+	private ImageIcon ojo = new ImageIcon("src\\graficos\\ojo.png");
+	private ImageIcon ojo2 = new ImageIcon("src\\graficos\\ojo2.png");
 	
 	
 	
@@ -90,7 +91,7 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 		
 		labelMostrarContrasena.setIcon(ojo);
 		this.add(labelMostrarContrasena);
-		labelMostrarContrasena.setBounds(330,225,200,20);
+		labelMostrarContrasena.setBounds(330,220,200,35);
 		
 		this.add(btnRegistro);
 		btnRegistro.setBounds(10, 270, 100, 25);
@@ -108,13 +109,15 @@ public class RegistroUsuarios extends JPanel implements ActionListener{
 			public void mouseEntered(MouseEvent e) {
 				
 				contrasenaTXT.setEchoChar((char)0);
+				labelMostrarContrasena.setIcon(ojo2);
 				
 			}
 
 			@Override
 			public void mouseExited(MouseEvent arg0) {
 				
-				contrasenaTXT.setEchoChar(valor);	
+				contrasenaTXT.setEchoChar(valor);
+				labelMostrarContrasena.setIcon(ojo);
 				
 			}
 			
