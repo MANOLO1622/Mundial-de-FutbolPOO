@@ -193,7 +193,7 @@ public class Juego extends JPanel implements ActionListener{
 					
 					mostrarInformacionLiga(1);
 					mostrarCuadros(1);
-					equipos.setEnabled(true);
+					equipos.setEnabled(true);					
 					
 					for(Equipo a: this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getEquiposMundial()) {
 						
