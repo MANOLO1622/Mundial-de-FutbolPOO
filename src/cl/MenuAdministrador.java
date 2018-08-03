@@ -426,33 +426,33 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 
 	public void registrarMundial() {
-    		
+		
 		this.add(labelNombreMundial);
 		labelNombreMundial.setForeground(Color.WHITE);
-		labelNombreMundial.setBounds(950, 30, 200, 30);
+		labelNombreMundial.setBounds(900, 30, 200, 30);
 		
 		this.add(nombreMundialTXT);
-		nombreMundialTXT.setBounds(1080, 30, 300, 20);
+		nombreMundialTXT.setBounds(1050, 30, 300, 20);
 		
 		this.add(labelPaisOrganizador);
 		labelPaisOrganizador.setForeground(Color.WHITE);
-		labelPaisOrganizador.setBounds(950, 70, 200, 30);
+		labelPaisOrganizador.setBounds(900, 70, 200, 30);
 		
 		this.add(paisesOrganizadores);
-		paisesOrganizadores.setBounds(1080, 70, 300, 20);
+		paisesOrganizadores.setBounds(1050, 70, 300, 20);
 		
 		this.add(labelAno);
 		labelAno.setForeground(Color.WHITE);
-		labelAno.setBounds(950, 175, 200, 30);
+		labelAno.setBounds(900, 175, 200, 30);
 		
-		fechaMundial.setBounds(1080, 110, 300, 300);
+		fechaMundial.setBounds(1050, 110, 300, 300);
 		fechaMundial.setVisible(true);
 
 		this.add(btnRegistrarMundial);
-		btnRegistrarMundial.setBounds(950, 420, 120, 25);
+		btnRegistrarMundial.setBounds(900, 420, 120, 25);
 		
 		this.add(btnCancelar);
-		btnCancelar.setBounds(1080, 420, 120, 25);
+		btnCancelar.setBounds(1050, 420, 120, 25);
 			
     }
 	

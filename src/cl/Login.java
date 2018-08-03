@@ -299,12 +299,12 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 			
 			
 			labelNomUsuario.setForeground(Color.WHITE);
-			usuarioTXT.setBackground(new Color(230, 255, 230));
+			usuarioTXT.setBackground(new Color(250, 250, 250));
 			usuarioTXT.setForeground(new Color(0, 102, 0));
 			usuarioTXT.setFont(new Font(usuarioTXT.getFont().getFontName(), Font.BOLD, 15));
 			
 			labelContrasenaUsuario.setForeground(Color.WHITE);
-			contrasenaTXT.setBackground(new Color(230, 255, 230));
+			contrasenaTXT.setBackground(new Color(250, 250, 250));
 			contrasenaTXT.setForeground(new Color(0, 102, 0));
 			contrasenaTXT.setFont(new Font(usuarioTXT.getFont().getFontName(), Font.BOLD, 15));
 			
