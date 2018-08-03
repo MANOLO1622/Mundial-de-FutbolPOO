@@ -142,20 +142,26 @@ public class Juego extends JPanel implements ActionListener{
 		
 		if(e.getSource() == equipos) {
 			
-			String b = controlador.retornarBanderaEquipo((String) equipos.getSelectedItem());
-			banderaImagen = new ImageIcon(b);
-			Icon icono = new ImageIcon(banderaImagen.getImage().getScaledInstance(bandera.getWidth(), bandera.getHeight(), Image.SCALE_DEFAULT));
-			bandera.setIcon(icono);
-						
-			mostrarinformacionPaisSeleccionado();
-			
+			if(equipos.getItemCount()==0) {
+				
+				System.out.println("no hay banderas para mostrar.");
+				
+			}else {
+				
+				String b = controlador.retornarBanderaEquipo((String) equipos.getSelectedItem());
+				banderaImagen = new ImageIcon(b);
+				Icon icono = new ImageIcon(banderaImagen.getImage().getScaledInstance(bandera.getWidth(), bandera.getHeight(), Image.SCALE_DEFAULT));
+				bandera.setIcon(icono);			
+				mostrarinformacionPaisSeleccionado();	
+				
+			}			
 			
 		}
 		
 
 		if(e.getSource()==ligas) {
 			
-//			removerMenu();
+			removerMenu();
 			
 			if(ligas.getSelectedIndex() == 0 ) {
 				
@@ -792,7 +798,7 @@ public class Juego extends JPanel implements ActionListener{
 		this.remove(labelPais31);
 		this.remove(labelPais32);*/
 		
-//		equipos.removeAllItems();
+		equipos.removeAllItems();
 		
 	}
 	
