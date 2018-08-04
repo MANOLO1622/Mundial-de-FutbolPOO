@@ -224,36 +224,42 @@ public class Juego extends JPanel implements ActionListener{
 	
 		this.add(informacionLiga1);
 		informacionLiga1.setBounds(30,60, 600,80);
-		informacionLiga1.setFont(new Font(informacionLiga1.getFont().getFontName(), Font.PLAIN, 20));
+		informacionLiga1.setForeground(Color.WHITE);
+		informacionLiga1.setFont(new Font(informacionLiga1.getFont().getFontName(), Font.PLAIN, 26));
 		
 		
 		this.add(informacionLiga2);
 		informacionLiga2.setBounds(30,90, 600,100);
-		informacionLiga2.setFont(new Font(informacionLiga2.getFont().getFontName(), Font.PLAIN, 20));
+		informacionLiga2.setForeground(Color.WHITE);
+		informacionLiga2.setFont(new Font(informacionLiga2.getFont().getFontName(), Font.BOLD, 20));
 		
 		this.add(informacionLiga3);
 		informacionLiga3.setBounds(30,120, 600,100);
-		informacionLiga3.setFont(new Font(informacionLiga3.getFont().getFontName(), Font.PLAIN, 20));
+		informacionLiga3.setForeground(Color.WHITE);
+		informacionLiga3.setFont(new Font(informacionLiga3.getFont().getFontName(), Font.BOLD, 20));
 		
 		this.add(informacionLiga4);
 		informacionLiga4.setBounds(30,150, 600,100);
-		informacionLiga4.setFont(new Font(informacionLiga4.getFont().getFontName(), Font.PLAIN, 20));
+		informacionLiga4.setForeground(Color.WHITE);
+		informacionLiga4.setFont(new Font(informacionLiga4.getFont().getFontName(), Font.BOLD, 20));
 		
 		this.add(informacionLiga5);
 		informacionLiga5.setBounds(30,180, 600,100);
-		informacionLiga5.setFont(new Font(informacionLiga5.getFont().getFontName(), Font.PLAIN, 20));
+		informacionLiga5.setForeground(Color.WHITE);
+		informacionLiga5.setFont(new Font(informacionLiga5.getFont().getFontName(), Font.BOLD, 20));
 		
 		this.add(informacionLiga6);
 		informacionLiga6.setBounds(30,210, 600,100);
-		informacionLiga6.setFont(new Font(informacionLiga6.getFont().getFontName(), Font.PLAIN, 20));
+		informacionLiga6.setForeground(Color.WHITE);
+		informacionLiga6.setFont(new Font(informacionLiga6.getFont().getFontName(), Font.BOLD, 20));
 		
 
 		switch(tipoLiga) {
 		
 		case 0:
 			
-			informacionLiga1.setText("Informacion de la Liga " + this.miUsuarioActual.getMiLigaPublica().getNombreLiga());
-			informacionLiga2.setText("Nombre de la Liga: " + this.miUsuarioActual.getMiLigaPublica().getNombreLiga());
+			informacionLiga1.setText("Información de la liga " + this.miUsuarioActual.getMiLigaPublica().getNombreLiga());
+			informacionLiga2.setText("Nombre de la liga: " + this.miUsuarioActual.getMiLigaPublica().getNombreLiga());
 			informacionLiga3.setText("Registro: " + this.miUsuarioActual.getMiLigaPublica().getFechaCreacion());
 			informacionLiga4.setText("Estado: " + this.miUsuarioActual.getMiLigaPublica().getEstado());
 			informacionLiga5.setText("Puntos: " + this.miUsuarioActual.getMiLigaPublica().getPuntos());
@@ -263,8 +269,8 @@ public class Juego extends JPanel implements ActionListener{
 			
 		case 1:
 			
-			informacionLiga1.setText("Informacion de la Liga " + this.miUsuarioActual.getMiLigaPrivada().getNombreLiga());
-			informacionLiga2.setText("Nombre de la Liga: " + this.miUsuarioActual.getMiLigaPrivada().getNombreLiga());
+			informacionLiga1.setText("Información de la liga " + this.miUsuarioActual.getMiLigaPrivada().getNombreLiga());
+			informacionLiga2.setText("Nombre de la liga: " + this.miUsuarioActual.getMiLigaPrivada().getNombreLiga());
 			informacionLiga3.setText("Fecha de creacion: " + this.miUsuarioActual.getMiLigaPrivada().getFechaCreacion());
 			informacionLiga4.setText("Estado: " + this.miUsuarioActual.getMiLigaPrivada().getEstado());
 			informacionLiga5.setText("Puntos: " + this.miUsuarioActual.getMiLigaPrivada().getPuntos());

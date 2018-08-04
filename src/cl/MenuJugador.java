@@ -206,9 +206,9 @@ public class MenuJugador extends JPanel implements ActionListener{
 				
 			}
 			
-			informacionLiga1.setText("Informacion de la Liga.");
-			informacionLiga2.setText("Nombre de la Liga: " + ligaPublicaTemp.getNombreLiga());
-			informacionLiga3.setText("Fecha de creacion: " + ligaPublicaTemp.getFechaCreacion());
+			informacionLiga1.setText("Información de la liga.");
+			informacionLiga2.setText("Nombre de la liga: " + ligaPublicaTemp.getNombreLiga());
+			informacionLiga3.setText("Fecha de creación: " + ligaPublicaTemp.getFechaCreacion());
 			informacionLiga4.setText("Estado: " + estadoLigaPublica);
 			informacionLiga5.setText("Puntos: " + ligaPublicaTemp.getPuntos());
 			informacionLiga6.setText("Bono: " + ligaPublicaTemp.getBono());
@@ -368,33 +368,33 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		
 		this.add(informacionLiga1);
-		informacionLiga1.setBounds(950,140, 600,40);
+		informacionLiga1.setBounds(900,140, 600,40);
 		informacionLiga1.setForeground(Color.ORANGE);
 		informacionLiga1.setFont(new Font(informacionLiga1.getFont().getFontName(), Font.PLAIN, 30));
 		
 		
 		this.add(informacionLiga2);
-		informacionLiga2.setBounds(950,200, 600,40);
+		informacionLiga2.setBounds(900,200, 600,40);
 		informacionLiga2.setForeground(Color.ORANGE);
 		informacionLiga2.setFont(new Font(informacionLiga2.getFont().getFontName(), Font.PLAIN, 30));
 		
 		this.add(informacionLiga3);
-		informacionLiga3.setBounds(950,240, 600,40);
+		informacionLiga3.setBounds(900,240, 600,40);
 		informacionLiga3.setForeground(Color.ORANGE);
 		informacionLiga3.setFont(new Font(informacionLiga3.getFont().getFontName(), Font.PLAIN, 30));
 		
 		this.add(informacionLiga4);
-		informacionLiga4.setBounds(950,280, 600,40);
+		informacionLiga4.setBounds(900,280, 600,40);
 		informacionLiga4.setForeground(Color.ORANGE);
 		informacionLiga4.setFont(new Font(informacionLiga4.getFont().getFontName(), Font.PLAIN, 30));
 		
 		this.add(informacionLiga5);
-		informacionLiga5.setBounds(950,320, 600,40);
+		informacionLiga5.setBounds(900,320, 600,40);
 		informacionLiga5.setForeground(Color.ORANGE);
 		informacionLiga5.setFont(new Font(informacionLiga5.getFont().getFontName(), Font.PLAIN, 30));
 		
 		this.add(informacionLiga6);
-		informacionLiga6.setBounds(950,370, 600,40);
+		informacionLiga6.setBounds(900,360, 600,40);
 		informacionLiga6.setForeground(Color.ORANGE);
 		informacionLiga6.setFont(new Font(informacionLiga6.getFont().getFontName(), Font.PLAIN, 30));
 		
