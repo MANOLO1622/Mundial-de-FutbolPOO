@@ -78,37 +78,37 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		
 		
-		boton1.setBounds(10, 50, 180, 50);
+		boton1.setBounds(10, 20, 180, 50);
 		this.add(boton1);
 
-		boton2.setBounds(10, 120, 180, 50);
+		boton2.setBounds(10, 80, 180, 50);
 		this.add(boton2);
 
-		boton3.setBounds(10, 190, 180, 50);
+		boton3.setBounds(10, 140, 180, 50);
 		this.add(boton3);
 
-		boton10.setBounds(10, 260, 180, 50);
+		boton10.setBounds(10, 200, 180, 50);
 		this.add(boton10);
 
-		boton11.setBounds(10, 330, 180, 50);
+		boton11.setBounds(10, 260, 180, 50);
 		this.add(boton11);
 
-		botonLigaPublica.setBounds(10, 400, 180, 50);
+		botonLigaPublica.setBounds(10, 320, 180, 50);
 		this.add(botonLigaPublica);
 		
-		btnEliminarLigaPublica.setBounds(10, 470,  180, 50);
+		btnEliminarLigaPublica.setBounds(10, 380,  180, 50);
 		this.add(btnEliminarLigaPublica);
 
-		botonLigaPrivada.setBounds(10, 540, 180, 50);
+		botonLigaPrivada.setBounds(10, 440, 180, 50);
 		this.add(botonLigaPrivada);
 		
-		btnIncJugLigaPrivada.setBounds(10, 620, 180, 50);
+		btnIncJugLigaPrivada.setBounds(10, 505, 180, 50);
 		this.add(btnIncJugLigaPrivada);
 		
-		btnEliminarLigaPrivada.setBounds(210, 620,  180, 50);
+		btnEliminarLigaPrivada.setBounds(10, 570,  180, 50);
 		this.add(btnEliminarLigaPrivada);
 			
-		botonSalir.setBounds(1190, 650, 160, 50);
+		botonSalir.setBounds(10, 650, 180, 50);
 		this.add(botonSalir);
 
 		
