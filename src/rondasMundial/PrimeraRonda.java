@@ -24,24 +24,15 @@ public class PrimeraRonda {
     	
     	//-----------------------------------------------------Primero
     	
-    	System.out.println("Primer cuadro de juego:");
-    	System.out.println("");
-    	
     	for(int i=0; i<4;i++) {
     		
     		primerCuadro[i] = equiposMundial.get(i);
-    		System.out.println(primerCuadro[i]);
     		contador = i;
     		
     	}
     	contador++;
     	
-    	System.out.println("");
-    	
     	//-----------------------------------------------------Segundo
-    	
-    	System.out.println("Segundo cuadro de juego:");
-    	System.out.println("");
     	
     	for(int i=0; i<4;i++) {
     		
@@ -51,47 +42,31 @@ public class PrimeraRonda {
     		
     	}
     	
-    	System.out.println("");
     	
     	//-----------------------------------------------------Tercero
-    	
-    	System.out.println("Tercer cuadro de juego:");
-    	System.out.println("");
     	
     	for(int i=0; i<4;i++) {
     		
     		tercerCuadro[i] = equiposMundial.get(contador);
-    		System.out.println(tercerCuadro[i]);
     		contador++;
     		
     	}
-    	
-    	System.out.println("");
+
     	
     	//-----------------------------------------------------Cuarto
-    	
-    	System.out.println("Cuarto cuadro de juego:");
-    	System.out.println("");
-    	
+
     	for(int i=0; i<4;i++) {
     		
     		cuartoCuadro[i] = equiposMundial.get(contador);
-    		System.out.println(cuartoCuadro[i]);
     		contador++;
     		
     	}
-    	
-    	System.out.println("");
-    	
+ 	
     	//-----------------------------------------------------Quinto
-    	
-    	System.out.println("Quinto cuadro de juego:");
-    	System.out.println("");
-    	
+
     	for(int i=0; i<4;i++) {
     		
     		quintoCuadro[i] = equiposMundial.get(contador);
-    		System.out.println(quintoCuadro[i]);
     		contador++;
     		
     	}
@@ -99,45 +74,28 @@ public class PrimeraRonda {
     	System.out.println("");
     	
     	//-----------------------------------------------------Sexto
-    	
-    	System.out.println("Sexto cuadro de juego:");
-    	System.out.println("");
-    	
+
     	for(int i=0; i<4;i++) {
     		
     		sextoCuadro[i] = equiposMundial.get(contador);
-    		System.out.println(sextoCuadro[i]);
     		contador++;
     		
     	}
-    	
-    	System.out.println("");
-    	
+
     	//-----------------------------------------------------Septimo
-    	
-    	System.out.println("Septimo cuadro de juego:");
-    	System.out.println("");
-    	
+
     	for(int i=0; i<4;i++) {
     		
     		septimoCuadro[i] = equiposMundial.get(contador);
-    		System.out.println(septimoCuadro[i]);
     		contador++;
     		
     	}
-    	
-    	System.out.println("");
-    	
-    	
+
     	//-----------------------------------------------------Octavo
-    	
-    	System.out.println("Octavo cuadro de juego:");
-    	System.out.println("");
-    	
+
     	for(int i=0; i<4;i++) {
     		
     		octavoCuadro[i] = equiposMundial.get(contador);
-    		System.out.println(octavoCuadro[i]);
     		contador++;
     		
     	}

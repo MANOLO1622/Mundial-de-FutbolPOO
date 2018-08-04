@@ -359,6 +359,8 @@ public class Juego extends JPanel implements ActionListener{
 		//-----------------------------------------------Primer Cuadro
 		
 		this.add(cuadro1);
+		cuadro1.setFont(new Font(cuadro1.getFont().getFontName(), Font.PLAIN, 20));
+		cuadro1.setForeground(Color.white);
 		cuadro1.setBounds(335, 59, 100, 25);
 		
 		this.add(labelPais1);
@@ -375,6 +377,8 @@ public class Juego extends JPanel implements ActionListener{
 		
 		//-----------------------------------------------Segundo Cuadro
 		this.add(cuadro2);
+		cuadro2.setFont(new Font(cuadro2.getFont().getFontName(), Font.PLAIN, 20));
+		cuadro2.setForeground(Color.white);
 		cuadro2.setBounds(552, 59, 100, 25);
 		
 		this.add(labelPais5);
@@ -391,6 +395,8 @@ public class Juego extends JPanel implements ActionListener{
 		
 		//----------------------------------------------Tercer Cuadro
 		this.add(cuadro3);
+		cuadro3.setFont(new Font(cuadro3.getFont().getFontName(), Font.PLAIN, 20));
+		cuadro3.setForeground(Color.white);
 		cuadro3.setBounds(769, 59, 100, 25);
 		
 		this.add(labelPais9);
@@ -408,6 +414,8 @@ public class Juego extends JPanel implements ActionListener{
 		//-----------------------------------------------Cuarto Cuadro
 		
 		this.add(cuadro4);
+		cuadro4.setFont(new Font(cuadro4.getFont().getFontName(), Font.PLAIN, 20));
+		cuadro4.setForeground(Color.white);
 		cuadro4.setBounds(986, 59, 100, 25);
 		
 		this.add(labelPais13);
@@ -425,6 +433,8 @@ public class Juego extends JPanel implements ActionListener{
 		//----------------------------------------------Quinto Cuadro
 		
 		this.add(cuadro5);
+		cuadro5.setFont(new Font(cuadro5.getFont().getFontName(), Font.PLAIN, 20));
+		cuadro5.setForeground(Color.white);
 		cuadro5.setBounds(335, 260, 100, 25);
 		
 		this.add(labelPais17);
@@ -442,6 +452,8 @@ public class Juego extends JPanel implements ActionListener{
 		//-----------------------------------------------Sexto Cuadro
 		
 		this.add(cuadro6);
+		cuadro6.setFont(new Font(cuadro6.getFont().getFontName(), Font.PLAIN, 20));
+		cuadro6.setForeground(Color.white);
 		cuadro6.setBounds(552, 260, 100, 25);
 		
 		this.add(labelPais21);
@@ -459,6 +471,8 @@ public class Juego extends JPanel implements ActionListener{
 		//----------------------------------------------Septimo Cuadro
 		
 		this.add(cuadro7);
+		cuadro7.setFont(new Font(cuadro7.getFont().getFontName(), Font.PLAIN, 20));
+		cuadro7.setForeground(Color.white);
 		cuadro7.setBounds(769, 260, 100, 25);
 		
 		this.add(labelPais25);
@@ -476,6 +490,8 @@ public class Juego extends JPanel implements ActionListener{
 		//----------------------------------------------Octavo Cuadro
 		
 		this.add(cuadro8);
+		cuadro8.setFont(new Font(cuadro8.getFont().getFontName(), Font.PLAIN, 20));
+		cuadro8.setForeground(Color.white);
 		cuadro8.setBounds(986, 260, 100, 25);
 		
 		this.add(labelPais29);
@@ -721,7 +737,7 @@ public class Juego extends JPanel implements ActionListener{
 		
 		//Estos componentes se utilizaran para poder mostrar las bandera de los paises dentro de los cuadros de juego.
 		
-		cuadro1.setText("");
+		/*cuadro1.setText("");
 		cuadro2.setText("");
 		cuadro3.setText("");
 		cuadro4.setText("");
@@ -761,11 +777,11 @@ public class Juego extends JPanel implements ActionListener{
 		labelPais29.setText("");
 		labelPais30.setText("");
 		labelPais31.setText("");
-		labelPais32.setText("");
+		labelPais32.setText("");*/
 		
 		
 		
-		/*this.remove(cuadro1);
+		this.remove(cuadro1);
 		this.remove(cuadro2);
 		this.remove(cuadro3);
 		this.remove(cuadro4);
@@ -805,7 +821,7 @@ public class Juego extends JPanel implements ActionListener{
 		this.remove(labelPais29);
 		this.remove(labelPais30);
 		this.remove(labelPais31);
-		this.remove(labelPais32);*/
+		this.remove(labelPais32);
 		
 		equipos.removeAllItems();
 		

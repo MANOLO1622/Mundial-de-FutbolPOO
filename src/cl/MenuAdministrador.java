@@ -17,7 +17,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	private static Image imagen;
 	
 	
-	
 	JButton boton1  = new JButton("Usuarios");
 	JButton boton2 = new JButton("Apuestas");
 	JButton boton3 = new JButton("Crear mundial");
