@@ -30,14 +30,14 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 		darEstilosComponentes();
 		
 		this.add(labelNomUsuario);
-		labelNomUsuario.setForeground(Color.WHITE);
+		labelNomUsuario.setForeground(Color.BLACK);
 		labelNomUsuario.setBounds(250,110,150,40);
 		
 		this.add(usuarioTXT);
 		usuarioTXT.setBounds(250, 140, 170, 25);
 		
 		this.add(labelContrasenaUsuario);
-		labelContrasenaUsuario.setForeground(Color.WHITE);
+		labelContrasenaUsuario.setForeground(Color.BLACK);
 		labelContrasenaUsuario.setBounds(250, 160, 150, 40);
 		
 		this.add(contrasenaTXT);

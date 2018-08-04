@@ -225,7 +225,7 @@ public class Juego extends JPanel implements ActionListener{
 		this.add(informacionLiga1);
 		informacionLiga1.setBounds(30,60, 600,80);
 		informacionLiga1.setForeground(Color.WHITE);
-		informacionLiga1.setFont(new Font(informacionLiga1.getFont().getFontName(), Font.PLAIN, 26));
+		informacionLiga1.setFont(new Font(informacionLiga1.getFont().getFontName(), Font.PLAIN, 20));
 		
 		
 		this.add(informacionLiga2);
@@ -341,10 +341,10 @@ public class Juego extends JPanel implements ActionListener{
 		bandera.setBounds(30, 500, 193,128);
 		
 		this.add(btnJugar);
-		btnJugar.setBounds(1130, 550, 100, 40);
+		btnJugar.setBounds(1120, 550, 130, 40);
 
 		this.add(btnSalir);
-		btnSalir.setBounds(1130, 600, 100, 40);
+		btnSalir.setBounds(1120, 595, 130, 40);
 
 	}
 	
