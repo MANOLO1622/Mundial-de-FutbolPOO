@@ -1,7 +1,6 @@
 package ui;
 import java.time.LocalDate;
 import java.util.Date;
-
 import cl.*;
 import gestor.*;
 
@@ -59,7 +58,7 @@ public class UI {
 		Gestor.registrarEquipos("Irlanda Norte", 29, "src\\graficos\\Banderas\\IrlandaNorte.png", ISOPaises.DK);
 		Gestor.registrarEquipos("Rumania", 30, "src\\graficos\\Banderas\\Rumania.png", ISOPaises.DK);
 		Gestor.registrarEquipos("Republica Irlanda", 31, "src\\graficos\\Banderas\\RepublicaIrlanda.png", ISOPaises.DK);
-		Gestor.registrarEquipos("Paraguay", 32, "src\\graficos\\Banderas\\Paraguay.png", ISOPaises.DK);
+		Gestor.registrarEquipos("Paraguay", 32, "src\\graficos\\Banderas\\Paraguay.png", ISOPaises.DK);	
 		
 	}
 

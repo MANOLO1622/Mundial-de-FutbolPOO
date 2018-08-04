@@ -37,7 +37,6 @@ public class PrimeraRonda {
     	for(int i=0; i<4;i++) {
     		
     		segundoCuadro[i] = equiposMundial.get(contador);
-    		System.out.println(segundoCuadro[i]);
     		contador++;
     		
     	}
@@ -71,8 +70,6 @@ public class PrimeraRonda {
     		
     	}
     	
-    	System.out.println("");
-    	
     	//-----------------------------------------------------Sexto
 
     	for(int i=0; i<4;i++) {
@@ -99,8 +96,6 @@ public class PrimeraRonda {
     		contador++;
     		
     	}
-    	
-    	System.out.println("");
     	
     	
     }

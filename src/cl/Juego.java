@@ -679,7 +679,7 @@ public class Juego extends JPanel implements ActionListener{
 		
 		//----------------------------------------------Octavo Cuadro
 		
-		imagenPais29 = new ImageIcon(temp7[3].getBandera());
+		imagenPais29 = new ImageIcon(temp8[3].getBandera());
 		Icon icono29 = new ImageIcon(imagenPais29.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPais29.setIcon(icono29);
 	

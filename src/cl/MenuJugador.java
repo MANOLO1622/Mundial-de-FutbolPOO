@@ -136,6 +136,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		if(e.getSource() == boton6) {
 			
+			ligasRegistradaUsuario.removeAllItems();
 			
 			this.add(ligasRegistradaUsuario);
 			ligasRegistradaUsuario.setBounds(950, 50, 200, 30);

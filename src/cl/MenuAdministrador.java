@@ -10,12 +10,10 @@ import gestor.*;
 
 
 public class MenuAdministrador extends JPanel implements ActionListener {
-
-	
 	
 	public Usuario miUsuario;
 	private static Image imagen;
-	
+	Gestor controlador = new Gestor();
 	
 	JButton boton1  = new JButton("Usuarios");
 	JButton boton2 = new JButton("Apuestas");
@@ -32,13 +30,14 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	//----------------------------------------------------------------------
 	
-	Gestor controlador = new Gestor();
+	
 	JLabel labelNombreLiga = new JLabel("Nombre de la Liga: ");
 	JTextField nombreLigaTXT = new JTextField(10);
-	JLabel labelEquipos = new JLabel("Participante:");
-	JTextField equiposTXT = new JTextField(10);
+	
 	JLabel labelEstado = new JLabel("Estado:");
 	JTextField estadoTXT = new JTextField(10);
+	
+	//------------------------------------------------------------------------------
 	
 	JLabel labelNombreMundial = new JLabel("Nombre del Mundial:");
 	JTextField nombreMundialTXT = new JTextField();
@@ -48,10 +47,15 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	
 	JLabel labelPaisOrganizador = new JLabel("Pais Organizador:");
 	JComboBox paisesOrganizadores = new JComboBox();
+	
+	//------------------------------------------------------------------------------
+	
 	JLabel labelMundialAnfitrion = new JLabel("Pais Anfitrión:");
 	JComboBox MundialAnfitrion = new JComboBox();
 	JLabel labelEstados = new JLabel("Estado:");
 	JTextField estadosTXT = new JTextField(10);
+	
+	//------------------------------------------------------------------------------
 	
 	JButton btnRegistrarLigaPublica = new JButton("Registrar");
 	JButton btnRegistrarLigaPrivada = new JButton("");
@@ -62,7 +66,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JButton btnSalir = new JButton("Salir");
 
 
-	private static Image imagen2;
+
 
 	
 	//------------------------------------------------------------------------------
@@ -242,8 +246,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		if (e.getSource() == btnRegistroLigaPublica) {
 			
-			if (nombreLigaTXT.getText().equals("") || equiposTXT.getText().equals("")
-					|| "".equals((String)MundialAnfitrion.getSelectedItem())) {
+			if (nombreLigaTXT.getText().equals("") 	|| "".equals((String)MundialAnfitrion.getSelectedItem())) {
 
 				JOptionPane.showMessageDialog(null, "Hay campos vacios, debe llenar todos los campos.");
 
@@ -308,8 +311,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		if (e.getSource() == btnRegistroLigaPrivada) {
 
-			if (nombreLigaTXT.getText().equals("") || equiposTXT.getText().equals("")
-					|| "".equals((String)MundialAnfitrion.getSelectedItem())) {
+			if (nombreLigaTXT.getText().equals("") || "".equals((String)MundialAnfitrion.getSelectedItem())) {
 
 				JOptionPane.showMessageDialog(null, "Hay campos vacios, debe llenar todos los campos.");
 
@@ -383,13 +385,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.add(nombreLigaTXT);
 		nombreLigaTXT.setBounds(1080, 30, 200, 20);
 
-		this.add(labelEquipos);
-		labelEquipos.setForeground(Color.WHITE);
-		labelEquipos.setBounds(950, 70, 200, 30);
-
-		this.add(equiposTXT);
-		equiposTXT.setBounds(1080, 70, 200, 20);
-
 		this.add(labelMundialAnfitrion);
 		labelMundialAnfitrion.setForeground(Color.WHITE);
 		labelMundialAnfitrion.setBounds(950, 110, 200, 30);
@@ -413,13 +408,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		this.add(nombreLigaTXT);
 		nombreLigaTXT.setBounds(1080, 30, 200, 20);
-
-		this.add(labelEquipos);
-		labelEquipos.setForeground(Color.WHITE);
-		labelEquipos.setBounds(950, 70, 200, 30);
-
-		this.add(equiposTXT);
-		equiposTXT.setBounds(1080, 70, 200, 20);
 
 		this.add(labelMundialAnfitrion);
 		labelMundialAnfitrion.setForeground(Color.WHITE);
@@ -478,8 +466,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		this.remove(labelNombreLiga);
 		this.remove(nombreLigaTXT);
-		this.remove(labelEquipos);
-		this.remove(equiposTXT);
 		this.remove(labelEstado);
 		this.remove(estadoTXT);
 		this.remove(btnRegistrarLigaPublica);
@@ -533,7 +519,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		botonSalir.setEnabled(false);
 		
 		nombreLigaTXT.setText("");
-		equiposTXT.setText("");
 		estadoTXT.setText("");
 		estadosTXT.setText("");
 		nombreMundialTXT.setText("");
