@@ -689,7 +689,10 @@ public class Juego extends JPanel implements ActionListener{
 		this.add(bandera);
 		this.add(informacionPais);
 		informacionPais.setEditable(false);
-		informacionPais.setBounds(230, 500, 700,128);
+		informacionPais.setBackground(new Color(0, 0, 0));
+		informacionPais.setFont(new Font(informacionPais.getFont().getFontName(), Font.BOLD, 20));
+		informacionPais.setForeground(Color.WHITE);
+		informacionPais.setBounds(230, 500, 200,128);
 		
 		String InformacionPais = "Equipo: " + Gestor.retornarEquipo((String)equipos.getSelectedItem()).getNombre() + "\n";
 		InformacionPais = InformacionPais + "Posicion FIFA: " + Gestor.retornarEquipo((String)equipos.getSelectedItem()).getRanking() + "\n";
