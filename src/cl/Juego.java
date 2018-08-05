@@ -13,6 +13,8 @@ import javax.swing.*;
 
 public class Juego extends JPanel implements ActionListener{
 	
+	private JTextPane informacionPartidos = new JTextPane();
+	
 	private Usuario miUsuario;
 	private int tipoLiga;
 	
@@ -243,8 +245,7 @@ public class Juego extends JPanel implements ActionListener{
 		this.setLayout(null);
 		colocarComponentesJuego();
 		
-		this.add(btnSalir);
-		btnSalir.setBounds(1150, 650, 100, 30);
+		//----------------------------------Eventos
 		
 		btnSalir.addActionListener(this);
 	}
@@ -254,6 +255,13 @@ public class Juego extends JPanel implements ActionListener{
 		
 		int alto = 48;
 		int ancho = 72;
+		
+		this.add(informacionPartidos);
+		informacionPartidos.setBounds(1075, 25,175, 600);
+		informacionPartidos.setEnabled(false);
+		
+		this.add(btnSalir);
+		btnSalir.setBounds(1150, 650, 100, 30);
 		
 		//------------------------------------------------------Primer cuadro de juego
 		

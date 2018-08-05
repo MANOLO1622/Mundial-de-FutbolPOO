@@ -207,12 +207,11 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		if (e.getSource() == botonEliminarPublicaRegistro) {
 			
 			Gestor.removerLigaPublica((String)LigasPublicas.getSelectedItem());
-			removerMenus();
+			desabilitarMenu();
+			
 			
 		}
 		
-		/*this.add(btnCancelar);
-		btnCancelar.setBounds(1225, 200, 100, 30);*/
 		
 		if (e.getSource() == botonEliminarPrivadaRegistro) {
 			
@@ -376,9 +375,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 					controlador.registrarLigaPrivadas(nombreLigaTXT.getText(), fechaRegistro, true, 1, 2,Gestor.retornarMundial((String)MundialAnfitrion.getSelectedItem()));
 					controlador.listarLigasPrivadas();
-
 					JOptionPane.showMessageDialog(null, "¡Liga Privada registrada Exitosamente!.");
-					
 					removerMenus();
 
 				}
@@ -408,6 +405,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			botonEliminarPrivadaRegistro.setBounds(1120, 200, 100, 30);
 			this.add(botonEliminarPrivadaRegistro);
 			
+			desabilitarMenu();
+			
 		}
 		
 		if(e.getSource() == botonSalir) {
@@ -417,11 +416,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 			
 		}
-		
-		//aun no elimina
-		
-
-		
+	
    }
 
 
