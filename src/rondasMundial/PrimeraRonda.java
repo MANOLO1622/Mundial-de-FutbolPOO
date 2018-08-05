@@ -304,7 +304,6 @@ public class PrimeraRonda {
 		
     	Partido[] partidosCuadroTemp = new Partido[6];
     	int opcionOrden = (int)(Math.random()*3);
-    	JOptionPane.showMessageDialog(null, opcionOrden);
     	
     	switch(opcionOrden) {
     	

@@ -95,7 +95,8 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 		}
 		
-		
+		boton2.addActionListener(this);
+		boton3.addActionListener(this);
 		boton4.addActionListener(this);
 		boton5.addActionListener(this);
 		boton6.addActionListener(this);
@@ -115,10 +116,25 @@ public class MenuJugador extends JPanel implements ActionListener{
 
 		String estadoLigaPublica="";
 		
+		
+		if(e.getSource()==boton2) {
+			
+			Ventana ventJuegoLigaPublica = new Ventana(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
+			ventJuegoLigaPublica.ventanaJuego(0);
+			
+		}
+		
+		if(e.getSource()==boton3) {
+			
+			Ventana ventJuegoLigaPrivada = new Ventana(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
+			ventJuegoLigaPrivada.ventanaJuego(1);
+		}	
+		
+		
 		if(e.getSource()==boton4) {
 			
-			Ventana ventJuego = new Ventana(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
-			ventJuego.ventanaLigasJugador();
+			Ventana ventLigasJugador = new Ventana(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
+			ventLigasJugador.ventanaLigasJugador();
 			
 		}
 		

@@ -1,10 +1,21 @@
 package cl;
 
-import javax.swing.ImageIcon;
+import rondasMundial.Partido;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+
 import javax.swing.*;
 
 public class Juego extends JPanel{
 	
+	private Usuario miUsuario;
+	private int tipoLiga;
+	
+	
+	private static Image imagen;
 
 	/*
 	 * 
@@ -213,6 +224,9 @@ public class Juego extends JPanel{
 	
 	public Juego(Usuario miUsuario,int tipoLiga) {
 		
+		this.miUsuario = miUsuario;
+		this.tipoLiga = tipoLiga;
+		this.setLayout(null);
 		colocarComponentesJuego();
 		
 		
@@ -226,19 +240,26 @@ public class Juego extends JPanel{
 		int alto = 48;
 		int ancho = 72;
 		
-		/*
+		
 		this.add(labelPartido1);
-		labelPartido1.setBounds();
+		labelPartido1.setBounds(50, 50, ancho, alto);
+		
 		this.add(labelPartido2);
-		labelPartido2.setBounds();
+		labelPartido2.setBounds(50, 120, ancho, alto);
+		
 		this.add(labelPartido3);
-		labelPartido3.setBounds();
+		labelPartido3.setBounds(125, 50, ancho, alto);
+		
 		this.add(labelPartido4);
-		labelPartido4.setBounds();
+		labelPartido4.setBounds(125, 120, ancho, alto);
+		
 		this.add(labelPartido5);
-		labelPartido5.setBounds();
+		labelPartido5.setBounds(200, 50, ancho, alto);
+		
 		this.add(labelPartido6);
-		labelPartido6.setBounds();
+		labelPartido6.setBounds(200, 120, ancho, alto);
+		
+		/*
 		this.add(labelPartido7);
 		labelPartido7.setBounds();
 		this.add(labelPartido8);
@@ -339,8 +360,109 @@ public class Juego extends JPanel{
 		this.add(labelPartido95);
 		this.add(labelPartido96);
 		
+		mostrarBanderas( ancho,  alto);
+		
 	}
 	
+	public void mostrarBanderas(int ancho, int alto) {
+		
+		Partido[] temp1;
+		
+		if(tipoLiga == 0) {
+			
+			temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
+			
+			imagenPartido1 = new ImageIcon(temp1[0].getEquipo1().getBandera());
+			Icon icono1 = new ImageIcon(imagenPartido1.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+			labelPartido1.setIcon(icono1);
+			
+			imagenPartido2 = new ImageIcon(temp1[0].getEquipo2().getBandera());
+			Icon icono2 = new ImageIcon(imagenPartido2.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+			labelPartido2.setIcon(icono2);
+			
+			imagenPartido3 = new ImageIcon(temp1[1].getEquipo1().getBandera());
+			Icon icono3 = new ImageIcon(imagenPartido3.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+			labelPartido3.setIcon(icono3);
+			
+			imagenPartido4 = new ImageIcon(temp1[1].getEquipo2().getBandera());
+			Icon icono4 = new ImageIcon(imagenPartido4.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+			labelPartido4.setIcon(icono4);
+			
+		}else if(tipoLiga == 1) {
+			
+			temp1 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
+			
+			imagenPartido1 = new ImageIcon(temp1[0].getEquipo1().getBandera());
+			Icon icono1 = new ImageIcon(imagenPartido1.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+			labelPartido1.setIcon(icono1);
+			
+			imagenPartido2 = new ImageIcon(temp1[0].getEquipo2().getBandera());
+			Icon icono2 = new ImageIcon(imagenPartido2.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+			labelPartido2.setIcon(icono2);
+			
+			imagenPartido3 = new ImageIcon(temp1[1].getEquipo1().getBandera());
+			Icon icono3 = new ImageIcon(imagenPartido3.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+			labelPartido3.setIcon(icono3);
+			
+			imagenPartido4 = new ImageIcon(temp1[1].getEquipo2().getBandera());
+			Icon icono4 = new ImageIcon(imagenPartido4.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+			labelPartido4.setIcon(icono4);
+			
+			
+		}
+			
+
+			
+	}
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//----------------------------------------------------------------------------------------------------------
+	
+		public void paintComponent(Graphics g) {
+	   	 
+			int width = this.getSize().width;
+			int height = this.getSize().height;
+	 
+			this.setBackground("src\\graficos\\juegoLiga.jpg");
+			if (this.imagen != null) {
+				g.drawImage(this.imagen, 0, 0, width, height, null);
+			}
+	 
+			super.paintComponent(g);
+		}
+	 
+		public void setBackground(String imagePath) {
+			
+			this.setOpaque(false);
+			this.imagen = new ImageIcon(imagePath).getImage();
+			repaint();
+			
+		}
 	
 	
 }

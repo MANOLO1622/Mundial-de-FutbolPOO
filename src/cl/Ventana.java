@@ -116,9 +116,9 @@ public class Ventana extends JFrame{
 		}
 		
 		
-		public void ventanaJuego() {
+		public void ventanaJuego( int tipoLiga) {
 			
-			Juego j = new Juego(UsuarioActual, 0);
+			Juego j = new Juego(UsuarioActual, tipoLiga);
 			this.setLocation(10, 10);//arreglar despues.
 			this.setResizable(false);
 			this.setSize(1260,690);

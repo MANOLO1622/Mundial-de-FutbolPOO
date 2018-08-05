@@ -23,7 +23,6 @@ public class LigasJugador extends JPanel implements ActionListener{
 	private JComboBox ligas = new JComboBox();
 	private JComboBox equipos = new JComboBox<Equipo>();
 	private JButton btnSalir = new JButton("Salir");
-	private JButton btnJugar = new JButton("Jugar");
 
 
 	//Estos componentes se utilizaran para poder mostrar informacion de la liga y del pais que se seleccione.
@@ -336,9 +335,6 @@ public class LigasJugador extends JPanel implements ActionListener{
 		
 		this.add(bandera);
 		bandera.setBounds(30, 500, 193,128);
-		
-		this.add(btnJugar);
-		btnJugar.setBounds(1120, 550, 130, 40);
 
 		this.add(btnSalir);
 		btnSalir.setBounds(1120, 595, 130, 40);
