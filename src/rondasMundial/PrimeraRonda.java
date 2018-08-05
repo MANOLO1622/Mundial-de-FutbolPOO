@@ -3,6 +3,8 @@ package rondasMundial;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.swing.JOptionPane;
+
 import cl.Equipo;
 
 public class PrimeraRonda {
@@ -105,6 +107,10 @@ public class PrimeraRonda {
     		contador++;
     		
     	}
+    	
+    	//Generacion de los partidos.
+    	
+    	generarJuegos();
     	
     	
     }
@@ -258,49 +264,125 @@ public class PrimeraRonda {
     
     public void generarJuegos() {
     	
-    	
+    	System.out.println("Primer cuadro: ");
         partidosPrimerCuadro = organizarCuadroJuego(primerCuadro);
+        System.out.println("");
+     
+        System.out.println("Segundo cuadro: ");
         partidosSegundoCuadro = organizarCuadroJuego(segundoCuadro);
+        System.out.println("");
+ 
+        System.out.println("Tercer cuadro: ");
         partidosTercerCuadro = organizarCuadroJuego(tercerCuadro);
+        System.out.println("");
+
+        System.out.println("Cuarto cuadro: ");
         partidosCuartoCuadro = organizarCuadroJuego(cuartoCuadro);
+        System.out.println("");
+
+        System.out.println("Quinto cuadro: ");
         partidosQuintoCuadro = organizarCuadroJuego(quintoCuadro);
+        System.out.println("");
+
+        System.out.println("Sexto cuadro: ");
         partidosSextoCuadro = organizarCuadroJuego(sextoCuadro);
+        System.out.println("");
+
+        System.out.println("Septimo cuadro: ");
         partidosSeptimoCuadro = organizarCuadroJuego(septimoCuadro);
+        System.out.println("");
+      
+        System.out.println("Octavo cuadro: ");
         partidosOctavoCuadro = organizarCuadroJuego(octavoCuadro);
+        System.out.println(""); 
+        
         
         
     }
     
     public Partido[] organizarCuadroJuego(Equipo[] cuadroJuego) {
 		
-    	int opcionOrden = (int)Math.random()*3;    	
+    	Partido[] partidosCuadroTemp = new Partido[6];
+    	int opcionOrden = (int)(Math.random()*3);
+    	JOptionPane.showMessageDialog(null, opcionOrden);
     	
     	switch(opcionOrden) {
     	
     	case 0:
     		
+    		partidosCuadroTemp[0] = new Partido(cuadroJuego[0],cuadroJuego[1]);
+    		partidosCuadroTemp[1] = new Partido(cuadroJuego[3],cuadroJuego[1]);
+    		partidosCuadroTemp[2] = new Partido(cuadroJuego[2],cuadroJuego[0]);
+    		partidosCuadroTemp[3] = new Partido(cuadroJuego[1],cuadroJuego[2]);
+    		partidosCuadroTemp[4] = new Partido(cuadroJuego[0],cuadroJuego[3]);
+    		partidosCuadroTemp[5] = new Partido(cuadroJuego[3],cuadroJuego[2]);
     		
+    		
+    		System.out.println(partidosCuadroTemp[0].toString());
+    		System.out.println(partidosCuadroTemp[1].toString());
+    		System.out.println(partidosCuadroTemp[2].toString());
+    		System.out.println(partidosCuadroTemp[3].toString());
+    		System.out.println(partidosCuadroTemp[4].toString());
+    		System.out.println(partidosCuadroTemp[5].toString());
     		
     		break;
     		
     	case 1:
     		
+    		partidosCuadroTemp[0] = new Partido(cuadroJuego[0],cuadroJuego[1]);
+    		partidosCuadroTemp[1] = new Partido(cuadroJuego[2],cuadroJuego[0]);
+    		partidosCuadroTemp[2] = new Partido(cuadroJuego[3],cuadroJuego[1]);
+    		partidosCuadroTemp[3] = new Partido(cuadroJuego[0],cuadroJuego[3]);
+    		partidosCuadroTemp[4] = new Partido(cuadroJuego[1],cuadroJuego[2]);
+    		partidosCuadroTemp[5] = new Partido(cuadroJuego[3],cuadroJuego[2]);
+    		
+    		System.out.println(partidosCuadroTemp[0].toString());
+    		System.out.println(partidosCuadroTemp[1].toString());
+    		System.out.println(partidosCuadroTemp[2].toString());
+    		System.out.println(partidosCuadroTemp[3].toString());
+    		System.out.println(partidosCuadroTemp[4].toString());
+    		System.out.println(partidosCuadroTemp[5].toString());
+    		
     		break;
     		
     	case 2:
     		
+    		partidosCuadroTemp[0] = new Partido(cuadroJuego[0],cuadroJuego[3]);
+    		partidosCuadroTemp[1] = new Partido(cuadroJuego[3],cuadroJuego[1]);
+    		partidosCuadroTemp[2] = new Partido(cuadroJuego[1],cuadroJuego[2]);
+    		partidosCuadroTemp[3] = new Partido(cuadroJuego[2],cuadroJuego[0]);
+    		partidosCuadroTemp[4] = new Partido(cuadroJuego[3],cuadroJuego[2]);
+    		partidosCuadroTemp[5] = new Partido(cuadroJuego[0],cuadroJuego[1]);
+    		
+    		System.out.println(partidosCuadroTemp[0].toString());
+    		System.out.println(partidosCuadroTemp[1].toString());
+    		System.out.println(partidosCuadroTemp[2].toString());
+    		System.out.println(partidosCuadroTemp[3].toString());
+    		System.out.println(partidosCuadroTemp[4].toString());
+    		System.out.println(partidosCuadroTemp[5].toString());
+    		
     		break;
     		
-    	case 3:
+    	default:
     		
-    		break;
-    	
+    		partidosCuadroTemp[0] = new Partido(cuadroJuego[3],cuadroJuego[2]);
+    		partidosCuadroTemp[1] = new Partido(cuadroJuego[0],cuadroJuego[3]);
+    		partidosCuadroTemp[2] = new Partido(cuadroJuego[1],cuadroJuego[2]);
+    		partidosCuadroTemp[3] = new Partido(cuadroJuego[2],cuadroJuego[0]);
+    		partidosCuadroTemp[4] = new Partido(cuadroJuego[3],cuadroJuego[1]);
+    		partidosCuadroTemp[5] = new Partido(cuadroJuego[0],cuadroJuego[1]);
+    		
+    		System.out.println(partidosCuadroTemp[0].toString());
+    		System.out.println(partidosCuadroTemp[1].toString());
+    		System.out.println(partidosCuadroTemp[2].toString());
+    		System.out.println(partidosCuadroTemp[3].toString());
+    		System.out.println(partidosCuadroTemp[4].toString());
+    		System.out.println(partidosCuadroTemp[5].toString());
+    		
+    		break;    	
     	
     	}
-    	
-    	
-    	
-    	return partidosCuartoCuadro;
+    	return partidosCuadroTemp;
     }
     
     

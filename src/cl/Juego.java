@@ -39,14 +39,14 @@ public class Juego extends JPanel implements ActionListener{
 	
 	//Estos componentes se utilizaran para poder mostrar las bandera de los paises dentro de los cuadros de juego.
 	
-	private JLabel cuadro1 = new JLabel("Cuadro 1");
-	private JLabel cuadro2 = new JLabel("Cuadro 2");
-	private JLabel cuadro3 = new JLabel("Cuadro 3");
-	private JLabel cuadro4 = new JLabel("Cuadro 4");
-	private JLabel cuadro5 = new JLabel("Cuadro 5");
-	private JLabel cuadro6 = new JLabel("Cuadro 6");
-	private JLabel cuadro7 = new JLabel("Cuadro 7");
-	private JLabel cuadro8 = new JLabel("Cuadro 8");
+	private JLabel cuadro1 = new JLabel("A");
+	private JLabel cuadro2 = new JLabel("B");
+	private JLabel cuadro3 = new JLabel("C");
+	private JLabel cuadro4 = new JLabel("D");
+	private JLabel cuadro5 = new JLabel("E");
+	private JLabel cuadro6 = new JLabel("F");
+	private JLabel cuadro7 = new JLabel("G");
+	private JLabel cuadro8 = new JLabel("H");
 	
 	private JLabel labelPais1 = new JLabel();
 	private JLabel labelPais2 = new JLabel();
@@ -116,6 +116,82 @@ public class Juego extends JPanel implements ActionListener{
 	private ImageIcon imagenPais32;
 	
 	
+	/*
+	 * 
+	 * 
+	 * Estos componentes se utilizaran para mostrar los partidos de cada cuadro de juego, en si la parte escencial del juego.
+	 * 
+	 * 
+	 */
+	
+	
+	
+	private JLabel labelPartido1 = new JLabel();
+	private JLabel labelPartido2 = new JLabel();
+	private JLabel labelPartido3 = new JLabel();
+	private JLabel labelPartido4 = new JLabel();
+	private JLabel labelPaisPartido5 = new JLabel();
+	private JLabel labelPartido6 = new JLabel();
+	private JLabel labelPartido7 = new JLabel();
+	private JLabel labelPartido8 = new JLabel();
+	private JLabel labelPartido9 = new JLabel();
+	private JLabel labelPartido10 = new JLabel();
+	private JLabel labelPartido11 = new JLabel();
+	private JLabel labelPartido12 = new JLabel();
+	private JLabel labelPartido13 = new JLabel();
+	private JLabel labelPartido14 = new JLabel();
+	private JLabel labelPartido15 = new JLabel();
+	private JLabel labelPartido16 = new JLabel();
+	private JLabel labelPartido17 = new JLabel();
+	private JLabel labelPartido18 = new JLabel();
+	private JLabel labelPartido19 = new JLabel();
+	private JLabel labelPartido20 = new JLabel();
+	private JLabel labelPartido21 = new JLabel();
+	private JLabel labelPartido22 = new JLabel();
+	private JLabel labelPartido23 = new JLabel();
+	private JLabel labelPartido24 = new JLabel();
+	private JLabel labelPartido25 = new JLabel();
+	private JLabel labelPartido26 = new JLabel();
+	private JLabel labelPartido27 = new JLabel();
+	private JLabel labelPartido28 = new JLabel();
+	private JLabel labelPartido29 = new JLabel();
+	private JLabel labelPartido30 = new JLabel();
+	private JLabel labelPartido31 = new JLabel();
+	private JLabel labelPartido32 = new JLabel();
+	
+	
+	private ImageIcon imagenPartido1;
+	private ImageIcon imagenPartido2;
+	private ImageIcon imagenPartido3;
+	private ImageIcon imagenPartido4;
+	private ImageIcon imagenPartido5;
+	private ImageIcon imagenPartido6;
+	private ImageIcon imagenPartido7;
+	private ImageIcon imagenPartido8;
+	private ImageIcon imagenPartido9;
+	private ImageIcon imagenPartido10;
+	private ImageIcon imagenPartido11;
+	private ImageIcon imagenPartido12;
+	private ImageIcon imagenPartido13;
+	private ImageIcon imagenPartido14;
+	private ImageIcon imagenPartido15;
+	private ImageIcon imagenPartido16;
+	private ImageIcon imagenPartido17;
+	private ImageIcon imagenPartido18;
+	private ImageIcon imagenPartido19;
+	private ImageIcon imagenPartido20;
+	private ImageIcon imagenPartido21;
+	private ImageIcon imagenPartido22;
+	private ImageIcon imagenPartido23;
+	private ImageIcon imagenPartido24;
+	private ImageIcon imagenPartido25;
+	private ImageIcon imagenPartido26;
+	private ImageIcon imagenPartido27;
+	private ImageIcon imagenPartido28;
+	private ImageIcon imagenPartido29;
+	private ImageIcon imagenPartido30;
+	private ImageIcon imagenPartido31;
+	private ImageIcon imagenPartido32;
 
 	
 	
@@ -737,50 +813,6 @@ public class Juego extends JPanel implements ActionListener{
 		
 		//Estos componentes se utilizaran para poder mostrar las bandera de los paises dentro de los cuadros de juego.
 		
-		/*cuadro1.setText("");
-		cuadro2.setText("");
-		cuadro3.setText("");
-		cuadro4.setText("");
-		cuadro5.setText("");
-		cuadro6.setText("");
-		cuadro7.setText("");
-		cuadro8.setText("");
-		
-		labelPais1.setText("");
-		labelPais2.setText("");
-		labelPais3.setText("");
-		labelPais4.setText("");
-		labelPais5.setText("");
-		labelPais6.setText("");
-		labelPais7.setText("");
-		labelPais8.setText("");
-		labelPais9.setText("");
-		labelPais10.setText("");
-		labelPais11.setText("");
-		labelPais12.setText("");
-		labelPais13.setText("");
-		labelPais14.setText("");
-		labelPais15.setText("");
-		labelPais16.setText("");
-		labelPais17.setText("");
-		labelPais18.setText("");
-		labelPais19.setText("");
-		labelPais20.setText("");
-		labelPais21.setText("");
-		labelPais22.setText("");
-		labelPais23.setText("");
-		labelPais24.setText("");
-		labelPais25.setText("");
-		labelPais26.setText("");
-		labelPais27.setText("");
-		labelPais28.setText("");
-		labelPais29.setText("");
-		labelPais30.setText("");
-		labelPais31.setText("");
-		labelPais32.setText("");*/
-		
-		
-		
 		this.remove(cuadro1);
 		this.remove(cuadro2);
 		this.remove(cuadro3);
@@ -828,8 +860,48 @@ public class Juego extends JPanel implements ActionListener{
 	}
 	
 	
-	
+	/*
+	 * 
+	 * 
+	 * A partir de esta seccion se manejaran los metodos para el manejo de el juego.
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//----------------------------------------------------------------------------------------------------------
 	
 	public void paintComponent(Graphics g) {
@@ -852,11 +924,5 @@ public class Juego extends JPanel implements ActionListener{
 		repaint();
 		
 	}
-
-	
-	
-	
-
-	
 
 }
