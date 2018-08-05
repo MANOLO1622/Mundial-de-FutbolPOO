@@ -202,11 +202,15 @@ public class CL {
 		
 	}
 	
-	
-	
 	public static ArrayList<Equipo> retornarEquiposRegistrados(){
 		
 		return listaEquiposFIFA;		
+		
+	}
+	
+	public static ArrayList<LigasPublicas> retornarLigasPublicasRegistrados(){
+		
+		return listaLigasPublicas;
 		
 	}
 	

@@ -26,6 +26,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JButton btnEliminarLigaPrivada = new JButton("Eliminar Liga Privada");
 	JButton btnIncJugLigaPrivada = new JButton("Incluir en LigaPrivada");
 	JButton botonSalir = new JButton("Salir");
+	JButton botonEliminarPublicaRegistro = new JButton("Eliminar");
 	
 
 	//----------------------------------------------------------------------
@@ -54,6 +55,11 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JComboBox MundialAnfitrion = new JComboBox();
 	JLabel labelEstados = new JLabel("Estado:");
 	JTextField estadosTXT = new JTextField(10);
+	
+	//------------------------------------------------------------------------------
+	
+	JComboBox LigasPublicas = new JComboBox();
+	
 	
 	//------------------------------------------------------------------------------
 	
@@ -149,6 +155,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		btnRegistroLigaPublica.addActionListener(this);
 		btnIncJugLigaPrivada.addActionListener(this);
 		botonSalir.addActionListener(this);
+		botonEliminarPublicaRegistro.addActionListener(this);
 	}
 	
 	//------------------------------------------------------------------------------
@@ -185,12 +192,22 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		}
 		
+		
 		if(e.getSource()==boton11) {
 			
 			Ventana ventanaRegistro = new Ventana(new Usuario("", "", "", "", "", "", 0));
 			ventanaRegistro.ventanaRegistroUsuarios();
 			
 		}
+		
+		if (e.getSource() == botonEliminarPublicaRegistro) {
+			
+			Gestor.removerLigaPublicaUsuario((String)LigasPublicas.getSelectedItem());
+
+			removerMenus();
+			
+		}
+		
 
 		if (e.getSource() == btnRegistrarMundial) {
 
@@ -280,9 +297,15 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		}
 		
 		if(e.getSource() == btnEliminarLigaPublica) {
+	
 			
-			Gestor.eliminarLigaPublica("a");
+			ingresarLigasPublicas();
 			
+			this.add(LigasPublicas);
+			
+			LigasPublicas.setBounds(950, 200, 120, 25);
+			botonEliminarPublicaRegistro.setBounds(950, 30, 200, 30);
+			this.add(botonEliminarPublicaRegistro);
 		}
 
 
@@ -483,6 +506,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.remove(labelEstados);
 		this.remove(estadosTXT);
 		this.remove(btnRegistroLigaPrivada);
+		this.remove(LigasPublicas);
+		this.remove(botonEliminarPublicaRegistro);
 		
 		this.remove(labelNombreMundial);
 		this.remove(nombreMundialTXT);
@@ -534,6 +559,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		ingresarPaises();
 		ingresarMundiales();
+		ingresarLigasPublicas();
 		
 	}
 	
@@ -560,6 +586,22 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		for(Mundiales e: listaTemporal) {	
 			
 			MundialAnfitrion.addItem(e.getNombreMundial());
+			
+		}
+		
+	}
+	
+	public void ingresarLigasPublicas() {
+		
+		ArrayList<LigasPublicas> listaTemporal = Gestor.retornarLigasPublicasRegistrados();
+		
+		LigasPublicas.removeAllItems();
+		
+		for(LigasPublicas e: listaTemporal) {	
+			
+			LigasPublicas.addItem(e.getNombreLiga());
+			
+			
 			
 		}
 		
