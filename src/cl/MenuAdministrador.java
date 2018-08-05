@@ -418,7 +418,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			
 		}
 		
-		
+		//aun no elimina
 		
 
 		
