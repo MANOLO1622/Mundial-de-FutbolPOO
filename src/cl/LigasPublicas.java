@@ -11,7 +11,6 @@ public class LigasPublicas extends Ligas {
 	private Mundiales mundialAnfitrion;
 	final int unaConstante = 100;
 	
-	
 	public LigasPublicas(String nombreLiga, LocalDate fechaCreacion, boolean estado,int puntos, int bono, Mundiales mundialAnfitrion) {
 		
 		super (nombreLiga, fechaCreacion, estado);

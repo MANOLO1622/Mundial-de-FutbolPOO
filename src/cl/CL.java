@@ -214,6 +214,12 @@ public class CL {
 		
 	}
 	
+	public static ArrayList<LigasPrivadas> retornarLigasPrivadasRegistrados(){
+		
+		return listaLigasPrivadas;
+		
+	}
+	
 	public static Mundiales retornarMundial(String nombreMundial) {
 		Mundiales mundialTemp=null;
 		
