@@ -15,8 +15,8 @@ public class Partido {
 		this.equipo1 = equipo1;
 		this.equipo2 = equipo2;
 		
-		puntajeEquipo1 = (int) (Math.random()*10);
-		puntajeEquipo2 = (int) (Math.random()*10);
+		this.puntajeEquipo1 = (int) (Math.random()*10);
+		this.puntajeEquipo2 = (int) (Math.random()*10);
 		escogerGanador();
 		
 	}

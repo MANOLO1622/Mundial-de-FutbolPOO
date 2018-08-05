@@ -16,6 +16,15 @@ public class PrimeraRonda {
     private Equipo[] septimoCuadro = new Equipo[4];
     private Equipo[] octavoCuadro = new Equipo[4];
     
+    private Partido[] partidosPrimerCuadro = new Partido[6];
+    private Partido[] partidosSegundoCuadro = new Partido[6];
+    private Partido[] partidosTercerCuadro = new Partido[6];
+    private Partido[] partidosCuartoCuadro = new Partido[6];
+    private Partido[] partidosQuintoCuadro = new Partido[6];
+    private Partido[] partidosSextoCuadro = new Partido[6];
+    private Partido[] partidosSeptimoCuadro = new Partido[6];
+    private Partido[] partidosOctavoCuadro = new Partido[6];
+    
 	//---------------------------------------------------------------------------------------Constructor.
     
     public PrimeraRonda(ArrayList<Equipo> equiposMundial) {
@@ -100,15 +109,7 @@ public class PrimeraRonda {
     	
     }
     
-	//---------------------------------------------------------------------------------------puntaje de partidos
-    
-    
-    
-    
-    
-    
-    
-    
+
 	//---------------------------------------------------------------------------------------Gets y Sets.
     
     
@@ -160,7 +161,86 @@ public class PrimeraRonda {
 	public void setOctavoCuadro(Equipo[] octavoCuadro) {
 		this.octavoCuadro = octavoCuadro;
 	}
+	
+	
+	public Partido[] getPartidosPrimerCuadro() {
+		return partidosPrimerCuadro;
+	}
 
+
+	public void setPartidosPrimerCuadro(Partido[] partidosPrimerCuadro) {
+		this.partidosPrimerCuadro = partidosPrimerCuadro;
+	}
+
+
+	public Partido[] getPartidosSegundoCuadro() {
+		return partidosSegundoCuadro;
+	}
+
+
+	public void setPartidosSegundoCuadro(Partido[] partidosSegundoCuadro) {
+		this.partidosSegundoCuadro = partidosSegundoCuadro;
+	}
+
+
+	public Partido[] getPartidosTercerCuadro() {
+		return partidosTercerCuadro;
+	}
+
+
+	public void setPartidosTercerCuadro(Partido[] partidosTercerCuadro) {
+		this.partidosTercerCuadro = partidosTercerCuadro;
+	}
+
+
+	public Partido[] getPartidosCuartoCuadro() {
+		return partidosCuartoCuadro;
+	}
+
+
+	public void setPartidosCuartoCuadro(Partido[] partidosCuartoCuadro) {
+		this.partidosCuartoCuadro = partidosCuartoCuadro;
+	}
+
+
+	public Partido[] getPartidosQuintoCuadro() {
+		return partidosQuintoCuadro;
+	}
+
+
+	public void setPartidosQuintoCuadro(Partido[] partidosQuintoCuadro) {
+		this.partidosQuintoCuadro = partidosQuintoCuadro;
+	}
+
+
+	public Partido[] getPartidosSextoCuadro() {
+		return partidosSextoCuadro;
+	}
+
+
+	public void setPartidosSextoCuadro(Partido[] partidosSextoCuadro) {
+		this.partidosSextoCuadro = partidosSextoCuadro;
+	}
+
+
+	public Partido[] getPartidosSeptimoCuadro() {
+		return partidosSeptimoCuadro;
+	}
+
+
+	public void setPartidosSeptimoCuadro(Partido[] partidosSeptimoCuadro) {
+		this.partidosSeptimoCuadro = partidosSeptimoCuadro;
+	}
+
+
+	public Partido[] getPartidosOctavoCuadro() {
+		return partidosOctavoCuadro;
+	}
+
+
+	public void setPartidosOctavoCuadro(Partido[] partidosOctavoCuadro) {
+		this.partidosOctavoCuadro = partidosOctavoCuadro;
+	}
 
 	//---------------------------------------------------------------------------------------metodo to String
 	
@@ -174,6 +254,59 @@ public class PrimeraRonda {
 	}
     
     
-	
+	//---------------------------------------------------------------------------------------puntaje de partidos
+    
+    public void generarJuegos() {
+    	
+    	
+        partidosPrimerCuadro = organizarCuadroJuego(primerCuadro);
+        partidosSegundoCuadro = organizarCuadroJuego(segundoCuadro);
+        partidosTercerCuadro = organizarCuadroJuego(tercerCuadro);
+        partidosCuartoCuadro = organizarCuadroJuego(cuartoCuadro);
+        partidosQuintoCuadro = organizarCuadroJuego(quintoCuadro);
+        partidosSextoCuadro = organizarCuadroJuego(sextoCuadro);
+        partidosSeptimoCuadro = organizarCuadroJuego(septimoCuadro);
+        partidosOctavoCuadro = organizarCuadroJuego(octavoCuadro);
+        
+        
+    }
+    
+    public Partido[] organizarCuadroJuego(Equipo[] cuadroJuego) {
+		
+    	int opcionOrden = (int)Math.random()*3;    	
+    	
+    	switch(opcionOrden) {
+    	
+    	case 0:
+    		
+    		break;
+    		
+    	case 1:
+    		
+    		break;
+    		
+    	case 2:
+    		
+    		break;
+    		
+    	case 3:
+    		
+    		break;
+    	
+    	
+    	}
+    	
+    	
+    	
+    	return partidosCuartoCuadro;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 
 }
