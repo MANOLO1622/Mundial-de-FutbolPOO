@@ -1,121 +1,11 @@
 package cl;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.*;
-import javax.swing.border.Border;
 
-import gestor.Gestor;
+public class Juego extends JPanel{
+	
 
-public class Juego extends JPanel implements ActionListener{
-	
-	private static Gestor controlador = new Gestor();
-	private static Image imagen;
-	public Usuario miUsuarioActual;
-
-	private JLabel bandera = new JLabel();
-	private ImageIcon banderaImagen;
-	
-	//Estos componentes son los principales del panel de jugador, con el fin de dar una interaccion al usuario.
-	
-	private JComboBox ligas = new JComboBox();
-	private JComboBox equipos = new JComboBox<Equipo>();
-	private JButton btnSalir = new JButton("Salir");
-	private JButton btnJugar = new JButton("Jugar");
-
-
-	//Estos componentes se utilizaran para poder mostrar informacion de la liga y del pais que se seleccione.
-	
-	private JLabel informacionLiga1 = new JLabel();
-	private JLabel informacionLiga2 = new JLabel();
-	private JLabel informacionLiga3 = new JLabel();
-	private JLabel informacionLiga4 = new JLabel();
-	private JLabel informacionLiga5 = new JLabel();
-	private JLabel informacionLiga6 = new JLabel();
-	
-	private JTextPane informacionPais = new JTextPane();
-	
-	//Estos componentes se utilizaran para poder mostrar las bandera de los paises dentro de los cuadros de juego.
-	
-	private JLabel cuadro1 = new JLabel("A");
-	private JLabel cuadro2 = new JLabel("B");
-	private JLabel cuadro3 = new JLabel("C");
-	private JLabel cuadro4 = new JLabel("D");
-	private JLabel cuadro5 = new JLabel("E");
-	private JLabel cuadro6 = new JLabel("F");
-	private JLabel cuadro7 = new JLabel("G");
-	private JLabel cuadro8 = new JLabel("H");
-	
-	private JLabel labelPais1 = new JLabel();
-	private JLabel labelPais2 = new JLabel();
-	private JLabel labelPais3 = new JLabel();
-	private JLabel labelPais4 = new JLabel();
-	private JLabel labelPais5 = new JLabel();
-	private JLabel labelPais6 = new JLabel();
-	private JLabel labelPais7 = new JLabel();
-	private JLabel labelPais8 = new JLabel();
-	private JLabel labelPais9 = new JLabel();
-	private JLabel labelPais10 = new JLabel();
-	private JLabel labelPais11 = new JLabel();
-	private JLabel labelPais12 = new JLabel();
-	private JLabel labelPais13 = new JLabel();
-	private JLabel labelPais14 = new JLabel();
-	private JLabel labelPais15 = new JLabel();
-	private JLabel labelPais16 = new JLabel();
-	private JLabel labelPais17 = new JLabel();
-	private JLabel labelPais18 = new JLabel();
-	private JLabel labelPais19 = new JLabel();
-	private JLabel labelPais20 = new JLabel();
-	private JLabel labelPais21 = new JLabel();
-	private JLabel labelPais22 = new JLabel();
-	private JLabel labelPais23 = new JLabel();
-	private JLabel labelPais24 = new JLabel();
-	private JLabel labelPais25 = new JLabel();
-	private JLabel labelPais26 = new JLabel();
-	private JLabel labelPais27 = new JLabel();
-	private JLabel labelPais28 = new JLabel();
-	private JLabel labelPais29 = new JLabel();
-	private JLabel labelPais30 = new JLabel();
-	private JLabel labelPais31 = new JLabel();
-	private JLabel labelPais32 = new JLabel();
-	
-	
-	private ImageIcon imagenPais1;
-	private ImageIcon imagenPais2;
-	private ImageIcon imagenPais3;
-	private ImageIcon imagenPais4;
-	private ImageIcon imagenPais5;
-	private ImageIcon imagenPais6;
-	private ImageIcon imagenPais7;
-	private ImageIcon imagenPais8;
-	private ImageIcon imagenPais9;
-	private ImageIcon imagenPais10;
-	private ImageIcon imagenPais11;
-	private ImageIcon imagenPais12;
-	private ImageIcon imagenPais13;
-	private ImageIcon imagenPais14;
-	private ImageIcon imagenPais15;
-	private ImageIcon imagenPais16;
-	private ImageIcon imagenPais17;
-	private ImageIcon imagenPais18;
-	private ImageIcon imagenPais19;
-	private ImageIcon imagenPais20;
-	private ImageIcon imagenPais21;
-	private ImageIcon imagenPais22;
-	private ImageIcon imagenPais23;
-	private ImageIcon imagenPais24;
-	private ImageIcon imagenPais25;
-	private ImageIcon imagenPais26;
-	private ImageIcon imagenPais27;
-	private ImageIcon imagenPais28;
-	private ImageIcon imagenPais29;
-	private ImageIcon imagenPais30;
-	private ImageIcon imagenPais31;
-	private ImageIcon imagenPais32;
-	
-	
 	/*
 	 * 
 	 * 
@@ -124,13 +14,11 @@ public class Juego extends JPanel implements ActionListener{
 	 * 
 	 */
 	
-	
-	
 	private JLabel labelPartido1 = new JLabel();
 	private JLabel labelPartido2 = new JLabel();
 	private JLabel labelPartido3 = new JLabel();
 	private JLabel labelPartido4 = new JLabel();
-	private JLabel labelPaisPartido5 = new JLabel();
+	private JLabel labelPartido5 = new JLabel();
 	private JLabel labelPartido6 = new JLabel();
 	private JLabel labelPartido7 = new JLabel();
 	private JLabel labelPartido8 = new JLabel();
@@ -158,7 +46,71 @@ public class Juego extends JPanel implements ActionListener{
 	private JLabel labelPartido30 = new JLabel();
 	private JLabel labelPartido31 = new JLabel();
 	private JLabel labelPartido32 = new JLabel();
-	
+	private JLabel labelPartido33 = new JLabel();
+	private JLabel labelPartido34 = new JLabel();
+	private JLabel labelPartido35 = new JLabel();
+	private JLabel labelPartido36 = new JLabel();
+	private JLabel labelPartido37 = new JLabel();
+	private JLabel labelPartido38 = new JLabel();
+	private JLabel labelPartido39 = new JLabel();
+	private JLabel labelPartido40 = new JLabel();
+	private JLabel labelPartido41 = new JLabel();
+	private JLabel labelPartido42 = new JLabel();
+	private JLabel labelPartido43 = new JLabel();
+	private JLabel labelPartido44 = new JLabel();
+	private JLabel labelPartido45 = new JLabel();
+	private JLabel labelPartido46 = new JLabel();
+	private JLabel labelPartido47 = new JLabel();
+	private JLabel labelPartido48 = new JLabel();
+	private JLabel labelPartido49 = new JLabel();
+	private JLabel labelPartido50 = new JLabel();
+	private JLabel labelPartido51 = new JLabel();
+	private JLabel labelPartido52 = new JLabel();
+	private JLabel labelPartido53 = new JLabel();
+	private JLabel labelPartido54 = new JLabel();
+	private JLabel labelPartido55 = new JLabel();
+	private JLabel labelPartido56 = new JLabel();
+	private JLabel labelPartido57 = new JLabel();
+	private JLabel labelPartido58 = new JLabel();
+	private JLabel labelPartido59 = new JLabel();
+	private JLabel labelPartido60 = new JLabel();
+	private JLabel labelPartido61 = new JLabel();
+	private JLabel labelPartido62 = new JLabel();
+	private JLabel labelPartido63 = new JLabel();
+	private JLabel labelPartido64 = new JLabel();
+	private JLabel labelPartido65 = new JLabel();
+	private JLabel labelPartido66 = new JLabel();
+	private JLabel labelPartido67 = new JLabel();
+	private JLabel labelPartido68 = new JLabel();
+	private JLabel labelPartido69 = new JLabel();
+	private JLabel labelPartido70 = new JLabel();
+	private JLabel labelPartido71 = new JLabel();
+	private JLabel labelPartido72 = new JLabel();
+	private JLabel labelPartido73 = new JLabel();
+	private JLabel labelPartido74 = new JLabel();
+	private JLabel labelPartido75 = new JLabel();
+	private JLabel labelPartido76 = new JLabel();
+	private JLabel labelPartido77 = new JLabel();
+	private JLabel labelPartido78 = new JLabel();
+	private JLabel labelPartido79 = new JLabel();
+	private JLabel labelPartido80 = new JLabel();
+	private JLabel labelPartido81 = new JLabel();
+	private JLabel labelPartido82 = new JLabel();
+	private JLabel labelPartido83 = new JLabel();
+	private JLabel labelPartido84 = new JLabel();
+	private JLabel labelPartido85 = new JLabel();
+	private JLabel labelPartido86 = new JLabel();
+	private JLabel labelPartido87 = new JLabel();
+	private JLabel labelPartido88 = new JLabel();
+	private JLabel labelPartido89 = new JLabel();
+	private JLabel labelPartido90 = new JLabel();
+	private JLabel labelPartido91 = new JLabel();
+	private JLabel labelPartido92 = new JLabel();
+	private JLabel labelPartido93 = new JLabel();
+	private JLabel labelPartido94 = new JLabel();
+	private JLabel labelPartido95 = new JLabel();
+	private JLabel labelPartido96 = new JLabel();
+
 	
 	private ImageIcon imagenPartido1;
 	private ImageIcon imagenPartido2;
@@ -192,737 +144,203 @@ public class Juego extends JPanel implements ActionListener{
 	private ImageIcon imagenPartido30;
 	private ImageIcon imagenPartido31;
 	private ImageIcon imagenPartido32;
-
+	private ImageIcon imagenPartido33;
+	private ImageIcon imagenPartido34;
+	private ImageIcon imagenPartido35;
+	private ImageIcon imagenPartido36;
+	private ImageIcon imagenPartido37;
+	private ImageIcon imagenPartido38;
+	private ImageIcon imagenPartido39;
+	private ImageIcon imagenPartido40;
+	private ImageIcon imagenPartido41;
+	private ImageIcon imagenPartido42;
+	private ImageIcon imagenPartido43;
+	private ImageIcon imagenPartido44;
+	private ImageIcon imagenPartido45;
+	private ImageIcon imagenPartido46;
+	private ImageIcon imagenPartido47;
+	private ImageIcon imagenPartido48;
+	private ImageIcon imagenPartido49;
+	private ImageIcon imagenPartido50;
+	private ImageIcon imagenPartido51;
+	private ImageIcon imagenPartido52;
+	private ImageIcon imagenPartido53;
+	private ImageIcon imagenPartido54;
+	private ImageIcon imagenPartido55;
+	private ImageIcon imagenPartido56;
+	private ImageIcon imagenPartido57;
+	private ImageIcon imagenPartido58;
+	private ImageIcon imagenPartido59;
+	private ImageIcon imagenPartido60;
+	private ImageIcon imagenPartido61;
+	private ImageIcon imagenPartido62;
+	private ImageIcon imagenPartido63;
+	private ImageIcon imagenPartido64;
+	private ImageIcon imagenPartido65;
+	private ImageIcon imagenPartido66;
+	private ImageIcon imagenPartido67;
+	private ImageIcon imagenPartido68;
+	private ImageIcon imagenPartido69;
+	private ImageIcon imagenPartido70;
+	private ImageIcon imagenPartido71;
+	private ImageIcon imagenPartido72;
+	private ImageIcon imagenPartido73;
+	private ImageIcon imagenPartido74;
+	private ImageIcon imagenPartido75;
+	private ImageIcon imagenPartido76;
+	private ImageIcon imagenPartido77;
+	private ImageIcon imagenPartido78;
+	private ImageIcon imagenPartido79;
+	private ImageIcon imagenPartido80;
+	private ImageIcon imagenPartido81;
+	private ImageIcon imagenPartido82;
+	private ImageIcon imagenPartido83;
+	private ImageIcon imagenPartido84;
+	private ImageIcon imagenPartido85;
+	private ImageIcon imagenPartido86;
+	private ImageIcon imagenPartido87;
+	private ImageIcon imagenPartido88;
+	private ImageIcon imagenPartido89;
+	private ImageIcon imagenPartido90;
+	private ImageIcon imagenPartido91;
+	private ImageIcon imagenPartido92;
+	private ImageIcon imagenPartido93;
+	private ImageIcon imagenPartido94;
+	private ImageIcon imagenPartido95;
+	private ImageIcon imagenPartido96;
 	
+	//----------------------------------------------------------------------------constructor de la clase.
 	
-	public Juego(Usuario miUsuarioActual){
+	public Juego(Usuario miUsuario,int tipoLiga) {
 		
-		this.miUsuarioActual = Gestor.retornarUsuario(miUsuarioActual.getNombreUsuario());
-		this.setLayout(null);
-		inicializarComponentes();
+		colocarComponentesJuego();
 		
-		CL capaLogica = new CL();
-		ArrayList<Equipo> listaEquipos = capaLogica.listarEquiposFIFA();
 		
-		//-----------Eventos.
-
-		equipos.addActionListener(this);
-		ligas.addActionListener(this);
-		btnSalir.addActionListener(this);
-	}
 		
-	
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-		if(e.getSource() == equipos) {
-			
-			if(equipos.getItemCount()==0) {
-				
-				System.out.println("no hay banderas para mostrar.");
-				
-			}else {
-				
-				String b = controlador.retornarBanderaEquipo((String) equipos.getSelectedItem());
-				banderaImagen = new ImageIcon(b);
-				Icon icono = new ImageIcon(banderaImagen.getImage().getScaledInstance(bandera.getWidth(), bandera.getHeight(), Image.SCALE_DEFAULT));
-				bandera.setIcon(icono);			
-				mostrarinformacionPaisSeleccionado();	
-				
-			}			
-			
-		}
-		
-
-		if(e.getSource()==ligas) {
-			
-			removerMenu();
-			
-			if(ligas.getSelectedIndex() == 0 ) {
-				
-				if(this.miUsuarioActual.getMiLigaPublica() == null) {
-					
-					mostrarInformacionLiga(2);
-					JOptionPane.showMessageDialog(null, "No hay liga Publica asociada al Jugador " + this.miUsuarioActual.getAvatar());
-					
-					
-				}else {
-					
-					mostrarInformacionLiga(0);
-					mostrarCuadros(0);
-					equipos.setEnabled(true);
-					
-					for(Equipo a: this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getEquiposMundial()) {
-						
-						equipos.addItem((String)a.getNombre());
-						
-					}
-					
-				}
-				
-			}
-			else if(ligas.getSelectedIndex() == 1) {
-				
-				if(this.miUsuarioActual.getMiLigaPrivada() == null) {
-					
-					mostrarInformacionLiga(2);
-					JOptionPane.showMessageDialog(null, "No hay liga Privada asociada al Jugador " + this.miUsuarioActual.getAvatar());
-					
-				}else {
-					
-					mostrarInformacionLiga(1);
-					mostrarCuadros(1);
-					equipos.setEnabled(true);					
-					
-					for(Equipo a: this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getEquiposMundial()) {
-						
-						equipos.addItem((String)a.getNombre());
-						
-					}
-					
-				}
-				
-			}
-			
-		}
-		if(e.getSource()==btnSalir) {
-			
-			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
-			
-		}
 		
 	}
 	
 
-
-	public void mostrarInformacionLiga(int tipoLiga) {
-	
-		this.add(informacionLiga1);
-		informacionLiga1.setBounds(30,60, 600,80);
-		informacionLiga1.setForeground(Color.WHITE);
-		informacionLiga1.setFont(new Font(informacionLiga1.getFont().getFontName(), Font.PLAIN, 20));
-		
-		
-		this.add(informacionLiga2);
-		informacionLiga2.setBounds(30,90, 600,100);
-		informacionLiga2.setForeground(Color.WHITE);
-		informacionLiga2.setFont(new Font(informacionLiga2.getFont().getFontName(), Font.BOLD, 20));
-		
-		this.add(informacionLiga3);
-		informacionLiga3.setBounds(30,120, 600,100);
-		informacionLiga3.setForeground(Color.WHITE);
-		informacionLiga3.setFont(new Font(informacionLiga3.getFont().getFontName(), Font.BOLD, 20));
-		
-		this.add(informacionLiga4);
-		informacionLiga4.setBounds(30,150, 600,100);
-		informacionLiga4.setForeground(Color.WHITE);
-		informacionLiga4.setFont(new Font(informacionLiga4.getFont().getFontName(), Font.BOLD, 20));
-		
-		this.add(informacionLiga5);
-		informacionLiga5.setBounds(30,180, 600,100);
-		informacionLiga5.setForeground(Color.WHITE);
-		informacionLiga5.setFont(new Font(informacionLiga5.getFont().getFontName(), Font.BOLD, 20));
-		
-		this.add(informacionLiga6);
-		informacionLiga6.setBounds(30,210, 600,100);
-		informacionLiga6.setForeground(Color.WHITE);
-		informacionLiga6.setFont(new Font(informacionLiga6.getFont().getFontName(), Font.BOLD, 20));
-		
-
-		switch(tipoLiga) {
-		
-		case 0:
-			
-			informacionLiga1.setText("Información de la liga " + this.miUsuarioActual.getMiLigaPublica().getNombreLiga());
-			informacionLiga2.setText("Nombre de la liga: " + this.miUsuarioActual.getMiLigaPublica().getNombreLiga());
-			informacionLiga3.setText("Registro: " + this.miUsuarioActual.getMiLigaPublica().getFechaCreacion());
-			informacionLiga4.setText("Estado: " + this.miUsuarioActual.getMiLigaPublica().getEstado());
-			informacionLiga5.setText("Puntos: " + this.miUsuarioActual.getMiLigaPublica().getPuntos());
-			informacionLiga6.setText("Bono: " + this.miUsuarioActual.getMiLigaPublica().getBono());
-			
-			break;
-			
-		case 1:
-			
-			informacionLiga1.setText("Información de la liga " + this.miUsuarioActual.getMiLigaPrivada().getNombreLiga());
-			informacionLiga2.setText("Nombre de la liga: " + this.miUsuarioActual.getMiLigaPrivada().getNombreLiga());
-			informacionLiga3.setText("Fecha de creacion: " + this.miUsuarioActual.getMiLigaPrivada().getFechaCreacion());
-			informacionLiga4.setText("Estado: " + this.miUsuarioActual.getMiLigaPrivada().getEstado());
-			informacionLiga5.setText("Puntos: " + this.miUsuarioActual.getMiLigaPrivada().getPuntos());
-			informacionLiga6.setText("Bono: " + this.miUsuarioActual.getMiLigaPrivada().getBono());
-			
-			break;
-			
-		case 2: 
-			
-			informacionLiga1.setText("");
-			informacionLiga2.setText("");
-			informacionLiga3.setText("");
-			informacionLiga4.setText("");
-			informacionLiga5.setText("");
-			informacionLiga6.setText("");
-			
-			break;
-			
-		default:
-			
-			JOptionPane.showMessageDialog(null, "Valor invalido\n1 para liga privada.\n0 para liga publica.");
-			
-			break;
-		
-		
-		}
-		
-		
-	}
-	
-	
-	public void removerComponentes() {
-		
-		this.remove(ligas);
-		this.remove(equipos);
-		this.remove(btnSalir);
-		this.remove(bandera);
-		
-		this.remove(informacionLiga1);
-		this.remove(informacionLiga2);
-		this.remove(informacionLiga3);
-		this.remove(informacionLiga4);
-		this.remove(informacionLiga5);
-		this.remove(informacionLiga6);
-		this.remove(btnSalir);
-		
-	}
-	
-	public void inicializarComponentes() {
-		
-		
-		CL capaLogica = new CL();
-		ArrayList<Equipo> listaEquipos = capaLogica.listarEquiposFIFA();
-		
-
-		this.add(ligas);
-		ligas.setBounds(30, 30, 100, 25);
-		ligas.addItem("Liga Publica");
-		ligas.addItem("Liga Privada");
-		
-
-
-		this.add(equipos);
-		equipos.setEnabled(false);
-		equipos.setBounds(145, 30, 100, 25);
-		
-		this.add(bandera);
-		bandera.setBounds(30, 500, 193,128);
-		
-		this.add(btnJugar);
-		btnJugar.setBounds(1120, 550, 130, 40);
-
-		this.add(btnSalir);
-		btnSalir.setBounds(1120, 595, 130, 40);
-
-	}
-	
-	//----------------------------------------------------------------------------------------------------------
-	
-	public void mostrarCuadros(int tipoLiga) {
-		
-		
-		int ancho = 97;
-		int alto = 64; 
-		
-		//-----------------------------------------------Primer Cuadro
-		
-		this.add(cuadro1);
-		cuadro1.setFont(new Font(cuadro1.getFont().getFontName(), Font.PLAIN, 20));
-		cuadro1.setForeground(Color.white);
-		cuadro1.setBounds(335, 59, 100, 25);
-		
-		this.add(labelPais1);
-		labelPais1.setBounds(335, 90, ancho, alto);
-
-		this.add(labelPais2);
-		labelPais2.setBounds(435, 90, ancho, alto);
-		
-		this.add(labelPais3);
-		labelPais3.setBounds(335, 157, ancho, alto);
-
-		this.add(labelPais4);
-		labelPais4.setBounds(435, 157, ancho, alto);
-		
-		//-----------------------------------------------Segundo Cuadro
-		this.add(cuadro2);
-		cuadro2.setFont(new Font(cuadro2.getFont().getFontName(), Font.PLAIN, 20));
-		cuadro2.setForeground(Color.white);
-		cuadro2.setBounds(552, 59, 100, 25);
-		
-		this.add(labelPais5);
-		labelPais5.setBounds(552, 90, ancho, alto);
-
-		this.add(labelPais6);
-		labelPais6.setBounds(652, 90, ancho, alto);
-
-		this.add(labelPais7);
-		labelPais7.setBounds(552, 157, ancho, alto);
-		
-		this.add(labelPais8);
-		labelPais8.setBounds(652, 157, ancho, alto);
-		
-		//----------------------------------------------Tercer Cuadro
-		this.add(cuadro3);
-		cuadro3.setFont(new Font(cuadro3.getFont().getFontName(), Font.PLAIN, 20));
-		cuadro3.setForeground(Color.white);
-		cuadro3.setBounds(769, 59, 100, 25);
-		
-		this.add(labelPais9);
-		labelPais9.setBounds(769, 90, ancho, alto);
-		
-		this.add(labelPais10);
-		labelPais10.setBounds(869, 90, ancho, alto);
-		
-		this.add(labelPais11);
-		labelPais11.setBounds(769, 157, ancho, alto);
-
-		this.add(labelPais12);
-		labelPais12.setBounds(869, 157, ancho, alto);
-		
-		//-----------------------------------------------Cuarto Cuadro
-		
-		this.add(cuadro4);
-		cuadro4.setFont(new Font(cuadro4.getFont().getFontName(), Font.PLAIN, 20));
-		cuadro4.setForeground(Color.white);
-		cuadro4.setBounds(986, 59, 100, 25);
-		
-		this.add(labelPais13);
-		labelPais13.setBounds(986, 90, ancho, alto);
-
-		this.add(labelPais14);
-		labelPais14.setBounds(1086, 90, ancho, alto);
-		
-		this.add(labelPais15);
-		labelPais15.setBounds(986, 157, ancho, alto);
-
-		this.add(labelPais16);
-		labelPais16.setBounds(1086, 157, ancho, alto);
-		
-		//----------------------------------------------Quinto Cuadro
-		
-		this.add(cuadro5);
-		cuadro5.setFont(new Font(cuadro5.getFont().getFontName(), Font.PLAIN, 20));
-		cuadro5.setForeground(Color.white);
-		cuadro5.setBounds(335, 260, 100, 25);
-		
-		this.add(labelPais17);
-		labelPais17.setBounds(335, 291, ancho, alto);
-
-		this.add(labelPais18);
-		labelPais18.setBounds(435, 291, ancho, alto);
-		
-		this.add(labelPais19);
-		labelPais19.setBounds(335, 358, ancho, alto);
-
-		this.add(labelPais20);
-		labelPais20.setBounds(435, 358, ancho, alto);
-		
-		//-----------------------------------------------Sexto Cuadro
-		
-		this.add(cuadro6);
-		cuadro6.setFont(new Font(cuadro6.getFont().getFontName(), Font.PLAIN, 20));
-		cuadro6.setForeground(Color.white);
-		cuadro6.setBounds(552, 260, 100, 25);
-		
-		this.add(labelPais21);
-		labelPais21.setBounds(552, 291, ancho, alto);
-
-		this.add(labelPais22);
-		labelPais22.setBounds(652, 291, ancho, alto);
-		
-		this.add(labelPais23);
-		labelPais23.setBounds(552, 358, ancho, alto);
-
-		this.add(labelPais24);
-		labelPais24.setBounds(652, 358, ancho, alto);
-		
-		//----------------------------------------------Septimo Cuadro
-		
-		this.add(cuadro7);
-		cuadro7.setFont(new Font(cuadro7.getFont().getFontName(), Font.PLAIN, 20));
-		cuadro7.setForeground(Color.white);
-		cuadro7.setBounds(769, 260, 100, 25);
-		
-		this.add(labelPais25);
-		labelPais25.setBounds(769, 291, ancho, alto);
-
-		this.add(labelPais26);
-		labelPais26.setBounds(869, 291, ancho, alto);
-		
-		this.add(labelPais27);
-		labelPais27.setBounds(769, 358, ancho, alto);
-
-		this.add(labelPais28);
-		labelPais28.setBounds(869, 358, ancho, alto);
-		
-		//----------------------------------------------Octavo Cuadro
-		
-		this.add(cuadro8);
-		cuadro8.setFont(new Font(cuadro8.getFont().getFontName(), Font.PLAIN, 20));
-		cuadro8.setForeground(Color.white);
-		cuadro8.setBounds(986, 260, 100, 25);
-		
-		this.add(labelPais29);
-		labelPais29.setBounds(986, 291, ancho, alto);
-
-		this.add(labelPais30);
-		labelPais30.setBounds(1086, 291, ancho, alto);
-		
-		this.add(labelPais31);
-		labelPais31.setBounds(986, 358, ancho, alto);
-
-		this.add(labelPais32);
-		labelPais32.setBounds(1086, 358, ancho, alto);
-		
-
-		//----------------------------------------------
-		
-		mostrarBanderas( ancho,  alto, tipoLiga);
-		
-	}
-	
-	
-	public void mostrarBanderas(int ancho, int alto, int tipoLiga) {
-		
-		Equipo[] temp1= null;
-		Equipo[] temp2= null;
-		Equipo[] temp3= null;
-		Equipo[] temp4= null;
-		Equipo[] temp5= null;
-		Equipo[] temp6= null;
-		Equipo[] temp7= null;
-		Equipo[] temp8= null;
-		
-		if(tipoLiga == 0) {
-			
-			temp1= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPrimerCuadro();
-			temp2= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getSegundoCuadro();
-			temp3= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getTercerCuadro();
-			temp4= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getCuartoCuadro();
-			temp5= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getQuintoCuadro();
-			temp6= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getSextoCuadro();
-			temp7= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getSeptimoCuadro();
-			temp8= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getOctavoCuadro();
-			
-		}else if(tipoLiga == 1) {
-			
-			temp1= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPrimerCuadro();
-			temp2= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getSegundoCuadro();
-			temp3= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getTercerCuadro();
-			temp4= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getCuartoCuadro();
-			temp5= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getQuintoCuadro();
-			temp6= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getSextoCuadro();
-			temp7= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getSeptimoCuadro();
-			temp8= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getOctavoCuadro();
-			
-		}
-		
-
-		
-		//-----------------------------------------------------------------Primer cuadro
-		
-		imagenPais1 = new ImageIcon(temp1[0].getBandera());
-		Icon icono1 = new ImageIcon(imagenPais1.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais1.setIcon(icono1);
-		
-		imagenPais2 = new ImageIcon(temp1[1].getBandera());
-		Icon icono2 = new ImageIcon(imagenPais2.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais2.setIcon(icono2);
-		
-		imagenPais3 = new ImageIcon(temp1[2].getBandera());
-		Icon icono3 = new ImageIcon(imagenPais3.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais3.setIcon(icono3);
-		
-		imagenPais4 = new ImageIcon(temp1[3].getBandera());
-		Icon icono4 = new ImageIcon(imagenPais4.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais4.setIcon(icono4);
-		
-		//-----------------------------------------------Segundo Cuadro
-		
-		imagenPais5 = new ImageIcon(temp2[0].getBandera());
-		Icon icono5 = new ImageIcon(imagenPais5.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais5.setIcon(icono5);
-		
-		imagenPais6 = new ImageIcon(temp2[1].getBandera());
-		Icon icono6 = new ImageIcon(imagenPais6.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais6.setIcon(icono6);
-		
-		imagenPais7 = new ImageIcon(temp2[2].getBandera());
-		Icon icono7 = new ImageIcon(imagenPais7.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais7.setIcon(icono7);
-		
-		imagenPais8 = new ImageIcon(temp2[3].getBandera());
-		Icon icono8 = new ImageIcon(imagenPais8.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais8.setIcon(icono8);
-				
-		//----------------------------------------------Tercer Cuadro
-
-		imagenPais9 = new ImageIcon(temp3[0].getBandera());
-		Icon icono9 = new ImageIcon(imagenPais9.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais9.setIcon(icono9);
-		
-		imagenPais10 = new ImageIcon(temp3[1].getBandera());
-		Icon icono10 = new ImageIcon(imagenPais10.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais10.setIcon(icono10);
-		
-		imagenPais11 = new ImageIcon(temp3[2].getBandera());
-		Icon icono11 = new ImageIcon(imagenPais11.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais11.setIcon(icono11);
-		
-		imagenPais12 = new ImageIcon(temp3[3].getBandera());
-		Icon icono12 = new ImageIcon(imagenPais12.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais12.setIcon(icono12);		
-		
-		//-----------------------------------------------Cuarto Cuadro
-			
-		imagenPais13 = new ImageIcon(temp4[0].getBandera());
-		Icon icono13 = new ImageIcon(imagenPais13.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais13.setIcon(icono13);
-		
-		imagenPais14 = new ImageIcon(temp4[1].getBandera());
-		Icon icono14 = new ImageIcon(imagenPais14.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais14.setIcon(icono14);
-		
-		imagenPais15 = new ImageIcon(temp4[2].getBandera());
-		Icon icono15 = new ImageIcon(imagenPais15.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais15.setIcon(icono15);
-		
-		imagenPais16 = new ImageIcon(temp4[3].getBandera());
-		Icon icono16 = new ImageIcon(imagenPais16.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais16.setIcon(icono16);	
-				
-		//----------------------------------------------Quinto Cuadro
-			
-		imagenPais17 = new ImageIcon(temp5[0].getBandera());
-		Icon icono17 = new ImageIcon(imagenPais17.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais17.setIcon(icono17);
-		
-		imagenPais18 = new ImageIcon(temp5[1].getBandera());
-		Icon icono18 = new ImageIcon(imagenPais18.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais18.setIcon(icono18);
-		
-		imagenPais19 = new ImageIcon(temp5[2].getBandera());
-		Icon icono19 = new ImageIcon(imagenPais19.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais19.setIcon(icono19);
-		
-		imagenPais20 = new ImageIcon(temp5[3].getBandera());
-		Icon icono20 = new ImageIcon(imagenPais20.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais20.setIcon(icono20);
-				
-		//-----------------------------------------------Sexto Cuadro
-			
-		imagenPais21 = new ImageIcon(temp6[0].getBandera());
-		Icon icono21 = new ImageIcon(imagenPais21.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais21.setIcon(icono21);
-		
-		imagenPais22 = new ImageIcon(temp6[1].getBandera());
-		Icon icono22 = new ImageIcon(imagenPais22.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais22.setIcon(icono22);
-		
-		imagenPais23 = new ImageIcon(temp6[2].getBandera());
-		Icon icono23 = new ImageIcon(imagenPais23.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais23.setIcon(icono23);
-		
-		imagenPais24 = new ImageIcon(temp6[3].getBandera());
-		Icon icono24 = new ImageIcon(imagenPais24.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais24.setIcon(icono24);
-				
-		//----------------------------------------------Septimo Cuadro
-				
-		imagenPais25 = new ImageIcon(temp7[0].getBandera());
-		Icon icono25 = new ImageIcon(imagenPais25.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais25.setIcon(icono25);
-		
-		imagenPais26 = new ImageIcon(temp7[1].getBandera());
-		Icon icono26 = new ImageIcon(imagenPais26.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais26.setIcon(icono26);
-		
-		imagenPais27 = new ImageIcon(temp7[3].getBandera());
-		Icon icono27 = new ImageIcon(imagenPais27.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais27.setIcon(icono27);
-		
-		imagenPais28 = new ImageIcon(temp7[2].getBandera());
-		Icon icono28 = new ImageIcon(imagenPais28.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais28.setIcon(icono28);
-		
-		//----------------------------------------------Octavo Cuadro
-		
-		imagenPais29 = new ImageIcon(temp8[3].getBandera());
-		Icon icono29 = new ImageIcon(imagenPais29.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais29.setIcon(icono29);
-	
-		imagenPais30 = new ImageIcon(temp8[0].getBandera());
-		Icon icono30 = new ImageIcon(imagenPais30.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais30.setIcon(icono30);
-		
-		imagenPais31 = new ImageIcon(temp8[1].getBandera());
-		Icon icono31 = new ImageIcon(imagenPais31.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais31.setIcon(icono31);
-		
-		imagenPais32 = new ImageIcon(temp8[2].getBandera());
-		Icon icono32 = new ImageIcon(imagenPais32.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
-		labelPais32.setIcon(icono32);
-
-	}
-	
-	
-	
-	
-	public void mostrarinformacionPaisSeleccionado(){
-		
-		this.add(bandera);
-		this.add(informacionPais);
-		informacionPais.setEditable(false);
-		informacionPais.setBackground(new Color(0, 0, 0));
-		informacionPais.setFont(new Font(informacionPais.getFont().getFontName(), Font.BOLD, 20));
-		informacionPais.setForeground(Color.WHITE);
-		informacionPais.setBounds(230, 500, 200,128);
-		
-		String InformacionPais = "Equipo: " + Gestor.retornarEquipo((String)equipos.getSelectedItem()).getNombre() + "\n";
-		InformacionPais = InformacionPais + "Posicion FIFA: " + Gestor.retornarEquipo((String)equipos.getSelectedItem()).getRanking() + "\n";
-		InformacionPais = InformacionPais + "Codigo: " + Gestor.retornarEquipo((String)equipos.getSelectedItem()).getIso();
-		informacionPais.setText(InformacionPais);
+	public void colocarComponentesJuego() {
+		
+		int alto = 48;
+		int ancho = 72;
+		
+		/*
+		this.add(labelPartido1);
+		labelPartido1.setBounds();
+		this.add(labelPartido2);
+		labelPartido2.setBounds();
+		this.add(labelPartido3);
+		labelPartido3.setBounds();
+		this.add(labelPartido4);
+		labelPartido4.setBounds();
+		this.add(labelPartido5);
+		labelPartido5.setBounds();
+		this.add(labelPartido6);
+		labelPartido6.setBounds();
+		this.add(labelPartido7);
+		labelPartido7.setBounds();
+		this.add(labelPartido8);
+		labelPartido8.setBounds();
+		this.add(labelPartido9);
+		labelPartido9.setBounds();
+		this.add(labelPartido10);
+		labelPartido10.setBounds();
+		this.add(labelPartido11);
+		labelPartido11.setBounds();
+		this.add(labelPartido12);
+		labelPartido12.setBounds();
+		
+		*/
+		
+		this.add(labelPartido13);
+		this.add(labelPartido14);
+		this.add(labelPartido15);
+		this.add(labelPartido16);
+		this.add(labelPartido17);
+		this.add(labelPartido18);
+		this.add(labelPartido19);
+		this.add(labelPartido20);
+		this.add(labelPartido21);
+		this.add(labelPartido22);
+		this.add(labelPartido23);
+		this.add(labelPartido24);
+		this.add(labelPartido25);
+		this.add(labelPartido26);
+		this.add(labelPartido27);
+		this.add(labelPartido28);
+		this.add(labelPartido29);
+		this.add(labelPartido30);
+		this.add(labelPartido31);
+		this.add(labelPartido32);
+		this.add(labelPartido33);
+		this.add(labelPartido34);
+		this.add(labelPartido35);
+		this.add(labelPartido36);
+		this.add(labelPartido37);
+		this.add(labelPartido38);
+		this.add(labelPartido39);
+		this.add(labelPartido40);
+		this.add(labelPartido41);
+		this.add(labelPartido42);
+		this.add(labelPartido43);
+		this.add(labelPartido44);
+		this.add(labelPartido45);
+		this.add(labelPartido46);
+		this.add(labelPartido47);
+		this.add(labelPartido48);
+		this.add(labelPartido49);
+		this.add(labelPartido50);
+		this.add(labelPartido51);
+		this.add(labelPartido52);
+		this.add(labelPartido53);
+		this.add(labelPartido54);
+		this.add(labelPartido55);
+		this.add(labelPartido56);
+		this.add(labelPartido57);
+		this.add(labelPartido58);
+		this.add(labelPartido59);
+		this.add(labelPartido60);
+		this.add(labelPartido61);
+		this.add(labelPartido62);
+		this.add(labelPartido63);
+		this.add(labelPartido64);
+		this.add(labelPartido65);
+		this.add(labelPartido66);
+		this.add(labelPartido67);
+		this.add(labelPartido68);
+		this.add(labelPartido69);
+		this.add(labelPartido70);
+		this.add(labelPartido71);
+		this.add(labelPartido72);
+		this.add(labelPartido73);
+		this.add(labelPartido74);
+		this.add(labelPartido75);
+		this.add(labelPartido76);
+		this.add(labelPartido77);
+		this.add(labelPartido78);
+		this.add(labelPartido79);
+		this.add(labelPartido80);
+		this.add(labelPartido81);
+		this.add(labelPartido82);
+		this.add(labelPartido83);
+		this.add(labelPartido84);
+		this.add(labelPartido85);
+		this.add(labelPartido86);
+		this.add(labelPartido87);
+		this.add(labelPartido88);
+		this.add(labelPartido89);
+		this.add(labelPartido90);
+		this.add(labelPartido91);
+		this.add(labelPartido92);
+		this.add(labelPartido93);
+		this.add(labelPartido94);
+		this.add(labelPartido95);
+		this.add(labelPartido96);
 		
 	}
 	
 	
 	
-	public void removerMenu() {
-		
-		bandera.setText("");
-		this.remove(bandera);
-
-		//Estos componentes se utilizaran para poder mostrar informacion de la liga y del pais que se seleccione.
-		
-		informacionLiga1.setText("");
-		informacionLiga2.setText("");
-		informacionLiga3.setText("");
-		informacionLiga4.setText("");
-		informacionLiga5.setText("");
-		informacionLiga6.setText("");
-		
-		this.remove(informacionPais);
-		
-		//Estos componentes se utilizaran para poder mostrar las bandera de los paises dentro de los cuadros de juego.
-		
-		this.remove(cuadro1);
-		this.remove(cuadro2);
-		this.remove(cuadro3);
-		this.remove(cuadro4);
-		this.remove(cuadro5);
-		this.remove(cuadro6);
-		this.remove(cuadro7);
-		this.remove(cuadro8);
-		
-		this.remove(labelPais1);
-		this.remove(labelPais2);
-		this.remove(labelPais3);
-		this.remove(labelPais4);
-		this.remove(labelPais5);
-		this.remove(labelPais6);
-		this.remove(labelPais7);
-		this.remove(labelPais8);
-		this.remove(labelPais9);
-		this.remove(labelPais10);
-		this.remove(labelPais11);
-		this.remove(labelPais12);
-		this.remove(labelPais13);
-		this.remove(labelPais14);
-		this.remove(labelPais15);
-		this.remove(labelPais16);
-		this.remove(labelPais17);
-		this.remove(labelPais18);
-		this.remove(labelPais19);
-		this.remove(labelPais20);
-		this.remove(labelPais21);
-		this.remove(labelPais22);
-		this.remove(labelPais23);
-		this.remove(labelPais24);
-		this.remove(labelPais25);
-		this.remove(labelPais26);
-		this.remove(labelPais27);
-		this.remove(labelPais28);
-		this.remove(labelPais29);
-		this.remove(labelPais30);
-		this.remove(labelPais31);
-		this.remove(labelPais32);
-		
-		equipos.removeAllItems();
-		
-	}
-	
-	
-	/*
-	 * 
-	 * 
-	 * A partir de esta seccion se manejaran los metodos para el manejo de el juego.
-	 * 
-	 * 
-	 * 
-	 * 
-	 */
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//----------------------------------------------------------------------------------------------------------
-	
-	public void paintComponent(Graphics g) {
-   	 
-		int width = this.getSize().width;
-		int height = this.getSize().height;
- 
-		this.setBackground("src\\graficos\\juego.jpg");
-		if (this.imagen != null) {
-			g.drawImage(this.imagen, 0, 0, width, height, null);
-		}
- 
-		super.paintComponent(g);
-	}
- 
-	public void setBackground(String imagePath) {
-		
-		this.setOpaque(false);
-		this.imagen = new ImageIcon(imagePath).getImage();
-		repaint();
-		
-	}
-
 }

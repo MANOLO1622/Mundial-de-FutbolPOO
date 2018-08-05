@@ -111,7 +111,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		if(e.getSource()==boton4) {
 			
 			Ventana ventJuego = new Ventana(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
-			ventJuego.ventanaJuego();
+			ventJuego.ventanaLigasJugador();
 			
 		}
 		

@@ -101,10 +101,24 @@ public class Ventana extends JFrame{
 	
 	
 	
+		public void ventanaLigasJugador() {
+			
+			LigasJugador ligasJugador = new LigasJugador(UsuarioActual);
+			this.setLocation(10, 10);//arreglar despues.
+			this.setResizable(false);
+			this.setSize(1260,690);
+			this.add(ligasJugador);	
+			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			this.setTitle("Ligas registradas");
+			this.setVisible(true);
+			
+	
+		}
+		
+		
 		public void ventanaJuego() {
 			
-			Juego j = new Juego(UsuarioActual);
-//			this.setExtendedState(Ventana.MAXIMIZED_BOTH);
+			Juego j = new Juego(UsuarioActual, 0);
 			this.setLocation(10, 10);//arreglar despues.
 			this.setResizable(false);
 			this.setSize(1260,690);
