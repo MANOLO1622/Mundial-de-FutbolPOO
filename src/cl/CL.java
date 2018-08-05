@@ -345,6 +345,51 @@ public class CL {
 		
 	}
 	
+	
+	public static void removerLigaPublica(String nombreLiga) {
+		int index = -1;
+		
+		for(LigasPublicas e: listaLigasPublicas) {
+			
+			if(nombreLiga.equals(e.getNombreLiga())) {
+				
+				index = listaLigasPublicas.indexOf(e);
+				
+			}
+			
+		}
+		
+		if(index != -1) {
+			
+			listaLigasPublicas.remove(index);
+			
+		}
+		
+		
+	}
+	
+	public static void removerLigaPrivada(String nombreLiga) {
+		
+		int index = -1;
+		
+		for(LigasPublicas e: listaLigasPublicas) {
+			
+			if(nombreLiga.equals(e.getNombreLiga())) {
+				
+				index = listaLigasPublicas.indexOf(e);
+				
+			}
+			
+		}
+		
+		if(index != -1) {
+			
+			listaLigasPublicas.remove(index);
+			
+		}
+		
+	}
+	
 	//-------------------------------------------------------------------------------------------------------------
 	
 		public static String comprobarTipoLiga(String nombreLiga) {

@@ -202,8 +202,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		if (e.getSource() == botonEliminarPublicaRegistro) {
 			
-			Gestor.removerLigaPublicaUsuario((String)LigasPublicas.getSelectedItem());
-
+			Gestor.removerLigaPublica((String)LigasPublicas.getSelectedItem());
 			removerMenus();
 			
 		}
@@ -302,8 +301,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			ingresarLigasPublicas();
 			
 			this.add(LigasPublicas);
-			
 			LigasPublicas.setBounds(950, 200, 120, 25);
+			
 			botonEliminarPublicaRegistro.setBounds(950, 30, 200, 30);
 			this.add(botonEliminarPublicaRegistro);
 		}
