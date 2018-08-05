@@ -395,19 +395,6 @@ public class Gestor {
 		
 	}
 	
-	public static void removerLigaPublica(String nombreLiga) {
-		
-		CL.removerLigaPublica(nombreLiga);	
-		
-	}
-	
-	public static void removerLigaPrivada(String nombreLiga) {
-		
-		CL.removerLigaPrivada(nombreLiga);	
-		
-	}
-	
-	
 	//-------------------------------------------------------------------------------------------------------------
 	
 	

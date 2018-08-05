@@ -28,6 +28,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JButton botonSalir = new JButton("Salir");
 	JButton botonEliminarPublicaRegistro = new JButton("Eliminar");
 	JButton botonEliminarPrivadaRegistro = new JButton("Eliminar");
+	JButton CancelarEliminacionLiga = new JButton("Cancelar");
 
 	
 
@@ -160,6 +161,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		btnIncJugLigaPrivada.addActionListener(this);
 		botonSalir.addActionListener(this);
 		botonEliminarPublicaRegistro.addActionListener(this);
+		botonEliminarPrivadaRegistro.addActionListener(this);
+		CancelarEliminacionLiga.addActionListener(this);
 	}
 	
 	//------------------------------------------------------------------------------
@@ -206,8 +209,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		if (e.getSource() == botonEliminarPublicaRegistro) {
 			
-			Gestor.removerLigaPublica((String)LigasPublicas.getSelectedItem());
-			desabilitarMenu();
+			Gestor.eliminarLigaPublica((String)LigasPublicas.getSelectedItem());
+			removerMenus();
 			
 			
 		}
@@ -215,7 +218,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		if (e.getSource() == botonEliminarPrivadaRegistro) {
 			
-			Gestor.removerLigaPrivada((String)LigasPrivadas.getSelectedItem());
+			Gestor.eliminarLigaPrivada((String)LigasPrivadas.getSelectedItem());
 			removerMenus();
 			
 		}
@@ -261,6 +264,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 				removerMenus();
 				
+		}
+		
+		if(e.getSource()==CancelarEliminacionLiga) {
+			
+			removerMenus();
+			
 		}
 			
 		
@@ -396,7 +405,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		if(e.getSource() == btnEliminarLigaPrivada) {
 			
-			
 			ingresarLigasPrivadas();
 			
 			this.add(LigasPrivadas);
@@ -404,6 +412,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			
 			botonEliminarPrivadaRegistro.setBounds(1120, 200, 100, 30);
 			this.add(botonEliminarPrivadaRegistro);
+			
+			this.add(CancelarEliminacionLiga);
+			CancelarEliminacionLiga.setBounds(1230, 200, 100, 30);
 			
 			desabilitarMenu();
 			
@@ -535,6 +546,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		this.remove(labelNombreMundial);
 		this.remove(nombreMundialTXT);
+		this.remove(CancelarEliminacionLiga);
 		
 		boton1.setEnabled(true);
 		boton2.setEnabled(true);

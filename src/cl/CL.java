@@ -351,51 +351,6 @@ public class CL {
 		
 	}
 	
-	
-	public static void removerLigaPublica(String nombreLiga) {
-		int index = -1;
-		
-		for(LigasPublicas e: listaLigasPublicas) {
-			
-			if(nombreLiga.equals(e.getNombreLiga())) {
-				
-				index = listaLigasPublicas.indexOf(e);
-				
-			}
-			
-		}
-		
-		if(index != -1) {
-			
-			listaLigasPublicas.remove(index);
-			
-		}
-		
-		
-	}
-	
-	public static void removerLigaPrivada(String nombreLiga) {
-		
-		int index = -1;
-		
-		for(LigasPublicas e: listaLigasPublicas) {
-			
-			if(nombreLiga.equals(e.getNombreLiga())) {
-				
-				index = listaLigasPublicas.indexOf(e);
-				
-			}
-			
-		}
-		
-		if(index != -1) {
-			
-			listaLigasPublicas.remove(index);
-			
-		}
-		
-	}
-	
 	//-------------------------------------------------------------------------------------------------------------
 	
 		public static String comprobarTipoLiga(String nombreLiga) {
@@ -465,13 +420,13 @@ public class CL {
 				if(e.getNombreLiga().equals(nombreLiga)) {
 					
 					index = listaLigasPrivadas.indexOf(e);
-					
+
 				}
 				
 			}
 			
 			if(index != -1) {
-				
+
 				listaLigasPrivadas.remove(index);
 				//En este punto se realizara un ciclo for para analizar que usuarios tienen esta liga incluida y se les removera.
 				

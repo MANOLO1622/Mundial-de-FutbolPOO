@@ -2,16 +2,11 @@ package cl;
 
 import rondasMundial.Partido;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
+import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
-public class Juego extends JPanel implements ActionListener{
+public class Juego extends JPanel implements ActionListener, MouseListener{
 	
 	private JTextPane informacionPartidos = new JTextPane();
 	
@@ -248,6 +243,7 @@ public class Juego extends JPanel implements ActionListener{
 		//----------------------------------Eventos
 		
 		btnSalir.addActionListener(this);
+		labelPartido1.addMouseListener(this);
 	}
 	
 
@@ -1097,7 +1093,9 @@ public class Juego extends JPanel implements ActionListener{
 			repaint();
 			
 		}
-
+		
+		
+		//-------------------------------------------------------------------------------Acciones del juego
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -1108,6 +1106,57 @@ public class Juego extends JPanel implements ActionListener{
 				SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 				Ventana ventMenuJugador = new Ventana(this.miUsuario);
 				ventMenuJugador.ventanaMenuUsuarios(this.miUsuario.getTipoUsuario(2),ventMenuJugador);
+				
+			}
+			
+		}
+
+		
+		//-------------------------------------------------------------------------------Solo de vista e informacion
+
+
+
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+
+			if(e.getSource()==labelPartido1) {
+				
+				labelPartido1.setBounds(50, 50+5, 72, 48);
+				
+			}
+			
+			
+		}
+
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			
+			if(e.getSource()==labelPartido1) {
+				
+				labelPartido1.setBounds(50, 50, 72, 48);
 				
 			}
 			
