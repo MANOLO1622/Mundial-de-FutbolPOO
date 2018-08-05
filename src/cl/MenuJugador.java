@@ -19,7 +19,9 @@ public class MenuJugador extends JPanel implements ActionListener{
 	private static Image imagen;
 	public Usuario miUsuario = null;
 	
-	JButton boton4 = new JButton("Jugar");
+	JButton boton2 = new JButton("Jugar en Liga Publica");
+	JButton boton3 = new JButton("Jugar en Liga Privada");
+	JButton boton4 = new JButton("Mis Ligas");
 	JButton boton5 = new JButton("Unirse a liga Publica");
 	JButton boton6 = new JButton("Retirarse de Liga");
 	JButton boton7 = new JButton("Cronograma");
@@ -46,23 +48,28 @@ public class MenuJugador extends JPanel implements ActionListener{
 		this.setLayout(null);
 		
 		this.miUsuario = miUsuario;
-		
-		this.add(boton4);
-		boton4.setBounds(10, 50, 180, 50);
-		
 		evaluarCondicionJuego();
 		
+		this.add(boton2);
+		boton2.setBounds(10, 50, 180, 50);
+		
+		this.add(boton3);		
+		boton3.setBounds(10, 120, 180, 50);
+		
+		this.add(boton4);
+		boton4.setBounds(10, 190, 180, 50);
+		
 		this.add(boton5);
-		boton5.setBounds(10, 120, 180, 50);
+		boton5.setBounds(10, 260, 180, 50);
 		
 		this.add(boton6);
-		boton6.setBounds(10, 190, 180, 50);
+		boton6.setBounds(10, 330, 180, 50);
 		
 		this.add(boton7);
-		boton7.setBounds(10, 260, 180, 50);
+		boton7.setBounds(10, 400, 180, 50);
 		
 		this.add(boton8);
-		boton8.setBounds(10, 330, 180, 50);
+		boton8.setBounds(10, 470, 180, 50);
 		
 		
 		CL capaLogica = new CL();
@@ -411,6 +418,27 @@ public class MenuJugador extends JPanel implements ActionListener{
 		}else {
 			
 			boton4.setEnabled(true);
+			
+		}
+		
+		if(this.miUsuario.getMiLigaPublica() == null) {
+			
+			boton2.setEnabled(false);
+			
+		}
+		else {
+			
+			boton2.setEnabled(true);
+			
+		}
+		
+		if(this.miUsuario.getMiLigaPrivada() == null) {
+			
+			boton3.setEnabled(false);
+			
+		}else {
+			
+			boton3.setEnabled(true);
 			
 		}
 		
