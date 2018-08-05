@@ -121,6 +121,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			Ventana ventJuegoLigaPublica = new Ventana(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
 			ventJuegoLigaPublica.ventanaJuego(0);
+			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 			
 		}
 		
@@ -128,6 +129,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			Ventana ventJuegoLigaPrivada = new Ventana(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
 			ventJuegoLigaPrivada.ventanaJuego(1);
+			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 		}	
 		
 		
