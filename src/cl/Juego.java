@@ -6,21 +6,12 @@ import java.awt.event.*;
 import javax.swing.*;
 
 
-
-
-	
-	
-
 import gestor.Gestor;
 
 public class Juego extends JPanel implements ActionListener, MouseListener{
-	private JTextPane informacionPartidos = new JTextPane();
 
 	private Usuario miUsuario;
 	private int tipoLiga;
-
-
-	//private JButton btnSalir = new JButton("Salir");
 
 	
 	private JComboBox equipos = new JComboBox();
@@ -298,12 +289,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 		int alto = 48;
 		int ancho = 72;
-
-
-		this.add(informacionPartidos);
-		informacionPartidos.setBounds(1075, 25, 175, 600);
-		informacionPartidos.setEnabled(false);
-
 
 		this.add(btnSalir);
 		btnSalir.setBounds(1150, 650, 100, 30);
