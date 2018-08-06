@@ -275,7 +275,7 @@ public class CL {
 		
 		int tipoLiga = -1;
 		int index = -1;
-		String partidos = "";
+		String partidos = "Agenda de Cuadro\n\n";
 		
 		for(LigasPublicas e: listaLigasPublicas) {
 			
@@ -514,9 +514,6 @@ public class CL {
 		}
 		
 		//--------------------------------------------------------------------------------------------------------Fin.
-		
-		
-		
 		
 		else {
 			JOptionPane.showMessageDialog(null, "index: " + "tipoLiga: " + tipoLiga);

@@ -679,6 +679,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			temp6 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSextoCuadro();
 			temp7 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSeptimoCuadro();
 			temp8 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosOctavoCuadro();
+		
 			
 			
 		}else if(tipoLiga == 1) {
@@ -693,8 +694,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					
 					equipos.addItem(e.getNombre());
 					
-				}
-				
+				}	
 			}
 			
 			temp1 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
@@ -1167,6 +1167,8 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		
 		if(e.getSource()==equipos) {
 			
+			String nombreLiga = "";
+			
 			this.add(labelBanderaPaisEscogido);
 			labelBanderaPaisEscogido.setBounds(1075, 60, 175, 122);
 			
@@ -1180,7 +1182,18 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
 			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
 			
-			partidosPaisEscogido.setText(Gestor.retornarPartidosCuadro(this.miUsuario.getMiLigaPrivada().getNombreLiga(), (String)equipos.getSelectedItem()));
+			
+			if(this.tipoLiga == 0) {
+				
+				nombreLiga = this.miUsuario.getMiLigaPublica().getNombreLiga();
+				
+			}else if(this.tipoLiga == 1) {
+				
+				nombreLiga = this.miUsuario.getMiLigaPrivada().getNombreLiga();
+				
+			}
+			
+			partidosPaisEscogido.setText(Gestor.retornarPartidosCuadro(nombreLiga, (String)equipos.getSelectedItem()));
 			
 		}
 		
