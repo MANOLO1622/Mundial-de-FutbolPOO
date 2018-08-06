@@ -264,39 +264,14 @@ public class PrimeraRonda {
     
     public void generarJuegos() {
     	
-    	System.out.println("Primer cuadro: ");
         partidosPrimerCuadro = organizarCuadroJuego(primerCuadro);
-        System.out.println("");
-     
-        System.out.println("Segundo cuadro: ");
         partidosSegundoCuadro = organizarCuadroJuego(segundoCuadro);
-        System.out.println("");
- 
-        System.out.println("Tercer cuadro: ");
         partidosTercerCuadro = organizarCuadroJuego(tercerCuadro);
-        System.out.println("");
-
-        System.out.println("Cuarto cuadro: ");
         partidosCuartoCuadro = organizarCuadroJuego(cuartoCuadro);
-        System.out.println("");
-
-        System.out.println("Quinto cuadro: ");
         partidosQuintoCuadro = organizarCuadroJuego(quintoCuadro);
-        System.out.println("");
-
-        System.out.println("Sexto cuadro: ");
         partidosSextoCuadro = organizarCuadroJuego(sextoCuadro);
-        System.out.println("");
-
-        System.out.println("Septimo cuadro: ");
         partidosSeptimoCuadro = organizarCuadroJuego(septimoCuadro);
-        System.out.println("");
-      
-        System.out.println("Octavo cuadro: ");
         partidosOctavoCuadro = organizarCuadroJuego(octavoCuadro);
-        System.out.println(""); 
-        
-        
         
     }
     
@@ -316,14 +291,6 @@ public class PrimeraRonda {
     		partidosCuadroTemp[4] = new Partido(cuadroJuego[0],cuadroJuego[3]);
     		partidosCuadroTemp[5] = new Partido(cuadroJuego[3],cuadroJuego[2]);
     		
-    		
-    		System.out.println(partidosCuadroTemp[0].toString());
-    		System.out.println(partidosCuadroTemp[1].toString());
-    		System.out.println(partidosCuadroTemp[2].toString());
-    		System.out.println(partidosCuadroTemp[3].toString());
-    		System.out.println(partidosCuadroTemp[4].toString());
-    		System.out.println(partidosCuadroTemp[5].toString());
-    		
     		break;
     		
     	case 1:
@@ -334,14 +301,7 @@ public class PrimeraRonda {
     		partidosCuadroTemp[3] = new Partido(cuadroJuego[0],cuadroJuego[3]);
     		partidosCuadroTemp[4] = new Partido(cuadroJuego[1],cuadroJuego[2]);
     		partidosCuadroTemp[5] = new Partido(cuadroJuego[3],cuadroJuego[2]);
-    		
-    		System.out.println(partidosCuadroTemp[0].toString());
-    		System.out.println(partidosCuadroTemp[1].toString());
-    		System.out.println(partidosCuadroTemp[2].toString());
-    		System.out.println(partidosCuadroTemp[3].toString());
-    		System.out.println(partidosCuadroTemp[4].toString());
-    		System.out.println(partidosCuadroTemp[5].toString());
-    		
+
     		break;
     		
     	case 2:
@@ -352,14 +312,7 @@ public class PrimeraRonda {
     		partidosCuadroTemp[3] = new Partido(cuadroJuego[2],cuadroJuego[0]);
     		partidosCuadroTemp[4] = new Partido(cuadroJuego[3],cuadroJuego[2]);
     		partidosCuadroTemp[5] = new Partido(cuadroJuego[0],cuadroJuego[1]);
-    		
-    		System.out.println(partidosCuadroTemp[0].toString());
-    		System.out.println(partidosCuadroTemp[1].toString());
-    		System.out.println(partidosCuadroTemp[2].toString());
-    		System.out.println(partidosCuadroTemp[3].toString());
-    		System.out.println(partidosCuadroTemp[4].toString());
-    		System.out.println(partidosCuadroTemp[5].toString());
-    		
+
     		break;
     		
     	default:
@@ -370,14 +323,7 @@ public class PrimeraRonda {
     		partidosCuadroTemp[3] = new Partido(cuadroJuego[2],cuadroJuego[0]);
     		partidosCuadroTemp[4] = new Partido(cuadroJuego[3],cuadroJuego[1]);
     		partidosCuadroTemp[5] = new Partido(cuadroJuego[0],cuadroJuego[1]);
-    		
-    		System.out.println(partidosCuadroTemp[0].toString());
-    		System.out.println(partidosCuadroTemp[1].toString());
-    		System.out.println(partidosCuadroTemp[2].toString());
-    		System.out.println(partidosCuadroTemp[3].toString());
-    		System.out.println(partidosCuadroTemp[4].toString());
-    		System.out.println(partidosCuadroTemp[5].toString());
-    		
+
     		break;    	
     	
     	}

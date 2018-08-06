@@ -15,6 +15,9 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 	
 	private JComboBox equipos = new JComboBox();
+	JLabel labelBanderaPaisEscogido = new JLabel();
+	ImageIcon imagenBanderaPaisEscogido;
+	JTextPane partidosPaisEscogido = new JTextPane();
 	private JButton btnregistrarEquipoJugador = new JButton();
 	
 	private JButton btnSalir = new JButton("Salir");
@@ -247,6 +250,9 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		// ----------------------------------Eventos
 
 		btnSalir.addActionListener(this);
+		equipos.addActionListener(this);
+		btnregistrarEquipoJugador.addActionListener(this);
+		
 		labelPartido1.addMouseListener(this);
 		labelPartido2.addMouseListener(this);
 		labelPartido3.addMouseListener(this);
@@ -653,16 +659,26 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			
 			if(this.miUsuario.getEquipoLigaPublica()==null) {
 				
-				this.add(btnregistrarEquipoJugador);
 				equipos.removeAllItems();
 				this.add(equipos);
-				equipos.setBounds(1050, 25, 150, 30);
+				equipos.setBounds(1100, 25, 150, 30);
 
 				for(Equipo e: Gestor.retornarLigaPublica(this.miUsuario.getMiLigaPublica().getNombreLiga()).getMundialAnfitrion().getEquiposMundial()) {
 					
 					equipos.addItem(e.getNombre());
 					
 				}
+				
+				this.add(labelBanderaPaisEscogido);
+				labelBanderaPaisEscogido.setBounds(1100, 60, 150, 97);
+				
+				this.add(partidosPaisEscogido);
+				partidosPaisEscogido.setBounds(1100, 160, 150, 300);
+				
+				this.add(btnregistrarEquipoJugador);
+				btnregistrarEquipoJugador.setBounds(1125, 300, 100, 30);
+				
+
 				
 			}
 			
@@ -681,14 +697,24 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			if(this.miUsuario.getEquipoLigaPrivada()==null) {
 				
 				equipos.removeAllItems();
+				
 				this.add(equipos);
-				equipos.setBounds(1050, 25, 150, 30);
+				equipos.setBounds(1100, 25, 150, 30);
 				
 				for(Equipo e: Gestor.retornarLigaPrivada(this.miUsuario.getMiLigaPrivada().getNombreLiga()).getMundialAnfitrion().getEquiposMundial()) {
 					
 					equipos.addItem(e.getNombre());
 					
 				}
+				
+				this.add(labelBanderaPaisEscogido);
+				labelBanderaPaisEscogido.setBounds(1100, 60, 150, 97);
+				
+				this.add(partidosPaisEscogido);
+				partidosPaisEscogido.setBounds(1100, 160, 150, 300);
+				
+				this.add(btnregistrarEquipoJugador);
+				btnregistrarEquipoJugador.setBounds(1125, 300, 100, 30);
 				
 				
 			}
@@ -1150,9 +1176,42 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			ventMenuJugador.ventanaMenuUsuarios(this.miUsuario.getTipoUsuario(2), ventMenuJugador);
 
 		}
+		
+		if(e.getSource()==equipos) {
+			
+			imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo((String)equipos.getSelectedItem()));
+			Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
+			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
+			
+		}
+		
+		if(e.getSource()==btnregistrarEquipoJugador) {
+			
+			
+			
+		}
 
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	// -------------------------------------------------------------------------------Solo
 	// de vista e informacion
 

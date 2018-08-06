@@ -267,6 +267,59 @@ public class CL {
 		
 	}
 	
+	
+	
+	public String retornarPartidosCuadro(String nombreLiga, String nombreEquipo) {
+		
+		int tipoLiga = -1;
+		int index = -1;
+		String partidos = "";
+		
+		for(LigasPublicas e: listaLigasPublicas) {
+			
+			if(nombreLiga.equals(e.getNombreLiga())) {
+				
+				tipoLiga = 0;
+				
+			}
+			
+		}
+		
+		for(LigasPrivadas e: listaLigasPrivadas) {
+			
+			if(nombreLiga.equals(e.getNombreLiga())) {
+				
+				tipoLiga = 1;
+				
+			}
+			
+		}
+		
+		//Aqui se empieza a recorrer la liga escogida.
+		
+		
+		if(tipoLiga == 0 && index != -1) {
+			
+			
+			
+			
+		} else if(tipoLiga == 1 && index != -1) {
+			
+			
+			
+			
+		}
+		else {
+			
+			partidos = "Lo sentimos la liga no esta registrada.";
+			
+		}
+		
+		
+		
+		return partidos;
+	}
+	
 	//------------------------------------------------------------------------------------------------
 	
 	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {

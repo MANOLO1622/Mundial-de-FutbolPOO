@@ -307,6 +307,15 @@ public class Gestor {
 
 		return temp;
 	}
+	
+	public String retornarPartidosCuadro(String nombreLiga, String nombreEquipo){
+		
+		String partidos = CL.retornarPartidosCuadro(nombreLiga, nombreEquipo);
+		
+		return partidos;
+	}
+	
+	//---------------------------------------------------------------------------------------------------
 
 	public boolean validarLigaPublica(String nombre) {
 
