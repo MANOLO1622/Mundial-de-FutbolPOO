@@ -138,6 +138,8 @@ public class CL {
 			
 			if(e.getNombreUsuario().equals(nombreUsuario)) {
 				
+				temp = e;
+				/*
 				temp.setNombre(e.getNombre());
 				temp.setApellido(e.getApellido());
 				temp.setNombreUsuario(e.getNombreUsuario());
@@ -147,6 +149,7 @@ public class CL {
 				temp.setTipoUSuario(e.retornarTipoUsuario());
 				temp.setMiLigaPrivada(e.getMiLigaPrivada());
 				temp.setMiLigaPublica(e.getMiLigaPublica());
+				*/
 			}	
 		}
 		return temp;

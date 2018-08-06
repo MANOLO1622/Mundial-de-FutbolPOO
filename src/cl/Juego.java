@@ -1203,14 +1203,14 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 				Gestor.asignarEquipoLigaPublicaUsuario(this.miUsuario.getNombreUsuario(), Gestor.retornarEquipo((String)equipos.getSelectedItem()));
 				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
-				System.out.println("Tiene: " + this.miUsuario.getEquipoLigaPublica().toString());
+				System.out.println("Equipo Liga Publica" + this.miUsuario.getEquipoLigaPublica().toString());
 				
 			} else if(this.tipoLiga == 1 ) {
 				
 
 				Gestor.asignarEquipoLigaPrivadaUsuario(this.miUsuario.getNombreUsuario(), Gestor.retornarEquipo((String)equipos.getSelectedItem()));
 				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
-				System.out.println("Tiene: " + this.miUsuario.getEquipoLigaPrivada().toString());
+				
 			}
 			
 		}
