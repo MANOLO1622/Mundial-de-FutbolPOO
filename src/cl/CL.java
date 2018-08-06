@@ -584,15 +584,14 @@ public class CL {
 				index = listaUsuarios.indexOf(e);
 				temp = e;
 				temp.setEquipoLigaPublica(equipoSeleccionado);
-				JOptionPane.showMessageDialog(null, "equipo Liga publica: " + temp.getEquipoLigaPublica().toString());
 				
 			}
 			
 		}
-		JOptionPane.showMessageDialog(null, index);
 		if(index != -1) {
 			
 			listaUsuarios.set(index, temp);
+			System.out.println(listaUsuarios.get(index).getEquipoLigaPrivada().toString());
 			
 		}
 		
@@ -610,16 +609,16 @@ public class CL {
 				index = listaUsuarios.indexOf(e);
 				temp = e;
 				temp.setEquipoLigaPrivada(equipoSeleccionado);
-				JOptionPane.showMessageDialog(null, "equipo Liga publica: " + temp.getEquipoLigaPrivada().toString());
+
 				
 			}
 			
 		}
-		JOptionPane.showMessageDialog(null, index);
+		
 		if(index != -1) {
 			
 			listaUsuarios.set(index, temp);
-			
+			System.out.println(listaUsuarios.get(index).getEquipoLigaPrivada().toString());
 		}
 		
 	}
