@@ -6,6 +6,8 @@ import java.util.*;
 
 import javax.swing.JOptionPane;
 
+import rondasMundial.Partido;
+
 
 public class CL {
 	
@@ -269,7 +271,7 @@ public class CL {
 	
 	
 	
-	public String retornarPartidosCuadro(String nombreLiga, String nombreEquipo) {
+	public static String retornarPartidosCuadro(String nombreLiga, String nombreEquipo) {
 		
 		int tipoLiga = -1;
 		int index = -1;
@@ -280,6 +282,7 @@ public class CL {
 			if(nombreLiga.equals(e.getNombreLiga())) {
 				
 				tipoLiga = 0;
+				index = listaLigasPublicas.indexOf(e);
 				
 			}
 			
@@ -290,6 +293,7 @@ public class CL {
 			if(nombreLiga.equals(e.getNombreLiga())) {
 				
 				tipoLiga = 1;
+				index = listaLigasPrivadas.indexOf(e);
 				
 			}
 			
@@ -300,18 +304,34 @@ public class CL {
 		
 		if(tipoLiga == 0 && index != -1) {
 			
-			
+			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro()) {
+				
+				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
+					
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n";
+					
+				}
+				
+			}
 			
 			
 		} else if(tipoLiga == 1 && index != -1) {
 			
 			
-			
+			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro()) {
+				
+				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
+					
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n";
+					
+				}
+				
+			}
 			
 		}
 		else {
-			
-			partidos = "Lo sentimos la liga no esta registrada.";
+			JOptionPane.showMessageDialog(null, "index: " + "tipoLiga: " + tipoLiga);
+			partidos = "Lo sentimos no hemos tenido un problema para mostrar los cuadros de juego del equipo seleccionado.";
 			
 		}
 		

@@ -308,7 +308,7 @@ public class Gestor {
 		return temp;
 	}
 	
-	public String retornarPartidosCuadro(String nombreLiga, String nombreEquipo){
+	public static String retornarPartidosCuadro(String nombreLiga, String nombreEquipo){
 		
 		String partidos = CL.retornarPartidosCuadro(nombreLiga, nombreEquipo);
 		

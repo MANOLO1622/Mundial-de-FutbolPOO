@@ -1183,6 +1183,8 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
 			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
 			
+			partidosPaisEscogido.setText(Gestor.retornarPartidosCuadro(this.miUsuario.getMiLigaPrivada().getNombreLiga(), (String)equipos.getSelectedItem()));
+			
 		}
 		
 		if(e.getSource()==btnregistrarEquipoJugador) {
