@@ -1,7 +1,9 @@
 
 package cl;
 
-import java.time.LocalDate;
+import java.time.*;
+import java.util.*;
+import rondasMundial.*;
 
 
 public class Ligas {
@@ -10,43 +12,50 @@ public class Ligas {
     private LocalDate fechaCreacion;
     private boolean estado;
     private boolean tipoLiga;
+    private ArrayList<Apuesta> listaApuestas= new ArrayList();
+    
+    
 
+	//----------------------------------------------------------Constructor.
+    
+    
     public Ligas() {
     }
-
+    
     public Ligas(String nombreLiga, LocalDate fechaCreacion, boolean estado) {
         this.nombreLiga = nombreLiga;
         this.fechaCreacion = fechaCreacion;
         this.estado = estado;
     }
+    
+	//----------------------------------------------------------Gets y Sets.
 
-    public String getNombreLiga() {
-        return nombreLiga;
-    }
+    
+	public String getNombreLiga() {
+		return nombreLiga;
+	}
 
+	public void setNombreLiga(String nombreLiga) {
+		this.nombreLiga = nombreLiga;
+	}
 
-    public LocalDate getFechaCreacion() {
-        return fechaCreacion;
-    }
+	public LocalDate getFechaCreacion() {
+		return fechaCreacion;
+	}
 
-    public boolean getEstado() {
-        return estado;
-    }
+	public void setFechaCreacion(LocalDate fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
 
-    public void setNombreLiga(String nombreLiga) {
-        this.nombreLiga = nombreLiga;
-    }
+	public boolean getEstado() {
+		return estado;
+	}
 
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
 
-    public void setFechaCreacion(LocalDate fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
-
-    public boolean isTipoLiga() {
+	public boolean isTipoLiga() {
 		return tipoLiga;
 	}
 
@@ -54,10 +63,29 @@ public class Ligas {
 		this.tipoLiga = tipoLiga;
 	}
 
+	public ArrayList<Apuesta> getListaApuestas() {
+		return listaApuestas;
+	}
+
+	public void setListaApuestas(ArrayList<Apuesta> listaApuestas) {
+		this.listaApuestas = listaApuestas;
+	}
+
+	
+	//----------------------------------------------------------Metodo toString.
+	
+	
 	@Override
-    public String toString() {
-        return "Liga: " + "nombreLiga=" + nombreLiga + ", fechaCreacion=" + fechaCreacion + ", estado=" + estado + " ";
-    }
+	public String toString() {
+		return "Ligas: nombreLiga=" + nombreLiga + ", fechaCreacion=" + fechaCreacion + ", estado=" + estado
+				+ ", tipoLiga=" + tipoLiga + ", listaApuestas=" + listaApuestas;
+	}
+
+
+	
+	
+	
+	
     
     
 }
