@@ -18,7 +18,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 	JLabel labelBanderaPaisEscogido = new JLabel();
 	ImageIcon imagenBanderaPaisEscogido;
 	JTextPane partidosPaisEscogido = new JTextPane();
-	private JButton btnregistrarEquipoJugador = new JButton();
+	private JButton btnregistrarEquipoJugador = new JButton("Seleccionar");
 	
 	private JButton btnSalir = new JButton("Salir");
 	
@@ -661,25 +661,14 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 				equipos.removeAllItems();
 				this.add(equipos);
-				equipos.setBounds(1100, 25, 150, 30);
+				equipos.setBounds(1075, 25, 175, 30);
 
 				for(Equipo e: Gestor.retornarLigaPublica(this.miUsuario.getMiLigaPublica().getNombreLiga()).getMundialAnfitrion().getEquiposMundial()) {
 					
 					equipos.addItem(e.getNombre());
 					
 				}
-				
-				this.add(labelBanderaPaisEscogido);
-				labelBanderaPaisEscogido.setBounds(1100, 60, 150, 97);
-				
-				this.add(partidosPaisEscogido);
-				partidosPaisEscogido.setBounds(1100, 160, 150, 300);
-				
-				this.add(btnregistrarEquipoJugador);
-				btnregistrarEquipoJugador.setBounds(1125, 300, 100, 30);
-				
 
-				
 			}
 			
 			temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
@@ -697,25 +686,14 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			if(this.miUsuario.getEquipoLigaPrivada()==null) {
 				
 				equipos.removeAllItems();
-				
 				this.add(equipos);
-				equipos.setBounds(1100, 25, 150, 30);
+				equipos.setBounds(1075, 25, 175, 30);
 				
 				for(Equipo e: Gestor.retornarLigaPrivada(this.miUsuario.getMiLigaPrivada().getNombreLiga()).getMundialAnfitrion().getEquiposMundial()) {
 					
 					equipos.addItem(e.getNombre());
 					
 				}
-				
-				this.add(labelBanderaPaisEscogido);
-				labelBanderaPaisEscogido.setBounds(1100, 60, 150, 97);
-				
-				this.add(partidosPaisEscogido);
-				partidosPaisEscogido.setBounds(1100, 160, 150, 300);
-				
-				this.add(btnregistrarEquipoJugador);
-				btnregistrarEquipoJugador.setBounds(1125, 300, 100, 30);
-				
 				
 			}
 			
@@ -1163,8 +1141,18 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 	}
 
-	// -------------------------------------------------------------------------------Acciones
-	// del juego
+	/* -------------------------------------------------------------------------------
+	 * 
+	 * 
+	 * Acciones del juego
+	 * 
+	 * 
+	 * */
+	
+	
+	
+	
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -1178,6 +1166,15 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		}
 		
 		if(e.getSource()==equipos) {
+			
+			this.add(labelBanderaPaisEscogido);
+			labelBanderaPaisEscogido.setBounds(1075, 60, 175, 122);
+			
+			this.add(partidosPaisEscogido);
+			partidosPaisEscogido.setBounds(1075, 190, 175, 300);
+			
+			this.add(btnregistrarEquipoJugador);
+			btnregistrarEquipoJugador.setBounds(1100, 500, 125, 30);
 			
 			imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo((String)equipos.getSelectedItem()));
 			Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));

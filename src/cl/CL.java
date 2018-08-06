@@ -304,36 +304,227 @@ public class CL {
 		
 		if(tipoLiga == 0 && index != -1) {
 			
+			//--------------------------------------------------------------------------------------------------------Primer cuadro
+			
 			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
-					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n";
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n\n";
 					
 				}
 				
 			}
+			
+			//--------------------------------------------------------------------------------------------------------Segundo cuadro
+			
+			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getRonda1().getPartidosSegundoCuadro()) {
+				
+				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
+					
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n\n";
+					
+				}
+				
+			}
+			
+			//--------------------------------------------------------------------------------------------------------Tercer cuadro
+			
+			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getRonda1().getPartidosTercerCuadro()) {
+				
+				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
+					
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n\n";
+					
+				}
+				
+			}
+			
+			//--------------------------------------------------------------------------------------------------------Cuarto cuadro
+			
+			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getRonda1().getPartidosCuartoCuadro()) {
+				
+				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
+					
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n\n";
+					
+				}
+				
+			}
+			
+			//--------------------------------------------------------------------------------------------------------Quinto cuadro
+			
+			
+			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getRonda1().getPartidosQuintoCuadro()) {
+				
+				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
+					
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n\n";
+					
+				}
+				
+			}
+			
+			//--------------------------------------------------------------------------------------------------------Sexto cuadro
+			
+			
+			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getRonda1().getPartidosSextoCuadro()) {
+				
+				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
+					
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n\n";
+					
+				}
+				
+			}
+			
+			//--------------------------------------------------------------------------------------------------------Septimo cuadro
+			
+			
+			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getRonda1().getPartidosSeptimoCuadro()) {
+				
+				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
+					
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n\n";
+					
+				}
+				
+			}
+			
+			//--------------------------------------------------------------------------------------------------------Octavo cuadro
+			
+			
+			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getRonda1().getPartidosOctavoCuadro()) {
+				
+				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
+					
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n\n";
+					
+				}
+				
+			}
+			
+			
+	
 			
 			
 		} else if(tipoLiga == 1 && index != -1) {
 			
 			
+			//--------------------------------------------------------------------------------------------------------Primer cuadro
+			
 			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
-					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n";
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n\n";
+					
+				}
+				
+			}
+			
+			//--------------------------------------------------------------------------------------------------------Segundo cuadro
+			
+			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getRonda1().getPartidosSegundoCuadro()) {
+				
+				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
+					
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n\n";
+					
+				}
+				
+			}
+			
+			//--------------------------------------------------------------------------------------------------------Tercer cuadro
+			
+			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getRonda1().getPartidosTercerCuadro()) {
+				
+				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
+					
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n\n";
+					
+				}
+				
+			}
+			
+			//--------------------------------------------------------------------------------------------------------Cuarto cuadro
+			
+			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getRonda1().getPartidosCuartoCuadro()) {
+				
+				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
+					
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n\n";
+					
+				}
+				
+			}
+			
+			//--------------------------------------------------------------------------------------------------------Quinto cuadro
+			
+			
+			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getRonda1().getPartidosQuintoCuadro()) {
+				
+				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
+					
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n\n";
+					
+				}
+				
+			}
+			
+			//--------------------------------------------------------------------------------------------------------Sexto cuadro
+			
+			
+			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getRonda1().getPartidosSextoCuadro()) {
+				
+				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
+					
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n\n";
+					
+				}
+				
+			}
+			
+			//--------------------------------------------------------------------------------------------------------Septimo cuadro
+			
+			
+			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getRonda1().getPartidosSeptimoCuadro()) {
+				
+				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
+					
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n\n";
+					
+				}
+				
+			}
+			
+			//--------------------------------------------------------------------------------------------------------Octavo cuadro
+			
+			
+			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getRonda1().getPartidosOctavoCuadro()) {
+				
+				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
+					
+					partidos = partidos + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre() + "\n\n";
 					
 				}
 				
 			}
 			
 		}
+		
+		//--------------------------------------------------------------------------------------------------------Fin.
+		
+		
+		
+		
 		else {
 			JOptionPane.showMessageDialog(null, "index: " + "tipoLiga: " + tipoLiga);
 			partidos = "Lo sentimos no hemos tenido un problema para mostrar los cuadros de juego del equipo seleccionado.";
 			
 		}
+		
+		
 		
 		
 		
