@@ -9,6 +9,7 @@ public class Apuesta {
 	private Equipo EquipoEscogido;
 	private Usuario Jugador;
 	private boolean acierto;
+	private int ronda;
 	
 	//----------------------------------------------------------Constructor.
 	
@@ -61,15 +62,23 @@ public class Apuesta {
 	public void setAcierto(boolean acierto) {
 		this.acierto = acierto;
 	}
+	
+	
+	public int getRonda() {
+		return ronda;
+	}
 
+
+	public void setRonda(int ronda) {
+		this.ronda = ronda;
+	}
 	
 	//----------------------------------------------------------Metodo toString.
-	
-	
+
 	@Override
 	public String toString() {
-		return "Apuesta: partidoApuesta=" + partidoApuesta + ", EquipoEscogido=" + EquipoEscogido + ", Jugador="
-				+ Jugador + ", acierto=" + acierto;
+		return "Apuesta: partidoApuesta= " + partidoApuesta + ", EquipoEscogido= " + EquipoEscogido + ", Jugador= "
+				+ Jugador + ", acierto= " + acierto + ", ronda= "+ ronda;
 	}
 	
 	//----------------------------------------------------------Metodos propios de la clase.

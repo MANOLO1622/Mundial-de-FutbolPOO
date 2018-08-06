@@ -1,19 +1,32 @@
 package cl;
 
-import rondasMundial.Partido;
-
+import rondasMundial.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Juego extends JPanel implements ActionListener, MouseListener {
 
+
+
+	
+	
+
+import gestor.Gestor;
+
+public class Juego extends JPanel implements ActionListener, MouseListener{
 	private JTextPane informacionPartidos = new JTextPane();
 
 	private Usuario miUsuario;
 	private int tipoLiga;
 
+
+	//private JButton btnSalir = new JButton("Salir");
+
+	
+	private JComboBox equipos = new JComboBox();
+	
 	private JButton btnSalir = new JButton("Salir");
+	
 
 	private static Image imagen;
 
@@ -285,14 +298,15 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 		int alto = 48;
 		int ancho = 72;
 
+
 		this.add(informacionPartidos);
 		informacionPartidos.setBounds(1075, 25, 175, 600);
 		informacionPartidos.setEnabled(false);
 
+
 		this.add(btnSalir);
 		btnSalir.setBounds(1150, 650, 100, 30);
 
-		// ------------------------------------------------------Primer cuadro de juego
 
 		this.add(cuadro1);
 		cuadro1.setBounds(50, 25, 448, 20);
@@ -639,6 +653,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 
 	public void mostrarBanderas(int ancho, int alto) {
 
+
 		Partido[] temp1 = null;
 		Partido[] temp2 = null;
 		Partido[] temp3 = null;
@@ -650,6 +665,34 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 
 		if (tipoLiga == 0) {
 
+
+		
+		/*Partido[] temp1=null;
+		Partido[] temp2=null;
+		Partido[] temp3=null;
+		Partido[] temp4=null;
+		Partido[] temp5=null;
+		Partido[] temp6=null;
+		Partido[] temp7=null;
+		Partido[] temp8=null;*/
+		
+		if(tipoLiga == 0) {
+			
+			if(this.miUsuario.getEquipoLigaPublica()==null) {
+				
+				equipos.removeAllItems();
+				this.add(equipos);
+				equipos.setBounds(1050, 25, 150, 30);
+
+				for(Equipo e: Gestor.retornarLigaPublica(this.miUsuario.getMiLigaPublica().getNombreLiga()).getMundialAnfitrion().getEquiposMundial()) {
+					
+					equipos.addItem(e.getNombre());
+					
+				}
+				
+			}
+			
+
 			temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
 			temp2 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSegundoCuadro();
 			temp3 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosTercerCuadro();
@@ -659,7 +702,29 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 			temp7 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSeptimoCuadro();
 			temp8 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosOctavoCuadro();
 
+
 		} else if (tipoLiga == 1) {
+
+
+			
+			
+		}else if(tipoLiga == 1) {
+			
+			if(this.miUsuario.getEquipoLigaPrivada()==null) {
+				
+				equipos.removeAllItems();
+				this.add(equipos);
+				equipos.setBounds(1050, 25, 150, 30);
+				
+				for(Equipo e: Gestor.retornarLigaPrivada(this.miUsuario.getMiLigaPrivada().getNombreLiga()).getMundialAnfitrion().getEquiposMundial()) {
+					
+					equipos.addItem(e.getNombre());
+					
+				}
+				
+				
+			}
+			
 
 			temp1 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
 			temp2 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSegundoCuadro();
@@ -1079,7 +1144,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 		imagenPartido96 = new ImageIcon(temp8[5].getEquipo2().getBandera());
 		Icon icono96 = new ImageIcon(imagenPartido96.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido96.setIcon(icono96);
-
+		}
 	}
 
 	// -----------------------------------------------FONDO DE JUEGO
