@@ -244,7 +244,41 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		
 		btnSalir.addActionListener(this);
 		labelPartido1.addMouseListener(this);
+		labelPartido2.addMouseListener(this);
+		labelPartido3.addMouseListener(this);
+		labelPartido4.addMouseListener(this);
+		labelPartido5.addMouseListener(this);
+		labelPartido6.addMouseListener(this);
+		labelPartido7.addMouseListener(this);
+		labelPartido8.addMouseListener(this);
+		labelPartido9.addMouseListener(this);
+		labelPartido10.addMouseListener(this);
+		labelPartido11.addMouseListener(this);
+		labelPartido12.addMouseListener(this);
 		labelPartido13.addMouseListener(this);
+		labelPartido14.addMouseListener(this);
+		labelPartido15.addMouseListener(this);
+		labelPartido16.addMouseListener(this);
+		labelPartido17.addMouseListener(this);
+		labelPartido18.addMouseListener(this);
+		labelPartido19.addMouseListener(this);
+		labelPartido20.addMouseListener(this);
+		labelPartido21.addMouseListener(this);
+		labelPartido22.addMouseListener(this);
+		labelPartido23.addMouseListener(this);
+		labelPartido24.addMouseListener(this);
+		labelPartido25.addMouseListener(this);
+		labelPartido26.addMouseListener(this);
+		labelPartido27.addMouseListener(this);
+		labelPartido28.addMouseListener(this);
+		labelPartido29.addMouseListener(this);
+		labelPartido30.addMouseListener(this);
+		labelPartido31.addMouseListener(this);
+		labelPartido32.addMouseListener(this);
+		labelPartido33.addMouseListener(this);
+		labelPartido34.addMouseListener(this);
+		labelPartido35.addMouseListener(this);
+		labelPartido36.addMouseListener(this);
 	}
 	
 
@@ -1148,10 +1182,89 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 				
 			}
+
+			if(e.getSource()==labelPartido2) {
+				
+				labelPartido2.setBounds(50, 120-5, 72, 48);
+				
+				
+			}
+			
+			if(e.getSource()==labelPartido3) {
+				
+				labelPartido3.setBounds(125, 50+5, 72, 48);
+				
+				
+			}
+			
+			if(e.getSource()==labelPartido4) {
+				
+				labelPartido4.setBounds(125, 120-5, 72, 48);
+				
+				
+			}
+			
+			if(e.getSource()==labelPartido5) {
+				
+				labelPartido5.setBounds(200, 50+5, 72, 48);
+				
+				
+			}
+			
+			
+			if(e.getSource()==labelPartido6) {
+				
+				labelPartido6.setBounds(200, 120-5, 72, 48);
+				
+				
+			}
+			
+			if(e.getSource()==labelPartido7) {
+				
+				labelPartido7.setBounds(275, 50+5, 72, 48);
+				
+				
+			}
+			
+			if(e.getSource()==labelPartido8) {
+				
+				labelPartido8.setBounds(275, 120-5, 72, 48);
+				
+				
+			}
+			
+			if(e.getSource()==labelPartido9) {
+				
+				labelPartido9.setBounds(350, 50+5, 72, 48);
+				
+				
+			}
+			
+			if(e.getSource()==labelPartido10) {
+				
+				labelPartido10.setBounds(350, 120-5, 72, 48);
+				
+				
+			}
+			
+			
+			if(e.getSource()==labelPartido11) {
+				
+				labelPartido11.setBounds(425, 50+5, 72, 48);
+				
+				
+			}
+			
+			if(e.getSource()==labelPartido12) {
+				
+				labelPartido12.setBounds(425, 120-5, 72, 48);
+				
+				
+			}
 			
 			if(e.getSource()==labelPartido13) {
 				
-				labelPartido13.setBounds(50, 50+5, 72, 48);
+				labelPartido13.setBounds(50, 220+5, 72, 48);
 				
 				
 			}
@@ -1170,9 +1283,76 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				labelPartido1.setBounds(50, 50, 72, 48);
 				
 			}
+			
+			if(e.getSource()==labelPartido2) {
+				
+				labelPartido2.setBounds(50, 120, 72, 48);
+				
+			}
+			
+			if(e.getSource()==labelPartido3) {
+				
+				labelPartido3.setBounds(125, 50, 72, 48);
+				
+			}
+			
+			if(e.getSource()==labelPartido4) {
+				
+				labelPartido4.setBounds(125, 120, 72, 48);
+				
+			}
+			
+			if(e.getSource()==labelPartido5) {
+				
+				labelPartido5.setBounds(200, 50, 72, 48);
+				
+			}
+			
+			if(e.getSource()==labelPartido6) {
+				
+				labelPartido6.setBounds(200, 120, 72, 48);
+				
+			}
+			
+			if(e.getSource()==labelPartido7) {
+				
+				labelPartido7.setBounds(275, 50, 72, 48);
+				
+			}
+			
+			if(e.getSource()==labelPartido8) {
+				
+				labelPartido8.setBounds(275, 120, 72, 48);
+				
+			}
+			
+			if(e.getSource()==labelPartido9) {
+				
+				labelPartido9.setBounds(350, 50, 72, 48);
+				
+			}
+			
+			if(e.getSource()==labelPartido10) {
+				
+				labelPartido10.setBounds(350, 120, 72, 48);
+				
+			}
+			
+			if(e.getSource()==labelPartido11) {
+				
+				labelPartido11.setBounds(425, 50, 72, 48);
+				
+			}
+			
+			if(e.getSource()==labelPartido12) {
+				
+				labelPartido12.setBounds(425, 120, 72, 48);
+				
+			}
+			
 			if(e.getSource()==labelPartido13) {
 				
-				labelPartido13.setBounds(50, 50, 72, 48);
+				labelPartido13.setBounds(50, 220, 72, 48);
 				
 			}
 			
