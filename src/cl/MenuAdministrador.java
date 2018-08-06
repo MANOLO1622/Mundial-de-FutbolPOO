@@ -331,17 +331,14 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			
 			botonEliminarPublicaRegistro.setBounds(1120, 200, 100, 30);
 			this.add(botonEliminarPublicaRegistro);
+		
+			this.add(CancelarEliminacionLiga);
+			CancelarEliminacionLiga.setBounds(1230, 200, 100, 30);
+			
+			desabilitarMenu();
 			
 		}
 		
-		
-
-		if (e.getSource() == botonCancelarRegistroPublico) {
-			
-			ingresarLigasPublicas();
-			
-			
-		}
 
 
 		

@@ -18,6 +18,7 @@ public class Equipo {
 		this.nombre = nombre;
 		this.ranking = ranking;
 		this.bandera = bandera;
+		
 	}
 	
 	
@@ -32,6 +33,8 @@ public class Equipo {
 	public String getNombre(){
 		return nombre;
 	}
+	
+
 	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -52,6 +55,7 @@ public class Equipo {
 	public void setBandera(String bandera) {
 		this.bandera = bandera;
 	}
+	
 
 
 	@Override

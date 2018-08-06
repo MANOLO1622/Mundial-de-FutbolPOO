@@ -244,6 +244,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		
 		btnSalir.addActionListener(this);
 		labelPartido1.addMouseListener(this);
+		labelPartido13.addMouseListener(this);
 	}
 	
 
@@ -1071,7 +1072,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 	
 	
 	
-	//----------------------------------------------------------------------------------------------------------
+	//-----------------------------------------------FONDO DE JUEGO LIGAS-----------------------------------------------------------
 	
 		public void paintComponent(Graphics g) {
 	   	 
@@ -1145,10 +1146,20 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 				labelPartido1.setBounds(50, 50+5, 72, 48);
 				
+				
+			}
+			
+			if(e.getSource()==labelPartido13) {
+				
+				labelPartido13.setBounds(50, 50+5, 72, 48);
+				
+				
 			}
 			
 			
 		}
+		
+		
 
 
 		@Override
@@ -1157,6 +1168,11 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			if(e.getSource()==labelPartido1) {
 				
 				labelPartido1.setBounds(50, 50, 72, 48);
+				
+			}
+			if(e.getSource()==labelPartido13) {
+				
+				labelPartido13.setBounds(50, 50, 72, 48);
 				
 			}
 			
