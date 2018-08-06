@@ -5,28 +5,41 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+
+
+
+	
+	
+
 import gestor.Gestor;
 
 public class Juego extends JPanel implements ActionListener, MouseListener{
-	
+	private JTextPane informacionPartidos = new JTextPane();
+
 	private Usuario miUsuario;
 	private int tipoLiga;
+
+
+	//private JButton btnSalir = new JButton("Salir");
+
 	
 	private JComboBox equipos = new JComboBox();
 	private JButton btnregistrarEquipoJugador = new JButton();
 	
 	private JButton btnSalir = new JButton("Salir");
 	
+
 	private static Image imagen;
 
 	/*
 	 * 
 	 * 
-	 * Estos componentes se utilizaran para mostrar los partidos de cada cuadro de juego, en si la parte escencial del juego.
+	 * Estos componentes se utilizaran para mostrar los partidos de cada cuadro de
+	 * juego, en si la parte escencial del juego.
 	 * 
 	 * 
 	 */
-	
+
 	private JLabel cuadro1 = new JLabel("   Cuadro A");
 	private JLabel cuadro2 = new JLabel("   Cuadro B");
 	private JLabel cuadro3 = new JLabel("   Cuadro C");
@@ -35,8 +48,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 	private JLabel cuadro6 = new JLabel("   Cuadro F");
 	private JLabel cuadro7 = new JLabel("   Cuadro G");
 	private JLabel cuadro8 = new JLabel("   Cuadro H");
-	
-	
+
 	private JLabel labelPartido1 = new JLabel();
 	private JLabel labelPartido2 = new JLabel();
 	private JLabel labelPartido3 = new JLabel();
@@ -134,7 +146,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 	private JLabel labelPartido95 = new JLabel();
 	private JLabel labelPartido96 = new JLabel();
 
-	
 	private ImageIcon imagenPartido1;
 	private ImageIcon imagenPartido2;
 	private ImageIcon imagenPartido3;
@@ -231,18 +242,19 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 	private ImageIcon imagenPartido94;
 	private ImageIcon imagenPartido95;
 	private ImageIcon imagenPartido96;
-	
-	//----------------------------------------------------------------------------constructor de la clase.
-	
-	public Juego(Usuario miUsuario,int tipoLiga) {
-		
+
+	// ----------------------------------------------------------------------------constructor
+	// de la clase.
+
+	public Juego(Usuario miUsuario, int tipoLiga) {
+
 		this.miUsuario = miUsuario;
 		this.tipoLiga = tipoLiga;
 		this.setLayout(null);
 		colocarComponentesJuego();
-		
-		//----------------------------------Eventos
-		
+
+		// ----------------------------------Eventos
+
 		btnSalir.addActionListener(this);
 		labelPartido1.addMouseListener(this);
 		labelPartido2.addMouseListener(this);
@@ -281,373 +293,389 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		labelPartido35.addMouseListener(this);
 		labelPartido36.addMouseListener(this);
 	}
-	
 
 	public void colocarComponentesJuego() {
-		
+
 		int alto = 48;
 		int ancho = 72;
-		
+
+
+		this.add(informacionPartidos);
+		informacionPartidos.setBounds(1075, 25, 175, 600);
+		informacionPartidos.setEnabled(false);
+
+
 		this.add(btnSalir);
 		btnSalir.setBounds(1150, 650, 100, 30);
 
-		
-		//------------------------------------------------------Primer cuadro de juego
-		
+
 		this.add(cuadro1);
-		cuadro1.setBounds(50, 25, 448 , 20);
+		cuadro1.setBounds(50, 25, 448, 20);
 		cuadro1.setOpaque(true);
 		cuadro1.setBackground(new Color(0, 153, 255));
-		
+
 		this.add(labelPartido1);
 		labelPartido1.setBounds(50, 50, ancho, alto);
-		
+
 		this.add(labelPartido2);
 		labelPartido2.setBounds(50, 120, ancho, alto);
-		
+
 		this.add(labelPartido3);
 		labelPartido3.setBounds(125, 50, ancho, alto);
-		
+
 		this.add(labelPartido4);
 		labelPartido4.setBounds(125, 120, ancho, alto);
-		
+
 		this.add(labelPartido5);
 		labelPartido5.setBounds(200, 50, ancho, alto);
-		
+
 		this.add(labelPartido6);
 		labelPartido6.setBounds(200, 120, ancho, alto);
 
 		this.add(labelPartido7);
 		labelPartido7.setBounds(275, 50, ancho, alto);
-		
+
 		this.add(labelPartido8);
 		labelPartido8.setBounds(275, 120, ancho, alto);
-		
+
 		this.add(labelPartido9);
 		labelPartido9.setBounds(350, 50, ancho, alto);
-		
+
 		this.add(labelPartido10);
 		labelPartido10.setBounds(350, 120, ancho, alto);
-		
+
 		this.add(labelPartido11);
 		labelPartido11.setBounds(425, 50, ancho, alto);
-		
+
 		this.add(labelPartido12);
 		labelPartido12.setBounds(425, 120, ancho, alto);
 
-		//------------------------------------------------------Segundo cuadro de juego
-		
+		// ------------------------------------------------------Segundo cuadro de juego
+
 		this.add(cuadro2);
-		cuadro2.setBounds(50, 195, 448 , 20);
+		cuadro2.setBounds(50, 195, 448, 20);
 		cuadro2.setOpaque(true);
 		cuadro2.setBackground(new Color(0, 153, 255));
-		
-		
+
 		this.add(labelPartido13);
 		labelPartido13.setBounds(50, 220, ancho, alto);
-		
+
 		this.add(labelPartido14);
 		labelPartido14.setBounds(50, 290, ancho, alto);
-		
+
 		this.add(labelPartido15);
 		labelPartido15.setBounds(125, 220, ancho, alto);
-		
+
 		this.add(labelPartido16);
 		labelPartido16.setBounds(125, 290, ancho, alto);
-		
+
 		this.add(labelPartido17);
 		labelPartido17.setBounds(200, 220, ancho, alto);
-		
+
 		this.add(labelPartido18);
 		labelPartido18.setBounds(200, 290, ancho, alto);
-		
+
 		this.add(labelPartido19);
 		labelPartido19.setBounds(275, 220, ancho, alto);
-		
+
 		this.add(labelPartido20);
 		labelPartido20.setBounds(275, 290, ancho, alto);
-		
+
 		this.add(labelPartido21);
 		labelPartido21.setBounds(350, 220, ancho, alto);
-		
+
 		this.add(labelPartido22);
 		labelPartido22.setBounds(350, 290, ancho, alto);
-		
+
 		this.add(labelPartido23);
 		labelPartido23.setBounds(425, 220, ancho, alto);
-		
+
 		this.add(labelPartido24);
 		labelPartido24.setBounds(425, 290, ancho, alto);
-		
-		//------------------------------------------------------Tercer cuadro de juego
-		
+
+		// ------------------------------------------------------Tercer cuadro de juego
+
 		this.add(cuadro3);
-		cuadro3.setBounds(50, 365, 448 , 20);
+		cuadro3.setBounds(50, 365, 448, 20);
 		cuadro3.setOpaque(true);
 		cuadro3.setBackground(new Color(0, 153, 255));
-		
+
 		this.add(labelPartido25);
 		labelPartido25.setBounds(50, 390, ancho, alto);
-		
+
 		this.add(labelPartido26);
 		labelPartido26.setBounds(50, 460, ancho, alto);
-		
+
 		this.add(labelPartido27);
 		labelPartido27.setBounds(125, 390, ancho, alto);
-		
+
 		this.add(labelPartido28);
 		labelPartido28.setBounds(125, 460, ancho, alto);
-		
+
 		this.add(labelPartido29);
 		labelPartido29.setBounds(200, 390, ancho, alto);
-		
+
 		this.add(labelPartido30);
 		labelPartido30.setBounds(200, 460, ancho, alto);
-		
+
 		this.add(labelPartido31);
 		labelPartido31.setBounds(275, 390, ancho, alto);
-		
+
 		this.add(labelPartido32);
 		labelPartido32.setBounds(275, 460, ancho, alto);
-		
+
 		this.add(labelPartido33);
 		labelPartido33.setBounds(350, 390, ancho, alto);
-		
+
 		this.add(labelPartido34);
 		labelPartido34.setBounds(350, 460, ancho, alto);
-		
+
 		this.add(labelPartido35);
 		labelPartido35.setBounds(425, 390, ancho, alto);
-		
+
 		this.add(labelPartido36);
 		labelPartido36.setBounds(425, 460, ancho, alto);
-		
-		//------------------------------------------------------Cuarto cuadro de juego
-		
+
+		// ------------------------------------------------------Cuarto cuadro de juego
+
 		this.add(cuadro4);
-		cuadro4.setBounds(50, 535, 448 , 20);
+		cuadro4.setBounds(50, 535, 448, 20);
 		cuadro4.setOpaque(true);
 		cuadro4.setBackground(new Color(0, 153, 255));
-		
+
 		this.add(labelPartido37);
 		labelPartido37.setBounds(50, 560, ancho, alto);
-		
+
 		this.add(labelPartido38);
 		labelPartido38.setBounds(50, 630, ancho, alto);
-		
+
 		this.add(labelPartido39);
 		labelPartido39.setBounds(125, 560, ancho, alto);
-		
+
 		this.add(labelPartido40);
 		labelPartido40.setBounds(125, 630, ancho, alto);
-		
+
 		this.add(labelPartido41);
 		labelPartido41.setBounds(200, 560, ancho, alto);
-		
+
 		this.add(labelPartido42);
 		labelPartido42.setBounds(200, 630, ancho, alto);
-		
+
 		this.add(labelPartido43);
 		labelPartido43.setBounds(275, 560, ancho, alto);
-		
+
 		this.add(labelPartido44);
 		labelPartido44.setBounds(275, 630, ancho, alto);
-		
+
 		this.add(labelPartido45);
 		labelPartido45.setBounds(350, 560, ancho, alto);
-		
+
 		this.add(labelPartido46);
 		labelPartido46.setBounds(350, 630, ancho, alto);
-		
+
 		this.add(labelPartido47);
 		labelPartido47.setBounds(425, 560, ancho, alto);
-		
+
 		this.add(labelPartido48);
 		labelPartido48.setBounds(425, 630, ancho, alto);
-		
-		//------------------------------------------------------Quinto cuadro de juego
+
+		// ------------------------------------------------------Quinto cuadro de juego
 		this.add(cuadro5);
-		cuadro5.setBounds(600, 25, 448 , 20);
+		cuadro5.setBounds(600, 25, 448, 20);
 		cuadro5.setOpaque(true);
 		cuadro5.setBackground(new Color(0, 153, 255));
-		
+
 		this.add(labelPartido49);
 		labelPartido49.setBounds(600, 50, ancho, alto);
-		
+
 		this.add(labelPartido50);
 		labelPartido50.setBounds(600, 120, ancho, alto);
-		
+
 		this.add(labelPartido51);
 		labelPartido51.setBounds(675, 50, ancho, alto);
-		
+
 		this.add(labelPartido52);
 		labelPartido52.setBounds(675, 120, ancho, alto);
-		
+
 		this.add(labelPartido53);
 		labelPartido53.setBounds(750, 50, ancho, alto);
-		
+
 		this.add(labelPartido54);
 		labelPartido54.setBounds(750, 120, ancho, alto);
-		
+
 		this.add(labelPartido55);
 		labelPartido55.setBounds(825, 50, ancho, alto);
-		
+
 		this.add(labelPartido56);
 		labelPartido56.setBounds(825, 120, ancho, alto);
-		
+
 		this.add(labelPartido57);
 		labelPartido57.setBounds(900, 50, ancho, alto);
-		
+
 		this.add(labelPartido58);
 		labelPartido58.setBounds(900, 120, ancho, alto);
-		
+
 		this.add(labelPartido59);
 		labelPartido59.setBounds(975, 50, ancho, alto);
-		
+
 		this.add(labelPartido60);
 		labelPartido60.setBounds(975, 120, ancho, alto);
-		
-		//------------------------------------------------------Sexto cuadro de juego
-		
+
+		// ------------------------------------------------------Sexto cuadro de juego
+
 		this.add(cuadro6);
-		cuadro6.setBounds(600, 195, 448 , 20);
+		cuadro6.setBounds(600, 195, 448, 20);
 		cuadro6.setOpaque(true);
 		cuadro6.setBackground(new Color(0, 153, 255));
-		
+
 		this.add(labelPartido61);
 		labelPartido61.setBounds(600, 220, ancho, alto);
-		
+
 		this.add(labelPartido62);
 		labelPartido62.setBounds(600, 290, ancho, alto);
-		
+
 		this.add(labelPartido63);
 		labelPartido63.setBounds(675, 220, ancho, alto);
-		
+
 		this.add(labelPartido64);
 		labelPartido64.setBounds(675, 290, ancho, alto);
-		
+
 		this.add(labelPartido65);
 		labelPartido65.setBounds(750, 220, ancho, alto);
-		
+
 		this.add(labelPartido66);
 		labelPartido66.setBounds(750, 290, ancho, alto);
-		
+
 		this.add(labelPartido67);
 		labelPartido67.setBounds(825, 220, ancho, alto);
-		
+
 		this.add(labelPartido68);
 		labelPartido68.setBounds(825, 290, ancho, alto);
-		
+
 		this.add(labelPartido69);
 		labelPartido69.setBounds(900, 220, ancho, alto);
-		
+
 		this.add(labelPartido70);
 		labelPartido70.setBounds(900, 290, ancho, alto);
-		
+
 		this.add(labelPartido71);
 		labelPartido71.setBounds(975, 220, ancho, alto);
-		
+
 		this.add(labelPartido72);
 		labelPartido72.setBounds(975, 290, ancho, alto);
-		
-		//------------------------------------------------------Septimo cuadro de juego
+
+		// ------------------------------------------------------Septimo cuadro de juego
 		this.add(cuadro7);
-		cuadro7.setBounds(600, 365, 448 , 20);
+		cuadro7.setBounds(600, 365, 448, 20);
 		cuadro7.setOpaque(true);
 		cuadro7.setBackground(new Color(0, 153, 255));
-		
+
 		this.add(labelPartido73);
 		labelPartido73.setBounds(600, 390, ancho, alto);
-		
+
 		this.add(labelPartido74);
 		labelPartido74.setBounds(600, 460, ancho, alto);
-		
+
 		this.add(labelPartido75);
 		labelPartido75.setBounds(675, 390, ancho, alto);
-		
+
 		this.add(labelPartido76);
 		labelPartido76.setBounds(675, 460, ancho, alto);
-		
+
 		this.add(labelPartido77);
 		labelPartido77.setBounds(750, 390, ancho, alto);
-		
+
 		this.add(labelPartido78);
 		labelPartido78.setBounds(750, 460, ancho, alto);
-		
+
 		this.add(labelPartido79);
 		labelPartido79.setBounds(825, 390, ancho, alto);
-		
+
 		this.add(labelPartido80);
 		labelPartido80.setBounds(825, 460, ancho, alto);
-		
+
 		this.add(labelPartido81);
 		labelPartido81.setBounds(900, 390, ancho, alto);
-		
+
 		this.add(labelPartido82);
 		labelPartido82.setBounds(900, 460, ancho, alto);
-		
+
 		this.add(labelPartido83);
 		labelPartido83.setBounds(975, 390, ancho, alto);
-		
+
 		this.add(labelPartido84);
 		labelPartido84.setBounds(975, 460, ancho, alto);
-		
-		//------------------------------------------------------Octavo cuadro de juego
+
+		// ------------------------------------------------------Octavo cuadro de juego
 		this.add(cuadro8);
-		cuadro8.setBounds(600, 535, 448 , 20);
+		cuadro8.setBounds(600, 535, 448, 20);
 		cuadro8.setOpaque(true);
 		cuadro8.setBackground(new Color(0, 153, 255));
-		
+
 		this.add(labelPartido85);
 		labelPartido85.setBounds(600, 560, ancho, alto);
-		
+
 		this.add(labelPartido86);
 		labelPartido86.setBounds(600, 630, ancho, alto);
-		
+
 		this.add(labelPartido87);
 		labelPartido87.setBounds(675, 560, ancho, alto);
-		
+
 		this.add(labelPartido88);
 		labelPartido88.setBounds(675, 630, ancho, alto);
-		
+
 		this.add(labelPartido89);
 		labelPartido89.setBounds(750, 560, ancho, alto);
-		
+
 		this.add(labelPartido90);
 		labelPartido90.setBounds(750, 630, ancho, alto);
-		
+
 		this.add(labelPartido91);
 		labelPartido91.setBounds(825, 560, ancho, alto);
-		
+
 		this.add(labelPartido92);
 		labelPartido92.setBounds(825, 630, ancho, alto);
-		
+
 		this.add(labelPartido93);
 		labelPartido93.setBounds(900, 560, ancho, alto);
-		
+
 		this.add(labelPartido94);
 		labelPartido94.setBounds(900, 630, ancho, alto);
-		
+
 		this.add(labelPartido95);
 		labelPartido95.setBounds(975, 560, ancho, alto);
-		
+
 		this.add(labelPartido96);
 		labelPartido96.setBounds(975, 630, ancho, alto);
-		
-		mostrarBanderas( ancho,  alto);
-		
+
+		mostrarBanderas(ancho, alto);
+
 	}
-	
+
 	public void mostrarBanderas(int ancho, int alto) {
+
+
+		Partido[] temp1 = null;
+		Partido[] temp2 = null;
+		Partido[] temp3 = null;
+		Partido[] temp4 = null;
+		Partido[] temp5 = null;
+		Partido[] temp6 = null;
+		Partido[] temp7 = null;
+		Partido[] temp8 = null;
+
+		if (tipoLiga == 0) {
+
+
 		
-		Partido[] temp1=null;
+		/*Partido[] temp1=null;
 		Partido[] temp2=null;
 		Partido[] temp3=null;
 		Partido[] temp4=null;
 		Partido[] temp5=null;
 		Partido[] temp6=null;
 		Partido[] temp7=null;
-		Partido[] temp8=null;
+		Partido[] temp8=null;*/
 		
 		if(tipoLiga == 0) {
 			
@@ -666,6 +694,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 			}
 			
+
 			temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
 			temp2 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSegundoCuadro();
 			temp3 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosTercerCuadro();
@@ -674,6 +703,11 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			temp6 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSextoCuadro();
 			temp7 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSeptimoCuadro();
 			temp8 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosOctavoCuadro();
+
+
+		} else if (tipoLiga == 1) {
+
+
 			
 			
 		}else if(tipoLiga == 1) {
@@ -693,6 +727,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 			}
 			
+
 			temp1 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
 			temp2 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSegundoCuadro();
 			temp3 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosTercerCuadro();
@@ -701,39 +736,40 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			temp6 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSextoCuadro();
 			temp7 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSeptimoCuadro();
 			temp8 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosOctavoCuadro();
-			
+
 		}
-		
-		//------------------------------------------------------------------------------------------Primer cuadro de Juegos
-		
+
+		// ------------------------------------------------------------------------------------------Primer
+		// cuadro de Juegos
+
 		imagenPartido1 = new ImageIcon(temp1[0].getEquipo1().getBandera());
 		Icon icono1 = new ImageIcon(imagenPartido1.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido1.setIcon(icono1);
-		
+
 		imagenPartido2 = new ImageIcon(temp1[0].getEquipo2().getBandera());
 		Icon icono2 = new ImageIcon(imagenPartido2.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido2.setIcon(icono2);
-		
+
 		imagenPartido3 = new ImageIcon(temp1[1].getEquipo1().getBandera());
 		Icon icono3 = new ImageIcon(imagenPartido3.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido3.setIcon(icono3);
-		
+
 		imagenPartido4 = new ImageIcon(temp1[1].getEquipo2().getBandera());
 		Icon icono4 = new ImageIcon(imagenPartido4.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido4.setIcon(icono4);
-		
+
 		imagenPartido5 = new ImageIcon(temp1[2].getEquipo1().getBandera());
 		Icon icono5 = new ImageIcon(imagenPartido5.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido5.setIcon(icono5);
-		
+
 		imagenPartido6 = new ImageIcon(temp1[2].getEquipo2().getBandera());
 		Icon icono6 = new ImageIcon(imagenPartido6.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido6.setIcon(icono6);
-		
+
 		imagenPartido7 = new ImageIcon(temp1[3].getEquipo1().getBandera());
 		Icon icono7 = new ImageIcon(imagenPartido7.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido7.setIcon(icono7);
-		
+
 		imagenPartido8 = new ImageIcon(temp1[3].getEquipo2().getBandera());
 		Icon icono8 = new ImageIcon(imagenPartido8.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido8.setIcon(icono8);
@@ -741,50 +777,50 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		imagenPartido9 = new ImageIcon(temp1[4].getEquipo1().getBandera());
 		Icon icono9 = new ImageIcon(imagenPartido9.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido9.setIcon(icono9);
-		
+
 		imagenPartido10 = new ImageIcon(temp1[4].getEquipo2().getBandera());
 		Icon icono10 = new ImageIcon(imagenPartido10.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido10.setIcon(icono10);
-		
+
 		imagenPartido11 = new ImageIcon(temp1[5].getEquipo1().getBandera());
 		Icon icono11 = new ImageIcon(imagenPartido11.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido11.setIcon(icono11);
-		
+
 		imagenPartido12 = new ImageIcon(temp1[5].getEquipo2().getBandera());
 		Icon icono12 = new ImageIcon(imagenPartido12.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido12.setIcon(icono12);
-			
 
-		//------------------------------------------------------------------------------------------Segundo cuadro de Juegos
-		
+		// ------------------------------------------------------------------------------------------Segundo
+		// cuadro de Juegos
+
 		imagenPartido13 = new ImageIcon(temp2[0].getEquipo1().getBandera());
 		Icon icono13 = new ImageIcon(imagenPartido13.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido13.setIcon(icono13);
-		
+
 		imagenPartido14 = new ImageIcon(temp2[0].getEquipo2().getBandera());
 		Icon icono14 = new ImageIcon(imagenPartido14.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido14.setIcon(icono14);
-		
+
 		imagenPartido15 = new ImageIcon(temp2[1].getEquipo1().getBandera());
 		Icon icono15 = new ImageIcon(imagenPartido15.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido15.setIcon(icono15);
-		
+
 		imagenPartido16 = new ImageIcon(temp2[1].getEquipo2().getBandera());
 		Icon icono16 = new ImageIcon(imagenPartido16.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido16.setIcon(icono16);
-		
+
 		imagenPartido17 = new ImageIcon(temp2[2].getEquipo1().getBandera());
 		Icon icono17 = new ImageIcon(imagenPartido17.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido17.setIcon(icono17);
-		
+
 		imagenPartido18 = new ImageIcon(temp2[2].getEquipo2().getBandera());
 		Icon icono18 = new ImageIcon(imagenPartido18.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido18.setIcon(icono18);
-		
+
 		imagenPartido19 = new ImageIcon(temp2[3].getEquipo1().getBandera());
 		Icon icono19 = new ImageIcon(imagenPartido19.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido19.setIcon(icono19);
-		
+
 		imagenPartido20 = new ImageIcon(temp2[3].getEquipo2().getBandera());
 		Icon icono20 = new ImageIcon(imagenPartido20.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido20.setIcon(icono20);
@@ -792,49 +828,50 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		imagenPartido21 = new ImageIcon(temp2[4].getEquipo1().getBandera());
 		Icon icono21 = new ImageIcon(imagenPartido21.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido21.setIcon(icono21);
-		
+
 		imagenPartido22 = new ImageIcon(temp2[4].getEquipo2().getBandera());
 		Icon icono22 = new ImageIcon(imagenPartido22.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido22.setIcon(icono22);
-		
+
 		imagenPartido23 = new ImageIcon(temp2[5].getEquipo1().getBandera());
 		Icon icono23 = new ImageIcon(imagenPartido23.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido23.setIcon(icono23);
-		
+
 		imagenPartido24 = new ImageIcon(temp2[5].getEquipo2().getBandera());
 		Icon icono24 = new ImageIcon(imagenPartido24.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido24.setIcon(icono24);
-		
-		//------------------------------------------------------------------------------------------Tercer cuadro de Juegos
-		
+
+		// ------------------------------------------------------------------------------------------Tercer
+		// cuadro de Juegos
+
 		imagenPartido25 = new ImageIcon(temp3[0].getEquipo1().getBandera());
 		Icon icono25 = new ImageIcon(imagenPartido25.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido25.setIcon(icono25);
-		
+
 		imagenPartido26 = new ImageIcon(temp3[0].getEquipo2().getBandera());
 		Icon icono26 = new ImageIcon(imagenPartido26.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido26.setIcon(icono26);
-		
+
 		imagenPartido27 = new ImageIcon(temp3[1].getEquipo1().getBandera());
 		Icon icono27 = new ImageIcon(imagenPartido27.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido27.setIcon(icono27);
-		
+
 		imagenPartido28 = new ImageIcon(temp3[1].getEquipo2().getBandera());
 		Icon icono28 = new ImageIcon(imagenPartido28.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido28.setIcon(icono28);
-		
+
 		imagenPartido29 = new ImageIcon(temp3[2].getEquipo1().getBandera());
 		Icon icono29 = new ImageIcon(imagenPartido29.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido29.setIcon(icono29);
-		
+
 		imagenPartido30 = new ImageIcon(temp3[2].getEquipo2().getBandera());
 		Icon icono30 = new ImageIcon(imagenPartido30.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido30.setIcon(icono30);
-		
+
 		imagenPartido31 = new ImageIcon(temp3[3].getEquipo1().getBandera());
 		Icon icono31 = new ImageIcon(imagenPartido31.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido31.setIcon(icono31);
-		
+
 		imagenPartido32 = new ImageIcon(temp3[3].getEquipo2().getBandera());
 		Icon icono32 = new ImageIcon(imagenPartido32.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido32.setIcon(icono32);
@@ -842,49 +879,50 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		imagenPartido33 = new ImageIcon(temp3[4].getEquipo1().getBandera());
 		Icon icono33 = new ImageIcon(imagenPartido33.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido33.setIcon(icono33);
-		
+
 		imagenPartido34 = new ImageIcon(temp3[4].getEquipo2().getBandera());
 		Icon icono34 = new ImageIcon(imagenPartido34.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido34.setIcon(icono34);
-		
+
 		imagenPartido35 = new ImageIcon(temp3[5].getEquipo1().getBandera());
 		Icon icono35 = new ImageIcon(imagenPartido35.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido35.setIcon(icono35);
-		
+
 		imagenPartido36 = new ImageIcon(temp3[5].getEquipo2().getBandera());
 		Icon icono36 = new ImageIcon(imagenPartido36.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido36.setIcon(icono36);
-		
-		//------------------------------------------------------------------------------------------Cuarto cuadro de Juegos
-		
+
+		// ------------------------------------------------------------------------------------------Cuarto
+		// cuadro de Juegos
+
 		imagenPartido37 = new ImageIcon(temp4[0].getEquipo1().getBandera());
 		Icon icono37 = new ImageIcon(imagenPartido37.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido37.setIcon(icono37);
-		
+
 		imagenPartido38 = new ImageIcon(temp4[0].getEquipo2().getBandera());
 		Icon icono38 = new ImageIcon(imagenPartido38.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido38.setIcon(icono38);
-		
+
 		imagenPartido39 = new ImageIcon(temp4[1].getEquipo1().getBandera());
 		Icon icono39 = new ImageIcon(imagenPartido39.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido39.setIcon(icono39);
-		
+
 		imagenPartido40 = new ImageIcon(temp4[1].getEquipo2().getBandera());
 		Icon icono40 = new ImageIcon(imagenPartido40.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido40.setIcon(icono40);
-		
+
 		imagenPartido41 = new ImageIcon(temp4[2].getEquipo1().getBandera());
 		Icon icono41 = new ImageIcon(imagenPartido41.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido41.setIcon(icono41);
-		
+
 		imagenPartido42 = new ImageIcon(temp4[2].getEquipo2().getBandera());
 		Icon icono42 = new ImageIcon(imagenPartido42.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido42.setIcon(icono42);
-		
+
 		imagenPartido43 = new ImageIcon(temp4[3].getEquipo1().getBandera());
 		Icon icono43 = new ImageIcon(imagenPartido43.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido43.setIcon(icono43);
-		
+
 		imagenPartido44 = new ImageIcon(temp4[3].getEquipo2().getBandera());
 		Icon icono44 = new ImageIcon(imagenPartido44.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido44.setIcon(icono44);
@@ -892,49 +930,50 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		imagenPartido45 = new ImageIcon(temp4[4].getEquipo1().getBandera());
 		Icon icono45 = new ImageIcon(imagenPartido45.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido45.setIcon(icono45);
-		
+
 		imagenPartido46 = new ImageIcon(temp4[4].getEquipo2().getBandera());
 		Icon icono46 = new ImageIcon(imagenPartido46.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido46.setIcon(icono46);
-		
+
 		imagenPartido47 = new ImageIcon(temp4[5].getEquipo1().getBandera());
 		Icon icono47 = new ImageIcon(imagenPartido47.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido47.setIcon(icono47);
-		
+
 		imagenPartido48 = new ImageIcon(temp4[5].getEquipo2().getBandera());
 		Icon icono48 = new ImageIcon(imagenPartido48.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido48.setIcon(icono48);
-		
-		//------------------------------------------------------------------------------------------Quinto cuadro de Juegos
-		
+
+		// ------------------------------------------------------------------------------------------Quinto
+		// cuadro de Juegos
+
 		imagenPartido49 = new ImageIcon(temp5[0].getEquipo1().getBandera());
 		Icon icono49 = new ImageIcon(imagenPartido49.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido49.setIcon(icono49);
-		
+
 		imagenPartido50 = new ImageIcon(temp5[0].getEquipo2().getBandera());
 		Icon icono50 = new ImageIcon(imagenPartido50.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido50.setIcon(icono50);
-		
+
 		imagenPartido51 = new ImageIcon(temp5[1].getEquipo1().getBandera());
 		Icon icono51 = new ImageIcon(imagenPartido51.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido51.setIcon(icono51);
-		
+
 		imagenPartido52 = new ImageIcon(temp5[1].getEquipo2().getBandera());
 		Icon icono52 = new ImageIcon(imagenPartido52.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido52.setIcon(icono52);
-		
+
 		imagenPartido53 = new ImageIcon(temp5[2].getEquipo1().getBandera());
 		Icon icono53 = new ImageIcon(imagenPartido53.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido53.setIcon(icono53);
-		
+
 		imagenPartido54 = new ImageIcon(temp5[2].getEquipo2().getBandera());
 		Icon icono54 = new ImageIcon(imagenPartido54.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido54.setIcon(icono54);
-		
+
 		imagenPartido55 = new ImageIcon(temp5[3].getEquipo1().getBandera());
 		Icon icono55 = new ImageIcon(imagenPartido55.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido55.setIcon(icono55);
-		
+
 		imagenPartido56 = new ImageIcon(temp5[3].getEquipo2().getBandera());
 		Icon icono56 = new ImageIcon(imagenPartido56.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido56.setIcon(icono56);
@@ -942,49 +981,50 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		imagenPartido57 = new ImageIcon(temp5[4].getEquipo1().getBandera());
 		Icon icono57 = new ImageIcon(imagenPartido57.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido57.setIcon(icono57);
-		
+
 		imagenPartido58 = new ImageIcon(temp5[4].getEquipo2().getBandera());
 		Icon icono58 = new ImageIcon(imagenPartido58.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido58.setIcon(icono58);
-		
+
 		imagenPartido59 = new ImageIcon(temp5[5].getEquipo1().getBandera());
 		Icon icono59 = new ImageIcon(imagenPartido59.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido59.setIcon(icono59);
-		
+
 		imagenPartido60 = new ImageIcon(temp5[5].getEquipo2().getBandera());
 		Icon icono60 = new ImageIcon(imagenPartido60.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido60.setIcon(icono60);
-		
-		//------------------------------------------------------------------------------------------Sexto cuadro de Juegos
-		
+
+		// ------------------------------------------------------------------------------------------Sexto
+		// cuadro de Juegos
+
 		imagenPartido61 = new ImageIcon(temp6[0].getEquipo1().getBandera());
 		Icon icono61 = new ImageIcon(imagenPartido61.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido61.setIcon(icono61);
-		
+
 		imagenPartido62 = new ImageIcon(temp6[0].getEquipo2().getBandera());
 		Icon icono62 = new ImageIcon(imagenPartido62.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido62.setIcon(icono62);
-		
+
 		imagenPartido63 = new ImageIcon(temp6[1].getEquipo1().getBandera());
 		Icon icono63 = new ImageIcon(imagenPartido63.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido63.setIcon(icono63);
-		
+
 		imagenPartido64 = new ImageIcon(temp6[1].getEquipo2().getBandera());
 		Icon icono64 = new ImageIcon(imagenPartido64.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido64.setIcon(icono64);
-		
+
 		imagenPartido65 = new ImageIcon(temp6[2].getEquipo1().getBandera());
 		Icon icono65 = new ImageIcon(imagenPartido65.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido65.setIcon(icono65);
-		
+
 		imagenPartido66 = new ImageIcon(temp6[2].getEquipo2().getBandera());
 		Icon icono66 = new ImageIcon(imagenPartido66.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido66.setIcon(icono66);
-		
+
 		imagenPartido67 = new ImageIcon(temp6[3].getEquipo1().getBandera());
 		Icon icono67 = new ImageIcon(imagenPartido67.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido67.setIcon(icono67);
-		
+
 		imagenPartido68 = new ImageIcon(temp6[3].getEquipo2().getBandera());
 		Icon icono68 = new ImageIcon(imagenPartido68.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido68.setIcon(icono68);
@@ -992,49 +1032,50 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		imagenPartido69 = new ImageIcon(temp6[4].getEquipo1().getBandera());
 		Icon icono69 = new ImageIcon(imagenPartido69.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido69.setIcon(icono69);
-		
+
 		imagenPartido70 = new ImageIcon(temp6[4].getEquipo2().getBandera());
 		Icon icono70 = new ImageIcon(imagenPartido70.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido70.setIcon(icono70);
-		
+
 		imagenPartido71 = new ImageIcon(temp6[5].getEquipo1().getBandera());
 		Icon icono71 = new ImageIcon(imagenPartido71.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido71.setIcon(icono71);
-		
+
 		imagenPartido72 = new ImageIcon(temp6[5].getEquipo2().getBandera());
 		Icon icono72 = new ImageIcon(imagenPartido72.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido72.setIcon(icono72);
-		
-		//------------------------------------------------------------------------------------------Septimo cuadro de Juegos
-		
+
+		// ------------------------------------------------------------------------------------------Septimo
+		// cuadro de Juegos
+
 		imagenPartido73 = new ImageIcon(temp7[0].getEquipo1().getBandera());
 		Icon icono73 = new ImageIcon(imagenPartido73.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido73.setIcon(icono73);
-		
+
 		imagenPartido74 = new ImageIcon(temp7[0].getEquipo2().getBandera());
 		Icon icono74 = new ImageIcon(imagenPartido74.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido74.setIcon(icono74);
-		
+
 		imagenPartido75 = new ImageIcon(temp7[1].getEquipo1().getBandera());
 		Icon icono75 = new ImageIcon(imagenPartido75.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido75.setIcon(icono75);
-		
+
 		imagenPartido76 = new ImageIcon(temp7[1].getEquipo2().getBandera());
 		Icon icono76 = new ImageIcon(imagenPartido76.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido76.setIcon(icono76);
-		
+
 		imagenPartido77 = new ImageIcon(temp7[2].getEquipo1().getBandera());
 		Icon icono77 = new ImageIcon(imagenPartido77.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido77.setIcon(icono77);
-		
+
 		imagenPartido78 = new ImageIcon(temp7[2].getEquipo2().getBandera());
 		Icon icono78 = new ImageIcon(imagenPartido78.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido78.setIcon(icono78);
-		
+
 		imagenPartido79 = new ImageIcon(temp7[3].getEquipo1().getBandera());
 		Icon icono79 = new ImageIcon(imagenPartido79.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido79.setIcon(icono79);
-		
+
 		imagenPartido80 = new ImageIcon(temp7[3].getEquipo2().getBandera());
 		Icon icono80 = new ImageIcon(imagenPartido80.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido80.setIcon(icono80);
@@ -1042,49 +1083,50 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		imagenPartido81 = new ImageIcon(temp7[4].getEquipo1().getBandera());
 		Icon icono81 = new ImageIcon(imagenPartido81.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido81.setIcon(icono81);
-		
+
 		imagenPartido82 = new ImageIcon(temp7[4].getEquipo2().getBandera());
 		Icon icono82 = new ImageIcon(imagenPartido82.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido82.setIcon(icono82);
-		
+
 		imagenPartido83 = new ImageIcon(temp7[5].getEquipo1().getBandera());
 		Icon icono83 = new ImageIcon(imagenPartido83.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido83.setIcon(icono83);
-		
+
 		imagenPartido84 = new ImageIcon(temp7[5].getEquipo2().getBandera());
 		Icon icono84 = new ImageIcon(imagenPartido84.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido84.setIcon(icono84);
-		
-		//------------------------------------------------------------------------------------------Octavo cuadro de Juegos
-		
+
+		// ------------------------------------------------------------------------------------------Octavo
+		// cuadro de Juegos
+
 		imagenPartido85 = new ImageIcon(temp8[0].getEquipo1().getBandera());
 		Icon icono85 = new ImageIcon(imagenPartido85.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido85.setIcon(icono85);
-		
+
 		imagenPartido86 = new ImageIcon(temp8[0].getEquipo2().getBandera());
 		Icon icono86 = new ImageIcon(imagenPartido86.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido86.setIcon(icono86);
-		
+
 		imagenPartido87 = new ImageIcon(temp8[1].getEquipo1().getBandera());
 		Icon icono87 = new ImageIcon(imagenPartido87.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido87.setIcon(icono87);
-		
+
 		imagenPartido88 = new ImageIcon(temp8[1].getEquipo2().getBandera());
 		Icon icono88 = new ImageIcon(imagenPartido88.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido88.setIcon(icono88);
-		
+
 		imagenPartido89 = new ImageIcon(temp8[2].getEquipo1().getBandera());
 		Icon icono89 = new ImageIcon(imagenPartido89.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido89.setIcon(icono89);
-		
+
 		imagenPartido90 = new ImageIcon(temp8[2].getEquipo2().getBandera());
 		Icon icono90 = new ImageIcon(imagenPartido90.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido90.setIcon(icono90);
-		
+
 		imagenPartido91 = new ImageIcon(temp8[3].getEquipo1().getBandera());
 		Icon icono91 = new ImageIcon(imagenPartido91.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido91.setIcon(icono91);
-		
+
 		imagenPartido92 = new ImageIcon(temp8[3].getEquipo2().getBandera());
 		Icon icono92 = new ImageIcon(imagenPartido92.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido92.setIcon(icono92);
@@ -1092,299 +1134,525 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		imagenPartido93 = new ImageIcon(temp8[4].getEquipo1().getBandera());
 		Icon icono93 = new ImageIcon(imagenPartido93.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido93.setIcon(icono93);
-		
+
 		imagenPartido94 = new ImageIcon(temp8[4].getEquipo2().getBandera());
 		Icon icono94 = new ImageIcon(imagenPartido94.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido94.setIcon(icono94);
-		
+
 		imagenPartido95 = new ImageIcon(temp8[5].getEquipo1().getBandera());
 		Icon icono95 = new ImageIcon(imagenPartido95.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido95.setIcon(icono95);
-		
+
 		imagenPartido96 = new ImageIcon(temp8[5].getEquipo2().getBandera());
 		Icon icono96 = new ImageIcon(imagenPartido96.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido96.setIcon(icono96);
-		
-			
+		}
 	}
+
+	// -----------------------------------------------FONDO DE JUEGO
+	// LIGAS-----------------------------------------------------------
+
+	public void paintComponent(Graphics g) {
+
+		int width = this.getSize().width;
+		int height = this.getSize().height;
+
+		this.setBackground("src\\graficos\\juegoLiga.jpg");
+		if (this.imagen != null) {
+			g.drawImage(this.imagen, 0, 0, width, height, null);
+		}
+
+		super.paintComponent(g);
+	}
+
+	public void setBackground(String imagePath) {
+
+		this.setOpaque(false);
+		this.imagen = new ImageIcon(imagePath).getImage();
+		repaint();
+
+	}
+
+	// -------------------------------------------------------------------------------Acciones
+	// del juego
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+
+		if (e.getSource() == btnSalir) {
+
+			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
+			Ventana ventMenuJugador = new Ventana(this.miUsuario);
+			ventMenuJugador.ventanaMenuUsuarios(this.miUsuario.getTipoUsuario(2), ventMenuJugador);
+
+		}
+
+	}
+
+	// -------------------------------------------------------------------------------Solo
+	// de vista e informacion
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+
+		if (e.getSource() == labelPartido1) {
+
+			labelPartido1.setBounds(50, 50 + 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido2) {
+
+			labelPartido2.setBounds(50, 120 - 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido3) {
+
+			labelPartido3.setBounds(125, 50 + 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido4) {
+
+			labelPartido4.setBounds(125, 120 - 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido5) {
+
+			labelPartido5.setBounds(200, 50 + 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido6) {
+
+			labelPartido6.setBounds(200, 120 - 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido7) {
+
+			labelPartido7.setBounds(275, 50 + 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido8) {
+
+			labelPartido8.setBounds(275, 120 - 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido9) {
+
+			labelPartido9.setBounds(350, 50 + 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido10) {
+
+			labelPartido10.setBounds(350, 120 - 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido11) {
+
+			labelPartido11.setBounds(425, 50 + 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido12) {
+
+			labelPartido12.setBounds(425, 120 - 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido13) {
+
+			labelPartido13.setBounds(50, 220 + 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido14) {
+
+			labelPartido14.setBounds(50, 290 - 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido15) {
+
+			labelPartido15.setBounds(125, 220 + 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido16) {
+
+			labelPartido16.setBounds(125, 290 - 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido17) {
+
+			labelPartido17.setBounds(200, 220 + 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido18) {
+
+			labelPartido18.setBounds(200, 290 - 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido19) {
+
+			labelPartido19.setBounds(275, 220 + 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido20) {
+
+			labelPartido20.setBounds(275, 290 - 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido21) {
+
+			labelPartido21.setBounds(350, 220 + 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido22) {
+
+			labelPartido22.setBounds(350, 290 - 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido23) {
+
+			labelPartido23.setBounds(425, 220 + 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido24) {
+
+			labelPartido24.setBounds(425, 290 - 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido25) {
+
+			labelPartido25.setBounds(50, 390 + 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido26) {
+
+			labelPartido26.setBounds(50, 460 - 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido27) {
+
+			labelPartido27.setBounds(125, 390 + 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido28) {
+
+			labelPartido28.setBounds(125, 460 - 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido29) {
+
+			labelPartido29.setBounds(200, 390 + 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido30) {
+
+			labelPartido30.setBounds(200, 460 - 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido31) {
+
+			labelPartido31.setBounds(275, 390 + 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido32) {
+
+			labelPartido32.setBounds(275, 460 - 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido33) {
+
+			labelPartido33.setBounds(350, 390 + 5, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido34) {
+
+			labelPartido34.setBounds(350, 460 - 5, 72, 48);
+
+		}
 		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//-----------------------------------------------FONDO DE JUEGO LIGAS-----------------------------------------------------------
-	
-		public void paintComponent(Graphics g) {
-	   	 
-			int width = this.getSize().width;
-			int height = this.getSize().height;
-	 
-			this.setBackground("src\\graficos\\juegoLiga.jpg");
-			if (this.imagen != null) {
-				g.drawImage(this.imagen, 0, 0, width, height, null);
-			}
-	 
-			super.paintComponent(g);
+		if (e.getSource() == labelPartido35) {
+
+			labelPartido35.setBounds(425, 390 + 5, 72, 48);
+
 		}
-	 
-		public void setBackground(String imagePath) {
-			
-			this.setOpaque(false);
-			this.imagen = new ImageIcon(imagePath).getImage();
-			repaint();
-			
+		
+		if (e.getSource() == labelPartido36) {
+
+			labelPartido36.setBounds(425, 460 - 5, 72, 48);
+
+		}
+
+	}
+	
+	///----------------------------------------------------------------------------------------------------------------
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+
+		if (e.getSource() == labelPartido1) {
+
+			labelPartido1.setBounds(50, 50, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido2) {
+
+			labelPartido2.setBounds(50, 120, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido3) {
+
+			labelPartido3.setBounds(125, 50, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido4) {
+
+			labelPartido4.setBounds(125, 120, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido5) {
+
+			labelPartido5.setBounds(200, 50, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido6) {
+
+			labelPartido6.setBounds(200, 120, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido7) {
+
+			labelPartido7.setBounds(275, 50, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido8) {
+
+			labelPartido8.setBounds(275, 120, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido9) {
+
+			labelPartido9.setBounds(350, 50, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido10) {
+
+			labelPartido10.setBounds(350, 120, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido11) {
+
+			labelPartido11.setBounds(425, 50, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido12) {
+
+			labelPartido12.setBounds(425, 120, 72, 48);
+
+		}
+
+		if (e.getSource() == labelPartido13) {
+
+			labelPartido13.setBounds(50, 220, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido14) {
+
+			labelPartido14.setBounds(50, 290, 72, 48);
+
 		}
 		
 		
-		//-------------------------------------------------------------------------------Acciones del juego
+		if (e.getSource() == labelPartido15) {
 
-		@Override
-		public void actionPerformed(ActionEvent e) {
+			labelPartido15.setBounds(125, 220, 72, 48);
 
-
-			if(e.getSource()==btnSalir) {
-				
-				SwingUtilities.getWindowAncestor(getRootPane()).dispose();
-				Ventana ventMenuJugador = new Ventana(this.miUsuario);
-				ventMenuJugador.ventanaMenuUsuarios(this.miUsuario.getTipoUsuario(2),ventMenuJugador);
-				
-			}
-			
-		}
-
-		
-		//-------------------------------------------------------------------------------Solo de vista e informacion
-
-
-
-
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-
-		@Override
-		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-
-		@Override
-		public void mouseEntered(MouseEvent e) {
-
-			if(e.getSource()==labelPartido1) {
-				
-				labelPartido1.setBounds(50, 50+5, 72, 48);
-				
-				
-			}
-
-			if(e.getSource()==labelPartido2) {
-				
-				labelPartido2.setBounds(50, 120-5, 72, 48);
-				
-				
-			}
-			
-			if(e.getSource()==labelPartido3) {
-				
-				labelPartido3.setBounds(125, 50+5, 72, 48);
-				
-				
-			}
-			
-			if(e.getSource()==labelPartido4) {
-				
-				labelPartido4.setBounds(125, 120-5, 72, 48);
-				
-				
-			}
-			
-			if(e.getSource()==labelPartido5) {
-				
-				labelPartido5.setBounds(200, 50+5, 72, 48);
-				
-				
-			}
-			
-			
-			if(e.getSource()==labelPartido6) {
-				
-				labelPartido6.setBounds(200, 120-5, 72, 48);
-				
-				
-			}
-			
-			if(e.getSource()==labelPartido7) {
-				
-				labelPartido7.setBounds(275, 50+5, 72, 48);
-				
-				
-			}
-			
-			if(e.getSource()==labelPartido8) {
-				
-				labelPartido8.setBounds(275, 120-5, 72, 48);
-				
-				
-			}
-			
-			if(e.getSource()==labelPartido9) {
-				
-				labelPartido9.setBounds(350, 50+5, 72, 48);
-				
-				
-			}
-			
-			if(e.getSource()==labelPartido10) {
-				
-				labelPartido10.setBounds(350, 120-5, 72, 48);
-				
-				
-			}
-			
-			
-			if(e.getSource()==labelPartido11) {
-				
-				labelPartido11.setBounds(425, 50+5, 72, 48);
-				
-				
-			}
-			
-			if(e.getSource()==labelPartido12) {
-				
-				labelPartido12.setBounds(425, 120-5, 72, 48);
-				
-				
-			}
-			
-			if(e.getSource()==labelPartido13) {
-				
-				labelPartido13.setBounds(50, 220+5, 72, 48);
-				
-				
-			}
-			
-			
 		}
 		
-		
+		if (e.getSource() == labelPartido16) {
 
+			labelPartido16.setBounds(125, 290, 72, 48);
 
-		@Override
-		public void mouseExited(MouseEvent e) {
-			
-			if(e.getSource()==labelPartido1) {
-				
-				labelPartido1.setBounds(50, 50, 72, 48);
-				
-			}
-			
-			if(e.getSource()==labelPartido2) {
-				
-				labelPartido2.setBounds(50, 120, 72, 48);
-				
-			}
-			
-			if(e.getSource()==labelPartido3) {
-				
-				labelPartido3.setBounds(125, 50, 72, 48);
-				
-			}
-			
-			if(e.getSource()==labelPartido4) {
-				
-				labelPartido4.setBounds(125, 120, 72, 48);
-				
-			}
-			
-			if(e.getSource()==labelPartido5) {
-				
-				labelPartido5.setBounds(200, 50, 72, 48);
-				
-			}
-			
-			if(e.getSource()==labelPartido6) {
-				
-				labelPartido6.setBounds(200, 120, 72, 48);
-				
-			}
-			
-			if(e.getSource()==labelPartido7) {
-				
-				labelPartido7.setBounds(275, 50, 72, 48);
-				
-			}
-			
-			if(e.getSource()==labelPartido8) {
-				
-				labelPartido8.setBounds(275, 120, 72, 48);
-				
-			}
-			
-			if(e.getSource()==labelPartido9) {
-				
-				labelPartido9.setBounds(350, 50, 72, 48);
-				
-			}
-			
-			if(e.getSource()==labelPartido10) {
-				
-				labelPartido10.setBounds(350, 120, 72, 48);
-				
-			}
-			
-			if(e.getSource()==labelPartido11) {
-				
-				labelPartido11.setBounds(425, 50, 72, 48);
-				
-			}
-			
-			if(e.getSource()==labelPartido12) {
-				
-				labelPartido12.setBounds(425, 120, 72, 48);
-				
-			}
-			
-			if(e.getSource()==labelPartido13) {
-				
-				labelPartido13.setBounds(50, 220, 72, 48);
-				
-			}
-			
 		}
-	
-	
+		
+		if (e.getSource() == labelPartido17) {
+
+			labelPartido17.setBounds(200, 220, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido18) {
+
+			labelPartido18.setBounds(200, 290, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido19) {
+
+			labelPartido19.setBounds(275, 220, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido20) {
+
+			labelPartido20.setBounds(275, 290, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido21) {
+
+			labelPartido21.setBounds(350, 220, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido22) {
+
+			labelPartido22.setBounds(350, 290, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido23) {
+
+			labelPartido23.setBounds(425, 220, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido24) {
+
+			labelPartido24.setBounds(425, 290, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido25) {
+
+			labelPartido25.setBounds(50, 390, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido26) {
+
+			labelPartido26.setBounds(50, 460, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido27) {
+
+			labelPartido27.setBounds(125, 390, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido28) {
+
+			labelPartido28.setBounds(125, 460, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido29) {
+
+			labelPartido29.setBounds(200, 390, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido30) {
+
+			labelPartido30.setBounds(200, 460, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido31) {
+
+			labelPartido31.setBounds(275, 390, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido32) {
+
+			labelPartido32.setBounds(275, 460, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido33) {
+
+			labelPartido33.setBounds(350, 390, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido34) {
+
+			labelPartido34.setBounds(350, 460, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido35) {
+
+			labelPartido35.setBounds(425, 390, 72, 48);
+
+		}
+		
+		if (e.getSource() == labelPartido36) {
+
+			labelPartido36.setBounds(425, 460, 72, 48);
+
+		}
+
+	}
+
 }
