@@ -35,7 +35,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	//----------------------------------------------------------------------
 	
 	
-	JLabel labelNombreLiga = new JLabel("Nombre de la Liga: ");
+	JLabel labelNombreLiga = new JLabel("Nombre Liga:");
+	JLabel labelTituloPrivada = new JLabel("Crear Liga Privada");
+	JLabel labelTituloPublica = new JLabel("Crear Liga Publica");
+	JLabel labelTituloMundial = new JLabel("Crear Mundial");
 	JTextField nombreLigaTXT = new JTextField(10);
 	
 	JLabel labelEstado = new JLabel("Estado:");
@@ -48,6 +51,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	
 	JLabel labelAno = new JLabel("Fecha: ");	
 	JCalendar fechaMundial = new JCalendar();	
+	
 	
 	JLabel labelPaisOrganizador = new JLabel("Pais Organizador:");
 	JComboBox paisesOrganizadores = new JComboBox();
@@ -433,23 +437,30 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		this.add(labelNombreLiga);
 		labelNombreLiga.setForeground(Color.WHITE);
-		labelNombreLiga.setBounds(950, 30, 200, 30);
+		labelNombreLiga.setBounds(997, 205, 200, 30);
+		labelNombreLiga.setFont(new Font(labelNombreLiga.getFont().getFontName(), Font.BOLD, 15));
+		
+		this.add(labelTituloPublica);
+		labelTituloPublica.setForeground(Color.WHITE);
+		labelTituloPublica.setBounds(250, 190, 500, 260);
+		labelTituloPublica.setFont(new Font(labelTituloPublica.getFont().getFontName(), Font.BOLD, 30));
 
 		this.add(nombreLigaTXT);
-		nombreLigaTXT.setBounds(1080, 30, 200, 20);
+		nombreLigaTXT.setBounds(1099, 210, 180, 22);
 
 		this.add(labelMundialAnfitrion);
 		labelMundialAnfitrion.setForeground(Color.WHITE);
-		labelMundialAnfitrion.setBounds(950, 110, 200, 30);
+		labelMundialAnfitrion.setBounds(1000, 250, 200, 30);
+		labelMundialAnfitrion.setFont(new Font(labelMundialAnfitrion.getFont().getFontName(), Font.BOLD, 15));
 		
 		this.add(MundialAnfitrion);
-		MundialAnfitrion.setBounds(1080, 110, 200, 20);
+		MundialAnfitrion.setBounds(1099, 250, 180, 22);
 
 		this.add(btnRegistroLigaPublica);
-		btnRegistroLigaPublica.setBounds(950, 200, 120, 25);
+		btnRegistroLigaPublica.setBounds(1030, 300, 120, 25);
 
 		this.add(btnCancelar);
-		btnCancelar.setBounds(1080, 200, 120, 25);
+		btnCancelar.setBounds(1160, 300, 120, 25);
 
 	}
 
@@ -457,23 +468,31 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		this.add(labelNombreLiga);
 		labelNombreLiga.setForeground(Color.WHITE);
-		labelNombreLiga.setBounds(950, 30, 200, 30);
-
+		labelNombreLiga.setBounds(997, 205, 200, 30);
+		labelNombreLiga.setFont(new Font(labelNombreLiga.getFont().getFontName(), Font.BOLD, 15));
+		
+		this.add(labelTituloPrivada);
+		labelTituloPrivada.setForeground(Color.WHITE);
+		labelTituloPrivada.setBounds(250, 190, 500, 260);
+		labelTituloPrivada.setFont(new Font(labelTituloPrivada.getFont().getFontName(), Font.BOLD, 30));
+		
+		
 		this.add(nombreLigaTXT);
-		nombreLigaTXT.setBounds(1080, 30, 200, 20);
+		nombreLigaTXT.setBounds(1099, 210, 180, 22);
 
 		this.add(labelMundialAnfitrion);
 		labelMundialAnfitrion.setForeground(Color.WHITE);
-		labelMundialAnfitrion.setBounds(950, 110, 200, 30);
+		labelMundialAnfitrion.setBounds(1000, 250, 200, 30);
+		labelMundialAnfitrion.setFont(new Font(labelMundialAnfitrion.getFont().getFontName(), Font.BOLD, 15));
 		
 		this.add(MundialAnfitrion);
-		MundialAnfitrion.setBounds(1080, 110, 200, 20);
+		MundialAnfitrion.setBounds(1099, 250, 180, 22);
 
 		this.add(btnRegistroLigaPrivada);
-		btnRegistroLigaPrivada.setBounds(950, 200, 120, 25);
+		btnRegistroLigaPrivada.setBounds(1030, 300, 120, 25);
 
 		this.add(btnCancelar);
-		btnCancelar.setBounds(1080, 200, 120, 25);
+		btnCancelar.setBounds(1160, 300, 120, 25);
 
 
 	}
@@ -485,30 +504,39 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		this.add(labelNombreMundial);
 		labelNombreMundial.setForeground(Color.WHITE);
-		labelNombreMundial.setBounds(900, 30, 200, 30);
+		labelNombreMundial.setBounds(850, 25, 200, 30);
+		labelNombreMundial.setFont(new Font(labelNombreMundial.getFont().getFontName(), Font.PLAIN, 18));
+		
+		this.add(labelTituloMundial);
+		labelTituloMundial.setForeground(Color.WHITE);
+		labelTituloMundial.setBounds(250, 190, 500, 260);
+		labelTituloMundial.setFont(new Font(labelTituloMundial.getFont().getFontName(), Font.BOLD, 30));
 		
 		this.add(nombreMundialTXT);
 		nombreMundialTXT.setBounds(1050, 30, 300, 20);
 		
+		
 		this.add(labelPaisOrganizador);
 		labelPaisOrganizador.setForeground(Color.WHITE);
-		labelPaisOrganizador.setBounds(900, 70, 200, 30);
+		labelPaisOrganizador.setBounds(850, 65, 200, 30);
+		labelPaisOrganizador.setFont(new Font(labelPaisOrganizador.getFont().getFontName(), Font.PLAIN, 18));
 		
 		this.add(paisesOrganizadores);
 		paisesOrganizadores.setBounds(1050, 70, 300, 20);
 		
 		this.add(labelAno);
 		labelAno.setForeground(Color.WHITE);
-		labelAno.setBounds(900, 175, 200, 30);
+		labelAno.setBounds(940, 185, 200, 30);
+		labelAno.setFont(new Font(labelAno.getFont().getFontName(), Font.PLAIN, 20));
 		
-		fechaMundial.setBounds(1050, 110, 300, 300);
+		fechaMundial.setBounds(1050, 110, 300, 200);
 		fechaMundial.setVisible(true);
 
 		this.add(btnRegistrarMundial);
-		btnRegistrarMundial.setBounds(900, 420, 120, 25);
+		btnRegistrarMundial.setBounds(1050, 320, 100, 25);
 		
 		this.add(btnCancelar);
-		btnCancelar.setBounds(1050, 420, 120, 25);
+		btnCancelar.setBounds(1165, 320, 100, 25);
 			
     }
 	
@@ -518,6 +546,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	public void removerMenus() {
 		
 		this.remove(labelNombreLiga);
+		this.remove(labelTituloPrivada);
+		this.remove(labelTituloPublica);
+		this.remove(labelTituloMundial);
 		this.remove(nombreLigaTXT);
 		this.remove(labelEstado);
 		this.remove(estadoTXT);
