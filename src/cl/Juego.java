@@ -1165,7 +1165,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 		}
 		
-		if(e.getSource()==equipos) {
+		if(e.getSource() == equipos) {
 			
 			String nombreLiga = "";
 			
@@ -1199,7 +1199,19 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		
 		if(e.getSource()==btnregistrarEquipoJugador) {
 			
-			
+			if(this.tipoLiga == 0 ) {
+				
+				Gestor.asignarEquipoLigaPublicaUsuario(this.miUsuario.getNombreUsuario(), Gestor.retornarEquipo((String)equipos.getSelectedItem()));
+				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+				System.out.println("Tiene: " + this.miUsuario.getEquipoLigaPublica().toString());
+				
+			} else if(this.tipoLiga == 1 ) {
+				
+
+				Gestor.asignarEquipoLigaPrivadaUsuario(this.miUsuario.getNombreUsuario(), Gestor.retornarEquipo((String)equipos.getSelectedItem()));
+				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+				System.out.println("Tiene: " + this.miUsuario.getEquipoLigaPrivada().toString());
+			}
 			
 		}
 

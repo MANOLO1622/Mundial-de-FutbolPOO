@@ -570,6 +570,63 @@ public class CL {
 		
 	}
 	
+	
+	
+	public static void asignarEquipoLigaPublicaUsuario(String nombreUsuario, Equipo equipoSeleccionado) {
+		
+		int index = -1;
+		Usuario temp = null;
+		
+		for(Usuario e: listaUsuarios) {
+			
+			if(nombreUsuario.equals(e.getNombreUsuario())) {
+				
+				index = listaUsuarios.indexOf(e);
+				temp = e;
+				temp.setEquipoLigaPublica(equipoSeleccionado);
+				JOptionPane.showMessageDialog(null, "equipo Liga publica: " + temp.getEquipoLigaPublica().toString());
+				
+			}
+			
+		}
+		JOptionPane.showMessageDialog(null, index);
+		if(index != -1) {
+			
+			listaUsuarios.set(index, temp);
+			
+		}
+		
+	}
+	
+	
+	public static void asignarEquipoLigaPrivadaUsuario(String nombreUsuario, Equipo equipoSeleccionado) {
+		int index = -1;
+		Usuario temp = null;
+		
+		for(Usuario e: listaUsuarios) {
+			
+			if(nombreUsuario.equals(e.getNombreUsuario())) {
+				
+				index = listaUsuarios.indexOf(e);
+				temp = e;
+				temp.setEquipoLigaPrivada(equipoSeleccionado);
+				JOptionPane.showMessageDialog(null, "equipo Liga publica: " + temp.getEquipoLigaPrivada().toString());
+				
+			}
+			
+		}
+		JOptionPane.showMessageDialog(null, index);
+		if(index != -1) {
+			
+			listaUsuarios.set(index, temp);
+			
+		}
+		
+	}
+	
+	
+	
+	
 	//---------------------------------------------------------------------------------------------------------------------------------------
 	
 	public static void removerLigaPublicaUsuario(String nombreUsuario) {

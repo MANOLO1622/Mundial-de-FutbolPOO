@@ -389,6 +389,25 @@ public class Gestor {
 		
 	}
 	
+	
+	public static void asignarEquipoLigaPublicaUsuario(String nombreUsuario, Equipo equipoSeleccionado) {
+		
+		CL.asignarEquipoLigaPublicaUsuario( nombreUsuario,  equipoSeleccionado);
+		
+	}
+	
+	
+	public static void asignarEquipoLigaPrivadaUsuario(String nombreUsuario, Equipo equipoSeleccionado) {
+		
+		CL.asignarEquipoLigaPrivadaUsuario(nombreUsuario,  equipoSeleccionado);
+		
+	}
+	
+	
+	
+	
+	
+	
 	//-------------------------------------------------------------------------------------------------------------
 	
 	
