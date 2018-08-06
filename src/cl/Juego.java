@@ -640,27 +640,14 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 	public void mostrarBanderas(int ancho, int alto) {
 
 
-		Partido[] temp1 = null;
-		Partido[] temp2 = null;
-		Partido[] temp3 = null;
-		Partido[] temp4 = null;
-		Partido[] temp5 = null;
-		Partido[] temp6 = null;
-		Partido[] temp7 = null;
-		Partido[] temp8 = null;
-
-		if (tipoLiga == 0) {
-
-
-		
-		/*Partido[] temp1=null;
+		Partido[] temp1=null;
 		Partido[] temp2=null;
 		Partido[] temp3=null;
 		Partido[] temp4=null;
 		Partido[] temp5=null;
 		Partido[] temp6=null;
 		Partido[] temp7=null;
-		Partido[] temp8=null;*/
+		Partido[] temp8=null;
 		
 		if(tipoLiga == 0) {
 			
@@ -679,7 +666,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 			}
 			
-
 			temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
 			temp2 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSegundoCuadro();
 			temp3 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosTercerCuadro();
@@ -688,11 +674,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			temp6 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSextoCuadro();
 			temp7 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSeptimoCuadro();
 			temp8 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosOctavoCuadro();
-
-
-		} else if (tipoLiga == 1) {
-
-
 			
 			
 		}else if(tipoLiga == 1) {
@@ -712,7 +693,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 			}
 			
-
 			temp1 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
 			temp2 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSegundoCuadro();
 			temp3 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosTercerCuadro();
@@ -721,7 +701,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			temp6 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSextoCuadro();
 			temp7 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSeptimoCuadro();
 			temp8 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosOctavoCuadro();
-
+			
 		}
 
 		// ------------------------------------------------------------------------------------------Primer
@@ -1132,7 +1112,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		Icon icono96 = new ImageIcon(imagenPartido96.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido96.setIcon(icono96);
 		}
-	}
 
 	// -----------------------------------------------FONDO DE JUEGO
 	// LIGAS-----------------------------------------------------------
