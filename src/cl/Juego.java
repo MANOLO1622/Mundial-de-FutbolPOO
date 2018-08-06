@@ -13,6 +13,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 	private int tipoLiga;
 	
 	private JComboBox equipos = new JComboBox();
+	private JButton btnregistrarEquipoJugador = new JButton();
 	
 	private JButton btnSalir = new JButton("Salir");
 	
@@ -652,6 +653,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			
 			if(this.miUsuario.getEquipoLigaPublica()==null) {
 				
+				this.add(btnregistrarEquipoJugador);
 				equipos.removeAllItems();
 				this.add(equipos);
 				equipos.setBounds(1050, 25, 150, 30);
