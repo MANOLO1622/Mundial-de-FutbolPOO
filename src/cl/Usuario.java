@@ -17,6 +17,9 @@ public class Usuario {
 	private LigasPublicas miLigaPublica;
 	private LigasPrivadas miLigaPrivada;
 	
+	private Equipo equipoLigaPublica;
+	private Equipo equipoLigaPrivada;
+	
 	public Usuario (String nombre, String apellido, String nombreUsuario, String contrasena,String avatar, String correoElectronico, int tipoUsuario) {
 		
 		this.nombre = nombre;
@@ -214,13 +217,35 @@ public class Usuario {
 		this.miLigaPrivada = liga;
 	}
 	
+	
+	
+	
+	public Equipo getEquipoLigaPublica() {
+		return equipoLigaPublica;
+	}
 
+
+	public void setEquipoLigaPublica(Equipo equipoLigaPublica) {
+		this.equipoLigaPublica = equipoLigaPublica;
+	}
+
+
+	public Equipo getEquipoLigaPrivada() {
+		return equipoLigaPrivada;
+	}
+
+
+	public void setEquipoLigaPrivada(Equipo equipoLigaPrivada) {
+		this.equipoLigaPrivada = equipoLigaPrivada;
+	}
+
+	
+	
 	//---------------------------------------------------------------------------------------------------------
 	
 	//Metodo toString.
 	
-	
-	
+
 	@Override
 	public String toString() {
 		return "Usuario: nombre=" + nombre + ", apellido=" + apellido + ", nombreUsuario=" + nombreUsuario + ", avatar="
