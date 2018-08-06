@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import gestor.Gestor;
+
 public class Juego extends JPanel implements ActionListener, MouseListener{
 	
 	private Usuario miUsuario;
@@ -653,7 +655,12 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				equipos.removeAllItems();
 				this.add(equipos);
 				equipos.setBounds(1050, 25, 150, 30);
-				equipos.addItem("LigaPublica");
+
+				for(Equipo e: Gestor.retornarLigaPublica(this.miUsuario.getMiLigaPublica().getNombreLiga()).getMundialAnfitrion().getEquiposMundial()) {
+					
+					equipos.addItem(e.getNombre());
+					
+				}
 				
 			}
 			
@@ -674,7 +681,13 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				equipos.removeAllItems();
 				this.add(equipos);
 				equipos.setBounds(1050, 25, 150, 30);
-				equipos.addItem("LigaPrivada");
+				
+				for(Equipo e: Gestor.retornarLigaPrivada(this.miUsuario.getMiLigaPrivada().getNombreLiga()).getMundialAnfitrion().getEquiposMundial()) {
+					
+					equipos.addItem(e.getNombre());
+					
+				}
+				
 				
 			}
 			
