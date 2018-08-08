@@ -681,20 +681,8 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 			}else {
 				
-				this.add(labelBanderaPaisEscogido);
-				labelBanderaPaisEscogido.setBounds(1075, 60, 175, 122);
-				
-				this.add(partidosPaisEscogido);
-				partidosPaisEscogido.setEnabled(false);
-				partidosPaisEscogido.setBounds(1075, 190, 175, 300);
-				
-				imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo(this.miUsuario.getEquipoLigaPublica().getNombre()));
-				Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
-				labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
-				
-				this.add(btnApostar);
-				btnApostar.setBounds(1100, 500, 125, 30);
-					
+				mostrarinformacionpaisEscogido(0);
+
 			}
 			
 
@@ -728,21 +716,8 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				}	
 			}else {
 				
-				this.add(labelBanderaPaisEscogido);
-				labelBanderaPaisEscogido.setBounds(1075, 60, 175, 122);
-				
-				this.add(partidosPaisEscogido);
-				partidosPaisEscogido.setEnabled(false);
-				partidosPaisEscogido.setBounds(1075, 190, 175, 300);
-				
-				
-				imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo(this.miUsuario.getEquipoLigaPrivada().getNombre()));
-				Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
-				labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
-				
-				this.add(btnApostar);
-				btnApostar.setBounds(1100, 500, 125, 30);
-								
+				mostrarinformacionpaisEscogido(1);
+	
 			}
 			
 
@@ -1247,10 +1222,9 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				System.out.println("Equipo Liga Publica" + this.miUsuario.getEquipoLigaPublica().toString());
 				
 				this.remove(equipos);
-				this.remove(labelBanderaPaisEscogido);
-				this.remove(partidosPaisEscogido);
 				this.remove(btnregistrarEquipoJugador);
-				this.remove(labelBanderaPaisEscogido);
+				
+				mostrarinformacionpaisEscogido(0);
 				
 			} else if(this.tipoLiga == 1 ) {
 				
@@ -1259,10 +1233,9 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
 				
 				this.remove(equipos);
-				this.remove(labelBanderaPaisEscogido);
-				this.remove(partidosPaisEscogido);
 				this.remove(btnregistrarEquipoJugador);
-				this.remove(labelBanderaPaisEscogido);
+				
+				mostrarinformacionpaisEscogido(1);
 				
 				
 			}
@@ -1273,7 +1246,61 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 	
 	
-	
+	public void mostrarinformacionpaisEscogido(int tipoLiga) {
+		
+		Icon iconoPaisEScogido;
+		
+		switch(tipoLiga) {
+		
+		case 0: 
+			
+			this.add(labelBanderaPaisEscogido);
+			labelBanderaPaisEscogido.setBounds(1075, 60, 175, 122);
+			
+			this.add(partidosPaisEscogido);
+			partidosPaisEscogido.setEnabled(false);
+			partidosPaisEscogido.setBounds(1075, 190, 175, 300);
+			partidosPaisEscogido.setText(Gestor.retornarPartidosCuadro(this.miUsuario.getMiLigaPublica().getNombreLiga(), this.miUsuario.getEquipoLigaPublica().getNombre()));
+			
+			imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo(this.miUsuario.getEquipoLigaPublica().getNombre()));
+			iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
+			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
+			
+			this.add(btnApostar);
+			btnApostar.setBounds(1100, 500, 125, 30);
+			
+			break;
+			
+		case 1: 
+			
+			this.add(labelBanderaPaisEscogido);
+			labelBanderaPaisEscogido.setBounds(1075, 60, 175, 122);
+			
+			this.add(partidosPaisEscogido);
+			partidosPaisEscogido.setEnabled(false);
+			partidosPaisEscogido.setBounds(1075, 190, 175, 300);
+			partidosPaisEscogido.setText(Gestor.retornarPartidosCuadro(this.miUsuario.getMiLigaPrivada().getNombreLiga(), this.miUsuario.getEquipoLigaPrivada().getNombre()));
+			
+			imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo(this.miUsuario.getEquipoLigaPrivada().getNombre()));
+			iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
+			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
+			
+			this.add(btnApostar);
+			btnApostar.setBounds(1100, 500, 125, 30);
+			
+			break;
+			
+		default:
+			
+			this.remove(labelBanderaPaisEscogido);			
+			this.remove(partidosPaisEscogido);			
+			this.remove(btnApostar);
+			
+			break;
+		}
+		
+		
+	}
 	
 	
 	
@@ -1755,5 +1782,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		}
 
 	}
+	
 
 }
