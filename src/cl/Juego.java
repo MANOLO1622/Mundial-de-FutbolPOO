@@ -669,6 +669,10 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					
 				}
 
+			}else {
+				
+				JOptionPane.showMessageDialog(null, "El equipo " + this.miUsuario.getEquipoLigaPublica().getNombre() + "esta asociado a este jugador.");
+								
 			}
 			
 			temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
@@ -695,6 +699,10 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					equipos.addItem(e.getNombre());
 					
 				}	
+			}else {
+				
+				JOptionPane.showMessageDialog(null, "El equipo " + this.miUsuario.getEquipoLigaPrivada().getNombre() + "esta asociado a este jugador.");
+								
 			}
 			
 			temp1 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
