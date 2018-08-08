@@ -687,7 +687,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				this.add(partidosPaisEscogido);
 				partidosPaisEscogido.setBounds(1075, 190, 175, 300);
 				
-				imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo(this.miUsuario.getEquipoLigaPublica().getBandera()));
+				imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo(this.miUsuario.getEquipoLigaPublica().getNombre()));
 				Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
 				labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
 				
@@ -734,7 +734,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				partidosPaisEscogido.setBounds(1075, 190, 175, 300);
 				
 				
-				imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo(this.miUsuario.getEquipoLigaPrivada().getBandera()));
+				imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo(this.miUsuario.getEquipoLigaPrivada().getNombre()));
 				Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
 				labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
 				
