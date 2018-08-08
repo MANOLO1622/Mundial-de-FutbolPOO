@@ -685,6 +685,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				labelBanderaPaisEscogido.setBounds(1075, 60, 175, 122);
 				
 				this.add(partidosPaisEscogido);
+				partidosPaisEscogido.setEnabled(false);
 				partidosPaisEscogido.setBounds(1075, 190, 175, 300);
 				
 				imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo(this.miUsuario.getEquipoLigaPublica().getNombre()));
@@ -731,6 +732,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				labelBanderaPaisEscogido.setBounds(1075, 60, 175, 122);
 				
 				this.add(partidosPaisEscogido);
+				partidosPaisEscogido.setEnabled(false);
 				partidosPaisEscogido.setBounds(1075, 190, 175, 300);
 				
 				
