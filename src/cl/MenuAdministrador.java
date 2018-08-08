@@ -384,7 +384,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 					Date fecha = new Date();
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 					controlador.registrarLigaPrivadas(nombreLigaTXT.getText(), fechaRegistro, true, 1, 2,Gestor.retornarMundial((String)MundialAnfitrion.getSelectedItem()));
-					controlador.listarLigasPrivadas();
 					JOptionPane.showMessageDialog(null, "¡Liga Privada registrada Exitosamente!.");
 					removerMenus();
 
@@ -398,7 +397,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			
 
 			Gestor.asignarLigaPrivadaUsuario("j",Gestor.retornarLigaPrivada("q"));
-			JOptionPane.showMessageDialog(null, Gestor.retornarUsuario("j").toString());
 			
 		}
 		

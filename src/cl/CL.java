@@ -84,6 +84,7 @@ public class CL {
 		listaMundiales.add(registro);
 		
 	}
+	
 	public static ArrayList<Mundiales> listaMundiales() {
 		
 		return listaMundiales;
@@ -594,7 +595,6 @@ public class CL {
 		if(index != -1) {
 			
 			listaUsuarios.set(index, temp);
-			System.out.println(listaUsuarios.get(index).getEquipoLigaPrivada().toString());
 			
 		}
 		
@@ -621,7 +621,7 @@ public class CL {
 		if(index != -1) {
 			
 			listaUsuarios.set(index, temp);
-			System.out.println(listaUsuarios.get(index).getEquipoLigaPrivada().toString());
+
 		}
 		
 	}

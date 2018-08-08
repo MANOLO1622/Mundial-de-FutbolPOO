@@ -18,14 +18,14 @@ public class Gestor {
 
 		Usuario registro = new Usuario(nombre, apellido, nombreUsuario, contrasena, avatar, correoElectronico,
 				tipoUsuario);
-		capaLogica.registrarUsuario(registro);
+		CL.registrarUsuario(registro);
 
 	}
 
 	public void registrarMundial(String nombreMundial, Date ano, String paisOrganizador, boolean estado) {
 
 		Mundiales registro = new Mundiales(nombreMundial, ano, paisOrganizador,  estado);
-		capaLogica.registrarMundial(registro);
+		CL.registrarMundial(registro);
 
 	}
 
@@ -33,7 +33,7 @@ public class Gestor {
 			int bono,Mundiales mundialAnfitrion) {
 		
 		LigasPublicas registro = new LigasPublicas(nombreLiga, fechaCreacion, estado, puntos, bono, mundialAnfitrion);
-		capaLogica.registrarLigaPublicas(registro);
+		CL.registrarLigaPublicas(registro);
 
 	}
 
@@ -41,7 +41,7 @@ public class Gestor {
 			int bono,Mundiales mundialAnfitrion) {
 		
 		LigasPrivadas registro = new LigasPrivadas(nombreLiga, fechaCreacion, estado, puntos, bono,mundialAnfitrion);
-		capaLogica.registrarLigaPrivadas(registro);
+		CL.registrarLigaPrivadas(registro);
 
 	}
 
@@ -49,7 +49,7 @@ public class Gestor {
 
 	public void listarUsuarios() {
 
-		ArrayList<Usuario> listaImpresion = capaLogica.listarUsuarios();
+		ArrayList<Usuario> listaImpresion = CL.listarUsuarios();
 
 		System.out.println("");
 
@@ -65,7 +65,7 @@ public class Gestor {
 
 	public void listarMundiales() {
 
-		ArrayList<Mundiales> listaImpresion = capaLogica.listaMundiales();
+		ArrayList<Mundiales> listaImpresion = CL.listaMundiales();
 
 		System.out.println("");
 
@@ -81,7 +81,7 @@ public class Gestor {
 
 	public void listarLigasPublicas() {
 
-		ArrayList<LigasPublicas> listaImpresion = capaLogica.retornarLigasPublicas();
+		ArrayList<LigasPublicas> listaImpresion = CL.retornarLigasPublicas();
 
 		System.out.println("");
 
@@ -97,7 +97,7 @@ public class Gestor {
 
 	public void listarLigasPrivadas() {
 
-		ArrayList<LigasPrivadas> listaImpresion = capaLogica.listaLigasPrivadas();
+		ArrayList<LigasPrivadas> listaImpresion = CL.listaLigasPrivadas();
 
 		System.out.println("");
 
@@ -119,7 +119,7 @@ public class Gestor {
 		int posicion = -1;
 		String validador = "";
 
-		ArrayList<Usuario> listaComparacion = capaLogica.listarUsuarios();
+		ArrayList<Usuario> listaComparacion = CL.listarUsuarios();
 
 		switch (eleccion) {
 
@@ -201,7 +201,7 @@ public class Gestor {
 	public Perfiles retornarTipoUsuario(String nombreUsuario, String contrasena) {
 
 		Perfiles tipoPerfil = Perfiles.VIEWER;
-		ArrayList<Usuario> listaUsuariosRegistrados = capaLogica.listarUsuarios();
+		ArrayList<Usuario> listaUsuariosRegistrados = CL.listarUsuarios();
 
 		for (Usuario e : listaUsuariosRegistrados) {
 
@@ -257,13 +257,13 @@ public class Gestor {
 
 	public static void registrarEquipos(String nombre, int ranking, String bandera, ISOPaises iso) {
 
-		capaLogica.registrarEquipos(nombre, ranking, bandera, iso);
+		CL.registrarEquipos(nombre, ranking, bandera, iso);
 
 	}
 
 	public static void listarEquiposFIFA() {
 
-		ArrayList<Equipo> listaTemp = capaLogica.listarEquiposFIFA();
+		ArrayList<Equipo> listaTemp = CL.listarEquiposFIFA();
 
 		for (Equipo e : listaTemp) {
 
@@ -277,7 +277,7 @@ public class Gestor {
 
 	public static String retornarBanderaEquipo(String nombreEquipo) {
 
-		String bandera = capaLogica.retornarBanderaEquipo(nombreEquipo);
+		String bandera = CL.retornarBanderaEquipo(nombreEquipo);
 		return bandera;
 	}
 
@@ -319,7 +319,7 @@ public class Gestor {
 
 	public boolean validarLigaPublica(String nombre) {
 
-		ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.retornarLigasPublicas();
+		ArrayList<LigasPublicas> listaLigasPublicas = CL.retornarLigasPublicas();
 
 		boolean buscar = false;
 		for (LigasPublicas LigasPublica : listaLigasPublicas) {
@@ -333,9 +333,10 @@ public class Gestor {
 
 	public boolean validarLigaPrivada(String nombre) {
 
-		ArrayList<LigasPrivadas> listaLigasPrivadas = capaLogica.listaLigasPrivadas();
+		ArrayList<LigasPrivadas> listaLigasPrivadas = CL.listaLigasPrivadas();
 
 		boolean buscar = false;
+		
 		for (LigasPrivadas LigasPriavada : listaLigasPrivadas) {
 			if (LigasPriavada.getNombreLiga().equals(nombre)) {
 				buscar = true;
@@ -347,7 +348,7 @@ public class Gestor {
 
 	public boolean validarLigaMundial(String paisOrganizador) {
 		
-		ArrayList<Mundiales> listaMundiales = capaLogica.listaMundiales();
+		ArrayList<Mundiales> listaMundiales = CL.listaMundiales();
 
 		boolean buscar = false;
 		for (Mundiales Mundial : listaMundiales) {
@@ -361,7 +362,7 @@ public class Gestor {
 
 	public boolean validarMundial(Mundiales mundialAnfitrion) {
 
-		ArrayList<Mundiales> listaMundiales = capaLogica.retornarMundialesRegistrados();
+		ArrayList<Mundiales> listaMundiales = CL.retornarMundialesRegistrados();
 		boolean buscar = false;
 		
 		for (Mundiales e: listaMundiales) {
