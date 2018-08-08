@@ -639,6 +639,21 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 	}
 	
+	/*public void ingresarUsuarios() {
+		
+		ArrayList<Usuarios> listaTemporal = Gestor.retornarUsuariosRegistrados();
+		
+		usuariosregistrados.removeAllItems();
+		
+		for(Usuario e: listaTemporal) {
+			
+			usuariosregistrados.addItem(e.getNombre());
+			
+		}
+		
+	}*/
+	
+	
 	public void ingresarMundiales() {
 		
 		ArrayList<Mundiales> listaTemporal = Gestor.retornarMundialesRegistrados();
