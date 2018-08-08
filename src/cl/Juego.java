@@ -19,6 +19,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 	ImageIcon imagenBanderaPaisEscogido;
 	JTextPane partidosPaisEscogido = new JTextPane();
 	private JButton btnregistrarEquipoJugador = new JButton("Seleccionar");
+	private JButton btnApostar = new JButton("Apostar");
 	
 	private JButton btnSalir = new JButton("Salir");
 	
@@ -657,6 +658,15 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		
 		if(tipoLiga == 0) {
 			
+			temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
+			temp2 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSegundoCuadro();
+			temp3 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosTercerCuadro();
+			temp4 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosCuartoCuadro();
+			temp5 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosQuintoCuadro();
+			temp6 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSextoCuadro();
+			temp7 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSeptimoCuadro();
+			temp8 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosOctavoCuadro();
+			
 			if(this.miUsuario.getEquipoLigaPublica()==null) {
 				
 				equipos.removeAllItems();
@@ -671,22 +681,38 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 			}else {
 				
-				JOptionPane.showMessageDialog(null, "El equipo " + this.miUsuario.getEquipoLigaPublica().getNombre() + "esta asociado a este jugador.");
-								
+				this.add(labelBanderaPaisEscogido);
+				labelBanderaPaisEscogido.setBounds(1075, 60, 175, 122);
+				
+				this.add(partidosPaisEscogido);
+				partidosPaisEscogido.setBounds(1075, 190, 175, 300);
+				
+				imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo(this.miUsuario.getEquipoLigaPublica().getBandera()));
+				Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
+				labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
+				
+				this.add(btnApostar);
+				btnApostar.setBounds(1100, 500, 125, 30);
+					
 			}
 			
-			temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
-			temp2 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSegundoCuadro();
-			temp3 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosTercerCuadro();
-			temp4 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosCuartoCuadro();
-			temp5 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosQuintoCuadro();
-			temp6 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSextoCuadro();
-			temp7 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSeptimoCuadro();
-			temp8 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosOctavoCuadro();
+
 		
 			
 			
 		}else if(tipoLiga == 1) {
+			
+			
+			temp1 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
+			temp2 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSegundoCuadro();
+			temp3 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosTercerCuadro();
+			temp4 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosCuartoCuadro();
+			temp5 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosQuintoCuadro();
+			temp6 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSextoCuadro();
+			temp7 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSeptimoCuadro();
+			temp8 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosOctavoCuadro();
+			
+			
 			
 			if(this.miUsuario.getEquipoLigaPrivada()==null) {
 				
@@ -701,18 +727,23 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				}	
 			}else {
 				
-				JOptionPane.showMessageDialog(null, "El equipo " + this.miUsuario.getEquipoLigaPrivada().getNombre() + "esta asociado a este jugador.");
+				this.add(labelBanderaPaisEscogido);
+				labelBanderaPaisEscogido.setBounds(1075, 60, 175, 122);
+				
+				this.add(partidosPaisEscogido);
+				partidosPaisEscogido.setBounds(1075, 190, 175, 300);
+				
+				
+				imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo(this.miUsuario.getEquipoLigaPrivada().getBandera()));
+				Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
+				labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
+				
+				this.add(btnApostar);
+				btnApostar.setBounds(1100, 500, 125, 30);
 								
 			}
 			
-			temp1 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
-			temp2 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSegundoCuadro();
-			temp3 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosTercerCuadro();
-			temp4 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosCuartoCuadro();
-			temp5 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosQuintoCuadro();
-			temp6 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSextoCuadro();
-			temp7 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSeptimoCuadro();
-			temp8 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosOctavoCuadro();
+
 			
 		}
 
