@@ -1220,9 +1220,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				Gestor.asignarEquipoLigaPublicaUsuario(this.miUsuario.getNombreUsuario(), Gestor.retornarEquipo((String)equipos.getSelectedItem()));
 				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
 				
-				this.remove(equipos);
-				this.remove(btnregistrarEquipoJugador);
-				
 				mostrarinformacionpaisEscogido(0);
 				
 			} else if(this.tipoLiga == 1 ) {
@@ -1230,9 +1227,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 				Gestor.asignarEquipoLigaPrivadaUsuario(this.miUsuario.getNombreUsuario(), Gestor.retornarEquipo((String)equipos.getSelectedItem()));
 				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
-				
-				this.remove(equipos);
-				this.remove(btnregistrarEquipoJugador);
 				
 				mostrarinformacionpaisEscogido(1);
 				
@@ -1253,6 +1247,10 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		
 		case 0: 
 			
+			this.remove(equipos);
+			this.remove(btnregistrarEquipoJugador);
+			
+			
 			this.add(labelBanderaPaisEscogido);
 			labelBanderaPaisEscogido.setBounds(1075, 60, 175, 122);
 			
@@ -1271,7 +1269,10 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			break;
 			
 		case 1: 
-			
+						
+			this.remove(equipos);
+			this.remove(btnregistrarEquipoJugador);
+
 			this.add(labelBanderaPaisEscogido);
 			labelBanderaPaisEscogido.setBounds(1075, 60, 175, 122);
 			
