@@ -622,6 +622,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		ingresarPaises();
 		ingresarMundiales();
 		ingresarLigasPublicas();
+//		ingresarLigasPrivadas();
+//		ingresarUsuarios();
 		
 	}
 	
@@ -651,6 +653,21 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			
 		}
 		
+	}*/
+	
+	
+	/*public void ingresarligasPrivadas() {
+	
+	ArrayList<ligasPrivadas> listaTemporal = Gestor.retornarLigasPrivadasRegistradas();
+	
+	ligasPrivadasRegistradas.removeAllItems();
+	
+		for(Usuario e: listaTemporal) {
+			
+			ligasPrivadasRegistradas.addItem(e.getNombre());
+			
+		}
+	
 	}*/
 	
 	
