@@ -237,12 +237,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			
 		}
 		
-		/*if (e.getSource() == botonRegistrarPrivadaRegistro) {
-			
-			Gestor.((String)LigasPrivadas.getSelectedItem());
-			removerMenus();
-			
-		}*/
 		
 		
 		
