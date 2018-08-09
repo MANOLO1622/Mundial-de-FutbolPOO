@@ -29,6 +29,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JButton botonEliminarPublicaRegistro = new JButton("Eliminar");
 	JButton botonEliminarPrivadaRegistro = new JButton("Eliminar");
 	JButton CancelarEliminacionLiga = new JButton("Cancelar");
+	
 
 	
 
@@ -40,7 +41,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JLabel labelTituloPublica = new JLabel("Crear Liga Publica");
 	JLabel labelTituloMundial = new JLabel("Crear Mundial");
 	JTextField nombreLigaTXT = new JTextField(10);
-	
 	JLabel labelEstado = new JLabel("Estado:");
 	JTextField estadoTXT = new JTextField(10);
 	
@@ -68,6 +68,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JComboBox LigasPublicas = new JComboBox();
 	JComboBox LigasPrivadas = new JComboBox();
 	JComboBox usuariosregistrados = new JComboBox();
+	JComboBox ligasPrivadasRegistradas = new JComboBox();
 	
 	
 	//------------------------------------------------------------------------------
@@ -81,7 +82,11 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JButton btnSalir = new JButton("Salir");
 	JButton botonCancelarRegistroPublico = new JButton("Cancelar");
 
-
+	//---------------------Botones de Incluir una Liga Privada-----------------------
+	
+	
+	JButton botonRegistrarPrivadaRegistro = new JButton("Registrar");
+	JButton CancelarRegistroLigaPrivada = new JButton("Cancelar");
 
 
 	
@@ -168,6 +173,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		botonEliminarPublicaRegistro.addActionListener(this);
 		botonEliminarPrivadaRegistro.addActionListener(this);
 		CancelarEliminacionLiga.addActionListener(this);
+		botonRegistrarPrivadaRegistro.addActionListener(this);
+		CancelarRegistroLigaPrivada.addActionListener(this);
+		
+		
 	}
 	
 	//------------------------------------------------------------------------------
@@ -227,6 +236,16 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			removerMenus();
 			
 		}
+		
+		/*if (e.getSource() == botonRegistrarPrivadaRegistro) {
+			
+			Gestor.((String)LigasPrivadas.getSelectedItem());
+			removerMenus();
+			
+		}*/
+		
+		
+		
 		
 	
 		
@@ -359,6 +378,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			desabilitarMenu();
 			registrarLigaPrivadas();
 			ingresarComboBox();
+			//ligasPrivadasRegistradasComboBox();
+			
+			
 		}
 		
 		
@@ -396,8 +418,21 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		if(e.getSource()==btnIncJugLigaPrivada) {
 			
-
-			Gestor.asignarLigaPrivadaUsuario("j",Gestor.retornarLigaPrivada("q"));
+			ingresarLigasPrivadas();
+			removerMenus();
+			
+			this.add(LigasPrivadas);
+			LigasPrivadas.setBounds(990, 200, 120, 30);
+			
+			botonRegistrarPrivadaRegistro.setBounds(1120, 200, 100, 30);
+			this.add(botonRegistrarPrivadaRegistro);
+			
+			
+			this.add(CancelarRegistroLigaPrivada);
+			CancelarRegistroLigaPrivada.setBounds(1230, 200, 100, 30);
+			
+			
+			//PRUEBA
 			
 		}
 		
@@ -556,6 +591,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.remove(btnCancelar);
 		this.remove(btnRegistroLigaPublica);
 		this.remove(btnRegistrarMundial);
+		this.remove(botonRegistrarPrivadaRegistro);
+		this.remove(CancelarRegistroLigaPrivada);
 		
 		this.remove(labelAno);
 		fechaMundial.setVisible(false);
@@ -623,8 +660,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		ingresarPaises();
 		ingresarMundiales();
 		ingresarLigasPublicas();
-//		ingresarLigasPrivadas();
-//		ingresarUsuarios();
+		ingresarLigasPrivadas();
+		ingresarUsuarios();
 		
 	}
 	
@@ -657,19 +694,19 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	}
 	
 	
-	/*public void ingresarligasPrivadas() {
+	public void ingresarligasPrivadas() {
 	
-	ArrayList<ligasPrivadas> listaTemporal = Gestor.retornarLigasPrivadasRegistradas();
+	ArrayList<LigasPrivadas> listaTemporal = Gestor.retornarLigasPrivadasRegistradas();
 	
 	ligasPrivadasRegistradas.removeAllItems();
 	
-		for(Usuario e: listaTemporal) {
+		for(LigasPrivadas e: listaTemporal) {
 			
-			ligasPrivadasRegistradas.addItem(e.getNombre());
+			ligasPrivadasRegistradas.addItem(e.getNombreLiga());
 			
 		}
 	
-	}*/
+	}
 	
 	
 	public void ingresarMundiales() {
