@@ -7,6 +7,7 @@ public class Partido {
 	private Equipo equipo1;
 	private Equipo equipo2;
 	private Equipo equipoGanador;
+	private Equipo equipoPerdedor;
 	private int puntajeEquipo1;
 	private int puntajeEquipo2;
 	
@@ -79,14 +80,16 @@ public class Partido {
 	public void escogerGanador() {
 		
 		
-		if(puntajeEquipo1 > puntajeEquipo2) {
+		if(puntajeEquipo1 >= puntajeEquipo2) {
 			
 			equipoGanador = equipo1;
+			equipoPerdedor = equipo2;
 			
 		}
 		else {
 			
 			equipoGanador = equipo2;
+			equipoPerdedor = equipo1;
 			
 		}
 		
