@@ -36,6 +36,18 @@ public class PrimeraRonda {
     private Equipo[] ganadoresSeptimoCuadro = new Equipo[2];
     private Equipo[] ganadoresOctavoCuadro = new Equipo[2];
     
+    
+    private Partido[] partidosOctavosFinal = new Partido[8];
+    private Partido[] partidosCuartosFinal = new Partido[4];
+    private Partido[] partidosSemiFinal = new Partido[2];
+    private Partido juegoPrimerSegundoLugar;
+    private Partido juegoTercerCuartoLugar;
+    
+    private Equipo[] ganadoresOctavosFinal = new Equipo[8];
+    private Equipo[] ganadoresCuartosFinal = new Equipo[4];
+    
+    
+    
 	//---------------------------------------------------------------------------------------Constructor.
     
     public PrimeraRonda(ArrayList<Equipo> equiposMundial) {
@@ -256,9 +268,139 @@ public class PrimeraRonda {
 	public void setPartidosOctavoCuadro(Partido[] partidosOctavoCuadro) {
 		this.partidosOctavoCuadro = partidosOctavoCuadro;
 	}
-
-	//---------------------------------------------------------------------------------------metodo to String
 	
+	public Equipo[] getGanadoresPrimerCuadro() {
+		return ganadoresPrimerCuadro;
+	}
+
+
+	public void setGanadoresPrimerCuadro(Equipo[] ganadoresPrimerCuadro) {
+		this.ganadoresPrimerCuadro = ganadoresPrimerCuadro;
+	}
+
+
+	public Equipo[] getGanadoresSegundoCuadro() {
+		return ganadoresSegundoCuadro;
+	}
+
+
+	public void setGanadoresSegundoCuadro(Equipo[] ganadoresSegundoCuadro) {
+		this.ganadoresSegundoCuadro = ganadoresSegundoCuadro;
+	}
+
+
+	public Equipo[] getGanadoresTercerCuadro() {
+		return ganadoresTercerCuadro;
+	}
+
+
+	public void setGanadoresTercerCuadro(Equipo[] ganadoresTercerCuadro) {
+		this.ganadoresTercerCuadro = ganadoresTercerCuadro;
+	}
+
+
+	public Equipo[] getGanadoresCuartoCuadro() {
+		return ganadoresCuartoCuadro;
+	}
+
+
+	public void setGanadoresCuartoCuadro(Equipo[] ganadoresCuartoCuadro) {
+		this.ganadoresCuartoCuadro = ganadoresCuartoCuadro;
+	}
+
+
+	public Equipo[] getGanadoresQuintoCuadro() {
+		return ganadoresQuintoCuadro;
+	}
+
+
+	public void setGanadoresQuintoCuadro(Equipo[] ganadoresQuintoCuadro) {
+		this.ganadoresQuintoCuadro = ganadoresQuintoCuadro;
+	}
+
+
+	public Equipo[] getGanadoresSextoCuadro() {
+		return ganadoresSextoCuadro;
+	}
+
+
+	public void setGanadoresSextoCuadro(Equipo[] ganadoresSextoCuadro) {
+		this.ganadoresSextoCuadro = ganadoresSextoCuadro;
+	}
+
+
+	public Equipo[] getGanadoresSeptimoCuadro() {
+		return ganadoresSeptimoCuadro;
+	}
+
+
+	public void setGanadoresSeptimoCuadro(Equipo[] ganadoresSeptimoCuadro) {
+		this.ganadoresSeptimoCuadro = ganadoresSeptimoCuadro;
+	}
+
+
+	public Equipo[] getGanadoresOctavoCuadro() {
+		return ganadoresOctavoCuadro;
+	}
+
+
+	public void setGanadoresOctavoCuadro(Equipo[] ganadoresOctavoCuadro) {
+		this.ganadoresOctavoCuadro = ganadoresOctavoCuadro;
+	}
+
+
+	public Partido[] getPartidosOctavosFinal() {
+		return partidosOctavosFinal;
+	}
+
+
+	public void setPartidosOctavosFinal(Partido[] partidosOctavosFinal) {
+		this.partidosOctavosFinal = partidosOctavosFinal;
+	}
+
+
+	public Partido[] getPartidosCuartosFinal() {
+		return partidosCuartosFinal;
+	}
+
+
+	public void setPartidosCuartosFinal(Partido[] partidosCuartosFinal) {
+		this.partidosCuartosFinal = partidosCuartosFinal;
+	}
+
+
+	public Partido[] getPartidosSemiFinal() {
+		return partidosSemiFinal;
+	}
+
+
+	public void setPartidosSemiFinal(Partido[] partidosSemiFinal) {
+		this.partidosSemiFinal = partidosSemiFinal;
+	}
+
+
+	public Partido getJuegoPrimerSegundoLugar() {
+		return juegoPrimerSegundoLugar;
+	}
+
+
+	public void setJuegoPrimerSegundoLugar(Partido juegoPrimerSegundoLugar) {
+		this.juegoPrimerSegundoLugar = juegoPrimerSegundoLugar;
+	}
+
+
+	public Partido getJuegoTercerCuartoLugar() {
+		return juegoTercerCuartoLugar;
+	}
+
+
+	public void setJuegoTercerCuartoLugar(Partido juegoTercerCuartoLugar) {
+		this.juegoTercerCuartoLugar = juegoTercerCuartoLugar;
+	}
+
+	
+	//---------------------------------------------------------------------------------------metodo to String
+
 	@Override
 	public String toString() {
 		return "PrimeraRonda: primerCuadro= " + Arrays.toString(primerCuadro) + ", segundoCuadro= "
@@ -269,6 +411,12 @@ public class PrimeraRonda {
 	}
     
     
+	
+	
+	
+	
+	
+	
 	//---------------------------------------------------------------------------------------puntaje de partidos
     
     public void generarJuegos() {
@@ -292,8 +440,59 @@ public class PrimeraRonda {
         ganadoresSextoCuadro = guardarGanadoresPrimeraFase(partidosSextoCuadro,sextoCuadro);
         ganadoresSeptimoCuadro = guardarGanadoresPrimeraFase(partidosSeptimoCuadro,septimoCuadro);
         ganadoresOctavoCuadro = guardarGanadoresPrimeraFase(partidosOctavoCuadro,octavoCuadro);
+        /*
+        System.out.println("Ganadores Primer Cuadro");
+        System.out.println(ganadoresPrimerCuadro[0].getNombre());
+        System.out.println(ganadoresPrimerCuadro[1].getNombre());
+        System.out.println("");
         
+        System.out.println("Ganadores segundo Cuadro");
+        System.out.println(ganadoresSegundoCuadro[0].getNombre());
+        System.out.println(ganadoresSegundoCuadro[1].getNombre());
+        System.out.println("");
         
+        System.out.println("Ganadores tercer Cuadro");
+        System.out.println(ganadoresTercerCuadro[0].getNombre());
+        System.out.println(ganadoresTercerCuadro[1].getNombre());
+        System.out.println("");
+        
+        System.out.println("Ganadores cuarto Cuadro");
+        System.out.println(ganadoresCuartoCuadro[0].getNombre());
+        System.out.println(ganadoresCuartoCuadro[1].getNombre());
+        System.out.println("");
+        
+        System.out.println("Ganadores quinto Cuadro");
+        System.out.println(ganadoresQuintoCuadro[0].getNombre());
+        System.out.println(ganadoresQuintoCuadro[1].getNombre());
+        System.out.println("");
+        
+        System.out.println("Ganadores sexto Cuadro");
+        System.out.println(ganadoresSextoCuadro[0].getNombre());
+        System.out.println(ganadoresSextoCuadro[1].getNombre());
+        System.out.println("");
+        
+        System.out.println("Ganadores septimo Cuadro");
+        System.out.println(ganadoresSeptimoCuadro[0].getNombre());
+        System.out.println(ganadoresSeptimoCuadro[1].getNombre());
+        System.out.println("");
+        
+        System.out.println("Ganadores octavo Cuadro");
+        System.out.println(ganadoresOctavoCuadro[0].getNombre());
+        System.out.println(ganadoresOctavoCuadro[1].getNombre());
+        System.out.println("");
+        */
+        
+        partidosOctavosFinal = guardarPartidosOctavosFinal(ganadoresPrimerCuadro, ganadoresSegundoCuadro, ganadoresTercerCuadro, ganadoresCuartoCuadro
+        		, ganadoresQuintoCuadro, ganadoresSextoCuadro, ganadoresSeptimoCuadro, ganadoresOctavoCuadro);
+        
+//        ganadoresOctavosFinal = guardarGanadoresOctavosFinal(partidosOctavosFinal);
+        
+//        partidosCuartosFinal = guardarPartidosCuartosFinal(ganadoresOctavosFinal);
+
+
+       
+        
+      
         
     }
     
@@ -374,15 +573,21 @@ public class PrimeraRonda {
 
     			equipo1Contador++;
     			
-    		} else if(e.getEquipoGanador().getNombre().equals(equipoCuadro[1].getNombre())) {
+    		}
+    		
+    		if(e.getEquipoGanador().getNombre().equals(equipoCuadro[1].getNombre())) {
     			
     			equipo2Contador++;
     			
-    		}else if(e.getEquipoGanador().getNombre().equals(equipoCuadro[2].getNombre())) {
+    		}
+
+    		if(e.getEquipoGanador().getNombre().equals(equipoCuadro[2].getNombre())) {
     			
     			equipo3Contador++;
     			
-    		}else if(e.getEquipoGanador().getNombre().equals(equipoCuadro[3].getNombre())) {
+    		}
+
+    		if(e.getEquipoGanador().getNombre().equals(equipoCuadro[3].getNombre())) {
     			
     			equipo4Contador++;
     			
@@ -393,37 +598,108 @@ public class PrimeraRonda {
 		//Se compara la cantidad de victorias para saber si se va a clasificar a la segunda fase.
 		
 
-		if(equipo1Contador>=2) {
-			
-			listatemporal.add(equipoCuadro[0]);
-			
-		} 
-		
-		if(equipo2Contador>=2) {
-			
-			listatemporal.add(equipoCuadro[1]);    			
-			
-		}
-		
-		if(equipo3Contador>=2) {
-			
-			listatemporal.add(equipoCuadro[2]);    			
-			
-		}
-		
-		if(equipo4Contador>=2) {
-			
-			listatemporal.add(equipoCuadro[3]);    			
-			
-		}
-
-		
-		listaRetorno[0] = listatemporal.get(0);
+    	System.out.println(equipo1Contador);
+    	System.out.println(equipo2Contador);
+    	System.out.println(equipo3Contador);
+    	System.out.println(equipo4Contador);
+    	
+    	
+    	if(equipo1Contador == 3 || equipo2Contador == 3 || equipo3Contador == 3 && equipo4Contador == 3) {
+    		
+    		if(equipo2Contador == 1 && equipo3Contador == 1 && equipo4Contador == 1) {
+    			
+    			listatemporal.add(equipoCuadro[0]);
+    			listatemporal.add(retornarEquipoMayorRanking(equipoCuadro[1], equipoCuadro[2],equipoCuadro[3]));
+    			
+    		} else if(equipo1Contador == 1 && equipo3Contador == 1 && equipo4Contador == 1) {
+    			
+    			listatemporal.add(equipoCuadro[1]);
+    			listatemporal.add(retornarEquipoMayorRanking(equipoCuadro[0], equipoCuadro[2],equipoCuadro[3]));
+    			
+    		}else if(equipo1Contador == 1 && equipo2Contador == 1 && equipo4Contador == 1) {
+    			
+    			
+        		listatemporal.add(equipoCuadro[2]);
+    			listatemporal.add(retornarEquipoMayorRanking(equipoCuadro[0], equipoCuadro[1],equipoCuadro[3]));
+    			
+    		}else if(equipo1Contador == 1 && equipo2Contador == 1 && equipo3Contador == 1) {
+    			
+        		listatemporal.add(equipoCuadro[3]);
+    			listatemporal.add(retornarEquipoMayorRanking(equipoCuadro[0], equipoCuadro[1],equipoCuadro[2]));
+    			
+    		} else {
+    			
+        		if(equipo1Contador>=2) {
+        			
+        			listatemporal.add(equipoCuadro[0]);
+        			
+        		}
+        		
+        		if(equipo2Contador>=2) {
+        			
+        			listatemporal.add(equipoCuadro[1]);    			
+        			
+        		}
+        		
+        		if(equipo3Contador>=2) {
+        			
+        			listatemporal.add(equipoCuadro[2]);    			
+        			
+        		}
+        		
+        		if(equipo4Contador>=2) {
+        			
+        			listatemporal.add(equipoCuadro[3]);    			
+        			
+        		} 
+        		
+        		
+    			
+    			
+    		}
+    		
+    	}else {
+    		
+    		
+    		if(equipo1Contador==2) {
+    			
+    			listatemporal.add(equipoCuadro[0]);
+    			
+    		}
+    		
+    		if(equipo2Contador==2) {
+    			
+    			listatemporal.add(equipoCuadro[1]);    			
+    			
+    		}
+    		
+    		if(equipo3Contador>=2) {
+    			
+    			listatemporal.add(equipoCuadro[2]);    			
+    			
+    		}
+    		
+    		if(equipo4Contador>=2) {
+    			
+    			listatemporal.add(equipoCuadro[3]);    			
+    			
+    		} 
+    		
+    	}
+    	
+    	
+    	listaRetorno[0] = listatemporal.get(0);
 		listaRetorno[1] = listatemporal.get(1);
     	
-    	System.out.println("ganaron");
-    	System.out.println(listaRetorno[0].toString());
-    	System.out.println(listaRetorno[1].toString());
+
+		
+		//----------------------------------------------------------------------------
+
+		
+		System.out.println();
+		System.out.println(listaRetorno[0].getNombre());
+		System.out.println(listaRetorno[1].getNombre());
+		System.out.println();
     	
     	return listaRetorno;
     	    	
@@ -431,14 +707,137 @@ public class PrimeraRonda {
     
     
   //---------------------------------------------------------------------------------------Sacar ganadores los octavos de final
-    /*
     
-    public Equipo[] guardarGanadoresOctavosFinal(Partido[] partidosCuadro, Equipo[] equipoCuadro) {
+    
+    public Equipo retornarEquipoMayorRanking(Equipo temp1, Equipo temp2, Equipo temp3) {
     	
+    	if(temp1.getRanking()>temp2.getRanking() && temp1.getRanking()>temp3.getRanking()) {
+    		
+    		return temp1;
+    		
+    	} else if(temp2.getRanking()>temp1.getRanking() && temp2.getRanking()>temp3.getRanking()) {
+    		
+    		
+    		return temp2;
+    		
+    	}else if(temp3.getRanking()>temp1.getRanking() && temp3.getRanking()>temp2.getRanking()) {
+    		
+    		return temp3;
+    		
+    	}else {
+    		
+    		return temp1;
+    		
+    	}
     	
     }
     
-    */
+    
+    
+    public Partido[] guardarPartidosOctavosFinal(Equipo[] ganadores1, Equipo[] ganadores2,Equipo[] ganadores3,Equipo[] ganadores4,Equipo[] ganadores5,Equipo[] ganadores6
+    		,Equipo[] ganadores7,Equipo[] ganadores8) {
+    	
+    	Partido[] partidosOctavosFinalTemp = new Partido[8];
+    	
+    	partidosOctavosFinalTemp[0] = new Partido(ganadores1[0], ganadores2[1]);
+    	partidosOctavosFinalTemp[1] = new Partido(ganadores1[1], ganadores2[0]);
+    	
+    	partidosOctavosFinalTemp[2] = new Partido(ganadores3[0], ganadores4[1]);
+    	partidosOctavosFinalTemp[3] = new Partido(ganadores3[1], ganadores4[0]);
+    	
+    	partidosOctavosFinalTemp[4] = new Partido(ganadores5[0], ganadores6[1]);
+    	partidosOctavosFinalTemp[5] = new Partido(ganadores5[1], ganadores6[0]);
+    	
+    	partidosOctavosFinalTemp[6] = new Partido(ganadores7[0], ganadores8[1]);
+    	partidosOctavosFinalTemp[7] = new Partido(ganadores7[1], ganadores8[0]);
+
+    	System.out.println("Se registraron como ganadores");
+    	
+    	System.out.println(partidosOctavosFinalTemp[0].getEquipoGanador().getNombre());
+    	System.out.println(partidosOctavosFinalTemp[1].getEquipoGanador().getNombre());
+    	System.out.println(partidosOctavosFinalTemp[2].getEquipoGanador().getNombre());
+    	System.out.println(partidosOctavosFinalTemp[3].getEquipoGanador().getNombre());
+    	System.out.println(partidosOctavosFinalTemp[4].getEquipoGanador().getNombre());
+    	System.out.println(partidosOctavosFinalTemp[5].getEquipoGanador().getNombre());
+    	System.out.println(partidosOctavosFinalTemp[6].getEquipoGanador().getNombre());
+    	System.out.println(partidosOctavosFinalTemp[7].getEquipoGanador().getNombre());
+    	
+    	return partidosOctavosFinalTemp;
+    	
+    }
+    
+    
+    public Partido[] guardarPartidosCuartosFinal(Equipo[] ganadores) {
+    	
+    	Partido[] partidosCuartosFinalTemp = new Partido[4];
+    	
+    	partidosCuartosFinalTemp[0] = new Partido(ganadores[0], ganadores[1]);
+    	partidosCuartosFinalTemp[1] = new Partido(ganadores[2], ganadores[3]);
+    	partidosCuartosFinalTemp[2] = new Partido(ganadores[4], ganadores[5]);
+    	partidosCuartosFinalTemp[3] = new Partido(ganadores[6], ganadores[7]);
+
+    	return partidosCuartosFinalTemp;
+    	
+    }
+    
+    
+    public Equipo[] guardarGanadoresOctavosFinal(Partido[] partidos) {
+    	
+    	Equipo[] ganadoresTemp = new Equipo[8];
+    	
+    	ganadoresTemp[0] = partidos[0].getEquipoGanador();
+    	ganadoresTemp[1] = partidos[1].getEquipoGanador();
+    	ganadoresTemp[2] = partidos[2].getEquipoGanador();
+    	ganadoresTemp[3] = partidos[3].getEquipoGanador();
+    	ganadoresTemp[4] = partidos[4].getEquipoGanador();
+    	ganadoresTemp[5] = partidos[5].getEquipoGanador();
+    	ganadoresTemp[6] = partidos[6].getEquipoGanador();
+    	ganadoresTemp[7] = partidos[7].getEquipoGanador();
+    	
+    	System.out.println("Ganadores de los octavos de final");
+    	System.out.println("");
+    	System.out.println(ganadoresTemp[0].getNombre());
+    	System.out.println(ganadoresTemp[1].getNombre());
+    	System.out.println(ganadoresTemp[2].getNombre());
+    	System.out.println(ganadoresTemp[3].getNombre());
+    	System.out.println(ganadoresTemp[4].getNombre());
+    	System.out.println(ganadoresTemp[5].getNombre());
+    	System.out.println(ganadoresTemp[6].getNombre());
+    	System.out.println(ganadoresTemp[7].getNombre());
+    	System.out.println("");
+    	
+    	
+    	
+    	return ganadoresTemp;
+    	
+    }
+    
+    public Equipo[] guardarGanadoresCuartosFinal(Partido[] partidos) {
+    	
+    	Equipo[] ganadoresTemp = new Equipo[4];
+    	
+    	ganadoresTemp[0] = partidos[0].getEquipoGanador();
+    	ganadoresTemp[1] = partidos[1].getEquipoGanador();
+    	ganadoresTemp[2] = partidos[2].getEquipoGanador();
+    	ganadoresTemp[3] = partidos[3].getEquipoGanador();  
+    	
+    	System.out.println("Ganadores de los cuartos de final");
+    	System.out.println("");
+    	System.out.println(ganadoresTemp[0].getNombre());
+    	System.out.println(ganadoresTemp[1].getNombre());
+    	System.out.println(ganadoresTemp[2].getNombre());
+    	System.out.println(ganadoresTemp[3].getNombre());
+    	System.out.println("");
+    	
+    	return ganadoresTemp;
+    	
+    }
+    
+
+
+   
+    
+    
     
     
     
