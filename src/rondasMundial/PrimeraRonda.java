@@ -440,7 +440,8 @@ public class PrimeraRonda {
         ganadoresSextoCuadro = guardarGanadoresPrimeraFase(partidosSextoCuadro,sextoCuadro);
         ganadoresSeptimoCuadro = guardarGanadoresPrimeraFase(partidosSeptimoCuadro,septimoCuadro);
         ganadoresOctavoCuadro = guardarGanadoresPrimeraFase(partidosOctavoCuadro,octavoCuadro);
-        /*
+        
+        
         System.out.println("Ganadores Primer Cuadro");
         System.out.println(ganadoresPrimerCuadro[0].getNombre());
         System.out.println(ganadoresPrimerCuadro[1].getNombre());
@@ -480,16 +481,16 @@ public class PrimeraRonda {
         System.out.println(ganadoresOctavoCuadro[0].getNombre());
         System.out.println(ganadoresOctavoCuadro[1].getNombre());
         System.out.println("");
-        */
+        
         
         partidosOctavosFinal = guardarPartidosOctavosFinal(ganadoresPrimerCuadro, ganadoresSegundoCuadro, ganadoresTercerCuadro, ganadoresCuartoCuadro
         		, ganadoresQuintoCuadro, ganadoresSextoCuadro, ganadoresSeptimoCuadro, ganadoresOctavoCuadro);
         
-//        ganadoresOctavosFinal = guardarGanadoresOctavosFinal(partidosOctavosFinal);
+        ganadoresOctavosFinal = guardarGanadoresOctavosFinal(partidosOctavosFinal);
         
-//        partidosCuartosFinal = guardarPartidosCuartosFinal(ganadoresOctavosFinal);
+        partidosCuartosFinal = guardarPartidosCuartosFinal(ganadoresOctavosFinal);
 
-
+        ganadoresCuartosFinal = guardarGanadoresCuartosFinal(partidosCuartosFinal);
        
         
       
@@ -595,14 +596,7 @@ public class PrimeraRonda {
     		
     	}
     	
-		//Se compara la cantidad de victorias para saber si se va a clasificar a la segunda fase.
-		
-
-    	System.out.println(equipo1Contador);
-    	System.out.println(equipo2Contador);
-    	System.out.println(equipo3Contador);
-    	System.out.println(equipo4Contador);
-    	
+		//Se compara la cantidad de victorias para saber si se va a clasificar a la segunda fase.    	
     	
     	if(equipo1Contador == 3 || equipo2Contador == 3 || equipo3Contador == 3 || equipo4Contador == 3) {
     		
@@ -696,12 +690,6 @@ public class PrimeraRonda {
 		
 		//----------------------------------------------------------------------------
 
-		
-		System.out.println();
-		System.out.println(listaRetorno[0].getNombre());
-		System.out.println(listaRetorno[1].getNombre());
-		System.out.println();
-    	
     	return listaRetorno;
     	    	
     }
@@ -751,17 +739,6 @@ public class PrimeraRonda {
     	
     	partidosOctavosFinalTemp[6] = new Partido(ganadores7[0], ganadores8[1]);
     	partidosOctavosFinalTemp[7] = new Partido(ganadores7[1], ganadores8[0]);
-
-    	System.out.println("Se registraron como ganadores");
-    	
-    	System.out.println(partidosOctavosFinalTemp[0].getEquipoGanador().getNombre());
-    	System.out.println(partidosOctavosFinalTemp[1].getEquipoGanador().getNombre());
-    	System.out.println(partidosOctavosFinalTemp[2].getEquipoGanador().getNombre());
-    	System.out.println(partidosOctavosFinalTemp[3].getEquipoGanador().getNombre());
-    	System.out.println(partidosOctavosFinalTemp[4].getEquipoGanador().getNombre());
-    	System.out.println(partidosOctavosFinalTemp[5].getEquipoGanador().getNombre());
-    	System.out.println(partidosOctavosFinalTemp[6].getEquipoGanador().getNombre());
-    	System.out.println(partidosOctavosFinalTemp[7].getEquipoGanador().getNombre());
     	
     	return partidosOctavosFinalTemp;
     	
