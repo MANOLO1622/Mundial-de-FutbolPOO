@@ -27,6 +27,15 @@ public class PrimeraRonda {
     private Partido[] partidosSeptimoCuadro = new Partido[6];
     private Partido[] partidosOctavoCuadro = new Partido[6];
     
+    private Equipo[] ganadoresPrimerCuadro = new Equipo[2];
+    private Equipo[] ganadoresSegundoCuadro = new Equipo[2];
+    private Equipo[] ganadoresTercerCuadro = new Equipo[2];
+    private Equipo[] ganadoresCuartoCuadro = new Equipo[2];
+    private Equipo[] ganadoresQuintoCuadro = new Equipo[2];
+    private Equipo[] ganadoresSextoCuadro = new Equipo[2];
+    private Equipo[] ganadoresSeptimoCuadro = new Equipo[2];
+    private Equipo[] ganadoresOctavoCuadro = new Equipo[2];
+    
 	//---------------------------------------------------------------------------------------Constructor.
     
     public PrimeraRonda(ArrayList<Equipo> equiposMundial) {
@@ -273,6 +282,19 @@ public class PrimeraRonda {
         partidosSeptimoCuadro = organizarCuadroJuego(septimoCuadro);
         partidosOctavoCuadro = organizarCuadroJuego(octavoCuadro);
         
+        
+        /*
+        ganadoresPrimerCuadro = guardarGanadores(partidosPrimerCuadro,primerCuadro);
+        ganadoresSegundoCuadro = guardarGanadores(partidosSegundoCuadro,segundoCuadro);
+        ganadoresTercerCuadro = guardarGanadores(partidosTercerCuadro,tercerCuadro);
+        ganadoresCuartoCuadro = guardarGanadores(partidosCuartoCuadro,cuartoCuadro);
+        ganadoresQuintoCuadro = guardarGanadores(partidosQuintoCuadro,quintoCuadro);
+        ganadoresSextoCuadro = guardarGanadores(partidosSextoCuadro,sextoCuadro);
+        ganadoresSeptimoCuadro = guardarGanadores(partidosSeptimoCuadro,septimoCuadro);
+        ganadoresOctavoCuadro = guardarGanadores(partidosOctavoCuadro,octavoCuadro);
+        */
+        
+        
     }
     
     public Partido[] organizarCuadroJuego(Equipo[] cuadroJuego) {
@@ -331,7 +353,81 @@ public class PrimeraRonda {
     }
     
     
+	//---------------------------------------------------------------------------------------Sacar ganadores de cada cuadro
     
+    public Equipo[] guardarGanadores(Partido[] partidosCuadro, Equipo[] equipoCuadro) {
+		
+    	int equipo1Contador = 0;
+    	int equipo2Contador = 0;
+    	int equipo3Contador = 0;
+    	int equipo4Contador = 0;
+    	
+    	Equipo[] listaRetorno = new Equipo[2];
+    	ArrayList<Equipo> listatemporal = new ArrayList();
+    	
+	
+    	for(Partido e: partidosCuadro) {
+    		
+    		//Se genera el contador de cada equipo para ver cuantas veces ha logrado ganar.
+    		
+    		if(e.getEquipoGanador().getNombre().equals(equipoCuadro[0].getNombre())) {
+
+    			equipo1Contador++;
+    			
+    		} else if(e.getEquipoGanador().getNombre().equals(equipoCuadro[1].getNombre())) {
+    			
+    			equipo2Contador++;
+    			
+    		}else if(e.getEquipoGanador().getNombre().equals(equipoCuadro[2].getNombre())) {
+    			
+    			equipo3Contador++;
+    			
+    		}else if(e.getEquipoGanador().getNombre().equals(equipoCuadro[3].getNombre())) {
+    			
+    			equipo4Contador++;
+    			
+    		}
+    		
+    		//Se compara la cantidad de victorias para saber si se va a clasificar a la segunda fase.
+
+    		if(equipo1Contador>=2) {
+    			
+    			listatemporal.add(equipoCuadro[0]);
+    			
+    		} 
+    		
+    		if(equipo2Contador>=2) {
+    			
+    			listatemporal.add(equipoCuadro[1]);    			
+    			
+    		}
+    		
+    		if(equipo3Contador>=2) {
+    			
+    			listatemporal.add(equipoCuadro[2]);    			
+    			
+    		}
+    		
+    		if(equipo4Contador>=2) {
+    			
+    			listatemporal.add(equipoCuadro[3]);    			
+    			
+    		}
+    		
+    		listaRetorno[0] = listatemporal.get(0);
+    		listaRetorno[1] = listatemporal.get(1);
+    		
+    		
+    		
+    	}
+    	
+    	System.out.println("ganaron");
+    	System.out.println(listaRetorno[0].toString());
+    	System.out.println(listaRetorno[1].toString());
+    	
+    	return listaRetorno;
+    	    	
+    }
     
     
     
