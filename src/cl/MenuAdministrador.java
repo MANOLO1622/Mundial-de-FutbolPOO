@@ -86,7 +86,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	
 	
 	JButton botonRegistrarPrivadaRegistro = new JButton("Registrar");
-	JButton CancelarRegistroLigaPrivada = new JButton("Cancelar");
+	
 
 
 	
@@ -173,8 +173,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		botonEliminarPublicaRegistro.addActionListener(this);
 		botonEliminarPrivadaRegistro.addActionListener(this);
 		CancelarEliminacionLiga.addActionListener(this);
-		botonRegistrarPrivadaRegistro.addActionListener(this);
-		CancelarRegistroLigaPrivada.addActionListener(this);
+		//botonRegistrarPrivadaRegistro.addActionListener(this);
+		//CancelarRegistroLigaPrivada.addActionListener(this);
 		
 		
 	}
@@ -289,6 +289,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			removerMenus();
 			
 		}
+		
+		/*if(e.getSource()==CancelarRegistroLigaPrivada) {
+			
+			removerMenus();
+			
+		}*/
 			
 		
 
@@ -372,7 +378,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			desabilitarMenu();
 			registrarLigaPrivadas();
 			ingresarComboBox();
-			//ligasPrivadasRegistradasComboBox();
+			
 			
 			
 		}
@@ -421,10 +427,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			botonRegistrarPrivadaRegistro.setBounds(1120, 200, 100, 30);
 			this.add(botonRegistrarPrivadaRegistro);
 			
+
+			this.add(btnCancelar);
+			btnCancelar.setBounds(1230, 200, 100, 30);
 			
-			this.add(CancelarRegistroLigaPrivada);
-			CancelarRegistroLigaPrivada.setBounds(1230, 200, 100, 30);
 			
+			desabilitarMenu();
 			
 			//PRUEBA
 			
@@ -448,6 +456,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			desabilitarMenu();
 			
 		}
+		
+		
+		
 		
 		if(e.getSource() == botonSalir) {
 			
@@ -585,8 +596,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.remove(btnCancelar);
 		this.remove(btnRegistroLigaPublica);
 		this.remove(btnRegistrarMundial);
-		this.remove(botonRegistrarPrivadaRegistro);
-		this.remove(CancelarRegistroLigaPrivada);
+		//this.remove(botonRegistrarPrivadaRegistro);
+		//this.remove(CancelarRegistroLigaPrivada);
 		
 		this.remove(labelAno);
 		fechaMundial.setVisible(false);
@@ -601,10 +612,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.remove(LigasPrivadas);
 		this.remove(botonEliminarPublicaRegistro);
 		this.remove(botonEliminarPrivadaRegistro);
+		this.remove(botonRegistrarPrivadaRegistro);
 		
 		this.remove(labelNombreMundial);
 		this.remove(nombreMundialTXT);
 		this.remove(CancelarEliminacionLiga);
+		
 		
 		boton1.setEnabled(true);
 		boton2.setEnabled(true);
@@ -618,6 +631,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		btnEliminarLigaPublica.setEnabled(true);
 		btnRegistrarLigaPrivada.setEnabled(true);
 		botonSalir.setEnabled(true);
+		LigasPrivadas.setEnabled(true);
 		
 	
 	}
@@ -636,6 +650,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		btnEliminarLigaPublica.setEnabled(false);
 		btnRegistrarLigaPrivada.setEnabled(false);
 		botonSalir.setEnabled(false);
+		LigasPrivadas.setEnabled(false);
+		
 		
 		nombreLigaTXT.setText("");
 		estadoTXT.setText("");
