@@ -604,28 +604,27 @@ public class PrimeraRonda {
     	System.out.println(equipo4Contador);
     	
     	
-    	if(equipo1Contador == 3 || equipo2Contador == 3 || equipo3Contador == 3 && equipo4Contador == 3) {
+    	if(equipo1Contador == 3 || equipo2Contador == 3 || equipo3Contador == 3 || equipo4Contador == 3) {
     		
-    		if(equipo2Contador == 1 && equipo3Contador == 1 && equipo4Contador == 1) {
+    		if(equipo1Contador == 3 && equipo2Contador == 1 && equipo3Contador == 1 && equipo4Contador == 1) {
     			
-    			listatemporal.add(equipoCuadro[0]);
-    			listatemporal.add(retornarEquipoMayorRanking(equipoCuadro[1], equipoCuadro[2],equipoCuadro[3]));
+    		   	listaRetorno[0] = equipoCuadro[0];
+    			listaRetorno[1] = retornarEquipoMayorRanking(equipoCuadro[1], equipoCuadro[2],equipoCuadro[3]);
     			
-    		} else if(equipo1Contador == 1 && equipo3Contador == 1 && equipo4Contador == 1) {
+    		} else if(equipo2Contador == 3 && equipo1Contador == 1 && equipo3Contador == 1 && equipo4Contador == 1) {
+
+    		   	listaRetorno[0] = equipoCuadro[1];
+    			listaRetorno[1] = retornarEquipoMayorRanking(equipoCuadro[0], equipoCuadro[2],equipoCuadro[3]);
     			
-    			listatemporal.add(equipoCuadro[1]);
-    			listatemporal.add(retornarEquipoMayorRanking(equipoCuadro[0], equipoCuadro[2],equipoCuadro[3]));
+    		}else if(equipo3Contador == 3 && equipo1Contador == 1 && equipo2Contador == 1 && equipo4Contador == 1) {
     			
-    		}else if(equipo1Contador == 1 && equipo2Contador == 1 && equipo4Contador == 1) {
+    		   	listaRetorno[0] = equipoCuadro[2];
+    			listaRetorno[1] = retornarEquipoMayorRanking(equipoCuadro[0], equipoCuadro[1],equipoCuadro[3]);
     			
+    		}else if(equipo4Contador == 3 && equipo1Contador == 1 && equipo2Contador == 1 && equipo3Contador == 1) {
     			
-        		listatemporal.add(equipoCuadro[2]);
-    			listatemporal.add(retornarEquipoMayorRanking(equipoCuadro[0], equipoCuadro[1],equipoCuadro[3]));
-    			
-    		}else if(equipo1Contador == 1 && equipo2Contador == 1 && equipo3Contador == 1) {
-    			
-        		listatemporal.add(equipoCuadro[3]);
-    			listatemporal.add(retornarEquipoMayorRanking(equipoCuadro[0], equipoCuadro[1],equipoCuadro[2]));
+    		   	listaRetorno[0] = equipoCuadro[3];
+    			listaRetorno[1] = retornarEquipoMayorRanking(equipoCuadro[0], equipoCuadro[1],equipoCuadro[2]);
     			
     		} else {
     			
@@ -653,7 +652,8 @@ public class PrimeraRonda {
         			
         		} 
         		
-        		
+        	   	listaRetorno[0] = listatemporal.get(0);
+        		listaRetorno[1] = listatemporal.get(1);
     			
     			
     		}
@@ -661,13 +661,13 @@ public class PrimeraRonda {
     	}else {
     		
     		
-    		if(equipo1Contador==2) {
+    		if(equipo1Contador>=2) {
     			
     			listatemporal.add(equipoCuadro[0]);
     			
     		}
     		
-    		if(equipo2Contador==2) {
+    		if(equipo2Contador>=2) {
     			
     			listatemporal.add(equipoCuadro[1]);    			
     			
@@ -685,11 +685,12 @@ public class PrimeraRonda {
     			
     		} 
     		
+    	   	listaRetorno[0] = listatemporal.get(0);
+    		listaRetorno[1] = listatemporal.get(1);
+    		
     	}
     	
-    	
-    	listaRetorno[0] = listatemporal.get(0);
-		listaRetorno[1] = listatemporal.get(1);
+
     	
 
 		
