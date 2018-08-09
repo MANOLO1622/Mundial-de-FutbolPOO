@@ -15,6 +15,7 @@ public class CL {
 	private static ArrayList<Mundiales> listaMundiales = new ArrayList<Mundiales>();
 	private static ArrayList<LigasPublicas> listaLigasPublicas = new ArrayList<LigasPublicas>();
 	private static ArrayList<LigasPrivadas> listaLigasPrivadas = new ArrayList<LigasPrivadas>();
+	private static ArrayList<Usuario> listaUsuariosRegistrados = new ArrayList<Usuario>();
 	private static TextFileIO UsuariosRegLog = new TextFileIO("logs//Login.txt");
 	private static ArrayList<Equipo> listaEquiposFIFA = new ArrayList();
 
@@ -223,6 +224,12 @@ public class CL {
 	public static ArrayList<LigasPrivadas> retornarLigasPrivadasRegistrados(){
 		
 		return listaLigasPrivadas;
+		
+	}
+	
+	public static ArrayList<Usuario> retornarUsuariosRegistrados(){
+		
+		return listaUsuariosRegistrados;
 		
 	}
 	
