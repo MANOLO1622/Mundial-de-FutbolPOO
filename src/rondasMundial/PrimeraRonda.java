@@ -810,14 +810,5 @@ public class PrimeraRonda {
     	return ganadoresTemp;
     	
     }
-    
-
-
-   
-    
-    
-    
-    
-    
 
 }
