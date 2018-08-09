@@ -244,6 +244,13 @@ public class Gestor {
 		return listaLigasPrivadasRegistrados;
 	}
 	
+	public static ArrayList<Usuario> retornarUsuariosRegistrados() {
+
+		ArrayList<Usuario> listaUsuariosRegistrados = CL.retornarUsuariosRegistrados();
+
+		return listaUsuariosRegistrados;
+	}
+	
 	
 	public static Mundiales retornarMundial(String nombreMundial) {
 		

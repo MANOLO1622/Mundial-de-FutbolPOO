@@ -67,6 +67,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	
 	JComboBox LigasPublicas = new JComboBox();
 	JComboBox LigasPrivadas = new JComboBox();
+	JComboBox usuariosregistrados = new JComboBox();
 	
 	
 	//------------------------------------------------------------------------------
@@ -641,9 +642,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 	}
 	
-	/*public void ingresarUsuarios() {
+	public void ingresarUsuarios() {
 		
-		ArrayList<Usuarios> listaTemporal = Gestor.retornarUsuariosRegistrados();
+		ArrayList<Usuario> listaTemporal = Gestor.retornarUsuariosRegistrados();
 		
 		usuariosregistrados.removeAllItems();
 		
@@ -653,7 +654,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			
 		}
 		
-	}*/
+	}
 	
 	
 	/*public void ingresarligasPrivadas() {
