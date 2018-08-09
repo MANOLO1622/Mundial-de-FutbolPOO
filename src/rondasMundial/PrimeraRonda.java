@@ -283,16 +283,16 @@ public class PrimeraRonda {
         partidosOctavoCuadro = organizarCuadroJuego(octavoCuadro);
         
         
-        /*
-        ganadoresPrimerCuadro = guardarGanadores(partidosPrimerCuadro,primerCuadro);
-        ganadoresSegundoCuadro = guardarGanadores(partidosSegundoCuadro,segundoCuadro);
-        ganadoresTercerCuadro = guardarGanadores(partidosTercerCuadro,tercerCuadro);
-        ganadoresCuartoCuadro = guardarGanadores(partidosCuartoCuadro,cuartoCuadro);
-        ganadoresQuintoCuadro = guardarGanadores(partidosQuintoCuadro,quintoCuadro);
-        ganadoresSextoCuadro = guardarGanadores(partidosSextoCuadro,sextoCuadro);
-        ganadoresSeptimoCuadro = guardarGanadores(partidosSeptimoCuadro,septimoCuadro);
-        ganadoresOctavoCuadro = guardarGanadores(partidosOctavoCuadro,octavoCuadro);
-        */
+        
+        ganadoresPrimerCuadro = guardarGanadoresPrimeraFase(partidosPrimerCuadro,primerCuadro);
+        ganadoresSegundoCuadro = guardarGanadoresPrimeraFase(partidosSegundoCuadro,segundoCuadro);
+        ganadoresTercerCuadro = guardarGanadoresPrimeraFase(partidosTercerCuadro,tercerCuadro);
+        ganadoresCuartoCuadro = guardarGanadoresPrimeraFase(partidosCuartoCuadro,cuartoCuadro);
+        ganadoresQuintoCuadro = guardarGanadoresPrimeraFase(partidosQuintoCuadro,quintoCuadro);
+        ganadoresSextoCuadro = guardarGanadoresPrimeraFase(partidosSextoCuadro,sextoCuadro);
+        ganadoresSeptimoCuadro = guardarGanadoresPrimeraFase(partidosSeptimoCuadro,septimoCuadro);
+        ganadoresOctavoCuadro = guardarGanadoresPrimeraFase(partidosOctavoCuadro,octavoCuadro);
+        
         
         
     }
@@ -355,7 +355,7 @@ public class PrimeraRonda {
     
 	//---------------------------------------------------------------------------------------Sacar ganadores de cada cuadro
     
-    public Equipo[] guardarGanadores(Partido[] partidosCuadro, Equipo[] equipoCuadro) {
+    public Equipo[] guardarGanadoresPrimeraFase(Partido[] partidosCuadro, Equipo[] equipoCuadro) {
 		
     	int equipo1Contador = 0;
     	int equipo2Contador = 0;
@@ -386,40 +386,40 @@ public class PrimeraRonda {
     			
     			equipo4Contador++;
     			
-    		}
-    		
-    		//Se compara la cantidad de victorias para saber si se va a clasificar a la segunda fase.
-
-    		if(equipo1Contador>=2) {
-    			
-    			listatemporal.add(equipoCuadro[0]);
-    			
-    		} 
-    		
-    		if(equipo2Contador>=2) {
-    			
-    			listatemporal.add(equipoCuadro[1]);    			
-    			
-    		}
-    		
-    		if(equipo3Contador>=2) {
-    			
-    			listatemporal.add(equipoCuadro[2]);    			
-    			
-    		}
-    		
-    		if(equipo4Contador>=2) {
-    			
-    			listatemporal.add(equipoCuadro[3]);    			
-    			
-    		}
-    		
-    		listaRetorno[0] = listatemporal.get(0);
-    		listaRetorno[1] = listatemporal.get(1);
-    		
-    		
+    		} 		
     		
     	}
+    	
+		//Se compara la cantidad de victorias para saber si se va a clasificar a la segunda fase.
+		
+
+		if(equipo1Contador>=2) {
+			
+			listatemporal.add(equipoCuadro[0]);
+			
+		} 
+		
+		if(equipo2Contador>=2) {
+			
+			listatemporal.add(equipoCuadro[1]);    			
+			
+		}
+		
+		if(equipo3Contador>=2) {
+			
+			listatemporal.add(equipoCuadro[2]);    			
+			
+		}
+		
+		if(equipo4Contador>=2) {
+			
+			listatemporal.add(equipoCuadro[3]);    			
+			
+		}
+
+		
+		listaRetorno[0] = listatemporal.get(0);
+		listaRetorno[1] = listatemporal.get(1);
     	
     	System.out.println("ganaron");
     	System.out.println(listaRetorno[0].toString());
@@ -430,6 +430,15 @@ public class PrimeraRonda {
     }
     
     
+  //---------------------------------------------------------------------------------------Sacar ganadores los octavos de final
+    /*
+    
+    public Equipo[] guardarGanadoresOctavosFinal(Partido[] partidosCuadro, Equipo[] equipoCuadro) {
+    	
+    	
+    }
+    
+    */
     
     
     
