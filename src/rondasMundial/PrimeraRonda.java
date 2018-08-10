@@ -40,11 +40,16 @@ public class PrimeraRonda {
     private Partido[] partidosOctavosFinal = new Partido[8];
     private Partido[] partidosCuartosFinal = new Partido[4];
     private Partido[] partidosSemiFinal = new Partido[2];
-    private Partido juegoPrimerSegundoLugar;
-    private Partido juegoTercerCuartoLugar;
+    private Partido[] juegosFinales = new Partido[2];
     
     private Equipo[] ganadoresOctavosFinal = new Equipo[8];
     private Equipo[] ganadoresCuartosFinal = new Equipo[4];
+    
+    private Equipo primerLugar;
+    private Equipo segundoLugar;
+    private Equipo tercerLugar;
+    private Equipo cuartoLugar;
+    
     
     
     
@@ -378,29 +383,76 @@ public class PrimeraRonda {
 		this.partidosSemiFinal = partidosSemiFinal;
 	}
 
-
-	public Partido getJuegoPrimerSegundoLugar() {
-		return juegoPrimerSegundoLugar;
+	public Partido[] getJuegosFinales() {
+		return juegosFinales;
 	}
 
 
-	public void setJuegoPrimerSegundoLugar(Partido juegoPrimerSegundoLugar) {
-		this.juegoPrimerSegundoLugar = juegoPrimerSegundoLugar;
+	public void setJuegosFinales(Partido[] juegosFinales) {
+		this.juegosFinales = juegosFinales;
 	}
 
 
-	public Partido getJuegoTercerCuartoLugar() {
-		return juegoTercerCuartoLugar;
+	public Equipo[] getGanadoresOctavosFinal() {
+		return ganadoresOctavosFinal;
 	}
 
 
-	public void setJuegoTercerCuartoLugar(Partido juegoTercerCuartoLugar) {
-		this.juegoTercerCuartoLugar = juegoTercerCuartoLugar;
+	public void setGanadoresOctavosFinal(Equipo[] ganadoresOctavosFinal) {
+		this.ganadoresOctavosFinal = ganadoresOctavosFinal;
 	}
 
+
+	public Equipo[] getGanadoresCuartosFinal() {
+		return ganadoresCuartosFinal;
+	}
+
+
+	public void setGanadoresCuartosFinal(Equipo[] ganadoresCuartosFinal) {
+		this.ganadoresCuartosFinal = ganadoresCuartosFinal;
+	}	
 	
-	//---------------------------------------------------------------------------------------metodo to String
+	public Equipo getPrimerLugar() {
+		return primerLugar;
+	}
 
+
+	public void setPrimerLugar(Equipo primerLugar) {
+		this.primerLugar = primerLugar;
+	}
+
+
+	public Equipo getSegundoLugar() {
+		return segundoLugar;
+	}
+
+
+	public void setSegundoLugar(Equipo segundoLugar) {
+		this.segundoLugar = segundoLugar;
+	}
+
+
+	public Equipo getTercerLugar() {
+		return tercerLugar;
+	}
+
+
+	public void setTercerLugar(Equipo tercerLugar) {
+		this.tercerLugar = tercerLugar;
+	}
+
+
+	public Equipo getCuartoLugar() {
+		return cuartoLugar;
+	}
+
+
+	public void setCuartoLugar(Equipo cuartoLugar) {
+		this.cuartoLugar = cuartoLugar;
+	}
+
+	//---------------------------------------------------------------------------------------metodo to String
+	
 	@Override
 	public String toString() {
 		return "PrimeraRonda: primerCuadro= " + Arrays.toString(primerCuadro) + ", segundoCuadro= "
@@ -411,9 +463,7 @@ public class PrimeraRonda {
 	}
     
     
-	
-	
-	
+
 	
 	
 	
@@ -492,8 +542,14 @@ public class PrimeraRonda {
 
         ganadoresCuartosFinal = guardarGanadoresCuartosFinal(partidosCuartosFinal);
        
+        partidosSemiFinal = guardarSemifinales(ganadoresCuartosFinal);
         
-      
+        juegosFinales = guardarFinales(partidosSemiFinal);
+        
+        this.primerLugar= juegosFinales[0].getEquipoGanador();
+        this.segundoLugar = juegosFinales[0].getEquipoPerdedor();
+        this.tercerLugar = juegosFinales[1].getEquipoGanador();
+        this.cuartoLugar = juegosFinales[1].getEquipoPerdedor();
         
     }
     
@@ -808,6 +864,41 @@ public class PrimeraRonda {
     	System.out.println("");
     	
     	return ganadoresTemp;
+    	
+    }
+    
+    public Partido[] guardarSemifinales(Equipo[] ganadoresCuartosFinal) {
+    	
+    	Partido[] semifinales = new Partido[2];
+    	semifinales[0] = new Partido(ganadoresCuartosFinal[0], ganadoresCuartosFinal[1]);
+    	semifinales[1] = new Partido(ganadoresCuartosFinal[2], ganadoresCuartosFinal[3]);
+    	
+    	System.out.println("");
+    	System.out.println("Semifinales");
+    	System.out.println(semifinales[0].getEquipoGanador().getNombre() + " jugara la final contra: " + semifinales[1].getEquipoGanador().getNombre());
+    	System.out.println(semifinales[0].getEquipoPerdedor().getNombre() + " va por el tercero contra: " + semifinales[1].getEquipoPerdedor().getNombre());
+    	System.out.println("");
+    	
+    	return semifinales;
+    }
+    
+    
+    
+    
+    public Partido[] guardarFinales(Partido[] partido) {
+    	
+    	Partido[] finales = new Partido[2];
+    	finales[0] = new Partido(partido[0].getEquipoGanador(), partido[1].getEquipoGanador());
+    	finales[1] = new Partido(partido[0].getEquipoPerdedor(), partido[1].getEquipoPerdedor());
+  	
+    	System.out.println();
+    	System.out.println("El ganador de la copa es: " + finales[0].getEquipoGanador().getNombre());
+    	System.out.println("Segundo lugar: " + finales[0].getEquipoPerdedor().getNombre());
+    	System.out.println("Tercer lugar: " + finales[1].getEquipoGanador().getNombre());
+    	System.out.println("Cuarto lugar: " + finales[1].getEquipoPerdedor().getNombre());
+    	System.out.println();
+   	
+		return finales;
     	
     }
 

@@ -65,15 +65,24 @@ public class Partido {
 		this.puntajeEquipo2 = puntajeEquipo2;
 	}
 
-	
+	public Equipo getEquipoPerdedor() {
+		return equipoPerdedor;
+	}
+
+
+	public void setEquipoPerdedor(Equipo equipoPerdedor) {
+		this.equipoPerdedor = equipoPerdedor;
+	}
+
 	//---------------------------------------------------------------------------------------metodo to String
+	
 
 	@Override
 	public String toString() {
-		return "Partido: equipo1=" + equipo1 + ", equipo2=" + equipo2 + ", equipoGanador=" + equipoGanador
-				+ ", puntajeEquipo1=" + puntajeEquipo1 + ", puntajeEquipo2=" + puntajeEquipo2;
+		return "Partido [equipo1=" + equipo1 + ", equipo2=" + equipo2 + ", equipoGanador=" + equipoGanador
+				+ ", equipoPerdedor=" + equipoPerdedor + ", puntajeEquipo1=" + puntajeEquipo1 + ", puntajeEquipo2="
+				+ puntajeEquipo2 + "]";
 	}
-	
 	
 	//---------------------------------------------------------------------------------------Escoger ganador del partido
 	
@@ -93,10 +102,6 @@ public class Partido {
 			
 		}
 		
-		
 	}
-	
-	
-	
 
 }
