@@ -40,6 +40,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JLabel labelTituloPrivada = new JLabel("Crear Liga Privada");
 	JLabel labelTituloPublica = new JLabel("Crear Liga Publica");
 	JLabel labelTituloMundial = new JLabel("Crear Mundial");
+	JLabel labelTituloIncluir = new JLabel("Incluir Liga Privada a Usuario");
 	JTextField nombreLigaTXT = new JTextField(10);
 	JLabel labelEstado = new JLabel("Estado:");
 	JTextField estadoTXT = new JTextField(10);
@@ -67,7 +68,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	
 	JComboBox LigasPublicas = new JComboBox();
 	JComboBox LigasPrivadas = new JComboBox();
-	JComboBox usuariosregistrados = new JComboBox();
+	JComboBox usuariosRegistrados = new JComboBox();
 	JComboBox ligasPrivadasRegistradas = new JComboBox();
 	
 	
@@ -85,7 +86,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	//---------------------Botones de Incluir una Liga Privada-----------------------
 	
 	
-	JButton botonRegistrarPrivadaRegistro = new JButton("Registrar");
+	JLabel labelNombreUsuario = new JLabel("Usuario:");
+	JLabel labelNombreLigaPrivada = new JLabel("Liga:");
+	JButton botonRegistrarPrivadaRegistro = new JButton("Incluir");
 	
 
 
@@ -419,22 +422,37 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			ingresarLigasPrivadas();
 			removerMenus();
 			
-			this.add(MundialAnfitrion);
-			MundialAnfitrion.setBounds(990, 200, 120, 30);
+			this.add(labelNombreUsuario);
+			labelNombreUsuario.setForeground(Color.WHITE);
+			labelNombreUsuario.setBounds(997, 250, 200, 30);
+			labelNombreUsuario.setFont(new Font(labelNombreUsuario.getFont().getFontName(), Font.BOLD, 17));
 			
-			botonRegistrarPrivadaRegistro.setBounds(1120, 200, 100, 30);
+			this.add(labelNombreLigaPrivada);
+			labelNombreLigaPrivada.setForeground(Color.WHITE);
+			labelNombreLigaPrivada.setBounds(997, 210, 200, 30);
+			labelNombreLigaPrivada.setFont(new Font(labelNombreLigaPrivada.getFont().getFontName(), Font.BOLD, 17));
+			
+			
+			this.add(labelTituloIncluir);
+			labelTituloIncluir.setForeground(Color.WHITE);
+			labelTituloIncluir.setBounds(195, 125, 500, 260);
+			labelTituloIncluir.setFont(new Font(labelTituloIncluir.getFont().getFontName(), Font.BOLD, 30));
+			
+			this.add(LigasPrivadas);
+			LigasPrivadas.setBounds(1080, 210, 180, 22);
+			
+			botonRegistrarPrivadaRegistro.setBounds(1030, 300, 120, 25);
 			this.add(botonRegistrarPrivadaRegistro);
 			
 
 			this.add(btnCancelar);
-			btnCancelar.setBounds(1230, 200, 100, 30);
+			btnCancelar.setBounds(1160, 300, 120, 25);
+			
+			this.add(usuariosRegistrados);
+			usuariosRegistrados.setBounds(1080, 250, 180, 22);
 			
 			
 			desabilitarMenu();
-			
-			
-			
-			
 			//PRUEBA
 			
 		}
@@ -510,6 +528,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		labelNombreLiga.setForeground(Color.WHITE);
 		labelNombreLiga.setBounds(997, 205, 200, 30);
 		labelNombreLiga.setFont(new Font(labelNombreLiga.getFont().getFontName(), Font.BOLD, 15));
+		
 		
 		this.add(labelTituloPrivada);
 		labelTituloPrivada.setForeground(Color.WHITE);
@@ -589,16 +608,19 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.remove(labelTituloPrivada);
 		this.remove(labelTituloPublica);
 		this.remove(labelTituloMundial);
+		this.remove(labelTituloIncluir);
 		this.remove(nombreLigaTXT);
 		this.remove(labelEstado);
 		this.remove(estadoTXT);
 		this.remove(btnRegistrarLigaPublica);
 		this.remove(btnRegistrarLigaPrivada);
 		this.remove(btnCancelar);
+		this.remove(labelNombreUsuario);
+		this.remove(labelNombreLigaPrivada);
+		this.remove(usuariosRegistrados);
+		this.remove(ligasPrivadasRegistradas);
 		this.remove(btnRegistroLigaPublica);
 		this.remove(btnRegistrarMundial);
-		//this.remove(botonRegistrarPrivadaRegistro);
-		//this.remove(CancelarRegistroLigaPrivada);
 		
 		this.remove(labelAno);
 		fechaMundial.setVisible(false);
@@ -694,11 +716,11 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		ArrayList<Usuario> listaTemporal = Gestor.retornarUsuariosRegistrados();
 		
-		usuariosregistrados.removeAllItems();
+		usuariosRegistrados.removeAllItems();
 		
 		for(Usuario e: listaTemporal) {
 			
-			usuariosregistrados.addItem(e.getNombre());
+			usuariosRegistrados.addItem(e.getNombre());
 			
 		}
 		
