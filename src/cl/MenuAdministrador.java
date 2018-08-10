@@ -173,8 +173,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		botonEliminarPublicaRegistro.addActionListener(this);
 		botonEliminarPrivadaRegistro.addActionListener(this);
 		CancelarEliminacionLiga.addActionListener(this);
-		//botonRegistrarPrivadaRegistro.addActionListener(this);
-		//CancelarRegistroLigaPrivada.addActionListener(this);
 		
 		
 	}
@@ -421,8 +419,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			ingresarLigasPrivadas();
 			removerMenus();
 			
-			this.add(LigasPrivadas);
-			LigasPrivadas.setBounds(990, 200, 120, 30);
+			this.add(MundialAnfitrion);
+			MundialAnfitrion.setBounds(990, 200, 120, 30);
 			
 			botonRegistrarPrivadaRegistro.setBounds(1120, 200, 100, 30);
 			this.add(botonRegistrarPrivadaRegistro);
@@ -433,6 +431,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			
 			
 			desabilitarMenu();
+			
+			
+			
 			
 			//PRUEBA
 			
