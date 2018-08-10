@@ -562,6 +562,7 @@ public class PrimeraRonda {
     	
     	case 0:
     		
+    		
     		partidosCuadroTemp[0] = new Partido(cuadroJuego[0],cuadroJuego[1]);
     		partidosCuadroTemp[1] = new Partido(cuadroJuego[3],cuadroJuego[1]);
     		partidosCuadroTemp[2] = new Partido(cuadroJuego[2],cuadroJuego[0]);
