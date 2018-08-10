@@ -253,6 +253,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		btnSalir.addActionListener(this);
 		equipos.addActionListener(this);
 		btnregistrarEquipoJugador.addActionListener(this);
+		btnApostar.addActionListener(this);
 		
 		labelPartido1.addMouseListener(this);
 		labelPartido2.addMouseListener(this);
@@ -1232,6 +1233,14 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 				
 			}
+			
+		}
+		
+		if(e.getSource() == btnApostar) {
+			
+			Ventana test = new Ventana(this.miUsuario);
+			test.ventanaJuegoFase2(0);
+			
 			
 		}
 

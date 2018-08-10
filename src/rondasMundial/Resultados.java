@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 import cl.Equipo;
 
-public class PrimeraRonda {
+public class Resultados {
 	
     private Equipo[] primerCuadro = new Equipo[4];
     private Equipo[] segundoCuadro = new Equipo[4];
@@ -55,7 +55,7 @@ public class PrimeraRonda {
     
 	//---------------------------------------------------------------------------------------Constructor.
     
-    public PrimeraRonda(ArrayList<Equipo> equiposMundial) {
+    public Resultados(ArrayList<Equipo> equiposMundial) {
     	
     	int contador = 0;
     	

@@ -130,6 +130,21 @@ public class Ventana extends JFrame{
 	
 		}
 		
+		
+		public void ventanaJuegoFase2( int tipoLiga) {
+			
+			JuegoSegundaFase j = new JuegoSegundaFase(UsuarioActual);
+			this.setLocation(0, 0);//arreglar despues.
+			this.setResizable(false);
+			this.setSize(1300,730);
+			this.add(j);	
+			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			this.setTitle("Juego Mundiales - Segunda Fase");
+			this.setVisible(true);
+			
+	
+		}
+		
 	
 	//--------------------------------------------------------------------------
 	

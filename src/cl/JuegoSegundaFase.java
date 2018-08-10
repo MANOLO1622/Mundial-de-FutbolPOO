@@ -1,9 +1,9 @@
 package cl;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 
-import javax.swing.ImageIcon;
 import javax.swing.*;
 
 public class JuegoSegundaFase extends JPanel{
@@ -21,15 +21,6 @@ public class JuegoSegundaFase extends JPanel{
 	 * 
 	 * 
 	 */
-
-	private JLabel cuadro1 = new JLabel("   Cuadro A");
-	private JLabel cuadro2 = new JLabel("   Cuadro B");
-	private JLabel cuadro3 = new JLabel("   Cuadro C");
-	private JLabel cuadro4 = new JLabel("   Cuadro D");
-	private JLabel cuadro5 = new JLabel("   Cuadro E");
-	private JLabel cuadro6 = new JLabel("   Cuadro F");
-	private JLabel cuadro7 = new JLabel("   Cuadro G");
-	private JLabel cuadro8 = new JLabel("   Cuadro H");
 
 	private JLabel labelPartido1 = new JLabel();
 	private JLabel labelPartido2 = new JLabel();
@@ -99,6 +90,140 @@ public class JuegoSegundaFase extends JPanel{
 	
 	
 	
+	public JuegoSegundaFase(Usuario miUsuario) {
+		
+		this.miUsuario = miUsuario;
+		this.tipoLiga = tipoLiga;
+		this.setLayout(null);
+		colocarComponentesJuego();
+
+	}
+	
+	
+	public void colocarComponentesJuego() {
+		
+		int alto = 48;
+		int ancho = 72;
+
+		this.add(labelPartido1);
+		labelPartido1.setBounds(50, 50, ancho, alto);
+
+		this.add(labelPartido2);
+		labelPartido2.setBounds(50, 120, ancho, alto);
+
+		this.add(labelPartido3);
+		labelPartido3.setBounds(125, 50, ancho, alto);
+
+		this.add(labelPartido4);
+		labelPartido4.setBounds(125, 120, ancho, alto);
+
+		this.add(labelPartido5);
+		labelPartido5.setBounds(200, 50, ancho, alto);
+
+		this.add(labelPartido6);
+		labelPartido6.setBounds(200, 120, ancho, alto);
+
+		this.add(labelPartido7);
+		labelPartido7.setBounds(275, 50, ancho, alto);
+
+		this.add(labelPartido8);
+		labelPartido8.setBounds(275, 120, ancho, alto);
+
+		this.add(labelPartido9);
+		labelPartido9.setBounds(350, 50, ancho, alto);
+
+		this.add(labelPartido10);
+		labelPartido10.setBounds(350, 120, ancho, alto);
+
+		this.add(labelPartido11);
+		labelPartido11.setBounds(425, 50, ancho, alto);
+
+		this.add(labelPartido12);
+		labelPartido12.setBounds(425, 120, ancho, alto);
+
+		// ------------------------------------------------------Segundo cuadro de juego
+
+		this.add(labelPartido13);
+		labelPartido13.setBounds(50, 220, ancho, alto);
+
+		this.add(labelPartido14);
+		labelPartido14.setBounds(50, 290, ancho, alto);
+
+		this.add(labelPartido15);
+		labelPartido15.setBounds(125, 220, ancho, alto);
+
+		this.add(labelPartido16);
+		labelPartido16.setBounds(125, 290, ancho, alto);
+
+		this.add(labelPartido17);
+		labelPartido17.setBounds(200, 220, ancho, alto);
+
+		this.add(labelPartido18);
+		labelPartido18.setBounds(200, 290, ancho, alto);
+
+		this.add(labelPartido19);
+		labelPartido19.setBounds(275, 220, ancho, alto);
+
+		this.add(labelPartido20);
+		labelPartido20.setBounds(275, 290, ancho, alto);
+
+		this.add(labelPartido21);
+		labelPartido21.setBounds(350, 220, ancho, alto);
+
+		this.add(labelPartido22);
+		labelPartido22.setBounds(350, 290, ancho, alto);
+
+		this.add(labelPartido23);
+		labelPartido23.setBounds(425, 220, ancho, alto);
+
+		this.add(labelPartido24);
+		labelPartido24.setBounds(425, 290, ancho, alto);
+
+		// ------------------------------------------------------Tercer cuadro de juego
+
+		this.add(labelPartido25);
+		labelPartido25.setBounds(50, 390, ancho, alto);
+
+		this.add(labelPartido26);
+		labelPartido26.setBounds(50, 460, ancho, alto);
+
+		this.add(labelPartido27);
+		labelPartido27.setBounds(125, 390, ancho, alto);
+
+		this.add(labelPartido28);
+		labelPartido28.setBounds(125, 460, ancho, alto);
+
+		this.add(labelPartido29);
+		labelPartido29.setBounds(200, 390, ancho, alto);
+
+		this.add(labelPartido30);
+		labelPartido30.setBounds(200, 460, ancho, alto);
+
+		this.add(labelPartido31);
+		labelPartido31.setBounds(275, 390, ancho, alto);
+
+		this.add(labelPartido32);
+		labelPartido32.setBounds(275, 460, ancho, alto);
+		
+		mostrarBanderas( ancho,  alto);
+		
+	}
+	
+	
+	
+	
+	public void mostrarBanderas(int ancho, int alto) {
+		
+		Equipo[] temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getGanadoresPrimerCuadro();
+		
+		
+		imagenPartido1 = new ImageIcon(temp1[0].getBandera());
+		Icon icono1 = new ImageIcon(imagenPartido1.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido1.setIcon(icono1);
+		
+	}
+	
+	
 	
 	
 	
@@ -107,7 +232,7 @@ public class JuegoSegundaFase extends JPanel{
 		int width = this.getSize().width;
 		int height = this.getSize().height;
 
-		this.setBackground("src\\graficos\\juegoLiga.jpg");
+		this.setBackground("src\\graficos\\juegoligafase2.jpg");
 		if (this.imagen != null) {
 			g.drawImage(this.imagen, 0, 0, width, height, null);
 		}

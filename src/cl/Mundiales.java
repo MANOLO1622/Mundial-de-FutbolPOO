@@ -15,7 +15,7 @@ public class Mundiales {
     private boolean estado;
     private ArrayList<Equipo> equiposMundial;
     
-    private PrimeraRonda ronda1;
+    private Resultados resultadosMundial;
     
     private String EquipoPrimerLugar;
     private String EquipoSegundoLugar;
@@ -104,17 +104,17 @@ public class Mundiales {
 		
 	}
 	
-	public PrimeraRonda getRonda1() {
-		return ronda1;
+	public Resultados getRonda1() {
+		return resultadosMundial;
 	}
 
-	public void setRonda1(PrimeraRonda ronda1) {
-		this.ronda1 = ronda1;
+	public void setRonda1(Resultados ronda1) {
+		this.resultadosMundial = ronda1;
 	}
 
 	@Override
 	public String toString() {
-		return "Mundiales: ano=" + ano + ", paisOrganizador=" + paisOrganizador + ", estado=" + estado + " ,PrimeraRonda= " + ronda1;
+		return "Mundiales: ano=" + ano + ", paisOrganizador=" + paisOrganizador + ", estado=" + estado + " ,Resultados Mundial= " + resultadosMundial;
 	}
 
 	
@@ -122,7 +122,7 @@ public class Mundiales {
 	
    public void generarCuadrosJuego() {
 	   
-	   this.ronda1 = new PrimeraRonda(this.equiposMundial);
+	   this.resultadosMundial = new Resultados(this.equiposMundial);
 	   
    }
     
