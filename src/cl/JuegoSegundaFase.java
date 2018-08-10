@@ -105,80 +105,82 @@ public class JuegoSegundaFase extends JPanel{
 		int alto = 48;
 		int ancho = 72;
 
+		// ------------------------------------------------------Octavos de final.
+		
 		this.add(labelPartido1);
 		labelPartido1.setBounds(50, 50, ancho, alto);
 
 		this.add(labelPartido2);
-		labelPartido2.setBounds(50, 120, ancho, alto);
+		labelPartido2.setBounds(1000, 50, ancho, alto);
 
 		this.add(labelPartido3);
-		labelPartido3.setBounds(125, 50, ancho, alto);
+		labelPartido3.setBounds(50, 120, ancho, alto);
 
 		this.add(labelPartido4);
-		labelPartido4.setBounds(125, 120, ancho, alto);
+		labelPartido4.setBounds(1000, 120, ancho, alto);
 
 		this.add(labelPartido5);
-		labelPartido5.setBounds(200, 50, ancho, alto);
+		labelPartido5.setBounds(50, 210, ancho, alto);
 
 		this.add(labelPartido6);
-		labelPartido6.setBounds(200, 120, ancho, alto);
+		labelPartido6.setBounds(1000, 210, ancho, alto);
 
 		this.add(labelPartido7);
-		labelPartido7.setBounds(275, 50, ancho, alto);
+		labelPartido7.setBounds(50, 290, ancho, alto);
 
 		this.add(labelPartido8);
-		labelPartido8.setBounds(275, 120, ancho, alto);
+		labelPartido8.setBounds(1000, 290, ancho, alto);
 
 		this.add(labelPartido9);
-		labelPartido9.setBounds(350, 50, ancho, alto);
+		labelPartido9.setBounds(50, 380, ancho, alto);
 
 		this.add(labelPartido10);
-		labelPartido10.setBounds(350, 120, ancho, alto);
+		labelPartido10.setBounds(1000, 380, ancho, alto);
 
 		this.add(labelPartido11);
-		labelPartido11.setBounds(425, 50, ancho, alto);
+		labelPartido11.setBounds(50, 450, ancho, alto);
 
 		this.add(labelPartido12);
-		labelPartido12.setBounds(425, 120, ancho, alto);
-
-		// ------------------------------------------------------Segundo cuadro de juego
+		labelPartido12.setBounds(1000, 450, ancho, alto);
 
 		this.add(labelPartido13);
-		labelPartido13.setBounds(50, 220, ancho, alto);
+		labelPartido13.setBounds(50, 540, ancho, alto);
 
 		this.add(labelPartido14);
-		labelPartido14.setBounds(50, 290, ancho, alto);
+		labelPartido14.setBounds(1000, 540, ancho, alto);
 
 		this.add(labelPartido15);
-		labelPartido15.setBounds(125, 220, ancho, alto);
+		labelPartido15.setBounds(50, 610, ancho, alto);
 
 		this.add(labelPartido16);
-		labelPartido16.setBounds(125, 290, ancho, alto);
+		labelPartido16.setBounds(1000, 610, ancho, alto);
+		
+		// ------------------------------------------------------Cuartos de final	
 
 		this.add(labelPartido17);
-		labelPartido17.setBounds(200, 220, ancho, alto);
+		labelPartido17.setBounds(130, 120, ancho, alto);
 
 		this.add(labelPartido18);
-		labelPartido18.setBounds(200, 290, ancho, alto);
+		labelPartido18.setBounds(900, 120, ancho, alto);
 
 		this.add(labelPartido19);
-		labelPartido19.setBounds(275, 220, ancho, alto);
+		labelPartido19.setBounds(130, 210, ancho, alto);
 
 		this.add(labelPartido20);
-		labelPartido20.setBounds(275, 290, ancho, alto);
-
+		labelPartido20.setBounds(900, 210, ancho, alto);
+		
 		this.add(labelPartido21);
-		labelPartido21.setBounds(350, 220, ancho, alto);
+		labelPartido21.setBounds(130, 450, ancho, alto);
 
 		this.add(labelPartido22);
-		labelPartido22.setBounds(350, 290, ancho, alto);
+		labelPartido22.setBounds(900, 450, ancho, alto);
 
 		this.add(labelPartido23);
-		labelPartido23.setBounds(425, 220, ancho, alto);
+		labelPartido23.setBounds(130, 540, ancho, alto);
 
 		this.add(labelPartido24);
-		labelPartido24.setBounds(425, 290, ancho, alto);
-
+		labelPartido24.setBounds(900, 540, ancho, alto);
+		 													
 		// ------------------------------------------------------Tercer cuadro de juego
 
 		this.add(labelPartido25);
@@ -214,13 +216,127 @@ public class JuegoSegundaFase extends JPanel{
 	
 	public void mostrarBanderas(int ancho, int alto) {
 		
-		Equipo[] temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getGanadoresPrimerCuadro();
+		//-------------------------------------------------------------------------------------------------------------------Clasificadores a octavos de final.
 		
+		Equipo[] temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getGanadoresPrimerCuadro();
+		Equipo[] temp2 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getGanadoresSegundoCuadro();
+		Equipo[] temp3 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getGanadoresTercerCuadro();
+		Equipo[] temp4 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getGanadoresCuartoCuadro();	
+		Equipo[] temp5 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getGanadoresQuintoCuadro();
+		Equipo[] temp6 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getGanadoresSextoCuadro();
+		Equipo[] temp7 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getGanadoresSeptimoCuadro();
+		Equipo[] temp8 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getGanadoresOctavoCuadro();
+		
+		//-------------------------------------------------------------------------------------------------------------------Clasificadores a cuartos de final.
+		
+		Equipo[] temp9 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getGanadoresOctavosFinal();
+		
+		
+		
+		//------------------------------------------------------------------------------------------------------------------- Posiciones de los octavos de final.
 		
 		imagenPartido1 = new ImageIcon(temp1[0].getBandera());
 		Icon icono1 = new ImageIcon(imagenPartido1.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido1.setIcon(icono1);
 		
+		imagenPartido2 = new ImageIcon(temp1[1].getBandera());
+		Icon icono2 = new ImageIcon(imagenPartido2.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido2.setIcon(icono2);
+		
+		imagenPartido3 = new ImageIcon(temp2[0].getBandera());
+		Icon icono3 = new ImageIcon(imagenPartido3.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido3.setIcon(icono3);
+		
+		imagenPartido4 = new ImageIcon(temp2[1].getBandera());
+		Icon icono4 = new ImageIcon(imagenPartido4.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido4.setIcon(icono4);
+		
+		imagenPartido5 = new ImageIcon(temp3[0].getBandera());
+		Icon icono5 = new ImageIcon(imagenPartido5.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido5.setIcon(icono5);
+		
+		imagenPartido6 = new ImageIcon(temp3[1].getBandera());
+		Icon icono6 = new ImageIcon(imagenPartido6.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido6.setIcon(icono6);
+		
+		imagenPartido7 = new ImageIcon(temp4[0].getBandera());
+		Icon icono7 = new ImageIcon(imagenPartido7.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido7.setIcon(icono7);
+		
+		imagenPartido8 = new ImageIcon(temp4[1].getBandera());
+		Icon icono8 = new ImageIcon(imagenPartido8.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido8.setIcon(icono8);
+
+		imagenPartido9 = new ImageIcon(temp5[0].getBandera());
+		Icon icono9 = new ImageIcon(imagenPartido9.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido9.setIcon(icono9);
+		
+		imagenPartido10 = new ImageIcon(temp5[1].getBandera());
+		Icon icono10 = new ImageIcon(imagenPartido10.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido10.setIcon(icono10);
+		
+		imagenPartido11 = new ImageIcon(temp6[0].getBandera());
+		Icon icono11 = new ImageIcon(imagenPartido11.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido11.setIcon(icono11);
+		
+		imagenPartido12 = new ImageIcon(temp6[1].getBandera());
+		Icon icono12 = new ImageIcon(imagenPartido12.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido12.setIcon(icono12);
+
+		imagenPartido13 = new ImageIcon(temp7[0].getBandera());
+		Icon icono13 = new ImageIcon(imagenPartido13.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido13.setIcon(icono13);
+		
+		imagenPartido14 = new ImageIcon(temp7[1].getBandera());
+		Icon icono14 = new ImageIcon(imagenPartido14.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido14.setIcon(icono14);
+		
+		imagenPartido15 = new ImageIcon(temp8[0].getBandera());
+		Icon icono15 = new ImageIcon(imagenPartido15.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido15.setIcon(icono15);
+		
+		imagenPartido16 = new ImageIcon(temp8[1].getBandera());
+		Icon icono16 = new ImageIcon(imagenPartido16.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido16.setIcon(icono16);
+		
+		//------------------------------------------------------------------------------------------------------------------- Posiciones de los cuartos de final.
+		
+		
+		imagenPartido17 = new ImageIcon(temp9[0].getBandera());
+		Icon icono17 = new ImageIcon(imagenPartido17.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido17.setIcon(icono17);
+
+		imagenPartido18 = new ImageIcon(temp9[1].getBandera());
+		Icon icono18 = new ImageIcon(imagenPartido18.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido18.setIcon(icono18);
+		
+		imagenPartido19 = new ImageIcon(temp9[2].getBandera());
+		Icon icono19 = new ImageIcon(imagenPartido19.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido19.setIcon(icono19);
+		
+		imagenPartido20 = new ImageIcon(temp9[3].getBandera());
+		Icon icono20 = new ImageIcon(imagenPartido20.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido20.setIcon(icono20);
+		
+		imagenPartido21 = new ImageIcon(temp9[4].getBandera());
+		Icon icono21 = new ImageIcon(imagenPartido21.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido21.setIcon(icono21);
+
+		imagenPartido22 = new ImageIcon(temp9[5].getBandera());
+		Icon icono22 = new ImageIcon(imagenPartido22.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido22.setIcon(icono22);
+		
+		imagenPartido23 = new ImageIcon(temp9[6].getBandera());
+		Icon icono23 = new ImageIcon(imagenPartido23.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido23.setIcon(icono23);
+		
+		imagenPartido24 = new ImageIcon(temp9[7].getBandera());
+		Icon icono24 = new ImageIcon(imagenPartido24.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		labelPartido24.setIcon(icono24);
+		
+
+		
+	
 	}
 	
 	
