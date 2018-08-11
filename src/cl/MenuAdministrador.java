@@ -176,7 +176,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		botonEliminarPublicaRegistro.addActionListener(this);
 		botonEliminarPrivadaRegistro.addActionListener(this);
 		CancelarEliminacionLiga.addActionListener(this);
-		
+		botonRegistrarPrivadaRegistro.addActionListener(this);	
 		
 	}
 	
@@ -419,8 +419,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		if(e.getSource()==btnIncJugLigaPrivada) {
 			
-			ingresarLigasPrivadas();
-			removerMenus();
+			ingresarComboBox();
 			
 			this.add(labelNombreUsuario);
 			labelNombreUsuario.setForeground(Color.WHITE);
@@ -455,6 +454,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			desabilitarMenu();
 			//PRUEBA
 			
+		}
+		
+		if(e.getSource()==botonRegistrarPrivadaRegistro) {
+			
+			Gestor.asignarLigaPrivadaUsuario((String)usuariosRegistrados.getSelectedItem(), Gestor.retornarLigaPrivada((String)LigasPrivadas.getSelectedItem()));
+			removerMenus();
 		}
 		
 		
@@ -720,7 +725,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		
 		for(Usuario e: listaTemporal) {
 			
-			usuariosRegistrados.addItem(e.getNombre());
+			if(e.retornarTipoUsuario() == Perfiles.PLAYER) {
+				
+				usuariosRegistrados.addItem(e.getNombreUsuario());
+				
+			}
+			
 			
 		}
 		

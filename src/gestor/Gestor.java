@@ -247,7 +247,7 @@ public class Gestor {
 	public static ArrayList<Usuario> retornarUsuariosRegistrados() {
 
 		ArrayList<Usuario> listaUsuariosRegistrados = CL.retornarUsuariosRegistrados();
-
+		
 		return listaUsuariosRegistrados;
 	}
 	
