@@ -38,6 +38,9 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 	private JLabel labelEquipoContrincante = new JLabel();
 	private ImageIcon imagenEquipoSeleccionado;
 	private ImageIcon imagenEquipoContrincante;
+	
+	private JLabel equipo1 = new JLabel("Equipo 1");
+	private JLabel equipo2 = new JLabel("Equipo 2");
 
 	/*
 	 * 
