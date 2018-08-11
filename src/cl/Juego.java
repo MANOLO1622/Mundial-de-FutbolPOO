@@ -1210,6 +1210,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 			}
 			
+			partidosPaisEscogido.setEnabled(false);
 			partidosPaisEscogido.setText(Gestor.retornarPartidosCuadro(nombreLiga, (String)equipos.getSelectedItem()));
 			
 		}

@@ -200,16 +200,16 @@ public class JuegoSegundaFase extends JPanel{
 		// ------------------------------------------------------Primer, segundo, tercer y cuarto lugar.
 
 		this.add(labelPartido29);
-		labelPartido29.setBounds(200, 238, ancho, alto);
+		labelPartido29.setBounds(400, 166, 140, 96);
 
 		this.add(labelPartido30);
-		labelPartido30.setBounds(200, 388, ancho, alto);
+		labelPartido30.setBounds(590, 166, 140, 96);
 
 		this.add(labelPartido31);
-		labelPartido31.setBounds(275, 390, ancho, alto);
+		labelPartido31.setBounds(400, 412, 140, 96);
 
 		this.add(labelPartido32);
-		labelPartido32.setBounds(275, 460, ancho, alto);
+		labelPartido32.setBounds(590, 412, 140, 96);
 		
 		mostrarBanderas( ancho,  alto, this.tipoLiga);
 		
@@ -221,21 +221,53 @@ public class JuegoSegundaFase extends JPanel{
 	
 	public void mostrarBanderas(int ancho, int alto, int tipoLiga) {
 		
-		//-------------------------------------------------------------------------------------------------------------------Clasificadores a octavos de final.
+		Partido[] temp1 = null;
 		
-		Partido[] temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosOctavosFinal();
+		Partido[] temp2 = null;
 		
-		//-------------------------------------------------------------------------------------------------------------------Clasificadores a cuartos de final.
+		Partido[] temp3 = null;
 		
-		Partido[] temp2 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosCuartosFinal();
+		Partido[] temp4 = null;
 		
-		//------------------------------------------------------------------------------------------------------------------- Posiciones de los Semifinales.
+		if(tipoLiga == 0 ) {
+			
+			//-------------------------------------------------------------------------------------------------------------------Clasificadores a octavos de final.
+			
+			temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosOctavosFinal();
+			
+			//-------------------------------------------------------------------------------------------------------------------Clasificadores a cuartos de final.
+			
+			temp2 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosCuartosFinal();
+			
+			//------------------------------------------------------------------------------------------------------------------- Posiciones de los Semifinales.
 
-		Partido[] temp3 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSemiFinal();
+			temp3 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSemiFinal();
+			
+			//------------------------------------------------------------------------------------------------------------------- Finales
+			
+			temp4 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getJuegosFinales();
+			
+		}else if(tipoLiga == 1 ) {
+			
+			//-------------------------------------------------------------------------------------------------------------------Clasificadores a octavos de final.
+			
+			temp1 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosOctavosFinal();
+			
+			//-------------------------------------------------------------------------------------------------------------------Clasificadores a cuartos de final.
+			
+			temp2 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosCuartosFinal();
+			
+			//------------------------------------------------------------------------------------------------------------------- Posiciones de los Semifinales.
+
+			temp3 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSemiFinal();
+			
+			//------------------------------------------------------------------------------------------------------------------- Finales
+			
+			temp4 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getJuegosFinales();
+			
+		}
 		
-		//------------------------------------------------------------------------------------------------------------------- Finales
 		
-		Partido[] temp4 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getJuegosFinales();
 		
 		//-------------------------------------------------------------------------------------------------------------------
 		
@@ -361,19 +393,19 @@ public class JuegoSegundaFase extends JPanel{
 		//------------------------------------------------------------------------------------------------------------------- Finales
 		
 		imagenPartido29 = new ImageIcon(temp4[0].getEquipo1().getBandera());
-		Icon icono29 = new ImageIcon(imagenPartido29.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		Icon icono29 = new ImageIcon(imagenPartido29.getImage().getScaledInstance(140, 96, Image.SCALE_DEFAULT));
 		labelPartido29.setIcon(icono29);
 		
 		imagenPartido30 = new ImageIcon(temp4[0].getEquipo2().getBandera());
-		Icon icono30 = new ImageIcon(imagenPartido30.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		Icon icono30 = new ImageIcon(imagenPartido30.getImage().getScaledInstance(140, 96, Image.SCALE_DEFAULT));
 		labelPartido30.setIcon(icono30);
 		
 		imagenPartido31 = new ImageIcon(temp4[1].getEquipo1().getBandera());
-		Icon icono31 = new ImageIcon(imagenPartido31.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		Icon icono31 = new ImageIcon(imagenPartido31.getImage().getScaledInstance(140, 96, Image.SCALE_DEFAULT));
 		labelPartido31.setIcon(icono31);
 		
 		imagenPartido32 = new ImageIcon(temp4[1].getEquipo2().getBandera());
-		Icon icono32 = new ImageIcon(imagenPartido32.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+		Icon icono32 = new ImageIcon(imagenPartido32.getImage().getScaledInstance(140, 96, Image.SCALE_DEFAULT));
 		labelPartido32.setIcon(icono32);
 		
 		
