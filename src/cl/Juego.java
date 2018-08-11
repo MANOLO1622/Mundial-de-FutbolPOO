@@ -1190,10 +1190,10 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			labelBanderaPaisEscogido.setBounds(1075, 60, 175, 122);
 			
 			this.add(partidosPaisEscogido);
-			partidosPaisEscogido.setBounds(1075, 190, 175, 300);
+			partidosPaisEscogido.setBounds(1075, 190, 175, 150);
 			
 			this.add(btnregistrarEquipoJugador);
-			btnregistrarEquipoJugador.setBounds(1100, 500, 125, 30);
+			btnregistrarEquipoJugador.setBounds(1100, 350, 125, 30);
 			
 			imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo((String)equipos.getSelectedItem()));
 			Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
@@ -1233,14 +1233,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				this.miUsuario.setPrimerCuadroPublica(apuestasPrimerCuadroPublica);
 				Gestor.actualizarJugador(this.miUsuario);
 				
-				System.out.println();
-				System.out.println("Liga Publica");
-				System.out.println();
-				System.out.println(this.miUsuario.getPrimerCuadroPublica()[0].getPartidoApuesta().toString());
-				System.out.println(this.miUsuario.getPrimerCuadroPublica()[1].getPartidoApuesta().toString());
-				System.out.println(this.miUsuario.getPrimerCuadroPublica()[2].getPartidoApuesta().toString());
-				System.out.println();
-				
 			} else if(this.tipoLiga == 1 ) {
 				
 
@@ -1257,16 +1249,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 				this.miUsuario.setPrimerCuadroPrivada(apuestasPrimerCuadroPrivada);
 				Gestor.actualizarJugador(this.miUsuario);
-				
-				System.out.println();
-				System.out.println("Liga Privada");
-				System.out.println();
-				System.out.println(this.miUsuario.getPrimerCuadroPrivada()[0].getPartidoApuesta().toString());
-				System.out.println(this.miUsuario.getPrimerCuadroPrivada()[1].getPartidoApuesta().toString());
-				System.out.println(this.miUsuario.getPrimerCuadroPrivada()[2].getPartidoApuesta().toString());
-				System.out.println();
-				
-				
+	
 				
 			}
 		
@@ -1282,7 +1265,13 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			
 			if(this.tipoLiga == 0) {
 				
-				
+				if(this.miUsuario.getValidacionPrimeraFasePublica() == 0) {
+					
+					JOptionPane.showMessageDialog(null, "Aqui se mostraran las reglas del juego.");
+					
+					JOptionPane.showInputDialog(null, "Porfavor ingrese el resulta");
+					
+				}
 				
 				
 			} else if(this.tipoLiga == 1) {
@@ -1315,7 +1304,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			
 			this.add(partidosPaisEscogido);
 			partidosPaisEscogido.setEnabled(false);
-			partidosPaisEscogido.setBounds(1075, 190, 175, 300);
+			partidosPaisEscogido.setBounds(1075, 190, 175, 150);
 			partidosPaisEscogido.setText(Gestor.retornarPartidosCuadro(this.miUsuario.getMiLigaPublica().getNombreLiga(), this.miUsuario.getEquipoLigaPublica().getNombre()));
 			
 			imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo(this.miUsuario.getEquipoLigaPublica().getNombre()));
@@ -1323,7 +1312,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
 			
 			this.add(btnApostar);
-			btnApostar.setBounds(1100, 500, 125, 30);
+			btnApostar.setBounds(1100, 350, 125, 30);
 			
 			break;
 			
@@ -1381,19 +1370,19 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+
 
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
+
 
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
+
 
 	}
 
