@@ -673,7 +673,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		btnEliminarLigaPublica.setEnabled(false);
 		btnRegistrarLigaPrivada.setEnabled(false);
 		botonSalir.setEnabled(false);
-		LigasPrivadas.setEnabled(false);
+		
 		
 		
 		nombreLigaTXT.setText("");
