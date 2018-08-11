@@ -1282,7 +1282,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			
 			if(this.tipoLiga == 0) {
 				
-//				?
+				
 				
 				
 			} else if(this.tipoLiga == 1) {
