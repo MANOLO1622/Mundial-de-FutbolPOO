@@ -133,7 +133,7 @@ public class Ventana extends JFrame{
 		
 		public void ventanaJuegoFase2( int tipoLiga) {
 			
-			JuegoSegundaFase j = new JuegoSegundaFase(UsuarioActual);
+			JuegoSegundaFase j = new JuegoSegundaFase(UsuarioActual, tipoLiga);
 			this.setLocation(0, 0);//arreglar despues.
 			this.setResizable(false);
 			this.setSize(1300,730);
