@@ -385,10 +385,17 @@ public class Usuario {
 				+ ", fechaRegistro=" + fechaRegistro + ", tipoUsuario=" + tipoUsuario + ", miLigaPublica="
 				+ miLigaPublica + ", miLigaPrivada=" + miLigaPrivada;
 	}
-
-
-
 	
 	
+	
+	public void sumarApuestaPublica() {
+		
+		validacionPrimeraFasePublica++;
+	}
+	
+	public void sumarApuestaPrivada() {
+		
+		validacionPrimeraFasePrivada++;
+	}
 
 }
