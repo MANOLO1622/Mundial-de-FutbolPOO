@@ -25,6 +25,19 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 	
 
 	private static Image imagen;
+	
+	/*
+	 * 
+	 * 
+	 * Estos componentes se utilizaran para mostrar los banderas y componentes que ayudaran a hacer las apuestas.
+	 * 
+	 * 
+	 */
+	
+	private JLabel labelEquipoSeleccionado = new JLabel();
+	private JLabel labelEquipoContrincante = new JLabel();
+	private ImageIcon imagenEquipoSeleccionado;
+	private ImageIcon imagenEquipoContrincante;
 
 	/*
 	 * 
@@ -1263,13 +1276,29 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			test.ventanaJuegoFase2(this.tipoLiga);
 			*/
 			
+			this.add(labelEquipoSeleccionado);
+//			labelEquipoSeleccionado.setBounds(1100, 350, 125, 30);
+			this.add(labelEquipoContrincante);
+//			labelEquipoContrincante.setBounds(1100, 350, 125, 30);
+			
+			
+//			imagenEquipoSeleccionado
+//			imagenEquipoContrincante
+			
+			
 			if(this.tipoLiga == 0) {
 				
 				if(this.miUsuario.getValidacionPrimeraFasePublica() == 0) {
 					
 					JOptionPane.showMessageDialog(null, "Aqui se mostraran las reglas del juego.");
 					
-					JOptionPane.showInputDialog(null, "Porfavor ingrese el resulta");
+					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[0].getEquipoEscogido().getBandera());
+					imagenEquipoSeleccionado = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
+					labelBanderaPaisEscogido.setIcon(imagenEquipoSeleccionado);
+					
+					imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[0].getEquipoEscogido().getBandera());
+					imagenEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
+					labelEquipoContrincante.setIcon(imagenEquipoSeleccionado);
 					
 				}
 				
