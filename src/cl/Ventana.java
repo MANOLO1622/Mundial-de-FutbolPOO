@@ -70,8 +70,8 @@ public class Ventana extends JFrame{
 			this.add(ma);
 			vent.setTitle("Administrador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			//vent.setSize(1060,640);
-			vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
+			vent.setBounds(5,5,1350,900);
+			//vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			vent.setResizable(false);
 			break;
 			
@@ -81,8 +81,8 @@ public class Ventana extends JFrame{
 			this.add(mj);
 			vent.setTitle("Administrador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			//vent.setSize(1060,640);
-			vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
+			vent.setBounds(5,5,1350,900);
+			//vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			vent.setResizable(false);
 			break;
 			
@@ -92,8 +92,8 @@ public class Ventana extends JFrame{
 			this.add(mo);
 			vent.setTitle("Observador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			//vent.setSize(1060,640);
-			vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
+			vent.setBounds(5,5,1350,900);
+			//vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			vent.setResizable(false);
 			break;
 		

@@ -183,21 +183,30 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 			
 
-			Usuario UsuarioTemp = Gestor.retornarUsuario((String) usuariosRegistrados.getSelectedItem());
+			Usuario UsuarioTemporal = Gestor.retornarUsuario((String) usuariosRegistrados.getSelectedItem());
 
+			String opcionEscogida = (String) usuariosRegistrados.getSelectedItem();
+			this.setMiUsuario(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
 			
-			if(e.getSource() == usuariosRegistrados) {
+			if(this.miUsuario.getNombre() == null) {
+				
+				
+			}
+			
+			
+			
+			/*if(e.getSource() == usuariosRegistrados) {
 				
 				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
 				
-				mostrarInformacionUsuario();
-						
-			}
+				
+				
+			}*/
 			
 			informacionUsuario1.setText("Informacion de Usuario.");
-			informacionUsuario2.setText("Nombre del Usuario " + UsuarioTemp.getNombre());
+			informacionUsuario2.setText("Nombre del Usuario " + UsuarioTemporal.getNombre());
 		
-			
+			mostrarInformacionUsuario();
 		}
 		
 		
@@ -221,12 +230,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			// sonic
 		}
 		
-		
-
-		// ----------------------------------------------PRUEBA
-
-		
-		// -----------------------------------------------
+	
 
 		if (e.getSource() == boton2) {
 
@@ -561,7 +565,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		this.add(labelNombreMundial);
 		labelNombreMundial.setForeground(Color.WHITE);
-		labelNombreMundial.setBounds(850, 25, 200, 30);
+		labelNombreMundial.setBounds(820, 25, 200, 30);
 		labelNombreMundial.setFont(new Font(labelNombreMundial.getFont().getFontName(), Font.PLAIN, 18));
 
 		this.add(labelTituloMundial);
@@ -570,7 +574,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		labelTituloMundial.setFont(new Font(labelTituloMundial.getFont().getFontName(), Font.BOLD, 30));
 
 		this.add(nombreMundialTXT);
-		nombreMundialTXT.setBounds(1050, 30, 300, 20);
+		nombreMundialTXT.setBounds(1020, 30, 300, 20);
 
 		this.add(labelPaisOrganizador);
 		labelPaisOrganizador.setForeground(Color.WHITE);
@@ -578,21 +582,21 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		labelPaisOrganizador.setFont(new Font(labelPaisOrganizador.getFont().getFontName(), Font.PLAIN, 18));
 
 		this.add(paisesOrganizadores);
-		paisesOrganizadores.setBounds(1050, 70, 300, 20);
+		paisesOrganizadores.setBounds(1020, 70, 300, 20);
 
 		this.add(labelAno);
 		labelAno.setForeground(Color.WHITE);
 		labelAno.setBounds(940, 185, 200, 30);
 		labelAno.setFont(new Font(labelAno.getFont().getFontName(), Font.PLAIN, 20));
 
-		fechaMundial.setBounds(1050, 110, 300, 200);
+		fechaMundial.setBounds(1020, 110, 300, 200);
 		fechaMundial.setVisible(true);
 
 		this.add(btnRegistrarMundial);
-		btnRegistrarMundial.setBounds(1050, 320, 100, 25);
+		btnRegistrarMundial.setBounds(1020, 320, 100, 25);
 
 		this.add(btnCancelar);
-		btnCancelar.setBounds(1165, 320, 100, 25);
+		btnCancelar.setBounds(1135, 320, 100, 25);
 
 	}
 
@@ -793,6 +797,9 @@ public void mostrarInformacionUsuario() {
 
 }
 	
+public void setMiUsuario(Usuario miUsuario) {
+	this.miUsuario = miUsuario;
+}
 	
 	
 	// -------------------------------------------------------------------------------------------------
