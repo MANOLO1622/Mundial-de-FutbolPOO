@@ -1224,6 +1224,23 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 				mostrarinformacionpaisEscogido(0);
 				
+				Partido[] tempPublica = Gestor.retornarPartidosEquipoLiga(this.miUsuario.getEquipoLigaPublica(), this.miUsuario.getMiLigaPublica().getNombreLiga(), this.tipoLiga);
+				Apuesta[] apuestasPrimerCuadroPublica = new Apuesta[3];
+				apuestasPrimerCuadroPublica[0] = new Apuesta(tempPublica[0], this.miUsuario.getEquipoLigaPublica(), this.miUsuario);
+				apuestasPrimerCuadroPublica[1] = new Apuesta(tempPublica[1], this.miUsuario.getEquipoLigaPublica(), this.miUsuario);
+				apuestasPrimerCuadroPublica[2] = new Apuesta(tempPublica[2], this.miUsuario.getEquipoLigaPublica(), this.miUsuario);
+				
+				this.miUsuario.setPrimerCuadroPublica(apuestasPrimerCuadroPublica);
+				Gestor.actualizarJugador(this.miUsuario);
+				
+				System.out.println();
+				System.out.println("Liga Publica");
+				System.out.println();
+				System.out.println(this.miUsuario.getPrimerCuadroPublica()[0].getPartidoApuesta().toString());
+				System.out.println(this.miUsuario.getPrimerCuadroPublica()[1].getPartidoApuesta().toString());
+				System.out.println(this.miUsuario.getPrimerCuadroPublica()[2].getPartidoApuesta().toString());
+				System.out.println();
+				
 			} else if(this.tipoLiga == 1 ) {
 				
 
@@ -1232,8 +1249,27 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 				mostrarinformacionpaisEscogido(1);
 				
+				Partido[] tempPrivada = Gestor.retornarPartidosEquipoLiga(this.miUsuario.getEquipoLigaPrivada(), this.miUsuario.getMiLigaPrivada().getNombreLiga(), this.tipoLiga);
+				Apuesta[] apuestasPrimerCuadroPrivada = new Apuesta[3];
+				apuestasPrimerCuadroPrivada[0] = new Apuesta(tempPrivada[0], this.miUsuario.getEquipoLigaPrivada(), this.miUsuario);
+				apuestasPrimerCuadroPrivada[1] = new Apuesta(tempPrivada[1], this.miUsuario.getEquipoLigaPrivada(), this.miUsuario);
+				apuestasPrimerCuadroPrivada[2] = new Apuesta(tempPrivada[2], this.miUsuario.getEquipoLigaPrivada(), this.miUsuario);
+				
+				this.miUsuario.setPrimerCuadroPrivada(apuestasPrimerCuadroPrivada);
+				Gestor.actualizarJugador(this.miUsuario);
+				
+				System.out.println();
+				System.out.println("Liga Privada");
+				System.out.println();
+				System.out.println(this.miUsuario.getPrimerCuadroPrivada()[0].getPartidoApuesta().toString());
+				System.out.println(this.miUsuario.getPrimerCuadroPrivada()[1].getPartidoApuesta().toString());
+				System.out.println(this.miUsuario.getPrimerCuadroPrivada()[2].getPartidoApuesta().toString());
+				System.out.println();
+				
+				
 				
 			}
+		
 			
 		}
 		
@@ -1243,24 +1279,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			Ventana test = new Ventana(this.miUsuario);
 			test.ventanaJuegoFase2(this.tipoLiga);
 			*/
-			
-			switch(this.tipoLiga) {
-			
-			case 0:
-				
-				Partido[] tempPublica = Gestor.retornarPartidosEquipoLiga(this.miUsuario.getEquipoLigaPublica(), this.miUsuario.getMiLigaPublica().getNombreLiga(), this.tipoLiga);
-				
-				
-				break;
-				
-			case 1: 
-				
-				Partido[] tempPrivada = Gestor.retornarPartidosEquipoLiga(this.miUsuario.getEquipoLigaPrivada(), this.miUsuario.getMiLigaPrivada().getNombreLiga(), this.tipoLiga);
-				
-				break;
-			
-			
-			}
 			
 			
 		}

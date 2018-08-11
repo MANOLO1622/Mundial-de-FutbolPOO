@@ -587,15 +587,7 @@ public class CL {
 			break;
 		
 		
-		}
-		
-		System.out.println();
-		for(Partido e: partidosRetorno) {
-			
-			System.out.println(e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre());
-			
-		}
-		
+		}		
 	
 		return partidosRetorno;
 	}

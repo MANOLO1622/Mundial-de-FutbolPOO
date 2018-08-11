@@ -20,7 +20,22 @@ public class Usuario {
 	private Equipo equipoLigaPublica;
 	private Equipo equipoLigaPrivada;
 	
-	private Apuesta[] primerCuadro = new Apuesta[3];
+	private Apuesta[] primerCuadroPublica = new Apuesta[3];
+	private Apuesta[] primerCuadroPrivada = new Apuesta[3];
+	
+	private int validacionPrimeraFasePublica = 0;
+	private int validacionPrimeraFasePrivada = 0;
+	
+	private boolean validacionOctavosPublica = false;
+	private boolean validacioncuartosPublica = false;
+	private boolean validacionSemifinalesPublica = false;
+	private boolean validacionfinalPublica = false;
+	
+	private boolean validacionOctavosPrivada = false;
+	private boolean validacioncuartosPrivada = false;
+	private boolean validacionSemifinalesPrivada = false;
+	private boolean validacionfinalPrivada = false;
+	
 	
 	
 	public Usuario (String nombre, String apellido, String nombreUsuario, String contrasena,String avatar, String correoElectronico, int tipoUsuario) {
@@ -239,21 +254,129 @@ public class Usuario {
 		this.equipoLigaPrivada = equipoLigaPrivada;
 	}
 	
-	public Apuesta[] getPrimerCuadro() {
-		return primerCuadro;
+
+	public Apuesta[] getPrimerCuadroPublica() {
+		return primerCuadroPublica;
 	}
 
 
-	public void setPrimerCuadro(Apuesta[] primerCuadro) {
-		this.primerCuadro = primerCuadro;
+	public void setPrimerCuadroPublica(Apuesta[] primerCuadroPublica) {
+		this.primerCuadroPublica = primerCuadroPublica;
 	}
 
+
+	public Apuesta[] getPrimerCuadroPrivada() {
+		return primerCuadroPrivada;
+	}
+
+
+	public void setPrimerCuadroPrivada(Apuesta[] primerCuadroPrivada) {
+		this.primerCuadroPrivada = primerCuadroPrivada;
+	}
 	
+	public int getValidacionPrimeraFasePublica() {
+		return validacionPrimeraFasePublica;
+	}
+
+
+	public void setValidacionPrimeraFasePublica(int validacionPrimeraFasePublica) {
+		this.validacionPrimeraFasePublica = validacionPrimeraFasePublica;
+	}
+
+
+	public int getValidacionPrimeraFasePrivada() {
+		return validacionPrimeraFasePrivada;
+	}
+
+
+	public void setValidacionPrimeraFasePrivada(int validacionPrimeraFasePrivada) {
+		this.validacionPrimeraFasePrivada = validacionPrimeraFasePrivada;
+	}
+	
+	public boolean isValidacionOctavosPublica() {
+		return validacionOctavosPublica;
+	}
+
+
+	public void setValidacionOctavosPublica(boolean validacionOctavosPublica) {
+		this.validacionOctavosPublica = validacionOctavosPublica;
+	}
+
+
+	public boolean isValidacioncuartosPublica() {
+		return validacioncuartosPublica;
+	}
+
+
+	public void setValidacioncuartosPublica(boolean validacioncuartosPublica) {
+		this.validacioncuartosPublica = validacioncuartosPublica;
+	}
+
+
+	public boolean isValidacionSemifinalesPublica() {
+		return validacionSemifinalesPublica;
+	}
+
+
+	public void setValidacionSemifinalesPublica(boolean validacionSemifinalesPublica) {
+		this.validacionSemifinalesPublica = validacionSemifinalesPublica;
+	}
+
+
+	public boolean isValidacionfinalPublica() {
+		return validacionfinalPublica;
+	}
+
+
+	public void setValidacionfinalPublica(boolean validacionfinalPublica) {
+		this.validacionfinalPublica = validacionfinalPublica;
+	}
+
+
+	public boolean isValidacionOctavosPrivada() {
+		return validacionOctavosPrivada;
+	}
+
+
+	public void setValidacionOctavosPrivada(boolean validacionOctavosPrivada) {
+		this.validacionOctavosPrivada = validacionOctavosPrivada;
+	}
+
+
+	public boolean isValidacioncuartosPrivada() {
+		return validacioncuartosPrivada;
+	}
+
+
+	public void setValidacioncuartosPrivada(boolean validacioncuartosPrivada) {
+		this.validacioncuartosPrivada = validacioncuartosPrivada;
+	}
+
+
+	public boolean isValidacionSemifinalesPrivada() {
+		return validacionSemifinalesPrivada;
+	}
+
+
+	public void setValidacionSemifinalesPrivada(boolean validacionSemifinalesPrivada) {
+		this.validacionSemifinalesPrivada = validacionSemifinalesPrivada;
+	}
+
+
+	public boolean isValidacionfinalPrivada() {
+		return validacionfinalPrivada;
+	}
+
+
+	public void setValidacionfinalPrivada(boolean validacionfinalPrivada) {
+		this.validacionfinalPrivada = validacionfinalPrivada;
+	}
+
 	
 	//---------------------------------------------------------------------------------------------------------
 	
 	//Metodo toString.
-	
+
 
 	@Override
 	public String toString() {
@@ -267,4 +390,5 @@ public class Usuario {
 
 	
 	
+
 }
