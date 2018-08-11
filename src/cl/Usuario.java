@@ -1,8 +1,8 @@
 package cl;
 
 import java.util.*;
-
 import javax.swing.JOptionPane;
+import rondasMundial.*;
 
 public class Usuario {
 	
@@ -19,6 +19,9 @@ public class Usuario {
 	
 	private Equipo equipoLigaPublica;
 	private Equipo equipoLigaPrivada;
+	
+	private Apuesta[] primerCuadro = new Apuesta[3];
+	
 	
 	public Usuario (String nombre, String apellido, String nombreUsuario, String contrasena,String avatar, String correoElectronico, int tipoUsuario) {
 		
@@ -235,6 +238,15 @@ public class Usuario {
 	public void setEquipoLigaPrivada(Equipo equipoLigaPrivada) {
 		this.equipoLigaPrivada = equipoLigaPrivada;
 	}
+	
+	public Apuesta[] getPrimerCuadro() {
+		return primerCuadro;
+	}
+
+
+	public void setPrimerCuadro(Apuesta[] primerCuadro) {
+		this.primerCuadro = primerCuadro;
+	}
 
 	
 	
@@ -250,6 +262,9 @@ public class Usuario {
 				+ ", fechaRegistro=" + fechaRegistro + ", tipoUsuario=" + tipoUsuario + ", miLigaPublica="
 				+ miLigaPublica + ", miLigaPrivada=" + miLigaPrivada;
 	}
+
+
+
 	
 	
 }
