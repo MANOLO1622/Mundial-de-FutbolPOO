@@ -295,7 +295,7 @@ public class Gestor {
 		return bandera;
 	}
 
-	public static Usuario retornarUsuario(String nombreUsuario) {
+	public static Usuario retornarUsuario(String nombreUsuario) {///ESTO ME SIRVE
 
 		Usuario temp = CL.retornarUsuario(nombreUsuario);
 		return temp;
