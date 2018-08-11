@@ -6,6 +6,7 @@ import java.util.*;
 
 import javax.swing.JOptionPane;
 
+import gestor.Gestor;
 import rondasMundial.Partido;
 
 
@@ -545,6 +546,150 @@ public class CL {
 		return partidos;
 	}
 	
+	
+	
+	public static ArrayList<Partido> retornarPartidosEquipoLigaPrimeraFase(Equipo equipoSeleccionado, String nombreLiga, int tipoLiga){
+		
+		ArrayList<Partido> partidosRetorno = new ArrayList();
+		LigasPublicas tempPublica = null;
+		LigasPrivadas tempPrivada = null;
+		
+		switch(tipoLiga) {
+		
+		case 0: 
+			
+			for(LigasPublicas e: listaLigasPublicas) {
+				
+				if(nombreLiga.equals(e.getNombreLiga())) {
+					
+					tempPublica = Gestor.retornarLigaPublica(e.getNombreLiga());
+					partidosRetorno = retornarPartidosEquipoMundialPrimeraFase(tempPublica.getMundialAnfitrion(), equipoSeleccionado);
+					
+				}
+				
+			}
+			
+			break;
+			
+		case 1:
+			
+			for(LigasPrivadas e: listaLigasPrivadas) {
+				
+				if(nombreLiga.equals(e.getNombreLiga())) {
+					
+					tempPrivada = Gestor.retornarLigaPrivada(e.getNombreLiga());
+					partidosRetorno = retornarPartidosEquipoMundialPrimeraFase(tempPrivada.getMundialAnfitrion(), equipoSeleccionado);
+					
+				}
+				
+			}
+			
+			break;
+		
+		
+		}
+		
+		System.out.println();
+		for(Partido e: partidosRetorno) {
+			
+			System.out.println(e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre());
+			
+		}
+		
+	
+		return partidosRetorno;
+	}
+	
+	public static ArrayList<Partido> retornarPartidosEquipoMundialPrimeraFase(Mundiales mundial, Equipo equipoSeleccionado) {
+		
+		ArrayList<Partido> partidosRetorno = new ArrayList();
+		
+		for(Partido e: mundial.getRonda1().getPartidosPrimerCuadro()){
+			
+			if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
+				
+				partidosRetorno.add(e);
+				
+			}
+			
+		}
+		
+		for(Partido e: mundial.getRonda1().getPartidosSegundoCuadro()){
+			
+			if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
+				
+				partidosRetorno.add(e);
+				
+			}
+			
+		}
+		
+		for(Partido e: mundial.getRonda1().getPartidosTercerCuadro()){
+			
+			if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
+				
+				partidosRetorno.add(e);
+				
+			}
+			
+		}
+		
+		for(Partido e: mundial.getRonda1().getPartidosCuartoCuadro()){
+			
+			if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
+				
+				partidosRetorno.add(e);
+				
+			}
+			
+		}
+		
+		for(Partido e: mundial.getRonda1().getPartidosQuintoCuadro()){
+			
+			if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
+				
+				partidosRetorno.add(e);
+				
+			}
+			
+		}
+		
+		for(Partido e: mundial.getRonda1().getPartidosSextoCuadro()){
+			
+			if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
+				
+				partidosRetorno.add(e);
+				
+			}
+			
+		}
+		
+		for(Partido e: mundial.getRonda1().getPartidosSeptimoCuadro()){
+			
+			if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
+				
+				partidosRetorno.add(e);
+				
+			}
+			
+		}
+		
+		for(Partido e: mundial.getRonda1().getPartidosOctavoCuadro()){
+			
+			if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
+				
+				partidosRetorno.add(e);
+				
+			}
+			
+		}
+		
+		return partidosRetorno;
+		
+	}
+	
+	
+	
 	//------------------------------------------------------------------------------------------------
 	
 	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
@@ -770,7 +915,19 @@ public class CL {
 		
 		//-------------------------------------------------------------------------------------------------------------
 		
-		
+		public static void actualizarJugador(Usuario usuarioActualizado) {
+			
+			for(Usuario e: listaUsuarios) {
+				
+				if(e.getNombreUsuario().equals(usuarioActualizado.getNombreUsuario())) {
+					
+					listaUsuarios.set(listaUsuarios.indexOf(e), usuarioActualizado);
+					
+				}
+				
+			}
+			
+		}
 		
 		
 		

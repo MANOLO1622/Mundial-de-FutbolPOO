@@ -8,6 +8,7 @@ import java.util.Date;
 import javax.swing.*;
 
 import cl.*;
+import rondasMundial.Partido;
 
 public class Gestor {
 
@@ -266,6 +267,17 @@ public class Gestor {
 		return mundialTemp;
 		
 	}
+	
+	public static Partido[] retornarPartidosEquipoLiga(Equipo equipoSeleccionado, String nombreLiga, int tipoLiga){
+		
+		ArrayList<Partido> partidosRegistrados = CL.retornarPartidosEquipoLigaPrimeraFase( equipoSeleccionado, nombreLiga, tipoLiga);
+		Partido [] retorno = new Partido[3];
+		retorno[0] = partidosRegistrados.get(0);
+		retorno[1] = partidosRegistrados.get(1);
+		retorno[2] = partidosRegistrados.get(2);
+		
+		return retorno;
+	}
 
 	// -------------------------------------------------------------------------------------------------------------
 
@@ -453,6 +465,12 @@ public class Gestor {
 		
 		CL.eliminarLigaPrivada(nombreLiga);
 		
+		
+	}
+	
+	public static void actualizarJugador(Usuario usuarioActualizado) {
+		
+		CL.actualizarJugador(usuarioActualizado);
 		
 	}
 	
