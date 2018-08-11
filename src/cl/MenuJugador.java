@@ -143,7 +143,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		if(e.getSource() == boton5) {
 			
 			desabilitarMenuPrincipal();
-			mostrarInformacionLiga();						
+			mostrarInformacionLiga();						//aki
 			
 			this.add(ligasRegistradas);
 			ligasRegistradas.setBounds(950, 50, 200, 30);			
@@ -217,7 +217,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		if (e.getSource() == ligasRegistradas) {
 			
-			btnUnirseLiga.setEnabled(true);
+			btnUnirseLiga.setEnabled(true);  //upe
 			
 			LigasPublicas ligaPublicaTemp = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());				
 			
