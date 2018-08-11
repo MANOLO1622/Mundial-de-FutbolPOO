@@ -1240,7 +1240,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		if(e.getSource() == btnApostar) {
 			
 			Ventana test = new Ventana(this.miUsuario);
-			test.ventanaJuegoFase2(0);
+			test.ventanaJuegoFase2(this.tipoLiga);
 			
 			
 		}

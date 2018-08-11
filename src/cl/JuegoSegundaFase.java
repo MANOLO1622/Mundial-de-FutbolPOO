@@ -92,7 +92,7 @@ public class JuegoSegundaFase extends JPanel{
 	
 	
 	
-	public JuegoSegundaFase(Usuario miUsuario) {
+	public JuegoSegundaFase(Usuario miUsuario, int tipoLiga) {
 		
 		this.miUsuario = miUsuario;
 		this.tipoLiga = tipoLiga;
