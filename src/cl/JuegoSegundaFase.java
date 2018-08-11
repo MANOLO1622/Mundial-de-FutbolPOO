@@ -35,6 +35,7 @@ public class JuegoSegundaFase extends JPanel{
 	JLabel labelNombreSemis2 = new JLabel("Semis");
 	JLabel labelNombreFinal = new JLabel("FINAL");
 	JLabel labelNombreLugares = new JLabel("Tercer y Cuarto Lugar");
+	JLabel labelNombreEliminatorias = new JLabel("FASE DE ELIMINATORIAS");
 	
 	
 	
@@ -258,6 +259,12 @@ public class JuegoSegundaFase extends JPanel{
 		labelNombreFinal.setForeground(Color.WHITE);
 		labelNombreFinal.setBounds(595, 220, 200, 50);
 		labelNombreFinal.setFont(new Font(labelNombreFinal.getFont().getFontName(), Font.BOLD, 25));
+		
+		this.add(labelNombreEliminatorias);
+		labelNombreEliminatorias.setForeground(Color.WHITE);
+		labelNombreEliminatorias.setBounds(510, 20, 700, 50);
+		labelNombreEliminatorias.setFont(new Font(labelNombreEliminatorias.getFont().getFontName(), Font.BOLD, 20));
+		
 		
 		this.add(labelNombreLugares);
 		labelNombreLugares.setForeground(Color.WHITE);
