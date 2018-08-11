@@ -27,8 +27,8 @@ public class JuegoSegundaFase extends JPanel{
 	
 	//--------------Titulos de Fase de eliminatorias--------------------
 	
-	JLabel labelNombreOctavos = new JLabel("Octavos de Final");
-	JLabel labelNombreOctavos2 = new JLabel("Octavos de Final");
+	JLabel labelNombreOctavos = new JLabel("Octavos");
+	JLabel labelNombreOctavos2 = new JLabel("Octavos");
 	JLabel labelNombreCuartos = new JLabel("Cuartos");
 	JLabel labelNombreCuartos2 = new JLabel("Cuartos");
 	JLabel labelNombreSemis = new JLabel("Semis");
@@ -129,7 +129,7 @@ public class JuegoSegundaFase extends JPanel{
 		
 		this.add(labelNombreOctavos);
 		labelNombreOctavos.setForeground(Color.WHITE);
-		labelNombreOctavos.setBounds(1110, 5, 200, 50);
+		labelNombreOctavos.setBounds(1000, 5, 200, 50);
 		labelNombreOctavos.setFont(new Font(labelNombreOctavos.getFont().getFontName(), Font.BOLD, 17));
 		
 		this.add(labelNombreOctavos2);
@@ -167,122 +167,122 @@ public class JuegoSegundaFase extends JPanel{
 		
 		
 		this.add(labelPartido9);
-		labelPartido9.setBounds(1170, 50, ancho, alto);
+		labelPartido9.setBounds(1000, 50, ancho, alto);
 
 		this.add(labelPartido10);
-		labelPartido10.setBounds(1170, 120, ancho, alto);
+		labelPartido10.setBounds(1000, 120, ancho, alto);
 
 		this.add(labelPartido11);
-		labelPartido11.setBounds(1170, 200, ancho, alto);
+		labelPartido11.setBounds(1000, 200, ancho, alto);
 
 		this.add(labelPartido12);
-		labelPartido12.setBounds(1170, 270, ancho, alto);
+		labelPartido12.setBounds(1000, 270, ancho, alto);
 
 		this.add(labelPartido13);
-		labelPartido13.setBounds(1170, 350, ancho, alto);
+		labelPartido13.setBounds(1000, 350, ancho, alto);
 
 		this.add(labelPartido14);
-		labelPartido14.setBounds(1170, 420, ancho, alto);
+		labelPartido14.setBounds(1000, 420, ancho, alto);
 
 		this.add(labelPartido15);
-		labelPartido15.setBounds(1170, 500, ancho, alto);
+		labelPartido15.setBounds(1000, 500, ancho, alto);
 
 		this.add(labelPartido16);
-		labelPartido16.setBounds(1170, 570, ancho, alto);
+		labelPartido16.setBounds(1000, 570, ancho, alto);
 		
 		// ------------------------------------------------------Cuartos de final	
 
 		
 		this.add(labelNombreCuartos);
 		labelNombreCuartos.setForeground(Color.WHITE);
-		labelNombreCuartos.setBounds(1010, 40, 200, 50);
+		labelNombreCuartos.setBounds(890, 40, 200, 50);
 		labelNombreCuartos.setFont(new Font(labelNombreCuartos.getFont().getFontName(), Font.BOLD, 17));
 		
 		this.add(labelNombreCuartos2);
 		labelNombreCuartos2.setForeground(Color.WHITE);
-		labelNombreCuartos2.setBounds(200, 40, 200, 50);
+		labelNombreCuartos2.setBounds(150, 40, 200, 50);
 		labelNombreCuartos2.setFont(new Font(labelNombreCuartos2.getFont().getFontName(), Font.BOLD, 17));
 		
 		
 		this.add(labelPartido17);
-		labelPartido17.setBounds(200, 88, ancho, alto);
+		labelPartido17.setBounds(150, 88, ancho, alto);
 
 		this.add(labelPartido18);
-		labelPartido18.setBounds(200, 238, ancho, alto);
+		labelPartido18.setBounds(150, 238, ancho, alto);
 
 		this.add(labelPartido19);
-		labelPartido19.setBounds(200, 388, ancho, alto);
+		labelPartido19.setBounds(150, 388, ancho, alto);
 
 		this.add(labelPartido20);
-		labelPartido20.setBounds(200, 538, ancho, alto);
+		labelPartido20.setBounds(150, 538, ancho, alto);
 		
 		this.add(labelPartido21);
-		labelPartido21.setBounds(1010, 88, ancho, alto);
+		labelPartido21.setBounds(890, 88, ancho, alto);
 
 		this.add(labelPartido22);
-		labelPartido22.setBounds(1010, 238, ancho, alto);
+		labelPartido22.setBounds(890, 238, ancho, alto);
 
 		this.add(labelPartido23);
-		labelPartido23.setBounds(1010, 388, ancho, alto);
+		labelPartido23.setBounds(890, 388, ancho, alto);
 
 		this.add(labelPartido24);
-		labelPartido24.setBounds(1010, 538, ancho, alto);
+		labelPartido24.setBounds(890, 538, ancho, alto);
 		 													
 		// ------------------------------------------------------Semifinales
 
 		
 		this.add(labelNombreSemis);
 		labelNombreSemis.setForeground(Color.WHITE);
-		labelNombreSemis.setBounds(880, 195, 200, 50);
+		labelNombreSemis.setBounds(790, 195, 200, 50);
 		labelNombreSemis.setFont(new Font(labelNombreSemis.getFont().getFontName(), Font.BOLD, 17));
 		
 		this.add(labelNombreSemis2);
 		labelNombreSemis2.setForeground(Color.WHITE);
-		labelNombreSemis2.setBounds(320, 195, 200, 50);
+		labelNombreSemis2.setBounds(260, 195, 200, 50);
 		labelNombreSemis2.setFont(new Font(labelNombreSemis2.getFont().getFontName(), Font.BOLD, 17));
 		
 		this.add(labelPartido25);
-		labelPartido25.setBounds(320, 238, ancho, alto);
+		labelPartido25.setBounds(260, 238, ancho, alto);
 
 		this.add(labelPartido26);
-		labelPartido26.setBounds(330, 388, ancho, alto);
+		labelPartido26.setBounds(260, 388, ancho, alto);
 
 		this.add(labelPartido27);
-		labelPartido27.setBounds(880, 238, ancho, alto);
+		labelPartido27.setBounds(790, 238, ancho, alto);
 
 		this.add(labelPartido28);
-		labelPartido28.setBounds(880, 388, ancho, alto);
+		labelPartido28.setBounds(790, 388, ancho, alto);
 		
 		// ------------------------------------------------------Finales
 
 		this.add(labelNombreFinal);
 		labelNombreFinal.setForeground(Color.WHITE);
-		labelNombreFinal.setBounds(595, 220, 200, 50);
+		labelNombreFinal.setBounds(530, 220, 200, 50);
 		labelNombreFinal.setFont(new Font(labelNombreFinal.getFont().getFontName(), Font.BOLD, 25));
 		
 		this.add(labelNombreEliminatorias);
 		labelNombreEliminatorias.setForeground(Color.WHITE);
-		labelNombreEliminatorias.setBounds(510, 20, 700, 50);
+		labelNombreEliminatorias.setBounds(470, 20, 700, 50);
 		labelNombreEliminatorias.setFont(new Font(labelNombreEliminatorias.getFont().getFontName(), Font.BOLD, 20));
 		
 		
-		this.add(labelNombreLugares);
+		this.add(labelNombreLugares);	
 		labelNombreLugares.setForeground(Color.WHITE);
-		labelNombreLugares.setBounds(525, 290, 300, 350);
+		labelNombreLugares.setBounds(470, 290, 300, 350);
 		labelNombreLugares.setFont(new Font(labelNombreLugares.getFont().getFontName(), Font.BOLD, 19));
 		
 		
 		this.add(labelPartido29);
-		labelPartido29.setBounds(470, 300, 140, 96);
+		labelPartido29.setBounds(400, 300, 140, 96);
 
 		this.add(labelPartido30);
-		labelPartido30.setBounds(660, 300, 140, 96);
+		labelPartido30.setBounds(600, 300, 140, 96);
 
 		this.add(labelPartido31);
-		labelPartido31.setBounds(470, 500, 190, 96);//izquierdo tercer lugar
+		labelPartido31.setBounds(400, 500, 190, 96);//izquierdo tercer lugar
 
 		this.add(labelPartido32);
-		labelPartido32.setBounds(660, 500, 190, 96);// derecho cuarto lugar
+		labelPartido32.setBounds(600, 500, 190, 96);// derecho cuarto lugar
 		
 		mostrarBanderas( ancho,  alto, this.tipoLiga);
 		

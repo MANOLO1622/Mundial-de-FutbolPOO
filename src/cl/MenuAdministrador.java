@@ -17,12 +17,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	
 	JButton boton1  = new JButton("Usuarios");
 	JButton boton2 = new JButton("Apuestas");
-	JButton boton3 = new JButton("Crear mundial");
-	JButton boton10 = new JButton("Crear equipos");
-	JButton boton11 = new JButton("Crear jugadores");
-	JButton botonLigaPublica = new JButton("Crear liga publica");
+	JButton boton3 = new JButton("Crear Mundial");
+	JButton boton10 = new JButton("Crear Equipos");
+	JButton boton11 = new JButton("Crear Jugadores");
+	JButton botonLigaPublica = new JButton("Crear Liga Publica");
 	JButton btnEliminarLigaPublica = new JButton("Eliminar Liga Publica");
-	JButton botonLigaPrivada = new JButton("Crear liga privada");
+	JButton botonLigaPrivada = new JButton("Crear Liga Privada");
 	JButton btnEliminarLigaPrivada = new JButton("Eliminar Liga Privada");
 	JButton btnIncJugLigaPrivada = new JButton("Incluir en LigaPrivada");
 	JButton botonSalir = new JButton("Salir");
