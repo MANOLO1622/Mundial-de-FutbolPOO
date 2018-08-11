@@ -473,6 +473,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			CancelarEliminacionLiga.setBounds(1230, 200, 100, 30);
 			
 			desabilitarMenu();
+		
 			
 		}
 		
