@@ -84,7 +84,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	// -------------------Boton de mostrar informacion de usuarios--------------------
 
-	JButton btnMostrar = new JButton("Mostrar");
+	
 	JLabel informacionUsuario1 = new JLabel("");
 	JLabel informacionUsuario2 = new JLabel("");
 	
@@ -168,7 +168,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		botonEliminarPrivadaRegistro.addActionListener(this);
 		CancelarEliminacionLiga.addActionListener(this);
 		botonRegistrarPrivadaRegistro.addActionListener(this);
-		btnMostrar.addActionListener(this);
+		
 
 	}
 
@@ -181,7 +181,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		if (e.getSource() == usuariosRegistrados) {
 
-			btnMostrar.setEnabled(true);
+			
 
 			Usuario UsuarioTemp = Gestor.retornarUsuario((String) usuariosRegistrados.getSelectedItem());
 
@@ -195,7 +195,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			}
 			
 			informacionUsuario1.setText("Informacion de Usuario.");
-			informacionUsuario2.setText("Nombre de la liga: " + UsuarioTemp.getNombre());
+			informacionUsuario2.setText("Nombre del Usuario " + UsuarioTemp.getNombre());
 		
 			
 		}
@@ -205,24 +205,23 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		if (e.getSource() == boton1) {
 
 			
-			
-			
 			//desabilitarMenuPrincipal();
 			mostrarInformacionUsuario();
 			
-			this.add(btnMostrar);
-			btnMostrar.setBounds(490, 250, 100, 30);
+			
 
 			this.add(usuariosRegistrados);
 			usuariosRegistrados.setBounds(280, 250, 180, 30);
 
 			this.add(btnCancelar);
-			btnCancelar.setBounds(490, 290, 100, 30);
+			btnCancelar.setBounds(490, 250, 100, 30);
 
 			desabilitarMenu();
 
 			// sonic
 		}
+		
+		
 
 		// ----------------------------------------------PRUEBA
 
@@ -368,6 +367,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 			this.add(LigasPublicas);
 			LigasPublicas.setBounds(990, 200, 120, 30);
+			
 
 			botonEliminarPublicaRegistro.setBounds(1120, 200, 100, 30);
 			this.add(botonEliminarPublicaRegistro);
@@ -617,7 +617,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.remove(ligasPrivadasRegistradas);
 		this.remove(btnRegistroLigaPublica);
 		this.remove(btnRegistrarMundial);
-		this.remove(btnMostrar);
+		
 
 		this.remove(labelAno);
 		fechaMundial.setVisible(false);
@@ -780,7 +780,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 public void mostrarInformacionUsuario() {
 		
-		
+		this.add(informacionUsuario1);
+		informacionUsuario1.setBounds(900,140, 600,40);
+		informacionUsuario1.setForeground(Color.ORANGE);
+		informacionUsuario1.setFont(new Font(informacionUsuario1.getFont().getFontName(), Font.PLAIN, 30));
 		
 
 		this.add(informacionUsuario2);
