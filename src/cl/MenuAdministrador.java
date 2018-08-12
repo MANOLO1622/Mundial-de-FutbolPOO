@@ -36,6 +36,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JLabel labelTituloPublica = new JLabel("Crear Liga Publica");
 	JLabel labelTituloMundial = new JLabel("Crear Mundial");
 	JLabel labelTituloIncluir = new JLabel("Incluir Liga Privada a Usuario");
+	JLabel labelTituloEliminarPrivada = new JLabel("Eliminar Liga Privada");
+	JLabel labelTituloEliminarPublica = new JLabel("Eliminar Liga Publica");
 	JTextField nombreLigaTXT = new JTextField(10);
 	JLabel labelEstado = new JLabel("Estado:");
 	JTextField estadoTXT = new JTextField(10);
@@ -368,16 +370,22 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		if (e.getSource() == btnEliminarLigaPublica) {
 
 			ingresarLigasPublicas();
+			
+			this.add(labelTituloEliminarPublica);
+			labelTituloEliminarPublica.setForeground(Color.WHITE);
+			labelTituloEliminarPublica.setBounds(230, 195, 500, 260);
+			labelTituloEliminarPublica.setFont(new Font(labelTituloEliminarPublica.getFont().getFontName(), Font.BOLD, 30));
+
 
 			this.add(LigasPublicas);
-			LigasPublicas.setBounds(990, 200, 120, 30);
+			LigasPublicas.setBounds(990, 300, 120, 30);
 			
 
-			botonEliminarPublicaRegistro.setBounds(1120, 200, 100, 30);
+			botonEliminarPublicaRegistro.setBounds(1120, 300, 100, 30);
 			this.add(botonEliminarPublicaRegistro);
 
 			this.add(CancelarEliminacionLiga);
-			CancelarEliminacionLiga.setBounds(1230, 200, 100, 30);
+			CancelarEliminacionLiga.setBounds(1230, 300, 100, 30);
 
 			desabilitarMenu();
 
@@ -433,12 +441,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 			this.add(labelNombreUsuario);
 			labelNombreUsuario.setForeground(Color.WHITE);
-			labelNombreUsuario.setBounds(997, 250, 200, 30);
+			labelNombreUsuario.setBounds(997, 290, 200, 30);
 			labelNombreUsuario.setFont(new Font(labelNombreUsuario.getFont().getFontName(), Font.BOLD, 17));
 
 			this.add(labelNombreLigaPrivada);
 			labelNombreLigaPrivada.setForeground(Color.WHITE);
-			labelNombreLigaPrivada.setBounds(997, 210, 200, 30);
+			labelNombreLigaPrivada.setBounds(997, 250, 200, 30);
 			labelNombreLigaPrivada.setFont(new Font(labelNombreLigaPrivada.getFont().getFontName(), Font.BOLD, 17));
 
 			this.add(labelTituloIncluir);
@@ -447,16 +455,16 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			labelTituloIncluir.setFont(new Font(labelTituloIncluir.getFont().getFontName(), Font.BOLD, 30));
 
 			this.add(LigasPrivadas);
-			LigasPrivadas.setBounds(1080, 210, 180, 22);
+			LigasPrivadas.setBounds(1080, 250, 180, 22);
 
-			botonRegistrarPrivadaRegistro.setBounds(1030, 300, 120, 25);
+			botonRegistrarPrivadaRegistro.setBounds(1080, 330, 80, 25);
 			this.add(botonRegistrarPrivadaRegistro);
 
 			this.add(btnCancelar);
-			btnCancelar.setBounds(1160, 300, 120, 25);
+			btnCancelar.setBounds(1170, 330, 90, 25);
 
 			this.add(usuariosRegistrados);
-			usuariosRegistrados.setBounds(1080, 250, 180, 22);
+			usuariosRegistrados.setBounds(1080, 290, 180, 22);
 
 			desabilitarMenu();
 			// PRUEBA
@@ -473,15 +481,21 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		if (e.getSource() == btnEliminarLigaPrivada) {
 
 			ingresarLigasPrivadas();
+			
+			this.add(labelTituloEliminarPrivada);
+			labelTituloEliminarPrivada.setForeground(Color.WHITE);
+			labelTituloEliminarPrivada.setBounds(230, 195, 500, 260);
+			labelTituloEliminarPrivada.setFont(new Font(labelTituloEliminarPrivada.getFont().getFontName(), Font.BOLD, 30));
 
+			//soso
 			this.add(LigasPrivadas);
-			LigasPrivadas.setBounds(990, 200, 120, 30);
+			LigasPrivadas.setBounds(990, 300, 120, 30);
 
-			botonEliminarPrivadaRegistro.setBounds(1120, 200, 100, 30);
+			botonEliminarPrivadaRegistro.setBounds(1120, 300, 100, 30);
 			this.add(botonEliminarPrivadaRegistro);
 
 			this.add(CancelarEliminacionLiga);
-			CancelarEliminacionLiga.setBounds(1230, 200, 100, 30);
+			CancelarEliminacionLiga.setBounds(1230, 300, 100, 30);
 
 			desabilitarMenu();
 
@@ -501,7 +515,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		this.add(labelNombreLiga);
 		labelNombreLiga.setForeground(Color.WHITE);
-		labelNombreLiga.setBounds(997, 205, 200, 30);
+		labelNombreLiga.setBounds(997, 290, 200, 30);
 		labelNombreLiga.setFont(new Font(labelNombreLiga.getFont().getFontName(), Font.BOLD, 15));
 
 		this.add(labelTituloPublica);
@@ -510,21 +524,21 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		labelTituloPublica.setFont(new Font(labelTituloPublica.getFont().getFontName(), Font.BOLD, 30));
 
 		this.add(nombreLigaTXT);
-		nombreLigaTXT.setBounds(1099, 210, 180, 22);
+		nombreLigaTXT.setBounds(1100, 250, 160, 22);
 
 		this.add(labelMundialAnfitrion);
 		labelMundialAnfitrion.setForeground(Color.WHITE);
-		labelMundialAnfitrion.setBounds(1000, 250, 200, 30);
+		labelMundialAnfitrion.setBounds(997, 250, 200, 30);
 		labelMundialAnfitrion.setFont(new Font(labelMundialAnfitrion.getFont().getFontName(), Font.BOLD, 15));
 
 		this.add(MundialAnfitrion);
-		MundialAnfitrion.setBounds(1099, 250, 180, 22);
+		MundialAnfitrion.setBounds(1100, 290, 160, 22);
 
 		this.add(btnRegistroLigaPublica);
-		btnRegistroLigaPublica.setBounds(1030, 300, 120, 25);
+		btnRegistroLigaPublica.setBounds(1070, 330, 90, 25);
 
 		this.add(btnCancelar);
-		btnCancelar.setBounds(1160, 300, 120, 25);
+		btnCancelar.setBounds(1170, 330, 90, 25);
 
 	}
 
@@ -532,7 +546,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		this.add(labelNombreLiga);
 		labelNombreLiga.setForeground(Color.WHITE);
-		labelNombreLiga.setBounds(997, 205, 200, 30);
+		labelNombreLiga.setBounds(997, 290, 200, 30);
 		labelNombreLiga.setFont(new Font(labelNombreLiga.getFont().getFontName(), Font.BOLD, 15));
 
 		this.add(labelTituloPrivada);
@@ -541,21 +555,21 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		labelTituloPrivada.setFont(new Font(labelTituloPrivada.getFont().getFontName(), Font.BOLD, 30));
 
 		this.add(nombreLigaTXT);
-		nombreLigaTXT.setBounds(1099, 210, 180, 22);
+		nombreLigaTXT.setBounds(1100, 250, 160, 22);
 
 		this.add(labelMundialAnfitrion);
 		labelMundialAnfitrion.setForeground(Color.WHITE);
-		labelMundialAnfitrion.setBounds(1000, 250, 200, 30);
+		labelMundialAnfitrion.setBounds(997, 250, 200, 30);
 		labelMundialAnfitrion.setFont(new Font(labelMundialAnfitrion.getFont().getFontName(), Font.BOLD, 15));
 
 		this.add(MundialAnfitrion);
-		MundialAnfitrion.setBounds(1099, 250, 180, 22);
+		MundialAnfitrion.setBounds(1100, 290, 160, 22);
 
 		this.add(btnRegistroLigaPrivada);
-		btnRegistroLigaPrivada.setBounds(1030, 300, 120, 25);
+		btnRegistroLigaPrivada.setBounds(1070, 330, 90, 25);
 
 		this.add(btnCancelar);
-		btnCancelar.setBounds(1160, 300, 120, 25);
+		btnCancelar.setBounds(1170, 330, 90, 25);
 
 	}
 
@@ -617,6 +631,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		this.remove(btnCancelar);
 		this.remove(labelNombreUsuario);
 		this.remove(labelNombreLigaPrivada);
+		this.remove(labelTituloEliminarPrivada);
+		this.remove(labelTituloEliminarPublica);
 		this.remove(usuariosRegistrados);
 		this.remove(ligasPrivadasRegistradas);
 		this.remove(btnRegistroLigaPublica);
