@@ -6,8 +6,8 @@ import javax.swing.JOptionPane;
 
 public class LigasPublicas extends Ligas {
 
-	int puntos;
-	int bono;
+	int puntos = 50;
+	int bono = 25;
 	private Mundiales mundialAnfitrion;
 	final int unaConstante = 100;
 	
@@ -55,18 +55,24 @@ public class LigasPublicas extends Ligas {
 	@Override
 	public String toString() {
 		return super.toString() + " puntos=" + puntos + ", bono=" + bono + ", mundialAnfitrion=" + mundialAnfitrion
-				+ ", unaConstante=" + unaConstante + "]";
+				+ ", unaConstante=" + unaConstante;
 	}
 	
 
-
-
-
+	//------------------------------------------------------------------------------------------------------------------
 	
+	public void sumarPuntaje() {
+		
+		this.puntos = puntos + 100;
+		
+	}
 	
-	
-	
-	
+	public void sumarBono() {
+		
+		
+		this.puntos = puntos + bono;
+		
+	}
 	
 }
 

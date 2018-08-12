@@ -13,7 +13,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 	private Usuario miUsuario;
 	private int tipoLiga;
 
-	
 	private JComboBox equipos = new JComboBox();
 	private JLabel labelBanderaPaisEscogido = new JLabel();
 	private ImageIcon imagenBanderaPaisEscogido;
@@ -45,7 +44,10 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 	private JTextField marcadorEquipo1 = new JTextField(2);
 	private JTextField marcadorEquipo2 = new JTextField(2);
 	
-
+	private JButton btnSegundaFase = new JButton("Octavos");
+	
+	private JLabel Labelpuntaje = new JLabel("Puntaje: " + 0);
+	 
 	/*
 	 * 
 	 * 
@@ -274,6 +276,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		equipos.addActionListener(this);
 		btnregistrarEquipoJugador.addActionListener(this);
 		btnApostar.addActionListener(this);
+		btnSegundaFase.addActionListener(this);
 		
 		labelPartido1.addMouseListener(this);
 		labelPartido2.addMouseListener(this);
@@ -318,10 +321,18 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		int alto = 48;
 		int ancho = 72;
 
+		this.add(Labelpuntaje);
+		Labelpuntaje.setBounds(1065, 550, 194, 30);
+		
+		this.add(btnSegundaFase);
+		btnSegundaFase.setVisible(false);
+		btnSegundaFase.setBounds(1150, 610, 100, 30);
+		
 		this.add(btnSalir);
 		btnSalir.setBounds(1150, 650, 100, 30);
 
-
+		//--------------------------------------------------------
+		
 		this.add(cuadro1);
 		cuadro1.setBounds(50, 25, 448, 20);
 		cuadro1.setOpaque(true);
@@ -1188,8 +1199,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 	
 	
 	
-	
-	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -1199,8 +1208,10 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 			Ventana ventMenuJugador = new Ventana(this.miUsuario);
 			ventMenuJugador.ventanaMenuUsuarios(this.miUsuario.getTipoUsuario(2), ventMenuJugador);
-
+			
 		}
+		
+		//--------------------------------------------------------------------------------------------------------------------------Otro evento
 		
 		if(e.getSource() == equipos) {
 			
@@ -1235,8 +1246,37 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			
 		}
 		
+		//--------------------------------------------------------------------------------------------------------------------------Otro evento
+		
 		if(e.getSource()==btnregistrarEquipoJugador) {
 			
+			this.add(labelEquipoSeleccionado);
+			labelEquipoSeleccionado.setVisible(false);
+			labelEquipoSeleccionado.setBounds(1065, 400, 97, 64);
+			
+			this.add(labelEquipoContrincante);
+			labelEquipoContrincante.setVisible(false);
+			labelEquipoContrincante.setBounds(1164, 400, 97, 64);
+			
+			this.add(equipo1);
+			equipo1.setVisible(false);
+			equipo1.setBounds(1065, 470, 97, 30);
+			
+			this.add(equipo2);
+			equipo2.setVisible(false);
+			equipo2.setBounds(1164, 470, 97, 30);
+			
+			this.add(marcadorEquipo1);
+			marcadorEquipo1.setVisible(false);
+			marcadorEquipo1.setText("");
+			marcadorEquipo1.setBounds(1065, 510, 97, 30);
+			
+			this.add(marcadorEquipo2);
+			marcadorEquipo2.setVisible(false);
+			marcadorEquipo2.setText("");
+			marcadorEquipo2.setBounds(1164, 510, 97, 30);
+			
+
 			if(this.tipoLiga == 0 ) {
 				
 				Gestor.asignarEquipoLigaPublicaUsuario(this.miUsuario.getNombreUsuario(), Gestor.retornarEquipo((String)equipos.getSelectedItem()));
@@ -1252,6 +1292,16 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 				this.miUsuario.setPrimerCuadroPublica(apuestasPrimerCuadroPublica);
 				Gestor.actualizarJugador(this.miUsuario);
+				
+				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+				
+				imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[0].getPartidoApuesta().getEquipo1().getBandera());
+				ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
+				labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
+				
+				imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[0].getPartidoApuesta().getEquipo2().getBandera());
+				ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
+				labelEquipoContrincante.setIcon(iconoEquipoContrincante);
 				
 			} else if(this.tipoLiga == 1 ) {
 				
@@ -1269,39 +1319,34 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 				this.miUsuario.setPrimerCuadroPrivada(apuestasPrimerCuadroPrivada);
 				Gestor.actualizarJugador(this.miUsuario);
-	
 				
+				imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[0].getPartidoApuesta().getEquipo1().getBandera());
+				ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
+				labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
+				
+				imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[0].getPartidoApuesta().getEquipo2().getBandera());
+				ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
+				labelEquipoContrincante.setIcon(iconoEquipoContrincante);
+
 			}
+			
+
+			labelEquipoSeleccionado.setVisible(true);
+			labelEquipoContrincante.setVisible(true);
+			equipo1.setVisible(true);
+			equipo2.setVisible(true);
+			marcadorEquipo1.setVisible(true);
+			marcadorEquipo1.setText("");
+			marcadorEquipo2.setVisible(true);
+			marcadorEquipo2.setText("");
+
 		
 			
 		}
 		
+		//--------------------------------------------------------------------------------------------------------------------------Otro evento
+		
 		if(e.getSource() == btnApostar) {
-			
-			/*
-			Ventana test = new Ventana(this.miUsuario);
-			test.ventanaJuegoFase2(this.tipoLiga);
-			*/
-			
-			this.add(labelEquipoSeleccionado);
-			labelEquipoSeleccionado.setBounds(1065, 400, 97, 64);
-			
-			this.add(labelEquipoContrincante);
-			labelEquipoContrincante.setBounds(1164, 400, 97, 64);
-			
-			this.add(equipo1);
-			equipo1.setBounds(1065, 470, 97, 30);
-			
-			this.add(equipo2);
-			equipo2.setBounds(1164, 470, 97, 30);
-			
-			this.add(marcadorEquipo1);
-			marcadorEquipo1.setText("");
-			marcadorEquipo1.setBounds(1065, 510, 97, 30);
-			
-			this.add(marcadorEquipo2);
-			marcadorEquipo2.setText("");
-			marcadorEquipo2.setBounds(1164, 510, 97, 30);
 			
 			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
 			
@@ -1320,6 +1365,11 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					this.miUsuario.sumarApuestaPublica();	
 					Gestor.actualizarJugador(this.miUsuario);
 					
+					btnSegundaFase.setVisible(false);
+
+					sumarPuntajes(0, 0);
+					
+					
 				} else if(this.miUsuario.getValidacionPrimeraFasePublica() == 1) {
 
 					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[1].getPartidoApuesta().getEquipo1().getBandera());
@@ -1333,6 +1383,11 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					this.miUsuario.sumarApuestaPublica();	
 					Gestor.actualizarJugador(this.miUsuario);
 					
+					btnSegundaFase.setVisible(false);
+
+					sumarPuntajes(0, 1);
+					
+					
 				} else if(this.miUsuario.getValidacionPrimeraFasePublica() == 2) {
 					
 					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[2].getPartidoApuesta().getEquipo1().getBandera());
@@ -1345,6 +1400,9 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					
 					this.miUsuario.sumarApuestaPublica();	
 					Gestor.actualizarJugador(this.miUsuario);
+
+					sumarPuntajes(0, 2);
+					
 					
 				} else {
 					
@@ -1356,17 +1414,22 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					this.remove(marcadorEquipo2);
 					
 					JOptionPane.showMessageDialog(null, "Ya haz completado todas la apuestas de la primera fase\n"
-							+ "ya puedes pasar a l a segunda fase.");
+							+ "si tu equipo clasifico, podras pasar a la segunda fase.");
+					
+					btnSegundaFase.setVisible(true);
 					
 				}
+
 				
+				
+
 			} else if(this.tipoLiga == 1) {
 				
 				if(this.miUsuario.getValidacionPrimeraFasePrivada() == 0) {
 				
 					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[0].getPartidoApuesta().getEquipo1().getBandera());
 					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
-					labelEquipoSeleccionado.setIcon(imagenEquipoSeleccionado);
+					labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
 					
 					imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[0].getPartidoApuesta().getEquipo2().getBandera());
 					ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
@@ -1374,12 +1437,17 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					
 					this.miUsuario.sumarApuestaPrivada();	
 					Gestor.actualizarJugador(this.miUsuario);
+					
+					btnSegundaFase.setVisible(false);
+
+					sumarPuntajes(1, 0);
+					
 				
 				} else if(this.miUsuario.getValidacionPrimeraFasePrivada() == 1) {
 					
 					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[1].getPartidoApuesta().getEquipo1().getBandera());
 					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
-					labelEquipoSeleccionado.setIcon(imagenEquipoSeleccionado);
+					labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
 					
 					imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[1].getPartidoApuesta().getEquipo2().getBandera());
 					ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
@@ -1388,11 +1456,16 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					this.miUsuario.sumarApuestaPrivada();	
 					Gestor.actualizarJugador(this.miUsuario);
 					
+					btnSegundaFase.setVisible(false);
+
+					sumarPuntajes(1, 1);
+					
+					
 				} else if(this.miUsuario.getValidacionPrimeraFasePrivada() == 2) {
 					
 					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[2].getPartidoApuesta().getEquipo1().getBandera());
 					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
-					labelEquipoSeleccionado.setIcon(imagenEquipoSeleccionado);
+					labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
 					
 					imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[2].getPartidoApuesta().getEquipo2().getBandera());
 					ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
@@ -1400,6 +1473,12 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					
 					this.miUsuario.sumarApuestaPrivada();	
 					Gestor.actualizarJugador(this.miUsuario);
+					
+					btnSegundaFase.setVisible(false);
+					
+					sumarPuntajes(1, 2);
+					
+					
 					
 				} else {
 					
@@ -1411,17 +1490,104 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					this.remove(marcadorEquipo2);
 					
 					JOptionPane.showMessageDialog(null, "Ya haz completado todas la apuestas de la primera fase\n"
-							+ "ya puedes pasar a l a segunda fase.");
+							+ "si tu equipo clasifico, podras pasar a la segunda fase.");
+					/*
+					for(Equipo e: this.miUsuario.getEquipoLigaPrivada().getNombre().equals(this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getGanadoresPrimeraFase()) {
+						
+						if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getGanadoresPrimeraFase()[e])) {
+							
+							
+							
+						}
+						
+					}
+					*/
+					btnSegundaFase.setVisible(true);
 					
 				}
 				
 			}
 			
+			marcadorEquipo1.setText("");
+			marcadorEquipo2.setText("");
+
+		}
+		
+		//--------------------------------------------------------------------------------------------------------------------------Otro evento
+		
+		if(e.getSource()==btnSegundaFase) {
+			
+			Ventana test = new Ventana(this.miUsuario);
+			test.ventanaJuegoFase2(this.tipoLiga);
 			
 		}
 
 	}
 
+	
+	public void sumarPuntajes(int tipoLiga, int ronda) {
+		
+		switch(tipoLiga) {
+		
+		case 0:
+						
+			if(this.miUsuario.getEquipoLigaPublica().getNombre().equals(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getEquipoGanador().getNombre())) {
+				
+				this.miUsuario.getMiLigaPublica().sumarPuntaje();
+				Gestor.actualizarJugador(this.miUsuario);
+				
+				if(marcadorEquipo1.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ||
+				   marcadorEquipo2.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ){
+
+						
+					this.miUsuario.getMiLigaPublica().sumarBono();
+					Gestor.actualizarJugador(this.miUsuario);
+					Labelpuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPublica().getPuntos()); 
+							
+				}
+				else{
+							
+					Labelpuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPublica().getPuntos()); 
+							
+				}
+
+			}
+			
+			
+			break;
+			
+		case 1: 
+			
+			if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getEquipoGanador().getNombre())) {
+				
+				this.miUsuario.getMiLigaPrivada().sumarPuntaje();
+				Gestor.actualizarJugador(this.miUsuario);
+				
+				if(marcadorEquipo1.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ||
+				   marcadorEquipo2.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ){
+
+						
+					this.miUsuario.getMiLigaPrivada().sumarBono();
+					Gestor.actualizarJugador(this.miUsuario);
+					Labelpuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPrivada().getPuntos()); 
+							
+				}
+				else{
+							
+					Labelpuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPrivada().getPuntos()); 
+							
+				}
+
+			}
+			
+			break;		
+		
+		}
+		
+		
+	}
+	
+	
 	
 	
 	public void mostrarinformacionpaisEscogido(int tipoLiga) {

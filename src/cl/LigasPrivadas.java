@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 public class LigasPrivadas extends Ligas{
 	
-	int puntos;
-	int bono;
+	int puntos = 0;
+	int bono = 50;
 	private Mundiales mundialAnfitrion;
 	final int unaConstante = 100;
 	
@@ -50,7 +50,22 @@ public class LigasPrivadas extends Ligas{
 	@Override
 	public String toString() {
 		return super.toString() + " puntos=" + puntos + ", bono=" + bono + ", mundialAnfitrion=" + mundialAnfitrion
-				+ ", unaConstante=" + unaConstante + "]";
+				+ ", unaConstante=" + unaConstante;
+	}
+	
+	//------------------------------------------------------------------------------------------------------------------
+	
+	public void sumarPuntaje() {
+		
+		this.puntos = this.puntos + 100;
+		
+	}
+	
+	public void sumarBono() {
+		
+		
+		this.puntos = this.puntos + bono;
+		
 	}
 	
 }

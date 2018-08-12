@@ -17,6 +17,9 @@ public class Usuario {
 	private LigasPublicas miLigaPublica;
 	private LigasPrivadas miLigaPrivada;
 	
+	private int puntajePublica = 0;
+	private int puntajePrivada = 0;
+	
 	private Equipo equipoLigaPublica;
 	private Equipo equipoLigaPrivada;
 	
@@ -372,21 +375,50 @@ public class Usuario {
 		this.validacionfinalPrivada = validacionfinalPrivada;
 	}
 
-	
+
+	public int getPuntajePublica() {
+		return puntajePublica;
+	}
+
+
+	public void setPuntajePublica(int puntajePublica) {
+		this.puntajePublica = puntajePublica;
+	}
+
+
+	public int getPuntajePrivada() {
+		return puntajePrivada;
+	}
+
+
+	public void setPuntajePrivada(int puntajePrivada) {
+		this.puntajePrivada = puntajePrivada;
+	}
+
+
 	//---------------------------------------------------------------------------------------------------------
 	
 	//Metodo toString.
-
 
 	@Override
 	public String toString() {
 		return "Usuario: nombre=" + nombre + ", apellido=" + apellido + ", nombreUsuario=" + nombreUsuario + ", avatar="
 				+ avatar + ", correoElectronico=" + correoElectronico + ", contrasena=" + contrasena
 				+ ", fechaRegistro=" + fechaRegistro + ", tipoUsuario=" + tipoUsuario + ", miLigaPublica="
-				+ miLigaPublica + ", miLigaPrivada=" + miLigaPrivada;
+				+ miLigaPublica + ", miLigaPrivada=" + miLigaPrivada + ", puntajePublica=" + puntajePublica
+				+ ", puntajePrivada=" + puntajePrivada + ", equipoLigaPublica=" + equipoLigaPublica
+				+ ", equipoLigaPrivada=" + equipoLigaPrivada + ", primerCuadroPublica="
+				+ Arrays.toString(primerCuadroPublica) + ", primerCuadroPrivada=" + Arrays.toString(primerCuadroPrivada)
+				+ ", validacionPrimeraFasePublica=" + validacionPrimeraFasePublica + ", validacionPrimeraFasePrivada="
+				+ validacionPrimeraFasePrivada + ", validacionOctavosPublica=" + validacionOctavosPublica
+				+ ", validacioncuartosPublica=" + validacioncuartosPublica + ", validacionSemifinalesPublica="
+				+ validacionSemifinalesPublica + ", validacionfinalPublica=" + validacionfinalPublica
+				+ ", validacionOctavosPrivada=" + validacionOctavosPrivada + ", validacioncuartosPrivada="
+				+ validacioncuartosPrivada + ", validacionSemifinalesPrivada=" + validacionSemifinalesPrivada
+				+ ", validacionfinalPrivada=" + validacionfinalPrivada;
 	}
 	
-	
+	//--------------------------------------------------------------------------------------------------------- Metodos propios de la clase.
 	
 	public void sumarApuestaPublica() {
 		
