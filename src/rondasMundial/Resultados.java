@@ -491,9 +491,7 @@ public class Resultados {
         partidosSextoCuadro = organizarCuadroJuego(sextoCuadro);
         partidosSeptimoCuadro = organizarCuadroJuego(septimoCuadro);
         partidosOctavoCuadro = organizarCuadroJuego(octavoCuadro);
-        
-        
-        
+
         ganadoresPrimerCuadro = guardarGanadoresPrimeraFase(partidosPrimerCuadro,primerCuadro);
         ganadoresSegundoCuadro = guardarGanadoresPrimeraFase(partidosSegundoCuadro,segundoCuadro);
         ganadoresTercerCuadro = guardarGanadoresPrimeraFase(partidosTercerCuadro,tercerCuadro);
@@ -501,7 +499,9 @@ public class Resultados {
         ganadoresQuintoCuadro = guardarGanadoresPrimeraFase(partidosQuintoCuadro,quintoCuadro);
         ganadoresSextoCuadro = guardarGanadoresPrimeraFase(partidosSextoCuadro,sextoCuadro);
         ganadoresSeptimoCuadro = guardarGanadoresPrimeraFase(partidosSeptimoCuadro,septimoCuadro);
-        ganadoresOctavoCuadro = guardarGanadoresPrimeraFase(partidosOctavoCuadro,octavoCuadro);        
+        ganadoresOctavoCuadro = guardarGanadoresPrimeraFase(partidosOctavoCuadro,octavoCuadro); 
+        
+        
         
         partidosOctavosFinal = guardarPartidosOctavosFinal(ganadoresPrimerCuadro, ganadoresSegundoCuadro, ganadoresTercerCuadro, ganadoresCuartoCuadro
         		, ganadoresQuintoCuadro, ganadoresSextoCuadro, ganadoresSeptimoCuadro, ganadoresOctavoCuadro);
@@ -520,6 +520,8 @@ public class Resultados {
         this.segundoLugar = juegosFinales[0].getEquipoPerdedor();
         this.tercerLugar = juegosFinales[1].getEquipoGanador();
         this.cuartoLugar = juegosFinales[1].getEquipoPerdedor();
+        
+        ganadoresPrimerafase();
         
     }
     

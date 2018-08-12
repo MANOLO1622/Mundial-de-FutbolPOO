@@ -1416,7 +1416,18 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					JOptionPane.showMessageDialog(null, "Ya haz completado todas la apuestas de la primera fase\n"
 							+ "si tu equipo clasifico, podras pasar a la segunda fase.");
 					
-					btnSegundaFase.setVisible(true);
+					Equipo[] temp = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getGanadoresPrimeraFase();
+					int index = 0;
+					
+					for(Equipo a: temp) {
+						
+						if(this.miUsuario.getEquipoLigaPublica().getNombre().equals(temp[index].getNombre())) {
+							
+							btnSegundaFase.setVisible(true);
+							
+						}
+						index++;
+					}
 					
 				}
 
@@ -1491,18 +1502,21 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					
 					JOptionPane.showMessageDialog(null, "Ya haz completado todas la apuestas de la primera fase\n"
 							+ "si tu equipo clasifico, podras pasar a la segunda fase.");
-					/*
-					for(Equipo e: this.miUsuario.getEquipoLigaPrivada().getNombre().equals(this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getGanadoresPrimeraFase()) {
+					
+					Equipo[] temp = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getGanadoresPrimeraFase();
+					int index = 0;
+					
+					for(Equipo a: temp) {
 						
-						if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getGanadoresPrimeraFase()[e])) {
+						if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(temp[index].getNombre())) {
 							
-							
+							btnSegundaFase.setVisible(true);
 							
 						}
-						
+						index++;
 					}
-					*/
-					btnSegundaFase.setVisible(true);
+					
+					
 					
 				}
 				
