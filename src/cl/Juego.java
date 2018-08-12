@@ -1250,6 +1250,10 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		
 		if(e.getSource()==btnregistrarEquipoJugador) {
 			
+			this.add(btnApostar);
+			btnApostar.setVisible(true);
+			btnApostar.setBounds(1100, 350, 125, 30);
+			
 			this.add(labelEquipoSeleccionado);
 			labelEquipoSeleccionado.setVisible(false);
 			labelEquipoSeleccionado.setBounds(1065, 400, 97, 64);
@@ -1354,11 +1358,11 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 				if(this.miUsuario.getValidacionPrimeraFasePublica() == 0) {
 					
-					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[0].getPartidoApuesta().getEquipo1().getBandera());
+					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[1].getPartidoApuesta().getEquipo1().getBandera());
 					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
 					labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
 					
-					imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[0].getPartidoApuesta().getEquipo2().getBandera());
+					imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[1].getPartidoApuesta().getEquipo2().getBandera());
 					ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
 					labelEquipoContrincante.setIcon(iconoEquipoContrincante);
 					
@@ -1373,11 +1377,11 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				} else if(this.miUsuario.getValidacionPrimeraFasePublica() == 1) {
 					
 					
-					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[1].getPartidoApuesta().getEquipo1().getBandera());
+					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[2].getPartidoApuesta().getEquipo1().getBandera());
 					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
 					labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
 					
-					imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[1].getPartidoApuesta().getEquipo2().getBandera());
+					imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[2].getPartidoApuesta().getEquipo2().getBandera());
 					ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
 					labelEquipoContrincante.setIcon(iconoEquipoContrincante);
 					
@@ -1389,16 +1393,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					sumarPuntajes(0, 1);
 					
 					
-				} else if(this.miUsuario.getValidacionPrimeraFasePublica() == 2) {
-					
-					
-					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[2].getPartidoApuesta().getEquipo1().getBandera());
-					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
-					labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
-					
-					imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[2].getPartidoApuesta().getEquipo2().getBandera());
-					ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
-					labelEquipoContrincante.setIcon(iconoEquipoContrincante);
+				} else if(this.miUsuario.getValidacionPrimeraFasePublica() >= 2) {
 					
 					this.remove(labelEquipoSeleccionado);
 					this.remove(labelEquipoContrincante);
@@ -1438,24 +1433,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 				if(this.miUsuario.getValidacionPrimeraFasePrivada() == 0) {
 				
-					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[0].getPartidoApuesta().getEquipo1().getBandera());
-					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
-					labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
-					
-					imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[0].getPartidoApuesta().getEquipo2().getBandera());
-					ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
-					labelEquipoContrincante.setIcon(iconoEquipoContrincante);
-					
-					this.miUsuario.sumarApuestaPrivada();	
-					Gestor.actualizarJugador(this.miUsuario);
-					
-					btnSegundaFase.setVisible(false);
-
-					sumarPuntajes(1, 0);
-					
-				
-				} else if(this.miUsuario.getValidacionPrimeraFasePrivada() == 1) {
-					
 					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[1].getPartidoApuesta().getEquipo1().getBandera());
 					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
 					labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
@@ -1469,10 +1446,10 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					
 					btnSegundaFase.setVisible(false);
 
-					sumarPuntajes(1, 1);
+					sumarPuntajes(1, 0);
 					
-					
-				} else if(this.miUsuario.getValidacionPrimeraFasePrivada() == 2) {
+				
+				} else if(this.miUsuario.getValidacionPrimeraFasePrivada() == 1) {
 					
 					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[2].getPartidoApuesta().getEquipo1().getBandera());
 					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
@@ -1482,6 +1459,16 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
 					labelEquipoContrincante.setIcon(iconoEquipoContrincante);
 					
+					this.miUsuario.sumarApuestaPrivada();	
+					Gestor.actualizarJugador(this.miUsuario);
+					
+					btnSegundaFase.setVisible(false);
+
+					sumarPuntajes(1, 1);
+					
+					
+				} else if(this.miUsuario.getValidacionPrimeraFasePrivada() >= 2) {
+
 					this.miUsuario.sumarApuestaPrivada();	
 					Gestor.actualizarJugador(this.miUsuario);
 					
@@ -1620,9 +1607,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
 			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
 			
-			this.add(btnApostar);
-			btnApostar.setBounds(1100, 350, 125, 30);
-			
 			break;
 			
 		case 1: 
@@ -1641,9 +1625,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo(this.miUsuario.getEquipoLigaPrivada().getNombre()));
 			iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
 			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
-			
-			this.add(btnApostar);
-			btnApostar.setBounds(1100, 350, 125, 30);
 			
 			break;
 			

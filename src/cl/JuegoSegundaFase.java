@@ -4,17 +4,28 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import gestor.Gestor;
 import rondasMundial.Partido;
 
-public class JuegoSegundaFase extends JPanel{
+public class JuegoSegundaFase extends JPanel implements ActionListener{
 	
 	private Usuario miUsuario;
 	private int tipoLiga;
+	private Equipo equipoSeleccionado;
 	
 	private static Image imagen;
+	
+	//------------------------------------------------------------------
+	
+	private JLabel labelBanderaPaisEscogido = new JLabel();
+	private ImageIcon imagenBanderaPaisEscogido;
+	private JTextPane partidosPaisEscogido = new JTextPane();
+	JButton btnSalir = new JButton("salir");
 	
 	/*
 	 * 
@@ -24,6 +35,8 @@ public class JuegoSegundaFase extends JPanel{
 	 * 
 	 * 
 	 */
+	
+
 	
 	//--------------Titulos de Fase de eliminatorias--------------------
 	
@@ -114,8 +127,23 @@ public class JuegoSegundaFase extends JPanel{
 		
 		this.miUsuario = miUsuario;
 		this.tipoLiga = tipoLiga;
+		
+		if(tipoLiga == 0) {
+			
+			this.equipoSeleccionado = miUsuario.getEquipoLigaPublica();
+			
+		} else if (tipoLiga == 1) {
+			
+			this.equipoSeleccionado = miUsuario.getEquipoLigaPrivada();
+			
+		}
+		
+		
 		this.setLayout(null);
 		colocarComponentesJuego();
+		
+		
+		btnSalir.addActionListener(this);
 
 	}
 	
@@ -124,6 +152,53 @@ public class JuegoSegundaFase extends JPanel{
 		
 		int alto = 48;
 		int ancho = 72;
+		
+		this.add(labelBanderaPaisEscogido);
+		labelBanderaPaisEscogido.setBounds(1085, 50, 175, 122);
+		
+		this.add(partidosPaisEscogido);
+		partidosPaisEscogido.setEnabled(false);
+		partidosPaisEscogido.setBounds(1085, 180, 175, 150);
+		
+		
+		if(this.tipoLiga == 0) {
+			
+			for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosOctavosFinal()) {
+				
+				if(e.getEquipo1().getNombre().equals(this.equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(this.equipoSeleccionado.getNombre())) {
+					
+					partidosPaisEscogido.setText(e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre());
+					
+				}
+			
+			} 
+			
+			imagenBanderaPaisEscogido = new ImageIcon(this.miUsuario.getEquipoLigaPublica().getBandera());
+			Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
+			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
+			
+		}else if(this.tipoLiga == 1) {
+			
+			for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosOctavosFinal()) {
+				
+				if(e.getEquipo1().getNombre().equals(this.equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(this.equipoSeleccionado.getNombre())) {
+					
+					partidosPaisEscogido.setText(e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre());
+					
+				}
+				
+			}
+			
+			imagenBanderaPaisEscogido = new ImageIcon(this.miUsuario.getEquipoLigaPrivada().getBandera());
+			Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
+			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
+			
+		}
+		
+		
+		
+		this.add(btnSalir);
+		btnSalir.setBounds(1150, 650, 100, 30);
 
 		// ------------------------------------------------------Octavos de final.
 		
@@ -484,7 +559,22 @@ public class JuegoSegundaFase extends JPanel{
 		
 	}
 	
+	//---------------------------------------------------------------------------------------------------------------------
 	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		if(e.getSource()==btnSalir) {
+			
+			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
+			Ventana ventMenuJugador = new Ventana(this.miUsuario);
+			ventMenuJugador.ventanaMenuUsuarios(this.miUsuario.getTipoUsuario(2), ventMenuJugador);
+			
+		}
+		
+	}
+	
+	//---------------------------------------------------------------------------------------------------------------------
 	
 	
 	
@@ -508,6 +598,9 @@ public class JuegoSegundaFase extends JPanel{
 		repaint();
 
 	}
+
+
+
 
 }
 
