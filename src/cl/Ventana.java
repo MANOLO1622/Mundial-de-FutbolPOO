@@ -60,6 +60,16 @@ public class Ventana extends JFrame{
 		
 	}
 	
+	public void ventanaRegistroEquipos() {
+		
+		RegistroUsuarios regUsu = new RegistroUsuarios();
+		this.add(regUsu);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setTitle("Registro de Usuario");
+		this.show();	
+		
+	}
+	
 	public void ventanaMenuUsuarios(Perfiles perfil , Ventana vent) {
 		
 		switch(perfil) {

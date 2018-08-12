@@ -249,7 +249,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		if (e.getSource() == boton10) {
 
-			JOptionPane.showMessageDialog(null, "Arreglelo");
+			Ventana ventanaRegistro = new Ventana(new Usuario("", "", "", "", "", "", 0));
+			ventanaRegistro.ventanaRegistroUsuarios();
+			
+			//JOptionPane.showMessageDialog(null, "Arreglelo");
 
 		}
 
@@ -259,6 +262,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			ventanaRegistro.ventanaRegistroUsuarios();
 
 		}
+		
+		
 
 		if (e.getSource() == botonEliminarPublicaRegistro) {
 

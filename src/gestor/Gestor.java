@@ -113,7 +113,10 @@ public class Gestor {
 	}
 
 	// -----------------------------------------------------------------------------------------------------------------------------------------
-
+	
+				
+				
+	
 	public int validarUsuario(String nombreLectura, String contrasenaLectura, String avatarLectura, int eleccion) {
 		int comprobante = 0;
 		int comprobanteNombreUsuario = 0;
@@ -121,9 +124,11 @@ public class Gestor {
 		String validador = "";
 
 		ArrayList<Usuario> listaComparacion = CL.listarUsuarios();
+		
+		
 
 		switch (eleccion) {
-
+		
 		case 0:
 			// Estas seran las evaluaciones a nivel de login.
 
@@ -281,9 +286,24 @@ public class Gestor {
 
 	// -------------------------------------------------------------------------------------------------------------
 
+	/*public int validarEquipo(String nombreLectura, int 1, String banderaLectura, String ISOPaisesLectura) {
+		int comprobante = 0;
+		int comprobanteNombreEquipo = 0;
+		int posicion = -1;
+		String validador = "";
+
+		ArrayList<Equipo> listaComparacion = CL.listarEquiposFIFA();
+	}*/
+
+	
+	
 	public static void registrarEquipos(String nombre, int ranking, String bandera, ISOPaises iso) {
 
 		CL.registrarEquipos(nombre, ranking, bandera, iso);
+		
+		
+		
+		
 
 	}
 
@@ -294,10 +314,15 @@ public class Gestor {
 		for (Equipo e : listaTemp) {
 
 			System.out.println(e.toString());
+			
+			
+			
 
 		}
+		
 
 	}
+	
 
 	// -------------------------------------------------------------------------------------------------------------
 
