@@ -1371,7 +1371,8 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					
 					
 				} else if(this.miUsuario.getValidacionPrimeraFasePublica() == 1) {
-
+					
+					
 					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[1].getPartidoApuesta().getEquipo1().getBandera());
 					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
 					labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
@@ -1390,6 +1391,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					
 				} else if(this.miUsuario.getValidacionPrimeraFasePublica() == 2) {
 					
+					
 					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[2].getPartidoApuesta().getEquipo1().getBandera());
 					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
 					labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
@@ -1398,20 +1400,18 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
 					labelEquipoContrincante.setIcon(iconoEquipoContrincante);
 					
-					this.miUsuario.sumarApuestaPublica();	
-					Gestor.actualizarJugador(this.miUsuario);
-
-					sumarPuntajes(0, 2);
-					
-					
-				} else {
-					
 					this.remove(labelEquipoSeleccionado);
 					this.remove(labelEquipoContrincante);
 					this.remove(equipo1);		
 					this.remove(equipo2);
 					this.remove(marcadorEquipo1);
 					this.remove(marcadorEquipo2);
+					this.remove(btnApostar);
+					
+					this.miUsuario.sumarApuestaPublica();	
+					Gestor.actualizarJugador(this.miUsuario);
+
+					sumarPuntajes(0, 2);
 					
 					JOptionPane.showMessageDialog(null, "Ya haz completado todas la apuestas de la primera fase\n"
 							+ "si tu equipo clasifico, podras pasar a la segunda fase.");
@@ -1489,16 +1489,13 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					
 					sumarPuntajes(1, 2);
 					
-					
-					
-				} else {
-					
 					this.remove(labelEquipoSeleccionado);
 					this.remove(labelEquipoContrincante);
 					this.remove(equipo1);		
 					this.remove(equipo2);
 					this.remove(marcadorEquipo1);
 					this.remove(marcadorEquipo2);
+					this.remove(btnApostar);
 					
 					JOptionPane.showMessageDialog(null, "Ya haz completado todas la apuestas de la primera fase\n"
 							+ "si tu equipo clasifico, podras pasar a la segunda fase.");
@@ -1515,8 +1512,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 						}
 						index++;
 					}
-					
-					
 					
 				}
 				
@@ -1549,22 +1544,21 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 				this.miUsuario.getMiLigaPublica().sumarPuntaje();
 				Gestor.actualizarJugador(this.miUsuario);
-				
-				if(marcadorEquipo1.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ||
-				   marcadorEquipo2.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ){
 
-						
-					this.miUsuario.getMiLigaPublica().sumarBono();
-					Gestor.actualizarJugador(this.miUsuario);
-					Labelpuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPublica().getPuntos()); 
-							
-				}
-				else{
-							
-					Labelpuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPublica().getPuntos()); 
-							
-				}
+			}
+			
+			if(marcadorEquipo1.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ||
+			   marcadorEquipo2.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ){
 
+							
+				this.miUsuario.getMiLigaPublica().sumarBono();
+				Gestor.actualizarJugador(this.miUsuario);
+				Labelpuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPublica().getPuntos()); 
+								
+			}else{
+								
+				Labelpuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPublica().getPuntos()); 
+								
 			}
 			
 			
@@ -1576,22 +1570,20 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 				this.miUsuario.getMiLigaPrivada().sumarPuntaje();
 				Gestor.actualizarJugador(this.miUsuario);
-				
-				if(marcadorEquipo1.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ||
-				   marcadorEquipo2.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ){
 
-						
-					this.miUsuario.getMiLigaPrivada().sumarBono();
-					Gestor.actualizarJugador(this.miUsuario);
-					Labelpuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPrivada().getPuntos()); 
-							
-				}
-				else{
-							
-					Labelpuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPrivada().getPuntos()); 
-							
-				}
+			}
+			
+			if(marcadorEquipo1.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ||
+			   marcadorEquipo2.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ){
 
+				this.miUsuario.getMiLigaPrivada().sumarBono();
+				Gestor.actualizarJugador(this.miUsuario);
+				Labelpuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPrivada().getPuntos()); 
+								
+			}else{
+								
+				Labelpuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPrivada().getPuntos()); 
+								
 			}
 			
 			break;		
