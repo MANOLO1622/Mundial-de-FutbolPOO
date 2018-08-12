@@ -139,7 +139,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		btnEliminarLigaPrivada.setFont(new Font(btnEliminarLigaPrivada.getFont().getFontName(), Font.BOLD, 13));
 		this.add(btnEliminarLigaPrivada);
 
-		botonSalir.setBounds(10, 650, 180, 50);
+		botonSalir.setBounds(1130, 600, 180, 50);
 		botonSalir.setFont(new Font(botonSalir.getFont().getFontName(), Font.BOLD, 15));
 		this.add(botonSalir);
 
