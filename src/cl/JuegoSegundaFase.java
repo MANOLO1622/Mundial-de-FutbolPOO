@@ -17,15 +17,32 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	private Usuario miUsuario;
 	private int tipoLiga;
 	private Equipo equipoSeleccionado;
+	private static final int ancho = 72;
+	private static final int alto = 48;
 	
 	private static Image imagen;
 	
-	//------------------------------------------------------------------
+	//------------------------------------------------------------------ elementos del area de apuestas.
 	
 	private JLabel labelBanderaPaisEscogido = new JLabel();
 	private ImageIcon imagenBanderaPaisEscogido;
 	private JTextPane partidosPaisEscogido = new JTextPane();
 	JButton btnSalir = new JButton("salir");
+	
+	private JLabel labelEquipoSeleccionado = new JLabel();
+	private JLabel labelEquipoContrincante = new JLabel();
+	private ImageIcon imagenEquipoSeleccionado;
+	private ImageIcon imagenEquipoContrincante;
+	
+	private JLabel equipo1 = new JLabel("Equipo 1");
+	private JLabel equipo2 = new JLabel("Equipo 2");
+	
+	private JTextField marcadorEquipo1 = new JTextField(2);
+	private JTextField marcadorEquipo2 = new JTextField(2);
+	
+	private JButton btnSegundaFase = new JButton("Octavos");
+	
+	private JLabel labelPuntaje = new JLabel("Puntaje: " + 0);
 	
 	/*
 	 * 
@@ -150,8 +167,8 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	
 	public void colocarComponentesJuego() {
 		
-		int alto = 48;
-		int ancho = 72;
+		/*int alto = 48;
+		int ancho = 72;*/
 		
 		this.add(labelBanderaPaisEscogido);
 		labelBanderaPaisEscogido.setBounds(1085, 50, 175, 122);
@@ -159,6 +176,37 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		this.add(partidosPaisEscogido);
 		partidosPaisEscogido.setEnabled(false);
 		partidosPaisEscogido.setBounds(1085, 180, 175, 150);
+		
+		this.add(labelEquipoSeleccionado);
+		labelEquipoSeleccionado.setBounds(1085, 400, 97, 64);
+		
+		this.add(labelEquipoContrincante);
+		labelEquipoContrincante.setBounds(1184, 400, 97, 64);
+		
+		this.add(equipo1);
+		equipo1.setForeground(Color.white);
+		equipo1.setVisible(false);
+		equipo1.setBounds(1085, 470, 97, 30);
+		
+		this.add(equipo2);
+		equipo2.setForeground(Color.white);
+		equipo2.setVisible(false);
+		equipo2.setBounds(1185, 470, 97, 30);
+		
+		this.add(marcadorEquipo1);
+		marcadorEquipo1.setText("");
+		marcadorEquipo1.setBounds(1085, 510, 97, 30);
+		
+		this.add(marcadorEquipo2);
+		marcadorEquipo2.setText("");
+		marcadorEquipo2.setBounds(1184, 510, 97, 30);
+		
+		this.add(labelPuntaje);
+		labelPuntaje.setForeground(Color.white);
+		labelPuntaje.setBounds(1085, 550, 194, 30);
+		
+		this.add(btnSalir);
+		btnSalir.setBounds(1150, 650, 100, 30);
 		
 		
 		if(this.tipoLiga == 0) {
@@ -169,6 +217,14 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 					
 					partidosPaisEscogido.setText(e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre());
 					
+					imagenEquipoSeleccionado = new ImageIcon(e.getEquipo1().getBandera());
+					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
+					labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
+					
+					imagenEquipoContrincante = new ImageIcon(e.getEquipo2().getBandera());
+					ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
+					labelEquipoContrincante.setIcon(iconoEquipoContrincante);
+					
 				}
 			
 			} 
@@ -177,13 +233,25 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 			Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
 			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
 			
+			
+			
+			
+			
 		}else if(this.tipoLiga == 1) {
 			
-			for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosOctavosFinal()) {
+			for(Partido e: this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosOctavosFinal()) {
 				
 				if(e.getEquipo1().getNombre().equals(this.equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(this.equipoSeleccionado.getNombre())) {
 					
 					partidosPaisEscogido.setText(e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre());
+					
+					imagenEquipoSeleccionado = new ImageIcon(e.getEquipo1().getBandera());
+					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
+					labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
+					
+					imagenEquipoContrincante = new ImageIcon(e.getEquipo2().getBandera());
+					ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
+					labelEquipoContrincante.setIcon(iconoEquipoContrincante);
 					
 				}
 				
@@ -191,15 +259,11 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 			
 			imagenBanderaPaisEscogido = new ImageIcon(this.miUsuario.getEquipoLigaPrivada().getBandera());
 			Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
-			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
+			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);			
 			
 		}
-		
-		
-		
-		this.add(btnSalir);
-		btnSalir.setBounds(1150, 650, 100, 30);
 
+		
 		// ------------------------------------------------------Octavos de final.
 		
 		this.add(labelNombreOctavos);
@@ -265,102 +329,11 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		this.add(labelPartido16);
 		labelPartido16.setBounds(1000, 570, ancho, alto);
 		
-		// ------------------------------------------------------Cuartos de final	
-
-		
-		this.add(labelNombreCuartos);
-		labelNombreCuartos.setForeground(Color.WHITE);
-		labelNombreCuartos.setBounds(890, 40, 200, 50);
-		labelNombreCuartos.setFont(new Font(labelNombreCuartos.getFont().getFontName(), Font.BOLD, 17));
-		
-		this.add(labelNombreCuartos2);
-		labelNombreCuartos2.setForeground(Color.WHITE);
-		labelNombreCuartos2.setBounds(150, 40, 200, 50);
-		labelNombreCuartos2.setFont(new Font(labelNombreCuartos2.getFont().getFontName(), Font.BOLD, 17));
-		
-		
-		this.add(labelPartido17);
-		labelPartido17.setBounds(150, 88, ancho, alto);
-
-		this.add(labelPartido18);
-		labelPartido18.setBounds(150, 238, ancho, alto);
-
-		this.add(labelPartido19);
-		labelPartido19.setBounds(150, 388, ancho, alto);
-
-		this.add(labelPartido20);
-		labelPartido20.setBounds(150, 538, ancho, alto);
-		
-		this.add(labelPartido21);
-		labelPartido21.setBounds(890, 88, ancho, alto);
-
-		this.add(labelPartido22);
-		labelPartido22.setBounds(890, 238, ancho, alto);
-
-		this.add(labelPartido23);
-		labelPartido23.setBounds(890, 388, ancho, alto);
-
-		this.add(labelPartido24);
-		labelPartido24.setBounds(890, 538, ancho, alto);
-		 													
-		// ------------------------------------------------------Semifinales
-
-		
-		this.add(labelNombreSemis);
-		labelNombreSemis.setForeground(Color.WHITE);
-		labelNombreSemis.setBounds(790, 195, 200, 50);
-		labelNombreSemis.setFont(new Font(labelNombreSemis.getFont().getFontName(), Font.BOLD, 17));
-		
-		this.add(labelNombreSemis2);
-		labelNombreSemis2.setForeground(Color.WHITE);
-		labelNombreSemis2.setBounds(260, 195, 200, 50);
-		labelNombreSemis2.setFont(new Font(labelNombreSemis2.getFont().getFontName(), Font.BOLD, 17));
-		
-		this.add(labelPartido25);
-		labelPartido25.setBounds(260, 238, ancho, alto);
-
-		this.add(labelPartido26);
-		labelPartido26.setBounds(260, 388, ancho, alto);
-
-		this.add(labelPartido27);
-		labelPartido27.setBounds(790, 238, ancho, alto);
-
-		this.add(labelPartido28);
-		labelPartido28.setBounds(790, 388, ancho, alto);
-		
-		// ------------------------------------------------------Finales
-
-		this.add(labelNombreFinal);
-		labelNombreFinal.setForeground(Color.WHITE);
-		labelNombreFinal.setBounds(530, 220, 200, 50);
-		labelNombreFinal.setFont(new Font(labelNombreFinal.getFont().getFontName(), Font.BOLD, 25));
-		
-		this.add(labelNombreEliminatorias);
-		labelNombreEliminatorias.setForeground(Color.WHITE);
-		labelNombreEliminatorias.setBounds(470, 20, 700, 50);
-		labelNombreEliminatorias.setFont(new Font(labelNombreEliminatorias.getFont().getFontName(), Font.BOLD, 20));
-		
-		
-		this.add(labelNombreLugares);	
-		labelNombreLugares.setForeground(Color.WHITE);
-		labelNombreLugares.setBounds(470, 290, 300, 350);
-		labelNombreLugares.setFont(new Font(labelNombreLugares.getFont().getFontName(), Font.BOLD, 19));
-		
-		
-		this.add(labelPartido29);
-		labelPartido29.setBounds(400, 300, 140, 96);
-
-		this.add(labelPartido30);
-		labelPartido30.setBounds(600, 300, 140, 96);
-
-		this.add(labelPartido31);
-		labelPartido31.setBounds(400, 500, 190, 96);//izquierdo tercer lugar
-
-		this.add(labelPartido32);
-		labelPartido32.setBounds(600, 500, 190, 96);// derecho cuarto lugar
 		
 		mostrarBanderas( ancho,  alto, this.tipoLiga);
-		
+//		this.mostrarCuartosFinal();
+//		this.mostrarSemifinales();
+//		this.mostrarFinales();
 		
 	}
 	
@@ -556,6 +529,113 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		Icon icono32 = new ImageIcon(imagenPartido32.getImage().getScaledInstance(140, 96, Image.SCALE_DEFAULT));
 		labelPartido32.setIcon(icono32);
 		
+		
+	}
+	
+	public void mostrarCuartosFinal() {
+		
+		// ------------------------------------------------------Cuartos de final	
+
+		
+				this.add(labelNombreCuartos);
+				labelNombreCuartos.setForeground(Color.WHITE);
+				labelNombreCuartos.setBounds(890, 40, 200, 50);
+				labelNombreCuartos.setFont(new Font(labelNombreCuartos.getFont().getFontName(), Font.BOLD, 17));
+				
+				this.add(labelNombreCuartos2);
+				labelNombreCuartos2.setForeground(Color.WHITE);
+				labelNombreCuartos2.setBounds(150, 40, 200, 50);
+				labelNombreCuartos2.setFont(new Font(labelNombreCuartos2.getFont().getFontName(), Font.BOLD, 17));
+				
+				
+				this.add(labelPartido17);
+				labelPartido17.setBounds(150, 88, ancho, alto);
+
+				this.add(labelPartido18);
+				labelPartido18.setBounds(150, 238, ancho, alto);
+
+				this.add(labelPartido19);
+				labelPartido19.setBounds(150, 388, ancho, alto);
+
+				this.add(labelPartido20);
+				labelPartido20.setBounds(150, 538, ancho, alto);
+				
+				this.add(labelPartido21);
+				labelPartido21.setBounds(890, 88, ancho, alto);
+
+				this.add(labelPartido22);
+				labelPartido22.setBounds(890, 238, ancho, alto);
+
+				this.add(labelPartido23);
+				labelPartido23.setBounds(890, 388, ancho, alto);
+
+				this.add(labelPartido24);
+				labelPartido24.setBounds(890, 538, ancho, alto);
+	
+	}
+	
+	public void mostrarSemifinales() {
+		
+		// ------------------------------------------------------Semifinales
+
+		
+				this.add(labelNombreSemis);
+				labelNombreSemis.setForeground(Color.WHITE);
+				labelNombreSemis.setBounds(790, 195, 200, 50);
+				labelNombreSemis.setFont(new Font(labelNombreSemis.getFont().getFontName(), Font.BOLD, 17));
+				
+				this.add(labelNombreSemis2);
+				labelNombreSemis2.setForeground(Color.WHITE);
+				labelNombreSemis2.setBounds(260, 195, 200, 50);
+				labelNombreSemis2.setFont(new Font(labelNombreSemis2.getFont().getFontName(), Font.BOLD, 17));
+				
+				this.add(labelPartido25);
+				labelPartido25.setBounds(260, 238, ancho, alto);
+
+				this.add(labelPartido26);
+				labelPartido26.setBounds(260, 388, ancho, alto);
+
+				this.add(labelPartido27);
+				labelPartido27.setBounds(790, 238, ancho, alto);
+
+				this.add(labelPartido28);
+				labelPartido28.setBounds(790, 388, ancho, alto);
+				
+		
+	}
+	
+	public void mostrarFinales() {
+		
+		// ------------------------------------------------------Finales
+
+		this.add(labelNombreFinal);
+		labelNombreFinal.setForeground(Color.WHITE);
+		labelNombreFinal.setBounds(530, 220, 200, 50);
+		labelNombreFinal.setFont(new Font(labelNombreFinal.getFont().getFontName(), Font.BOLD, 25));
+		
+		this.add(labelNombreEliminatorias);
+		labelNombreEliminatorias.setForeground(Color.WHITE);
+		labelNombreEliminatorias.setBounds(470, 20, 700, 50);
+		labelNombreEliminatorias.setFont(new Font(labelNombreEliminatorias.getFont().getFontName(), Font.BOLD, 20));
+		
+		
+		this.add(labelNombreLugares);	
+		labelNombreLugares.setForeground(Color.WHITE);
+		labelNombreLugares.setBounds(470, 290, 300, 350);
+		labelNombreLugares.setFont(new Font(labelNombreLugares.getFont().getFontName(), Font.BOLD, 19));
+		
+		
+		this.add(labelPartido29);
+		labelPartido29.setBounds(400, 300, 140, 96);
+
+		this.add(labelPartido30);
+		labelPartido30.setBounds(600, 300, 140, 96);
+
+		this.add(labelPartido31);
+		labelPartido31.setBounds(400, 500, 190, 96);//izquierdo tercer lugar
+
+		this.add(labelPartido32);
+		labelPartido32.setBounds(600, 500, 190, 96);// derecho cuarto lugar
 		
 	}
 	

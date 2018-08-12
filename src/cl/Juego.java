@@ -46,7 +46,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 	
 	private JButton btnSegundaFase = new JButton("Octavos");
 	
-	private JLabel Labelpuntaje = new JLabel("Puntaje: " + 0);
+	private JLabel labelPuntaje = new JLabel("Puntaje: " + 0);
 	 
 	/*
 	 * 
@@ -321,8 +321,8 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		int alto = 48;
 		int ancho = 72;
 
-		this.add(Labelpuntaje);
-		Labelpuntaje.setBounds(1065, 550, 194, 30);
+		this.add(labelPuntaje);
+		labelPuntaje.setBounds(1065, 550, 194, 30);
 		
 		this.add(btnSegundaFase);
 		btnSegundaFase.setVisible(false);
@@ -1268,7 +1268,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			
 			this.add(equipo2);
 			equipo2.setVisible(false);
-			equipo2.setBounds(1164, 470, 97, 30);
+			equipo2.setBounds(1165, 470, 97, 30);
 			
 			this.add(marcadorEquipo1);
 			marcadorEquipo1.setVisible(false);
@@ -1515,6 +1515,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			
 			Ventana test = new Ventana(this.miUsuario);
 			test.ventanaJuegoFase2(this.tipoLiga);
+			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 			
 		}
 
@@ -1540,11 +1541,11 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 							
 				this.miUsuario.getMiLigaPublica().sumarBono();
 				Gestor.actualizarJugador(this.miUsuario);
-				Labelpuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPublica().getPuntos()); 
+				labelPuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPublica().getPuntos()); 
 								
 			}else{
 								
-				Labelpuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPublica().getPuntos()); 
+				labelPuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPublica().getPuntos()); 
 								
 			}
 			
@@ -1565,11 +1566,11 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 				this.miUsuario.getMiLigaPrivada().sumarBono();
 				Gestor.actualizarJugador(this.miUsuario);
-				Labelpuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPrivada().getPuntos()); 
+				labelPuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPrivada().getPuntos()); 
 								
 			}else{
 								
-				Labelpuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPrivada().getPuntos()); 
+				labelPuntaje.setText("Puntaje: " + this.miUsuario.getMiLigaPrivada().getPuntos()); 
 								
 			}
 			
