@@ -40,9 +40,9 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	private JTextField marcadorEquipo1 = new JTextField(2);
 	private JTextField marcadorEquipo2 = new JTextField(2);
 	
-	private JButton btnSegundaFase = new JButton("Octavos");
-	
 	private JLabel labelPuntaje = new JLabel("Puntaje: " + 0);
+	
+	private JButton btnApostar = new JButton("Apostar");
 	
 	/*
 	 * 
@@ -161,6 +161,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		
 		
 		btnSalir.addActionListener(this);
+		btnApostar.addActionListener(this);
 
 	}
 	
@@ -175,7 +176,11 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		
 		this.add(partidosPaisEscogido);
 		partidosPaisEscogido.setEnabled(false);
-		partidosPaisEscogido.setBounds(1085, 180, 175, 150);
+		partidosPaisEscogido.setBounds(1085, 180, 175, 50);
+		
+		this.add(btnApostar);
+		btnApostar.setVisible(true);
+		btnApostar.setBounds(1100, 350, 125, 30);
 		
 		this.add(labelEquipoSeleccionado);
 		labelEquipoSeleccionado.setBounds(1085, 400, 97, 64);
@@ -185,12 +190,10 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		
 		this.add(equipo1);
 		equipo1.setForeground(Color.white);
-		equipo1.setVisible(false);
 		equipo1.setBounds(1085, 470, 97, 30);
 		
 		this.add(equipo2);
 		equipo2.setForeground(Color.white);
-		equipo2.setVisible(false);
 		equipo2.setBounds(1185, 470, 97, 30);
 		
 		this.add(marcadorEquipo1);
@@ -215,7 +218,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 				
 				if(e.getEquipo1().getNombre().equals(this.equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(this.equipoSeleccionado.getNombre())) {
 					
-					partidosPaisEscogido.setText(e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre());
+					partidosPaisEscogido.setText("  " + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre());
 					
 					imagenEquipoSeleccionado = new ImageIcon(e.getEquipo1().getBandera());
 					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
@@ -243,7 +246,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 				
 				if(e.getEquipo1().getNombre().equals(this.equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(this.equipoSeleccionado.getNombre())) {
 					
-					partidosPaisEscogido.setText(e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre());
+					partidosPaisEscogido.setText("  " + e.getEquipo1().getNombre() + " vs " + e.getEquipo2().getNombre());
 					
 					imagenEquipoSeleccionado = new ImageIcon(e.getEquipo1().getBandera());
 					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
@@ -649,6 +652,12 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 			Ventana ventMenuJugador = new Ventana(this.miUsuario);
 			ventMenuJugador.ventanaMenuUsuarios(this.miUsuario.getTipoUsuario(2), ventMenuJugador);
+			
+		}
+		
+		if(e.getSource()==btnApostar) {
+			
+			//Meter el sistema de apuestas aqui.
 			
 		}
 		
