@@ -48,6 +48,7 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 		this.add(labelMostrarContrasena);
 		labelMostrarContrasena.setBounds(430, 185, 165,35);
 		
+		
 		this.add(btnIngreso);
 		btnIngreso.setBounds(280, 240, 115, 25);
 
@@ -155,6 +156,7 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 					contrasenaTXT.setText("");
 					JOptionPane.showMessageDialog(null, "Porfavor registrese antes de ingresar.");
 					
+					
 				}
 				if (validacion == 0) {
 					
@@ -239,7 +241,8 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 						
 						usuarioTXT.setText("");
 						contrasenaTXT.setText("");
-						JOptionPane.showMessageDialog(null, "Porfavor registrese antes de ingresar.");
+						JOptionPane.showMessageDialog(null, "¡Usuario o Clave Incorrecta!.");
+						JOptionPane.showMessageDialog(null, "Registrese antes de ingresar.");
 						
 					}
 					if (validacion == 0) {
