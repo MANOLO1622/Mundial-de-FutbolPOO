@@ -1296,9 +1296,11 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			equipo2.setBounds(1164, 470, 97, 30);
 			
 			this.add(marcadorEquipo1);
+			marcadorEquipo1.setText("");
 			marcadorEquipo1.setBounds(1065, 510, 97, 30);
 			
 			this.add(marcadorEquipo2);
+			marcadorEquipo2.setText("");
 			marcadorEquipo2.setBounds(1164, 510, 97, 30);
 			
 			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
