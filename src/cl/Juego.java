@@ -15,9 +15,9 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 	
 	private JComboBox equipos = new JComboBox();
-	JLabel labelBanderaPaisEscogido = new JLabel();
-	ImageIcon imagenBanderaPaisEscogido;
-	JTextPane partidosPaisEscogido = new JTextPane();
+	private JLabel labelBanderaPaisEscogido = new JLabel();
+	private ImageIcon imagenBanderaPaisEscogido;
+	private JTextPane partidosPaisEscogido = new JTextPane();
 	private JButton btnregistrarEquipoJugador = new JButton("Seleccionar");
 	private JButton btnApostar = new JButton("Apostar");
 	
@@ -41,6 +41,10 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 	
 	private JLabel equipo1 = new JLabel("Equipo 1");
 	private JLabel equipo2 = new JLabel("Equipo 2");
+	
+	private JTextField marcadorEquipo1 = new JTextField(2);
+	private JTextField marcadorEquipo2 = new JTextField(2);
+	
 
 	/*
 	 * 
@@ -1285,6 +1289,18 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			this.add(labelEquipoContrincante);
 			labelEquipoContrincante.setBounds(1164, 400, 97, 64);
 			
+			this.add(equipo1);
+			equipo1.setBounds(1065, 470, 97, 30);
+			
+			this.add(equipo2);
+			equipo2.setBounds(1164, 470, 97, 30);
+			
+			this.add(marcadorEquipo1);
+			marcadorEquipo1.setBounds(1065, 510, 97, 30);
+			
+			this.add(marcadorEquipo2);
+			marcadorEquipo2.setBounds(1164, 510, 97, 30);
+			
 			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
 			
 			if(this.tipoLiga == 0) {
@@ -1329,6 +1345,13 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					Gestor.actualizarJugador(this.miUsuario);
 					
 				} else {
+					
+					this.remove(labelEquipoSeleccionado);
+					this.remove(labelEquipoContrincante);
+					this.remove(equipo1);		
+					this.remove(equipo2);
+					this.remove(marcadorEquipo1);
+					this.remove(marcadorEquipo2);
 					
 					JOptionPane.showMessageDialog(null, "Ya haz completado todas la apuestas de la primera fase\n"
 							+ "ya puedes pasar a l a segunda fase.");
@@ -1377,6 +1400,13 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					Gestor.actualizarJugador(this.miUsuario);
 					
 				} else {
+					
+					this.remove(labelEquipoSeleccionado);
+					this.remove(labelEquipoContrincante);
+					this.remove(equipo1);		
+					this.remove(equipo2);
+					this.remove(marcadorEquipo1);
+					this.remove(marcadorEquipo2);
 					
 					JOptionPane.showMessageDialog(null, "Ya haz completado todas la apuestas de la primera fase\n"
 							+ "ya puedes pasar a l a segunda fase.");
