@@ -291,7 +291,15 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 			if(this.miUsuario.getValidacionPrimeraFasePublica() >= 2 && this.miUsuario.getEquipoLigaPublica() != null) {
 	
-				this.btnSegundaFase.setVisible(true);
+				if(this.miUsuario.isValidacionOctavosPublica() == true) {
+					
+					this.btnSegundaFase.setVisible(true);
+					
+				}else {
+					
+					JOptionPane.showMessageDialog(null, "Lo lamentamos, tu equipo no ha clasificado.");
+					
+				}
 	
 			}
 			
@@ -316,7 +324,15 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 			if(this.miUsuario.getValidacionPrimeraFasePrivada() >= 2 && this.miUsuario.getEquipoLigaPrivada() != null) {
 	
-				this.btnSegundaFase.setVisible(true);
+				if(this.miUsuario.isValidacionOctavosPrivada() == true) {
+					
+					this.btnSegundaFase.setVisible(true);
+					
+				}else {
+					
+					JOptionPane.showMessageDialog(null, "Lo lamentamos, tu equipo no ha clasificado.");
+					
+				}
 	
 			}
 			
@@ -375,6 +391,17 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		int ancho = 72;
 
 		this.add(labelPuntaje);
+		
+		if(this.tipoLiga == 0) {
+			
+			labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica());
+			
+		}else if(this.tipoLiga == 1) {
+			
+			labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada());
+			
+		}
+		
 		labelPuntaje.setBounds(1065, 550, 194, 30);
 		
 		this.add(btnSegundaFase);
@@ -1472,7 +1499,8 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 						if(this.miUsuario.getEquipoLigaPublica().getNombre().equals(temp[index].getNombre())) {
 							
 							btnSegundaFase.setVisible(true);
-							
+							this.miUsuario.setValidacionOctavosPublica(true);
+							Gestor.actualizarJugador(this.miUsuario);
 						}
 						index++;
 					}
@@ -1548,6 +1576,8 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 						if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(temp[index].getNombre())) {
 							
 							btnSegundaFase.setVisible(true);
+							this.miUsuario.setValidacionOctavosPrivada(true);
+							Gestor.actualizarJugador(this.miUsuario);
 							
 						}
 						index++;
@@ -1635,6 +1665,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		
 		}
 		
+		Gestor.actualizarJugador(this.miUsuario);
 		
 	}
 	
