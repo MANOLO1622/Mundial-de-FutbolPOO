@@ -20,6 +20,12 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	private static final int ancho = 72;
 	private static final int alto = 48;
 	
+	private boolean verificacionCuartos = false;
+	private boolean verificacionSemifinales = false;
+	private boolean verificacionFinales = false;
+	private int contador = 0;
+	
+	
 	private static Image imagen;
 	
 	//------------------------------------------------------------------ elementos del area de apuestas.
@@ -158,6 +164,11 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		
 		this.setLayout(null);
 		colocarComponentesJuego();
+		
+		this.verificacionCuartos = verificarCuartosFinal();
+		this.verificacionSemifinales = verificarSemifinales();
+		this.verificacionFinales = verificarFinales();
+		
 		
 		
 		btnSalir.addActionListener(this);
@@ -657,13 +668,153 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		
 		if(e.getSource()==btnApostar) {
 			
-			//Meter el sistema de apuestas aqui.
 			
+			
+			if (contador == 0 ) {
+				
+				if(verificacionCuartos == true) {
+					
+					mostrarCuartosFinal();
+					
+				}
+				
+			}
+			
+			if (contador == 1 ) {
+				
+				if(verificacionSemifinales == true) {
+					
+					mostrarSemifinales();
+					
+				}
+				
+			}
+			
+			if (contador == 2 ) {
+				
+				if(verificacionFinales == true) {
+					
+					mostrarFinales();
+					
+				}
+				
+			}
+			
+			contador++;
+		
 		}
+		
 		
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------------
+	
+	public boolean verificarCuartosFinal() {
+		
+		boolean verificacion = false;
+		
+		if(this.tipoLiga == 0) {
+			
+			for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosCuartosFinal()) {
+				
+				if(e.getEquipo1().getNombre().equals(this.miUsuario.getEquipoLigaPublica().getNombre()) || 
+						e.getEquipo2().getNombre().equals(this.miUsuario.getEquipoLigaPublica().getNombre())) {
+					
+					verificacion = true; 
+					
+				}
+					
+			}
+			
+		}else if(this.tipoLiga == 1) {
+	
+			for(Partido e: this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosCuartosFinal()) {
+				
+				if(e.getEquipo1().getNombre().equals(this.miUsuario.getEquipoLigaPrivada().getNombre()) || 
+						e.getEquipo2().getNombre().equals(this.miUsuario.getEquipoLigaPrivada().getNombre())) {
+					
+					verificacion = true; 
+					
+				}
+					
+			}
+			
+		}
+		
+		return verificacion;
+	}
+	
+	public boolean verificarSemifinales(){
+		
+		boolean verificacion = false;
+		
+		if(this.tipoLiga == 0) {
+			
+			for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSemiFinal()) {
+				
+				if(e.getEquipo1().getNombre().equals(this.miUsuario.getEquipoLigaPublica().getNombre()) || 
+						e.getEquipo2().getNombre().equals(this.miUsuario.getEquipoLigaPublica().getNombre())) {
+					
+					verificacion = true; 
+					
+				}
+					
+			}
+			
+		}else if(this.tipoLiga == 1) {
+	
+			for(Partido e: this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSemiFinal()) {
+				
+				if(e.getEquipo1().getNombre().equals(this.miUsuario.getEquipoLigaPrivada().getNombre()) || 
+						e.getEquipo2().getNombre().equals(this.miUsuario.getEquipoLigaPrivada().getNombre())) {
+					
+					verificacion = true; 
+					
+				}
+					
+			}
+			
+		}
+		
+		return verificacion;
+	}
+	
+	
+	
+	public boolean verificarFinales(){
+		
+		boolean verificacion = false;
+		
+		if(this.tipoLiga == 0) {
+			
+			for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getJuegosFinales()) {
+				
+				if(e.getEquipo1().getNombre().equals(this.miUsuario.getEquipoLigaPublica().getNombre()) || 
+						e.getEquipo2().getNombre().equals(this.miUsuario.getEquipoLigaPublica().getNombre())) {
+					
+					verificacion = true; 
+					
+				}
+					
+			}
+			
+		}else if(this.tipoLiga == 1) {
+	
+			for(Partido e: this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getJuegosFinales()) {
+				
+				if(e.getEquipo1().getNombre().equals(this.miUsuario.getEquipoLigaPrivada().getNombre()) || 
+						e.getEquipo2().getNombre().equals(this.miUsuario.getEquipoLigaPrivada().getNombre())) {
+					
+					verificacion = true; 
+					
+				}
+					
+			}
+			
+		}
+		
+		return verificacion;
+	}
 	
 	
 	
