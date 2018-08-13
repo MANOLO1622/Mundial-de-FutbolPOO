@@ -1008,7 +1008,8 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 			if(temp.getEquipoGanador().getNombre().equals(equipoSeleccionado.getNombre())) {
 				
 				this.miUsuario.sumarApuestaPublica();
-//				this.miUsuario.setPuntajePublica();
+
+				this.miUsuario.setPuntajePublica(this.miUsuario.getPuntajePublica());
 				Gestor.actualizarJugador(this.miUsuario);
 				this.puntaje = this.miUsuario.getPuntajePublica();
 				
@@ -1024,7 +1025,8 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 			if(temp.getEquipoGanador().getNombre().equals(equipoSeleccionado.getNombre())) {
 				
 				this.miUsuario.sumarApuestaPrivada();
-//				this.miUsuario.setPuntajePublica();
+				
+				this.miUsuario.setPuntajePrivada(this.miUsuario.getPuntajePrivada());
 				Gestor.actualizarJugador(this.miUsuario);
 				this.puntaje = this.miUsuario.getPuntajePrivada();
 				

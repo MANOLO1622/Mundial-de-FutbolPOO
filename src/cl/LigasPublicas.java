@@ -1,7 +1,6 @@
 package cl;
 
 import java.time.LocalDate;
-
 import javax.swing.JOptionPane;
 
 public class LigasPublicas extends Ligas {
