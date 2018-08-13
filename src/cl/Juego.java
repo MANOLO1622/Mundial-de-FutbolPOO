@@ -265,7 +265,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 	public Juego(Usuario miUsuario, int tipoLiga) {
 
-		this.miUsuario = miUsuario;
+		this.miUsuario = Gestor.retornarUsuario(miUsuario.getNombreUsuario());
 		this.tipoLiga = tipoLiga;
 		this.setLayout(null);
 		colocarComponentesJuego();

@@ -680,6 +680,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 					mostrarCuartosFinal();
 					Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 1);
 					mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
+					jugarApuesta(temp, equipoSeleccionado);
 					
 					
 				}else {
@@ -697,6 +698,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 					mostrarSemifinales();
 					Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 2);
 					mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
+					jugarApuesta(temp, equipoSeleccionado);
 					
 				}else {
 					
@@ -713,13 +715,16 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 					mostrarFinales();
 					Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 3);
 					mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
+					jugarApuesta(temp, equipoSeleccionado);
 					
 				}else {
 					
+					mostrarFinales();
 					JOptionPane.showMessageDialog(null, "El equipo seleccionado luchara por el tercer o cuarto lugar.");
 					Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 3);
 					mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
-					mostrarFinales();
+					jugarApuesta(temp, equipoSeleccionado);
+					
 					
 				}
 				
@@ -991,6 +996,46 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		
 		return partidoTemp;
 		
+	}
+	
+	
+	public void jugarApuesta(Partido temp,Equipo equipoSeleccionado) {
+		
+		switch(tipoLiga) {
+		
+		case 0:
+			
+			if(temp.getEquipoGanador().getNombre().equals(equipoSeleccionado.getNombre())) {
+				
+				this.miUsuario.sumarApuestaPublica();
+//				this.miUsuario.setPuntajePublica();
+				Gestor.actualizarJugador(this.miUsuario);
+				this.puntaje = this.miUsuario.getPuntajePublica();
+				
+			}
+			
+			labelPuntaje.setText("Puntaje: " + puntaje);
+			
+			break;
+			
+			
+		case 1:
+			
+			if(temp.getEquipoGanador().getNombre().equals(equipoSeleccionado.getNombre())) {
+				
+				this.miUsuario.sumarApuestaPrivada();
+//				this.miUsuario.setPuntajePublica();
+				Gestor.actualizarJugador(this.miUsuario);
+				this.puntaje = this.miUsuario.getPuntajePrivada();
+				
+			}
+			
+			labelPuntaje.setText("Puntaje: " + puntaje);
+			
+			break;		
+		
+		}
+	
 	}
 	
 	
