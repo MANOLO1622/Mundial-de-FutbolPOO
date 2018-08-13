@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.time.*;
 import java.util.*;
+
+import javax.print.attribute.standard.MediaSize.ISO;
 import javax.swing.*;
 import com.toedter.calendar.*;
 import gestor.*;
@@ -249,10 +251,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		if (e.getSource() == boton10) {
 
-			Ventana ventanaRegistro = new Ventana(new Usuario("", "", "", "", "", "", 0));
-			ventanaRegistro.ventanaRegistroUsuarios();
+			//Ventana ventanaRegistro = new Ventana(new Equipo(ISOPaises, "", 0 , ""));
+			//ventanaRegistro.ventanaRegistroEquipos();
 			
-			//JOptionPane.showMessageDialog(null, "Arreglelo");
+			JOptionPane.showMessageDialog(null, "EN PROCESO");
 
 		}
 

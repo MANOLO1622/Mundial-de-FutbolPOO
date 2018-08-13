@@ -1,4 +1,4 @@
-package cl;
+/*package cl; /////////////////////  TENGO QUE TERMINARLO PORQUE HAY UNOS ERRORES QUE AUN FALTAN
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -29,10 +29,6 @@ private  Gestor controlador = new Gestor();
 	
 	private JLabel labelISOPaises = new JLabel("Iso del Pais: ");
 	private JTextField ISOPaisesTXT = new JTextField(10);
-	
-	
-	
-	
 	
 	private JButton btnRegistro = new JButton("Registrar");
 	private JButton btnSalir = new JButton("Salir");
@@ -97,13 +93,13 @@ private  Gestor controlador = new Gestor();
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
-		/*int validacionEquipo = controlador.validarEquipo(nombreTXT.getText(), rankingTXT.getText(),banderaTXT.getText(),ISOPaisesTXT.getText());
+		int validacionEquipo = controlador.validarEquipo(nombreTXT.getText());
 		
 		
 		if(e.getSource()==btnRegistro) {
 			
-			if(nombreTXT.getText().equals("") || rankingTXT.getText().equals("") || 
-					   banderaTXT.getText().equals("") || ISOPaisesTXT.equals("") {
+			if(nombreTXT.getText().equals("") || rankingTXT.getInsets().equals("") || 
+					   banderaTXT.getText().equals("") || ISOPaisesTXT.equals("")) {
 						
 						JOptionPane.showMessageDialog(null, "Hay campos vacios, debe llenar todos los campos.");
 						
@@ -119,7 +115,7 @@ private  Gestor controlador = new Gestor();
 			if(validacionEquipo == 0) {
 				
 				this.setBackground(Color.GREEN);
-				controlador.registrarEquipos(nombreTXT.getText(), rankingTXT.getText(), banderaTXT.getText(), ISOPaisesTXT.getText());
+				controlador.registrarEquipos(nombreTXT.getText(), 0, banderaTXT.getText(), ISOPaises.DK);
 				controlador.listarEquiposFIFA();
 				JOptionPane.showMessageDialog(null, "Equipo registrado.");
 				
@@ -133,6 +129,6 @@ private  Gestor controlador = new Gestor();
 		
 			}
 		
-	  }*/
+	  }
 	}
-}
+}*/
