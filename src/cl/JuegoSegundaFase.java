@@ -46,9 +46,12 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	private JTextField marcadorEquipo1 = new JTextField(2);
 	private JTextField marcadorEquipo2 = new JTextField(2);
 	
-	private JLabel labelPuntaje = new JLabel("Puntaje: " + 0);
+	private int puntaje;
+	
+	private JLabel labelPuntaje = new JLabel("Puntaje: " + puntaje);
 	
 	private JButton btnApostar = new JButton("Apostar");
+	
 	
 	/*
 	 * 
@@ -154,10 +157,12 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		if(tipoLiga == 0) {
 			
 			this.equipoSeleccionado = miUsuario.getEquipoLigaPublica();
+			this.puntaje = this.miUsuario.getPuntajePublica();
 			
 		} else if (tipoLiga == 1) {
 			
 			this.equipoSeleccionado = miUsuario.getEquipoLigaPrivada();
+			this.puntaje = this.miUsuario.getPuntajePrivada();
 			
 		}
 		
@@ -216,6 +221,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		marcadorEquipo2.setBounds(1184, 510, 97, 30);
 		
 		this.add(labelPuntaje);
+		labelPuntaje.setText("Puntaje: " + puntaje);
 		labelPuntaje.setForeground(Color.white);
 		labelPuntaje.setBounds(1085, 550, 194, 30);
 		
@@ -238,6 +244,8 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 					imagenEquipoContrincante = new ImageIcon(e.getEquipo2().getBandera());
 					ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
 					labelEquipoContrincante.setIcon(iconoEquipoContrincante);
+					
+					
 					
 				}
 			
