@@ -167,13 +167,13 @@ public class CL {
 			
 			if(e.getNombreLiga().equals(nombreLiga)) {
 				
+				temp = e;
+				/*
 				temp.setNombreLiga(e.getNombreLiga());
 				temp.setFechaCreacion(e.getFechaCreacion());
 				temp.setEstado(e.getEstado());
-				temp.setPuntos(e.getPuntos());
-				temp.setBono(e.getBono());
 				temp.setMundialAnfitrion(e.getMundialAnfitrion());
-										
+					*/					
 			}	
 		}
 		return temp;
@@ -189,12 +189,12 @@ public class CL {
 			
 			if(e.getNombreLiga().equals(nombreLiga)) {
 				
+				temp = e;
+				/*
 				temp.setNombreLiga(e.getNombreLiga());
 				temp.setFechaCreacion(e.getFechaCreacion());
 				temp.setEstado(e.getEstado());
-				temp.setPuntos(e.getPuntos());
-				temp.setBono(e.getBono());
-				temp.setMundialAnfitrion(e.getMundialAnfitrion());
+				temp.setMundialAnfitrion(e.getMundialAnfitrion());*/
 				
 			}	
 		}

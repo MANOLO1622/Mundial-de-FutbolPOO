@@ -4,17 +4,15 @@ import java.time.LocalDate;
 
 public class LigasPrivadas extends Ligas{
 	
-	int puntos = 0;
-	int bono = 50;
+	public static final int puntos = 100;
+	public static final int bono = 50;
 	private Mundiales mundialAnfitrion;
-	final int unaConstante = 100;
+
 	
 	public LigasPrivadas(String nombreLiga, LocalDate fechaCreacion, boolean estado,int puntos, int bono,Mundiales mundialAnfitrion) {
 		
 		super (nombreLiga,fechaCreacion, estado);
 		this.setTipoLiga(false);
-		this.puntos = puntos;
-		this.bono = bono;
 		this.mundialAnfitrion = mundialAnfitrion;
 	}
 
@@ -22,21 +20,12 @@ public class LigasPrivadas extends Ligas{
 		return puntos;
 	}
 
-	public void setPuntos(int puntos) {
-		this.puntos = puntos;
-	}
+
 
 	public int getBono() {
 		return bono;
 	}
 
-	public void setBono(int bono) {
-		this.bono = bono;
-	}
-
-	public int getUnaConstante() {
-		return unaConstante;
-	}
 	
 	public Mundiales getMundialAnfitrion() {
         return mundialAnfitrion;
@@ -49,23 +38,10 @@ public class LigasPrivadas extends Ligas{
 	
 	@Override
 	public String toString() {
-		return super.toString() + " puntos=" + puntos + ", bono=" + bono + ", mundialAnfitrion=" + mundialAnfitrion
-				+ ", unaConstante=" + unaConstante;
+		return super.toString() + " puntos=" + puntos + ", bono=" + bono + ", mundialAnfitrion=" + mundialAnfitrion;
 	}
 	
 	//------------------------------------------------------------------------------------------------------------------
 	
-	public void sumarPuntaje() {
-		
-		this.puntos = this.puntos + 100;
-		
-	}
-	
-	public void sumarBono() {
-		
-		
-		this.puntos = this.puntos + bono;
-		
-	}
 	
 }

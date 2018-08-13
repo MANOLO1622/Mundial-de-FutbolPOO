@@ -12,6 +12,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 	private Usuario miUsuario;
 	private int tipoLiga;
+	private int puntaje = 0;
 
 	private JComboBox equipos = new JComboBox();
 	private JLabel labelBanderaPaisEscogido = new JLabel();
@@ -1613,8 +1614,8 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 						
 			if(this.miUsuario.getEquipoLigaPublica().getNombre().equals(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getEquipoGanador().getNombre())) {
 				
-				this.miUsuario.getMiLigaPublica().sumarPuntaje();
-				this.miUsuario.setPuntajePublica(this.miUsuario.getMiLigaPublica().getPuntos());
+				puntaje = this.miUsuario.getPuntajePublica() + LigasPublicas.puntos;
+				this.miUsuario.setPuntajePublica(puntaje);
 				Gestor.actualizarJugador(this.miUsuario);
 
 			}
@@ -1623,8 +1624,8 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			   marcadorEquipo2.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ){
 
 							
-				this.miUsuario.getMiLigaPublica().sumarBono();
-				this.miUsuario.setPuntajePublica(this.miUsuario.getMiLigaPublica().getPuntos());
+				puntaje = this.miUsuario.getPuntajePublica() + LigasPublicas.bono;
+				this.miUsuario.setPuntajePublica(puntaje);
 				Gestor.actualizarJugador(this.miUsuario);
 				labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica()); 
 								
@@ -1641,8 +1642,8 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			
 			if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getEquipoGanador().getNombre())) {
 				
-				this.miUsuario.getMiLigaPrivada().sumarPuntaje();
-				this.miUsuario.setPuntajePrivada(this.miUsuario.getMiLigaPrivada().getPuntos());
+				puntaje = this.miUsuario.getPuntajePrivada() + LigasPrivadas.puntos;
+				this.miUsuario.setPuntajePrivada(puntaje);
 				Gestor.actualizarJugador(this.miUsuario);
 
 			}
@@ -1650,8 +1651,8 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			if(marcadorEquipo1.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ||
 			   marcadorEquipo2.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ){
 
-				this.miUsuario.getMiLigaPrivada().sumarBono();
-				this.miUsuario.setPuntajePrivada(this.miUsuario.getMiLigaPrivada().getPuntos());
+				puntaje = this.miUsuario.getPuntajePrivada() + LigasPrivadas.bono;
+				this.miUsuario.setPuntajePrivada(puntaje);
 				Gestor.actualizarJugador(this.miUsuario);
 				labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
 								
