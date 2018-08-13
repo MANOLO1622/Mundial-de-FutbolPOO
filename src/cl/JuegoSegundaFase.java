@@ -1042,6 +1042,73 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	
 	
 	
+	public void sumarPuntajes(int tipoLiga, int ronda) {
+			
+			switch(tipoLiga) {
+			
+			case 0:
+							
+				if(this.miUsuario.getEquipoLigaPublica().getNombre().equals(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getEquipoGanador().getNombre())) {
+					
+					puntaje = this.miUsuario.getPuntajePublica() + LigasPublicas.puntos;
+					this.miUsuario.setPuntajePublica(puntaje);
+					Gestor.actualizarJugador(this.miUsuario);
+	
+				}
+				
+				if(marcadorEquipo1.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ||
+				   marcadorEquipo2.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ){
+	
+								
+					puntaje = this.miUsuario.getPuntajePublica() + LigasPublicas.bono;
+					this.miUsuario.setPuntajePublica(puntaje);
+					Gestor.actualizarJugador(this.miUsuario);
+					labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica()); 
+									
+				}else{
+									
+					labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica()); 
+									
+				}
+				
+				
+				break;
+				
+			case 1: 
+				
+				if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getEquipoGanador().getNombre())) {
+					
+					puntaje = this.miUsuario.getPuntajePrivada() + LigasPrivadas.puntos;
+					this.miUsuario.setPuntajePrivada(puntaje);
+					Gestor.actualizarJugador(this.miUsuario);
+	
+				}
+				
+				if(marcadorEquipo1.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ||
+				   marcadorEquipo2.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ){
+	
+					puntaje = this.miUsuario.getPuntajePrivada() + LigasPrivadas.bono;
+					this.miUsuario.setPuntajePrivada(puntaje);
+					Gestor.actualizarJugador(this.miUsuario);
+					labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
+									
+				}else{
+									
+					labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
+									
+				}
+				
+				break;		
+			
+			}
+			
+			Gestor.actualizarJugador(this.miUsuario);
+			
+		}
+	
+	
+	
+	
 	public void paintComponent(Graphics g) {
 
 		int width = this.getSize().width;
