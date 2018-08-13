@@ -139,7 +139,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		btnEliminarLigaPrivada.setFont(new Font(btnEliminarLigaPrivada.getFont().getFontName(), Font.BOLD, 13));
 		this.add(btnEliminarLigaPrivada);
 
-		botonSalir.setBounds(10, 650, 180, 50);
+		botonSalir.setBounds(1130, 600, 180, 50);
 		botonSalir.setFont(new Font(botonSalir.getFont().getFontName(), Font.BOLD, 15));
 		this.add(botonSalir);
 
@@ -249,7 +249,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		if (e.getSource() == boton10) {
 
-			JOptionPane.showMessageDialog(null, "Arreglelo");
+			Ventana ventanaRegistro = new Ventana(new Usuario("", "", "", "", "", "", 0));
+			ventanaRegistro.ventanaRegistroUsuarios();
+			
+			//JOptionPane.showMessageDialog(null, "Arreglelo");
 
 		}
 
@@ -259,6 +262,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			ventanaRegistro.ventanaRegistroUsuarios();
 
 		}
+		
+		
 
 		if (e.getSource() == botonEliminarPublicaRegistro) {
 
@@ -579,38 +584,38 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		this.add(labelNombreMundial);
 		labelNombreMundial.setForeground(Color.WHITE);
-		labelNombreMundial.setBounds(820, 25, 200, 30);
+		labelNombreMundial.setBounds(810, 25, 200, 30);
 		labelNombreMundial.setFont(new Font(labelNombreMundial.getFont().getFontName(), Font.PLAIN, 18));
 
 		this.add(labelTituloMundial);
 		labelTituloMundial.setForeground(Color.WHITE);
-		labelTituloMundial.setBounds(250, 190, 500, 260);
+		labelTituloMundial.setBounds(220, 190, 500, 260);
 		labelTituloMundial.setFont(new Font(labelTituloMundial.getFont().getFontName(), Font.BOLD, 30));
 
 		this.add(nombreMundialTXT);
-		nombreMundialTXT.setBounds(1020, 30, 300, 20);
+		nombreMundialTXT.setBounds(1000, 30, 300, 20);
 
 		this.add(labelPaisOrganizador);
 		labelPaisOrganizador.setForeground(Color.WHITE);
-		labelPaisOrganizador.setBounds(850, 65, 200, 30);
+		labelPaisOrganizador.setBounds(810, 65, 200, 30);
 		labelPaisOrganizador.setFont(new Font(labelPaisOrganizador.getFont().getFontName(), Font.PLAIN, 18));
 
 		this.add(paisesOrganizadores);
-		paisesOrganizadores.setBounds(1020, 70, 300, 20);
+		paisesOrganizadores.setBounds(1000, 70, 300, 20);
 
 		this.add(labelAno);
 		labelAno.setForeground(Color.WHITE);
-		labelAno.setBounds(940, 185, 200, 30);
+		labelAno.setBounds(900, 185, 200, 30);
 		labelAno.setFont(new Font(labelAno.getFont().getFontName(), Font.PLAIN, 20));
 
-		fechaMundial.setBounds(1020, 110, 300, 200);
+		fechaMundial.setBounds(1000, 110, 300, 200);
 		fechaMundial.setVisible(true);
 
 		this.add(btnRegistrarMundial);
-		btnRegistrarMundial.setBounds(1020, 320, 100, 25);
+		btnRegistrarMundial.setBounds(1000, 320, 100, 25);
 
 		this.add(btnCancelar);
-		btnCancelar.setBounds(1135, 320, 100, 25);
+		btnCancelar.setBounds(1120, 320, 100, 25);
 
 	}
 

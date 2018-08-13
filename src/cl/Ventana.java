@@ -60,6 +60,16 @@ public class Ventana extends JFrame{
 		
 	}
 	
+	public void ventanaRegistroEquipos() {
+		
+		RegistroUsuarios regUsu = new RegistroUsuarios();
+		this.add(regUsu);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setTitle("Registro de Usuario");
+		this.show();	
+		
+	}
+	
 	public void ventanaMenuUsuarios(Perfiles perfil , Ventana vent) {
 		
 		switch(perfil) {
@@ -70,7 +80,7 @@ public class Ventana extends JFrame{
 			this.add(ma);
 			vent.setTitle("Administrador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			vent.setBounds(5,5,1350,900);
+			vent.setBounds(5,15,1330,700);
 			//vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			vent.setResizable(false);
 			break;
@@ -81,7 +91,7 @@ public class Ventana extends JFrame{
 			this.add(mj);
 			vent.setTitle("Administrador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			vent.setBounds(5,5,1350,900);
+			vent.setBounds(5,15,1330,700);
 			//vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			vent.setResizable(false);
 			break;
@@ -92,7 +102,7 @@ public class Ventana extends JFrame{
 			this.add(mo);
 			vent.setTitle("Observador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			vent.setBounds(5,5,1350,900);
+			vent.setBounds(5,15,1330,700);
 			//vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			vent.setResizable(false);
 			break;

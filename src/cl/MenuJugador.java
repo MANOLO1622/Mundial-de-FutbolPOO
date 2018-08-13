@@ -52,24 +52,31 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		this.add(boton2);
 		boton2.setBounds(10, 50, 180, 50);
+		boton2.setFont(new Font(boton2.getFont().getFontName(), Font.BOLD, 13));
 		
 		this.add(boton3);		
 		boton3.setBounds(10, 120, 180, 50);
+		boton3.setFont(new Font(boton3.getFont().getFontName(), Font.BOLD, 13));
 		
 		this.add(boton4);
 		boton4.setBounds(10, 190, 180, 50);
+		boton4.setFont(new Font(boton4.getFont().getFontName(), Font.BOLD, 13));
 		
 		this.add(boton5);
 		boton5.setBounds(10, 260, 180, 50);
+		boton5.setFont(new Font(boton5.getFont().getFontName(), Font.BOLD, 13));
 		
 		this.add(boton6);
 		boton6.setBounds(10, 330, 180, 50);
+		boton6.setFont(new Font(boton6.getFont().getFontName(), Font.BOLD, 13));
 		
 		this.add(boton7);
 		boton7.setBounds(10, 400, 180, 50);
+		boton7.setFont(new Font(boton7.getFont().getFontName(), Font.BOLD, 13));
 		
 		this.add(boton8);
 		boton8.setBounds(10, 470, 180, 50);
+		boton8.setFont(new Font(boton8.getFont().getFontName(), Font.BOLD, 13));
 		
 		
 		CL capaLogica = new CL();
