@@ -269,6 +269,59 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		this.tipoLiga = tipoLiga;
 		this.setLayout(null);
 		colocarComponentesJuego();
+		
+		if(this.tipoLiga == 0) {
+			
+			if(this.miUsuario.getValidacionPrimeraFasePublica() == 0 && this.miUsuario.getEquipoLigaPublica() != null) {
+				
+				this.add(btnApostar);
+				btnApostar.setVisible(true);
+				btnApostar.setBounds(1100, 350, 125, 30);
+				
+				
+			}
+			
+			if(this.miUsuario.getValidacionPrimeraFasePublica() == 1 && this.miUsuario.getEquipoLigaPublica() != null) {
+				
+				this.add(btnApostar);
+				btnApostar.setVisible(true);
+				btnApostar.setBounds(1100, 350, 125, 30);
+				
+			}
+
+			if(this.miUsuario.getValidacionPrimeraFasePublica() >= 2 && this.miUsuario.getEquipoLigaPublica() != null) {
+	
+				this.btnSegundaFase.setVisible(true);
+	
+			}
+			
+			
+		}else if(tipoLiga == 1) {
+			
+			if(this.miUsuario.getValidacionPrimeraFasePrivada() == 0 && this.miUsuario.getEquipoLigaPrivada() != null) {
+				
+				this.add(btnApostar);
+				btnApostar.setVisible(true);
+				btnApostar.setBounds(1100, 350, 125, 30);
+				
+			}
+			
+			if(this.miUsuario.getValidacionPrimeraFasePrivada() == 1 && this.miUsuario.getEquipoLigaPrivada() != null) {
+				
+				this.add(btnApostar);
+				btnApostar.setVisible(true);
+				btnApostar.setBounds(1100, 350, 125, 30);
+				
+			}
+
+			if(this.miUsuario.getValidacionPrimeraFasePrivada() >= 2 && this.miUsuario.getEquipoLigaPrivada() != null) {
+	
+				this.btnSegundaFase.setVisible(true);
+	
+			}
+			
+		}
+		
 
 		// ----------------------------------Eventos
 
