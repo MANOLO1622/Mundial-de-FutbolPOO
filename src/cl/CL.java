@@ -252,7 +252,7 @@ public class CL {
 				mundialTemp.setEquipoPrimerLugar(e.getEquipoPrimerLugar());
 				mundialTemp.setEquipoSegundoLugar(e.getEquipoSegundoLugar());
 				mundialTemp.setEquipoTercerLugar(e.getEquipoTercerLugar());
-				mundialTemp.setRonda1(e.getRonda1());
+				mundialTemp.setResultadosMundial(e.getResultadosMundial());
 				
 			}
 			
@@ -324,7 +324,7 @@ public class CL {
 			
 			//--------------------------------------------------------------------------------------------------------Primer cuadro
 			
-			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro()) {
+			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosPrimerCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -336,7 +336,7 @@ public class CL {
 			
 			//--------------------------------------------------------------------------------------------------------Segundo cuadro
 			
-			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getRonda1().getPartidosSegundoCuadro()) {
+			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSegundoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -348,7 +348,7 @@ public class CL {
 			
 			//--------------------------------------------------------------------------------------------------------Tercer cuadro
 			
-			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getRonda1().getPartidosTercerCuadro()) {
+			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosTercerCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -360,7 +360,7 @@ public class CL {
 			
 			//--------------------------------------------------------------------------------------------------------Cuarto cuadro
 			
-			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getRonda1().getPartidosCuartoCuadro()) {
+			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosCuartoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -373,7 +373,7 @@ public class CL {
 			//--------------------------------------------------------------------------------------------------------Quinto cuadro
 			
 			
-			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getRonda1().getPartidosQuintoCuadro()) {
+			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosQuintoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -386,7 +386,7 @@ public class CL {
 			//--------------------------------------------------------------------------------------------------------Sexto cuadro
 			
 			
-			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getRonda1().getPartidosSextoCuadro()) {
+			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSextoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -399,7 +399,7 @@ public class CL {
 			//--------------------------------------------------------------------------------------------------------Septimo cuadro
 			
 			
-			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getRonda1().getPartidosSeptimoCuadro()) {
+			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSeptimoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -412,7 +412,7 @@ public class CL {
 			//--------------------------------------------------------------------------------------------------------Octavo cuadro
 			
 			
-			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getRonda1().getPartidosOctavoCuadro()) {
+			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosOctavoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -431,7 +431,7 @@ public class CL {
 			
 			//--------------------------------------------------------------------------------------------------------Primer cuadro
 			
-			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro()) {
+			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosPrimerCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -443,7 +443,7 @@ public class CL {
 			
 			//--------------------------------------------------------------------------------------------------------Segundo cuadro
 			
-			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getRonda1().getPartidosSegundoCuadro()) {
+			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSegundoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -455,7 +455,7 @@ public class CL {
 			
 			//--------------------------------------------------------------------------------------------------------Tercer cuadro
 			
-			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getRonda1().getPartidosTercerCuadro()) {
+			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosTercerCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -467,7 +467,7 @@ public class CL {
 			
 			//--------------------------------------------------------------------------------------------------------Cuarto cuadro
 			
-			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getRonda1().getPartidosCuartoCuadro()) {
+			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosCuartoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -480,7 +480,7 @@ public class CL {
 			//--------------------------------------------------------------------------------------------------------Quinto cuadro
 			
 			
-			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getRonda1().getPartidosQuintoCuadro()) {
+			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosQuintoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -493,7 +493,7 @@ public class CL {
 			//--------------------------------------------------------------------------------------------------------Sexto cuadro
 			
 			
-			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getRonda1().getPartidosSextoCuadro()) {
+			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSextoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -506,7 +506,7 @@ public class CL {
 			//--------------------------------------------------------------------------------------------------------Septimo cuadro
 			
 			
-			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getRonda1().getPartidosSeptimoCuadro()) {
+			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSeptimoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -519,7 +519,7 @@ public class CL {
 			//--------------------------------------------------------------------------------------------------------Octavo cuadro
 			
 			
-			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getRonda1().getPartidosOctavoCuadro()) {
+			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosOctavoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -596,7 +596,7 @@ public class CL {
 		
 		ArrayList<Partido> partidosRetorno = new ArrayList();
 		
-		for(Partido e: mundial.getRonda1().getPartidosPrimerCuadro()){
+		for(Partido e: mundial.getResultadosMundial().getPartidosPrimerCuadro()){
 			
 			if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
 				
@@ -606,7 +606,7 @@ public class CL {
 			
 		}
 		
-		for(Partido e: mundial.getRonda1().getPartidosSegundoCuadro()){
+		for(Partido e: mundial.getResultadosMundial().getPartidosSegundoCuadro()){
 			
 			if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
 				
@@ -616,7 +616,7 @@ public class CL {
 			
 		}
 		
-		for(Partido e: mundial.getRonda1().getPartidosTercerCuadro()){
+		for(Partido e: mundial.getResultadosMundial().getPartidosTercerCuadro()){
 			
 			if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
 				
@@ -626,7 +626,7 @@ public class CL {
 			
 		}
 		
-		for(Partido e: mundial.getRonda1().getPartidosCuartoCuadro()){
+		for(Partido e: mundial.getResultadosMundial().getPartidosCuartoCuadro()){
 			
 			if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
 				
@@ -636,7 +636,7 @@ public class CL {
 			
 		}
 		
-		for(Partido e: mundial.getRonda1().getPartidosQuintoCuadro()){
+		for(Partido e: mundial.getResultadosMundial().getPartidosQuintoCuadro()){
 			
 			if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
 				
@@ -646,7 +646,7 @@ public class CL {
 			
 		}
 		
-		for(Partido e: mundial.getRonda1().getPartidosSextoCuadro()){
+		for(Partido e: mundial.getResultadosMundial().getPartidosSextoCuadro()){
 			
 			if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
 				
@@ -656,7 +656,7 @@ public class CL {
 			
 		}
 		
-		for(Partido e: mundial.getRonda1().getPartidosSeptimoCuadro()){
+		for(Partido e: mundial.getResultadosMundial().getPartidosSeptimoCuadro()){
 			
 			if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
 				
@@ -666,7 +666,7 @@ public class CL {
 			
 		}
 		
-		for(Partido e: mundial.getRonda1().getPartidosOctavoCuadro()){
+		for(Partido e: mundial.getResultadosMundial().getPartidosOctavoCuadro()){
 			
 			if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
 				

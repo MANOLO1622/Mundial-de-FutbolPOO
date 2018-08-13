@@ -515,7 +515,7 @@ public class Resultados {
         partidosSemiFinal = guardarSemifinales(ganadoresCuartosFinal);
         
         juegosFinales = guardarFinales(partidosSemiFinal);
-        
+      
         this.primerLugar= juegosFinales[0].getEquipoGanador();
         this.segundoLugar = juegosFinales[0].getEquipoPerdedor();
         this.tercerLugar = juegosFinales[1].getEquipoGanador();

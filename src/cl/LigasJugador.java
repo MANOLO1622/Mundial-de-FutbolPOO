@@ -520,25 +520,25 @@ public class LigasJugador extends JPanel implements ActionListener{
 		
 		if(tipoLiga == 0) {
 			
-			temp1= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPrimerCuadro();
-			temp2= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getSegundoCuadro();
-			temp3= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getTercerCuadro();
-			temp4= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getCuartoCuadro();
-			temp5= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getQuintoCuadro();
-			temp6= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getSextoCuadro();
-			temp7= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getSeptimoCuadro();
-			temp8= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getRonda1().getOctavoCuadro();
+			temp1= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPrimerCuadro();
+			temp2= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getSegundoCuadro();
+			temp3= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getTercerCuadro();
+			temp4= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getCuartoCuadro();
+			temp5= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getQuintoCuadro();
+			temp6= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getSextoCuadro();
+			temp7= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getSeptimoCuadro();
+			temp8= this.miUsuarioActual.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getOctavoCuadro();
 			
 		}else if(tipoLiga == 1) {
 			
-			temp1= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPrimerCuadro();
-			temp2= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getSegundoCuadro();
-			temp3= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getTercerCuadro();
-			temp4= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getCuartoCuadro();
-			temp5= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getQuintoCuadro();
-			temp6= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getSextoCuadro();
-			temp7= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getSeptimoCuadro();
-			temp8= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getOctavoCuadro();
+			temp1= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPrimerCuadro();
+			temp2= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getSegundoCuadro();
+			temp3= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getTercerCuadro();
+			temp4= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getCuartoCuadro();
+			temp5= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getQuintoCuadro();
+			temp6= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getSextoCuadro();
+			temp7= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getSeptimoCuadro();
+			temp8= this.miUsuarioActual.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getOctavoCuadro();
 			
 		}
 		

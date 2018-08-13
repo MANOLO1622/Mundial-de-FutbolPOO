@@ -104,11 +104,11 @@ public class Mundiales {
 		
 	}
 	
-	public Resultados getRonda1() {
+	public Resultados getResultadosMundial() {
 		return resultadosMundial;
 	}
 
-	public void setRonda1(Resultados ronda1) {
+	public void setResultadosMundial(Resultados ronda1) {
 		this.resultadosMundial = ronda1;
 	}
 

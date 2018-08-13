@@ -690,14 +690,14 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		
 		if(tipoLiga == 0) {
 			
-			temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
-			temp2 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSegundoCuadro();
-			temp3 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosTercerCuadro();
-			temp4 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosCuartoCuadro();
-			temp5 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosQuintoCuadro();
-			temp6 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSextoCuadro();
-			temp7 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSeptimoCuadro();
-			temp8 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosOctavoCuadro();
+			temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosPrimerCuadro();
+			temp2 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosSegundoCuadro();
+			temp3 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosTercerCuadro();
+			temp4 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosCuartoCuadro();
+			temp5 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosQuintoCuadro();
+			temp6 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosSextoCuadro();
+			temp7 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosSeptimoCuadro();
+			temp8 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosOctavoCuadro();
 			
 			if(this.miUsuario.getEquipoLigaPublica()==null) {
 				
@@ -724,14 +724,14 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		}else if(tipoLiga == 1) {
 			
 			
-			temp1 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosPrimerCuadro();
-			temp2 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSegundoCuadro();
-			temp3 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosTercerCuadro();
-			temp4 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosCuartoCuadro();
-			temp5 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosQuintoCuadro();
-			temp6 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSextoCuadro();
-			temp7 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSeptimoCuadro();
-			temp8 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosOctavoCuadro();
+			temp1 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosPrimerCuadro();
+			temp2 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosSegundoCuadro();
+			temp3 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosTercerCuadro();
+			temp4 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosCuartoCuadro();
+			temp5 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosQuintoCuadro();
+			temp6 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosSextoCuadro();
+			temp7 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosSeptimoCuadro();
+			temp8 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosOctavoCuadro();
 			
 			
 			
@@ -1411,7 +1411,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					JOptionPane.showMessageDialog(null, "Ya haz completado todas la apuestas de la primera fase\n"
 							+ "si tu equipo clasifico, podras pasar a la segunda fase.");
 					
-					Equipo[] temp = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getGanadoresPrimeraFase();
+					Equipo[] temp = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getGanadoresPrimeraFase();
 					int index = 0;
 					
 					for(Equipo a: temp) {
@@ -1487,7 +1487,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 					JOptionPane.showMessageDialog(null, "Ya haz completado todas la apuestas de la primera fase\n"
 							+ "si tu equipo clasifico, podras pasar a la segunda fase.");
 					
-					Equipo[] temp = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getGanadoresPrimeraFase();
+					Equipo[] temp = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getGanadoresPrimeraFase();
 					int index = 0;
 					
 					for(Equipo a: temp) {
@@ -1559,7 +1559,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getEquipoGanador().getNombre())) {
 				
 				this.miUsuario.getMiLigaPrivada().sumarPuntaje();
-				this.miUsuario.setPuntajePublica(this.miUsuario.getMiLigaPrivada().getPuntos());
+				this.miUsuario.setPuntajePrivada(this.miUsuario.getMiLigaPrivada().getPuntos());
 				Gestor.actualizarJugador(this.miUsuario);
 
 			}
@@ -1568,7 +1568,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			   marcadorEquipo2.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ){
 
 				this.miUsuario.getMiLigaPrivada().sumarBono();
-				this.miUsuario.setPuntajePublica(this.miUsuario.getMiLigaPrivada().getPuntos());
+				this.miUsuario.setPuntajePrivada(this.miUsuario.getMiLigaPrivada().getPuntos());
 				Gestor.actualizarJugador(this.miUsuario);
 				labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
 								

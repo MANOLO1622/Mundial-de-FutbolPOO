@@ -231,7 +231,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		
 		if(this.tipoLiga == 0) {
 			
-			for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosOctavosFinal()) {
+			for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosOctavosFinal()) {
 				
 				if(e.getEquipo1().getNombre().equals(this.equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(this.equipoSeleccionado.getNombre())) {
 					
@@ -244,8 +244,6 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 					imagenEquipoContrincante = new ImageIcon(e.getEquipo2().getBandera());
 					ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
 					labelEquipoContrincante.setIcon(iconoEquipoContrincante);
-					
-					
 					
 				}
 			
@@ -261,7 +259,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 			
 		}else if(this.tipoLiga == 1) {
 			
-			for(Partido e: this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosOctavosFinal()) {
+			for(Partido e: this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosOctavosFinal()) {
 				
 				if(e.getEquipo1().getNombre().equals(this.equipoSeleccionado.getNombre()) || e.getEquipo2().getNombre().equals(this.equipoSeleccionado.getNombre())) {
 					
@@ -353,9 +351,6 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		
 		
 		mostrarBanderas( ancho,  alto, this.tipoLiga);
-//		this.mostrarCuartosFinal();
-//		this.mostrarSemifinales();
-//		this.mostrarFinales();
 		
 	}
 	
@@ -376,37 +371,37 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 			
 			//-------------------------------------------------------------------------------------------------------------------Clasificadores a octavos de final.
 			
-			temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosOctavosFinal();
+			temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosOctavosFinal();
 			
 			//-------------------------------------------------------------------------------------------------------------------Clasificadores a cuartos de final.
 			
-			temp2 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosCuartosFinal();
+			temp2 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosCuartosFinal();
 			
 			//------------------------------------------------------------------------------------------------------------------- Posiciones de los Semifinales.
 
-			temp3 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSemiFinal();
+			temp3 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosSemiFinal();
 			
 			//------------------------------------------------------------------------------------------------------------------- Finales
 			
-			temp4 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getJuegosFinales();
+			temp4 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getJuegosFinales();
 			
 		}else if(tipoLiga == 1 ) {
 			
 			//-------------------------------------------------------------------------------------------------------------------Clasificadores a octavos de final.
 			
-			temp1 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosOctavosFinal();
+			temp1 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosOctavosFinal();
 			
 			//-------------------------------------------------------------------------------------------------------------------Clasificadores a cuartos de final.
 			
-			temp2 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosCuartosFinal();
+			temp2 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosCuartosFinal();
 			
 			//------------------------------------------------------------------------------------------------------------------- Posiciones de los Semifinales.
 
-			temp3 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSemiFinal();
+			temp3 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosSemiFinal();
 			
 			//------------------------------------------------------------------------------------------------------------------- Finales
 			
-			temp4 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getJuegosFinales();
+			temp4 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getJuegosFinales();
 			
 		}
 		
@@ -683,6 +678,9 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 				if(verificacionCuartos == true) {
 					
 					mostrarCuartosFinal();
+					Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 1);
+					mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
+					
 					
 				}else {
 					
@@ -697,6 +695,8 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 				if(verificacionSemifinales == true) {
 					
 					mostrarSemifinales();
+					Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 2);
+					mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
 					
 				}else {
 					
@@ -711,10 +711,14 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 				if(verificacionFinales == true) {
 					
 					mostrarFinales();
+					Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 3);
+					mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
 					
 				}else {
 					
-					JOptionPane.showMessageDialog(null, "El equipo seleccionado no luchara por el tercer o cuarto lugar.");
+					JOptionPane.showMessageDialog(null, "El equipo seleccionado luchara por el tercer o cuarto lugar.");
+					Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 3);
+					mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
 					mostrarFinales();
 					
 				}
@@ -736,7 +740,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		
 		if(this.tipoLiga == 0) {
 			
-			for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosCuartosFinal()) {
+			for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosCuartosFinal()) {
 				
 				if(e.getEquipo1().getNombre().equals(this.miUsuario.getEquipoLigaPublica().getNombre()) || 
 						e.getEquipo2().getNombre().equals(this.miUsuario.getEquipoLigaPublica().getNombre())) {
@@ -749,7 +753,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 			
 		}else if(this.tipoLiga == 1) {
 	
-			for(Partido e: this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosCuartosFinal()) {
+			for(Partido e: this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosCuartosFinal()) {
 				
 				if(e.getEquipo1().getNombre().equals(this.miUsuario.getEquipoLigaPrivada().getNombre()) || 
 						e.getEquipo2().getNombre().equals(this.miUsuario.getEquipoLigaPrivada().getNombre())) {
@@ -771,7 +775,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		
 		if(this.tipoLiga == 0) {
 			
-			for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPartidosSemiFinal()) {
+			for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosSemiFinal()) {
 				
 				if(e.getEquipo1().getNombre().equals(this.miUsuario.getEquipoLigaPublica().getNombre()) || 
 						e.getEquipo2().getNombre().equals(this.miUsuario.getEquipoLigaPublica().getNombre())) {
@@ -784,7 +788,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 			
 		}else if(this.tipoLiga == 1) {
 	
-			for(Partido e: this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPartidosSemiFinal()) {
+			for(Partido e: this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosSemiFinal()) {
 				
 				if(e.getEquipo1().getNombre().equals(this.miUsuario.getEquipoLigaPrivada().getNombre()) || 
 						e.getEquipo2().getNombre().equals(this.miUsuario.getEquipoLigaPrivada().getNombre())) {
@@ -810,8 +814,8 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		
 		if(this.tipoLiga == 0) {
 			
-			if(this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getPrimerLugar().getNombre().equals(this.equipoSeleccionado.getNombre()) ||
-			   this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getRonda1().getSegundoLugar().getNombre().equals(this.equipoSeleccionado.getNombre())) {
+			if(this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPrimerLugar().getNombre().equals(this.equipoSeleccionado.getNombre()) ||
+			   this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getSegundoLugar().getNombre().equals(this.equipoSeleccionado.getNombre())) {
 						
 						verificacion = true;
 						
@@ -820,8 +824,8 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 			
 		}else if(this.tipoLiga == 1) {
 	
-			if(this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getPrimerLugar().getNombre().equals(this.equipoSeleccionado.getNombre()) ||
-			   this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getRonda1().getSegundoLugar().getNombre().equals(this.equipoSeleccionado.getNombre())) {
+			if(this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPrimerLugar().getNombre().equals(this.equipoSeleccionado.getNombre()) ||
+			   this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getSegundoLugar().getNombre().equals(this.equipoSeleccionado.getNombre())) {
 				
 				verificacion = true;
 				
@@ -831,6 +835,162 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		}
 		
 		return verificacion;
+	}
+	
+	
+	public void mostrarPartidoCronograma(Equipo equipo1, Equipo equipo2) {
+
+		partidosPaisEscogido.setText( equipo1.getNombre() +  " vs " + equipo2.getNombre());
+		
+		imagenEquipoSeleccionado = new ImageIcon(equipo1.getBandera());
+		ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
+		labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
+		
+		imagenEquipoContrincante = new ImageIcon(equipo2.getBandera());
+		ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
+		labelEquipoContrincante.setIcon(iconoEquipoContrincante);
+
+	}
+	
+	public Partido retornarSiguientePartido(Equipo equipoSeleccionado, int ronda) {
+		
+		Partido partidoTemp = null;
+		
+		if(this.tipoLiga == 0 ) {
+			
+			switch(ronda) {
+			
+			case 0://Octavos Final
+				
+				for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosOctavosFinal()) {
+					
+					if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre())  || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
+						
+						partidoTemp = e;
+						
+					}
+					
+				}
+				
+				
+				break;
+				
+				
+			case 1://Cuartos Final 
+				
+				for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosCuartosFinal()) {
+					
+					if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre())  || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
+						
+						partidoTemp = e;
+						
+					}
+					
+				}
+				
+				break;
+				
+			case 2://Semifinales
+				
+				for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosSemiFinal()) {
+					
+					if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre())  || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
+						
+						partidoTemp = e;
+						
+					}
+					
+				}
+				
+				break;
+			
+			case 3://Finales
+				
+				for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getJuegosFinales()) {
+					
+					if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre())  || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
+						
+						partidoTemp = e;
+						
+					}
+					
+				}
+				
+				break;
+			
+			}			
+			
+			//--------------------------------------------- Ligas Privadas
+			
+		}else if (this.tipoLiga == 1) {
+			
+			switch(ronda) {
+			
+			case 0://Octavos Final
+				
+				for(Partido e: this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosOctavosFinal()) {
+					
+					if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre())  || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
+						
+						partidoTemp = e;
+						
+					}
+					
+				}
+				
+				
+				break;
+				
+				
+			case 1://Cuartos Final 
+				
+				for(Partido e: this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosCuartosFinal()) {
+					
+					if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre())  || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
+						
+						partidoTemp = e;
+						
+					}
+					
+				}
+				
+				break;
+				
+			case 2://Semifinales
+				
+				for(Partido e: this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosSemiFinal()) {
+					
+					if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre())  || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
+						
+						partidoTemp = e;
+						
+					}
+					
+				}
+				
+				break;
+			
+			case 3://Finales
+				
+				for(Partido e: this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getJuegosFinales()) {
+					
+					if(e.getEquipo1().getNombre().equals(equipoSeleccionado.getNombre())  || e.getEquipo2().getNombre().equals(equipoSeleccionado.getNombre())) {
+						
+						partidoTemp = e;
+						
+					}
+					
+				}
+				
+				break;
+			
+			}
+			
+		}
+		
+		
+		return partidoTemp;
+		
 	}
 	
 	
