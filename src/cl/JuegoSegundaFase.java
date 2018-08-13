@@ -46,7 +46,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	private JTextField marcadorEquipo1 = new JTextField(2);
 	private JTextField marcadorEquipo2 = new JTextField(2);
 	
-	private int puntaje;
+	private int puntaje = 0;
 	
 	private JLabel labelPuntaje = new JLabel("Puntaje: " + puntaje);
 	
