@@ -717,6 +717,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 					mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
 					jugarApuesta(temp, equipoSeleccionado);
 					
+					
 				}else {
 					
 					mostrarFinales();
