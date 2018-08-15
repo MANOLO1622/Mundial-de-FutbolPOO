@@ -683,6 +683,12 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 					jugarApuesta(temp, equipoSeleccionado);
 					
 					
+					this.miUsuario.sumarApuestaPublica();	
+					Gestor.actualizarJugador(this.miUsuario);
+					sumarPuntajes(4);
+					
+					
+					
 				}else {
 					
 					JOptionPane.showMessageDialog(null, "El equipo seleccionado no ha logrado pasar a los cuartos de final.");
@@ -699,6 +705,10 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 					Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 2);
 					mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
 					jugarApuesta(temp, equipoSeleccionado);
+					
+					this.miUsuario.sumarApuestaPublica();	
+					Gestor.actualizarJugador(this.miUsuario);
+					sumarPuntajes(5);
 					
 				}else {
 					
@@ -717,6 +727,10 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 					mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
 					jugarApuesta(temp, equipoSeleccionado);
 					
+					this.miUsuario.sumarApuestaPublica();	
+					Gestor.actualizarJugador(this.miUsuario);
+					sumarPuntajes(6);
+					
 					
 				}else {
 					
@@ -726,8 +740,18 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 					mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
 					jugarApuesta(temp, equipoSeleccionado);
 					
+					this.miUsuario.sumarApuestaPublica();	
+					Gestor.actualizarJugador(this.miUsuario);
+					sumarPuntajes(6);
+					
 					
 				}
+				
+			}
+			
+			if(contador == 3) {
+				
+				mostrarGanadores();
 				
 			}
 			
@@ -1043,62 +1067,204 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	
 	
 	
-	public void sumarPuntajes(int tipoLiga, int ronda) {
+	public void sumarPuntajes(int ronda) {
 			
-			switch(tipoLiga) {
+			switch(this.tipoLiga) {
 			
 			case 0:
-							
-				if(this.miUsuario.getEquipoLigaPublica().getNombre().equals(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getEquipoGanador().getNombre())) {
+				
+				if(ronda == 4) {
 					
-					puntaje = this.miUsuario.getPuntajePublica() + LigasPublicas.puntos;
-					this.miUsuario.setPuntajePublica(puntaje);
-					Gestor.actualizarJugador(this.miUsuario);
-	
+					for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosCuartosFinal()) {
+						
+						if(this.miUsuario.getEquipoLigaPublica().getNombre().equals(e.getEquipoGanador().getNombre())) {
+							
+							puntaje = this.miUsuario.getPuntajePublica() + LigasPublicas.puntos;
+							this.miUsuario.setPuntajePublica(puntaje);
+							Gestor.actualizarJugador(this.miUsuario);
+							
+						}
+						
+						if(marcadorEquipo1.getText().equals(String.valueOf(e.getPuntajeEquipo1())) ||
+						   marcadorEquipo2.getText().equals(String.valueOf(e.getPuntajeEquipo2())) ){
+							
+														
+							puntaje = this.miUsuario.getPuntajePublica() + LigasPublicas.bono;
+							this.miUsuario.setPuntajePublica(puntaje);
+							Gestor.actualizarJugador(this.miUsuario);
+							labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica()); 
+															
+						}else{
+															
+							labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica()); 
+															
+						}
+				
+						
+					}
+					
+					
+				}else if(ronda == 5) {
+					
+					for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosSemiFinal()) {
+						
+						if(this.miUsuario.getEquipoLigaPublica().getNombre().equals(e.getEquipoGanador().getNombre())) {
+							
+							puntaje = this.miUsuario.getPuntajePublica() + LigasPublicas.puntos;
+							this.miUsuario.setPuntajePublica(puntaje);
+							Gestor.actualizarJugador(this.miUsuario);
+							
+						}
+						
+						if(marcadorEquipo1.getText().equals(String.valueOf(e.getPuntajeEquipo1())) ||
+						   marcadorEquipo2.getText().equals(String.valueOf(e.getPuntajeEquipo2())) ){
+							
+														
+							puntaje = this.miUsuario.getPuntajePublica() + LigasPublicas.bono;
+							this.miUsuario.setPuntajePublica(puntaje);
+							Gestor.actualizarJugador(this.miUsuario);
+							labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica()); 
+															
+						}else{
+															
+							labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica()); 
+															
+						}
+				
+						
+					}					
+					
+				}else if(ronda == 6) {
+					
+					for(Partido e: this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getJuegosFinales()) {
+						
+						if(this.miUsuario.getEquipoLigaPublica().getNombre().equals(e.getEquipoGanador().getNombre())) {
+							
+							puntaje = this.miUsuario.getPuntajePublica() + LigasPublicas.puntos;
+							this.miUsuario.setPuntajePublica(puntaje);
+							Gestor.actualizarJugador(this.miUsuario);
+							
+						}
+						
+						if(marcadorEquipo1.getText().equals(String.valueOf(e.getPuntajeEquipo1())) ||
+						   marcadorEquipo2.getText().equals(String.valueOf(e.getPuntajeEquipo2())) ){
+							
+														
+							puntaje = this.miUsuario.getPuntajePublica() + LigasPublicas.bono;
+							this.miUsuario.setPuntajePublica(puntaje);
+							Gestor.actualizarJugador(this.miUsuario);
+							labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica()); 
+															
+						}else{
+															
+							labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica()); 
+															
+						}
+				
+						
+					}			
+					
 				}
-				
-				if(marcadorEquipo1.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ||
-				   marcadorEquipo2.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ){
-	
-								
-					puntaje = this.miUsuario.getPuntajePublica() + LigasPublicas.bono;
-					this.miUsuario.setPuntajePublica(puntaje);
-					Gestor.actualizarJugador(this.miUsuario);
-					labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica()); 
-									
-				}else{
-									
-					labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica()); 
-									
-				}
-				
-				
+
 				break;
+				
+				//------------------------------Ligas Privadas.
 				
 			case 1: 
 				
-				if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getEquipoGanador().getNombre())) {
+				if(ronda == 4) {
 					
-					puntaje = this.miUsuario.getPuntajePrivada() + LigasPrivadas.puntos;
-					this.miUsuario.setPuntajePrivada(puntaje);
-					Gestor.actualizarJugador(this.miUsuario);
-	
-				}
+					for(Partido e: this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosCuartosFinal()) {
+						
+						if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(e.getEquipoGanador().getNombre())) {
+							
+							puntaje = this.miUsuario.getPuntajePrivada() + LigasPublicas.puntos;
+							this.miUsuario.setPuntajePrivada(puntaje);
+							Gestor.actualizarJugador(this.miUsuario);
+							
+						}
+						
+						if(marcadorEquipo1.getText().equals(String.valueOf(e.getPuntajeEquipo1())) ||
+						   marcadorEquipo2.getText().equals(String.valueOf(e.getPuntajeEquipo2())) ){
+							
+														
+							puntaje = this.miUsuario.getPuntajePrivada() + LigasPublicas.bono;
+							this.miUsuario.setPuntajePrivada(puntaje);
+							Gestor.actualizarJugador(this.miUsuario);
+							labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
+															
+						}else{
+															
+							labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
+															
+						}
 				
-				if(marcadorEquipo1.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ||
-				   marcadorEquipo2.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ){
-	
-					puntaje = this.miUsuario.getPuntajePrivada() + LigasPrivadas.bono;
-					this.miUsuario.setPuntajePrivada(puntaje);
-					Gestor.actualizarJugador(this.miUsuario);
-					labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
-									
-				}else{
-									
-					labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
-									
-				}
+						
+					}
+					
+					
+				}else if(ronda == 5) {
+					
+					for(Partido e: this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosSemiFinal()) {
+						
+						if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(e.getEquipoGanador().getNombre())) {
+							
+							puntaje = this.miUsuario.getPuntajePrivada() + LigasPublicas.puntos;
+							this.miUsuario.setPuntajePrivada(puntaje);
+							Gestor.actualizarJugador(this.miUsuario);
+							
+						}
+						
+						if(marcadorEquipo1.getText().equals(String.valueOf(e.getPuntajeEquipo1())) ||
+						   marcadorEquipo2.getText().equals(String.valueOf(e.getPuntajeEquipo2())) ){
+							
+														
+							puntaje = this.miUsuario.getPuntajePrivada() + LigasPublicas.bono;
+							this.miUsuario.setPuntajePrivada(puntaje);
+							Gestor.actualizarJugador(this.miUsuario);
+							labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
+															
+						}else{
+															
+							labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
+															
+						}
 				
+						
+					}					
+					
+				}else if(ronda == 6) {
+					
+					for(Partido e: this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getJuegosFinales()) {
+						
+						if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(e.getEquipoGanador().getNombre())) {
+							
+							puntaje = this.miUsuario.getPuntajePrivada() + LigasPublicas.puntos;
+							this.miUsuario.setPuntajePrivada(puntaje);
+							Gestor.actualizarJugador(this.miUsuario);
+							
+						}
+						
+						if(marcadorEquipo1.getText().equals(String.valueOf(e.getPuntajeEquipo1())) ||
+						   marcadorEquipo2.getText().equals(String.valueOf(e.getPuntajeEquipo2())) ){
+							
+														
+							puntaje = this.miUsuario.getPuntajePrivada() + LigasPublicas.bono;
+							this.miUsuario.setPuntajePrivada(puntaje);
+							Gestor.actualizarJugador(this.miUsuario);
+							labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
+															
+						}else{
+															
+							labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
+															
+						}
+				
+						
+					}			
+					
+				}
+
 				break;		
 			
 			}
@@ -1106,6 +1272,74 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 			Gestor.actualizarJugador(this.miUsuario);
 			
 		}
+	
+	public void mostrarGanadores() {
+		
+		JOptionPane.showMessageDialog(null, "Aqui van los resultados del mundial.");
+		
+		this.remove(labelBanderaPaisEscogido);
+		this.remove(partidosPaisEscogido);
+		this.remove(labelEquipoSeleccionado);
+		this.remove(labelEquipoContrincante);
+		this.remove(equipo1);
+		this.remove(equipo2);
+		this.remove(marcadorEquipo1);
+		this.remove(marcadorEquipo2);
+		this.remove(labelPuntaje);
+		this.remove(btnApostar);
+		
+		
+
+		
+		this.remove(labelNombreOctavos);
+		this.remove(labelNombreOctavos2);
+		this.remove(labelNombreCuartos);
+		this.remove(labelNombreCuartos2);
+		this.remove(labelNombreSemis);
+		this.remove(labelNombreSemis2);
+		this.remove(labelNombreFinal);
+		this.remove(labelNombreLugares);
+		this.remove(labelNombreEliminatorias);
+		
+		
+		
+		
+		//------------------------------------------------------------------
+
+		this.remove(labelPartido1);
+		this.remove(labelPartido2);
+		this.remove(labelPartido3);
+		this.remove(labelPartido4);
+		this.remove(labelPartido5);
+		this.remove(labelPartido6);
+		this.remove(labelPartido7);
+		this.remove(labelPartido8);
+		this.remove(labelPartido9);
+		this.remove(labelPartido10);
+		this.remove(labelPartido11);
+		this.remove(labelPartido12);
+		this.remove(labelPartido13);
+		this.remove(labelPartido14);
+		this.remove(labelPartido15);
+		this.remove(labelPartido16);
+		this.remove(labelPartido17);
+		this.remove(labelPartido18);
+		this.remove(labelPartido19);
+		this.remove(labelPartido20);
+		this.remove(labelPartido21);
+		this.remove(labelPartido22);
+		this.remove(labelPartido23);
+		this.remove(labelPartido24);
+		this.remove(labelPartido25);
+		this.remove(labelPartido26);
+		this.remove(labelPartido27);
+		this.remove(labelPartido28);
+		this.remove(labelPartido29);
+		this.remove(labelPartido30);
+		this.remove(labelPartido31);
+		this.remove(labelPartido32);
+		
+	}
 	
 	
 	
