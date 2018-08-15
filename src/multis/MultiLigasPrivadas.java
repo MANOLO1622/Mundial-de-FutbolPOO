@@ -1,4 +1,4 @@
-package MultisTemp;
+package multis;
 
 import java.sql.ResultSet;
 import cl.*;
