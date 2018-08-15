@@ -1178,7 +1178,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 						
 						if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(e.getEquipoGanador().getNombre())) {
 							
-							puntaje = this.miUsuario.getPuntajePrivada() + LigasPublicas.puntos;
+							puntaje = this.miUsuario.getPuntajePrivada() + LigasPrivadas.puntos;
 							this.miUsuario.setPuntajePrivada(puntaje);
 							Gestor.actualizarJugador(this.miUsuario);
 							
@@ -1188,7 +1188,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 						   marcadorEquipo2.getText().equals(String.valueOf(e.getPuntajeEquipo2())) ){
 							
 														
-							puntaje = this.miUsuario.getPuntajePrivada() + LigasPublicas.bono;
+							puntaje = this.miUsuario.getPuntajePrivada() + LigasPrivadas.bono;
 							this.miUsuario.setPuntajePrivada(puntaje);
 							Gestor.actualizarJugador(this.miUsuario);
 							labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
@@ -1209,7 +1209,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 						
 						if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(e.getEquipoGanador().getNombre())) {
 							
-							puntaje = this.miUsuario.getPuntajePrivada() + LigasPublicas.puntos;
+							puntaje = this.miUsuario.getPuntajePrivada() + LigasPrivadas.puntos;
 							this.miUsuario.setPuntajePrivada(puntaje);
 							Gestor.actualizarJugador(this.miUsuario);
 							
@@ -1219,7 +1219,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 						   marcadorEquipo2.getText().equals(String.valueOf(e.getPuntajeEquipo2())) ){
 							
 														
-							puntaje = this.miUsuario.getPuntajePrivada() + LigasPublicas.bono;
+							puntaje = this.miUsuario.getPuntajePrivada() + LigasPrivadas.bono;
 							this.miUsuario.setPuntajePrivada(puntaje);
 							Gestor.actualizarJugador(this.miUsuario);
 							labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
@@ -1239,7 +1239,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 						
 						if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(e.getEquipoGanador().getNombre())) {
 							
-							puntaje = this.miUsuario.getPuntajePrivada() + LigasPublicas.puntos;
+							puntaje = this.miUsuario.getPuntajePrivada() + LigasPrivadas.puntos;
 							this.miUsuario.setPuntajePrivada(puntaje);
 							Gestor.actualizarJugador(this.miUsuario);
 							
@@ -1249,7 +1249,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 						   marcadorEquipo2.getText().equals(String.valueOf(e.getPuntajeEquipo2())) ){
 							
 														
-							puntaje = this.miUsuario.getPuntajePrivada() + LigasPublicas.bono;
+							puntaje = this.miUsuario.getPuntajePrivada() + LigasPrivadas.bono;
 							this.miUsuario.setPuntajePrivada(puntaje);
 							Gestor.actualizarJugador(this.miUsuario);
 							labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
@@ -1275,8 +1275,6 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	
 	public void mostrarGanadores() {
 		
-		JOptionPane.showMessageDialog(null, "Aqui van los resultados del mundial.");
-		
 		this.remove(labelBanderaPaisEscogido);
 		this.remove(partidosPaisEscogido);
 		this.remove(labelEquipoSeleccionado);
@@ -1287,10 +1285,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		this.remove(marcadorEquipo2);
 		this.remove(labelPuntaje);
 		this.remove(btnApostar);
-		
-		
 
-		
 		this.remove(labelNombreOctavos);
 		this.remove(labelNombreOctavos2);
 		this.remove(labelNombreCuartos);
@@ -1300,9 +1295,6 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		this.remove(labelNombreFinal);
 		this.remove(labelNombreLugares);
 		this.remove(labelNombreEliminatorias);
-		
-		
-		
 		
 		//------------------------------------------------------------------
 
