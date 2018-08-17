@@ -23,9 +23,9 @@ public class Gestor {
 
 	}
 
-	public void registrarMundial(String nombreMundial, Date ano, String paisOrganizador, boolean estado) {
+	public void registrarMundial(String nombreMundial, LocalDate fechaInicio, String paisOrganizador, boolean estado) {
 
-		Mundiales registro = new Mundiales(nombreMundial, ano, paisOrganizador,  estado);
+		Mundiales registro = new Mundiales(nombreMundial, fechaInicio, paisOrganizador,  estado);
 		CL.registrarMundial(registro);
 
 	}

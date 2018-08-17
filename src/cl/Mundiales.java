@@ -10,7 +10,7 @@ import java.util.Date;
 public class Mundiales {
     
 	private String nombreMundial;
-    private Date ano;
+    private LocalDate fechaInicio;
     private String paisOrganizador;
     private boolean estado;
     private ArrayList<Equipo> equiposMundial;
@@ -24,17 +24,17 @@ public class Mundiales {
     public Mundiales() {
     }
 
-    public Mundiales( String nombreMundial, Date ano, String paisOrganizador,  boolean estado) {
+    public Mundiales( String nombreMundial, LocalDate fechaInicio, String paisOrganizador,  boolean estado) {
         this.equiposMundial = new ArrayList();
     	this.nombreMundial = nombreMundial;
-    	this.ano = ano;
+    	this.fechaInicio = fechaInicio;
         this.paisOrganizador = paisOrganizador;
         this.estado = estado;
         
     }
 
-    public Date getAno() {
-        return ano;
+    public LocalDate getAno() {
+        return fechaInicio;
     }
 
     public String getPaisOrganizador() {
@@ -47,8 +47,8 @@ public class Mundiales {
         return estado;
     }
 
-    public void setAno(Date ano) {
-        this.ano = ano;
+    public void setAno(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
     public void setPaisOrganizador(String paisOrganizador) {
@@ -114,7 +114,7 @@ public class Mundiales {
 
 	@Override
 	public String toString() {
-		return "Mundiales: ano=" + ano + ", paisOrganizador=" + paisOrganizador + ", estado=" + estado + " ,Resultados Mundial= " + resultadosMundial;
+		return "Mundiales: ano=" + fechaInicio + ", paisOrganizador=" + paisOrganizador + ", estado=" + estado + " ,Resultados Mundial= " + resultadosMundial;
 	}
 
 	

@@ -467,7 +467,7 @@ public class Resultados {
 
 	@Override
 	public String toString() {
-		return "PrimeraRonda: primerCuadro= " + Arrays.toString(primerCuadro) + ", segundoCuadro= "
+		return "Resultados: primerCuadro= " + Arrays.toString(primerCuadro) + ", segundoCuadro= "
 				+ Arrays.toString(segundoCuadro) + ", tercerCuadro= " + Arrays.toString(tercerCuadro) + ", cuartoCuadro= "
 				+ Arrays.toString(cuartoCuadro) + ", quintoCuadro " + Arrays.toString(quintoCuadro) + ", sextoCuadro= "
 				+ Arrays.toString(sextoCuadro) + ", septimoCuadro= " + Arrays.toString(septimoCuadro) + ", octavoCuadro= "
@@ -542,6 +542,28 @@ public class Resultados {
     		partidosCuadroTemp[4] = new Partido(cuadroJuego[0],cuadroJuego[3]);
     		partidosCuadroTemp[5] = new Partido(cuadroJuego[3],cuadroJuego[2]);
     		
+    		//-------------------Testing
+        	System.out.println();
+        	System.out.println();
+    		System.out.println(partidosCuadroTemp[0].getEquipo1().getNombre() + ": " + partidosCuadroTemp[0].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[0].getEquipo2().getNombre() + ": " + partidosCuadroTemp[0].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[1].getEquipo1().getNombre() + ": " + partidosCuadroTemp[1].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[1].getEquipo2().getNombre() + ": " + partidosCuadroTemp[1].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[2].getEquipo1().getNombre() + ": " + partidosCuadroTemp[2].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[2].getEquipo2().getNombre() + ": " + partidosCuadroTemp[2].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[3].getEquipo1().getNombre() + ": " + partidosCuadroTemp[3].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[3].getEquipo2().getNombre() + ": " + partidosCuadroTemp[3].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[4].getEquipo1().getNombre() + ": " + partidosCuadroTemp[4].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[4].getEquipo2().getNombre() + ": " + partidosCuadroTemp[4].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[5].getEquipo1().getNombre() + ": " + partidosCuadroTemp[5].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[5].getEquipo2().getNombre() + ": " + partidosCuadroTemp[5].getPuntajeEquipo2());
+    		
+    		
     		break;
     		
     	case 1:
@@ -552,6 +574,27 @@ public class Resultados {
     		partidosCuadroTemp[3] = new Partido(cuadroJuego[0],cuadroJuego[3]);
     		partidosCuadroTemp[4] = new Partido(cuadroJuego[1],cuadroJuego[2]);
     		partidosCuadroTemp[5] = new Partido(cuadroJuego[3],cuadroJuego[2]);
+    		
+    		//-------------------Testing
+        	System.out.println();
+        	System.out.println();
+    		System.out.println(partidosCuadroTemp[0].getEquipo1().getNombre() + ": " + partidosCuadroTemp[0].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[0].getEquipo2().getNombre() + ": " + partidosCuadroTemp[0].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[1].getEquipo1().getNombre() + ": " + partidosCuadroTemp[1].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[1].getEquipo2().getNombre() + ": " + partidosCuadroTemp[1].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[2].getEquipo1().getNombre() + ": " + partidosCuadroTemp[2].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[2].getEquipo2().getNombre() + ": " + partidosCuadroTemp[2].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[3].getEquipo1().getNombre() + ": " + partidosCuadroTemp[3].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[3].getEquipo2().getNombre() + ": " + partidosCuadroTemp[3].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[4].getEquipo1().getNombre() + ": " + partidosCuadroTemp[4].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[4].getEquipo2().getNombre() + ": " + partidosCuadroTemp[4].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[5].getEquipo1().getNombre() + ": " + partidosCuadroTemp[5].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[5].getEquipo2().getNombre() + ": " + partidosCuadroTemp[5].getPuntajeEquipo2());
 
     		break;
     		
@@ -563,6 +606,27 @@ public class Resultados {
     		partidosCuadroTemp[3] = new Partido(cuadroJuego[2],cuadroJuego[0]);
     		partidosCuadroTemp[4] = new Partido(cuadroJuego[3],cuadroJuego[2]);
     		partidosCuadroTemp[5] = new Partido(cuadroJuego[0],cuadroJuego[1]);
+    		
+    		//-------------------Testing
+        	System.out.println();
+        	System.out.println();
+    		System.out.println(partidosCuadroTemp[0].getEquipo1().getNombre() + ": " + partidosCuadroTemp[0].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[0].getEquipo2().getNombre() + ": " + partidosCuadroTemp[0].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[1].getEquipo1().getNombre() + ": " + partidosCuadroTemp[1].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[1].getEquipo2().getNombre() + ": " + partidosCuadroTemp[1].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[2].getEquipo1().getNombre() + ": " + partidosCuadroTemp[2].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[2].getEquipo2().getNombre() + ": " + partidosCuadroTemp[2].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[3].getEquipo1().getNombre() + ": " + partidosCuadroTemp[3].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[3].getEquipo2().getNombre() + ": " + partidosCuadroTemp[3].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[4].getEquipo1().getNombre() + ": " + partidosCuadroTemp[4].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[4].getEquipo2().getNombre() + ": " + partidosCuadroTemp[4].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[5].getEquipo1().getNombre() + ": " + partidosCuadroTemp[5].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[5].getEquipo2().getNombre() + ": " + partidosCuadroTemp[5].getPuntajeEquipo2());
 
     		break;
     		
@@ -574,6 +638,26 @@ public class Resultados {
     		partidosCuadroTemp[3] = new Partido(cuadroJuego[2],cuadroJuego[0]);
     		partidosCuadroTemp[4] = new Partido(cuadroJuego[3],cuadroJuego[1]);
     		partidosCuadroTemp[5] = new Partido(cuadroJuego[0],cuadroJuego[1]);
+    		
+    		//-------------------Testing
+    		
+    		System.out.println(partidosCuadroTemp[0].getEquipo1().getNombre() + ": " + partidosCuadroTemp[0].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[0].getEquipo2().getNombre() + ": " + partidosCuadroTemp[0].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[1].getEquipo1().getNombre() + ": " + partidosCuadroTemp[1].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[1].getEquipo2().getNombre() + ": " + partidosCuadroTemp[1].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[2].getEquipo1().getNombre() + ": " + partidosCuadroTemp[2].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[2].getEquipo2().getNombre() + ": " + partidosCuadroTemp[2].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[3].getEquipo1().getNombre() + ": " + partidosCuadroTemp[3].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[3].getEquipo2().getNombre() + ": " + partidosCuadroTemp[3].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[4].getEquipo1().getNombre() + ": " + partidosCuadroTemp[4].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[4].getEquipo2().getNombre() + ": " + partidosCuadroTemp[4].getPuntajeEquipo2());
+    		
+    		System.out.println(partidosCuadroTemp[5].getEquipo1().getNombre() + ": " + partidosCuadroTemp[5].getPuntajeEquipo1() + 
+    				" " + partidosCuadroTemp[5].getEquipo2().getNombre() + ": " + partidosCuadroTemp[5].getPuntajeEquipo2());
 
     		break;    	
     	
@@ -769,6 +853,35 @@ public class Resultados {
     	partidosOctavosFinalTemp[6] = new Partido(ganadores7[0], ganadores8[1]);
     	partidosOctavosFinalTemp[7] = new Partido(ganadores7[1], ganadores8[0]);
     	
+    	
+		//-------------------Testing
+    	System.out.println();
+    	System.out.println();
+		System.out.println(partidosOctavosFinalTemp[0].getEquipo1().getNombre() + ": " + partidosOctavosFinalTemp[0].getPuntajeEquipo1() + 
+				" " + partidosOctavosFinalTemp[0].getEquipo2().getNombre() + ": " + partidosOctavosFinalTemp[0].getPuntajeEquipo2());
+		
+		System.out.println(partidosOctavosFinalTemp[1].getEquipo1().getNombre() + ": " + partidosOctavosFinalTemp[1].getPuntajeEquipo1() + 
+				" " + partidosOctavosFinalTemp[1].getEquipo2().getNombre() + ": " + partidosOctavosFinalTemp[1].getPuntajeEquipo2());
+		
+		System.out.println(partidosOctavosFinalTemp[2].getEquipo1().getNombre() + ": " + partidosOctavosFinalTemp[2].getPuntajeEquipo1() + 
+				" " + partidosOctavosFinalTemp[2].getEquipo2().getNombre() + ": " + partidosOctavosFinalTemp[2].getPuntajeEquipo2());
+		
+		System.out.println(partidosOctavosFinalTemp[3].getEquipo1().getNombre() + ": " + partidosOctavosFinalTemp[3].getPuntajeEquipo1() + 
+				" " + partidosOctavosFinalTemp[3].getEquipo2().getNombre() + ": " + partidosOctavosFinalTemp[3].getPuntajeEquipo2());
+		
+		System.out.println(partidosOctavosFinalTemp[4].getEquipo1().getNombre() + ": " + partidosOctavosFinalTemp[4].getPuntajeEquipo1() + 
+				" " + partidosOctavosFinalTemp[4].getEquipo2().getNombre() + ": " + partidosOctavosFinalTemp[4].getPuntajeEquipo2());
+		
+		System.out.println(partidosOctavosFinalTemp[5].getEquipo1().getNombre() + ": " + partidosOctavosFinalTemp[5].getPuntajeEquipo1() + 
+				" " + partidosOctavosFinalTemp[5].getEquipo2().getNombre() + ": " + partidosOctavosFinalTemp[5].getPuntajeEquipo2());
+		
+		System.out.println(partidosOctavosFinalTemp[6].getEquipo1().getNombre() + ": " + partidosOctavosFinalTemp[6].getPuntajeEquipo1() + 
+				" " + partidosOctavosFinalTemp[6].getEquipo2().getNombre() + ": " + partidosOctavosFinalTemp[6].getPuntajeEquipo2());
+		
+		System.out.println(partidosOctavosFinalTemp[7].getEquipo1().getNombre() + ": " + partidosOctavosFinalTemp[7].getPuntajeEquipo1() + 
+				" " + partidosOctavosFinalTemp[7].getEquipo2().getNombre() + ": " + partidosOctavosFinalTemp[7].getPuntajeEquipo2());
+    	
+    	
     	return partidosOctavosFinalTemp;
     	
     }
@@ -782,6 +895,21 @@ public class Resultados {
     	partidosCuartosFinalTemp[1] = new Partido(ganadores[2], ganadores[3]);
     	partidosCuartosFinalTemp[2] = new Partido(ganadores[4], ganadores[5]);
     	partidosCuartosFinalTemp[3] = new Partido(ganadores[6], ganadores[7]);
+    	
+		//-------------------Testing
+    	System.out.println();
+    	System.out.println();
+		System.out.println(partidosCuartosFinalTemp[0].getEquipo1().getNombre() + ": " + partidosCuartosFinalTemp[0].getPuntajeEquipo1() + 
+				" " + partidosCuartosFinalTemp[0].getEquipo2().getNombre() + ": " + partidosCuartosFinalTemp[0].getPuntajeEquipo2());
+		
+		System.out.println(partidosCuartosFinalTemp[1].getEquipo1().getNombre() + ": " + partidosCuartosFinalTemp[1].getPuntajeEquipo1() + 
+				" " + partidosCuartosFinalTemp[1].getEquipo2().getNombre() + ": " + partidosCuartosFinalTemp[1].getPuntajeEquipo2());
+		
+		System.out.println(partidosCuartosFinalTemp[2].getEquipo1().getNombre() + ": " + partidosCuartosFinalTemp[2].getPuntajeEquipo1() + 
+				" " + partidosCuartosFinalTemp[2].getEquipo2().getNombre() + ": " + partidosCuartosFinalTemp[2].getPuntajeEquipo2());
+		
+		System.out.println(partidosCuartosFinalTemp[3].getEquipo1().getNombre() + ": " + partidosCuartosFinalTemp[3].getPuntajeEquipo1() + 
+				" " + partidosCuartosFinalTemp[3].getEquipo2().getNombre() + ": " + partidosCuartosFinalTemp[3].getPuntajeEquipo2());
 
     	return partidosCuartosFinalTemp;
     	
@@ -824,6 +952,16 @@ public class Resultados {
     	semifinales[0] = new Partido(ganadoresCuartosFinal[0], ganadoresCuartosFinal[1]);
     	semifinales[1] = new Partido(ganadoresCuartosFinal[2], ganadoresCuartosFinal[3]);
     	
+		//-------------------Testing
+    	System.out.println();
+    	System.out.println();
+		System.out.println(semifinales[0].getEquipo1().getNombre() + ": " + semifinales[0].getPuntajeEquipo1() + 
+				" " + semifinales[0].getEquipo2().getNombre() + ": " + semifinales[0].getPuntajeEquipo2());
+		
+		System.out.println(semifinales[1].getEquipo1().getNombre() + ": " + semifinales[1].getPuntajeEquipo1() + 
+				" " + semifinales[1].getEquipo2().getNombre() + ": " + semifinales[1].getPuntajeEquipo2());
+    	
+    	
     	return semifinales;
     }
     
@@ -836,6 +974,16 @@ public class Resultados {
     	finales[0] = new Partido(partido[0].getEquipoGanador(), partido[1].getEquipoGanador());
     	finales[1] = new Partido(partido[0].getEquipoPerdedor(), partido[1].getEquipoPerdedor());
   	
+		//-------------------Testing
+    	System.out.println();
+    	System.out.println();
+		System.out.println(finales[0].getEquipo1().getNombre() + ": " + finales[0].getPuntajeEquipo1() + 
+				" " + finales[0].getEquipo2().getNombre() + ": " + finales[0].getPuntajeEquipo2());
+		
+		System.out.println(finales[1].getEquipo1().getNombre() + ": " + finales[1].getPuntajeEquipo1() + 
+				" " + finales[1].getEquipo2().getNombre() + ": " + finales[1].getPuntajeEquipo2());
+    	
+    	
     	System.out.println();
     	System.out.println("El ganador de la copa es: " + finales[0].getEquipoGanador().getNombre());
     	System.out.println("Segundo lugar: " + finales[0].getEquipoPerdedor().getNombre());
