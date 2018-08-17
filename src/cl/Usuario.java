@@ -1,5 +1,6 @@
 package cl;
 
+import java.time.LocalDate;
 import java.util.*;
 import javax.swing.JOptionPane;
 import rondasMundial.*;
@@ -12,7 +13,7 @@ public class Usuario {
 	private String avatar;
 	private String correoElectronico;
 	private String contrasena;
-	private Date fechaRegistro;
+	private LocalDate fechaRegistro;
 	private Perfiles tipoUsuario;
 	private LigasPublicas miLigaPublica;
 	private LigasPrivadas miLigaPrivada;
@@ -46,7 +47,7 @@ public class Usuario {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.nombreUsuario = nombreUsuario;
-		this.fechaRegistro = new Date();
+		this.fechaRegistro = LocalDate.now();
 		this.avatar = avatar;
 		this.correoElectronico = correoElectronico;
 		this.contrasena = contrasena;
@@ -125,7 +126,7 @@ public class Usuario {
 	/**
 	 * @return the fechaRegistro
 	 */
-	public Date getFechaRegistro() {
+	public LocalDate getFechaRegistro() {
 		return fechaRegistro;
 	}
 
@@ -133,7 +134,7 @@ public class Usuario {
 	/**
 	 * @param fechaRegistro the fechaRegistro to set
 	 */
-	public void setFechaRegistro(Date fechaRegistro) {
+	public void setFechaRegistro(LocalDate fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
 	}
 	

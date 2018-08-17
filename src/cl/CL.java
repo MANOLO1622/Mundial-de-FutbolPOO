@@ -17,7 +17,6 @@ public class CL {
 	private static ArrayList<LigasPublicas> listaLigasPublicas = new ArrayList<LigasPublicas>();
 	private static ArrayList<LigasPrivadas> listaLigasPrivadas = new ArrayList<LigasPrivadas>();
 	private static ArrayList<LigasPrivadas> listaLigasPrivadasRegistradas = new ArrayList<>();
-	private static TextFileIO UsuariosRegLog = new TextFileIO("logs//Login.txt");
 	private static ArrayList<Equipo> listaEquiposFIFA = new ArrayList();
 
 	

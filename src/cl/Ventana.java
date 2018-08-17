@@ -20,24 +20,10 @@ public class Ventana extends JFrame{
 		this.setVisible(true);
 		this.setSize(683,384);
 		this.setLocationRelativeTo(null);
-//		this.setLocation(dimenPantalla.width/4, dimenPantalla.height/4);
 		Image icono = miPantalla.getImage("src\\graficos\\Futbol.png");
 		this.setIconImage(icono);
 		
 	}
-
-	/*public Ventana(Equipo equipoActual) {
-		
-		this.EquipoActual = equipoActual;
-		
-		this.setVisible(true);
-		this.setSize(683,384);
-		this.setLocationRelativeTo(null);
-//		this.setLocation(dimenPantalla.width/4, dimenPantalla.height/4);
-		Image icono = miPantalla.getImage("src\\graficos\\Futbol.png");
-		this.setIconImage(icono);
-		
-	}*/
 	
 	
 	//--------------------------------------------------------------------------
@@ -58,7 +44,7 @@ public class Ventana extends JFrame{
 		this.add(l);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Login");
-		this.show();
+		this.setVisible(true);
 		
 
 	}
@@ -70,19 +56,9 @@ public class Ventana extends JFrame{
 		this.add(regUsu);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setTitle("Registro de Usuario");
-		this.show();	
+		this.setVisible(true);	
 		
 	}
-	
-	/*public void ventanaRegistroEquipos() {
-		
-		RegistroEquipos regUsu = new RegistroEquipos();
-		this.add(regUsu);
-		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		this.setTitle("Registro de Equipos");
-		this.show();	
-		
-	}*/
 	
 	public void ventanaMenuUsuarios(Perfiles perfil , Ventana vent) {
 		
@@ -95,7 +71,6 @@ public class Ventana extends JFrame{
 			vent.setTitle("Administrador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			vent.setBounds(5,15,1330,700);
-			//vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			vent.setResizable(false);
 			break;
 			
@@ -106,7 +81,6 @@ public class Ventana extends JFrame{
 			vent.setTitle("Administrador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			vent.setBounds(5,15,1330,700);
-			//vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			vent.setResizable(false);
 			break;
 			
@@ -117,7 +91,6 @@ public class Ventana extends JFrame{
 			vent.setTitle("Observador " + UsuarioActual.getAvatar());
 			vent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			vent.setBounds(5,15,1330,700);
-			//vent.setExtendedState(Ventana.MAXIMIZED_BOTH);
 			vent.setResizable(false);
 			break;
 		
