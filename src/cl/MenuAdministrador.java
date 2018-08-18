@@ -236,7 +236,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		if (e.getSource() == boton10) {
 
 			Ventana ventanaRegistro = new Ventana(this.miUsuario);
+
 			ventanaRegistro.ventanaRegistroEquipo();
+
+			ventanaRegistro.ventanaRegistroEquipo();
+			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
+
 
 
 		}
