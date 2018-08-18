@@ -1,22 +1,28 @@
 package multis;
 
+import java.time.LocalDate;
+
+import accesoDatos.Conector;
 import cl.*;
+import rondasMundial.Apuesta;
 
 public class MultiUsuarios {
-
-	public Usuario crear(String pnombre, String papellido, String pnombreUsuario, String pavatar, String pcorreoElectronico,
-			String pcontrasena) {
+	
+	
+	public Usuario crear(String nombre, String apellido, String nombreUsuario, String contrasena,String avatar, String correoElectronico, Perfiles tipoUsuario) {
 		Usuario Usuario = null;
 		String sql;
-		sql = "INSERT INTO Usuario " + "(nombre, apellido,nombreUsuario, avatar, correoElectronico, contrasena ) " + "VALUES ('"
-				+ pnombre + "', '" + papellido + "','" + pnombreUsuario + "','" + pavatar + "','" + pcorreoElectronico + "','"
-				+ pcontrasena + "');";
+		sql = "INSERT INTO Usuarios " + "(nombre, apellido,nombreUsuario, avatar, correoElectronico, contrasena ) " + "VALUES ('"
+				+ nombre + "', '" + apellido + "','" + nombreUsuario + "','" + avatar + "','" + correoElectronico + "','"
+				+ contrasena + "');";
 		try {
 
-			//Conector.getConector().ejecutarSQL(sql);
+			Conector.getConector().ejecutarSQL(sql);
 
-			//Usuario = new Usuario(pnombre, papellido, pnombreUsuario, pavatar, pcorreoElectronico, pcontrasena); Esta comentado porque tiene  un Bug pero hay que usarlo
+			Usuario = new Usuario(nombre, apellido, nombreUsuario, avatar, correoElectronico, contrasena, cl.Usuario.retornarTipoUsuarioNumerico(tipoUsuario));
+			
 		} catch (Exception e) {
+			
 			System.out.println("Exception " + e.toString());
 
 		}

@@ -395,7 +395,27 @@ public class Usuario {
 	public void setPuntajePrivada(int puntajePrivada) {
 		this.puntajePrivada = puntajePrivada;
 	}
-
+	
+	public static int retornarTipoUsuarioNumerico(Perfiles perfilUsuario) {
+		
+		int valorRetorno = 0;
+		
+		if(perfilUsuario == Perfiles.ADMIN) {
+			
+			valorRetorno = 1;
+			
+		} else if(perfilUsuario == Perfiles.PLAYER) {
+			
+			valorRetorno = 2;
+			
+		}else if(perfilUsuario == Perfiles.VIEWER) {
+			
+			valorRetorno = 3;
+			
+		}
+		
+		return valorRetorno;
+	}
 
 	//---------------------------------------------------------------------------------------------------------
 	

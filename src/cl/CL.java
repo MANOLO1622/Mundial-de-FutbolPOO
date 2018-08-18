@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import gestor.Gestor;
 import multis.MultiMundiales;
+import multis.MultiUsuarios;
 import rondasMundial.Partido;
 
 
@@ -25,6 +26,9 @@ public class CL {
 	public static void registrarUsuario(Usuario registro) {
 		
 		listaUsuarios.add(registro);
+		
+		new MultiUsuarios().crear(registro.getNombre(), registro.getApellido(), registro.getNombreUsuario(), registro.getContrasena(), registro.getAvatar(),
+				registro.getCorreoElectronico(),registro.retornarTipoUsuario());
 		
 	}
 	
