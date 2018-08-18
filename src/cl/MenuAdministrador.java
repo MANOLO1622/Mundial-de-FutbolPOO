@@ -48,26 +48,25 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	JLabel labelNombreMundial = new JLabel("Nombre del Mundial:");
 	JTextField nombreMundialTXT = new JTextField();
-
 	JLabel labelAno = new JLabel("Fecha: ");
 	JCalendar fechaMundial = new JCalendar();
-
 	JLabel labelPaisOrganizador = new JLabel("Pais Organizador:");
-	JComboBox paisesOrganizadores = new JComboBox();
+	
 
 	// ------------------------------------------------------------------------------
 
 	JLabel labelMundialAnfitrion = new JLabel("Mundial:");
-	JComboBox MundialAnfitrion = new JComboBox();
 	JLabel labelEstados = new JLabel("Estado:");
 	JTextField estadosTXT = new JTextField(10);
 
-	// ------------------------------------------------------------------------------
-
+	// ---------------------------COMBO BOX---------------------------------------------------
+	JComboBox paisesOrganizadores = new JComboBox();
+	JComboBox MundialAnfitrion = new JComboBox();
 	JComboBox LigasPublicas = new JComboBox();
 	JComboBox LigasPrivadas = new JComboBox();
 	JComboBox usuariosRegistrados = new JComboBox();
 	JComboBox ligasPrivadasRegistradas = new JComboBox();
+	
 
 	// ------------------------------------------------------------------------------
 

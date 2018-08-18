@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -20,6 +21,7 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 
 	private JLabel labelNombre = new JLabel("Nombre del Pais:");
 	private JTextField nombreTXT = new JTextField(10);
+	
 
 	private JLabel labelRanking = new JLabel("Ranking FIFA:");
 	private JTextField rankingTXT = new JTextField(10);
@@ -28,7 +30,8 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 	private JTextField banderaTXT = new JTextField(10);
 
 	private JLabel labelISOPaises = new JLabel("Iso del Pais: ");
-	private JTextField ISOPaisesTXT = new JTextField(10);
+	//private JTextField ISOPaisesTXT = new JTextField(10);
+	JComboBox ISO = new JComboBox();
 
 	private JButton btnRegistro = new JButton("Registrar");
 	private JButton btnSalir = new JButton("Salir");
@@ -64,8 +67,8 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 		labelISOPaises.setForeground(Color.WHITE);
 		labelISOPaises.setBounds(10, 30, 200, 30);
 
-		this.add(ISOPaisesTXT);
-		ISOPaisesTXT.setBounds(125, 30, 200, 20);
+		this.add(ISO);
+		ISO.setBounds(1000, 70, 300, 20);
 
 		this.add(btnRegistro);
 		btnRegistro.setBounds(10, 270, 100, 25);
@@ -83,13 +86,13 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 
-		int validacionEquipo = controlador.validarEquipo(nombreTXT.getText(), 1, banderaTXT.getText(),
-				ISOPaisesTXT.getText());
+		/*int validacionEquipo = controlador.validarEquipo(nombreTXT.getText(), 1, banderaTXT.getText(),
+				//ISO.getSelectedItem(), true);
 
 		if (e.getSource() == btnRegistro) {
 
 			if (nombreTXT.getText().equals("") || rankingTXT.getText().equals("") || banderaTXT.getText().equals("")
-					|| ISOPaisesTXT.equals("")) {
+					|| ISO.equals("")) {
 
 				JOptionPane.showMessageDialog(null, "Hay campos vacios, debe llenar todos los campos.");
 
@@ -106,14 +109,13 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 				if (validacionEquipo == 0) {
 
 					this.setBackground(Color.GREEN);
-					controlador.registrarEquipos(nombreTXT.getText(), 0, banderaTXT.getText(), ISOPaises.DK);
+					//controlador.registrarEquipos(nombreTXT.getText(), 0, banderaTXT.getText(), ISOPaises.);
 					controlador.listarEquiposFIFA();
 					JOptionPane.showMessageDialog(null, "Equipo registrado.");
 
 					nombreTXT.setText("");
 					rankingTXT.setText("");
 					banderaTXT.setText("");
-					ISOPaisesTXT.setText("");
 
 					SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 
@@ -126,7 +128,7 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 
 			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 
-		}
+		}*/
 	}
 //-------------------------------------------------------------------------------------------------    
 

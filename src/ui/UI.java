@@ -7,6 +7,13 @@ import cl.*;
 import gestor.*;
 
 public class UI {
+	
+	/**
+	 * esto es una prueba
+	 * @param args
+	 * @throws SQLException
+	 * @throws Exception
+	 */
 
 	public static void main(String[] args) throws SQLException, Exception {
 
