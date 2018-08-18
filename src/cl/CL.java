@@ -34,6 +34,18 @@ public class CL {
 
 	}
 	
+	public static void ingresarEquiposLista() throws SQLException, Exception {
+		
+		listaEquiposFIFA = new MultiEquipos().retornarEquipos();
+		
+		for(Equipo e: listaEquiposFIFA) {
+			
+			System.out.println(e.toString());
+			
+		}
+
+	}
+	
 	
 	
 	

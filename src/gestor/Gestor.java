@@ -63,6 +63,21 @@ public class Gestor {
 		System.out.println("");
 
 	}
+	public void listarEquiposFIFA() {
+		//jue
+				ArrayList<Equipo> listaImpresion = CL.listarEquiposFIFA();
+
+				System.out.println("");
+
+				for (Equipo e : listaImpresion) {
+
+					System.out.println(e.toString());
+
+				}
+
+				System.out.println("");
+
+			}
 
 	public void listarMundiales() {
 
@@ -279,14 +294,18 @@ public class Gestor {
 	// -------------------------------------------------------------------------------------------------------------
 
 	public int validarEquipo(String nombreLectura, int ranking, String banderaLectura, String ISOPaisesLectura) {
-		int comprobante = 0;
+		/*int comprobante = 0;
 		int comprobanteNombreEquipo = 0;
 		int posicion = -1;
-		String validador = "";
+		String validador = "";*/
 
 		ArrayList<Equipo> listaComparacion = CL.listarEquiposFIFA();
 
+		System.out.println(ranking);
+		
 		return ranking;
+		
+	
 	}
 	
 
@@ -302,7 +321,7 @@ public class Gestor {
 
 	}
 
-	public static void listarEquiposFIFA() {
+	/*public static void listarEquiposFIFA() {
 
 		ArrayList<Equipo> listaTemp = CL.listarEquiposFIFA();
 
@@ -311,12 +330,12 @@ public class Gestor {
 			System.out.println(e.toString());
 			
 			
-			
+			//prueba
 
 		}
 		
 
-	}
+	}*/
 	
 
 	// -------------------------------------------------------------------------------------------------------------

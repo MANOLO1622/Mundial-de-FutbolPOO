@@ -3,6 +3,7 @@ package cl; /////////////////////  TENGO QUE TERMINARLO PORQUE HAY UNOS ERRORES 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,7 +17,8 @@ import javax.swing.SwingUtilities;
 import gestor.Gestor;
 
 public class RegistroEquipos extends JPanel implements ActionListener {
-
+	
+	public Usuario miUsuario;
 	private Gestor controlador = new Gestor();
 
 	private JLabel labelNombre = new JLabel("Nombre del Pais:");
@@ -38,8 +40,11 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 
 	private static Image imagen;
 
-	public RegistroEquipos() {
-
+	public RegistroEquipos(Usuario miUsuario) {
+		
+		this.miUsuario = miUsuario;
+		this.ingresarIsos();
+		
 		this.setLayout(null);
 
 		this.add(labelNombre);
@@ -68,7 +73,7 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 		labelISOPaises.setBounds(10, 30, 200, 30);
 
 		this.add(ISO);
-		ISO.setBounds(1000, 70, 300, 20);
+		ISO.setBounds(125, 30, 200, 30);
 
 		this.add(btnRegistro);
 		btnRegistro.setBounds(10, 270, 100, 25);
@@ -86,8 +91,8 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 
-		/*int validacionEquipo = controlador.validarEquipo(nombreTXT.getText(), 1, banderaTXT.getText(),
-				//ISO.getSelectedItem(), true);
+		int validacionEquipo = controlador.validarEquipo(nombreTXT.getText(), 0, banderaTXT.getText(),
+				(String)ISO.getSelectedItem());
 
 		if (e.getSource() == btnRegistro) {
 
@@ -109,7 +114,7 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 				if (validacionEquipo == 0) {
 
 					this.setBackground(Color.GREEN);
-					//controlador.registrarEquipos(nombreTXT.getText(), 0, banderaTXT.getText(), ISOPaises.);
+					controlador.registrarEquipos(nombreTXT.getText(), 0, banderaTXT.getText(), ISOPaises.retornarISOPais((String)ISO.getSelectedItem()));
 					controlador.listarEquiposFIFA();
 					JOptionPane.showMessageDialog(null, "Equipo registrado.");
 
@@ -125,11 +130,34 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 
 		}
 		if (e.getSource() == btnSalir) {
-
+			
+			Ventana ventanaUsuario = new Ventana(controlador.retornarUsuario(this.miUsuario.getNombreUsuario()));
+			Usuario UsuarioActual = controlador.retornarUsuario(this.miUsuario.getNombreUsuario());
+			ventanaUsuario.setUsuarioActual(UsuarioActual);
+			ventanaUsuario.ventanaMenuUsuarios(Perfiles.ADMIN, ventanaUsuario);
 			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 
-		}*/
+		}
+		
+		
+		
 	}
+//-------------------------------------------------------------------------------------------------
+	
+	public void ingresarIsos() {
+		
+		ArrayList<String> listaIsos = ISOPaises.retornarIsos(); 
+		
+		for(String e : listaIsos) {
+			
+			ISO.addItem(e);
+			
+			
+			
+		}
+	}
+	
+	
 //-------------------------------------------------------------------------------------------------    
 
 	public void paintComponent(Graphics g) {

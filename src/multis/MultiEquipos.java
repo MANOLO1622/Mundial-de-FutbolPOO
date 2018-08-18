@@ -1,6 +1,7 @@
 package multis;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import accesoDatos.Conector;
 import cl.*;
@@ -66,20 +67,38 @@ public class MultiEquipos {
 			throw new Exception("El Equipo tiene cuentas.");
 		}
 	}
+	
+	//-----------------------------------------------------------------------------------------------------
 
-	/*public String listarEquipo() throws java.sql.SQLException, Exception {
-		String sql, lista = "";
-		sql = "SELECT * FROM Equipo";
-		try {
-			ResultSet rs = null;
-			rs = Conector.getConector().ejecutarSQL(sql, true);
-			while (rs.next()) {
-				lista += "IsoPaises: " + rs.getString("isoPaises") + ", Nombre: " + rs.getString("nombre") + ", Ranking: "
-						+ rs.getInt(0) + ", Bandera: " + rs.getString("bandera");
-			}
-		} catch (Exception e) {
-			System.out.println("ERROR NO ESTA LISTANDO " + e.toString());  Esta comentado pero hay que usarlo
+	public  ArrayList<Equipo> retornarEquipos() throws java.sql.SQLException,Exception{
+		
+		Equipo equipoTemp=null;
+		ArrayList<Equipo> listaEquipos = new ArrayList<>();
+		
+		
+		java.sql.ResultSet rs;
+		
+		String sql;
+		sql = "SELECT * "+
+		"FROM Equipos;";
+		
+		rs = Conector.getConector().ejecutarSQL(sql,true);
+		if (rs.next() == true) {
+			do {
+				
+				equipoTemp = new Equipo (rs.getString("nombre"), rs.getInt("ranking"), rs.getString("bandera"), ISOPaises.retornarISOPais(rs.getString("iso")));
+				
+				listaEquipos.add(equipoTemp);
+				
+			} while (rs.next());
+			
+		} else {
+			
+			System.out.println("No hay Usuarios registrados.");
+	
 		}
-		return lista;
-	}*/
+		
+		rs.close();
+		return listaEquipos;
+	}
 }

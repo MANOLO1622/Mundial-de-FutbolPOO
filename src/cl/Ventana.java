@@ -62,7 +62,7 @@ public class Ventana extends JFrame{
 	
 	public void ventanaRegistroEquipo() {
 		
-		RegistroEquipos regEqui = new RegistroEquipos();
+		RegistroEquipos regEqui = new RegistroEquipos(this.UsuarioActual);
 		this.add(regEqui);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setTitle("Registro de Equipos");

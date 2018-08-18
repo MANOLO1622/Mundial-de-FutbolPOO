@@ -235,10 +235,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		if (e.getSource() == boton10) {
 
-			Ventana ventanaRegistro = new Ventana(null);
+			Ventana ventanaRegistro = new Ventana(this.miUsuario);
 			ventanaRegistro.ventanaRegistroEquipo();
-			
-			//JOptionPane.showMessageDialog(null, "EN PROCESO");
+			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
+
 
 		}
 

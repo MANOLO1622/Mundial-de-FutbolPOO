@@ -17,9 +17,8 @@ public class UI {
 
 	public static void main(String[] args) throws SQLException, Exception {
 
-		Gestor controlador = new Gestor();
-
 		CL.ingresarUsuarioLista();
+		CL.ingresarEquiposLista();
 
 		Ventana ventLogin = new Ventana(new Usuario(null, null, null, null, null, null, 0));
 		ventLogin.setResizable(false);
