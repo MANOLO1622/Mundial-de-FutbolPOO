@@ -33,6 +33,7 @@ public class UI {
 	
 	public static void registrarEquiposFIFA() {
 		
+		/*
 		Gestor.registrarEquipos("Alemania", 1, "src\\graficos\\Banderas\\Alemania.png", ISOPaises.DE);
 		Gestor.registrarEquipos("Brazil", 2, "src\\graficos\\Banderas\\Brazil.png", ISOPaises.BR);
 		Gestor.registrarEquipos("Belgica", 3, "src\\graficos\\\\Banderas\\Belgica.png", ISOPaises.BE);
@@ -65,7 +66,7 @@ public class UI {
 		Gestor.registrarEquipos("Rumania", 30, "src\\graficos\\Banderas\\Rumania.png", ISOPaises.DK);
 		Gestor.registrarEquipos("Republica Irlanda", 31, "src\\graficos\\Banderas\\RepublicaIrlanda.png", ISOPaises.DK);
 		Gestor.registrarEquipos("Paraguay", 32, "src\\graficos\\Banderas\\Paraguay.png", ISOPaises.DK);	
-		
+		*/
 	}
 
 }
