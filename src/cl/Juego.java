@@ -1625,24 +1625,19 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 				puntaje = this.miUsuario.getPuntajePublica() + LigasPublicas.puntos;
 				this.miUsuario.setPuntajePublica(puntaje);
-				Gestor.actualizarJugador(this.miUsuario);
 
 			}
 			
 			if(marcadorEquipo1.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ||
 			   marcadorEquipo2.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ){
-
-							
+			
 				puntaje = this.miUsuario.getPuntajePublica() + LigasPublicas.bono;
 				this.miUsuario.setPuntajePublica(puntaje);
-				Gestor.actualizarJugador(this.miUsuario);
-				labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica()); 
-								
-			}else{
-								
-				labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica()); 
 								
 			}
+				
+			Gestor.actualizarJugador(this.miUsuario);
+			labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica()); 
 			
 			
 			break;
@@ -1653,7 +1648,6 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				
 				puntaje = this.miUsuario.getPuntajePrivada() + LigasPrivadas.puntos;
 				this.miUsuario.setPuntajePrivada(puntaje);
-				Gestor.actualizarJugador(this.miUsuario);
 
 			}
 			
@@ -1662,14 +1656,12 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 				puntaje = this.miUsuario.getPuntajePrivada() + LigasPrivadas.bono;
 				this.miUsuario.setPuntajePrivada(puntaje);
-				Gestor.actualizarJugador(this.miUsuario);
-				labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
-								
-			}else{
-								
-				labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
-								
+				 		
 			}
+			
+			Gestor.actualizarJugador(this.miUsuario);
+			labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
+
 			
 			break;		
 		
