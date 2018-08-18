@@ -470,6 +470,18 @@ public class Gestor {
 		
 	}
 	
+	public static void removerEquipoLigaPublicaUsuario(String nombreUsuario) {
+		
+		CL.removerEquipoLigaPublicaUsuario(nombreUsuario);
+		
+	}
+	
+	public static void removerEquipoLigaPrivadaUsuario(String nombreUsuario) {
+		
+		CL.removerEquipoLigaPublicaUsuario(nombreUsuario);
+		
+	}
+	
 	//-------------------------------------------------------------------------------------------------------------
 	
 	

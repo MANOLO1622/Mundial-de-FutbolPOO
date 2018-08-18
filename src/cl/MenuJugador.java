@@ -150,20 +150,18 @@ public class MenuJugador extends JPanel implements ActionListener{
 		if(e.getSource() == boton5) {
 			
 			desabilitarMenuPrincipal();
-			mostrarInformacionLiga();						//aki
+			mostrarInformacionLiga();
 			
 			this.add(ligasRegistradas);
-			ligasRegistradas.setBounds(950, 50, 200, 30);			
+			ligasRegistradas.setBounds(550, 50, 200, 30);			
 			
 			
 			this.add(btnUnirseLiga);
-			btnUnirseLiga.setBounds(1160, 50, 100, 30);
+			btnUnirseLiga.setBounds(760, 50, 100, 30);
 			
 			this.add(btncancelarInclusion);
-			btncancelarInclusion.setBounds(1160, 90, 100, 30);
-			
-			
-			
+			btncancelarInclusion.setBounds(760, 90, 100, 30);
+	
 		}
 		
 		if(e.getSource() == boton6) {
@@ -224,7 +222,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		if (e.getSource() == ligasRegistradas) {
 			
-			btnUnirseLiga.setEnabled(true);  //upe
+			btnUnirseLiga.setEnabled(true);
 			
 			LigasPublicas ligaPublicaTemp = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());				
 			
@@ -297,12 +295,20 @@ public class MenuJugador extends JPanel implements ActionListener{
 			String seleccion = (String)ligasRegistradaUsuario.getSelectedItem();
 
 			
-			
 			if(seleccion.equals(this.miUsuario.getMiLigaPublica().getNombreLiga())) {
 				
 				Gestor.removerLigaPublicaUsuario(this.miUsuario.getNombreUsuario());
 				JOptionPane.showMessageDialog(null, "Liga publica " + (String)ligasRegistradaUsuario.getSelectedItem() + " removida.");
 				ligasRegistradaUsuario.removeItem(ligasRegistradaUsuario.getSelectedItem());
+				
+				if(this.miUsuario.getEquipoLigaPublica() != null) {
+					
+					Gestor.removerEquipoLigaPublicaUsuario(this.miUsuario.getNombreUsuario());
+					removerValidacionesLigas(0);
+					
+				}
+				
+				Gestor.actualizarJugador(this.miUsuario);
 				
 			}else if(seleccion.equals(this.miUsuario.getMiLigaPrivada().getNombreLiga())) {
 				
@@ -310,11 +316,20 @@ public class MenuJugador extends JPanel implements ActionListener{
 				JOptionPane.showMessageDialog(null, "Liga privada " + (String)ligasRegistradaUsuario.getSelectedItem() + " removida.");
 				ligasRegistradaUsuario.removeItem(ligasRegistradaUsuario.getSelectedItem());
 				
+				if(this.miUsuario.getEquipoLigaPrivada() != null) {
+					
+					Gestor.removerEquipoLigaPrivadaUsuario(this.miUsuario.getNombreUsuario());
+					removerValidacionesLigas(1);
+					
+					
+				}
+				
+				Gestor.actualizarJugador(this.miUsuario);
+				
 			}
 
 			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
 			removerMenus();
-			
 			
 		}
 		
@@ -401,33 +416,33 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		
 		this.add(informacionLiga1);
-		informacionLiga1.setBounds(900,140, 600,40);
+		informacionLiga1.setBounds(550,140, 600,40);
 		informacionLiga1.setForeground(Color.ORANGE);
 		informacionLiga1.setFont(new Font(informacionLiga1.getFont().getFontName(), Font.PLAIN, 30));
 		
 		
 		this.add(informacionLiga2);
-		informacionLiga2.setBounds(900,200, 600,40);
+		informacionLiga2.setBounds(550,200, 600,40);
 		informacionLiga2.setForeground(Color.ORANGE);
 		informacionLiga2.setFont(new Font(informacionLiga2.getFont().getFontName(), Font.PLAIN, 30));
 		
 		this.add(informacionLiga3);
-		informacionLiga3.setBounds(900,240, 600,40);
+		informacionLiga3.setBounds(550,240, 600,40);
 		informacionLiga3.setForeground(Color.ORANGE);
 		informacionLiga3.setFont(new Font(informacionLiga3.getFont().getFontName(), Font.PLAIN, 30));
 		
 		this.add(informacionLiga4);
-		informacionLiga4.setBounds(900,280, 600,40);
+		informacionLiga4.setBounds(550,280, 600,40);
 		informacionLiga4.setForeground(Color.ORANGE);
 		informacionLiga4.setFont(new Font(informacionLiga4.getFont().getFontName(), Font.PLAIN, 30));
 		
 		this.add(informacionLiga5);
-		informacionLiga5.setBounds(900,320, 600,40);
+		informacionLiga5.setBounds(550,320, 600,40);
 		informacionLiga5.setForeground(Color.ORANGE);
 		informacionLiga5.setFont(new Font(informacionLiga5.getFont().getFontName(), Font.PLAIN, 30));
 		
 		this.add(informacionLiga6);
-		informacionLiga6.setBounds(900,360, 600,40);
+		informacionLiga6.setBounds(550,360, 600,40);
 		informacionLiga6.setForeground(Color.ORANGE);
 		informacionLiga6.setFont(new Font(informacionLiga6.getFont().getFontName(), Font.PLAIN, 30));
 		
@@ -465,6 +480,34 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			boton3.setEnabled(true);
 			
+		}
+		
+	}
+	
+	public void removerValidacionesLigas(int tipoLiga) {
+		
+		switch(tipoLiga) {
+		
+		case 0: 
+			
+			this.miUsuario.setValidacioncuartosPublica(false);
+			this.miUsuario.setValidacionfinalPublica(false);
+			this.miUsuario.setValidacionOctavosPublica(false);
+			this.miUsuario.setValidacionPrimeraFasePublica(0);
+			this.miUsuario.setValidacionSemifinalesPublica(false);
+			
+			break;
+			
+		case 1:
+			
+			this.miUsuario.setValidacioncuartosPrivada(false);
+			this.miUsuario.setValidacionfinalPrivada(false);
+			this.miUsuario.setValidacionOctavosPrivada(false);
+			this.miUsuario.setValidacionPrimeraFasePrivada(0);
+			this.miUsuario.setValidacionSemifinalesPrivada(false);
+			
+			break;
+		
 		}
 		
 	}

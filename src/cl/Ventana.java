@@ -12,7 +12,7 @@ public class Ventana extends JFrame{
 	public Usuario UsuarioActual;
 	public Equipo EquipoActual;
 
-	@SuppressWarnings("deprecation")
+	
 	public Ventana(Usuario usuarioActual) {
 		
 		this.UsuarioActual = usuarioActual;

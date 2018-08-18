@@ -695,92 +695,100 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		
 		if(e.getSource()==btnApostar) {
 			
-			
-			
-			if (contador == 0 ) {
+			if(marcadorEquipo1.getText().equals("") || marcadorEquipo2.getText().equals("")) {
 				
-				if(verificacionCuartos == true) {
+				JOptionPane.showMessageDialog(null, "Por favor ingrese los marcadores", "NO ESTA JUGANDO COMO SE DEBE", JOptionPane.WARNING_MESSAGE);
+				
+			}else {
+				
+				if (contador == 0 ) {
 					
-					mostrarCuartosFinal();
-					Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 1);
-					mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
-					jugarApuesta(temp, equipoSeleccionado);
-					
-					
-					this.miUsuario.sumarApuestaPublica();	
-					Gestor.actualizarJugador(this.miUsuario);
-					sumarPuntajes(4);
-					
-					
-					
-				}else {
-					
-					JOptionPane.showMessageDialog(null, "El equipo seleccionado no ha logrado pasar a los cuartos de final.");
+					if(verificacionCuartos == true) {
+						
+						mostrarCuartosFinal();
+						Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 1);
+						mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
+						jugarApuesta(temp, equipoSeleccionado);
+						
+						
+						this.miUsuario.sumarApuestaPublica();	
+						Gestor.actualizarJugador(this.miUsuario);
+						sumarPuntajes(4);
+						
+						
+						
+					}else {
+						
+						JOptionPane.showMessageDialog(null, "El equipo seleccionado no ha logrado pasar a los cuartos de final.");
+						
+					}
 					
 				}
 				
-			}
-			
-			if (contador == 1 ) {
-				
-				if(verificacionSemifinales == true) {
+				if (contador == 1 ) {
 					
-					mostrarSemifinales();
-					Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 2);
-					mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
-					jugarApuesta(temp, equipoSeleccionado);
-					
-					this.miUsuario.sumarApuestaPublica();	
-					Gestor.actualizarJugador(this.miUsuario);
-					sumarPuntajes(5);
-					
-				}else {
-					
-					JOptionPane.showMessageDialog(null, "El equipo seleccionado no ha logrado pasar a las semifinales.");
-					
-				}
-				
-			}
-			
-			if (contador == 2 ) {
-				
-				if(verificacionFinales == true) {
-					
-					mostrarFinales();
-					Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 3);
-					mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
-					jugarApuesta(temp, equipoSeleccionado);
-					
-					this.miUsuario.sumarApuestaPublica();	
-					Gestor.actualizarJugador(this.miUsuario);
-					sumarPuntajes(6);
-					
-					
-				}else {
-					
-					mostrarFinales();
-					JOptionPane.showMessageDialog(null, "El equipo seleccionado luchara por el tercer o cuarto lugar.");
-					Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 3);
-					mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
-					jugarApuesta(temp, equipoSeleccionado);
-					
-					this.miUsuario.sumarApuestaPublica();	
-					Gestor.actualizarJugador(this.miUsuario);
-					sumarPuntajes(6);
-					
+					if(verificacionSemifinales == true) {
+						
+						mostrarSemifinales();
+						Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 2);
+						mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
+						jugarApuesta(temp, equipoSeleccionado);
+						
+						this.miUsuario.sumarApuestaPublica();	
+						Gestor.actualizarJugador(this.miUsuario);
+						sumarPuntajes(5);
+						
+					}else {
+						
+						JOptionPane.showMessageDialog(null, "El equipo seleccionado no ha logrado pasar a las semifinales.");
+						
+					}
 					
 				}
 				
+				if (contador == 2 ) {
+					
+					if(verificacionFinales == true) {
+						
+						mostrarFinales();
+						Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 3);
+						mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
+						jugarApuesta(temp, equipoSeleccionado);
+						
+						this.miUsuario.sumarApuestaPublica();	
+						Gestor.actualizarJugador(this.miUsuario);
+						sumarPuntajes(6);
+						
+						
+					}else {
+						
+						mostrarFinales();
+						JOptionPane.showMessageDialog(null, "El equipo seleccionado luchara por el tercer o cuarto lugar.");
+						Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 3);
+						mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
+						jugarApuesta(temp, equipoSeleccionado);
+						
+						this.miUsuario.sumarApuestaPublica();	
+						Gestor.actualizarJugador(this.miUsuario);
+						sumarPuntajes(6);
+								
+					}
+					
+				}
+				
+				if(contador == 3) {
+					
+					mostrarGanadores();
+					
+				}
+				
+				marcadorEquipo1.setText("");
+				marcadorEquipo2.setText("");
+				
+				contador++;
+				
 			}
 			
-			if(contador == 3) {
-				
-				mostrarGanadores();
-				
-			}
-			
-			contador++;
-		
 		}
 		
 		
