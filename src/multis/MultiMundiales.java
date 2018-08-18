@@ -16,7 +16,7 @@ public class MultiMundiales {
 	public Mundiales crear(String nombreMundial, LocalDate fechaInicio, String paisOrganizador, Boolean estado) {
 		Mundiales Mundiales = null;
 		String sql;
-		sql = "INSERT INTO Mundiales " + "(nombreMundial, ano , paisOrganizador, estado) " + "VALUES ('"
+		sql = "INSERT INTO Mundiales " + "(nombreMundial, fechaInicio , paisOrganizador, estado) " + "VALUES ('"
 				+ nombreMundial + "', '" + fechaInicio + "','" + paisOrganizador + "','" + estado + "');";
 		try {
 
