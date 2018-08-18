@@ -237,11 +237,8 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 			Ventana ventanaRegistro = new Ventana(this.miUsuario);
 			ventanaRegistro.ventanaRegistroEquipo();
-<<<<<<< HEAD
 			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 
-=======
->>>>>>> branch 'master' of https://github.com/MANOLO1622/Mundial-de-FutbolPOO.git
 
 		}
 
