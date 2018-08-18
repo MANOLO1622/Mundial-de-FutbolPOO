@@ -1,4 +1,5 @@
 package ui;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Date;
 import cl.*;
@@ -6,15 +7,19 @@ import gestor.*;
 
 public class UI {
 	
-	public static void main (String[] args) {
+	public static void main (String[] args) throws SQLException, Exception {
 		
 		Gestor controlador = new Gestor();
+		
+		CL.ingresarUsuarioLista();
+		
+		/*
 		controlador.registrarUsuario("admin", "Proyecto", "q","q","Mr.Administrador","admin@POO.com", 1);
 		controlador.registrarUsuario("Dennis", "Ly", "Dennis","123456","Kenny","Dennis@POO.com", 1);
 		controlador.registrarUsuario("Manuel", "Elizondo", "Manuel","123456","manolo","Manuel@POO.com", 1);
 		controlador.registrarUsuario("Jugador","Proyecto","j","j","Mr.Jugador","player@POO.com",2);
 		controlador.registrarUsuario("Viewer","Proyecto","v","v","Mr.Observador","viewer@POO.com",3);
-		
+		*/
 		registrarEquiposFIFA();
 
 		Ventana ventLogin = new Ventana(new Usuario(null, null, null, null, null, null, 0));

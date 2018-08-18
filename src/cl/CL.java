@@ -1,6 +1,7 @@
 package cl;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -21,7 +22,21 @@ public class CL {
 	private static ArrayList<LigasPrivadas> listaLigasPrivadas = new ArrayList<LigasPrivadas>();
 	private static ArrayList<Equipo> listaEquiposFIFA = new ArrayList<Equipo>();
 
+	public static void ingresarUsuarioLista() throws SQLException, Exception {
+		
+		listaUsuarios = new MultiUsuarios().retornarUsuarios();
+		
+		for(Usuario e: listaUsuarios) {
+			
+			System.out.println(e.toString());
+			
+		}
 
+	}
+	
+	
+	
+	
 	//-------------------------------------------------------------------------------------------------------------
 	
 	public static void registrarUsuario(Usuario registro) {
