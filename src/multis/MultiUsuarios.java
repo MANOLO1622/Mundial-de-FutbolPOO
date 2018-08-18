@@ -12,9 +12,11 @@ public class MultiUsuarios {
 	public Usuario crear(String nombre, String apellido, String nombreUsuario, String contrasena,String avatar, String correoElectronico, Perfiles tipoUsuario) {
 		Usuario Usuario = null;
 		String sql;
-		sql = "INSERT INTO Usuarios " + "(nombre, apellido,nombreUsuario, avatar, correoElectronico, contrasena , Perfiles) " + "VALUES ('"
+		LocalDate fechaRegistro = LocalDate.now();
+		
+		sql = "INSERT INTO Usuarios " + "(nombre, apellido,nombreUsuario, avatar, correoElectronico,FechaRegistro, contrasena , Perfiles) " + "VALUES ('"
 				+ nombre + "', '" + apellido + "','" + nombreUsuario + "','" + avatar + "','" + correoElectronico + "','"
-				+ contrasena + "','"+tipoUsuario+ "');";
+				+fechaRegistro.getYear()+"-"+fechaRegistro.getMonthValue()+"-"+fechaRegistro.getDayOfMonth()+ "','"+ contrasena + "','"+tipoUsuario+ "');";
 		try {
 
 			Conector.getConector().ejecutarSQL(sql);
