@@ -1,2 +1,2 @@
 com.microsoft.sqlserver.jdbc.SQLServerDriver
-jdbc:sqlserver://DENNIS;DatabaseName=LaboratorioFinal;user=sa;Password=123456
+jdbc:sqlserver://DENNIS;DatabaseName=ProyectoPOO;user=sa;Password=123456

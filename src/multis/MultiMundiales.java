@@ -1,22 +1,31 @@
 package multis;
 
 import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
+import accesoDatos.Conector;
 import cl.*;
+import rondasMundial.Resultados;
 
 public class MultiMundiales {
-
-	public Mundiales crear(String pnombreMundial, String pano, String ppaisOrganizador, Boolean pestado) {
+	
+	
+	
+	
+	public Mundiales crear(String nombreMundial, LocalDate fechaInicio, String paisOrganizador, Boolean estado) {
 		Mundiales Mundiales = null;
 		String sql;
 		sql = "INSERT INTO Mundiales " + "(nombreMundial, ano , paisOrganizador, estado) " + "VALUES ('"
-				+ pnombreMundial + "', '" + pano + "','" + ppaisOrganizador + "','" + pestado + "');";
+				+ nombreMundial + "', '" + fechaInicio + "','" + paisOrganizador + "','" + estado + "');";
 		try {
 
-			//Conector.getConector().ejecutarSQL(sql);
+			Conector.getConector().ejecutarSQL(sql);
 
-			//Mundiales = new Mundiales(pnombreMundial, pano, ppaisOrganizador, pestado); Esta comentado porque tiene  un Bug pero hay que usarlo
+			Mundiales = new Mundiales( nombreMundial, fechaInicio, paisOrganizador, estado);
+			
 		} catch (Exception e) {
+			
 			System.out.println("Exception " + e.toString());
 
 		}

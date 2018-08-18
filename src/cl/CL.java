@@ -7,6 +7,7 @@ import java.util.*;
 import javax.swing.JOptionPane;
 
 import gestor.Gestor;
+import multis.MultiMundiales;
 import rondasMundial.Partido;
 
 
@@ -79,6 +80,8 @@ public class CL {
 		}
 		registro.generarCuadrosJuego();
 		listaMundiales.add(registro);
+		
+		new MultiMundiales().crear(registro.getNombreMundial(), registro.getAno(), registro.getPaisOrganizador(), registro.getEstado());
 		
 	}
 	
