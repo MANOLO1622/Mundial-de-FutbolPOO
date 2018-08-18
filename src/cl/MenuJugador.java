@@ -304,6 +304,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 				if(this.miUsuario.getEquipoLigaPublica() != null) {
 					
 					Gestor.removerEquipoLigaPublicaUsuario(this.miUsuario.getNombreUsuario());
+					removerValidacionesLigas(0);
 					
 				}
 				
@@ -315,9 +316,11 @@ public class MenuJugador extends JPanel implements ActionListener{
 				JOptionPane.showMessageDialog(null, "Liga privada " + (String)ligasRegistradaUsuario.getSelectedItem() + " removida.");
 				ligasRegistradaUsuario.removeItem(ligasRegistradaUsuario.getSelectedItem());
 				
-				if(this.miUsuario.getEquipoLigaPublica() != null) {
+				if(this.miUsuario.getEquipoLigaPrivada() != null) {
 					
 					Gestor.removerEquipoLigaPrivadaUsuario(this.miUsuario.getNombreUsuario());
+					removerValidacionesLigas(1);
+					
 					
 				}
 				
@@ -327,7 +330,6 @@ public class MenuJugador extends JPanel implements ActionListener{
 
 			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
 			removerMenus();
-			
 			
 		}
 		
@@ -478,6 +480,34 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			boton3.setEnabled(true);
 			
+		}
+		
+	}
+	
+	public void removerValidacionesLigas(int tipoLiga) {
+		
+		switch(tipoLiga) {
+		
+		case 0: 
+			
+			this.miUsuario.setValidacioncuartosPublica(false);
+			this.miUsuario.setValidacionfinalPublica(false);
+			this.miUsuario.setValidacionOctavosPublica(false);
+			this.miUsuario.setValidacionPrimeraFasePublica(0);
+			this.miUsuario.setValidacionSemifinalesPublica(false);
+			
+			break;
+			
+		case 1:
+			
+			this.miUsuario.setValidacioncuartosPrivada(false);
+			this.miUsuario.setValidacionfinalPrivada(false);
+			this.miUsuario.setValidacionOctavosPrivada(false);
+			this.miUsuario.setValidacionPrimeraFasePrivada(0);
+			this.miUsuario.setValidacionSemifinalesPrivada(false);
+			
+			break;
+		
 		}
 		
 	}

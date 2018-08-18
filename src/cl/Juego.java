@@ -1635,10 +1635,9 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 				this.miUsuario.setPuntajePublica(puntaje);
 								
 			}
-				
+			
 			Gestor.actualizarJugador(this.miUsuario);
 			labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica()); 
-			
 			
 			break;
 			
