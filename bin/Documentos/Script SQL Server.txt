@@ -1,0 +1,114 @@
+select * from Mundiales
+select * from Usuarios
+select * from Equipos
+
+delete from Mundiales
+delete from Usuarios
+delete from Equipos
+
+insert INTO Usuarios(nombre, apellido,nombreUsuario, avatar, correoElectronico, FechaRegistro, contrasena, Perfiles)
+Values ('Admin','Proyecto','a','Mr.Admi','admin@POO.com','2018-08-18','123456','ADMIN')
+
+insert INTO Usuarios(nombre, apellido,nombreUsuario, avatar, correoElectronico, FechaRegistro, contrasena, Perfiles)
+Values ('Jugador','Proyecto','j','Mr.Jugador','jugador@POO.com','2018-08-18','123456','PLAYER')
+
+insert INTO Usuarios(nombre, apellido,nombreUsuario, avatar, correoElectronico, FechaRegistro, contrasena, Perfiles)
+Values ('Observador','Proyecto','o','Mr.Observador','observador@POO.com','2018-08-18','123456','VIEWER')
+
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Alemania',1,'src\\graficos\\Banderas\\Alemania.png','ISOPaises.DE')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Brazil',2,'src\\graficos\\Banderas\\Barzil.png','ISOPaises.BR')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Belgica',3,'src\\graficos\\Banderas\\Belgica.png','ISOPaises.BE')
+
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Portugal', 4 ,'src\\graficos\\Banderas\\Portugal.png','ISOPaises.PT')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Argentina', 5 ,'src\\graficos\\Banderas\\Argentina.png','ISOPaises.AR')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Suiza', 6 ,'src\\graficos\\Banderas\\Suiza.png','ISOPaises.CH')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('France', 7 ,'src\\graficos\\Banderas\\France.png','ISOPaises.FR')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Polonia', 8 ,'src\\graficos\\Banderas\\Polonia.png','ISOPaises.PL')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Chile', 9 ,'src\\graficos\\Banderas\\Chile.png','ISOPaises.CL')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('España', 10,'src\\graficos\\Banderas\\España.png','ISOPaises.ES')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Peru', 11,'src\\graficos\\Banderas\\Peru.png','ISOPaises.PE')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Dinamarca', 12,'src\\graficos\\Banderas\\Dinamarca.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Inglaterra', 13,'src\\graficos\\Banderas\\Inglaterra.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Uruguay', 14,'src\\graficos\\Banderas\\Uruguay.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Mexico', 15,'src\\graficos\\Banderas\\Mexico.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Colombia', 16,'src\\graficos\\Banderas\\Colombia.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Paises Bajos', 17,'src\\graficos\\Banderas\\PaisesBajos.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Gales', 18,'src\\graficos\\Banderas\\Gales.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Italy', 19,'src\\graficos\\Banderas\\Italy.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Croatia', 20,'src\\graficos\\Banderas\\Croatia.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Tunez', 21,'src\\graficos\\Banderas\\Tunez.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Islandia', 22,'src\\graficos\\Banderas\\Islandia.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('CostaRica', 23,'src\\graficos\\Banderas\\CostaRica.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Suecia', 24,'src\\graficos\\Banderas\\Suecia.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('EEUU', 25,'src\\graficos\\Banderas\\EEUU.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Austria', 26,'src\\graficos\\Banderas\\Austria.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Senegal', 27,'src\\graficos\\Banderas\\Senegal.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Eslovaquia', 28,'src\\graficos\\Banderas\\Eslovaquia.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Irlanda Norte', 29,'src\\graficos\\Banderas\\IrlandaNorte.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Rumania', 30,'src\\graficos\\Banderas\\Rumania.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Republica Irlanda', 31,'src\\graficos\\Banderas\RepublicaIrlanda.png','ISOPaises.DK')
+
+insert INTO Equipos(nombre, ranking, bandera, iso)
+values ('Paraguay', 32,'src\\graficos\\Banderas\Paraguay.png','ISOPaises.DK')
