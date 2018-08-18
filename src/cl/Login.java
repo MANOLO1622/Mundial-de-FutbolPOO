@@ -51,6 +51,7 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 		
 		this.add(btnIngreso);
 		btnIngreso.setBounds(280, 240, 115, 25);
+		
 
 		
 		this.add(btnRegistrarUsuario);
