@@ -1,27 +1,38 @@
 package multis;
 
 import java.sql.ResultSet;
+import java.time.LocalDate;
+
+import accesoDatos.Conector;
 import cl.*;
 
 public class MultiLigasPrivadas {
 
 
-	public LigasPrivadas crear(int ppuntos, int pbono) {
-		LigasPrivadas LigasPrivadas = null;
+	public LigasPrivadas crear(String nombreLiga, LocalDate fechaCreacion, boolean estado,int puntos, int bono, Mundiales mundialAnfitrion) {
+		
+		LigasPrivadas LigaPrivada = null;
+		
 		String sql;
-		sql = "INSERT INTO LigasPrivadas " + "(puntos, bono) " + "VALUES ('"
-				+ ppuntos + "', '" + pbono + "');";
+		sql = "INSERT INTO LigasPrivadas " + "(nombreLiga, fechaCreacion, estado, tipoLiga, puntos, bono, mundialAnfitrion) "
+		    + "VALUES ('"
+		    +nombreLiga+"', '"+fechaCreacion+"', '"+estado+"', '"+"Privada"+"', "+puntos+", "+bono+", '"+mundialAnfitrion.getNombreMundial()+"');";
+		
 		try {
 
-			//Conector.getConector().ejecutarSQL(sql);
+			Conector.getConector().ejecutarSQL(sql);
 
-			//LigasPrivadas = new LigasPrivadas(ppuntos, pbono); Esta comentado porque tiene  un Bug pero hay que usarlo
+			LigaPrivada = new LigasPrivadas(nombreLiga, fechaCreacion, estado, puntos, bono, mundialAnfitrion);
+			
 		} catch (Exception e) {
+			
 			System.out.println("Exception " + e.toString());
 
 		}
-		return LigasPrivadas;
+		return LigaPrivada;
 	}
+	
+	//----------------------------------------------------------------------------------------
 
 	public LigasPrivadas buscar(int ppuntos) throws java.sql.SQLException, Exception {
 		LigasPrivadas LigasPrivadas = null;

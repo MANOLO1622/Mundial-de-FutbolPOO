@@ -11,8 +11,8 @@ public class Ligas {
     private String nombreLiga;
     private LocalDate fechaCreacion;
     private boolean estado;
-    private boolean tipoLiga;
-    private ArrayList<Apuesta> listaApuestas= new ArrayList();
+    private String tipoLiga;
+//    private ArrayList<Apuesta> listaApuestas= new ArrayList();
     
     
 
@@ -55,14 +55,14 @@ public class Ligas {
 		this.estado = estado;
 	}
 
-	public boolean isTipoLiga() {
+	public String isTipoLiga() {
 		return tipoLiga;
 	}
 
-	public void setTipoLiga(boolean tipoLiga) {
+	public void setTipoLiga(String tipoLiga) {
 		this.tipoLiga = tipoLiga;
 	}
-
+	/*
 	public ArrayList<Apuesta> getListaApuestas() {
 		return listaApuestas;
 	}
@@ -71,14 +71,14 @@ public class Ligas {
 		this.listaApuestas = listaApuestas;
 	}
 
-	
+	*/
 	//----------------------------------------------------------Metodo toString.
 	
 	
 	@Override
 	public String toString() {
 		return "Ligas: nombreLiga=" + nombreLiga + ", fechaCreacion=" + fechaCreacion + ", estado=" + estado
-				+ ", tipoLiga=" + tipoLiga + ", listaApuestas=" + listaApuestas;
+				+ ", tipoLiga=" + tipoLiga;
 	}
 
 
