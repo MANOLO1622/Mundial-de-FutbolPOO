@@ -1,0 +1,2 @@
+com.microsoft.sqlserver.jdbc.SQLServerDriver
+jdbc:sqlserver://DELL\MSSQLSERVER01;DatabaseName=ProyectoPOO;user=sa;Password=123456

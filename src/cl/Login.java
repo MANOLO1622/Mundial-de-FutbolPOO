@@ -139,13 +139,10 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 				if (validacion == 2) {
 					
 					Perfiles perfil = controlador.retornarTipoUsuario(usuarioTXT.getText(), contrasenaTXT.getText());
-					Ventana ventanaUsuario = new Ventana(controlador.retornarUsuario(usuarioTXT.getText()));
-					Usuario UsuarioActual = controlador.retornarUsuario(usuarioTXT.getText());
+					Ventana ventanaUsuario = new Ventana(Gestor.retornarUsuario(usuarioTXT.getText()));
+					Usuario UsuarioActual = Gestor.retornarUsuario(usuarioTXT.getText());
 					ventanaUsuario.setUsuarioActual(UsuarioActual);
 					ventanaUsuario.ventanaMenuUsuarios(perfil, ventanaUsuario);
-										
-//					usuarioTXT.setText("");
-//					contrasenaTXT.setText("");
 					
 					SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 					

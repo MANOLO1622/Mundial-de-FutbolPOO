@@ -1,6 +1,7 @@
 package multis;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import accesoDatos.Conector;
 import cl.*;
@@ -30,6 +31,8 @@ public class MultiUsuarios {
 		}
 		return Usuario;
 	}
+	
+	//-------------------------------------------------------------------------------------------------
 
 	public Usuario buscar(String pnombre) throws java.sql.SQLException, Exception {
 		Usuario Usuario = null;
@@ -41,13 +44,15 @@ public class MultiUsuarios {
 
 		/*if (rs.next()) {
 			Usuario = new Usuario(rs.getString("nombre"), rs.getString("apellido"), rs.getString("nombreUsuario"),
-					rs.getString("avatar"), rs.getString("correoElectronico"), rs.getString("contrasena"));Esta comentado porque tiene  un Bug pero hay que usarlo
+					rs.getString("avatar"), rs.getString("correoElectronico"), rs.getString("contrasena"));
 		} else {
 			throw new Exception("El Usuario no está registrado.");
 		}*/
 		rs.close();
 		return Usuario;
 	}
+	
+	//-------------------------------------------------------------------------------------------------
 
 	public void actualizar(Usuario pUsuario) throws java.sql.SQLException, Exception {
 		String sql;
@@ -72,20 +77,41 @@ public class MultiUsuarios {
 		}
 	}
 
-	/*public String listarUsuario() throws java.sql.SQLException, Exception {
-		String sql, lista = "";
-		sql = "SELECT * FROM Usuario";
-		try {
-			ResultSet rs = null;
-			rs = Conector.getConector().ejecutarSQL(sql, true);
-			while (rs.next()) {
-				lista += "Nombre: " + rs.getString("nombre") + ", Apellido: " + rs.getString("apellido") + ", NombreUsuario: "
-						+ rs.getString("nombreUsuario") + ", Avatar: " + rs.getString("avatar") + ", CorreoElectronico: "
-						+ rs.getString("correoElectronico") + ", Contrasena: " + rs.getString("contrasena");
-			}
-		} catch (Exception e) {
-			System.out.println("ERROR NO ESTA LISTANDO " + e.toString());
+//-------------------------------------------------------------------------------------------------
+	
+	public  ArrayList<Usuario> retornarUsuarios() throws java.sql.SQLException,Exception{
+		
+		Usuario usuarioTemp=null;
+		ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+		
+		
+		java.sql.ResultSet rs;
+		
+		String sql;
+		sql = "SELECT * "+
+		"FROM Usuarios;";
+		
+		rs = Conector.getConector().ejecutarSQL(sql,true);
+		if (rs.next() == true) {
+			do {
+
+//				String nombre, String apellido, String nombreUsuario, String contrasena,String avatar, String correoElectronico, int tipoUsuario
+				
+				usuarioTemp = new Usuario (rs.getString("nombre"), rs.getString("apellido"),rs.getString("nombreUsuario"), rs.getString("contrasena"), 
+				rs.getString("avatar"),rs.getString("correoElectronico"),
+				Usuario.retornarTipoUsuarioNumerico(Perfiles.retornarTipoPerfil(rs.getString("Perfiles"))));
+				
+				listaUsuarios.add(usuarioTemp);
+				
+			} while (rs.next());
+			
+		} else {
+			
+			System.out.println("No hay Usuarios registrados.");
+	
 		}
-		return lista;
-	}*/
+		
+		rs.close();
+		return listaUsuarios;
+	}
 }
