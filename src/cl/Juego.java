@@ -1435,161 +1435,170 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			
 			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
 			
-			if(this.tipoLiga == 0) {
+			if(marcadorEquipo1.getText().equals("") || marcadorEquipo2.getText().equals("")) {
 				
-				if(this.miUsuario.getValidacionPrimeraFasePublica() == 0) {
+				JOptionPane.showMessageDialog(null, "Por favor ingrese los marcadores", "NO ESTA JUGANDO COMO SE DEBE", JOptionPane.WARNING_MESSAGE);
+				
+			}else {
+				
+				
+				if(this.tipoLiga == 0) {
 					
-					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[1].getPartidoApuesta().getEquipo1().getBandera());
-					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
-					labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
-					
-					imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[1].getPartidoApuesta().getEquipo2().getBandera());
-					ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
-					labelEquipoContrincante.setIcon(iconoEquipoContrincante);
-					
-					this.miUsuario.sumarApuestaPublica();	
-					Gestor.actualizarJugador(this.miUsuario);
-					
-					btnSegundaFase.setVisible(false);
-
-					sumarPuntajes(0, 0);
-					
-					
-				} else if(this.miUsuario.getValidacionPrimeraFasePublica() == 1) {
-					
-					
-					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[2].getPartidoApuesta().getEquipo1().getBandera());
-					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
-					labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
-					
-					imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[2].getPartidoApuesta().getEquipo2().getBandera());
-					ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
-					labelEquipoContrincante.setIcon(iconoEquipoContrincante);
-					
-					this.miUsuario.sumarApuestaPublica();	
-					Gestor.actualizarJugador(this.miUsuario);
-					
-					btnSegundaFase.setVisible(false);
-
-					sumarPuntajes(0, 1);
-					
-					
-				} else if(this.miUsuario.getValidacionPrimeraFasePublica() >= 2) {
-					
-					this.remove(labelEquipoSeleccionado);
-					this.remove(labelEquipoContrincante);
-					this.remove(equipo1);		
-					this.remove(equipo2);
-					this.remove(marcadorEquipo1);
-					this.remove(marcadorEquipo2);
-					this.remove(btnApostar);
-					
-					this.miUsuario.sumarApuestaPublica();	
-					Gestor.actualizarJugador(this.miUsuario);
-
-					sumarPuntajes(0, 2);
-					
-					JOptionPane.showMessageDialog(null, "Ya haz completado todas la apuestas de la primera fase\n"
-							+ "si tu equipo clasifico, podras pasar a la segunda fase.");
-					
-					Equipo[] temp = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getGanadoresPrimeraFase();
-					int index = 0;
-					
-					for(Equipo a: temp) {
+					if(this.miUsuario.getValidacionPrimeraFasePublica() == 0) {
 						
-						if(this.miUsuario.getEquipoLigaPublica().getNombre().equals(temp[index].getNombre())) {
+						imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[1].getPartidoApuesta().getEquipo1().getBandera());
+						ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
+						labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
+						
+						imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[1].getPartidoApuesta().getEquipo2().getBandera());
+						ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
+						labelEquipoContrincante.setIcon(iconoEquipoContrincante);
+						
+						this.miUsuario.sumarApuestaPublica();	
+						Gestor.actualizarJugador(this.miUsuario);
+						
+						btnSegundaFase.setVisible(false);
+
+						sumarPuntajes(0, 0);
+						
+						
+					} else if(this.miUsuario.getValidacionPrimeraFasePublica() == 1) {
+						
+						
+						imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[2].getPartidoApuesta().getEquipo1().getBandera());
+						ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
+						labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
+						
+						imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[2].getPartidoApuesta().getEquipo2().getBandera());
+						ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
+						labelEquipoContrincante.setIcon(iconoEquipoContrincante);
+						
+						this.miUsuario.sumarApuestaPublica();	
+						Gestor.actualizarJugador(this.miUsuario);
+						
+						btnSegundaFase.setVisible(false);
+
+						sumarPuntajes(0, 1);
+						
+						
+					} else if(this.miUsuario.getValidacionPrimeraFasePublica() >= 2) {
+						
+						this.remove(labelEquipoSeleccionado);
+						this.remove(labelEquipoContrincante);
+						this.remove(equipo1);		
+						this.remove(equipo2);
+						this.remove(marcadorEquipo1);
+						this.remove(marcadorEquipo2);
+						this.remove(btnApostar);
+						
+						this.miUsuario.sumarApuestaPublica();	
+						Gestor.actualizarJugador(this.miUsuario);
+
+						sumarPuntajes(0, 2);
+						
+						JOptionPane.showMessageDialog(null, "Ya haz completado todas la apuestas de la primera fase\n"
+								+ "si tu equipo clasifico, podras pasar a la segunda fase.");
+						
+						Equipo[] temp = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getGanadoresPrimeraFase();
+						int index = 0;
+						
+						for(Equipo a: temp) {
 							
-							btnSegundaFase.setVisible(true);
-							this.miUsuario.setValidacionOctavosPublica(true);
-							Gestor.actualizarJugador(this.miUsuario);
+							if(this.miUsuario.getEquipoLigaPublica().getNombre().equals(temp[index].getNombre())) {
+								
+								btnSegundaFase.setVisible(true);
+								this.miUsuario.setValidacionOctavosPublica(true);
+								Gestor.actualizarJugador(this.miUsuario);
+							}
+							index++;
 						}
-						index++;
+						
+					}
+
+					
+					
+
+				} else if(this.tipoLiga == 1) {
+					
+					if(this.miUsuario.getValidacionPrimeraFasePrivada() == 0) {
+					
+						imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[1].getPartidoApuesta().getEquipo1().getBandera());
+						ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
+						labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
+						
+						imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[1].getPartidoApuesta().getEquipo2().getBandera());
+						ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
+						labelEquipoContrincante.setIcon(iconoEquipoContrincante);
+						
+						this.miUsuario.sumarApuestaPrivada();	
+						Gestor.actualizarJugador(this.miUsuario);
+						
+						btnSegundaFase.setVisible(false);
+
+						sumarPuntajes(1, 0);
+						
+					
+					} else if(this.miUsuario.getValidacionPrimeraFasePrivada() == 1) {
+						
+						imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[2].getPartidoApuesta().getEquipo1().getBandera());
+						ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
+						labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
+						
+						imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[2].getPartidoApuesta().getEquipo2().getBandera());
+						ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
+						labelEquipoContrincante.setIcon(iconoEquipoContrincante);
+						
+						this.miUsuario.sumarApuestaPrivada();	
+						Gestor.actualizarJugador(this.miUsuario);
+						
+						btnSegundaFase.setVisible(false);
+
+						sumarPuntajes(1, 1);
+						
+						
+					} else if(this.miUsuario.getValidacionPrimeraFasePrivada() >= 2) {
+
+						this.miUsuario.sumarApuestaPrivada();	
+						Gestor.actualizarJugador(this.miUsuario);
+						
+						btnSegundaFase.setVisible(false);
+						
+						sumarPuntajes(1, 2);
+						
+						this.remove(labelEquipoSeleccionado);
+						this.remove(labelEquipoContrincante);
+						this.remove(equipo1);		
+						this.remove(equipo2);
+						this.remove(marcadorEquipo1);
+						this.remove(marcadorEquipo2);
+						this.remove(btnApostar);
+						
+						JOptionPane.showMessageDialog(null, "Ya haz completado todas la apuestas de la primera fase\n"
+								+ "si tu equipo clasifico, podras pasar a la segunda fase.");
+						
+						Equipo[] temp = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getGanadoresPrimeraFase();
+						int index = 0;
+						
+						for(Equipo a: temp) {
+							
+							if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(temp[index].getNombre())) {
+								
+								btnSegundaFase.setVisible(true);
+								this.miUsuario.setValidacionOctavosPrivada(true);
+								Gestor.actualizarJugador(this.miUsuario);
+								
+							}
+							index++;
+						}
+						
 					}
 					
 				}
-
 				
-				
-
-			} else if(this.tipoLiga == 1) {
-				
-				if(this.miUsuario.getValidacionPrimeraFasePrivada() == 0) {
-				
-					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[1].getPartidoApuesta().getEquipo1().getBandera());
-					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
-					labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
-					
-					imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[1].getPartidoApuesta().getEquipo2().getBandera());
-					ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
-					labelEquipoContrincante.setIcon(iconoEquipoContrincante);
-					
-					this.miUsuario.sumarApuestaPrivada();	
-					Gestor.actualizarJugador(this.miUsuario);
-					
-					btnSegundaFase.setVisible(false);
-
-					sumarPuntajes(1, 0);
-					
-				
-				} else if(this.miUsuario.getValidacionPrimeraFasePrivada() == 1) {
-					
-					imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[2].getPartidoApuesta().getEquipo1().getBandera());
-					ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
-					labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
-					
-					imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[2].getPartidoApuesta().getEquipo2().getBandera());
-					ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
-					labelEquipoContrincante.setIcon(iconoEquipoContrincante);
-					
-					this.miUsuario.sumarApuestaPrivada();	
-					Gestor.actualizarJugador(this.miUsuario);
-					
-					btnSegundaFase.setVisible(false);
-
-					sumarPuntajes(1, 1);
-					
-					
-				} else if(this.miUsuario.getValidacionPrimeraFasePrivada() >= 2) {
-
-					this.miUsuario.sumarApuestaPrivada();	
-					Gestor.actualizarJugador(this.miUsuario);
-					
-					btnSegundaFase.setVisible(false);
-					
-					sumarPuntajes(1, 2);
-					
-					this.remove(labelEquipoSeleccionado);
-					this.remove(labelEquipoContrincante);
-					this.remove(equipo1);		
-					this.remove(equipo2);
-					this.remove(marcadorEquipo1);
-					this.remove(marcadorEquipo2);
-					this.remove(btnApostar);
-					
-					JOptionPane.showMessageDialog(null, "Ya haz completado todas la apuestas de la primera fase\n"
-							+ "si tu equipo clasifico, podras pasar a la segunda fase.");
-					
-					Equipo[] temp = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getGanadoresPrimeraFase();
-					int index = 0;
-					
-					for(Equipo a: temp) {
-						
-						if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(temp[index].getNombre())) {
-							
-							btnSegundaFase.setVisible(true);
-							this.miUsuario.setValidacionOctavosPrivada(true);
-							Gestor.actualizarJugador(this.miUsuario);
-							
-						}
-						index++;
-					}
-					
-				}
+				marcadorEquipo1.setText("");
+				marcadorEquipo2.setText("");
 				
 			}
-			
-			marcadorEquipo1.setText("");
-			marcadorEquipo2.setText("");
 
 		}
 		

@@ -790,6 +790,48 @@ public class CL {
 		
 	}
 	
+	
+	public static void removerEquipoLigaPublicaUsuario(String nombreUsuario) {
+		
+		int indice=0;
+		
+		for(Usuario e: listaUsuarios) {
+			
+			if(nombreUsuario.equals(e.getNombreUsuario())) {
+				
+				indice = listaUsuarios.indexOf(e);
+				
+			}
+			
+		}
+		
+		Usuario miUsuario = listaUsuarios.get(indice);
+		miUsuario.setEquipoLigaPublica(null);
+		listaUsuarios.set(indice, miUsuario);
+		
+	}
+	
+	public static void removerEquipoLigaPrivadaUsuario(String nombreUsuario) {
+		
+		int indice=0;
+		
+		for(Usuario e: listaUsuarios) {
+			
+			if(nombreUsuario.equals(e.getNombreUsuario())) {
+				
+				indice = listaUsuarios.indexOf(e);
+				
+			}
+			
+		}
+		
+		Usuario miUsuario = listaUsuarios.get(indice);
+		miUsuario.setEquipoLigaPrivada(null);
+		listaUsuarios.set(indice, miUsuario);
+		
+	}
+	
+	
 	//-------------------------------------------------------------------------------------------------------------
 	
 		public static String comprobarTipoLiga(String nombreLiga) {
