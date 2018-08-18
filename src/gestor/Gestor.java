@@ -255,15 +255,7 @@ public class Gestor {
 		ArrayList<Usuario> listaUsuariosRegistrados = CL.retornarUsuariosRegistrados();
 		
 		return listaUsuariosRegistrados;
-	}
-	
-	public static ArrayList<LigasPrivadas> retornarLigasPrivadasRegistradas() {
-
-		ArrayList<LigasPrivadas> listaPrivadasRegistradas = CL.retornarLigasPrivadasRegistradas();
-
-		return listaPrivadasRegistradas;
-	}
-	
+	}	
 	
 	public static Mundiales retornarMundial(String nombreMundial) {
 		

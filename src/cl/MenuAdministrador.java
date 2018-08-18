@@ -197,16 +197,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 				
 			}
 			
-			
-			
-			/*if(e.getSource() == usuariosRegistrados) {
-				
-				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
-				
-				
-				
-			}*/
-			
 			informacionUsuario1.setText("Informacion de Usuario.");
 			informacionUsuario2.setText("Nombre del Usuario " + UsuarioTemporal.getNombre());
 		
@@ -217,11 +207,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		if (e.getSource() == boton1) {
 
-			
-			//desabilitarMenuPrincipal();
 			mostrarInformacionUsuario();
-			
-			
 
 			this.add(usuariosRegistrados);
 			usuariosRegistrados.setBounds(280, 250, 180, 30);
@@ -231,7 +217,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 			desabilitarMenu();
 
-			// sonic
 		}
 		
 	
@@ -251,9 +236,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		if (e.getSource() == boton10) {
 
-			//Ventana ventanaRegistro = new Ventana(new Equipo(ISOPaises, "", 0 , ""));
-			//ventanaRegistro.ventanaRegistroEquipos();
-			
 			JOptionPane.showMessageDialog(null, "EN PROCESO");
 
 		}
@@ -322,14 +304,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			removerMenus();
 
 		}
-
-		/*
-		 * if(e.getSource()==CancelarRegistroLigaPrivada) {
-		 * 
-		 * removerMenus();
-		 * 
-		 * }
-		 */
 
 		// ----------------------------------------------PUBLICAS-----------------------------------------------------------
 
@@ -475,7 +449,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			usuariosRegistrados.setBounds(1080, 290, 180, 22);
 
 			desabilitarMenu();
-			// PRUEBA
 
 		}
 
@@ -495,7 +468,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 			labelTituloEliminarPrivada.setBounds(230, 195, 500, 260);
 			labelTituloEliminarPrivada.setFont(new Font(labelTituloEliminarPrivada.getFont().getFontName(), Font.BOLD, 30));
 
-			//soso
 			this.add(LigasPrivadas);
 			LigasPrivadas.setBounds(990, 300, 120, 30);
 
@@ -743,20 +715,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 				usuariosRegistrados.addItem(e.getNombreUsuario());
 
 			}
-
-		}
-
-	}
-
-	public void ingresarligasPrivadas() {
-
-		ArrayList<LigasPrivadas> listaTemporal = Gestor.retornarLigasPrivadasRegistradas();
-
-		ligasPrivadasRegistradas.removeAllItems();
-
-		for (LigasPrivadas e : listaTemporal) {
-
-			ligasPrivadasRegistradas.addItem(e.getNombreLiga());
 
 		}
 

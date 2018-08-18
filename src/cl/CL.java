@@ -16,13 +16,9 @@ public class CL {
 	private static ArrayList<Mundiales> listaMundiales = new ArrayList<Mundiales>();
 	private static ArrayList<LigasPublicas> listaLigasPublicas = new ArrayList<LigasPublicas>();
 	private static ArrayList<LigasPrivadas> listaLigasPrivadas = new ArrayList<LigasPrivadas>();
-	private static ArrayList<LigasPrivadas> listaLigasPrivadasRegistradas = new ArrayList<>();
-	private static ArrayList<Equipo> listaEquiposFIFA = new ArrayList();
+	private static ArrayList<Equipo> listaEquiposFIFA = new ArrayList<Equipo>();
 
-	
-	
-	
-	
+
 	//-------------------------------------------------------------------------------------------------------------
 	
 	public static void registrarUsuario(Usuario registro) {
@@ -141,17 +137,7 @@ public class CL {
 			if(e.getNombreUsuario().equals(nombreUsuario)) {
 				
 				temp = e;
-				/*
-				temp.setNombre(e.getNombre());
-				temp.setApellido(e.getApellido());
-				temp.setNombreUsuario(e.getNombreUsuario());
-				temp.setContrasena(e.getContrasena());
-				temp.setAvatar(e.getAvatar());
-				temp.setCorreoElectronico(e.getCorreoElectronico());
-				temp.setTipoUSuario(e.retornarTipoUsuario());
-				temp.setMiLigaPrivada(e.getMiLigaPrivada());
-				temp.setMiLigaPublica(e.getMiLigaPublica());
-				*/
+
 			}	
 		}
 		return temp;
@@ -167,12 +153,7 @@ public class CL {
 			if(e.getNombreLiga().equals(nombreLiga)) {
 				
 				temp = e;
-				/*
-				temp.setNombreLiga(e.getNombreLiga());
-				temp.setFechaCreacion(e.getFechaCreacion());
-				temp.setEstado(e.getEstado());
-				temp.setMundialAnfitrion(e.getMundialAnfitrion());
-					*/					
+				
 			}	
 		}
 		return temp;
@@ -189,11 +170,6 @@ public class CL {
 			if(e.getNombreLiga().equals(nombreLiga)) {
 				
 				temp = e;
-				/*
-				temp.setNombreLiga(e.getNombreLiga());
-				temp.setFechaCreacion(e.getFechaCreacion());
-				temp.setEstado(e.getEstado());
-				temp.setMundialAnfitrion(e.getMundialAnfitrion());*/
 				
 			}	
 		}
@@ -232,13 +208,7 @@ public class CL {
 		return listaUsuarios;
 		
 	}
-	
-	public static ArrayList<LigasPrivadas> retornarLigasPrivadasRegistradas(){
-		
-		return listaLigasPrivadasRegistradas;
-		
-	}
-	
+
 	public static Mundiales retornarMundial(String nombreMundial) {
 		Mundiales mundialTemp=null;
 		

@@ -147,6 +147,30 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	private ImageIcon imagenPartido31;
 	private ImageIcon imagenPartido32;
 	
+	//-------------------------------------------------Ganadores del mundial.
+	
+	private JLabel labelPrimerLugar = new JLabel();
+	private JLabel labelSegundoLugar = new JLabel();
+	private JLabel labelTercerLugar = new JLabel();
+	private JLabel labelCuartoLugar = new JLabel();
+	
+	private ImageIcon imagenPrimerLugar;
+	private ImageIcon imagenSegundoLugar;
+	private ImageIcon imagenTercerLugar;
+	private ImageIcon imagenCuartoLugar;
+	
+	private JLabel labelPrimerLugarSticker = new JLabel();
+	private JLabel labelSegundoLugarSticker = new JLabel();
+	private JLabel labelTercerLugarSticker = new JLabel();
+	private JLabel labelCuartoLugarSticker = new JLabel();
+	
+	private ImageIcon imagenPrimerLugarSticker;
+	private ImageIcon imagenSegundoLugarSticker;
+	private ImageIcon imagenTercerLugarSticker;
+	private ImageIcon imagenCuartoLugarSticker;
+	
+	
+	
 	
 	
 	public JuegoSegundaFase(Usuario miUsuario, int tipoLiga) {
@@ -1330,6 +1354,92 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		this.remove(labelPartido30);
 		this.remove(labelPartido31);
 		this.remove(labelPartido32);
+		
+		//----------------------------------------------Posicionamiento de los equipos ganadores.
+		
+		this.add(labelPrimerLugar);
+		labelPrimerLugar.setBounds(30, 200, 290, 192 );
+		
+		this.add(labelSegundoLugar);
+		labelSegundoLugar.setBounds(340, 200, 270, 172 );
+		
+		this.add(labelTercerLugar);
+		labelTercerLugar.setBounds(620, 200, 250, 152 );
+		
+		this.add(labelCuartoLugar);
+		labelCuartoLugar.setBounds(880, 200, 230, 132 );
+		
+		
+		this.add(labelPrimerLugarSticker);
+		labelPrimerLugarSticker.setBounds(30, 10, 290, 192 );
+		
+		this.add(labelSegundoLugarSticker);
+		labelSegundoLugarSticker.setBounds(340, 10, 270, 172 );
+		
+		this.add(labelTercerLugarSticker);
+		labelTercerLugarSticker.setBounds(620, 10, 250, 152 );
+		
+		this.add(labelCuartoLugarSticker);
+		labelCuartoLugarSticker.setBounds(880, 10, 230, 132 );
+		
+		
+		imagenPrimerLugarSticker = new ImageIcon("src\\graficos\\uno.png");
+		ImageIcon iconoPrimerLugarSticker = new ImageIcon(imagenPrimerLugarSticker.getImage().getScaledInstance(labelPrimerLugarSticker.getWidth(), labelPrimerLugarSticker.getHeight(), Image.SCALE_DEFAULT));
+		labelPrimerLugarSticker.setIcon(iconoPrimerLugarSticker);
+		
+		imagenSegundoLugarSticker = new ImageIcon("src\\graficos\\dos.png");
+		ImageIcon iconoSegundoSticker = new ImageIcon(imagenSegundoLugarSticker.getImage().getScaledInstance(labelSegundoLugarSticker.getWidth(), labelSegundoLugarSticker.getHeight(), Image.SCALE_DEFAULT));
+		labelSegundoLugarSticker.setIcon(iconoSegundoSticker);
+		
+		imagenTercerLugarSticker = new ImageIcon("src\\graficos\\tres.png");
+		ImageIcon iconoTercerLugarSticker = new ImageIcon(imagenTercerLugarSticker.getImage().getScaledInstance(labelTercerLugarSticker.getWidth(), labelTercerLugarSticker.getHeight(), Image.SCALE_DEFAULT));
+		labelTercerLugarSticker.setIcon(iconoTercerLugarSticker);
+		
+		imagenCuartoLugarSticker = new ImageIcon("src\\graficos\\cuatro.png");
+		ImageIcon iconoCuartoLugarSticker = new ImageIcon(imagenCuartoLugarSticker.getImage().getScaledInstance(labelCuartoLugarSticker.getWidth(), labelCuartoLugarSticker.getHeight(), Image.SCALE_DEFAULT));
+		labelCuartoLugarSticker.setIcon(iconoCuartoLugarSticker);
+		
+		
+		if(this.tipoLiga == 0) {
+			
+			imagenPrimerLugar = new ImageIcon(this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPrimerLugar().getBandera());
+			ImageIcon iconoPrimerLugar = new ImageIcon(imagenPrimerLugar.getImage().getScaledInstance(labelPrimerLugar.getWidth(), labelPrimerLugar.getHeight(), Image.SCALE_DEFAULT));
+			labelPrimerLugar.setIcon(iconoPrimerLugar);
+			
+			imagenSegundoLugar = new ImageIcon(this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getSegundoLugar().getBandera());
+			ImageIcon iconoSegundo = new ImageIcon(imagenSegundoLugar.getImage().getScaledInstance(labelSegundoLugar.getWidth(), labelSegundoLugar.getHeight(), Image.SCALE_DEFAULT));
+			labelSegundoLugar.setIcon(iconoSegundo);
+			
+			imagenTercerLugar = new ImageIcon(this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getTercerLugar().getBandera());
+			ImageIcon iconoTercerLugar = new ImageIcon(imagenTercerLugar.getImage().getScaledInstance(labelTercerLugar.getWidth(), labelTercerLugar.getHeight(), Image.SCALE_DEFAULT));
+			labelTercerLugar.setIcon(iconoTercerLugar);
+			
+			imagenCuartoLugar = new ImageIcon(this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getCuartoLugar().getBandera());
+			ImageIcon iconoCuarto = new ImageIcon(imagenCuartoLugar.getImage().getScaledInstance(labelCuartoLugar.getWidth(), labelCuartoLugar.getHeight(), Image.SCALE_DEFAULT));
+			labelCuartoLugar.setIcon(iconoCuarto);
+			
+		}else if(this.tipoLiga == 1){
+			
+			imagenPrimerLugar = new ImageIcon(this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPrimerLugar().getBandera());
+			ImageIcon iconoPrimerLugar = new ImageIcon(imagenPrimerLugar.getImage().getScaledInstance(labelPrimerLugar.getWidth(), labelPrimerLugar.getHeight(), Image.SCALE_DEFAULT));
+			labelPrimerLugar.setIcon(iconoPrimerLugar);
+			
+			imagenSegundoLugar = new ImageIcon(this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getSegundoLugar().getBandera());
+			ImageIcon iconoSegundo = new ImageIcon(imagenSegundoLugar.getImage().getScaledInstance(labelSegundoLugar.getWidth(), labelSegundoLugar.getHeight(), Image.SCALE_DEFAULT));
+			labelSegundoLugar.setIcon(iconoSegundo);
+			
+			imagenTercerLugar = new ImageIcon(this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getTercerLugar().getBandera());
+			ImageIcon iconoTercerLugar = new ImageIcon(imagenTercerLugar.getImage().getScaledInstance(labelTercerLugar.getWidth(), labelTercerLugar.getHeight(), Image.SCALE_DEFAULT));
+			labelTercerLugar.setIcon(iconoTercerLugar);
+			
+			imagenCuartoLugar = new ImageIcon(this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getCuartoLugar().getBandera());
+			ImageIcon iconoCuarto = new ImageIcon(imagenCuartoLugar.getImage().getScaledInstance(labelCuartoLugar.getWidth(), labelCuartoLugar.getHeight(), Image.SCALE_DEFAULT));
+			labelCuartoLugar.setIcon(iconoCuarto);
+			
+		}
+
+		
+
 		
 	}
 	
