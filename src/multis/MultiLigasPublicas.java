@@ -1,27 +1,36 @@
 package multis;
 
 import java.sql.ResultSet;
+import java.time.LocalDate;
+
+import accesoDatos.Conector;
 import cl.*;
 
 public class MultiLigasPublicas {
 
 
-	public LigasPublicas crear(int ppuntos, int pbono) {
+	public LigasPublicas crear(String nombreLiga, LocalDate fechaCreacion, boolean estado,int puntos, int bono, Mundiales mundialAnfitrion) {
 		LigasPublicas LigasPublicas = null;
 		String sql;
-		sql = "INSERT INTO LigasPublicas " + "(puntos, bono) " + "VALUES ('"
-				+ ppuntos + "', '" + pbono + "');";
+		sql = "INSERT INTO LigasPublicas " + "(nombreLiga, fechaCreacion, estado, tipoLiga, puntos, bono, mundialAnfitrion) "
+		    + "VALUES ('"
+		    +nombreLiga+"', '"+fechaCreacion+"', '"+estado+"', '"+"Publica"+"', "+puntos+", "+bono+", '"+mundialAnfitrion.getNombreMundial()+"');";
+		
 		try {
 
-			//Conector.getConector().ejecutarSQL(sql);
+			Conector.getConector().ejecutarSQL(sql);
 
-			//LigasPublicas = new LigasPublicas(ppuntos, pbono); Esta comentado porque tiene  un Bug pero hay que usarlo
+			LigasPublicas = new LigasPublicas(nombreLiga, fechaCreacion, estado, puntos, bono, mundialAnfitrion);
 		} catch (Exception e) {
+			
 			System.out.println("Exception " + e.toString());
 
 		}
 		return LigasPublicas;
 	}
+	
+	//-----------------------------------------------------------------------------------
+	
 
 	public LigasPublicas buscar(int ppuntos) throws java.sql.SQLException, Exception {
 		LigasPublicas LigasPublicas = null;

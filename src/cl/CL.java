@@ -9,6 +9,8 @@ import javax.swing.JOptionPane;
 
 import gestor.Gestor;
 import multis.MultiEquipos;
+import multis.MultiLigasPrivadas;
+import multis.MultiLigasPublicas;
 import multis.MultiMundiales;
 import multis.MultiUsuarios;
 import rondasMundial.Partido;
@@ -128,6 +130,8 @@ public class CL {
 	public static void registrarLigaPublicas(LigasPublicas registro) {
 		
 		listaLigasPublicas.add(registro);
+		new MultiLigasPublicas().crear(registro.getNombreLiga(),registro.getFechaCreacion(),  registro.getEstado(), registro.getPuntos(),
+				registro.getBono(), registro.getMundialAnfitrion());
 		
 	}
 
@@ -136,6 +140,8 @@ public class CL {
 	public static void registrarLigaPrivadas(LigasPrivadas registro) {
 		
 		listaLigasPrivadas.add(registro);
+		new MultiLigasPrivadas().crear(registro.getNombreLiga(),registro.getFechaCreacion(),  registro.getEstado(), registro.getPuntos(),
+				registro.getBono(), registro.getMundialAnfitrion());
 		
 	}
 	

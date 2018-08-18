@@ -12,7 +12,7 @@ public class LigasPrivadas extends Ligas{
 	public LigasPrivadas(String nombreLiga, LocalDate fechaCreacion, boolean estado,int puntos, int bono,Mundiales mundialAnfitrion) {
 		
 		super (nombreLiga,fechaCreacion, estado);
-		this.setTipoLiga(false);
+		this.setTipoLiga("Privada");
 		this.mundialAnfitrion = mundialAnfitrion;
 	}
 
