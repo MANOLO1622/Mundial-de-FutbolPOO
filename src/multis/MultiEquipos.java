@@ -2,20 +2,24 @@ package multis;
 
 import java.sql.ResultSet;
 
+import accesoDatos.Conector;
 import cl.*;
 
 public class MultiEquipos {
 
-	public Equipo crear(ISOPaises pisoPaises, String pnombre, int pranking, String pbandera) {
+	
+	
+	
+	public Equipo crear(String nombre, int ranking, String bandera, ISOPaises iso) {
 		Equipo Equipo = null;
 		String sql;
-		sql = "INSERT INTO Equipo " + "(isoPaises, nombre , ranking, bandera) " + "VALUES ('"
-				+ pisoPaises + "', '" + pnombre + "','" + pranking + "','" + pbandera + "');";
+		sql = "INSERT INTO Equipos " + "( nombre, ranking, bandera, iso) " + "VALUES ('"
+				+ nombre + "', " + ranking + ",'" + bandera + "','" + iso + "');";
 		try {
 
-			//Conector.getConector().ejecutarSQL(sql);
+			Conector.getConector().ejecutarSQL(sql);
 
-			//Equipo = new Equipo(pisoPaises, pnombre, pranking, pbandera); Esta comentado porque tiene  un Bug pero hay que usarlo
+			Equipo = new Equipo(nombre, ranking, bandera, iso);
 		} catch (Exception e) {
 			System.out.println("Exception " + e.toString());
 

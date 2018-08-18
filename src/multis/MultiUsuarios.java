@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import accesoDatos.Conector;
 import cl.*;
-import rondasMundial.Apuesta;
+import rondasMundial.*;
 
 public class MultiUsuarios {
 	
@@ -12,9 +12,9 @@ public class MultiUsuarios {
 	public Usuario crear(String nombre, String apellido, String nombreUsuario, String contrasena,String avatar, String correoElectronico, Perfiles tipoUsuario) {
 		Usuario Usuario = null;
 		String sql;
-		sql = "INSERT INTO Usuarios " + "(nombre, apellido,nombreUsuario, avatar, correoElectronico, contrasena ) " + "VALUES ('"
+		sql = "INSERT INTO Usuarios " + "(nombre, apellido,nombreUsuario, avatar, correoElectronico, contrasena , Perfiles) " + "VALUES ('"
 				+ nombre + "', '" + apellido + "','" + nombreUsuario + "','" + avatar + "','" + correoElectronico + "','"
-				+ contrasena + "');";
+				+ contrasena + "','"+tipoUsuario+ "');";
 		try {
 
 			Conector.getConector().ejecutarSQL(sql);

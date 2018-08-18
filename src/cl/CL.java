@@ -7,6 +7,7 @@ import java.util.*;
 import javax.swing.JOptionPane;
 
 import gestor.Gestor;
+import multis.MultiEquipos;
 import multis.MultiMundiales;
 import multis.MultiUsuarios;
 import rondasMundial.Partido;
@@ -44,6 +45,7 @@ public class CL {
 		Equipo equipoTemp = new Equipo(nombre, ranking, bandera, iso);
 		
 		listaEquiposFIFA.add(equipoTemp);
+		new MultiEquipos().crear(equipoTemp.getNombre(), equipoTemp.getRanking(), equipoTemp.getBandera(), equipoTemp.getIso());
 		
 	}
 	
