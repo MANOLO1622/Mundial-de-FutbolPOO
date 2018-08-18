@@ -31,6 +31,8 @@ public class MultiUsuarios {
 		}
 		return Usuario;
 	}
+	
+	//-------------------------------------------------------------------------------------------------
 
 	public Usuario buscar(String pnombre) throws java.sql.SQLException, Exception {
 		Usuario Usuario = null;
@@ -49,6 +51,8 @@ public class MultiUsuarios {
 		rs.close();
 		return Usuario;
 	}
+	
+	//-------------------------------------------------------------------------------------------------
 
 	public void actualizar(Usuario pUsuario) throws java.sql.SQLException, Exception {
 		String sql;
@@ -73,19 +77,7 @@ public class MultiUsuarios {
 		}
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+//-------------------------------------------------------------------------------------------------
 	
 	public  ArrayList<Usuario> retornarUsuarios() throws java.sql.SQLException,Exception{
 		
