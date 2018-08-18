@@ -236,7 +236,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		if (e.getSource() == boton10) {
 
-			JOptionPane.showMessageDialog(null, "EN PROCESO");
+			Ventana ventanaRegistro = new Ventana(null);
+			ventanaRegistro.ventanaRegistroEquipo();
+			
+			//JOptionPane.showMessageDialog(null, "EN PROCESO");
 
 		}
 

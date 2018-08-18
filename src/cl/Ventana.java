@@ -24,8 +24,8 @@ public class Ventana extends JFrame{
 		this.setIconImage(icono);
 		
 	}
-	
-	
+
+
 	//--------------------------------------------------------------------------
 	
 	public Usuario getUsuarioActual() {
@@ -59,6 +59,17 @@ public class Ventana extends JFrame{
 		this.setVisible(true);	
 		
 	}
+	
+	public void ventanaRegistroEquipo() {
+		
+		RegistroEquipos regEqui = new RegistroEquipos();
+		this.add(regEqui);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setTitle("Registro de Equipos");
+		this.setVisible(true);	
+		
+	}
+	
 	
 	public void ventanaMenuUsuarios(Perfiles perfil , Ventana vent) {
 		

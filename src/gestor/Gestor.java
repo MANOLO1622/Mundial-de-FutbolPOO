@@ -278,14 +278,17 @@ public class Gestor {
 
 	// -------------------------------------------------------------------------------------------------------------
 
-	/*public int validarEquipo(String nombreLectura, int 0, String banderaLectura, String ISOPaisesLectura) {
+	public int validarEquipo(String nombreLectura, int ranking, String banderaLectura, String ISOPaisesLectura) {
 		int comprobante = 0;
 		int comprobanteNombreEquipo = 0;
 		int posicion = -1;
 		String validador = "";
 
 		ArrayList<Equipo> listaComparacion = CL.listarEquiposFIFA();
-	}*/
+
+		return ranking;
+	}
+	
 
 	
 	
