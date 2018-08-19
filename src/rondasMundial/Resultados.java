@@ -10,6 +10,8 @@ import multis.*;
 
 public class Resultados {
 	
+	private String nombreMundial;
+	
     private Equipo[] primerCuadro = new Equipo[4];
     private Equipo[] segundoCuadro = new Equipo[4];
     private Equipo[] tercerCuadro = new Equipo[4];
@@ -58,6 +60,8 @@ public class Resultados {
 	//---------------------------------------------------------------------------------------Constructor.
     
     public Resultados(ArrayList<Equipo> equiposMundial, String nombreMundial) {
+    	
+    	this.nombreMundial = nombreMundial;
     	
     	int contador = 0;
     	
@@ -492,14 +496,14 @@ public class Resultados {
     
     public void generarJuegos() {
     	
-        partidosPrimerCuadro = organizarCuadroJuego(primerCuadro);
-        partidosSegundoCuadro = organizarCuadroJuego(segundoCuadro);
-        partidosTercerCuadro = organizarCuadroJuego(tercerCuadro);
-        partidosCuartoCuadro = organizarCuadroJuego(cuartoCuadro);
-        partidosQuintoCuadro = organizarCuadroJuego(quintoCuadro);
-        partidosSextoCuadro = organizarCuadroJuego(sextoCuadro);
-        partidosSeptimoCuadro = organizarCuadroJuego(septimoCuadro);
-        partidosOctavoCuadro = organizarCuadroJuego(octavoCuadro);
+        partidosPrimerCuadro = organizarCuadroJuego(primerCuadro, 1);
+        partidosSegundoCuadro = organizarCuadroJuego(segundoCuadro, 2);
+        partidosTercerCuadro = organizarCuadroJuego(tercerCuadro, 3);
+        partidosCuartoCuadro = organizarCuadroJuego(cuartoCuadro, 4);
+        partidosQuintoCuadro = organizarCuadroJuego(quintoCuadro, 5);
+        partidosSextoCuadro = organizarCuadroJuego(sextoCuadro, 6);
+        partidosSeptimoCuadro = organizarCuadroJuego(septimoCuadro, 7);
+        partidosOctavoCuadro = organizarCuadroJuego(octavoCuadro, 8);
 
         ganadoresPrimerCuadro = guardarGanadoresPrimeraFase(partidosPrimerCuadro,primerCuadro);
         ganadoresSegundoCuadro = guardarGanadoresPrimeraFase(partidosSegundoCuadro,segundoCuadro);
@@ -534,7 +538,7 @@ public class Resultados {
         
     }
     
-    public Partido[] organizarCuadroJuego(Equipo[] cuadroJuego) {
+    public Partido[] organizarCuadroJuego(Equipo[] cuadroJuego, int cuadro) {
 		
     	Partido[] partidosCuadroTemp = new Partido[6];
     	int opcionOrden = (int)(Math.random()*3);
@@ -549,6 +553,30 @@ public class Resultados {
     		partidosCuadroTemp[3] = new Partido(cuadroJuego[1],cuadroJuego[2]);
     		partidosCuadroTemp[4] = new Partido(cuadroJuego[0],cuadroJuego[3]);
     		partidosCuadroTemp[5] = new Partido(cuadroJuego[3],cuadroJuego[2]);
+    		
+    		new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[0].getEquipo1().getNombre(),partidosCuadroTemp[0].getEquipo2().getNombre(),
+    		partidosCuadroTemp[0].getEquipoGanador().getNombre(),partidosCuadroTemp[0].getEquipoPerdedor().getNombre(),
+    		partidosCuadroTemp[0].getPuntajeEquipo1(), partidosCuadroTemp[0].getPuntajeEquipo2(), cuadro, nombreMundial);
+    		
+    		new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[1].getEquipo1().getNombre(),partidosCuadroTemp[1].getEquipo2().getNombre(),
+    		partidosCuadroTemp[1].getEquipoGanador().getNombre(),partidosCuadroTemp[1].getEquipoPerdedor().getNombre(),
+    		partidosCuadroTemp[1].getPuntajeEquipo1(), partidosCuadroTemp[1].getPuntajeEquipo2(), cuadro, nombreMundial);
+    		
+    		new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[2].getEquipo1().getNombre(),partidosCuadroTemp[2].getEquipo2().getNombre(),
+    		partidosCuadroTemp[2].getEquipoGanador().getNombre(),partidosCuadroTemp[2].getEquipoPerdedor().getNombre(),
+    	    partidosCuadroTemp[2].getPuntajeEquipo1(), partidosCuadroTemp[2].getPuntajeEquipo2(), cuadro, nombreMundial);
+    		
+      		new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[3].getEquipo1().getNombre(),partidosCuadroTemp[3].getEquipo2().getNombre(),
+      	    partidosCuadroTemp[3].getEquipoGanador().getNombre(),partidosCuadroTemp[3].getEquipoPerdedor().getNombre(),
+      	    partidosCuadroTemp[3].getPuntajeEquipo1(), partidosCuadroTemp[3].getPuntajeEquipo2(), cuadro, nombreMundial);
+      	    		
+      	    new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[4].getEquipo1().getNombre(),partidosCuadroTemp[4].getEquipo2().getNombre(),
+      	    partidosCuadroTemp[4].getEquipoGanador().getNombre(),partidosCuadroTemp[4].getEquipoPerdedor().getNombre(),
+      	    partidosCuadroTemp[4].getPuntajeEquipo1(), partidosCuadroTemp[4].getPuntajeEquipo2(), cuadro, nombreMundial);
+      	    		
+      	    new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[5].getEquipo1().getNombre(),partidosCuadroTemp[5].getEquipo2().getNombre(),
+      	    partidosCuadroTemp[5].getEquipoGanador().getNombre(),partidosCuadroTemp[5].getEquipoPerdedor().getNombre(),
+      	    partidosCuadroTemp[5].getPuntajeEquipo1(), partidosCuadroTemp[5].getPuntajeEquipo2(), cuadro, nombreMundial);
     		
     		//-------------------Testing
         	System.out.println();
@@ -583,6 +611,30 @@ public class Resultados {
     		partidosCuadroTemp[4] = new Partido(cuadroJuego[1],cuadroJuego[2]);
     		partidosCuadroTemp[5] = new Partido(cuadroJuego[3],cuadroJuego[2]);
     		
+    		new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[0].getEquipo1().getNombre(),partidosCuadroTemp[0].getEquipo2().getNombre(),
+    		partidosCuadroTemp[0].getEquipoGanador().getNombre(),partidosCuadroTemp[0].getEquipoPerdedor().getNombre(),
+    		partidosCuadroTemp[0].getPuntajeEquipo1(), partidosCuadroTemp[0].getPuntajeEquipo2(), cuadro, nombreMundial);
+    		
+    		new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[1].getEquipo1().getNombre(),partidosCuadroTemp[1].getEquipo2().getNombre(),
+    		partidosCuadroTemp[1].getEquipoGanador().getNombre(),partidosCuadroTemp[1].getEquipoPerdedor().getNombre(),
+    		partidosCuadroTemp[1].getPuntajeEquipo1(), partidosCuadroTemp[1].getPuntajeEquipo2(), cuadro, nombreMundial);
+    		
+    		new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[2].getEquipo1().getNombre(),partidosCuadroTemp[2].getEquipo2().getNombre(),
+    		partidosCuadroTemp[2].getEquipoGanador().getNombre(),partidosCuadroTemp[2].getEquipoPerdedor().getNombre(),
+    	    partidosCuadroTemp[2].getPuntajeEquipo1(), partidosCuadroTemp[2].getPuntajeEquipo2(), cuadro, nombreMundial);
+    		
+      		new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[3].getEquipo1().getNombre(),partidosCuadroTemp[3].getEquipo2().getNombre(),
+      	    partidosCuadroTemp[3].getEquipoGanador().getNombre(),partidosCuadroTemp[3].getEquipoPerdedor().getNombre(),
+      	    partidosCuadroTemp[3].getPuntajeEquipo1(), partidosCuadroTemp[3].getPuntajeEquipo2(), cuadro, nombreMundial);
+      	    		
+      	    new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[4].getEquipo1().getNombre(),partidosCuadroTemp[4].getEquipo2().getNombre(),
+      	    partidosCuadroTemp[4].getEquipoGanador().getNombre(),partidosCuadroTemp[4].getEquipoPerdedor().getNombre(),
+      	    partidosCuadroTemp[4].getPuntajeEquipo1(), partidosCuadroTemp[4].getPuntajeEquipo2(), cuadro, nombreMundial);
+      	    		
+      	    new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[5].getEquipo1().getNombre(),partidosCuadroTemp[5].getEquipo2().getNombre(),
+      	    partidosCuadroTemp[5].getEquipoGanador().getNombre(),partidosCuadroTemp[5].getEquipoPerdedor().getNombre(),
+      	    partidosCuadroTemp[5].getPuntajeEquipo1(), partidosCuadroTemp[5].getPuntajeEquipo2(), cuadro, nombreMundial);
+    		
     		//-------------------Testing
         	System.out.println();
         	System.out.println();
@@ -615,6 +667,30 @@ public class Resultados {
     		partidosCuadroTemp[4] = new Partido(cuadroJuego[3],cuadroJuego[2]);
     		partidosCuadroTemp[5] = new Partido(cuadroJuego[0],cuadroJuego[1]);
     		
+    		new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[0].getEquipo1().getNombre(),partidosCuadroTemp[0].getEquipo2().getNombre(),
+    		partidosCuadroTemp[0].getEquipoGanador().getNombre(),partidosCuadroTemp[0].getEquipoPerdedor().getNombre(),
+    		partidosCuadroTemp[0].getPuntajeEquipo1(), partidosCuadroTemp[0].getPuntajeEquipo2(), cuadro, nombreMundial);
+    		
+    		new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[1].getEquipo1().getNombre(),partidosCuadroTemp[1].getEquipo2().getNombre(),
+    		partidosCuadroTemp[1].getEquipoGanador().getNombre(),partidosCuadroTemp[1].getEquipoPerdedor().getNombre(),
+    		partidosCuadroTemp[1].getPuntajeEquipo1(), partidosCuadroTemp[1].getPuntajeEquipo2(), cuadro, nombreMundial);
+    		
+    		new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[2].getEquipo1().getNombre(),partidosCuadroTemp[2].getEquipo2().getNombre(),
+    		partidosCuadroTemp[2].getEquipoGanador().getNombre(),partidosCuadroTemp[2].getEquipoPerdedor().getNombre(),
+    	    partidosCuadroTemp[2].getPuntajeEquipo1(), partidosCuadroTemp[2].getPuntajeEquipo2(), cuadro, nombreMundial);
+    		
+      		new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[3].getEquipo1().getNombre(),partidosCuadroTemp[3].getEquipo2().getNombre(),
+      	    partidosCuadroTemp[3].getEquipoGanador().getNombre(),partidosCuadroTemp[3].getEquipoPerdedor().getNombre(),
+      	    partidosCuadroTemp[3].getPuntajeEquipo1(), partidosCuadroTemp[3].getPuntajeEquipo2(), cuadro, nombreMundial);
+      	    		
+      	    new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[4].getEquipo1().getNombre(),partidosCuadroTemp[4].getEquipo2().getNombre(),
+      	    partidosCuadroTemp[4].getEquipoGanador().getNombre(),partidosCuadroTemp[4].getEquipoPerdedor().getNombre(),
+      	    partidosCuadroTemp[4].getPuntajeEquipo1(), partidosCuadroTemp[4].getPuntajeEquipo2(), cuadro, nombreMundial);
+      	    		
+      	    new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[5].getEquipo1().getNombre(),partidosCuadroTemp[5].getEquipo2().getNombre(),
+      	    partidosCuadroTemp[5].getEquipoGanador().getNombre(),partidosCuadroTemp[5].getEquipoPerdedor().getNombre(),
+      	    partidosCuadroTemp[5].getPuntajeEquipo1(), partidosCuadroTemp[5].getPuntajeEquipo2(), cuadro, nombreMundial);
+    		
     		//-------------------Testing
         	System.out.println();
         	System.out.println();
@@ -646,6 +722,30 @@ public class Resultados {
     		partidosCuadroTemp[3] = new Partido(cuadroJuego[2],cuadroJuego[0]);
     		partidosCuadroTemp[4] = new Partido(cuadroJuego[3],cuadroJuego[1]);
     		partidosCuadroTemp[5] = new Partido(cuadroJuego[0],cuadroJuego[1]);
+    		
+    		new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[0].getEquipo1().getNombre(),partidosCuadroTemp[0].getEquipo2().getNombre(),
+    		partidosCuadroTemp[0].getEquipoGanador().getNombre(),partidosCuadroTemp[0].getEquipoPerdedor().getNombre(),
+    		partidosCuadroTemp[0].getPuntajeEquipo1(), partidosCuadroTemp[0].getPuntajeEquipo2(), cuadro, nombreMundial);
+    		
+    		new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[1].getEquipo1().getNombre(),partidosCuadroTemp[1].getEquipo2().getNombre(),
+    		partidosCuadroTemp[1].getEquipoGanador().getNombre(),partidosCuadroTemp[1].getEquipoPerdedor().getNombre(),
+    		partidosCuadroTemp[1].getPuntajeEquipo1(), partidosCuadroTemp[1].getPuntajeEquipo2(), cuadro, nombreMundial);
+    		
+    		new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[2].getEquipo1().getNombre(),partidosCuadroTemp[2].getEquipo2().getNombre(),
+    		partidosCuadroTemp[2].getEquipoGanador().getNombre(),partidosCuadroTemp[2].getEquipoPerdedor().getNombre(),
+    	    partidosCuadroTemp[2].getPuntajeEquipo1(), partidosCuadroTemp[2].getPuntajeEquipo2(), cuadro, nombreMundial);
+    		
+      		new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[3].getEquipo1().getNombre(),partidosCuadroTemp[3].getEquipo2().getNombre(),
+      	    partidosCuadroTemp[3].getEquipoGanador().getNombre(),partidosCuadroTemp[3].getEquipoPerdedor().getNombre(),
+      	    partidosCuadroTemp[3].getPuntajeEquipo1(), partidosCuadroTemp[3].getPuntajeEquipo2(), cuadro, nombreMundial);
+      	    		
+      	    new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[4].getEquipo1().getNombre(),partidosCuadroTemp[4].getEquipo2().getNombre(),
+      	    partidosCuadroTemp[4].getEquipoGanador().getNombre(),partidosCuadroTemp[4].getEquipoPerdedor().getNombre(),
+      	    partidosCuadroTemp[4].getPuntajeEquipo1(), partidosCuadroTemp[4].getPuntajeEquipo2(), cuadro, nombreMundial);
+      	    		
+      	    new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[5].getEquipo1().getNombre(),partidosCuadroTemp[5].getEquipo2().getNombre(),
+      	    partidosCuadroTemp[5].getEquipoGanador().getNombre(),partidosCuadroTemp[5].getEquipoPerdedor().getNombre(),
+      	    partidosCuadroTemp[5].getPuntajeEquipo1(), partidosCuadroTemp[5].getPuntajeEquipo2(), cuadro, nombreMundial);
     		
     		//-------------------Testing
     		
@@ -810,7 +910,9 @@ public class Resultados {
 
 		
 		//----------------------------------------------------------------------------
-
+    	new MultiEquipos().registrarEquipoGanadorPrimeraFase(listaRetorno[0].getNombre(), this.nombreMundial);
+    	new MultiEquipos().registrarEquipoGanadorPrimeraFase(listaRetorno[1].getNombre(), this.nombreMundial);
+    	
     	return listaRetorno;
     	    	
     }

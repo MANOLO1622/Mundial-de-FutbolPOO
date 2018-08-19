@@ -25,7 +25,7 @@ public class MultiEquipos {
 	 * @param iso
 	 * @return
 	 */
-	public Equipo crear(String nombre, int ranking, String bandera, ISOPaises iso) {
+	public Equipo crearEquipoRegistro(String nombre, int ranking, String bandera, ISOPaises iso) {
 		Equipo Equipo = null;
 		String sql;
 		sql = "INSERT INTO Equipos " + "( nombre, ranking, bandera, iso) " + "VALUES ('"
@@ -41,6 +41,27 @@ public class MultiEquipos {
 		}
 		return Equipo;
 	}
+	
+	
+	public void registrarEquipoGanadorPrimeraFase(String nombre, String mundial) {
+
+		String sql;
+		sql = "INSERT INTO GanadoresPrimeraFase " + "( nombre, mundial) "
+		    + "VALUES ('"
+				+ nombre + "', '" + mundial+ "');";
+		try {
+
+			Conector.getConector().ejecutarSQL(sql);
+
+			
+		} catch (Exception e) {
+			System.out.println("Exception " + e.toString());
+
+		}
+
+	}
+	
+	
 	/**
 	 * Este es el metodo que se ejecuta para buscar el equipo por el nombre
 	 * @param pnombre

@@ -96,7 +96,7 @@ public class CL {
 		Equipo equipoTemp = new Equipo(nombre, ranking, bandera, iso);
 		
 		listaEquiposFIFA.add(equipoTemp);
-		new MultiEquipos().crear(equipoTemp.getNombre(), equipoTemp.getRanking(), equipoTemp.getBandera(), equipoTemp.getIso());
+		new MultiEquipos().crearEquipoRegistro(equipoTemp.getNombre(), equipoTemp.getRanking(), equipoTemp.getBandera(), equipoTemp.getIso());
 		
 	}
 	
