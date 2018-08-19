@@ -139,7 +139,12 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 			else {
 				
 				Gestor controlador = new Gestor();
-				validacion = controlador.validarUsuario(lecturaUsuario, lecturaContrasena,"", 0);
+				try {
+					validacion = controlador.validarUsuario(lecturaUsuario, lecturaContrasena,"", 0);
+				} catch (Exception e2) {
+					
+					e2.printStackTrace();
+				}
 				
 				if(validacion == 3) {
 					
@@ -149,7 +154,13 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 				
 				if (validacion == 2) {
 					
-					Perfiles perfil = controlador.retornarTipoUsuario(usuarioTXT.getText(), contrasenaTXT.getText());
+					Perfiles perfil = null;
+					try {
+						perfil = controlador.retornarTipoUsuario(usuarioTXT.getText(), contrasenaTXT.getText());
+					} catch (Exception e2) {
+						
+						e2.printStackTrace();
+					}
 					Ventana ventanaUsuario = new Ventana(Gestor.retornarUsuario(usuarioTXT.getText()));
 					Usuario UsuarioActual = Gestor.retornarUsuario(usuarioTXT.getText());
 					ventanaUsuario.setUsuarioActual(UsuarioActual);
@@ -231,7 +242,12 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 				else {
 					
 					Gestor controlador = new Gestor();
-					validacion = controlador.validarUsuario(lecturaUsuario, lecturaContrasena,"", 0);
+					try {
+						validacion = controlador.validarUsuario(lecturaUsuario, lecturaContrasena,"", 0);
+					} catch (Exception e3) {
+						
+						e3.printStackTrace();
+					}
 					
 					if(validacion == 3) {
 						
@@ -241,7 +257,13 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 					
 					if (validacion == 2) {
 						
-						Perfiles perfil = controlador.retornarTipoUsuario(usuarioTXT.getText(), contrasenaTXT.getText());
+						Perfiles perfil = null;
+						try {
+							perfil = controlador.retornarTipoUsuario(usuarioTXT.getText(), contrasenaTXT.getText());
+						} catch (Exception e2) {
+							
+							e2.printStackTrace();
+						}
 						Ventana ventanaUsuario = new Ventana(controlador.retornarUsuario(usuarioTXT.getText()));
 						Usuario UsuarioActual = controlador.retornarUsuario(usuarioTXT.getText());
 						ventanaUsuario.setUsuarioActual(UsuarioActual);

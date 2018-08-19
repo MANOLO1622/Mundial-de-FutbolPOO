@@ -24,27 +24,17 @@ public class CL {
 	private static ArrayList<LigasPrivadas> listaLigasPrivadas = new ArrayList<LigasPrivadas>();
 	private static ArrayList<Equipo> listaEquiposFIFA = new ArrayList<Equipo>();
 
+	//Inicializacion de los arrayList con la informacion de la base de datos.
+	
 	public static void ingresarUsuarioLista() throws SQLException, Exception {
 		
 		listaUsuarios = new MultiUsuarios().retornarUsuarios();
-		
-		for(Usuario e: listaUsuarios) {
-			
-			System.out.println(e.toString());
-			
-		}
 
 	}
 	
 	public static void ingresarEquiposLista() throws SQLException, Exception {
 		
 		listaEquiposFIFA = new MultiEquipos().retornarEquipos();
-		
-		for(Equipo e: listaEquiposFIFA) {
-			
-			System.out.println(e.toString());
-			
-		}
 
 	}
 	
@@ -53,17 +43,20 @@ public class CL {
 	
 	//-------------------------------------------------------------------------------------------------------------
 	
-	public static void registrarUsuario(Usuario registro) {
+	public static void registrarUsuario(Usuario registro) throws SQLException, Exception {
 		
-		listaUsuarios.add(registro);
+//		listaUsuarios.add(registro);
 		
 		new MultiUsuarios().crear(registro.getNombre(), registro.getApellido(), registro.getNombreUsuario(), registro.getContrasena(), registro.getAvatar(),
 				registro.getCorreoElectronico(),registro.retornarTipoUsuario());
 		
+		ingresarUsuarioLista();
+		
 	}
 	
-	public static ArrayList<Usuario> listarUsuarios() {
+	public static ArrayList<Usuario> listarUsuarios() throws SQLException, Exception {
 		
+		ingresarUsuarioLista();
 		return listaUsuarios;
 	}
 	
@@ -78,8 +71,9 @@ public class CL {
 		
 	}
 	
-	public static ArrayList<Equipo> listarEquiposFIFA() {
+	public static ArrayList<Equipo> listarEquiposFIFA() throws SQLException, Exception {
 		
+		ingresarEquiposLista();
 		return listaEquiposFIFA;
 	}
 	

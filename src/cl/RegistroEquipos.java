@@ -100,8 +100,14 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {// validaciones del registrar equipo
 		// TODO Auto-generated method stub
 
-		int validacionEquipo = controlador.validarEquipo(nombreTXT.getText(), 0, banderaTXT.getText(),
-				(String)ISO.getSelectedItem());
+		int validacionEquipo = 0;
+		try {
+			validacionEquipo = controlador.validarEquipo(nombreTXT.getText(), 0, banderaTXT.getText(),
+					(String)ISO.getSelectedItem());
+		} catch (Exception e2) {
+			
+			e2.printStackTrace();
+		}
 
 		if (e.getSource() == btnRegistro) {
 
@@ -124,7 +130,12 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 
 					this.setBackground(Color.GREEN);
 					controlador.registrarEquipos(nombreTXT.getText(), 0, banderaTXT.getText(), ISOPaises.retornarISOPais((String)ISO.getSelectedItem()));
-					controlador.listarEquiposFIFA();
+					try {
+						controlador.listarEquiposFIFA();
+					} catch (Exception e1) {
+						
+						e1.printStackTrace();
+					}
 					JOptionPane.showMessageDialog(null, "Equipo registrado.");
 
 					nombreTXT.setText("");

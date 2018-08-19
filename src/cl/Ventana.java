@@ -141,8 +141,10 @@ public class Ventana extends JFrame{
 	
 	/**
 	 * Este metodo ejecuta el cierre de la ventana del jugador.
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-		public void ventanaLigasJugador() {
+		public void ventanaLigasJugador() throws SQLException, Exception {
 			
 			LigasJugador ligasJugador = new LigasJugador(UsuarioActual);
 			this.setLocation(10, 10);//arreglar despues.

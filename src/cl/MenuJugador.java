@@ -153,11 +153,16 @@ public class MenuJugador extends JPanel implements ActionListener{
 		if(e.getSource()==boton4) {
 			
 			Ventana ventLigasJugador = new Ventana(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
-			ventLigasJugador.ventanaLigasJugador();
+			try {
+				ventLigasJugador.ventanaLigasJugador();
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			
 		}
 		
-		if(e.getSource() == boton5) {// aqui se muestra los botones y campos para unirse a la liga
+		if(e.getSource() == boton5) {
 			
 			desabilitarMenuPrincipal();
 			mostrarInformacionLiga();

@@ -32,9 +32,11 @@ public class Gestor {
 	 * @param avatar
 	 * @param correoElectronico
 	 * @param tipoUsuario
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
 	public void registrarUsuario(String nombre, String apellido, String nombreUsuario, String contrasena, String avatar,
-			String correoElectronico, int tipoUsuario) {
+			String correoElectronico, int tipoUsuario) throws SQLException, Exception {
 
 		Usuario registro = new Usuario(nombre, apellido, nombreUsuario, contrasena, avatar, correoElectronico,
 				tipoUsuario);
@@ -99,8 +101,10 @@ public class Gestor {
 	// ----------------------------------------------------------LISTAR-----------------------------------------------------------------------------
 	/**
 	 * Este es el metodo para listar los usuarios
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public void listarUsuarios() {
+	public void listarUsuarios() throws SQLException, Exception {
 
 		ArrayList<Usuario> listaImpresion = CL.listarUsuarios();
 
@@ -118,8 +122,10 @@ public class Gestor {
 
 	/**
 	 * Este es el metodo para listar los equiposFIFA
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public void listarEquiposFIFA() {
+	public void listarEquiposFIFA() throws SQLException, Exception {
 		// jue
 		ArrayList<Equipo> listaImpresion = CL.listarEquiposFIFA();
 
@@ -203,8 +209,10 @@ public class Gestor {
 	 * @param avatarLectura
 	 * @param eleccion
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public int validarUsuario(String nombreLectura, String contrasenaLectura, String avatarLectura, int eleccion) {
+	public int validarUsuario(String nombreLectura, String contrasenaLectura, String avatarLectura, int eleccion) throws SQLException, Exception {
 		int comprobante = 0;
 		int comprobanteNombreUsuario = 0;
 		int posicion = -1;
@@ -296,8 +304,10 @@ public class Gestor {
 	 * @param nombreUsuario
 	 * @param contrasena
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public Perfiles retornarTipoUsuario(String nombreUsuario, String contrasena) {
+	public Perfiles retornarTipoUsuario(String nombreUsuario, String contrasena) throws SQLException, Exception {
 
 		Perfiles tipoPerfil = Perfiles.VIEWER;
 		ArrayList<Usuario> listaUsuariosRegistrados = CL.listarUsuarios();
@@ -408,8 +418,10 @@ public class Gestor {
 	 * @param banderaLectura
 	 * @param ISOPaisesLectura
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public int validarEquipo(String nombreLectura, int ranking, String banderaLectura, String ISOPaisesLectura) {
+	public int validarEquipo(String nombreLectura, int ranking, String banderaLectura, String ISOPaisesLectura) throws SQLException, Exception {
 		/*
 		 * int comprobante = 0; int comprobanteNombreEquipo = 0; int posicion = -1;
 		 * String validador = "";

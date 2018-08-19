@@ -16,15 +16,14 @@ public class Mundiales {
     
 	private String nombreMundial;
     private LocalDate fechaInicio;
-    private String paisOrganizador;
     private boolean estado;
-    private ArrayList<Equipo> equiposMundial;
-    
-    private Resultados resultadosMundial;
-    
+    private String paisOrganizador;
     private String EquipoPrimerLugar;
     private String EquipoSegundoLugar;
     private String EquipoTercerLugar;
+    
+    private Resultados resultadosMundial;
+    private ArrayList<Equipo> equiposMundial;
 
     public Mundiales() {
     }

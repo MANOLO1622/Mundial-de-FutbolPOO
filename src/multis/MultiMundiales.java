@@ -97,9 +97,6 @@ public class MultiMundiales {
 				int mes = Integer.parseInt(rs.getString("fechaInicio").charAt(5)+""+ rs.getString("fechaInicio").charAt(6));
 				int dia = Integer.parseInt(rs.getString("fechaInicio").charAt(8)+""+ rs.getString("fechaInicio").charAt(9));
 				
-				System.out.println(agno+"-"+mes+"-"+dia);
-				System.out.println(rs.getString("fechaInicio"));
-				
 				LocalDate fechaInicio;
 				
 				try {
