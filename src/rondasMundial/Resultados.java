@@ -577,29 +577,7 @@ public class Resultados {
       	    new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[5].getEquipo1().getNombre(),partidosCuadroTemp[5].getEquipo2().getNombre(),
       	    partidosCuadroTemp[5].getEquipoGanador().getNombre(),partidosCuadroTemp[5].getEquipoPerdedor().getNombre(),
       	    partidosCuadroTemp[5].getPuntajeEquipo1(), partidosCuadroTemp[5].getPuntajeEquipo2(), cuadro, nombreMundial);
-    		
-    		//-------------------Testing
-        	System.out.println();
-        	System.out.println();
-    		System.out.println(partidosCuadroTemp[0].getEquipo1().getNombre() + ": " + partidosCuadroTemp[0].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[0].getEquipo2().getNombre() + ": " + partidosCuadroTemp[0].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[1].getEquipo1().getNombre() + ": " + partidosCuadroTemp[1].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[1].getEquipo2().getNombre() + ": " + partidosCuadroTemp[1].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[2].getEquipo1().getNombre() + ": " + partidosCuadroTemp[2].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[2].getEquipo2().getNombre() + ": " + partidosCuadroTemp[2].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[3].getEquipo1().getNombre() + ": " + partidosCuadroTemp[3].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[3].getEquipo2().getNombre() + ": " + partidosCuadroTemp[3].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[4].getEquipo1().getNombre() + ": " + partidosCuadroTemp[4].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[4].getEquipo2().getNombre() + ": " + partidosCuadroTemp[4].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[5].getEquipo1().getNombre() + ": " + partidosCuadroTemp[5].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[5].getEquipo2().getNombre() + ": " + partidosCuadroTemp[5].getPuntajeEquipo2());
-    		
-    		
+
     		break;
     		
     	case 1:
@@ -634,27 +612,6 @@ public class Resultados {
       	    new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[5].getEquipo1().getNombre(),partidosCuadroTemp[5].getEquipo2().getNombre(),
       	    partidosCuadroTemp[5].getEquipoGanador().getNombre(),partidosCuadroTemp[5].getEquipoPerdedor().getNombre(),
       	    partidosCuadroTemp[5].getPuntajeEquipo1(), partidosCuadroTemp[5].getPuntajeEquipo2(), cuadro, nombreMundial);
-    		
-    		//-------------------Testing
-        	System.out.println();
-        	System.out.println();
-    		System.out.println(partidosCuadroTemp[0].getEquipo1().getNombre() + ": " + partidosCuadroTemp[0].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[0].getEquipo2().getNombre() + ": " + partidosCuadroTemp[0].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[1].getEquipo1().getNombre() + ": " + partidosCuadroTemp[1].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[1].getEquipo2().getNombre() + ": " + partidosCuadroTemp[1].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[2].getEquipo1().getNombre() + ": " + partidosCuadroTemp[2].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[2].getEquipo2().getNombre() + ": " + partidosCuadroTemp[2].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[3].getEquipo1().getNombre() + ": " + partidosCuadroTemp[3].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[3].getEquipo2().getNombre() + ": " + partidosCuadroTemp[3].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[4].getEquipo1().getNombre() + ": " + partidosCuadroTemp[4].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[4].getEquipo2().getNombre() + ": " + partidosCuadroTemp[4].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[5].getEquipo1().getNombre() + ": " + partidosCuadroTemp[5].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[5].getEquipo2().getNombre() + ": " + partidosCuadroTemp[5].getPuntajeEquipo2());
 
     		break;
     		
@@ -690,27 +647,6 @@ public class Resultados {
       	    new MultiPartidos().crearPrimeraFase(partidosCuadroTemp[5].getEquipo1().getNombre(),partidosCuadroTemp[5].getEquipo2().getNombre(),
       	    partidosCuadroTemp[5].getEquipoGanador().getNombre(),partidosCuadroTemp[5].getEquipoPerdedor().getNombre(),
       	    partidosCuadroTemp[5].getPuntajeEquipo1(), partidosCuadroTemp[5].getPuntajeEquipo2(), cuadro, nombreMundial);
-    		
-    		//-------------------Testing
-        	System.out.println();
-        	System.out.println();
-    		System.out.println(partidosCuadroTemp[0].getEquipo1().getNombre() + ": " + partidosCuadroTemp[0].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[0].getEquipo2().getNombre() + ": " + partidosCuadroTemp[0].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[1].getEquipo1().getNombre() + ": " + partidosCuadroTemp[1].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[1].getEquipo2().getNombre() + ": " + partidosCuadroTemp[1].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[2].getEquipo1().getNombre() + ": " + partidosCuadroTemp[2].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[2].getEquipo2().getNombre() + ": " + partidosCuadroTemp[2].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[3].getEquipo1().getNombre() + ": " + partidosCuadroTemp[3].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[3].getEquipo2().getNombre() + ": " + partidosCuadroTemp[3].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[4].getEquipo1().getNombre() + ": " + partidosCuadroTemp[4].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[4].getEquipo2().getNombre() + ": " + partidosCuadroTemp[4].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[5].getEquipo1().getNombre() + ": " + partidosCuadroTemp[5].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[5].getEquipo2().getNombre() + ": " + partidosCuadroTemp[5].getPuntajeEquipo2());
 
     		break;
     		
@@ -747,26 +683,6 @@ public class Resultados {
       	    partidosCuadroTemp[5].getEquipoGanador().getNombre(),partidosCuadroTemp[5].getEquipoPerdedor().getNombre(),
       	    partidosCuadroTemp[5].getPuntajeEquipo1(), partidosCuadroTemp[5].getPuntajeEquipo2(), cuadro, nombreMundial);
     		
-    		//-------------------Testing
-    		
-    		System.out.println(partidosCuadroTemp[0].getEquipo1().getNombre() + ": " + partidosCuadroTemp[0].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[0].getEquipo2().getNombre() + ": " + partidosCuadroTemp[0].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[1].getEquipo1().getNombre() + ": " + partidosCuadroTemp[1].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[1].getEquipo2().getNombre() + ": " + partidosCuadroTemp[1].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[2].getEquipo1().getNombre() + ": " + partidosCuadroTemp[2].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[2].getEquipo2().getNombre() + ": " + partidosCuadroTemp[2].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[3].getEquipo1().getNombre() + ": " + partidosCuadroTemp[3].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[3].getEquipo2().getNombre() + ": " + partidosCuadroTemp[3].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[4].getEquipo1().getNombre() + ": " + partidosCuadroTemp[4].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[4].getEquipo2().getNombre() + ": " + partidosCuadroTemp[4].getPuntajeEquipo2());
-    		
-    		System.out.println(partidosCuadroTemp[5].getEquipo1().getNombre() + ": " + partidosCuadroTemp[5].getPuntajeEquipo1() + 
-    				" " + partidosCuadroTemp[5].getEquipo2().getNombre() + ": " + partidosCuadroTemp[5].getPuntajeEquipo2());
-
     		break;    	
     	
     	}
@@ -964,32 +880,37 @@ public class Resultados {
     	partidosOctavosFinalTemp[7] = new Partido(ganadores7[1], ganadores8[0]);
     	
     	
-		//-------------------Testing
-    	System.out.println();
-    	System.out.println();
-		System.out.println(partidosOctavosFinalTemp[0].getEquipo1().getNombre() + ": " + partidosOctavosFinalTemp[0].getPuntajeEquipo1() + 
-				" " + partidosOctavosFinalTemp[0].getEquipo2().getNombre() + ": " + partidosOctavosFinalTemp[0].getPuntajeEquipo2());
+		new MultiPartidos().crearSegundaFase(partidosOctavosFinalTemp[0].getEquipo1().getNombre(),partidosOctavosFinalTemp[0].getEquipo2().getNombre(),
+				partidosOctavosFinalTemp[0].getEquipoGanador().getNombre(),partidosOctavosFinalTemp[0].getEquipoPerdedor().getNombre(),
+				partidosOctavosFinalTemp[0].getPuntajeEquipo1(), partidosOctavosFinalTemp[0].getPuntajeEquipo2(),8, nombreMundial);
 		
-		System.out.println(partidosOctavosFinalTemp[1].getEquipo1().getNombre() + ": " + partidosOctavosFinalTemp[1].getPuntajeEquipo1() + 
-				" " + partidosOctavosFinalTemp[1].getEquipo2().getNombre() + ": " + partidosOctavosFinalTemp[1].getPuntajeEquipo2());
+		new MultiPartidos().crearSegundaFase(partidosOctavosFinalTemp[1].getEquipo1().getNombre(),partidosOctavosFinalTemp[1].getEquipo2().getNombre(),
+				partidosOctavosFinalTemp[1].getEquipoGanador().getNombre(),partidosOctavosFinalTemp[1].getEquipoPerdedor().getNombre(),
+				partidosOctavosFinalTemp[1].getPuntajeEquipo1(), partidosOctavosFinalTemp[1].getPuntajeEquipo2(), 8, nombreMundial);
 		
-		System.out.println(partidosOctavosFinalTemp[2].getEquipo1().getNombre() + ": " + partidosOctavosFinalTemp[2].getPuntajeEquipo1() + 
-				" " + partidosOctavosFinalTemp[2].getEquipo2().getNombre() + ": " + partidosOctavosFinalTemp[2].getPuntajeEquipo2());
+		new MultiPartidos().crearSegundaFase(partidosOctavosFinalTemp[2].getEquipo1().getNombre(),partidosOctavosFinalTemp[2].getEquipo2().getNombre(),
+				partidosOctavosFinalTemp[2].getEquipoGanador().getNombre(),partidosOctavosFinalTemp[2].getEquipoPerdedor().getNombre(),
+				partidosOctavosFinalTemp[2].getPuntajeEquipo1(), partidosOctavosFinalTemp[2].getPuntajeEquipo2(), 8, nombreMundial);
 		
-		System.out.println(partidosOctavosFinalTemp[3].getEquipo1().getNombre() + ": " + partidosOctavosFinalTemp[3].getPuntajeEquipo1() + 
-				" " + partidosOctavosFinalTemp[3].getEquipo2().getNombre() + ": " + partidosOctavosFinalTemp[3].getPuntajeEquipo2());
-		
-		System.out.println(partidosOctavosFinalTemp[4].getEquipo1().getNombre() + ": " + partidosOctavosFinalTemp[4].getPuntajeEquipo1() + 
-				" " + partidosOctavosFinalTemp[4].getEquipo2().getNombre() + ": " + partidosOctavosFinalTemp[4].getPuntajeEquipo2());
-		
-		System.out.println(partidosOctavosFinalTemp[5].getEquipo1().getNombre() + ": " + partidosOctavosFinalTemp[5].getPuntajeEquipo1() + 
-				" " + partidosOctavosFinalTemp[5].getEquipo2().getNombre() + ": " + partidosOctavosFinalTemp[5].getPuntajeEquipo2());
-		
-		System.out.println(partidosOctavosFinalTemp[6].getEquipo1().getNombre() + ": " + partidosOctavosFinalTemp[6].getPuntajeEquipo1() + 
-				" " + partidosOctavosFinalTemp[6].getEquipo2().getNombre() + ": " + partidosOctavosFinalTemp[6].getPuntajeEquipo2());
-		
-		System.out.println(partidosOctavosFinalTemp[7].getEquipo1().getNombre() + ": " + partidosOctavosFinalTemp[7].getPuntajeEquipo1() + 
-				" " + partidosOctavosFinalTemp[7].getEquipo2().getNombre() + ": " + partidosOctavosFinalTemp[7].getPuntajeEquipo2());
+  		new MultiPartidos().crearSegundaFase(partidosOctavosFinalTemp[3].getEquipo1().getNombre(),partidosOctavosFinalTemp[3].getEquipo2().getNombre(),
+  				partidosOctavosFinalTemp[3].getEquipoGanador().getNombre(),partidosOctavosFinalTemp[3].getEquipoPerdedor().getNombre(),
+  				partidosOctavosFinalTemp[3].getPuntajeEquipo1(), partidosOctavosFinalTemp[3].getPuntajeEquipo2(), 8, nombreMundial);
+  	    		
+  	    new MultiPartidos().crearSegundaFase(partidosOctavosFinalTemp[4].getEquipo1().getNombre(),partidosOctavosFinalTemp[4].getEquipo2().getNombre(),
+  	    		partidosOctavosFinalTemp[4].getEquipoGanador().getNombre(),partidosOctavosFinalTemp[4].getEquipoPerdedor().getNombre(),
+  	    		partidosOctavosFinalTemp[4].getPuntajeEquipo1(), partidosOctavosFinalTemp[4].getPuntajeEquipo2(), 8, nombreMundial);
+  	    		
+  	    new MultiPartidos().crearSegundaFase(partidosOctavosFinalTemp[5].getEquipo1().getNombre(),partidosOctavosFinalTemp[5].getEquipo2().getNombre(),
+  	    		partidosOctavosFinalTemp[5].getEquipoGanador().getNombre(),partidosOctavosFinalTemp[5].getEquipoPerdedor().getNombre(),
+  	    		partidosOctavosFinalTemp[5].getPuntajeEquipo1(), partidosOctavosFinalTemp[5].getPuntajeEquipo2(), 8, nombreMundial);
+  	    
+ 	    new MultiPartidos().crearSegundaFase(partidosOctavosFinalTemp[6].getEquipo1().getNombre(),partidosOctavosFinalTemp[6].getEquipo2().getNombre(),
+  	    		partidosOctavosFinalTemp[6].getEquipoGanador().getNombre(),partidosOctavosFinalTemp[6].getEquipoPerdedor().getNombre(),
+  	    		partidosOctavosFinalTemp[6].getPuntajeEquipo1(), partidosOctavosFinalTemp[6].getPuntajeEquipo2(), 8, nombreMundial);
+  	    		
+  	    new MultiPartidos().crearSegundaFase(partidosOctavosFinalTemp[7].getEquipo1().getNombre(),partidosOctavosFinalTemp[7].getEquipo2().getNombre(),
+  	    		partidosOctavosFinalTemp[7].getEquipoGanador().getNombre(),partidosOctavosFinalTemp[7].getEquipoPerdedor().getNombre(),
+  	    		partidosOctavosFinalTemp[7].getPuntajeEquipo1(), partidosOctavosFinalTemp[7].getPuntajeEquipo2(), 8, nombreMundial);
     	
     	
     	return partidosOctavosFinalTemp;
@@ -1006,21 +927,22 @@ public class Resultados {
     	partidosCuartosFinalTemp[2] = new Partido(ganadores[4], ganadores[5]);
     	partidosCuartosFinalTemp[3] = new Partido(ganadores[6], ganadores[7]);
     	
-		//-------------------Testing
-    	System.out.println();
-    	System.out.println();
-		System.out.println(partidosCuartosFinalTemp[0].getEquipo1().getNombre() + ": " + partidosCuartosFinalTemp[0].getPuntajeEquipo1() + 
-				" " + partidosCuartosFinalTemp[0].getEquipo2().getNombre() + ": " + partidosCuartosFinalTemp[0].getPuntajeEquipo2());
+		new MultiPartidos().crearSegundaFase(partidosCuartosFinalTemp[0].getEquipo1().getNombre(),partidosCuartosFinalTemp[0].getEquipo2().getNombre(),
+				partidosCuartosFinalTemp[0].getEquipoGanador().getNombre(),partidosCuartosFinalTemp[0].getEquipoPerdedor().getNombre(),
+				partidosCuartosFinalTemp[0].getPuntajeEquipo1(), partidosCuartosFinalTemp[0].getPuntajeEquipo2(),4, nombreMundial);
 		
-		System.out.println(partidosCuartosFinalTemp[1].getEquipo1().getNombre() + ": " + partidosCuartosFinalTemp[1].getPuntajeEquipo1() + 
-				" " + partidosCuartosFinalTemp[1].getEquipo2().getNombre() + ": " + partidosCuartosFinalTemp[1].getPuntajeEquipo2());
+		new MultiPartidos().crearSegundaFase(partidosCuartosFinalTemp[1].getEquipo1().getNombre(),partidosCuartosFinalTemp[1].getEquipo2().getNombre(),
+				partidosCuartosFinalTemp[1].getEquipoGanador().getNombre(),partidosCuartosFinalTemp[1].getEquipoPerdedor().getNombre(),
+				partidosCuartosFinalTemp[1].getPuntajeEquipo1(), partidosCuartosFinalTemp[1].getPuntajeEquipo2(), 4, nombreMundial);
 		
-		System.out.println(partidosCuartosFinalTemp[2].getEquipo1().getNombre() + ": " + partidosCuartosFinalTemp[2].getPuntajeEquipo1() + 
-				" " + partidosCuartosFinalTemp[2].getEquipo2().getNombre() + ": " + partidosCuartosFinalTemp[2].getPuntajeEquipo2());
+		new MultiPartidos().crearSegundaFase(partidosCuartosFinalTemp[2].getEquipo1().getNombre(),partidosCuartosFinalTemp[2].getEquipo2().getNombre(),
+				partidosCuartosFinalTemp[2].getEquipoGanador().getNombre(),partidosCuartosFinalTemp[2].getEquipoPerdedor().getNombre(),
+				partidosCuartosFinalTemp[2].getPuntajeEquipo1(), partidosCuartosFinalTemp[2].getPuntajeEquipo2(), 4, nombreMundial);
 		
-		System.out.println(partidosCuartosFinalTemp[3].getEquipo1().getNombre() + ": " + partidosCuartosFinalTemp[3].getPuntajeEquipo1() + 
-				" " + partidosCuartosFinalTemp[3].getEquipo2().getNombre() + ": " + partidosCuartosFinalTemp[3].getPuntajeEquipo2());
-
+  		new MultiPartidos().crearSegundaFase(partidosCuartosFinalTemp[3].getEquipo1().getNombre(),partidosCuartosFinalTemp[3].getEquipo2().getNombre(),
+  				partidosCuartosFinalTemp[3].getEquipoGanador().getNombre(),partidosCuartosFinalTemp[3].getEquipoPerdedor().getNombre(),
+  				partidosCuartosFinalTemp[3].getPuntajeEquipo1(), partidosCuartosFinalTemp[3].getPuntajeEquipo2(), 4, nombreMundial);
+    	
     	return partidosCuartosFinalTemp;
     	
     }
@@ -1062,15 +984,13 @@ public class Resultados {
     	semifinales[0] = new Partido(ganadoresCuartosFinal[0], ganadoresCuartosFinal[1]);
     	semifinales[1] = new Partido(ganadoresCuartosFinal[2], ganadoresCuartosFinal[3]);
     	
-		//-------------------Testing
-    	System.out.println();
-    	System.out.println();
-		System.out.println(semifinales[0].getEquipo1().getNombre() + ": " + semifinales[0].getPuntajeEquipo1() + 
-				" " + semifinales[0].getEquipo2().getNombre() + ": " + semifinales[0].getPuntajeEquipo2());
+		new MultiPartidos().crearSegundaFase(semifinales[0].getEquipo1().getNombre(),semifinales[0].getEquipo2().getNombre(),
+				semifinales[0].getEquipoGanador().getNombre(),semifinales[0].getEquipoPerdedor().getNombre(),
+				semifinales[0].getPuntajeEquipo1(), semifinales[0].getPuntajeEquipo2(),2, nombreMundial);
 		
-		System.out.println(semifinales[1].getEquipo1().getNombre() + ": " + semifinales[1].getPuntajeEquipo1() + 
-				" " + semifinales[1].getEquipo2().getNombre() + ": " + semifinales[1].getPuntajeEquipo2());
-    	
+		new MultiPartidos().crearSegundaFase(semifinales[1].getEquipo1().getNombre(),semifinales[1].getEquipo2().getNombre(),
+				semifinales[1].getEquipoGanador().getNombre(),semifinales[1].getEquipoPerdedor().getNombre(),
+				semifinales[1].getPuntajeEquipo1(), semifinales[1].getPuntajeEquipo2(), 2, nombreMundial);
     	
     	return semifinales;
     }
@@ -1084,14 +1004,13 @@ public class Resultados {
     	finales[0] = new Partido(partido[0].getEquipoGanador(), partido[1].getEquipoGanador());
     	finales[1] = new Partido(partido[0].getEquipoPerdedor(), partido[1].getEquipoPerdedor());
   	
-		//-------------------Testing
-    	System.out.println();
-    	System.out.println();
-		System.out.println(finales[0].getEquipo1().getNombre() + ": " + finales[0].getPuntajeEquipo1() + 
-				" " + finales[0].getEquipo2().getNombre() + ": " + finales[0].getPuntajeEquipo2());
+		new MultiPartidos().crearSegundaFase(finales[0].getEquipo1().getNombre(),finales[0].getEquipo2().getNombre(),
+				finales[0].getEquipoGanador().getNombre(),finales[0].getEquipoPerdedor().getNombre(),
+				finales[0].getPuntajeEquipo1(), finales[0].getPuntajeEquipo2(),1, nombreMundial);
 		
-		System.out.println(finales[1].getEquipo1().getNombre() + ": " + finales[1].getPuntajeEquipo1() + 
-				" " + finales[1].getEquipo2().getNombre() + ": " + finales[1].getPuntajeEquipo2());
+		new MultiPartidos().crearSegundaFase(finales[1].getEquipo1().getNombre(),finales[1].getEquipo2().getNombre(),
+				finales[1].getEquipoGanador().getNombre(),finales[1].getEquipoPerdedor().getNombre(),
+				finales[1].getPuntajeEquipo1(), finales[1].getPuntajeEquipo2(), 1, nombreMundial);
     	
     	
     	System.out.println();

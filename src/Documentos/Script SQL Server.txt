@@ -6,6 +6,10 @@ select * from LigasPublicas
 select * from LigasPrivadas
 select * from CuadrosPrimeraFase
 select * from PartidosPrimeraFase
+select * from GanadoresPrimeraFase
+
+
+//--------------------------------------------------------------------------------------------------------------------------
 
 
 delete from Usuarios
@@ -15,6 +19,9 @@ delete from LigasPublicas
 delete from LigasPrivadas
 delete from CuadrosPrimeraFase
 delete from PartidosPrimeraFase
+delete from GanadoresPrimeraFase
+
+//--------------------------------------------------------------------------------------------------------------------------
 
 insert INTO Usuarios(nombre, apellido,nombreUsuario, avatar, correoElectronico, FechaRegistro, contrasena, Perfiles)
 Values ('Admin','Proyecto','a','Mr.Admi','admin@POO.com','2018-08-18','123456','ADMIN')
@@ -24,6 +31,8 @@ Values ('Jugador','Proyecto','j','Mr.Jugador','jugador@POO.com','2018-08-18','12
 
 insert INTO Usuarios(nombre, apellido,nombreUsuario, avatar, correoElectronico, FechaRegistro, contrasena, Perfiles)
 Values ('Observador','Proyecto','o','Mr.Observador','observador@POO.com','2018-08-18','123456','VIEWER')
+
+//--------------------------------------------------------------------------------------------------------------------------
 
 
 insert INTO Equipos(nombre, ranking, bandera, iso)
