@@ -2,6 +2,7 @@ package cl;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.SQLException;
 import java.time.*;
 import java.util.*;
 
@@ -103,8 +104,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 /**
  * Este metodo contiene los botones principales de la pantalla del Admin.
  * @param miUsuario
+ * @throws Exception 
+ * @throws SQLException 
  */
-	public MenuAdministrador(Usuario miUsuario) {
+	public MenuAdministrador(Usuario miUsuario) throws SQLException, Exception {
 
 		this.miUsuario = miUsuario;
 		ingresarComboBox();
@@ -290,7 +293,14 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 			} else {
 
-				boolean b = controlador.validarLigaMundial((String) paisesOrganizadores.getSelectedItem());
+				boolean b = false;
+				
+				try {
+					b = controlador.validarLigaMundial((String) paisesOrganizadores.getSelectedItem());
+				} catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}
 
 				if (b == false) {
 
@@ -330,7 +340,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 			desabilitarMenu();
 			registrarLigaPublicas();
-			ingresarComboBox();
+			try {
+				ingresarComboBox();
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 
 		}
 
@@ -344,8 +359,14 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 			else {
 
-				boolean b = controlador
-						.validarMundial(Gestor.retornarMundial((String) MundialAnfitrion.getSelectedItem()));
+				boolean b = false;
+				try {
+					b = controlador
+							.validarMundial(Gestor.retornarMundial((String) MundialAnfitrion.getSelectedItem()));
+				} catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}
 
 				if (b == false) {
 
@@ -398,7 +419,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 			desabilitarMenu();
 			registrarLigaPrivadas();
-			ingresarComboBox();
+			try {
+				ingresarComboBox();
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 
 		}
 
@@ -412,8 +438,14 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 			else {
 
-				boolean b = controlador
-						.validarMundial(Gestor.retornarMundial((String) MundialAnfitrion.getSelectedItem()));
+				boolean b = false;
+				try {
+					b = controlador
+							.validarMundial(Gestor.retornarMundial((String) MundialAnfitrion.getSelectedItem()));
+				} catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}
 
 				if (b == false) {
 
@@ -437,7 +469,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		if (e.getSource() == btnIncJugLigaPrivada) {
 
-			ingresarComboBox();
+			try {
+				ingresarComboBox();
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 
 			this.add(labelNombreUsuario);
 			labelNombreUsuario.setForeground(Color.WHITE);
@@ -708,7 +745,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	// -------------------------------------------------------------------------------------------------
 
-	public void ingresarComboBox() {
+	public void ingresarComboBox() throws SQLException, Exception {
 
 		ingresarPaises();
 		ingresarMundiales();
@@ -750,7 +787,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	}
 
-	public void ingresarMundiales() {//ingreso de los mundiales
+	public void ingresarMundiales() throws SQLException, Exception {//ingreso de los mundiales
 
 		ArrayList<Mundiales> listaTemporal = Gestor.retornarMundialesRegistrados();
 

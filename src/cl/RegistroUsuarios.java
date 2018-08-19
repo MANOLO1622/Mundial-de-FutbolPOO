@@ -134,8 +134,14 @@ public class RegistroUsuarios extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {//Validaciones de los campos del registrar usuarios
 
-		int validacion = controlador.validarUsuario(nombreUsuarioTXT.getText(), contrasenaTXT.getText(),
-				avatarTXT.getText(), 1);
+		int validacion = 0;
+		try {
+			validacion = controlador.validarUsuario(nombreUsuarioTXT.getText(), contrasenaTXT.getText(),
+					avatarTXT.getText(), 1);
+		} catch (Exception e1) {
+			
+			e1.printStackTrace();
+		}
 
 		if (e.getSource() == btnRegistro) {
 
@@ -163,10 +169,20 @@ public class RegistroUsuarios extends JPanel implements ActionListener {
 					if (validacion == 0) {
 
 						this.setBackground(Color.GREEN);
-						controlador.registrarUsuario(nombreTXT.getText(), apellidoTXT.getText(),
-								nombreUsuarioTXT.getText(), contrasenaTXT.getText(), avatarTXT.getText(),
-								correoTXT.getText(), 2);
-						controlador.listarUsuarios();
+						try {
+							controlador.registrarUsuario(nombreTXT.getText(), apellidoTXT.getText(),
+									nombreUsuarioTXT.getText(), contrasenaTXT.getText(), avatarTXT.getText(),
+									correoTXT.getText(), 2);
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
+						try {
+							controlador.listarUsuarios();
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
 						JOptionPane.showMessageDialog(null, "Usuario registrado.");
 
 						nombreTXT.setText("");

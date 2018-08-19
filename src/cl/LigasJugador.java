@@ -3,6 +3,7 @@ package cl;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -122,8 +123,10 @@ public class LigasJugador extends JPanel implements ActionListener{
 /**
  * Metodo que retorna en arraylist la lista de los equipos del jugador
  * @param miUsuarioActual
+ * @throws Exception 
+ * @throws SQLException 
  */
-	public LigasJugador(Usuario miUsuarioActual){
+	public LigasJugador(Usuario miUsuarioActual) throws SQLException, Exception{
 		
 		this.miUsuarioActual = Gestor.retornarUsuario(miUsuarioActual.getNombreUsuario());
 		this.setLayout(null);
@@ -333,8 +336,10 @@ public class LigasJugador extends JPanel implements ActionListener{
 	/**
 	 * Inicializacion de los componentes de la liga publica
 	 * y privada
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public void inicializarComponentes() {
+	public void inicializarComponentes() throws SQLException, Exception {
 		
 		
 		CL capaLogica = new CL();

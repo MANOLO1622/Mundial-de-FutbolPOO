@@ -716,7 +716,12 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 			
 			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 			Ventana ventMenuJugador = new Ventana(this.miUsuario);
-			ventMenuJugador.ventanaMenuUsuarios(this.miUsuario.getTipoUsuario(2), ventMenuJugador);
+			try {
+				ventMenuJugador.ventanaMenuUsuarios(this.miUsuario.getTipoUsuario(2), ventMenuJugador);
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			
 		}
 		

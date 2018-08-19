@@ -1,6 +1,7 @@
 package gestor;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,9 +32,11 @@ public class Gestor {
 	 * @param avatar
 	 * @param correoElectronico
 	 * @param tipoUsuario
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
 	public void registrarUsuario(String nombre, String apellido, String nombreUsuario, String contrasena, String avatar,
-			String correoElectronico, int tipoUsuario) {
+			String correoElectronico, int tipoUsuario) throws SQLException, Exception {
 
 		Usuario registro = new Usuario(nombre, apellido, nombreUsuario, contrasena, avatar, correoElectronico,
 				tipoUsuario);
@@ -98,8 +101,10 @@ public class Gestor {
 	// ----------------------------------------------------------LISTAR-----------------------------------------------------------------------------
 	/**
 	 * Este es el metodo para listar los usuarios
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public void listarUsuarios() {
+	public void listarUsuarios() throws SQLException, Exception {
 
 		ArrayList<Usuario> listaImpresion = CL.listarUsuarios();
 
@@ -117,8 +122,10 @@ public class Gestor {
 
 	/**
 	 * Este es el metodo para listar los equiposFIFA
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public void listarEquiposFIFA() {
+	public void listarEquiposFIFA() throws SQLException, Exception {
 		// jue
 		ArrayList<Equipo> listaImpresion = CL.listarEquiposFIFA();
 
@@ -136,8 +143,10 @@ public class Gestor {
 	
 	/**
 	 * Este es el metodo para listar los Mundiales
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public void listarMundiales() {
+	public void listarMundiales() throws SQLException, Exception {
 
 		ArrayList<Mundiales> listaImpresion = CL.listaMundiales();
 
@@ -200,8 +209,10 @@ public class Gestor {
 	 * @param avatarLectura
 	 * @param eleccion
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public int validarUsuario(String nombreLectura, String contrasenaLectura, String avatarLectura, int eleccion) {
+	public int validarUsuario(String nombreLectura, String contrasenaLectura, String avatarLectura, int eleccion) throws SQLException, Exception {
 		int comprobante = 0;
 		int comprobanteNombreUsuario = 0;
 		int posicion = -1;
@@ -293,8 +304,10 @@ public class Gestor {
 	 * @param nombreUsuario
 	 * @param contrasena
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public Perfiles retornarTipoUsuario(String nombreUsuario, String contrasena) {
+	public Perfiles retornarTipoUsuario(String nombreUsuario, String contrasena) throws SQLException, Exception {
 
 		Perfiles tipoPerfil = Perfiles.VIEWER;
 		ArrayList<Usuario> listaUsuariosRegistrados = CL.listarUsuarios();
@@ -324,8 +337,10 @@ public class Gestor {
 	/**
 	 * Guarda en arraylist los mundiales registrados
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static ArrayList<Mundiales> retornarMundialesRegistrados() {
+	public static ArrayList<Mundiales> retornarMundialesRegistrados() throws SQLException, Exception {
 
 		ArrayList<Mundiales> listaMundialesRegistrados = CL.retornarMundialesRegistrados();
 
@@ -403,8 +418,10 @@ public class Gestor {
 	 * @param banderaLectura
 	 * @param ISOPaisesLectura
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public int validarEquipo(String nombreLectura, int ranking, String banderaLectura, String ISOPaisesLectura) {
+	public int validarEquipo(String nombreLectura, int ranking, String banderaLectura, String ISOPaisesLectura) throws SQLException, Exception {
 		/*
 		 * int comprobante = 0; int comprobanteNombreEquipo = 0; int posicion = -1;
 		 * String validador = "";
@@ -460,12 +477,16 @@ public class Gestor {
 		return bandera;
 	}
 
-
-	/*public static Usuario retornarUsuario(String nombreUsuario) {/// ESTO ME SIRVE
+	/**
+	 * Retorna el usuario solicitado, en caso de que se encuentre en la base de datos, comunmente se usa este metodo para actualizar.
+	 * @param nombreUsuario
+	 * @return
+	 */
+	public static Usuario retornarUsuario(String nombreUsuario) {
 
 		Usuario temp = CL.retornarUsuario(nombreUsuario);
 		return temp;
-	}*/
+	}
 
 	/**
 	 * Retorna el nombre del equipo
@@ -559,8 +580,10 @@ public class Gestor {
 	 * valida el nombre del Pais Organizador
 	 * @param paisOrganizador
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public boolean validarLigaMundial(String paisOrganizador) {
+	public boolean validarLigaMundial(String paisOrganizador) throws SQLException, Exception {
 
 		ArrayList<Mundiales> listaMundiales = CL.listaMundiales();
 
@@ -578,8 +601,10 @@ public class Gestor {
 	 * valida el nombre del mundial anfitrion
 	 * @param mundialAnfitrion
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public boolean validarMundial(Mundiales mundialAnfitrion) {
+	public boolean validarMundial(Mundiales mundialAnfitrion) throws SQLException, Exception {
 
 		ArrayList<Mundiales> listaMundiales = CL.retornarMundialesRegistrados();
 		boolean buscar = false;

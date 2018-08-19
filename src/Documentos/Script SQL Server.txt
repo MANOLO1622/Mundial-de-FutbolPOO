@@ -1,14 +1,20 @@
-select * from Mundiales
+
 select * from Usuarios
 select * from Equipos
+select * from Mundiales
 select * from LigasPublicas
 select * from LigasPrivadas
+select * from CuadrosPrimeraFase
+select * from PartidosPrimeraFase
 
-delete from Mundiales
+
 delete from Usuarios
 delete from Equipos
+delete from Mundiales
 delete from LigasPublicas
 delete from LigasPrivadas
+delete from CuadrosPrimeraFase
+delete from PartidosPrimeraFase
 
 insert INTO Usuarios(nombre, apellido,nombreUsuario, avatar, correoElectronico, FechaRegistro, contrasena, Perfiles)
 Values ('Admin','Proyecto','a','Mr.Admi','admin@POO.com','2018-08-18','123456','ADMIN')
