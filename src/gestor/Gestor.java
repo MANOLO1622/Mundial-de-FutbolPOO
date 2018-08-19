@@ -1,6 +1,7 @@
 package gestor;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -136,8 +137,10 @@ public class Gestor {
 	
 	/**
 	 * Este es el metodo para listar los Mundiales
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public void listarMundiales() {
+	public void listarMundiales() throws SQLException, Exception {
 
 		ArrayList<Mundiales> listaImpresion = CL.listaMundiales();
 
@@ -324,8 +327,10 @@ public class Gestor {
 	/**
 	 * Guarda en arraylist los mundiales registrados
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static ArrayList<Mundiales> retornarMundialesRegistrados() {
+	public static ArrayList<Mundiales> retornarMundialesRegistrados() throws SQLException, Exception {
 
 		ArrayList<Mundiales> listaMundialesRegistrados = CL.retornarMundialesRegistrados();
 
@@ -460,12 +465,16 @@ public class Gestor {
 		return bandera;
 	}
 
-
-	/*public static Usuario retornarUsuario(String nombreUsuario) {/// ESTO ME SIRVE
+	/**
+	 * Retorna el usuario solicitado, en caso de que se encuentre en la base de datos, comunmente se usa este metodo para actualizar.
+	 * @param nombreUsuario
+	 * @return
+	 */
+	public static Usuario retornarUsuario(String nombreUsuario) {
 
 		Usuario temp = CL.retornarUsuario(nombreUsuario);
 		return temp;
-	}*/
+	}
 
 	/**
 	 * Retorna el nombre del equipo
@@ -559,8 +568,10 @@ public class Gestor {
 	 * valida el nombre del Pais Organizador
 	 * @param paisOrganizador
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public boolean validarLigaMundial(String paisOrganizador) {
+	public boolean validarLigaMundial(String paisOrganizador) throws SQLException, Exception {
 
 		ArrayList<Mundiales> listaMundiales = CL.listaMundiales();
 
@@ -578,8 +589,10 @@ public class Gestor {
 	 * valida el nombre del mundial anfitrion
 	 * @param mundialAnfitrion
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public boolean validarMundial(Mundiales mundialAnfitrion) {
+	public boolean validarMundial(Mundiales mundialAnfitrion) throws SQLException, Exception {
 
 		ArrayList<Mundiales> listaMundiales = CL.retornarMundialesRegistrados();
 		boolean buscar = false;

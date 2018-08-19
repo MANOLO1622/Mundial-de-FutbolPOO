@@ -120,9 +120,11 @@ public class CL {
 		
 	}
 	
-	public static ArrayList<Mundiales> listaMundiales() {
+	public static ArrayList<Mundiales> listaMundiales() throws SQLException, Exception {
 		
-		return listaMundiales;
+		
+		return new MultiMundiales().retornarMundiales();
+//		return listaMundiales;
 		
 	}
 	
@@ -221,9 +223,10 @@ public class CL {
 	
 	
 	
-	public static ArrayList<Mundiales> retornarMundialesRegistrados(){
+	public static ArrayList<Mundiales> retornarMundialesRegistrados() throws SQLException, Exception{
 		
-		return listaMundiales;
+		return new MultiMundiales().retornarMundiales();
+//		return listaMundiales;
 		
 	}
 	

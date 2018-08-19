@@ -2,6 +2,7 @@ package multis;
 
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 
 import accesoDatos.Conector;
@@ -50,9 +51,9 @@ public class MultiMundiales {
 		return Mundiales;
 	}
 
-	public void actualizar(Mundiales pMundiales) throws java.sql.SQLException, Exception {
+	public void actualizar(Mundiales Mundiales) throws java.sql.SQLException, Exception {
 		String sql;
-		sql = "UPDATE Mundiales " + "SET nombreMundial='" + pMundiales.getNombreMundial() + "';";
+		sql = "UPDATE Mundiales " + "SET nombreMundial='" + Mundiales.getNombreMundial() + "';";
 		try {
 			
 
@@ -72,19 +73,61 @@ public class MultiMundiales {
 		}
 	}
 
-	/*public String listarMundiales() throws java.sql.SQLException, Exception {
-		String sql, lista = "";
-		sql = "SELECT * FROM Mundiales";
-		try {
-			ResultSet rs = null;
-			rs = Conector.getConector().ejecutarSQL(sql, true);
-			while (rs.next()) {
-				lista += "NombreMundial: " + rs.getString("nombreMundial") + ", Ano: " + rs.getString("ano") + ", PaisOrganizador: "
-						+ rs.getString("paisOrganizador") + ", Estado: " + rs.getBoolean("estado");
-			}
-		} catch (Exception e) {
-			System.out.println("ERROR NO ESTA LISTANDO " + e.toString());  Esta comentado pero hay que usarlo
+
+	//-----------------------------------------------------------------------------------------------------
+
+	public  ArrayList<Mundiales> retornarMundiales() throws java.sql.SQLException,Exception{
+		
+		Mundiales mundialTemp=null;
+		ArrayList<Mundiales> listaMundiales = new ArrayList<>();
+		
+		
+		java.sql.ResultSet rs;
+		
+		String sql;
+		sql = "SELECT * "+
+		"FROM Mundiales;";
+		
+		rs = Conector.getConector().ejecutarSQL(sql,true);
+		if (rs.next() == true) {
+			do {
+				
+				int agno = (rs.getString("fechaInicio").charAt(0) + rs.getString("fechaInicio").charAt(1) + rs.getString("fechaInicio").charAt(2)
+						+ rs.getString("fechaInicio").charAt(3));
+				int mes = (rs.getString("fechaInicio").charAt(8) + rs.getString("fechaInicio").charAt(9));
+				int dia = (rs.getString("fechaInicio").charAt(5) + rs.getString("fechaInicio").charAt(6));
+				
+				LocalDate fechaInicio;
+				
+				try {
+					
+					fechaInicio = LocalDate.of(agno, mes, dia);
+					
+				}catch(Exception e) {
+					
+					fechaInicio = LocalDate.now();
+					System.out.println(e.getMessage());
+					
+				}
+				
+				
+				mundialTemp = new Mundiales (rs.getString("nombreMundial"), fechaInicio,
+					                         rs.getString("paisOrganizador"), rs.getBoolean("estado"));
+				    
+				listaMundiales.add(mundialTemp);
+				
+			} while (rs.next());
+			
+		} else {
+			
+			System.out.println("No hay mundiales registrados.");
+	
 		}
-		return lista;
-	}*/
+		
+		rs.close();
+		
+		return listaMundiales;
+	}
+	
+	
 }

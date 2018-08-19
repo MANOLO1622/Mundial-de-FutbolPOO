@@ -143,7 +143,12 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 			Ventana ventanaUsuario = new Ventana(controlador.retornarUsuario(this.miUsuario.getNombreUsuario()));
 			Usuario UsuarioActual = controlador.retornarUsuario(this.miUsuario.getNombreUsuario());
 			ventanaUsuario.setUsuarioActual(UsuarioActual);
-			ventanaUsuario.ventanaMenuUsuarios(Perfiles.ADMIN, ventanaUsuario);
+			try {
+				ventanaUsuario.ventanaMenuUsuarios(Perfiles.ADMIN, ventanaUsuario);
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 
 		}
