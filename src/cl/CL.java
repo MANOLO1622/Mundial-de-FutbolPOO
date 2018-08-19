@@ -55,15 +55,12 @@ public class CL {
 	
 	//-------------------------------------------------------------------------------------------------------------
 	
-<<<<<<< HEAD
+
 	/**
 	 * Este metodo ejecuta la lista de los Usuarios ingresados del registrar Usuarios
 	 * @param registro
 	 */
-	public static void registrarUsuario(Usuario registro) {
-=======
 	public static void registrarUsuario(Usuario registro) throws SQLException, Exception {
->>>>>>> branch 'master' of https://github.com/MANOLO1622/Mundial-de-FutbolPOO.git
 		
 //		listaUsuarios.add(registro);
 		
@@ -74,15 +71,11 @@ public class CL {
 		
 	}
 	
-<<<<<<< HEAD
 	/**
 	 * Ejecuta la lista de los usuarios registrados
 	 * @return
 	 */
-	public static ArrayList<Usuario> listarUsuarios() {
-=======
 	public static ArrayList<Usuario> listarUsuarios() throws SQLException, Exception {
->>>>>>> branch 'master' of https://github.com/MANOLO1622/Mundial-de-FutbolPOO.git
 		
 		ingresarUsuarioLista();
 		return listaUsuarios;
@@ -107,15 +100,12 @@ public class CL {
 		
 	}
 	
-<<<<<<< HEAD
+
 	/**
 	 * Retorna la lista de los equipos 
 	 * @return
 	 */
-	public static ArrayList<Equipo> listarEquiposFIFA() {
-=======
 	public static ArrayList<Equipo> listarEquiposFIFA() throws SQLException, Exception {
->>>>>>> branch 'master' of https://github.com/MANOLO1622/Mundial-de-FutbolPOO.git
 		
 		ingresarEquiposLista();
 		return listaEquiposFIFA;
@@ -163,18 +153,14 @@ public class CL {
 		new MultiMundiales().crear(registro.getNombreMundial(), registro.getAno(), registro.getPaisOrganizador(), registro.getEstado());
 		
 	}
+
 	
-<<<<<<< HEAD
 	/**
 	 * Retorna la lista de mundiales registrados.
 	 * @return
 	 */
-	public static ArrayList<Mundiales> listaMundiales() {
-=======
 	public static ArrayList<Mundiales> listaMundiales() throws SQLException, Exception {
->>>>>>> branch 'master' of https://github.com/MANOLO1622/Mundial-de-FutbolPOO.git
-		
-		
+	
 		return new MultiMundiales().retornarMundiales();
 //		return listaMundiales;
 		
@@ -306,16 +292,11 @@ public class CL {
 	}
 	
 	
-<<<<<<< HEAD
 	/**
 	 * Retorna la lista de los mundiales que son almacenados en un arraylist
 	 * @return
 	 */
-	public static ArrayList<Mundiales> retornarMundialesRegistrados(){
-=======
-	
 	public static ArrayList<Mundiales> retornarMundialesRegistrados() throws SQLException, Exception{
->>>>>>> branch 'master' of https://github.com/MANOLO1622/Mundial-de-FutbolPOO.git
 		
 		return new MultiMundiales().retornarMundiales();
 //		return listaMundiales;

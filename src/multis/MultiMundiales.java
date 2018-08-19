@@ -71,7 +71,6 @@ public class MultiMundiales {
 		rs.close();*/
 		return Mundiales;
 	}
-<<<<<<< HEAD
 	
 	/**
 	 * Este es el metodo de modificar el Mundial por su nombre de mundial
@@ -79,11 +78,7 @@ public class MultiMundiales {
 	 * @throws java.sql.SQLException
 	 * @throws Exception
 	 */
-	public void actualizar(Mundiales pMundiales) throws java.sql.SQLException, Exception {
-=======
-
 	public void actualizar(Mundiales Mundiales) throws java.sql.SQLException, Exception {
->>>>>>> branch 'master' of https://github.com/MANOLO1622/Mundial-de-FutbolPOO.git
 		String sql;
 		sql = "UPDATE Mundiales " + "SET nombreMundial='" + Mundiales.getNombreMundial() + "';";
 		try {
@@ -110,23 +105,6 @@ public class MultiMundiales {
 			throw new Exception("El Mundial tiene cuentas.");
 		}
 	}
-
-<<<<<<< HEAD
-	
-
-	/*public String listarMundiales() throws java.sql.SQLException, Exception {
-		String sql, lista = "";
-		sql = "SELECT * FROM Mundiales";
-		try {
-			ResultSet rs = null;
-			rs = Conector.getConector().ejecutarSQL(sql, true);
-			while (rs.next()) {
-				lista += "NombreMundial: " + rs.getString("nombreMundial") + ", Ano: " + rs.getString("ano") + ", PaisOrganizador: "
-						+ rs.getString("paisOrganizador") + ", Estado: " + rs.getBoolean("estado");
-			}
-		} catch (Exception e) {
-			System.out.println("ERROR NO ESTA LISTANDO " + e.toString());  Esta comentado pero hay que usarlo
-=======
 
 	//-----------------------------------------------------------------------------------------------------
 
@@ -175,8 +153,6 @@ public class MultiMundiales {
 		} else {
 			
 			System.out.println("No hay mundiales registrados.");
-	
->>>>>>> branch 'master' of https://github.com/MANOLO1622/Mundial-de-FutbolPOO.git
 		}
 		
 		rs.close();
