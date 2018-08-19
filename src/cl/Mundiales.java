@@ -7,6 +7,11 @@ import rondasMundial.*;
 import java.util.Date;
 
 
+/**esta clase posee los componentes principales del mundial su constructor su get y set 
+ * respectivos
+ * @author DELL
+ *
+ */
 public class Mundiales {
     
 	private String nombreMundial;
@@ -119,7 +124,9 @@ public class Mundiales {
 
 	
 	//---------------------------------------------------------------------------------------------------
-	
+	/**
+	 * Este metodo genera el cuadro del juego con los resultados del juego
+	 */
    public void generarCuadrosJuego() {
 	   
 	   this.resultadosMundial = new Resultados(this.equiposMundial);

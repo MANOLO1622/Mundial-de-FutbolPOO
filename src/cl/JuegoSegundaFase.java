@@ -12,6 +12,10 @@ import javax.swing.*;
 import gestor.Gestor;
 import rondasMundial.Partido;
 
+/**Esta clase tiene los mentodos de la segunda fase del juego
+ * @author DELL
+ *
+ */
 public class JuegoSegundaFase extends JPanel implements ActionListener{
 	
 	private Usuario miUsuario;
@@ -172,7 +176,11 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	
 	
 	
-	
+	/**
+	 * Este metodo tiene los componentes de la segunda fase del juego
+	 * @param miUsuario
+	 * @param tipoLiga
+	 */
 	public JuegoSegundaFase(Usuario miUsuario, int tipoLiga) {
 		
 		this.miUsuario = miUsuario;
@@ -205,7 +213,9 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 
 	}
 	
-	
+	/**
+	 * Coloco los componentes del juego en la pantalla del jugador
+	 */
 	public void colocarComponentesJuego() {
 		
 		/*int alto = 48;
@@ -380,7 +390,13 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	
 	
 	
-	
+	/**
+	 * Este metodo muestra las banderas de los equipos en pantalla
+	 * ademas almacena las variables del tipo int de tipoliga,alto y ancho
+	 * @param ancho
+	 * @param alto
+	 * @param tipoLiga
+	 */
 	public void mostrarBanderas(int ancho, int alto, int tipoLiga) {
 		
 		Partido[] temp1 = null;
@@ -572,7 +588,10 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		
 		
 	}
-	
+	/**
+	 * Este metodo muestra los equipos clasificados que iran a los
+	 * cuartos de final.
+	 */
 	public void mostrarCuartosFinal() {
 		
 		// ------------------------------------------------------Cuartos de final	
@@ -614,7 +633,10 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 				labelPartido24.setBounds(890, 538, ancho, alto);
 	
 	}
-	
+	/**
+	 * Este metodo muestra los equipos clasificados que iran a los
+	 * semifinales.
+	 */
 	public void mostrarSemifinales() {
 		
 		// ------------------------------------------------------Semifinales
@@ -644,7 +666,9 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 				
 		
 	}
-	
+	/**
+	 * Este metodo muestra los equipos clasificados que iran a la final.
+	 */
 	public void mostrarFinales() {
 		
 		// ------------------------------------------------------Finales
@@ -681,7 +705,10 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------------
-	
+	/**
+	 * El actionPerfomed es ejecutado para cada boton de pantalla de la fase
+	 * de juegos por ejemplo salir o apostar.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -795,7 +822,11 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------------
-	
+	/**
+	 * Este boolean retorna los equipos que iran a los cuartos de final
+	 * segun su marcador final
+	 * @return
+	 */
 	public boolean verificarCuartosFinal() {
 		
 		boolean verificacion = false;
@@ -830,7 +861,11 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		
 		return verificacion;
 	}
-	
+	/**
+	 * Este boolean retorna los equipos que iran a las semifinales
+	 * segun su marcador final
+	 * @return
+	 */
 	public boolean verificarSemifinales(){
 		
 		boolean verificacion = false;
@@ -866,7 +901,11 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		return verificacion;
 	}
 	
-	
+	/**
+	 * Este boolean retorna los equipos que iran a la gran final
+	 * segun su marcador final
+	 * @return
+	 */
 	
 	public boolean verificarFinales(){
 		
@@ -899,7 +938,12 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		return verificacion;
 	}
 	
-	
+	/**
+	 * Este metodo muestra el cronograma final de los equipos 
+	 * seleccionados 
+	 * @param equipo1
+	 * @param equipo2
+	 */
 	public void mostrarPartidoCronograma(Equipo equipo1, Equipo equipo2) {
 
 		partidosPaisEscogido.setText( equipo1.getNombre() +  " vs " + equipo2.getNombre());
@@ -913,7 +957,13 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		labelEquipoContrincante.setIcon(iconoEquipoContrincante);
 
 	}
-	
+	/**
+	 * Este metodo calcula los resultados de los equipos para 
+	 * retonarlos al siguiente ronda
+	 * @param equipoSeleccionado
+	 * @param ronda
+	 * @return
+	 */
 	public Partido retornarSiguientePartido(Equipo equipoSeleccionado, int ronda) {
 		
 		Partido partidoTemp = null;
@@ -1055,7 +1105,12 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		
 	}
 	
-	
+	/**
+	 * Este metodo ejecuta el resultado de los puntos a base de los
+	 * marcadores del partido apostado
+	 * @param temp
+	 * @param equipoSeleccionado
+	 */
 	public void jugarApuesta(Partido temp,Equipo equipoSeleccionado) {
 		
 		switch(tipoLiga) {
@@ -1098,7 +1153,11 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	}
 	
 	
-	
+	/**
+	 * Calcula la usma de los puntajes de los 
+	 * y ademas almacena en una variable tipo int la ronda final
+	 * @param ronda
+	 */
 	public void sumarPuntajes(int ronda) {
 			
 			switch(this.tipoLiga) {
@@ -1453,7 +1512,10 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	
 	
 	
-	
+	/**
+	 * este es el metodo que muestra el fondo de la pantalla de las
+	 * fases del juego
+	 */
 	public void paintComponent(Graphics g) {
 
 		int width = this.getSize().width;

@@ -1,12 +1,21 @@
 package cl;
 
+/**Esta clase contiene los diferentes perfiles del juego
+ * @author DELL
+ *
+ */
 public enum Perfiles {
 	
 	ADMIN,
 	PLAYER,
 	VIEWER;	
 
-	
+	/**
+	 * Este metodo retorna cada perfil respectivo a base de los que se digite en el
+	 * login de la app.
+	 * @param lectura
+	 * @return
+	 */
 	public static Perfiles retornarTipoPerfil(String lectura) {
 		
 		if(lectura.equals("ADMIN")) {

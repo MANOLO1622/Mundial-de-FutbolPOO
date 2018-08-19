@@ -5,7 +5,12 @@ import java.time.*;
 import java.util.*;
 import rondasMundial.*;
 
-
+/**
+ * Esta clase tiene unos metodos basicos su constructor su get y set y ademas su ToString
+ * ademas almacena en diferentes variables los valores requeridos para la ejecucion del codigo
+ * @author DELL
+ *
+ */
 public class Ligas {
     
     private String nombreLiga;

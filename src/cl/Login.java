@@ -5,6 +5,11 @@ import java.awt.event.*;
 import javax.swing.*;
 import gestor.*;
 
+/**esta clase tiene todos los componentes que hacen referencia al login principal
+ * de la app
+ * @author DELL
+ *
+ */
 @SuppressWarnings("serial")
 public class Login extends JPanel implements ActionListener, KeyListener{
 
@@ -22,7 +27,9 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 	private JButton btnSalir = new JButton("Salir");
 
     
-    
+    /**
+     * Aqui se muestra sus campos y sus labels respectivos para su posicion correcta.
+     */
 	public Login () {
 		
 		this.setLayout(null);
@@ -97,6 +104,10 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 	
 	//-------------------------------------------------------------------------------------------------
 	
+	/**
+	 * aqui se utiliza el actionPerformed para validar la ejecucion del boton rehgistrar
+	 * y ademas se utiliza diferentes validaciones para su funcionalidad correcta.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -260,7 +271,9 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 
 	
 	//-------------------------------------------------------------------------------------
-	
+	/**
+	 * esta es el metodo para ponerle de fondo una imagen con su alto y ancho solicitados
+	 */
     public void paintComponent(Graphics g) {
    	 
 		int width = this.getSize().width;
@@ -287,7 +300,10 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 	
 	//-------------------------------------------------------------------------------------
 	
-	
+	/**
+	 * Este metodo le da los estilos a los botones y componentes principales
+	 * del login en general
+	 */
 	public void darEstilosComponentes(){
 	
 		

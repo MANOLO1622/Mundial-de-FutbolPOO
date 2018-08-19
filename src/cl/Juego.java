@@ -5,10 +5,15 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-
 import gestor.Gestor;
 
-public class Juego extends JPanel implements ActionListener, MouseListener{
+/**
+ * Posee los metodos necesarios para la administracion del juego en si
+ * 
+ * @author DELL
+ *
+ */
+public class Juego extends JPanel implements ActionListener, MouseListener {
 
 	private Usuario miUsuario;
 	private int tipoLiga;
@@ -20,35 +25,35 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 	private JTextPane partidosPaisEscogido = new JTextPane();
 	private JButton btnregistrarEquipoJugador = new JButton("Seleccionar");
 	private JButton btnApostar = new JButton("Apostar");
-	
+
 	private JButton btnSalir = new JButton("Salir");
-	
 
 	private static Image imagen;
-	
+
 	/*
 	 * 
 	 * 
-	 * Estos componentes se utilizaran para mostrar los banderas y componentes que ayudaran a hacer las apuestas.
+	 * Estos componentes se utilizaran para mostrar los banderas y componentes que
+	 * ayudaran a hacer las apuestas.
 	 * 
 	 * 
 	 */
-	
+
 	private JLabel labelEquipoSeleccionado = new JLabel();
 	private JLabel labelEquipoContrincante = new JLabel();
 	private ImageIcon imagenEquipoSeleccionado;
 	private ImageIcon imagenEquipoContrincante;
-	
+
 	private JLabel equipo1 = new JLabel("Equipo 1");
 	private JLabel equipo2 = new JLabel("Equipo 2");
-	
+
 	private JTextField marcadorEquipo1 = new JTextField(2);
 	private JTextField marcadorEquipo2 = new JTextField(2);
-	
+
 	private JButton btnSegundaFase = new JButton("Octavos");
-	
+
 	private JLabel labelPuntaje = new JLabel("Puntaje: " + 0);
-	 
+
 	/*
 	 * 
 	 * 
@@ -264,81 +269,90 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 	// ----------------------------------------------------------------------------constructor
 	// de la clase.
 
+	/**
+	 * Este es el constructo principal de la clase juego.
+	 * 
+	 * @param miUsuario
+	 * @param tipoLiga
+	 */
 	public Juego(Usuario miUsuario, int tipoLiga) {
 
 		this.miUsuario = Gestor.retornarUsuario(miUsuario.getNombreUsuario());
 		this.tipoLiga = tipoLiga;
 		this.setLayout(null);
 		colocarComponentesJuego();
-		
-		if(this.tipoLiga == 0) {
-			
-			if(this.miUsuario.getValidacionPrimeraFasePublica() == 0 && this.miUsuario.getEquipoLigaPublica() != null) {
-				
+
+		if (this.tipoLiga == 0) {
+
+			if (this.miUsuario.getValidacionPrimeraFasePublica() == 0
+					&& this.miUsuario.getEquipoLigaPublica() != null) {
+
 				this.add(btnApostar);
 				btnApostar.setVisible(true);
 				btnApostar.setBounds(1100, 350, 125, 30);
-				
-				
-			}
-			
-			if(this.miUsuario.getValidacionPrimeraFasePublica() == 1 && this.miUsuario.getEquipoLigaPublica() != null) {
-				
-				this.add(btnApostar);
-				btnApostar.setVisible(true);
-				btnApostar.setBounds(1100, 350, 125, 30);
-				
+
 			}
 
-			if(this.miUsuario.getValidacionPrimeraFasePublica() >= 2 && this.miUsuario.getEquipoLigaPublica() != null) {
-	
-				if(this.miUsuario.isValidacionOctavosPublica() == true) {
-					
-					this.btnSegundaFase.setVisible(true);
-					
-				}else {
-					
-					JOptionPane.showMessageDialog(null, "Lo lamentamos, tu equipo no ha clasificado.");
-					
-				}
-	
-			}
-			
-			
-		}else if(tipoLiga == 1) {
-			
-			if(this.miUsuario.getValidacionPrimeraFasePrivada() == 0 && this.miUsuario.getEquipoLigaPrivada() != null) {
-				
+			if (this.miUsuario.getValidacionPrimeraFasePublica() == 1
+					&& this.miUsuario.getEquipoLigaPublica() != null) {
+
 				this.add(btnApostar);
 				btnApostar.setVisible(true);
 				btnApostar.setBounds(1100, 350, 125, 30);
-				
-			}
-			
-			if(this.miUsuario.getValidacionPrimeraFasePrivada() == 1 && this.miUsuario.getEquipoLigaPrivada() != null) {
-				
-				this.add(btnApostar);
-				btnApostar.setVisible(true);
-				btnApostar.setBounds(1100, 350, 125, 30);
-				
+
 			}
 
-			if(this.miUsuario.getValidacionPrimeraFasePrivada() >= 2 && this.miUsuario.getEquipoLigaPrivada() != null) {
-	
-				if(this.miUsuario.isValidacionOctavosPrivada() == true) {
-					
+			if (this.miUsuario.getValidacionPrimeraFasePublica() >= 2
+					&& this.miUsuario.getEquipoLigaPublica() != null) {
+
+				if (this.miUsuario.isValidacionOctavosPublica() == true) {
+
 					this.btnSegundaFase.setVisible(true);
-					
-				}else {
-					
+
+				} else {
+
 					JOptionPane.showMessageDialog(null, "Lo lamentamos, tu equipo no ha clasificado.");
-					
+
 				}
-	
+
 			}
-			
+
+		} else if (tipoLiga == 1) {
+
+			if (this.miUsuario.getValidacionPrimeraFasePrivada() == 0
+					&& this.miUsuario.getEquipoLigaPrivada() != null) {
+
+				this.add(btnApostar);
+				btnApostar.setVisible(true);
+				btnApostar.setBounds(1100, 350, 125, 30);
+
+			}
+
+			if (this.miUsuario.getValidacionPrimeraFasePrivada() == 1
+					&& this.miUsuario.getEquipoLigaPrivada() != null) {
+
+				this.add(btnApostar);
+				btnApostar.setVisible(true);
+				btnApostar.setBounds(1100, 350, 125, 30);
+
+			}
+
+			if (this.miUsuario.getValidacionPrimeraFasePrivada() >= 2
+					&& this.miUsuario.getEquipoLigaPrivada() != null) {
+
+				if (this.miUsuario.isValidacionOctavosPrivada() == true) {
+
+					this.btnSegundaFase.setVisible(true);
+
+				} else {
+
+					JOptionPane.showMessageDialog(null, "Lo lamentamos, tu equipo no ha clasificado.");
+
+				}
+
+			}
+
 		}
-		
 
 		// ----------------------------------Eventos
 
@@ -347,7 +361,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		btnregistrarEquipoJugador.addActionListener(this);
 		btnApostar.addActionListener(this);
 		btnSegundaFase.addActionListener(this);
-		
+
 		labelPartido1.addMouseListener(this);
 		labelPartido2.addMouseListener(this);
 		labelPartido3.addMouseListener(this);
@@ -386,34 +400,44 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		labelPartido36.addMouseListener(this);
 	}
 
+	/**
+	 * Este metodo posee la altura y el ancho de los componentes ademas se encarga
+	 * de validar los puntajes por cada liga por separado
+	 * 
+	 */
 	public void colocarComponentesJuego() {
 
 		int alto = 48;
 		int ancho = 72;
 
 		this.add(labelPuntaje);
-		
-		if(this.tipoLiga == 0) {
-			
-			labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica());
-			
-		}else if(this.tipoLiga == 1) {
-			
-			labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada());
-			
-		}
-		
-		labelPuntaje.setBounds(1065, 550, 194, 30);
-		
-		this.add(btnSegundaFase);
-		btnSegundaFase.setVisible(false);
-		btnSegundaFase.setBounds(1150, 610, 100, 30);
-		
-		this.add(btnSalir);
-		btnSalir.setBounds(1150, 650, 100, 30);
 
-		//--------------------------------------------------------
-		
+		if (this.tipoLiga == 0) {
+
+			labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica());
+
+		} else if (this.tipoLiga == 1) {
+
+			labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada());
+
+		}
+
+		labelPuntaje.setBounds(1065, 550, 194, 30);
+
+		this.add(btnSegundaFase);// este es el boton de los octavos de final de la pantalla
+		btnSegundaFase.setVisible(false);// Este boton posee un setVisible para que sea presentado en pantalla
+		btnSegundaFase.setBounds(1150, 610, 100, 30);// Esta es la posicion que se muestra en la pantalla
+
+		this.add(btnSalir);// Este es el boton de salir de la seccion de fase de juegos
+		btnSalir.setBounds(1150, 650, 100, 30);// Esta es la posicion que se muestra en la pantalla
+
+		// --------------------------------------------------------
+
+		/**
+		 * Estos son los componentes para la posicion de cada pais en su partido
+		 * respectivo se encuentra en fases de eliminatoria donde se puede observar las
+		 * posiciones de los octavos, cuartos, semis y final de la pantalla de juego
+		 */
 		this.add(cuadro1);
 		cuadro1.setBounds(50, 25, 448, 20);
 		cuadro1.setOpaque(true);
@@ -757,86 +781,105 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 	}
 
+	/**
+	 * Este metodo posee la altura y el ancho de la banderas en la pantalla de juego
+	 * ademas posee los componentes que muestran la informacion del equipo y retorna
+	 * el juego de cada partido.
+	 * 
+	 * @param ancho
+	 * @param alto
+	 */
 	public void mostrarBanderas(int ancho, int alto) {
 
+		Partido[] temp1 = null;
+		Partido[] temp2 = null;
+		Partido[] temp3 = null;
+		Partido[] temp4 = null;
+		Partido[] temp5 = null;
+		Partido[] temp6 = null;
+		Partido[] temp7 = null;
+		Partido[] temp8 = null;
 
-		Partido[] temp1=null;
-		Partido[] temp2=null;
-		Partido[] temp3=null;
-		Partido[] temp4=null;
-		Partido[] temp5=null;
-		Partido[] temp6=null;
-		Partido[] temp7=null;
-		Partido[] temp8=null;
-		
-		if(tipoLiga == 0) {
-			
-			temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosPrimerCuadro();
-			temp2 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosSegundoCuadro();
-			temp3 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosTercerCuadro();
-			temp4 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosCuartoCuadro();
-			temp5 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosQuintoCuadro();
-			temp6 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosSextoCuadro();
-			temp7 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosSeptimoCuadro();
-			temp8 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getPartidosOctavoCuadro();
-			
-			if(this.miUsuario.getEquipoLigaPublica()==null) {
-				
+		if (tipoLiga == 0) {
+
+			temp1 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial()
+					.getPartidosPrimerCuadro();
+			temp2 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial()
+					.getPartidosSegundoCuadro();
+			temp3 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial()
+					.getPartidosTercerCuadro();
+			temp4 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial()
+					.getPartidosCuartoCuadro();
+			temp5 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial()
+					.getPartidosQuintoCuadro();
+			temp6 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial()
+					.getPartidosSextoCuadro();
+			temp7 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial()
+					.getPartidosSeptimoCuadro();
+			temp8 = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial()
+					.getPartidosOctavoCuadro();
+
+			if (this.miUsuario.getEquipoLigaPublica() == null) {
+
 				equipos.removeAllItems();
 				this.add(equipos);
 				equipos.setBounds(1075, 25, 175, 30);
 
-				for(Equipo e: Gestor.retornarLigaPublica(this.miUsuario.getMiLigaPublica().getNombreLiga()).getMundialAnfitrion().getEquiposMundial()) {
-					
+				for (Equipo e : Gestor.retornarLigaPublica(this.miUsuario.getMiLigaPublica().getNombreLiga())
+						.getMundialAnfitrion().getEquiposMundial()) {
+
 					equipos.addItem(e.getNombre());
-					
+
 				}
 
-			}else {
-				
+			} else {
+
 				mostrarinformacionpaisEscogido(0);
 
 			}
-			
 
-		
-			
-			
-		}else if(tipoLiga == 1) {
-			
-			
-			temp1 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosPrimerCuadro();
-			temp2 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosSegundoCuadro();
-			temp3 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosTercerCuadro();
-			temp4 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosCuartoCuadro();
-			temp5 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosQuintoCuadro();
-			temp6 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosSextoCuadro();
-			temp7 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosSeptimoCuadro();
-			temp8 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getPartidosOctavoCuadro();
-			
-			
-			
-			if(this.miUsuario.getEquipoLigaPrivada()==null) {
-				
+		} else if (tipoLiga == 1) {
+
+			temp1 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial()
+					.getPartidosPrimerCuadro();
+			temp2 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial()
+					.getPartidosSegundoCuadro();
+			temp3 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial()
+					.getPartidosTercerCuadro();
+			temp4 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial()
+					.getPartidosCuartoCuadro();
+			temp5 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial()
+					.getPartidosQuintoCuadro();
+			temp6 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial()
+					.getPartidosSextoCuadro();
+			temp7 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial()
+					.getPartidosSeptimoCuadro();
+			temp8 = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial()
+					.getPartidosOctavoCuadro();
+
+			if (this.miUsuario.getEquipoLigaPrivada() == null) {
+
 				equipos.removeAllItems();
 				this.add(equipos);
 				equipos.setBounds(1075, 25, 175, 30);
-				
-				for(Equipo e: Gestor.retornarLigaPrivada(this.miUsuario.getMiLigaPrivada().getNombreLiga()).getMundialAnfitrion().getEquiposMundial()) {
-					
-					equipos.addItem(e.getNombre());
-					
-				}	
-			}else {
-				
-				mostrarinformacionpaisEscogido(1);
-	
-			}
-			
 
-			
+				for (Equipo e : Gestor.retornarLigaPrivada(this.miUsuario.getMiLigaPrivada().getNombreLiga())
+						.getMundialAnfitrion().getEquiposMundial()) {
+
+					equipos.addItem(e.getNombre());
+
+				}
+			} else {
+
+				mostrarinformacionpaisEscogido(1);
+
+			}
+
 		}
 
+		/**
+		 * Aqui se guardan las imagenes de las banderas de cada equipo.
+		 */
 		// ------------------------------------------------------------------------------------------Primer
 		// cuadro de Juegos
 
@@ -1244,11 +1287,14 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		imagenPartido96 = new ImageIcon(temp8[5].getEquipo2().getBandera());
 		Icon icono96 = new ImageIcon(imagenPartido96.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
 		labelPartido96.setIcon(icono96);
-		}
+	}
 
 	// -----------------------------------------------FONDO DE JUEGO
 	// LIGAS-----------------------------------------------------------
 
+	/**
+	 * Este es el metodo que guarda el fondo del juego de ligas
+	 */
 	public void paintComponent(Graphics g) {
 
 		int width = this.getSize().width;
@@ -1270,16 +1316,15 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 
 	}
 
-	/* -------------------------------------------------------------------------------
+	/*
+	 * -----------------------------------------------------------------------------
+	 * --
 	 * 
 	 * 
 	 * Acciones del juego
 	 * 
 	 * 
-	 * */
-	
-	
-	
+	 */
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -1289,132 +1334,157 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 			Ventana ventMenuJugador = new Ventana(this.miUsuario);
 			ventMenuJugador.ventanaMenuUsuarios(this.miUsuario.getTipoUsuario(2), ventMenuJugador);
-			
+
 		}
-		
-		//--------------------------------------------------------------------------------------------------------------------------Otro evento
-		
-		if(e.getSource() == equipos) {
-			
+
+		// --------------------------------------------------------------------------------------------------------------------------Otro
+		// evento
+		/**
+		 * Esto es el evento del juego que posee los componentes que administran la
+		 * pantalla donde se muestran el pais escogido el equipoy el usuario actual.
+		 */
+		if (e.getSource() == equipos) {
+
 			String nombreLiga = "";
-			
+
 			this.add(labelBanderaPaisEscogido);
 			labelBanderaPaisEscogido.setBounds(1075, 60, 175, 122);
-			
+
 			this.add(partidosPaisEscogido);
 			partidosPaisEscogido.setBounds(1075, 190, 175, 150);
-			
+
 			this.add(btnregistrarEquipoJugador);
 			btnregistrarEquipoJugador.setBounds(1100, 350, 125, 30);
-			
-			imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo((String)equipos.getSelectedItem()));
-			Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
+
+			imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo((String) equipos.getSelectedItem()));
+			Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(
+					labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
 			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
-			
-			
-			if(this.tipoLiga == 0) {
-				
+
+			if (this.tipoLiga == 0) {
+
 				nombreLiga = this.miUsuario.getMiLigaPublica().getNombreLiga();
-				
-			}else if(this.tipoLiga == 1) {
-				
+
+			} else if (this.tipoLiga == 1) {
+
 				nombreLiga = this.miUsuario.getMiLigaPrivada().getNombreLiga();
-				
+
 			}
-			
+
 			partidosPaisEscogido.setEnabled(false);
-			partidosPaisEscogido.setText(Gestor.retornarPartidosCuadro(nombreLiga, (String)equipos.getSelectedItem()));
-			
+			partidosPaisEscogido.setText(Gestor.retornarPartidosCuadro(nombreLiga, (String) equipos.getSelectedItem()));
+
 		}
-		
-		//--------------------------------------------------------------------------------------------------------------------------Otro evento
-		
-		if(e.getSource()==btnregistrarEquipoJugador) {
-			
+
+		// --------------------------------------------------------------------------------------------------------------------------Otro
+		// evento
+		/**
+		 * Este es el getSoure de los botones que administra la pantalla de juego
+		 * mundiales, ademas es la que posee todos lo componentes de juego en la
+		 * seleccionar de apostar por un equipo.
+		 */
+
+		if (e.getSource() == btnregistrarEquipoJugador) {
+
 			this.add(btnApostar);
 			btnApostar.setVisible(true);
 			btnApostar.setBounds(1100, 350, 125, 30);
-			
+
 			this.add(labelEquipoSeleccionado);
 			labelEquipoSeleccionado.setVisible(false);
 			labelEquipoSeleccionado.setBounds(1065, 400, 97, 64);
-			
+
 			this.add(labelEquipoContrincante);
 			labelEquipoContrincante.setVisible(false);
 			labelEquipoContrincante.setBounds(1164, 400, 97, 64);
-			
+
 			this.add(equipo1);
 			equipo1.setVisible(false);
 			equipo1.setBounds(1065, 470, 97, 30);
-			
+
 			this.add(equipo2);
 			equipo2.setVisible(false);
 			equipo2.setBounds(1165, 470, 97, 30);
-			
+
 			this.add(marcadorEquipo1);
 			marcadorEquipo1.setVisible(false);
 			marcadorEquipo1.setText("");
 			marcadorEquipo1.setBounds(1065, 510, 97, 30);
-			
+
 			this.add(marcadorEquipo2);
 			marcadorEquipo2.setVisible(false);
 			marcadorEquipo2.setText("");
 			marcadorEquipo2.setBounds(1164, 510, 97, 30);
-			
 
-			if(this.tipoLiga == 0 ) {
-				
-				Gestor.asignarEquipoLigaPublicaUsuario(this.miUsuario.getNombreUsuario(), Gestor.retornarEquipo((String)equipos.getSelectedItem()));
+			if (this.tipoLiga == 0) {
+
+				Gestor.asignarEquipoLigaPublicaUsuario(this.miUsuario.getNombreUsuario(),
+						Gestor.retornarEquipo((String) equipos.getSelectedItem()));
 				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
-				
+
 				mostrarinformacionpaisEscogido(0);
-				
-				Partido[] tempPublica = Gestor.retornarPartidosEquipoLiga(this.miUsuario.getEquipoLigaPublica(), this.miUsuario.getMiLigaPublica().getNombreLiga(), this.tipoLiga);
+
+				Partido[] tempPublica = Gestor.retornarPartidosEquipoLiga(this.miUsuario.getEquipoLigaPublica(),
+						this.miUsuario.getMiLigaPublica().getNombreLiga(), this.tipoLiga);
 				Apuesta[] apuestasPrimerCuadroPublica = new Apuesta[3];
-				apuestasPrimerCuadroPublica[0] = new Apuesta(tempPublica[0], this.miUsuario.getEquipoLigaPublica(), this.miUsuario);
-				apuestasPrimerCuadroPublica[1] = new Apuesta(tempPublica[1], this.miUsuario.getEquipoLigaPublica(), this.miUsuario);
-				apuestasPrimerCuadroPublica[2] = new Apuesta(tempPublica[2], this.miUsuario.getEquipoLigaPublica(), this.miUsuario);
-				
+				apuestasPrimerCuadroPublica[0] = new Apuesta(tempPublica[0], this.miUsuario.getEquipoLigaPublica(),
+						this.miUsuario);
+				apuestasPrimerCuadroPublica[1] = new Apuesta(tempPublica[1], this.miUsuario.getEquipoLigaPublica(),
+						this.miUsuario);
+				apuestasPrimerCuadroPublica[2] = new Apuesta(tempPublica[2], this.miUsuario.getEquipoLigaPublica(),
+						this.miUsuario);
+
 				this.miUsuario.setPrimerCuadroPublica(apuestasPrimerCuadroPublica);
 				Gestor.actualizarJugador(this.miUsuario);
-				
-				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
-				
-				imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[0].getPartidoApuesta().getEquipo1().getBandera());
-				ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
-				labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
-				
-				imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[0].getPartidoApuesta().getEquipo2().getBandera());
-				ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
-				labelEquipoContrincante.setIcon(iconoEquipoContrincante);
-				
-			} else if(this.tipoLiga == 1 ) {
-				
 
-				Gestor.asignarEquipoLigaPrivadaUsuario(this.miUsuario.getNombreUsuario(), Gestor.retornarEquipo((String)equipos.getSelectedItem()));
 				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
-				
+
+				imagenEquipoSeleccionado = new ImageIcon(
+						this.miUsuario.getPrimerCuadroPublica()[0].getPartidoApuesta().getEquipo1().getBandera());
+				ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(
+						labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
+				labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
+
+				imagenEquipoContrincante = new ImageIcon(
+						this.miUsuario.getPrimerCuadroPublica()[0].getPartidoApuesta().getEquipo2().getBandera());
+				ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(
+						labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
+				labelEquipoContrincante.setIcon(iconoEquipoContrincante);
+
+			} else if (this.tipoLiga == 1) {
+
+				Gestor.asignarEquipoLigaPrivadaUsuario(this.miUsuario.getNombreUsuario(),
+						Gestor.retornarEquipo((String) equipos.getSelectedItem()));
+				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+
 				mostrarinformacionpaisEscogido(1);
-				
-				Partido[] tempPrivada = Gestor.retornarPartidosEquipoLiga(this.miUsuario.getEquipoLigaPrivada(), this.miUsuario.getMiLigaPrivada().getNombreLiga(), this.tipoLiga);
+
+				Partido[] tempPrivada = Gestor.retornarPartidosEquipoLiga(this.miUsuario.getEquipoLigaPrivada(),
+						this.miUsuario.getMiLigaPrivada().getNombreLiga(), this.tipoLiga);
 				Apuesta[] apuestasPrimerCuadroPrivada = new Apuesta[3];
-				apuestasPrimerCuadroPrivada[0] = new Apuesta(tempPrivada[0], this.miUsuario.getEquipoLigaPrivada(), this.miUsuario);
-				apuestasPrimerCuadroPrivada[1] = new Apuesta(tempPrivada[1], this.miUsuario.getEquipoLigaPrivada(), this.miUsuario);
-				apuestasPrimerCuadroPrivada[2] = new Apuesta(tempPrivada[2], this.miUsuario.getEquipoLigaPrivada(), this.miUsuario);
-				
+				apuestasPrimerCuadroPrivada[0] = new Apuesta(tempPrivada[0], this.miUsuario.getEquipoLigaPrivada(),
+						this.miUsuario);
+				apuestasPrimerCuadroPrivada[1] = new Apuesta(tempPrivada[1], this.miUsuario.getEquipoLigaPrivada(),
+						this.miUsuario);
+				apuestasPrimerCuadroPrivada[2] = new Apuesta(tempPrivada[2], this.miUsuario.getEquipoLigaPrivada(),
+						this.miUsuario);
+
 				this.miUsuario.setPrimerCuadroPrivada(apuestasPrimerCuadroPrivada);
 				Gestor.actualizarJugador(this.miUsuario);
-				
-				imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[0].getPartidoApuesta().getEquipo1().getBandera());
-				ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
+
+				imagenEquipoSeleccionado = new ImageIcon(
+						this.miUsuario.getPrimerCuadroPrivada()[0].getPartidoApuesta().getEquipo1().getBandera());
+				ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(
+						labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
 				labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
-				
-				imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[0].getPartidoApuesta().getEquipo2().getBandera());
-				ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
+
+				imagenEquipoContrincante = new ImageIcon(
+						this.miUsuario.getPrimerCuadroPrivada()[0].getPartidoApuesta().getEquipo2().getBandera());
+				ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(
+						labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
 				labelEquipoContrincante.setIcon(iconoEquipoContrincante);
 
 			}
-			
 
 			labelEquipoSeleccionado.setVisible(true);
 			labelEquipoContrincante.setVisible(true);
@@ -1425,344 +1495,375 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			marcadorEquipo2.setVisible(true);
 			marcadorEquipo2.setText("");
 
-		
-			
 		}
-		
-		//--------------------------------------------------------------------------------------------------------------------------Otro evento
-		
-		if(e.getSource() == btnApostar) {
-			
+
+		// --------------------------------------------------------------------------------------------------------------------------Otro
+		// evento
+		/**
+		 * Se comprueba la correcta funcionalidad del juego con las validaciones
+		 * necesarias
+		 */
+		if (e.getSource() == btnApostar) {
+
 			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
-			
-			if(marcadorEquipo1.getText().equals("") || marcadorEquipo2.getText().equals("")) {
-				
-				JOptionPane.showMessageDialog(null, "Por favor ingrese los marcadores", "NO ESTA JUGANDO COMO SE DEBE", JOptionPane.WARNING_MESSAGE);
-				
-			}else {
-				
-				
-				if(this.tipoLiga == 0) {
-					
-					if(this.miUsuario.getValidacionPrimeraFasePublica() == 0) {
-						
-						imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[1].getPartidoApuesta().getEquipo1().getBandera());
-						ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
+
+			if (marcadorEquipo1.getText().equals("") || marcadorEquipo2.getText().equals("")) {
+
+				JOptionPane.showMessageDialog(null, "Por favor ingrese los marcadores", "NO ESTA JUGANDO COMO SE DEBE",
+						JOptionPane.WARNING_MESSAGE);
+
+			} else {
+
+				if (this.tipoLiga == 0) {
+
+					if (this.miUsuario.getValidacionPrimeraFasePublica() == 0) {
+
+						imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[1]
+								.getPartidoApuesta().getEquipo1().getBandera());
+						ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage()
+								.getScaledInstance(labelEquipoSeleccionado.getWidth(),
+										labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
 						labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
-						
-						imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[1].getPartidoApuesta().getEquipo2().getBandera());
-						ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
+
+						imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[1]
+								.getPartidoApuesta().getEquipo2().getBandera());
+						ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage()
+								.getScaledInstance(labelEquipoContrincante.getWidth(),
+										labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
 						labelEquipoContrincante.setIcon(iconoEquipoContrincante);
-						
-						this.miUsuario.sumarApuestaPublica();	
+
+						this.miUsuario.sumarApuestaPublica();
 						Gestor.actualizarJugador(this.miUsuario);
-						
+
 						btnSegundaFase.setVisible(false);
 
 						sumarPuntajes(0, 0);
-						
-						
-					} else if(this.miUsuario.getValidacionPrimeraFasePublica() == 1) {
-						
-						
-						imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[2].getPartidoApuesta().getEquipo1().getBandera());
-						ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
+
+						/**
+						 * Validacion de la primera fase del juego en una liga publica
+						 */
+					} else if (this.miUsuario.getValidacionPrimeraFasePublica() == 1) {
+
+						imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[2]
+								.getPartidoApuesta().getEquipo1().getBandera());
+						ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage()
+								.getScaledInstance(labelEquipoSeleccionado.getWidth(),
+										labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
 						labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
-						
-						imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[2].getPartidoApuesta().getEquipo2().getBandera());
-						ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
+
+						imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPublica()[2]
+								.getPartidoApuesta().getEquipo2().getBandera());
+						ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage()
+								.getScaledInstance(labelEquipoContrincante.getWidth(),
+										labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
 						labelEquipoContrincante.setIcon(iconoEquipoContrincante);
-						
-						this.miUsuario.sumarApuestaPublica();	
+
+						this.miUsuario.sumarApuestaPublica();
 						Gestor.actualizarJugador(this.miUsuario);
-						
+
 						btnSegundaFase.setVisible(false);
 
 						sumarPuntajes(0, 1);
-						
-						
-					} else if(this.miUsuario.getValidacionPrimeraFasePublica() >= 2) {
-						
+
+					} else if (this.miUsuario.getValidacionPrimeraFasePublica() >= 2) {
+
 						this.remove(labelEquipoSeleccionado);
 						this.remove(labelEquipoContrincante);
-						this.remove(equipo1);		
+						this.remove(equipo1);
 						this.remove(equipo2);
 						this.remove(marcadorEquipo1);
 						this.remove(marcadorEquipo2);
 						this.remove(btnApostar);
-						
-						this.miUsuario.sumarApuestaPublica();	
+
+						this.miUsuario.sumarApuestaPublica();
 						Gestor.actualizarJugador(this.miUsuario);
 
 						sumarPuntajes(0, 2);
-						
+
 						JOptionPane.showMessageDialog(null, "Ya haz completado todas la apuestas de la primera fase\n"
 								+ "si tu equipo clasifico, podras pasar a la segunda fase.");
-						
-						Equipo[] temp = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial().getGanadoresPrimeraFase();
+
+						Equipo[] temp = this.miUsuario.getMiLigaPublica().getMundialAnfitrion().getResultadosMundial()
+								.getGanadoresPrimeraFase();
 						int index = 0;
-						
-						for(Equipo a: temp) {
-							
-							if(this.miUsuario.getEquipoLigaPublica().getNombre().equals(temp[index].getNombre())) {
-								
+
+						for (Equipo a : temp) {
+
+							if (this.miUsuario.getEquipoLigaPublica().getNombre().equals(temp[index].getNombre())) {
+
 								btnSegundaFase.setVisible(true);
 								this.miUsuario.setValidacionOctavosPublica(true);
 								Gestor.actualizarJugador(this.miUsuario);
 							}
 							index++;
 						}
-						
+
 					}
 
-					
-					
+				} else if (this.tipoLiga == 1) {
 
-				} else if(this.tipoLiga == 1) {
-					
-					if(this.miUsuario.getValidacionPrimeraFasePrivada() == 0) {
-					
-						imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[1].getPartidoApuesta().getEquipo1().getBandera());
-						ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
+					/**
+					 * Validacion de la primera fase del juego en una liga privada
+					 */
+					if (this.miUsuario.getValidacionPrimeraFasePrivada() == 0) {
+
+						imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[1]
+								.getPartidoApuesta().getEquipo1().getBandera());
+						ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage()
+								.getScaledInstance(labelEquipoSeleccionado.getWidth(),
+										labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
 						labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
-						
-						imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[1].getPartidoApuesta().getEquipo2().getBandera());
-						ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
+
+						imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[1]
+								.getPartidoApuesta().getEquipo2().getBandera());
+						ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage()
+								.getScaledInstance(labelEquipoContrincante.getWidth(),
+										labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
 						labelEquipoContrincante.setIcon(iconoEquipoContrincante);
-						
-						this.miUsuario.sumarApuestaPrivada();	
+
+						this.miUsuario.sumarApuestaPrivada();
 						Gestor.actualizarJugador(this.miUsuario);
-						
+
 						btnSegundaFase.setVisible(false);
 
 						sumarPuntajes(1, 0);
-						
-					
-					} else if(this.miUsuario.getValidacionPrimeraFasePrivada() == 1) {
-						
-						imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[2].getPartidoApuesta().getEquipo1().getBandera());
-						ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage().getScaledInstance(labelEquipoSeleccionado.getWidth(), labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
+
+					} else if (this.miUsuario.getValidacionPrimeraFasePrivada() == 1) {
+
+						imagenEquipoSeleccionado = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[2]
+								.getPartidoApuesta().getEquipo1().getBandera());
+						ImageIcon iconoEquipoSeleccionado = new ImageIcon(imagenEquipoSeleccionado.getImage()
+								.getScaledInstance(labelEquipoSeleccionado.getWidth(),
+										labelEquipoSeleccionado.getHeight(), Image.SCALE_DEFAULT));
 						labelEquipoSeleccionado.setIcon(iconoEquipoSeleccionado);
-						
-						imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[2].getPartidoApuesta().getEquipo2().getBandera());
-						ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage().getScaledInstance(labelEquipoContrincante.getWidth(), labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
+
+						imagenEquipoContrincante = new ImageIcon(this.miUsuario.getPrimerCuadroPrivada()[2]
+								.getPartidoApuesta().getEquipo2().getBandera());
+						ImageIcon iconoEquipoContrincante = new ImageIcon(imagenEquipoContrincante.getImage()
+								.getScaledInstance(labelEquipoContrincante.getWidth(),
+										labelEquipoContrincante.getHeight(), Image.SCALE_DEFAULT));
 						labelEquipoContrincante.setIcon(iconoEquipoContrincante);
-						
-						this.miUsuario.sumarApuestaPrivada();	
+
+						this.miUsuario.sumarApuestaPrivada();
 						Gestor.actualizarJugador(this.miUsuario);
-						
+
 						btnSegundaFase.setVisible(false);
 
 						sumarPuntajes(1, 1);
-						
-						
-					} else if(this.miUsuario.getValidacionPrimeraFasePrivada() >= 2) {
 
-						this.miUsuario.sumarApuestaPrivada();	
+					} else if (this.miUsuario.getValidacionPrimeraFasePrivada() >= 2) {
+
+						this.miUsuario.sumarApuestaPrivada();
 						Gestor.actualizarJugador(this.miUsuario);
-						
+
 						btnSegundaFase.setVisible(false);
-						
+
 						sumarPuntajes(1, 2);
-						
+
 						this.remove(labelEquipoSeleccionado);
 						this.remove(labelEquipoContrincante);
-						this.remove(equipo1);		
+						this.remove(equipo1);
 						this.remove(equipo2);
 						this.remove(marcadorEquipo1);
 						this.remove(marcadorEquipo2);
 						this.remove(btnApostar);
-						
+
 						JOptionPane.showMessageDialog(null, "Ya haz completado todas la apuestas de la primera fase\n"
 								+ "si tu equipo clasifico, podras pasar a la segunda fase.");
-						
-						Equipo[] temp = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial().getGanadoresPrimeraFase();
+
+						Equipo[] temp = this.miUsuario.getMiLigaPrivada().getMundialAnfitrion().getResultadosMundial()
+								.getGanadoresPrimeraFase();
 						int index = 0;
-						
-						for(Equipo a: temp) {
-							
-							if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(temp[index].getNombre())) {
-								
+
+						for (Equipo a : temp) {
+
+							if (this.miUsuario.getEquipoLigaPrivada().getNombre().equals(temp[index].getNombre())) {
+
 								btnSegundaFase.setVisible(true);
 								this.miUsuario.setValidacionOctavosPrivada(true);
 								Gestor.actualizarJugador(this.miUsuario);
-								
+
 							}
 							index++;
 						}
-						
+
 					}
-					
+
 				}
-				
+
 				marcadorEquipo1.setText("");
 				marcadorEquipo2.setText("");
-				
+
 			}
 
 		}
-		
-		//--------------------------------------------------------------------------------------------------------------------------Otro evento
-		
-		if(e.getSource()==btnSegundaFase) {
-			
+
+		// --------------------------------------------------------------------------------------------------------------------------Otro
+		// evento
+		/**
+		 * Validacion de la segunda fase del juego en una liga publica
+		 */
+		if (e.getSource() == btnSegundaFase) {
+
 			Ventana test = new Ventana(this.miUsuario);
 			test.ventanaJuegoFase2(this.tipoLiga);
 			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
-			
+
 		}
 
 	}
 
-	
+	/**
+	 * Suma los puntajes obtenidos de la primera ronda de la fase de juegos
+	 * mundiales, ademas almacena 2 variables de tipo int.
+	 * 
+	 * @param tipoLiga
+	 * @param ronda
+	 */
 	public void sumarPuntajes(int tipoLiga, int ronda) {
-		
-		switch(tipoLiga) {
-		
+
+		switch (tipoLiga) {
+
 		case 0:
-						
-			if(this.miUsuario.getEquipoLigaPublica().getNombre().equals(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getEquipoGanador().getNombre())) {
-				
+
+			if (this.miUsuario.getEquipoLigaPublica().getNombre().equals(this.miUsuario.getPrimerCuadroPublica()[ronda]
+					.getPartidoApuesta().getEquipoGanador().getNombre())) {
+
 				puntaje = this.miUsuario.getPuntajePublica() + LigasPublicas.puntos;
 				this.miUsuario.setPuntajePublica(puntaje);
 
 			}
-			
-			if(marcadorEquipo1.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ||
-			   marcadorEquipo2.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ){
-			
+
+			if (marcadorEquipo1.getText()
+					.equals(Integer.toString(
+							this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getPuntajeEquipo1()))
+					|| marcadorEquipo2.getText().equals(Integer.toString(
+							this.miUsuario.getPrimerCuadroPublica()[ronda].getPartidoApuesta().getPuntajeEquipo1()))) {
+
 				puntaje = this.miUsuario.getPuntajePublica() + LigasPublicas.bono;
 				this.miUsuario.setPuntajePublica(puntaje);
-								
+
 			}
-			
+
 			Gestor.actualizarJugador(this.miUsuario);
-			labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica()); 
-			
+			labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePublica());
+
 			break;
-			
-		case 1: 
-			
-			if(this.miUsuario.getEquipoLigaPrivada().getNombre().equals(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getEquipoGanador().getNombre())) {
-				
+
+		case 1:
+
+			if (this.miUsuario.getEquipoLigaPrivada().getNombre().equals(this.miUsuario.getPrimerCuadroPrivada()[ronda]
+					.getPartidoApuesta().getEquipoGanador().getNombre())) {
+
 				puntaje = this.miUsuario.getPuntajePrivada() + LigasPrivadas.puntos;
 				this.miUsuario.setPuntajePrivada(puntaje);
 
 			}
-			
-			if(marcadorEquipo1.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ||
-			   marcadorEquipo2.getText().equals(Integer.toString(this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getPuntajeEquipo1())) ){
+
+			if (marcadorEquipo1.getText()
+					.equals(Integer.toString(
+							this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getPuntajeEquipo1()))
+					|| marcadorEquipo2.getText().equals(Integer.toString(
+							this.miUsuario.getPrimerCuadroPrivada()[ronda].getPartidoApuesta().getPuntajeEquipo1()))) {
 
 				puntaje = this.miUsuario.getPuntajePrivada() + LigasPrivadas.bono;
 				this.miUsuario.setPuntajePrivada(puntaje);
-				 		
+
 			}
-			
+
 			Gestor.actualizarJugador(this.miUsuario);
-			labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada()); 
+			labelPuntaje.setText("Puntaje: " + this.miUsuario.getPuntajePrivada());
 
-			
-			break;		
-		
+			break;
+
 		}
-		
+
 		Gestor.actualizarJugador(this.miUsuario);
-		
+
 	}
-	
-	
-	
-	
+	/**
+	 * Metodo que muestra la informacion de equipo escogido
+	 * @param tipoLiga
+	 */
 	public void mostrarinformacionpaisEscogido(int tipoLiga) {
-		
+
 		Icon iconoPaisEScogido;
-		
-		switch(tipoLiga) {
-		
-		case 0: 
-			
-			this.remove(equipos);
-			this.remove(btnregistrarEquipoJugador);
-			
-			
-			this.add(labelBanderaPaisEscogido);
-			labelBanderaPaisEscogido.setBounds(1075, 60, 175, 122);
-			
-			this.add(partidosPaisEscogido);
-			partidosPaisEscogido.setEnabled(false);
-			partidosPaisEscogido.setBounds(1075, 190, 175, 150);
-			partidosPaisEscogido.setText(Gestor.retornarPartidosCuadro(this.miUsuario.getMiLigaPublica().getNombreLiga(), this.miUsuario.getEquipoLigaPublica().getNombre()));
-			
-			imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo(this.miUsuario.getEquipoLigaPublica().getNombre()));
-			iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
-			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
-			
-			break;
-			
-		case 1: 
-						
+
+		switch (tipoLiga) {
+
+		case 0:
+
 			this.remove(equipos);
 			this.remove(btnregistrarEquipoJugador);
 
 			this.add(labelBanderaPaisEscogido);
 			labelBanderaPaisEscogido.setBounds(1075, 60, 175, 122);
-			
+
 			this.add(partidosPaisEscogido);
 			partidosPaisEscogido.setEnabled(false);
 			partidosPaisEscogido.setBounds(1075, 190, 175, 150);
-			partidosPaisEscogido.setText(Gestor.retornarPartidosCuadro(this.miUsuario.getMiLigaPrivada().getNombreLiga(), this.miUsuario.getEquipoLigaPrivada().getNombre()));
-			
-			imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo(this.miUsuario.getEquipoLigaPrivada().getNombre()));
-			iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
+			partidosPaisEscogido
+					.setText(Gestor.retornarPartidosCuadro(this.miUsuario.getMiLigaPublica().getNombreLiga(),
+							this.miUsuario.getEquipoLigaPublica().getNombre()));
+
+			imagenBanderaPaisEscogido = new ImageIcon(
+					Gestor.retornarBanderaEquipo(this.miUsuario.getEquipoLigaPublica().getNombre()));
+			iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(
+					labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
 			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
-			
+
 			break;
-			
+
+		case 1:
+
+			this.remove(equipos);
+			this.remove(btnregistrarEquipoJugador);
+
+			this.add(labelBanderaPaisEscogido);
+			labelBanderaPaisEscogido.setBounds(1075, 60, 175, 122);
+
+			this.add(partidosPaisEscogido);
+			partidosPaisEscogido.setEnabled(false);
+			partidosPaisEscogido.setBounds(1075, 190, 175, 150);
+			partidosPaisEscogido
+					.setText(Gestor.retornarPartidosCuadro(this.miUsuario.getMiLigaPrivada().getNombreLiga(),
+							this.miUsuario.getEquipoLigaPrivada().getNombre()));
+
+			imagenBanderaPaisEscogido = new ImageIcon(
+					Gestor.retornarBanderaEquipo(this.miUsuario.getEquipoLigaPrivada().getNombre()));
+			iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(
+					labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
+			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
+
+			break;
+
 		default:
-			
-			this.remove(labelBanderaPaisEscogido);			
-			this.remove(partidosPaisEscogido);			
+
+			this.remove(labelBanderaPaisEscogido);
+			this.remove(partidosPaisEscogido);
 			this.remove(btnApostar);
-			
+
 			break;
 		}
-		
-		
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	// -------------------------------------------------------------------------------Solo
 	// de vista e informacion
+	
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-
 
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 
-
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-
 
 	}
 
@@ -1972,13 +2073,13 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			labelPartido34.setBounds(350, 460 - 5, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido35) {
 
 			labelPartido35.setBounds(425, 390 + 5, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido36) {
 
 			labelPartido36.setBounds(425, 460 - 5, 72, 48);
@@ -1986,9 +2087,16 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		}
 
 	}
-	
-	///----------------------------------------------------------------------------------------------------------------
 
+	/// ----------------------------------------------------------------------------------------------------------------
+
+	
+	/**
+	 * Esta es la funcionalidad de las banderas cuando se pasa el mouse por cada
+	 * una de las banderas muestra esta animacion.
+	 */
+	
+	
 	@Override
 	public void mouseExited(MouseEvent e) {
 
@@ -2069,140 +2177,139 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 			labelPartido13.setBounds(50, 220, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido14) {
 
 			labelPartido14.setBounds(50, 290, 72, 48);
 
 		}
-		
-		
+
 		if (e.getSource() == labelPartido15) {
 
 			labelPartido15.setBounds(125, 220, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido16) {
 
 			labelPartido16.setBounds(125, 290, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido17) {
 
 			labelPartido17.setBounds(200, 220, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido18) {
 
 			labelPartido18.setBounds(200, 290, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido19) {
 
 			labelPartido19.setBounds(275, 220, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido20) {
 
 			labelPartido20.setBounds(275, 290, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido21) {
 
 			labelPartido21.setBounds(350, 220, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido22) {
 
 			labelPartido22.setBounds(350, 290, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido23) {
 
 			labelPartido23.setBounds(425, 220, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido24) {
 
 			labelPartido24.setBounds(425, 290, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido25) {
 
 			labelPartido25.setBounds(50, 390, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido26) {
 
 			labelPartido26.setBounds(50, 460, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido27) {
 
 			labelPartido27.setBounds(125, 390, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido28) {
 
 			labelPartido28.setBounds(125, 460, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido29) {
 
 			labelPartido29.setBounds(200, 390, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido30) {
 
 			labelPartido30.setBounds(200, 460, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido31) {
 
 			labelPartido31.setBounds(275, 390, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido32) {
 
 			labelPartido32.setBounds(275, 460, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido33) {
 
 			labelPartido33.setBounds(350, 390, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido34) {
 
 			labelPartido34.setBounds(350, 460, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido35) {
 
 			labelPartido35.setBounds(425, 390, 72, 48);
 
 		}
-		
+
 		if (e.getSource() == labelPartido36) {
 
 			labelPartido36.setBounds(425, 460, 72, 48);
@@ -2210,6 +2317,5 @@ public class Juego extends JPanel implements ActionListener, MouseListener{
 		}
 
 	}
-	
 
 }

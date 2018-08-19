@@ -6,6 +6,12 @@ import java.io.IOException;
 import javax.swing.*;
 import gestor.*;
 
+/**Esta clase posee todos los componentes del registrar de los usuarios
+ * ademas contiene los botones que se muestran al usuario. Y los campos
+ * para su respectiva informacion
+ * @author DELL
+ *
+ */
 public class RegistroUsuarios extends JPanel implements ActionListener {
 
 	private Gestor controlador = new Gestor();
@@ -37,6 +43,10 @@ public class RegistroUsuarios extends JPanel implements ActionListener {
 
 	private static Image imagen;
 
+	
+	/**
+	 * btotones del registrar Usuarios
+	 */
 	public RegistroUsuarios() {
 
 		this.setLayout(null);
@@ -102,7 +112,7 @@ public class RegistroUsuarios extends JPanel implements ActionListener {
 		// funcionalidad en el ojo de mostrar la contraseña.
 		labelMostrarContrasena.addMouseListener(new MouseAdapter() {
 
-			public void mouseEntered(MouseEvent e) {
+			public void mouseEntered(MouseEvent e) {//esye es el metodo donse muestra la contraseña si se pasa con el icono del ojo
 
 				contrasenaTXT.setEchoChar((char) 0);
 				labelMostrarContrasena.setIcon(ojo2);
@@ -122,7 +132,7 @@ public class RegistroUsuarios extends JPanel implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e) {//Validaciones de los campos del registrar usuarios
 
 		int validacion = controlador.validarUsuario(nombreUsuarioTXT.getText(), contrasenaTXT.getText(),
 				avatarTXT.getText(), 1);

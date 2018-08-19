@@ -3,6 +3,12 @@ package cl;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
+/**Esta clase muestra los componentes basicos con sus get y set respectivos y su topString
+ * ademas almacena sus variables de puntos y bono en tipo int.
+ * y tambien utiliza una variable tipo mundiales haciendo referencia al mundialAnfitrion
+ * @author DELL
+ *
+ */
 public class LigasPublicas extends Ligas {
 
 	public static final int puntos = 50;

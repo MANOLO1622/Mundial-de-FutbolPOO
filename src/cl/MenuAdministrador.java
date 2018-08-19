@@ -10,6 +10,14 @@ import javax.swing.*;
 import com.toedter.calendar.*;
 import gestor.*;
 
+/**Esta clase contiene los componentes principales que el administrador
+ * que podra mostrar, ejecutar y organizar en su app, ademas posee todos
+ * los botones generales con sus permisos y validaciones correctas para
+ * crear, eliminar y registrar usuarios, equipos, mundiales o ligas a su disposicion 
+ * y mucho mas.
+ * @author DELL
+ *
+ */
 public class MenuAdministrador extends JPanel implements ActionListener {
 
 	public Usuario miUsuario;
@@ -92,7 +100,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	JLabel informacionUsuario2 = new JLabel("");
 	
 	// ------------------------------------------------------------------------------
-
+/**
+ * Este metodo contiene los botones principales de la pantalla del Admin.
+ * @param miUsuario
+ */
 	public MenuAdministrador(Usuario miUsuario) {
 
 		this.miUsuario = miUsuario;
@@ -176,7 +187,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	}
 
 	// ------------------------------------------------------------------------------
-
+/**
+ * Metodo del registrar mundial
+ */
 	public void actionPerformed(ActionEvent e) {
 
 		
@@ -312,7 +325,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		}
 
 		// ----------------------------------------------PUBLICAS-----------------------------------------------------------
-
+		
 		if (e.getSource() == botonLigaPublica) {
 
 			desabilitarMenu();
@@ -379,8 +392,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		}
 
-		// ----------------------------------------------LIGA
-		// PRIVADA--------------------------------------------------
+		// ----------------------------------------------LIGA PRIVADA--------------------------------------------------
 
 		if (e.getSource() == botonLigaPrivada) {
 
@@ -496,7 +508,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		}
 
 	}
-
+/**
+ * Este metodo muestra los botones y los diferentes componentes
+ * de las ligas publicas
+ */
 	public void registrarLigaPublicas() {
 
 		this.add(labelNombreLiga);
@@ -527,7 +542,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		btnCancelar.setBounds(1170, 330, 90, 25);
 
 	}
-
+	/**
+	 * Este metodo muestra los botones y los diferentes componentes
+	 * de las ligas privadas
+	 */
 	public void registrarLigaPrivadas() {
 
 		this.add(labelNombreLiga);
@@ -560,7 +578,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	}
 
 	// ----------------------------------MUNDIALES-----------------------------------------------------------------
-
+	/**
+	 * Este metodo muestra los botones y los diferentes componentes
+	 * del mundial
+	 */
 	public void registrarMundial() {
 
 		this.add(labelNombreMundial);
@@ -659,7 +680,10 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 		LigasPrivadas.setEnabled(true);
 
 	}
-
+/**
+ * Este metodo desabilita los botones un vez se halla seleccionado una opcion 
+ * en el menu del Admin
+ */
 	public void desabilitarMenu() {
 
 		boton1.setEnabled(false);
@@ -694,7 +718,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	}
 
-	public void ingresarPaises() {
+	public void ingresarPaises() {//ingreso de paises 
 
 		ArrayList<Equipo> listaTemporal = Gestor.retornarEquiposRegistrados();
 
@@ -708,7 +732,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	}
 
-	public void ingresarUsuarios() {
+	public void ingresarUsuarios() {//Ingreso de usuarios
 
 		ArrayList<Usuario> listaTemporal = Gestor.retornarUsuariosRegistrados();
 
@@ -726,7 +750,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	}
 
-	public void ingresarMundiales() {
+	public void ingresarMundiales() {//ingreso de los mundiales
 
 		ArrayList<Mundiales> listaTemporal = Gestor.retornarMundialesRegistrados();
 
@@ -740,7 +764,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	}
 
-	public void ingresarLigasPublicas() {
+	public void ingresarLigasPublicas() {//ingreso de las ligas publicas
 
 		ArrayList<LigasPublicas> listaTemporal = Gestor.retornarLigasPublicasRegistrados();
 
@@ -754,7 +778,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	}
 
-	public void ingresarLigasPrivadas() {
+	public void ingresarLigasPrivadas() {//ingreso de las ligas privadas
 
 		ArrayList<LigasPrivadas> listaTemporal = Gestor.retornarLigasPrivadasRegistrados();
 
@@ -769,7 +793,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	}
 	
 	//--------------------------------------------------------------------------------------------------
-
+/**
+ * Este metodo muestra la informacion al usuario una vez que se una a una liga en especial
+ */
 public void mostrarInformacionUsuario() {
 		
 		this.add(informacionUsuario1);

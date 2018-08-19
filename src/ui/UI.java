@@ -9,7 +9,8 @@ import gestor.*;
 public class UI {
 	
 	/**
-	 * esto es una prueba
+	 * Esta clase Posee la funcion principal para que la app sea ejecutada
+	 * de forma segura y correcta
 	 * @param args
 	 * @throws SQLException
 	 * @throws Exception

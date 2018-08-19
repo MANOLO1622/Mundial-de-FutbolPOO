@@ -6,6 +6,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+/**Esta clase posee los botones principales de la pantalla del observador
+ * aca estas los componentes necesarios que el observador solo podra visualizar
+ * @author DELL
+ *
+ */
 public class MenuObservador extends JPanel implements ActionListener{
 	
 	public Usuario miUsuario;

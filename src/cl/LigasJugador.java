@@ -9,6 +9,11 @@ import javax.swing.border.Border;
 
 import gestor.Gestor;
 
+/**Esta clase tiene los componentes y los metodos para las ligas 
+ * de jugador en la pantalla de fase juegos y apuestas.
+ * @author DELL
+ *
+ */
 public class LigasJugador extends JPanel implements ActionListener{
 	
 	private static Gestor controlador = new Gestor();
@@ -114,7 +119,10 @@ public class LigasJugador extends JPanel implements ActionListener{
 	private ImageIcon imagenPais31;
 	private ImageIcon imagenPais32;
 	
-
+/**
+ * Metodo que retorna en arraylist la lista de los equipos del jugador
+ * @param miUsuarioActual
+ */
 	public LigasJugador(Usuario miUsuarioActual){
 		
 		this.miUsuarioActual = Gestor.retornarUsuario(miUsuarioActual.getNombreUsuario());
@@ -215,7 +223,12 @@ public class LigasJugador extends JPanel implements ActionListener{
 	}
 	
 
-
+/**
+ * Este metodo muestra la informacion de la liga asociada en la
+ * pantalla del jugador y ademas muestra los detalles 
+ * especificos de la liga los puntos estado bono etc.
+ * @param tipoLiga
+ */
 	public void mostrarInformacionLiga(int tipoLiga) {
 	
 		this.add(informacionLiga1);
@@ -297,7 +310,10 @@ public class LigasJugador extends JPanel implements ActionListener{
 		
 	}
 	
-	
+	/**
+	 * esto remueve todos los componentes de la pantalla
+	 * para que quede limpia
+	 */
 	public void removerComponentes() {
 		
 		this.remove(ligas);
@@ -314,7 +330,10 @@ public class LigasJugador extends JPanel implements ActionListener{
 		this.remove(btnSalir);
 		
 	}
-	
+	/**
+	 * Inicializacion de los componentes de la liga publica
+	 * y privada
+	 */
 	public void inicializarComponentes() {
 		
 		
@@ -342,7 +361,11 @@ public class LigasJugador extends JPanel implements ActionListener{
 	}
 	
 	//----------------------------------------------------------------------------------------------------------
-	
+	/**
+	 * Este metodo muestra la informacion de cada pais en un cuadro
+	 * con su respectiva informacion. 
+	 * @param tipoLiga
+	 */
 	public void mostrarCuadros(int tipoLiga) {
 		
 		
@@ -506,7 +529,14 @@ public class LigasJugador extends JPanel implements ActionListener{
 		
 	}
 	
-	
+	/**
+	 * Este metodo muestra las banderas en pantalla
+	 * ademas almacena en variables de tipo int las caracteristicas de las bandera
+	 * para que se muestren en pantalla.
+	 * @param ancho
+	 * @param alto
+	 * @param tipoLiga
+	 */
 	public void mostrarBanderas(int ancho, int alto, int tipoLiga) {
 		
 		Equipo[] temp1= null;
@@ -692,7 +722,10 @@ public class LigasJugador extends JPanel implements ActionListener{
 	
 	
 	
-	
+	/**
+	 * Este metodo muestra la informacion del pais seleccionado
+	 * retornando el equipo asociado, la posicion FIFA y el codigo.
+	 */
 	public void mostrarinformacionPaisSeleccionado(){
 		
 		this.add(bandera);

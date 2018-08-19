@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import accesoDatos.Conector;
 import cl.*;
 
+/**
+ * Este metodo posee todos los componente 
+ * @author DELL
+ *
+ */
 public class MultiEquipos {
 
 	

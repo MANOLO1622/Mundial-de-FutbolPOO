@@ -1,8 +1,13 @@
 package cl;
 
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+/**Esta clase tiene los isos de los paises guardados en un metodo de  tipo Enum
+ * @author DELL
+ *
+ */
 public enum ISOPaises {
 	
 	DE,BR,BE,PT,AR,CH,FR,PL,CL,ES,PE,DK,DM,EN,UY,MX,CO,NL,GL,IT,HR,TN,IS,CR,SE,US,AU,SN,SK,IE,RO,RI,PY,CUSTOM;
@@ -12,6 +17,10 @@ public enum ISOPaises {
 	//https://www.worldatlas.com/aatlas/ctycodes.htm
 	
 
+	/**El metodo se utiliza para retorna el iso de cada pais 
+	 * @param iso
+	 * @return
+	 */
 	public static ISOPaises retornarISOPais(String iso) {
 		
 		if(iso.equals("DE")) {
@@ -174,6 +183,12 @@ public enum ISOPaises {
 		
 		
 	}
+	
+	/**
+	 * Este metodo Retorna la lista de los iso en String para que sean mostrados
+	 * en un combo box
+	 * @return
+	 */
 	public  static ArrayList<String> retornarIsos() {
 		
 		ArrayList<String> listaIsos = new ArrayList<String>();

@@ -14,6 +14,13 @@ import java.util.ArrayList;
 import javax.swing.*;
 import gestor.Gestor;
 
+/**Esta clase tiene los componentes principales de la pantalla del jugador
+ * ademas aqui es donde se muestra los botones principales de la pantalla
+ * y su metodos respectivos para las apuestas del jugador la union de ligas 
+ * y el cronograma de juego y mucho mas.
+ * @author DELL
+ *
+ */
 public class MenuJugador extends JPanel implements ActionListener{
 	
 	private static Image imagen;
@@ -42,7 +49,10 @@ public class MenuJugador extends JPanel implements ActionListener{
 	JLabel informacionLiga5 = new JLabel("");
 	JLabel informacionLiga6 = new JLabel("");
 	
-	
+	/**
+	 * Este metodo muestra los botones principales de la pantalla del jugador
+	 * @param miUsuario
+	 */
 	public MenuJugador(Usuario miUsuario) {
 		
 		this.setLayout(null);
@@ -147,7 +157,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 		}
 		
-		if(e.getSource() == boton5) {
+		if(e.getSource() == boton5) {// aqui se muestra los botones y campos para unirse a la liga
 			
 			desabilitarMenuPrincipal();
 			mostrarInformacionLiga();
@@ -164,7 +174,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 	
 		}
 		
-		if(e.getSource() == boton6) {
+		if(e.getSource() == boton6) {//aqui se ejecuta el componente para retirar se la liga
 			
 			ligasRegistradaUsuario.removeAllItems();
 			
@@ -220,7 +230,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 		}
 		
-		if (e.getSource() == ligasRegistradas) {
+		if (e.getSource() == ligasRegistradas) {// aqui se ejecuta el codigo para unirse a la liga respectiva
 			
 			btnUnirseLiga.setEnabled(true);
 			
@@ -236,7 +246,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 				estadoLigaPublica = "Inactivo";
 				
 			}
-			
+			//estos componentes se mostraran una vez se halla unido a una liga publica.
 			informacionLiga1.setText("Información de la liga.");
 			informacionLiga2.setText("Nombre de la liga: " + ligaPublicaTemp.getNombreLiga());
 			informacionLiga3.setText("Fecha de creación: " + ligaPublicaTemp.getFechaCreacion());
@@ -245,7 +255,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 			informacionLiga6.setText("Bono: " + ligaPublicaTemp.getBono());
 			
 		}
-		
+		//se ejecuta el boton unirse a la liga
 		if(e.getSource() == btnUnirseLiga) {
 			
 			LigasPublicas ligaPublicaTemporal = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());
@@ -354,11 +364,17 @@ public class MenuJugador extends JPanel implements ActionListener{
 	}
 	
 	//-------------------------------------------------------------------------------------------------
-	
+	/**
+	 *Metodo principal del Get de miUsuario
+	 * @return
+	 */
 	public Usuario getMiUsuario() {
 		return miUsuario;
 	}
-
+/**
+ * Metodo principal de Set de miUsuario
+ * @param miUsuario
+ */
 	public void setMiUsuario(Usuario miUsuario) {
 		this.miUsuario = miUsuario;
 	}
@@ -366,7 +382,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 	
 	//-------------------------------------------------------------------------------------------------
 	
-	public void desabilitarMenuPrincipal() {
+	public void desabilitarMenuPrincipal() {// esto desabilita los botones del menu principal de la pantalla del jugador
 		
 		boton4.setEnabled(false);
 		boton5.setEnabled(false);
@@ -411,7 +427,9 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 	}
 	//-------------------------------------------------------------------------------------------------
-	
+	/**
+	 * muestra la informacion de la liga un ves unida y creada la liga y el mundial
+	 */
 	public void mostrarInformacionLiga() {
 		
 		
@@ -447,7 +465,9 @@ public class MenuJugador extends JPanel implements ActionListener{
 		informacionLiga6.setFont(new Font(informacionLiga6.getFont().getFontName(), Font.PLAIN, 30));
 		
 	}
-	
+	/**
+	 * Validaciones de condiciones del juego
+	 */
 	
 	public void evaluarCondicionJuego(){
 		
@@ -483,7 +503,10 @@ public class MenuJugador extends JPanel implements ActionListener{
 		}
 		
 	}
-	
+	/**
+	 * Remueve la validaciones de las ligas y de las fase de grupos
+	 * @param tipoLiga
+	 */
 	public void removerValidacionesLigas(int tipoLiga) {
 		
 		switch(tipoLiga) {

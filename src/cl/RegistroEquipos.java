@@ -16,6 +16,11 @@ import javax.swing.SwingUtilities;
 
 import gestor.Gestor;
 
+/**Esta clase pose los compoentes de los equipos registrados en el menu del admin
+ * ademas contiene sus mentodos respectivos para el registro del equipo aun mundial.
+ * @author DELL
+ *
+ */
 public class RegistroEquipos extends JPanel implements ActionListener {
 	
 	public Usuario miUsuario;
@@ -40,6 +45,10 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 
 	private static Image imagen;
 
+	/**
+	 * Metodo de registro de los equipos en el menu admin 
+	 * @param miUsuario
+	 */
 	public RegistroEquipos(Usuario miUsuario) {
 		
 		this.miUsuario = miUsuario;
@@ -88,7 +97,7 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e) {// validaciones del registrar equipo
 		// TODO Auto-generated method stub
 
 		int validacionEquipo = controlador.validarEquipo(nombreTXT.getText(), 0, banderaTXT.getText(),
@@ -129,7 +138,7 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 			}
 
 		}
-		if (e.getSource() == btnSalir) {
+		if (e.getSource() == btnSalir) {//boton de salir del registrar equipo
 			
 			Ventana ventanaUsuario = new Ventana(controlador.retornarUsuario(this.miUsuario.getNombreUsuario()));
 			Usuario UsuarioActual = controlador.retornarUsuario(this.miUsuario.getNombreUsuario());
@@ -143,7 +152,9 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 		
 	}
 //-------------------------------------------------------------------------------------------------
-	
+	/**
+	 * metodo de ingresos de los isos de cada pais
+	 */
 	public void ingresarIsos() {
 		
 		ArrayList<String> listaIsos = ISOPaises.retornarIsos(); 
