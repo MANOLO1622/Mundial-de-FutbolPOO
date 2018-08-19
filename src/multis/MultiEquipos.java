@@ -62,6 +62,25 @@ public class MultiEquipos {
 	}
 	
 	
+	public void registrarEquipoGanadorSegundaFase(String nombre, String mundial, int fase) {
+
+		String sql;
+		sql = "INSERT INTO GanadoresSegundaFase " + "( nombre, mundial, fase) "
+		    + "VALUES ('"
+				+ nombre + "', '" + mundial + "', " + fase+ ");";
+		try {
+
+			Conector.getConector().ejecutarSQL(sql);
+
+			
+		} catch (Exception e) {
+			System.out.println("Exception " + e.toString());
+
+		}
+
+	}
+	
+	
 	/**
 	 * Este es el metodo que se ejecuta para buscar el equipo por el nombre
 	 * @param pnombre

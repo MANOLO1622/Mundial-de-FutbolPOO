@@ -534,6 +534,12 @@ public class Resultados {
         this.tercerLugar = juegosFinales[1].getEquipoGanador();
         this.cuartoLugar = juegosFinales[1].getEquipoPerdedor();
         
+    	new MultiEquipos().registrarEquipoGanadorSegundaFase(juegosFinales[0].getEquipoGanador().getNombre(), this.nombreMundial, 1);
+    	new MultiEquipos().registrarEquipoGanadorSegundaFase(juegosFinales[0].getEquipoPerdedor().getNombre(), this.nombreMundial, 1);
+    	new MultiEquipos().registrarEquipoGanadorSegundaFase(juegosFinales[1].getEquipoGanador().getNombre(), this.nombreMundial, 1);
+    	new MultiEquipos().registrarEquipoGanadorSegundaFase(juegosFinales[1].getEquipoPerdedor().getNombre(), this.nombreMundial, 1);
+    	
+        
         ganadoresPrimerafase();
         
     }
@@ -961,6 +967,15 @@ public class Resultados {
     	ganadoresTemp[6] = partidos[6].getEquipoGanador();
     	ganadoresTemp[7] = partidos[7].getEquipoGanador();
     	
+    	new MultiEquipos().registrarEquipoGanadorSegundaFase(ganadoresTemp[0].getNombre(), this.nombreMundial, 8);
+    	new MultiEquipos().registrarEquipoGanadorSegundaFase(ganadoresTemp[1].getNombre(), this.nombreMundial, 8);
+    	new MultiEquipos().registrarEquipoGanadorSegundaFase(ganadoresTemp[2].getNombre(), this.nombreMundial, 8);
+    	new MultiEquipos().registrarEquipoGanadorSegundaFase(ganadoresTemp[3].getNombre(), this.nombreMundial, 8);
+    	new MultiEquipos().registrarEquipoGanadorSegundaFase(ganadoresTemp[4].getNombre(), this.nombreMundial, 8);
+    	new MultiEquipos().registrarEquipoGanadorSegundaFase(ganadoresTemp[5].getNombre(), this.nombreMundial, 8);
+    	new MultiEquipos().registrarEquipoGanadorSegundaFase(ganadoresTemp[6].getNombre(), this.nombreMundial, 8);
+    	new MultiEquipos().registrarEquipoGanadorSegundaFase(ganadoresTemp[7].getNombre(), this.nombreMundial, 8);
+    	
     	return ganadoresTemp;
     	
     }
@@ -972,7 +987,12 @@ public class Resultados {
     	ganadoresTemp[0] = partidos[0].getEquipoGanador();
     	ganadoresTemp[1] = partidos[1].getEquipoGanador();
     	ganadoresTemp[2] = partidos[2].getEquipoGanador();
-    	ganadoresTemp[3] = partidos[3].getEquipoGanador();  
+    	ganadoresTemp[3] = partidos[3].getEquipoGanador();
+    	
+    	new MultiEquipos().registrarEquipoGanadorSegundaFase(ganadoresTemp[0].getNombre(), this.nombreMundial, 4);
+    	new MultiEquipos().registrarEquipoGanadorSegundaFase(ganadoresTemp[1].getNombre(), this.nombreMundial, 4);
+    	new MultiEquipos().registrarEquipoGanadorSegundaFase(ganadoresTemp[2].getNombre(), this.nombreMundial, 4);
+    	new MultiEquipos().registrarEquipoGanadorSegundaFase(ganadoresTemp[3].getNombre(), this.nombreMundial, 4);
     	
     	return ganadoresTemp;
     	
