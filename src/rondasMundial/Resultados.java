@@ -6,6 +6,7 @@ import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 import cl.Equipo;
+import multis.*;
 
 public class Resultados {
 	
@@ -56,7 +57,7 @@ public class Resultados {
     
 	//---------------------------------------------------------------------------------------Constructor.
     
-    public Resultados(ArrayList<Equipo> equiposMundial) {
+    public Resultados(ArrayList<Equipo> equiposMundial, String nombreMundial) {
     	
     	int contador = 0;
     	
@@ -65,6 +66,7 @@ public class Resultados {
     	for(int i=0; i<4;i++) {
     		
     		primerCuadro[i] = equiposMundial.get(i);
+    		new MultiPrimeraFase().crear(primerCuadro[i].getNombre(), 1, nombreMundial);
     		contador = i;
     		
     	}
@@ -75,6 +77,7 @@ public class Resultados {
     	for(int i=0; i<4;i++) {
     		
     		segundoCuadro[i] = equiposMundial.get(contador);
+    		new MultiPrimeraFase().crear(segundoCuadro[i].getNombre(), 2, nombreMundial);
     		contador++;
     		
     	}
@@ -85,6 +88,7 @@ public class Resultados {
     	for(int i=0; i<4;i++) {
     		
     		tercerCuadro[i] = equiposMundial.get(contador);
+    		new MultiPrimeraFase().crear(tercerCuadro[i].getNombre(), 3, nombreMundial);
     		contador++;
     		
     	}
@@ -95,6 +99,7 @@ public class Resultados {
     	for(int i=0; i<4;i++) {
     		
     		cuartoCuadro[i] = equiposMundial.get(contador);
+    		new MultiPrimeraFase().crear(cuartoCuadro[i].getNombre(), 4, nombreMundial);
     		contador++;
     		
     	}
@@ -104,6 +109,7 @@ public class Resultados {
     	for(int i=0; i<4;i++) {
     		
     		quintoCuadro[i] = equiposMundial.get(contador);
+    		new MultiPrimeraFase().crear(quintoCuadro[i].getNombre(), 5, nombreMundial);
     		contador++;
     		
     	}
@@ -113,6 +119,7 @@ public class Resultados {
     	for(int i=0; i<4;i++) {
     		
     		sextoCuadro[i] = equiposMundial.get(contador);
+    		new MultiPrimeraFase().crear(sextoCuadro[i].getNombre(), 6, nombreMundial);
     		contador++;
     		
     	}
@@ -122,6 +129,7 @@ public class Resultados {
     	for(int i=0; i<4;i++) {
     		
     		septimoCuadro[i] = equiposMundial.get(contador);
+    		new MultiPrimeraFase().crear(septimoCuadro[i].getNombre(), 7, nombreMundial);
     		contador++;
     		
     	}
@@ -131,6 +139,7 @@ public class Resultados {
     	for(int i=0; i<4;i++) {
     		
     		octavoCuadro[i] = equiposMundial.get(contador);
+    		new MultiPrimeraFase().crear(octavoCuadro[i].getNombre(), 8, nombreMundial);
     		contador++;
     		
     	}
@@ -533,7 +542,6 @@ public class Resultados {
     	switch(opcionOrden) {
     	
     	case 0:
-    		
     		
     		partidosCuadroTemp[0] = new Partido(cuadroJuego[0],cuadroJuego[1]);
     		partidosCuadroTemp[1] = new Partido(cuadroJuego[3],cuadroJuego[1]);

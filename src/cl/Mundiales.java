@@ -128,7 +128,7 @@ public class Mundiales {
 	 */
    public void generarCuadrosJuego() {
 	   
-	   this.resultadosMundial = new Resultados(this.equiposMundial);
+	   this.resultadosMundial = new Resultados(this.equiposMundial, this.nombreMundial);
 	   
    }
     
