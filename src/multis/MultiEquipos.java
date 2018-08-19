@@ -43,12 +43,12 @@ public class MultiEquipos {
 	}
 	
 	
-	public void registrarEquipoGanadorPrimeraFase(String nombre, String mundial) {
+	public void registrarEquipoGanadorPrimeraFase(String nombre, String mundial, int cuadro) {
 
 		String sql;
-		sql = "INSERT INTO GanadoresPrimeraFase " + "( nombre, mundial) "
+		sql = "INSERT INTO GanadoresPrimeraFase " + "( nombre, mundial, cuadro) "
 		    + "VALUES ('"
-				+ nombre + "', '" + mundial+ "');";
+				+ nombre + "', '" + mundial + "', " + cuadro + ");";
 		try {
 
 			Conector.getConector().ejecutarSQL(sql);

@@ -511,14 +511,14 @@ public class Resultados {
         partidosSeptimoCuadro = organizarCuadroJuego(septimoCuadro, 7);
         partidosOctavoCuadro = organizarCuadroJuego(octavoCuadro, 8);
 
-        ganadoresPrimerCuadro = guardarGanadoresPrimeraFase(partidosPrimerCuadro,primerCuadro);
-        ganadoresSegundoCuadro = guardarGanadoresPrimeraFase(partidosSegundoCuadro,segundoCuadro);
-        ganadoresTercerCuadro = guardarGanadoresPrimeraFase(partidosTercerCuadro,tercerCuadro);
-        ganadoresCuartoCuadro = guardarGanadoresPrimeraFase(partidosCuartoCuadro,cuartoCuadro);
-        ganadoresQuintoCuadro = guardarGanadoresPrimeraFase(partidosQuintoCuadro,quintoCuadro);
-        ganadoresSextoCuadro = guardarGanadoresPrimeraFase(partidosSextoCuadro,sextoCuadro);
-        ganadoresSeptimoCuadro = guardarGanadoresPrimeraFase(partidosSeptimoCuadro,septimoCuadro);
-        ganadoresOctavoCuadro = guardarGanadoresPrimeraFase(partidosOctavoCuadro,octavoCuadro); 
+        ganadoresPrimerCuadro = guardarGanadoresPrimeraFase(partidosPrimerCuadro,primerCuadro, 1);
+        ganadoresSegundoCuadro = guardarGanadoresPrimeraFase(partidosSegundoCuadro,segundoCuadro,2);
+        ganadoresTercerCuadro = guardarGanadoresPrimeraFase(partidosTercerCuadro,tercerCuadro, 3);
+        ganadoresCuartoCuadro = guardarGanadoresPrimeraFase(partidosCuartoCuadro,cuartoCuadro, 4);
+        ganadoresQuintoCuadro = guardarGanadoresPrimeraFase(partidosQuintoCuadro,quintoCuadro, 5);
+        ganadoresSextoCuadro = guardarGanadoresPrimeraFase(partidosSextoCuadro,sextoCuadro, 6);
+        ganadoresSeptimoCuadro = guardarGanadoresPrimeraFase(partidosSeptimoCuadro,septimoCuadro, 7);
+        ganadoresOctavoCuadro = guardarGanadoresPrimeraFase(partidosOctavoCuadro,octavoCuadro, 8); 
         
         
         
@@ -704,7 +704,7 @@ public class Resultados {
     
 	//---------------------------------------------------------------------------------------Sacar ganadores de cada cuadro
     
-    public Equipo[] guardarGanadoresPrimeraFase(Partido[] partidosCuadro, Equipo[] equipoCuadro) {
+    public Equipo[] guardarGanadoresPrimeraFase(Partido[] partidosCuadro, Equipo[] equipoCuadro, int cuadro) {
 		
     	int equipo1Contador = 0;
     	int equipo2Contador = 0;
@@ -838,8 +838,8 @@ public class Resultados {
 
 		
 		//----------------------------------------------------------------------------
-    	new MultiEquipos().registrarEquipoGanadorPrimeraFase(listaRetorno[0].getNombre(), this.nombreMundial);
-    	new MultiEquipos().registrarEquipoGanadorPrimeraFase(listaRetorno[1].getNombre(), this.nombreMundial);
+    	new MultiEquipos().registrarEquipoGanadorPrimeraFase(listaRetorno[0].getNombre(), this.nombreMundial, cuadro);
+    	new MultiEquipos().registrarEquipoGanadorPrimeraFase(listaRetorno[1].getNombre(), this.nombreMundial, cuadro);
     	
     	return listaRetorno;
     	    	

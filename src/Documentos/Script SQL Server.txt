@@ -10,7 +10,6 @@ select * from GanadoresPrimeraFase
 select * from PartidosSegudaFase
 select * from GanadoresSegundaFase
 
-
 //--------------------------------------------------------------------------------------------------------------------------
 
 
