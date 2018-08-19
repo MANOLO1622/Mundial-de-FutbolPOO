@@ -16,6 +16,13 @@ import multis.MultiUsuarios;
 import rondasMundial.Partido;
 
 
+/**
+ * Esta clase posee la logica principal de toda la app, adicionalmente se ejecutan
+ * los metodos de todos lo registrar de listar y ademas los arrylits que ejecutan
+ * la lista de las clases requeridas de toda la app en general.
+ * @author DELL
+ *
+ */
 public class CL {
 	
 	private static ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
@@ -36,6 +43,11 @@ public class CL {
 
 	}
 	
+	/**
+	 * Este metodo ejecuta la lista de los equipos ingresados del registrar equipo
+	 * @throws SQLException
+	 * @throws Exception
+	 */
 	public static void ingresarEquiposLista() throws SQLException, Exception {
 		
 		listaEquiposFIFA = new MultiEquipos().retornarEquipos();
@@ -53,6 +65,10 @@ public class CL {
 	
 	//-------------------------------------------------------------------------------------------------------------
 	
+	/**
+	 * Este metodo ejecuta la lista de los Usuarios ingresados del registrar Usuarios
+	 * @param registro
+	 */
 	public static void registrarUsuario(Usuario registro) {
 		
 		listaUsuarios.add(registro);
@@ -62,6 +78,10 @@ public class CL {
 		
 	}
 	
+	/**
+	 * Ejecuta la lista de los usuarios registrados
+	 * @return
+	 */
 	public static ArrayList<Usuario> listarUsuarios() {
 		
 		return listaUsuarios;
@@ -69,6 +89,14 @@ public class CL {
 	
 	//-------------------------------------------------------------------------------------------------------------
 	
+	/**
+	 * Este metodo ejecuta las variables almacenadas que seran mostradas en la base de datos
+	 * de forma de que el registrar equipos fue  exitoso.
+	 * @param nombre
+	 * @param ranking
+	 * @param bandera
+	 * @param iso
+	 */
 	public static void registrarEquipos(String nombre, int ranking, String bandera, ISOPaises iso) {
 		
 		Equipo equipoTemp = new Equipo(nombre, ranking, bandera, iso);
@@ -78,12 +106,22 @@ public class CL {
 		
 	}
 	
+	/**
+	 * Retorna la lista de los equipos 
+	 * @return
+	 */
 	public static ArrayList<Equipo> listarEquiposFIFA() {
 		
 		return listaEquiposFIFA;
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------
+	/**
+	 * Este es el metodo del registrar mundial en general.
+	 * se utiliza 3 tipos de variables para el registro principal
+	 * int, y boolean
+	 * @param registro
+	 */
 	public static void registrarMundial(Mundiales registro) {
 		
 		int cupoEquipos = 0;
@@ -120,6 +158,10 @@ public class CL {
 		
 	}
 	
+	/**
+	 * Retorna la lista de mundiales registrados.
+	 * @return
+	 */
 	public static ArrayList<Mundiales> listaMundiales() {
 		
 		return listaMundiales;
@@ -127,6 +169,11 @@ public class CL {
 	}
 	
 	//----------------------------------------------------------------------------------------------------------------
+	/**
+	 * Este metodo es el registrar de las Ligas Publicas en general
+	 * adicionalmente aqui es donde se ejecuta el multi de la liga.
+	 * @param registro
+	 */
 	public static void registrarLigaPublicas(LigasPublicas registro) {
 		
 		listaLigasPublicas.add(registro);
@@ -137,6 +184,11 @@ public class CL {
 
 	
 	//-----------------------------------------------------------------------------------------------------------
+	/**
+	 * Este metodo es el registrar de las Ligas Privadas en general
+	 * dicionalmente aqui es donde se ejecuta el multi de la liga.
+	 * @param registro
+	 */
 	public static void registrarLigaPrivadas(LigasPrivadas registro) {
 		
 		listaLigasPrivadas.add(registro);
@@ -145,7 +197,10 @@ public class CL {
 		
 	}
 	
-	
+	/**
+	 * Retorna la lista de la Liga Privadas
+	 * @return
+	 */
 	public static ArrayList<LigasPrivadas> listaLigasPrivadas() {
 		
 		return listaLigasPrivadas;
@@ -154,6 +209,11 @@ public class CL {
 	
 	//-----------------------------------------------------------------------------------------------------------
 	
+	/**
+	 * Este metodo ejecuta la bandera de cada equipo.
+	 * @param nombreEquipo
+	 * @return
+	 */
 	public static String retornarBanderaEquipo(String nombreEquipo) {
 		String bandera="";
 		for(Equipo e: listaEquiposFIFA) {
@@ -170,6 +230,12 @@ public class CL {
 	}
 	
 	
+	/**
+	 * Este es el metodo de registrar de los usuarios que 
+	 * son almacenados en la base de datos
+	 * @param nombreUsuario
+	 * @return
+	 */
 	public static Usuario retornarUsuario(String nombreUsuario) {
 		
 		Usuario temp = new Usuario("Generico", "Generico", "Generico", "Generico", "Generico", "Generico", 0);
@@ -185,7 +251,11 @@ public class CL {
 		return temp;
 	}
 	
-	
+	/**
+	 * Metodo que ejecuta las ligas publicas registradas en el menu admin.
+	 * @param nombreLiga
+	 * @return
+	 */
 	public static LigasPublicas retornarLigaPublica(String nombreLiga) {
 		
 		LigasPublicas temp = new LigasPublicas("", null, false, 0, 0, null);
@@ -202,7 +272,11 @@ public class CL {
 	}
 	
 
-	
+	/**
+	 * Metodo que ejecuta las ligas publicas registradas en el menu admin.
+	 * @param nombreLiga
+	 * @return
+	 */
 	public static LigasPrivadas retornarLigaPrivada(String nombreLiga) {
 		
 		LigasPrivadas temp = new LigasPrivadas("", null, false, 0, 0, null);
@@ -220,37 +294,61 @@ public class CL {
 	}
 	
 	
-	
+	/**
+	 * Retorna la lista de los mundiales que son almacenados en un arraylist
+	 * @return
+	 */
 	public static ArrayList<Mundiales> retornarMundialesRegistrados(){
 		
 		return listaMundiales;
 		
 	}
 	
+	/**
+	 * Retorna la lista de los equipos que son almacenados en un arraylist
+	 * @return
+	 */
 	public static ArrayList<Equipo> retornarEquiposRegistrados(){
 		
 		return listaEquiposFIFA;		
 		
 	}
 	
+	/**
+	 * Retorna la lista de las Ligas Publicas que son almacenados en un arraylist
+	 * @return
+	 */
 	public static ArrayList<LigasPublicas> retornarLigasPublicasRegistrados(){
 		
 		return listaLigasPublicas;
 		
 	}
 	
+	/**
+	 * Retorna la lista de las Ligas Privadas que son almacenados en un arraylist
+	 * @return
+	 */
 	public static ArrayList<LigasPrivadas> retornarLigasPrivadasRegistrados(){
 		
 		return listaLigasPrivadas;
 		
 	}
 	
+	/**
+	 * Retorna la lista de los Usuarios que son almacenados en un arraylist
+	 * @return
+	 */
 	public static ArrayList<Usuario> retornarUsuariosRegistrados(){
 
 		return listaUsuarios;
 		
 	}
 
+	/**
+	 * Retorna la lista de los mundiales y las posiciones de la fase de equipos.
+	 * @param nombreMundial
+	 * @return
+	 */
 	public static Mundiales retornarMundial(String nombreMundial) {
 		Mundiales mundialTemp=null;
 		
@@ -274,6 +372,11 @@ public class CL {
 	}
 	
 	
+	/**
+	 * Retorna la lista de los Equipos y sus caracteristicas en pantalla.
+	 * @param nombreEquipo
+	 * @return
+	 */
 	public static Equipo retornarEquipo(String nombreEquipo) {
 		Equipo equipoTemp=null;
 		
@@ -291,7 +394,10 @@ public class CL {
 		
 	}
 	
-	
+	/**
+	 * Retorna la lista de las Ligas Publicas que son almacenados en un arraylist
+	 * @return
+	 */
 	public static ArrayList<LigasPublicas> retornarLigasPublicas() {
 		
 		return listaLigasPublicas;
@@ -299,7 +405,12 @@ public class CL {
 	}
 	
 	
-	
+	/**
+	 * Retorna los partidos en el cuadro del juego.
+	 * @param nombreLiga
+	 * @param nombreEquipo
+	 * @return
+	 */
 	public static String retornarPartidosCuadro(String nombreLiga, String nombreEquipo) {
 		
 		int tipoLiga = -1;
@@ -558,7 +669,14 @@ public class CL {
 	}
 	
 	
-	
+	/**
+	 * Retorna la lista de los Partidos de la primera fase que son 
+	 * almacenados en un arraylist
+	 * @param equipoSeleccionado
+	 * @param nombreLiga
+	 * @param tipoLiga
+	 * @return
+	 */
 	public static ArrayList<Partido> retornarPartidosEquipoLigaPrimeraFase(Equipo equipoSeleccionado, String nombreLiga, int tipoLiga){
 		
 		ArrayList<Partido> partidosRetorno = new ArrayList();
@@ -603,6 +721,13 @@ public class CL {
 		return partidosRetorno;
 	}
 	
+	/**
+	 * Retorna la lista de los Partidos el resultado y el quipo seleccionado
+	 *  que son almacenados en un arraylist
+	 * @param mundial
+	 * @param equipoSeleccionado
+	 * @return
+	 */
 	public static ArrayList<Partido> retornarPartidosEquipoMundialPrimeraFase(Mundiales mundial, Equipo equipoSeleccionado) {
 		
 		ArrayList<Partido> partidosRetorno = new ArrayList();
@@ -695,6 +820,11 @@ public class CL {
 	
 	//------------------------------------------------------------------------------------------------
 	
+	/**
+	 * Metodo que asigna un usuario a una liga Publica
+	 * @param nombreUsuario
+	 * @param liga
+	 */
 	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
 				
 		int indice=0;
@@ -715,6 +845,11 @@ public class CL {
 		
 	}
 	
+	/**
+	 * Metodo que asigna un usuario a una liga Privada
+	 * @param nombreUsuario
+	 * @param liga
+	 */
 	public static void asignarLigaPrivadaUsuario(String nombreUsuario, LigasPrivadas liga) {
 		
 		int indice=0;
@@ -736,7 +871,11 @@ public class CL {
 	}
 	
 	
-	
+	/**
+	 * Metodo que asigna un equipo a una liga Publica
+	 * @param nombreUsuario
+	 * @param equipoSeleccionado
+	 */
 	public static void asignarEquipoLigaPublicaUsuario(String nombreUsuario, Equipo equipoSeleccionado) {
 		
 		int index = -1;
@@ -761,7 +900,11 @@ public class CL {
 		
 	}
 	
-	
+	/**
+	 * Metodo que asigna un equipo a una liga Privada
+	 * @param nombreUsuario
+	 * @param equipoSeleccionado
+	 */
 	public static void asignarEquipoLigaPrivadaUsuario(String nombreUsuario, Equipo equipoSeleccionado) {
 		int index = -1;
 		Usuario temp = null;
@@ -792,6 +935,10 @@ public class CL {
 	
 	//---------------------------------------------------------------------------------------------------------------------------------------
 	
+	/**
+	 * Metodo que remueve la publica del usuario en general. 
+	 * @param nombreUsuario
+	 */
 	public static void removerLigaPublicaUsuario(String nombreUsuario) {
 		
 		int indice=0;
@@ -811,7 +958,10 @@ public class CL {
 		listaUsuarios.set(indice, miUsuario);
 		
 	}
-	
+	/**
+	 *  Metodo que remueve la privada del usuario en general. 
+	 * @param nombreUsuario
+	 */
 	public static void removerLigaPrivadaUsuario(String nombreUsuario) {
 		
 		int indice=0;
@@ -832,7 +982,10 @@ public class CL {
 		
 	}
 	
-	
+	/**
+	 *  Metodo que remueve los equipos de la liga publica del usuario en general. 
+	 * @param nombreUsuario
+	 */
 	public static void removerEquipoLigaPublicaUsuario(String nombreUsuario) {
 		
 		int indice=0;
@@ -853,6 +1006,10 @@ public class CL {
 		
 	}
 	
+	/**
+	 * Metodo que remueve los equipos de la liga privada del usuario en general. 
+	 * @param nombreUsuario
+	 */
 	public static void removerEquipoLigaPrivadaUsuario(String nombreUsuario) {
 		
 		int indice=0;
@@ -875,7 +1032,12 @@ public class CL {
 	
 	
 	//-------------------------------------------------------------------------------------------------------------
-	
+		
+	/**
+	 * Meotodo que comprueba el tipo de liga
+	 * @param nombreLiga
+	 * @return
+	 */
 		public static String comprobarTipoLiga(String nombreLiga) {
 			String comprobante="";
 			
@@ -909,7 +1071,10 @@ public class CL {
 		
 		//-------------------------------------------------------------------------------------------------------------
 		
-		
+		/**
+		 * Metodo que elimina la liga publica
+		 * @param nombreLiga
+		 */
 		public static void eliminarLigaPublica(String nombreLiga) {
 			
 			int index=-1;
@@ -933,7 +1098,10 @@ public class CL {
 			
 		}
 		
-		
+		/**
+		 * Elimina la Liga Privada 
+		 * @param nombreLiga
+		 */
 		public static void eliminarLigaPrivada(String nombreLiga) {
 			
 			int index=-1;
@@ -960,6 +1128,10 @@ public class CL {
 		
 		//-------------------------------------------------------------------------------------------------------------
 		
+		/**
+		 * Actualiza el  nombre del usuario actual
+		 * @param usuarioActualizado
+		 */
 		public static void actualizarJugador(Usuario usuarioActualizado) {
 			
 			for(Usuario e: listaUsuarios) {

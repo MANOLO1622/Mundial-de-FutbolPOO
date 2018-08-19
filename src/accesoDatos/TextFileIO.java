@@ -7,6 +7,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Esta clase se encarga de guardar en persistencia en texto.
+ * @author DELL
+ *
+ */
 public class TextFileIO {
 
 private String file;

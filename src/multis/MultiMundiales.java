@@ -8,11 +8,25 @@ import accesoDatos.Conector;
 import cl.*;
 import rondasMundial.Resultados;
 
+/**
+ * Este metodo posee todos los componente necesarios que son mandados a la base de datos
+ * con sus variables solicitadas.
+ * @author DELL
+ *
+ */
 public class MultiMundiales {
 	
 	
 	
-	
+	/**
+	 * Este es el metodo de registrar Los Mundiales, donde se ejecuta cada variable para
+	 * su almacenamiento en la base de datos.
+	 * @param nombreMundial
+	 * @param fechaInicio
+	 * @param paisOrganizador
+	 * @param estado
+	 * @return
+	 */
 	public Mundiales crear(String nombreMundial, LocalDate fechaInicio, String paisOrganizador, Boolean estado) {
 		Mundiales Mundiales = null;
 		String sql;
@@ -31,7 +45,14 @@ public class MultiMundiales {
 		}
 		return Mundiales;
 	}
-
+	
+	/**
+	 * Este es el metodo que se ejecuta para buscar el Mundial por el nombre del mundial
+	 * @param pnombreMundial
+	 * @return
+	 * @throws java.sql.SQLException
+	 * @throws Exception
+	 */
 	public Mundiales buscar(String pnombreMundial) throws java.sql.SQLException, Exception {
 		Mundiales Mundiales = null;
 		java.sql.ResultSet rs = null;
@@ -49,7 +70,13 @@ public class MultiMundiales {
 		rs.close();*/
 		return Mundiales;
 	}
-
+	
+	/**
+	 * Este es el metodo de modificar el Mundial por su nombre de mundial
+	 * @param pMundiales
+	 * @throws java.sql.SQLException
+	 * @throws Exception
+	 */
 	public void actualizar(Mundiales pMundiales) throws java.sql.SQLException, Exception {
 		String sql;
 		sql = "UPDATE Mundiales " + "SET nombreMundial='" + pMundiales.getNombreMundial() + "';";
@@ -60,7 +87,13 @@ public class MultiMundiales {
 			throw new Exception("El Mundial no está registrado.");
 		}
 	}
-
+	
+	/**
+	 * Este es el metodo que borra el mundial de la base de datos
+	 * @param pMundiales
+	 * @throws java.sql.SQLException
+	 * @throws Exception
+	 */
 	public void borrar(Mundiales pMundiales) throws java.sql.SQLException, Exception {
 		String sql;
 		sql = "DELETE FROM Mundiales " + "WHERE nombre='" + pMundiales.getNombreMundial()+ "';";
@@ -71,6 +104,8 @@ public class MultiMundiales {
 			throw new Exception("El Mundial tiene cuentas.");
 		}
 	}
+
+	
 
 	/*public String listarMundiales() throws java.sql.SQLException, Exception {
 		String sql, lista = "";

@@ -2,6 +2,12 @@ package rondasMundial;
 
 import cl.*;
 
+/**
+ * Esta clase posee su constructor su get y set  y adicionalmente los atributos
+ * y su variables de dfiferentes tipos para su ejecucion. 
+ * @author DELL
+ *
+ */
 public class Partido {
 	
 	private Equipo equipo1;
@@ -11,7 +17,9 @@ public class Partido {
 	private int puntajeEquipo1;
 	private int puntajeEquipo2;
 	
-	public Partido(Equipo equipo1, Equipo equipo2) {
+	
+	
+	public Partido(Equipo equipo1, Equipo equipo2) {//Construtor 
 
 		this.equipo1 = equipo1;
 		this.equipo2 = equipo2;

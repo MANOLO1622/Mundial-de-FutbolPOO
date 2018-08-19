@@ -2,6 +2,12 @@ package rondasMundial;
 
 import cl.*;
 
+/**
+ * Esta clase posee su constructor su get y set  y adicionalmente los atributos
+ * y su variables de dfiferentes tipos para su ejecucion. 
+ * @author DELL
+ *
+ */
 public class Apuesta {
 	
 	

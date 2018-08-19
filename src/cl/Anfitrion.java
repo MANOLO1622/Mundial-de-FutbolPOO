@@ -1,5 +1,9 @@
 package cl;
 
+/**Esta clase posee su atributo su constructor su get y su set correspondiente 
+ * @author DELL
+ *
+ */
 public class Anfitrion {
 
 	private String nombre;

@@ -7,7 +7,8 @@ import accesoDatos.Conector;
 import cl.*;
 
 /**
- * Este metodo posee todos los componente 
+ * Este metodo posee todos los componente necesarios que son mandados a la base de datos
+ * con sus variables solicitadas.
  * @author DELL
  *
  */
@@ -15,7 +16,15 @@ public class MultiEquipos {
 
 	
 	
-	
+	/**
+	 * Este es el metodo de registrar del equipo, donde se ejecuta cada variable para
+	 * su almacenamiento en la base de datos.
+	 * @param nombre
+	 * @param ranking
+	 * @param bandera
+	 * @param iso
+	 * @return
+	 */
 	public Equipo crear(String nombre, int ranking, String bandera, ISOPaises iso) {
 		Equipo Equipo = null;
 		String sql;
@@ -32,7 +41,13 @@ public class MultiEquipos {
 		}
 		return Equipo;
 	}
-
+	/**
+	 * Este es el metodo que se ejecuta para buscar el equipo por el nombre
+	 * @param pnombre
+	 * @return
+	 * @throws java.sql.SQLException
+	 * @throws Exception
+	 */
 	public Equipo buscar(String pnombre) throws java.sql.SQLException, Exception {
 		Equipo Equipo = null;
 		java.sql.ResultSet rs = null;
@@ -51,6 +66,12 @@ public class MultiEquipos {
 		return Equipo;
 	}
 
+	/**
+	 * Este es el metodo de modificar un equipo por su nombre
+	 * @param pEquipo
+	 * @throws java.sql.SQLException
+	 * @throws Exception
+	 */
 	public void actualizar(Equipo pEquipo) throws java.sql.SQLException, Exception {
 		String sql;
 		sql = "UPDATE Equipo " + "SET nombre='" + pEquipo.getNombre() + "';";
@@ -61,7 +82,13 @@ public class MultiEquipos {
 			throw new Exception("El Equipo no está registrado.");
 		}
 	}
-
+	
+	/**
+	 * Este es el metodo que borra los equipos de la base de datos
+	 * @param pEquipo
+	 * @throws java.sql.SQLException
+	 * @throws Exception
+	 */
 	public void borrar(Equipo pEquipo) throws java.sql.SQLException, Exception {
 		String sql;
 		sql = "DELETE FROM Equipo " + "WHERE nombre='" + pEquipo.getNombre() + "';";
@@ -75,6 +102,12 @@ public class MultiEquipos {
 	
 	//-----------------------------------------------------------------------------------------------------
 
+	/**
+	 * Este metodo ejecuta una lista de equipos y los guarda en un ArrayList 
+	 * @return
+	 * @throws java.sql.SQLException
+	 * @throws Exception
+	 */
 	public  ArrayList<Equipo> retornarEquipos() throws java.sql.SQLException,Exception{
 		
 		Equipo equipoTemp=null;
