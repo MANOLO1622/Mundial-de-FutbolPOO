@@ -787,7 +787,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	}
 
-	public void ingresarMundiales() throws SQLException, Exception {//ingreso de los mundiales
+	public void ingresarMundiales() throws SQLException, Exception {
 
 		ArrayList<Mundiales> listaTemporal = Gestor.retornarMundialesRegistrados();
 

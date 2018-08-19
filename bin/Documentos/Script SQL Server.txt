@@ -7,6 +7,8 @@ select * from LigasPrivadas
 select * from CuadrosPrimeraFase
 select * from PartidosPrimeraFase
 select * from GanadoresPrimeraFase
+select * from PartidosSegudaFase
+select * from GanadoresSegundaFase
 
 
 //--------------------------------------------------------------------------------------------------------------------------
@@ -20,6 +22,8 @@ delete from LigasPrivadas
 delete from CuadrosPrimeraFase
 delete from PartidosPrimeraFase
 delete from GanadoresPrimeraFase
+delete from PartidosSegudaFase
+delete from GanadoresSegundaFase
 
 //--------------------------------------------------------------------------------------------------------------------------
 

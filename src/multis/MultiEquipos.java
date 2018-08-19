@@ -83,27 +83,29 @@ public class MultiEquipos {
 	
 	/**
 	 * Este es el metodo que se ejecuta para buscar el equipo por el nombre
-	 * @param pnombre
+	 * @param nombre
 	 * @return
 	 * @throws java.sql.SQLException
 	 * @throws Exception
 	 */
-	public Equipo buscar(String pnombre) throws java.sql.SQLException, Exception {
-		Equipo Equipo = null;
+	public Equipo buscar(String nombre) throws java.sql.SQLException, Exception {
+		
+		Equipo equipo = null;
 		java.sql.ResultSet rs = null;
 		String sql;
-		sql = "SELECT nombre" + "FROM Equipo " + "WHERE nombre='" + pnombre + ";";
-
-
-
-		/*if (rs.next()) {
-			Equipo = new Equipo(rs.getString("isoPaises"), rs.getString("Nombre"), rs.getInt(0),
-					rs.getString("bandera"));
+		
+		sql = "SELECT * " + " FROM Equipos " + " WHERE nombre= '" + nombre + "' ;";
+		rs = Conector.getConector().ejecutarSQL(sql,true);
+		
+		if (rs.next()) {
+			
+			equipo = new Equipo(rs.getString("nombre"), rs.getInt("ranking"), rs.getString("bandera"), ISOPaises.retornarISOPais(rs.getString("iso")));
+			
 		} else {
-			throw new Exception("El Equipo no está registrado.");Esta comentado porque tiene  un Bug pero hay que usarlo
-		}*/
+			System.out.println(" El Equipo no está registrado.");
+		}
 		rs.close();
-		return Equipo;
+		return equipo;
 	}
 
 	/**

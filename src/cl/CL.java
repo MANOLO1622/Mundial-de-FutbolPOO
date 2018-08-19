@@ -12,8 +12,10 @@ import multis.MultiEquipos;
 import multis.MultiLigasPrivadas;
 import multis.MultiLigasPublicas;
 import multis.MultiMundiales;
+import multis.MultiPrimeraFase;
 import multis.MultiUsuarios;
 import rondasMundial.Partido;
+import rondasMundial.Resultados;
 
 
 /**
@@ -298,8 +300,20 @@ public class CL {
 	 */
 	public static ArrayList<Mundiales> retornarMundialesRegistrados() throws SQLException, Exception{
 		
-		return new MultiMundiales().retornarMundiales();
-//		return listaMundiales;
+		 ArrayList<Mundiales> listaMundialesTemp = new MultiMundiales().retornarMundiales();
+		 
+		 for(Mundiales e : listaMundialesTemp) {
+			 
+			 Resultados resultadosTemp = new Resultados();
+			 resultadosTemp.setPrimerCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(e.getNombreMundial(), 1));
+			 
+			 
+		 }
+		 
+//		Aqui se va a inicializar el objeto resultados de todos los campos.
+		
+		
+		return listaMundialesTemp;
 		
 	}
 	

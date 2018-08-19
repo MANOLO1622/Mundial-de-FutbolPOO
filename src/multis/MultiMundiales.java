@@ -36,7 +36,6 @@ public class MultiMundiales {
 		try {
 
 			Conector.getConector().ejecutarSQL(sql);
-
 			Mundiales = new Mundiales( nombreMundial, fechaInicio, paisOrganizador, estado);
 			
 		} catch (Exception e) {
@@ -54,22 +53,40 @@ public class MultiMundiales {
 	 * @throws java.sql.SQLException
 	 * @throws Exception
 	 */
-	public Mundiales buscar(String pnombreMundial) throws java.sql.SQLException, Exception {
-		Mundiales Mundiales = null;
+	public Mundiales buscar(String nombreMundial) throws java.sql.SQLException, Exception {
+		Mundiales mundialTemp = null;
 		java.sql.ResultSet rs = null;
 		String sql;
-		sql = "SELECT nombreMundial" + "FROM Mundiales " + "WHERE nombreMundial ='" + pnombreMundial + ";";
+		sql = "SELECT nombreMundial" + "FROM Mundiales " + "WHERE nombreMundial ='" + nombreMundial + ";";
 
 
+		int agno = Integer.parseInt(rs.getString("fechaInicio").charAt(0)+""+ rs.getString("fechaInicio").charAt(1)+""
+								   +rs.getString("fechaInicio").charAt(2)+""+rs.getString("fechaInicio").charAt(3));
+		int mes = Integer.parseInt(rs.getString("fechaInicio").charAt(5)+""+ rs.getString("fechaInicio").charAt(6));
+		int dia = Integer.parseInt(rs.getString("fechaInicio").charAt(8)+""+ rs.getString("fechaInicio").charAt(9));
+				
+		LocalDate fechaInicio;
+				
+		try {
 
-		/*if (rs.next()) {
-			Mundiales = new Mundiales(rs.getString("nombreMundial"), rs.getString("Ano"), rs.getString("paisOrganizador"),
-					rs.getBoolean("estado");
-		} else {
-			throw new Exception("El Mundial no está registrado.");Esta comentado porque tiene  un Bug pero hay que usarlo
+			fechaInicio = LocalDate.of(agno, mes, dia);
+			mundialTemp = new Mundiales (rs.getString("nombreMundial"), fechaInicio,
+					rs.getString("paisOrganizador"), rs.getBoolean("estado"));
+
+			Resultados resultadosTemp = null;
+			resultadosTemp.setPrimerCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(mundialTemp.getNombreMundial(), 1));
+
+
+		}catch(Exception e) {
+
+			fechaInicio = LocalDate.now();
+			mundialTemp = new Mundiales (rs.getString("nombreMundial"), fechaInicio,
+					rs.getString("paisOrganizador"), rs.getBoolean("estado"));
+			System.out.println(e.getMessage());
+
 		}
-		rs.close();*/
-		return Mundiales;
+
+		return mundialTemp;
 	}
 	
 	/**
@@ -78,10 +95,11 @@ public class MultiMundiales {
 	 * @throws java.sql.SQLException
 	 * @throws Exception
 	 */
-	public void actualizar(Mundiales Mundiales) throws java.sql.SQLException, Exception {
+	public void actualizar(Mundiales mundiales) throws java.sql.SQLException, Exception {
 		String sql;
-		sql = "UPDATE Mundiales " + "SET nombreMundial='" + Mundiales.getNombreMundial() + "';";
+		sql = "UPDATE Mundiales " + "SET nombreMundial='" + mundiales.getNombreMundial() + "';";
 		try {
+			
 			
 
 		} catch (Exception e) {
@@ -121,6 +139,7 @@ public class MultiMundiales {
 		"FROM Mundiales;";
 		
 		rs = Conector.getConector().ejecutarSQL(sql,true);
+		
 		if (rs.next() == true) {
 			do {
 				
@@ -132,21 +151,21 @@ public class MultiMundiales {
 				LocalDate fechaInicio;
 				
 				try {
-					
+
 					fechaInicio = LocalDate.of(agno, mes, dia);
+					mundialTemp = new Mundiales (rs.getString("nombreMundial"), fechaInicio,
+							                     rs.getString("paisOrganizador"), rs.getBoolean("estado"));
 					
+					listaMundiales.add(mundialTemp);
+
 				}catch(Exception e) {
-					
+
 					fechaInicio = LocalDate.now();
+					mundialTemp = new Mundiales (rs.getString("nombreMundial"), fechaInicio,
+							                     rs.getString("paisOrganizador"), rs.getBoolean("estado"));
 					System.out.println(e.getMessage());
-					
+
 				}
-				
-				
-				mundialTemp = new Mundiales (rs.getString("nombreMundial"), fechaInicio,
-					                         rs.getString("paisOrganizador"), rs.getBoolean("estado"));
-				    
-				listaMundiales.add(mundialTemp);
 				
 			} while (rs.next());
 			

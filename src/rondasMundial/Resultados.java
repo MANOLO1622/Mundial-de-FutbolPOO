@@ -59,8 +59,14 @@ public class Resultados {
     
 	//---------------------------------------------------------------------------------------Constructor.
     
-    public Resultados(ArrayList<Equipo> equiposMundial, String nombreMundial) {
+    public Resultados() {
     	
+    	
+    }
+    
+    
+    public Resultados(ArrayList<Equipo> equiposMundial, String nombreMundial) {
+    	JOptionPane.showMessageDialog(null, equiposMundial.size());
     	this.nombreMundial = nombreMundial;
     	
     	int contador = 0;
