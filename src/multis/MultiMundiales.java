@@ -92,10 +92,13 @@ public class MultiMundiales {
 		if (rs.next() == true) {
 			do {
 				
-				int agno = (rs.getString("fechaInicio").charAt(0) + rs.getString("fechaInicio").charAt(1) + rs.getString("fechaInicio").charAt(2)
-						+ rs.getString("fechaInicio").charAt(3));
-				int mes = (rs.getString("fechaInicio").charAt(8) + rs.getString("fechaInicio").charAt(9));
-				int dia = (rs.getString("fechaInicio").charAt(5) + rs.getString("fechaInicio").charAt(6));
+				int agno = Integer.parseInt(rs.getString("fechaInicio").charAt(0)+""+ rs.getString("fechaInicio").charAt(1)+""
+				+rs.getString("fechaInicio").charAt(2)+""+rs.getString("fechaInicio").charAt(3));
+				int mes = Integer.parseInt(rs.getString("fechaInicio").charAt(5)+""+ rs.getString("fechaInicio").charAt(6));
+				int dia = Integer.parseInt(rs.getString("fechaInicio").charAt(8)+""+ rs.getString("fechaInicio").charAt(9));
+				
+				System.out.println(agno+"-"+mes+"-"+dia);
+				System.out.println(rs.getString("fechaInicio"));
 				
 				LocalDate fechaInicio;
 				
