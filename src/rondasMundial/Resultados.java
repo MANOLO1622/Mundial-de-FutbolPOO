@@ -66,7 +66,7 @@ public class Resultados {
     
     
     public Resultados(ArrayList<Equipo> equiposMundial, String nombreMundial) {
-    	JOptionPane.showMessageDialog(null, equiposMundial.size());
+    	
     	this.nombreMundial = nombreMundial;
     	
     	int contador = 0;
