@@ -57,35 +57,41 @@ public class MultiMundiales {
 		Mundiales mundialTemp = null;
 		java.sql.ResultSet rs = null;
 		String sql;
-		sql = "SELECT nombreMundial" + "FROM Mundiales " + "WHERE nombreMundial ='" + nombreMundial + ";";
+		sql = "SELECT * " + "FROM Mundiales " + "WHERE nombreMundial ='" + nombreMundial + "' ;";
 
-
-		int agno = Integer.parseInt(rs.getString("fechaInicio").charAt(0)+""+ rs.getString("fechaInicio").charAt(1)+""
-								   +rs.getString("fechaInicio").charAt(2)+""+rs.getString("fechaInicio").charAt(3));
-		int mes = Integer.parseInt(rs.getString("fechaInicio").charAt(5)+""+ rs.getString("fechaInicio").charAt(6));
-		int dia = Integer.parseInt(rs.getString("fechaInicio").charAt(8)+""+ rs.getString("fechaInicio").charAt(9));
-				
+		rs = Conector.getConector().ejecutarSQL(sql,true);
+		
 		LocalDate fechaInicio;
+		
+		if(rs.next()) {
+			
+			try {
 				
-		try {
+				int agno = Integer.parseInt(rs.getString("fechaInicio").charAt(0)+""+ rs.getString("fechaInicio").charAt(1)+""
+						+rs.getString("fechaInicio").charAt(2)+""+rs.getString("fechaInicio").charAt(3));
+				int mes = Integer.parseInt(rs.getString("fechaInicio").charAt(5)+""+ rs.getString("fechaInicio").charAt(6));
+				int dia = Integer.parseInt(rs.getString("fechaInicio").charAt(8)+""+ rs.getString("fechaInicio").charAt(9));
 
-			fechaInicio = LocalDate.of(agno, mes, dia);
-			mundialTemp = new Mundiales (rs.getString("nombreMundial"), fechaInicio,
-					rs.getString("paisOrganizador"), rs.getBoolean("estado"));
+				fechaInicio = LocalDate.of(agno, mes, dia);
+				mundialTemp = new Mundiales (rs.getString("nombreMundial"), fechaInicio,
+						rs.getString("paisOrganizador"), rs.getBoolean("estado"));
 
-			Resultados resultadosTemp = null;
-			resultadosTemp.setPrimerCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(mundialTemp.getNombreMundial(), 1));
+			}catch(Exception e) {
 
+				fechaInicio = LocalDate.now();
+				mundialTemp = new Mundiales (rs.getString("nombreMundial"), fechaInicio,
+						rs.getString("paisOrganizador"), rs.getBoolean("estado"));
+				System.out.println(e.getMessage());
 
-		}catch(Exception e) {
-
-			fechaInicio = LocalDate.now();
-			mundialTemp = new Mundiales (rs.getString("nombreMundial"), fechaInicio,
-					rs.getString("paisOrganizador"), rs.getBoolean("estado"));
-			System.out.println(e.getMessage());
-
+			}
+			
 		}
 
+		rs.close();
+		
+//		Resultados resultadosTemp = null;
+//		resultadosTemp.setPrimerCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(mundialTemp.getNombreMundial(), 1));
+		
 		return mundialTemp;
 	}
 	

@@ -151,8 +151,20 @@ public class RegistroEquipos extends JPanel implements ActionListener {
 		}
 		if (e.getSource() == btnSalir) {//boton de salir del registrar equipo
 			
-			Ventana ventanaUsuario = new Ventana(controlador.retornarUsuario(this.miUsuario.getNombreUsuario()));
-			Usuario UsuarioActual = controlador.retornarUsuario(this.miUsuario.getNombreUsuario());
+			Ventana ventanaUsuario = null;
+			try {
+				ventanaUsuario = new Ventana(controlador.retornarUsuario(this.miUsuario.getNombreUsuario()));
+			} catch (Exception e2) {
+				
+				e2.printStackTrace();
+			}
+			Usuario UsuarioActual = null;
+			try {
+				UsuarioActual = controlador.retornarUsuario(this.miUsuario.getNombreUsuario());
+			} catch (Exception e2) {
+				
+				e2.printStackTrace();
+			}
 			ventanaUsuario.setUsuarioActual(UsuarioActual);
 			try {
 				ventanaUsuario.ventanaMenuUsuarios(Perfiles.ADMIN, ventanaUsuario);

@@ -2,6 +2,7 @@ package multis;
 
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import accesoDatos.Conector;
 import cl.*;
@@ -55,37 +56,37 @@ public class MultiLigasPublicas {
 	 * @throws java.sql.SQLException
 	 * @throws Exception
 	 */
-	public LigasPublicas buscar(int ppuntos) throws java.sql.SQLException, Exception {
-		LigasPublicas LigasPublicas = null;
+	public LigasPublicas buscar(String nombreLiga) throws java.sql.SQLException, Exception {
+		
+		LigasPublicas LigaPublica = null;
 		java.sql.ResultSet rs = null;
 		String sql;
-		sql = "SELECT puntos" + "FROM LigasPublicas " + "WHERE puntos='" + ppuntos+ ";";
+		
+		sql = "SELECT * " + "FROM LigasPublicas " + "WHERE nombreLiga= '" + nombreLiga+ "' ;";
+
+		rs = Conector.getConector().ejecutarSQL(sql,true);
+		if (rs.next() == true) {
+
+				int agno = Integer.parseInt(rs.getString("fechaCreacion").charAt(0) +"-"+ rs.getString("fechaCreacion").charAt(1) +"-"+ 
+						rs.getString("fechaCreacion").charAt(2) +"-"+ rs.getString("fechaCreacion").charAt(3));
+				int mes = Integer.parseInt(rs.getString("fechaCreacion").charAt(5) +"-"+ rs.getString("fechaCreacion").charAt(6));
+				int dia = Integer.parseInt(rs.getString("fechaCreacion").charAt(8) +"-"+ rs.getString("fechaCreacion").charAt(9));
+
+				LocalDate fecha = LocalDate.of(agno, mes, dia);
+
+				LigaPublica = new LigasPublicas (rs.getString(""),fecha, rs.getBoolean("estado"), rs.getInt("puntos"), 
+						rs.getInt("bono"), null);
 
 
-
-		/*if (rs.next()) {
-			LigasPublicas = new LigasPublicas(rs.getInt(0), rs.getInt(1));
 		} else {
-			throw new Exception("La Liga no está registrado.");Esta comentado porque tiene  un Bug pero hay que usarlo
-		}*/
-		rs.close();
-		return LigasPublicas;
-	}
-	/**
-	 * Este es el metodo de modificar la Liga Publica por su nombre de Liga
-	 * @param pLigasPublicas
-	 * @throws java.sql.SQLException
-	 * @throws Exception
-	 */
-	public void actualizar(LigasPublicas pLigasPublicas) throws java.sql.SQLException, Exception {
-		String sql;
-		sql = "UPDATE LigasPublicas " + "SET nombreLiga='" + pLigasPublicas.getNombreLiga() + "';";
-		try {
-			
 
-		} catch (Exception e) {
-			throw new Exception("La Liga no está registrado.");
+			System.out.println("No hay ligas publica registradas.");
+
 		}
+		
+		
+		rs.close();
+		return LigaPublica;
 	}
 	
 	/**
@@ -104,19 +105,60 @@ public class MultiLigasPublicas {
 			throw new Exception("La Liga tiene cuentas.");
 		}
 	}
+	/**
+	 * Este metodo ejecuta una lista de equipos y los guarda en un ArrayList 
+	 * @return
+	 * @throws java.sql.SQLException
+	 * @throws Exception
+	 */
+	public  ArrayList<LigasPublicas> retornarLigasPublicas() throws java.sql.SQLException,Exception{
+		
+		LigasPublicas ligaPublicaTemp=null;
+		ArrayList<LigasPublicas> listaLigas = new ArrayList<>();
+		ArrayList<String> listaMundiales = new ArrayList<>();
+		
+		
+		java.sql.ResultSet rs;
+		
+		String sql;
+		sql = "SELECT * "+
+		"FROM LigasPrivadas ;";
+		
+		rs = Conector.getConector().ejecutarSQL(sql,true);
+		if (rs.next() == true) {
+			do {
 
-	/*public String listarLigasPublicas() throws java.sql.SQLException, Exception {
-		String sql, lista = "";
-		sql = "SELECT * FROM LigasPublicas";
-		try {
-			ResultSet rs = null;
-			rs = Conector.getConector().ejecutarSQL(sql, true);
-			while (rs.next()) {
-				lista += "Puntos: " + rs.getInt(0)+ ", Bono: " + rs.getInt(1);
-			}
-		} catch (Exception e) {
-			System.out.println("ERROR NO ESTA LISTANDO " + e.toString());  Esta comentado pero hay que usarlo
+				int agno = Integer.parseInt(rs.getString("fechaCreacion").charAt(0) +""+ rs.getString("fechaCreacion").charAt(1) +""+ 
+				                            rs.getString("fechaCreacion").charAt(2) +""+ rs.getString("fechaCreacion").charAt(3));
+				int mes = Integer.parseInt(rs.getString("fechaCreacion").charAt(5) +""+ rs.getString("fechaCreacion").charAt(6));
+				int dia = Integer.parseInt(rs.getString("fechaCreacion").charAt(8) +""+ rs.getString("fechaCreacion").charAt(9));
+				
+				LocalDate fecha = LocalDate.of(agno, mes, dia);
+				
+
+				ligaPublicaTemp = new LigasPublicas (rs.getString("nombreLiga"),fecha, rs.getBoolean("estado"), rs.getInt("puntos"), 
+						rs.getInt("bono"), null);
+				
+				listaLigas.add(ligaPublicaTemp);
+				listaMundiales.add(rs.getString("mundialAnfitrion"));
+				
+			} while (rs.next());
+			
+		} else {
+			
+			System.out.println("No hay Usuarios registrados.");
+	
 		}
-		return lista;
-	}*/
+		
+		rs.close();
+		
+		for(LigasPublicas e: listaLigas) {
+			
+			e.setMundialAnfitrion(new MultiMundiales().buscar(listaMundiales.get(listaLigas.indexOf(e))));;
+			
+		}
+		
+		
+		return listaLigas;
+	}
 }

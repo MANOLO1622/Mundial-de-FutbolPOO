@@ -164,8 +164,10 @@ public class Gestor {
 	
 	/**
 	 * Este es el metodo para listar las LigasPublicas
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public void listarLigasPublicas() {
+	public void listarLigasPublicas() throws SQLException, Exception {
 
 		ArrayList<LigasPublicas> listaImpresion = CL.retornarLigasPublicas();
 
@@ -182,8 +184,10 @@ public class Gestor {
 	}
 	/**
 	 * Este es el metodo para listar las LigasPrivadas
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public void listarLigasPrivadas() {
+	public void listarLigasPrivadas() throws SQLException, Exception {
 
 		ArrayList<LigasPrivadas> listaImpresion = CL.listaLigasPrivadas();
 
@@ -327,8 +331,10 @@ public class Gestor {
 	/**
 	 * Guarda en arraylist los equipos registrados
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static ArrayList<Equipo> retornarEquiposRegistrados() {
+	public static ArrayList<Equipo> retornarEquiposRegistrados() throws SQLException, Exception {
 
 		ArrayList<Equipo> listaEquiposRegistrados = CL.retornarEquiposRegistrados();
 
@@ -349,8 +355,10 @@ public class Gestor {
 	/**
 	 * Guarda en arraylist las LigasPublicas registradas
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static ArrayList<LigasPublicas> retornarLigasPublicasRegistrados() {
+	public static ArrayList<LigasPublicas> retornarLigasPublicasRegistrados() throws SQLException, Exception {
 
 		ArrayList<LigasPublicas> listaLigasPublicasRegistrados = CL.retornarLigasPublicasRegistrados();
 
@@ -359,8 +367,10 @@ public class Gestor {
 	/**
 	 * Guarda en arraylist las LigasPrivadas registradas
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static ArrayList<LigasPrivadas> retornarLigasPrivadasRegistrados() {
+	public static ArrayList<LigasPrivadas> retornarLigasPrivadasRegistrados() throws SQLException, Exception {
 
 		ArrayList<LigasPrivadas> listaLigasPrivadasRegistrados = CL.retornarLigasPrivadasRegistrados();
 
@@ -369,8 +379,10 @@ public class Gestor {
 	/**
 	 * Guarda en arraylist los Usuarios registrados
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static ArrayList<Usuario> retornarUsuariosRegistrados() {
+	public static ArrayList<Usuario> retornarUsuariosRegistrados() throws SQLException, Exception {
 
 		ArrayList<Usuario> listaUsuariosRegistrados = CL.retornarUsuariosRegistrados();
 
@@ -380,8 +392,10 @@ public class Gestor {
 	 * Este Metodo Retorna el nombre del mundial
 	 * @param nombreMundial
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static Mundiales retornarMundial(String nombreMundial) {
+	public static Mundiales retornarMundial(String nombreMundial) throws SQLException, Exception {
 
 		Mundiales mundialTemp = CL.retornarMundial(nombreMundial);
 
@@ -395,8 +409,10 @@ public class Gestor {
 	 * @param nombreLiga
 	 * @param tipoLiga
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static Partido[] retornarPartidosEquipoLiga(Equipo equipoSeleccionado, String nombreLiga, int tipoLiga) {
+	public static Partido[] retornarPartidosEquipoLiga(Equipo equipoSeleccionado, String nombreLiga, int tipoLiga) throws SQLException, Exception {
 
 		ArrayList<Partido> partidosRegistrados = CL.retornarPartidosEquipoLigaPrimeraFase(equipoSeleccionado,
 				nombreLiga, tipoLiga);
@@ -470,8 +486,10 @@ public class Gestor {
 	 * Retorna la bandera de cada equipo
 	 * @param nombreEquipo
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static String retornarBanderaEquipo(String nombreEquipo) {
+	public static String retornarBanderaEquipo(String nombreEquipo) throws SQLException, Exception {
 
 		String bandera = CL.retornarBanderaEquipo(nombreEquipo);
 		return bandera;
@@ -481,8 +499,10 @@ public class Gestor {
 	 * Retorna el usuario solicitado, en caso de que se encuentre en la base de datos, comunmente se usa este metodo para actualizar.
 	 * @param nombreUsuario
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static Usuario retornarUsuario(String nombreUsuario) {
+	public static Usuario retornarUsuario(String nombreUsuario) throws SQLException, Exception {
 
 		Usuario temp = CL.retornarUsuario(nombreUsuario);
 		return temp;
@@ -492,8 +512,10 @@ public class Gestor {
 	 * Retorna el nombre del equipo
 	 * @param nombreEquipo
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static Equipo retornarEquipo(String nombreEquipo) {
+	public static Equipo retornarEquipo(String nombreEquipo) throws SQLException, Exception {
 
 		Equipo temp = CL.retornarEquipo(nombreEquipo);
 		return temp;
@@ -503,8 +525,10 @@ public class Gestor {
 	 * Retorna el nombre de la Liga Publica
 	 * @param nombreLiga
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static LigasPublicas retornarLigaPublica(String nombreLiga) {
+	public static LigasPublicas retornarLigaPublica(String nombreLiga) throws SQLException, Exception {
 
 		LigasPublicas temp = CL.retornarLigaPublica(nombreLiga);
 
@@ -515,8 +539,10 @@ public class Gestor {
 	 * Retorna el nombre de la Liga Privada
 	 * @param nombreLiga
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static LigasPrivadas retornarLigaPrivada(String nombreLiga) {
+	public static LigasPrivadas retornarLigaPrivada(String nombreLiga) throws SQLException, Exception {
 
 		LigasPrivadas temp = CL.retornarLigaPrivada(nombreLiga);
 
@@ -542,8 +568,10 @@ public class Gestor {
 	 * valida el nombre de la liga publica
 	 * @param nombre
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public boolean validarLigaPublica(String nombre) {
+	public boolean validarLigaPublica(String nombre) throws SQLException, Exception {
 
 		ArrayList<LigasPublicas> listaLigasPublicas = CL.retornarLigasPublicas();
 
@@ -560,8 +588,10 @@ public class Gestor {
 	 * valida el nombre de la liga privada
 	 * @param nombre
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public boolean validarLigaPrivada(String nombre) {
+	public boolean validarLigaPrivada(String nombre) throws SQLException, Exception {
 
 		ArrayList<LigasPrivadas> listaLigasPrivadas = CL.listaLigasPrivadas();
 

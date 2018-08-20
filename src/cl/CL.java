@@ -80,8 +80,10 @@ public class CL {
 	 */
 	public static ArrayList<Usuario> listarUsuarios() throws SQLException, Exception {
 		
+		
 		ingresarUsuarioLista();
-		return listaUsuarios;
+		return new MultiUsuarios().retornarUsuarios();
+//		return listaUsuarios;
 	}
 	
 	//-------------------------------------------------------------------------------------------------------------
@@ -111,7 +113,8 @@ public class CL {
 	public static ArrayList<Equipo> listarEquiposFIFA() throws SQLException, Exception {
 		
 		ingresarEquiposLista();
-		return listaEquiposFIFA;
+//		return listaEquiposFIFA;
+		return new MultiEquipos().retornarEquipos();
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------
@@ -201,11 +204,14 @@ public class CL {
 	/**
 	 * Retorna la lista de la Liga Privadas
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static ArrayList<LigasPrivadas> listaLigasPrivadas() {
+	public static ArrayList<LigasPrivadas> listaLigasPrivadas() throws SQLException, Exception {
 		
-		return listaLigasPrivadas;
-		
+//		return listaLigasPrivadas;
+		return new MultiLigasPrivadas().retornarLigasPrivadas();
+				
 	}
 	
 	//-----------------------------------------------------------------------------------------------------------
@@ -214,10 +220,15 @@ public class CL {
 	 * Este metodo ejecuta la bandera de cada equipo.
 	 * @param nombreEquipo
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static String retornarBanderaEquipo(String nombreEquipo) {
+	public static String retornarBanderaEquipo(String nombreEquipo) throws SQLException, Exception {
 		String bandera="";
-		for(Equipo e: listaEquiposFIFA) {
+		
+		ArrayList<Equipo> listaEquiposFIFATemp = new MultiEquipos().retornarEquipos();
+		
+		for(Equipo e: listaEquiposFIFATemp) {
 			
 			if(nombreEquipo.equals(e.getNombre())) {
 				
@@ -236,12 +247,15 @@ public class CL {
 	 * son almacenados en la base de datos
 	 * @param nombreUsuario
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static Usuario retornarUsuario(String nombreUsuario) {
+	public static Usuario retornarUsuario(String nombreUsuario) throws SQLException, Exception {
 		
 		Usuario temp = new Usuario("Generico", "Generico", "Generico", "Generico", "Generico", "Generico", 0);
+		ArrayList<Usuario> listaUsuarioTemp = new MultiUsuarios().retornarUsuarios();
 		
-		for(Usuario e: listaUsuarios) {
+		for(Usuario e: listaUsuarioTemp) {
 			
 			if(e.getNombreUsuario().equals(nombreUsuario)) {
 				
@@ -256,12 +270,16 @@ public class CL {
 	 * Metodo que ejecuta las ligas publicas registradas en el menu admin.
 	 * @param nombreLiga
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static LigasPublicas retornarLigaPublica(String nombreLiga) {
+	public static LigasPublicas retornarLigaPublica(String nombreLiga) throws SQLException, Exception {
 		
 		LigasPublicas temp = new LigasPublicas("", null, false, 0, 0, null);
 		
-		for(LigasPublicas e: listaLigasPublicas) {
+		ArrayList<LigasPublicas> listaLigasPublicasTemp = new MultiLigasPublicas().retornarLigasPublicas();
+		
+		for(LigasPublicas e: listaLigasPublicasTemp) {
 			
 			if(e.getNombreLiga().equals(nombreLiga)) {
 				
@@ -277,12 +295,16 @@ public class CL {
 	 * Metodo que ejecuta las ligas publicas registradas en el menu admin.
 	 * @param nombreLiga
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static LigasPrivadas retornarLigaPrivada(String nombreLiga) {
+	public static LigasPrivadas retornarLigaPrivada(String nombreLiga) throws SQLException, Exception {
 		
 		LigasPrivadas temp = new LigasPrivadas("", null, false, 0, 0, null);
 		
-		for(LigasPrivadas e: listaLigasPrivadas) {
+		ArrayList<LigasPrivadas> listaLigasPrivadasTemp = new MultiLigasPrivadas().retornarLigasPrivadas();
+		
+		for(LigasPrivadas e: listaLigasPrivadasTemp) {
 			
 			if(e.getNombreLiga().equals(nombreLiga)) {
 				
@@ -333,7 +355,6 @@ public class CL {
 			 resultadosTemp.setGanadoresSeptimoCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(e.getNombreMundial(), 7));
 			 resultadosTemp.setGanadoresOctavoCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(e.getNombreMundial(), 8));
 			
-			 
 			 resultadosTemp.setPartidosOctavosFinal(new MultiSegundaFase().retornarPartidosOctavos(e.getNombreMundial()));
 			 resultadosTemp.setPartidosCuartosFinal(new MultiSegundaFase().retornarPartidosCuartos(e.getNombreMundial()));
 			 resultadosTemp.setPartidosSemiFinal(new MultiSegundaFase().retornarPartidosFinales(e.getNombreMundial(), 2));
@@ -344,13 +365,11 @@ public class CL {
 			 resultadosTemp.setGanadoresCuartosFinal(new MultiSegundaFase().retornarGanadoresCuartosFinal(e.getNombreMundial()));
 			 
 			 e.setResultadosMundial(resultadosTemp);
-			 System.out.println(e.getResultadosMundial().getJuegosFinales()[0].getEquipoGanador());
 			 
 		 }
 		 
-		 
-		
-		
+		 listaMundiales = listaMundialesTemp;
+
 		return listaMundialesTemp;
 		
 	}
@@ -358,40 +377,52 @@ public class CL {
 	/**
 	 * Retorna la lista de los equipos que son almacenados en un arraylist
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static ArrayList<Equipo> retornarEquiposRegistrados(){
+	public static ArrayList<Equipo> retornarEquiposRegistrados() throws SQLException, Exception{
 		
-		return listaEquiposFIFA;		
+//		return listaEquiposFIFA;
+		return new MultiEquipos().retornarEquipos();
 		
 	}
 	
 	/**
 	 * Retorna la lista de las Ligas Publicas que son almacenados en un arraylist
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static ArrayList<LigasPublicas> retornarLigasPublicasRegistrados(){
+	public static ArrayList<LigasPublicas> retornarLigasPublicasRegistrados() throws SQLException, Exception{
 		
-		return listaLigasPublicas;
+//		return listaLigasPublicas;
+		return new MultiLigasPublicas().retornarLigasPublicas();
 		
 	}
 	
 	/**
 	 * Retorna la lista de las Ligas Privadas que son almacenados en un arraylist
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static ArrayList<LigasPrivadas> retornarLigasPrivadasRegistrados(){
+	public static ArrayList<LigasPrivadas> retornarLigasPrivadasRegistrados() throws SQLException, Exception{
 		
-		return listaLigasPrivadas;
+//		return listaLigasPrivadas;
+		return new MultiLigasPrivadas().retornarLigasPrivadas();
 		
 	}
 	
 	/**
 	 * Retorna la lista de los Usuarios que son almacenados en un arraylist
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static ArrayList<Usuario> retornarUsuariosRegistrados(){
+	public static ArrayList<Usuario> retornarUsuariosRegistrados() throws SQLException, Exception{
 
-		return listaUsuarios;
+//		return listaUsuarios;
+		return new MultiUsuarios().retornarUsuarios();
 		
 	}
 
@@ -399,20 +430,28 @@ public class CL {
 	 * Retorna la lista de los mundiales y las posiciones de la fase de equipos.
 	 * @param nombreMundial
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static Mundiales retornarMundial(String nombreMundial) {
+	public static Mundiales retornarMundial(String nombreMundial) throws SQLException, Exception {
 		Mundiales mundialTemp=null;
 		
-		for(Mundiales e: listaMundiales) {
+		ArrayList<Mundiales> listaMundialesTemp = new MultiMundiales().retornarMundiales();
+		
+		for(Mundiales e: listaMundialesTemp) {
 			
 			if(nombreMundial.equals(e.getNombreMundial())) {
 				
+				mundialTemp = e;
+				
+				/*
 				mundialTemp = new Mundiales(e.getNombreMundial(),e.getAno(),e.getPaisOrganizador(),e.getEstado());
 				mundialTemp.setEquiposMundial(e.getEquiposMundial());
 				mundialTemp.setEquipoPrimerLugar(e.getEquipoPrimerLugar());
 				mundialTemp.setEquipoSegundoLugar(e.getEquipoSegundoLugar());
 				mundialTemp.setEquipoTercerLugar(e.getEquipoTercerLugar());
 				mundialTemp.setResultadosMundial(e.getResultadosMundial());
+				*/
 				
 			}
 			
@@ -427,9 +466,13 @@ public class CL {
 	 * Retorna la lista de los Equipos y sus caracteristicas en pantalla.
 	 * @param nombreEquipo
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static Equipo retornarEquipo(String nombreEquipo) {
+	public static Equipo retornarEquipo(String nombreEquipo) throws SQLException, Exception {
 		Equipo equipoTemp=null;
+		
+		ArrayList<Equipo> listaEquiposFIFA = new MultiEquipos().retornarEquipos();
 		
 		for(Equipo e: listaEquiposFIFA) {
 			
@@ -448,10 +491,13 @@ public class CL {
 	/**
 	 * Retorna la lista de las Ligas Publicas que son almacenados en un arraylist
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static ArrayList<LigasPublicas> retornarLigasPublicas() {
+	public static ArrayList<LigasPublicas> retornarLigasPublicas() throws SQLException, Exception {
 		
-		return listaLigasPublicas;
+//		return listaLigasPublicas;
+		return new MultiLigasPublicas().retornarLigasPublicas();
 		
 	}
 	
@@ -727,8 +773,10 @@ public class CL {
 	 * @param nombreLiga
 	 * @param tipoLiga
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static ArrayList<Partido> retornarPartidosEquipoLigaPrimeraFase(Equipo equipoSeleccionado, String nombreLiga, int tipoLiga){
+	public static ArrayList<Partido> retornarPartidosEquipoLigaPrimeraFase(Equipo equipoSeleccionado, String nombreLiga, int tipoLiga) throws SQLException, Exception{
 		
 		ArrayList<Partido> partidosRetorno = new ArrayList();
 		LigasPublicas tempPublica = null;

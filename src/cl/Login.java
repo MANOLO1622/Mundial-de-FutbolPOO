@@ -161,8 +161,20 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 						
 						e2.printStackTrace();
 					}
-					Ventana ventanaUsuario = new Ventana(Gestor.retornarUsuario(usuarioTXT.getText()));
-					Usuario UsuarioActual = Gestor.retornarUsuario(usuarioTXT.getText());
+					Ventana ventanaUsuario = null;
+					try {
+						ventanaUsuario = new Ventana(Gestor.retornarUsuario(usuarioTXT.getText()));
+					} catch (Exception e3) {
+						
+						e3.printStackTrace();
+					}
+					Usuario UsuarioActual = null;
+					try {
+						UsuarioActual = Gestor.retornarUsuario(usuarioTXT.getText());
+					} catch (Exception e2) {
+						
+						e2.printStackTrace();
+					}
 					ventanaUsuario.setUsuarioActual(UsuarioActual);
 					try {
 						ventanaUsuario.ventanaMenuUsuarios(perfil, ventanaUsuario);
@@ -264,8 +276,20 @@ public class Login extends JPanel implements ActionListener, KeyListener{
 							
 							e2.printStackTrace();
 						}
-						Ventana ventanaUsuario = new Ventana(controlador.retornarUsuario(usuarioTXT.getText()));
-						Usuario UsuarioActual = controlador.retornarUsuario(usuarioTXT.getText());
+						Ventana ventanaUsuario = null;
+						try {
+							ventanaUsuario = new Ventana(controlador.retornarUsuario(usuarioTXT.getText()));
+						} catch (Exception e2) {
+							
+							e2.printStackTrace();
+						}
+						Usuario UsuarioActual = null;
+						try {
+							UsuarioActual = controlador.retornarUsuario(usuarioTXT.getText());
+						} catch (Exception e2) {
+							
+							e2.printStackTrace();
+						}
 						ventanaUsuario.setUsuarioActual(UsuarioActual);
 						try {
 							ventanaUsuario.ventanaMenuUsuarios(perfil, ventanaUsuario);

@@ -155,11 +155,22 @@ public class LigasJugador extends JPanel implements ActionListener{
 				
 			}else {
 				
-				String b = controlador.retornarBanderaEquipo((String) equipos.getSelectedItem());
+				String b = null;
+				try {
+					b = controlador.retornarBanderaEquipo((String) equipos.getSelectedItem());
+				} catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}
 				banderaImagen = new ImageIcon(b);
 				Icon icono = new ImageIcon(banderaImagen.getImage().getScaledInstance(bandera.getWidth(), bandera.getHeight(), Image.SCALE_DEFAULT));
 				bandera.setIcon(icono);			
-				mostrarinformacionPaisSeleccionado();	
+				try {
+					mostrarinformacionPaisSeleccionado();
+				} catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}	
 				
 			}			
 			
@@ -730,8 +741,10 @@ public class LigasJugador extends JPanel implements ActionListener{
 	/**
 	 * Este metodo muestra la informacion del pais seleccionado
 	 * retornando el equipo asociado, la posicion FIFA y el codigo.
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public void mostrarinformacionPaisSeleccionado(){
+	public void mostrarinformacionPaisSeleccionado() throws SQLException, Exception{
 		
 		this.add(bandera);
 		this.add(informacionPais);

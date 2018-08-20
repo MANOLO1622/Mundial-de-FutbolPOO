@@ -161,8 +161,10 @@ public class Ventana extends JFrame{
 		/**
 		 * Este metodo ejecuta el cierre de la ventana del jugador.
 		 * @param tipoLiga
+		 * @throws Exception 
+		 * @throws SQLException 
 		 */
-		public void ventanaJuego( int tipoLiga) {
+		public void ventanaJuego( int tipoLiga) throws SQLException, Exception {
 			
 			Juego j = new Juego(UsuarioActual, tipoLiga);
 			this.setLocation(0, 0);//arreglar despues.
@@ -179,8 +181,10 @@ public class Ventana extends JFrame{
 		/**
 		 * Este metodo ejecuta el cierre de la ventana del juego fase 2
 		 * @param tipoLiga
+		 * @throws Exception 
+		 * @throws SQLException 
 		 */
-		public void ventanaJuegoFase2( int tipoLiga) {
+		public void ventanaJuegoFase2( int tipoLiga) throws SQLException, Exception {
 			
 			JuegoSegundaFase j = new JuegoSegundaFase(UsuarioActual, tipoLiga);
 			this.setLocation(0, 0);//arreglar despues.

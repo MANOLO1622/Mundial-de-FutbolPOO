@@ -3,6 +3,8 @@ package cl;
 import rondasMundial.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.SQLException;
+
 import javax.swing.*;
 
 import gestor.Gestor;
@@ -274,8 +276,10 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 	 * 
 	 * @param miUsuario
 	 * @param tipoLiga
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public Juego(Usuario miUsuario, int tipoLiga) {
+	public Juego(Usuario miUsuario, int tipoLiga) throws SQLException, Exception {
 
 		this.miUsuario = Gestor.retornarUsuario(miUsuario.getNombreUsuario());
 		this.tipoLiga = tipoLiga;
@@ -403,9 +407,11 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 	/**
 	 * Este metodo posee la altura y el ancho de los componentes ademas se encarga
 	 * de validar los puntajes por cada liga por separado
+	 * @throws Exception 
+	 * @throws SQLException 
 	 * 
 	 */
-	public void colocarComponentesJuego() {
+	public void colocarComponentesJuego() throws SQLException, Exception {
 
 		int alto = 48;
 		int ancho = 72;
@@ -788,8 +794,10 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 	 * 
 	 * @param ancho
 	 * @param alto
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public void mostrarBanderas(int ancho, int alto) {
+	public void mostrarBanderas(int ancho, int alto) throws SQLException, Exception {
 
 		Partido[] temp1 = null;
 		Partido[] temp2 = null;
@@ -1361,7 +1369,12 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 			this.add(btnregistrarEquipoJugador);
 			btnregistrarEquipoJugador.setBounds(1100, 350, 125, 30);
 
-			imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo((String) equipos.getSelectedItem()));
+			try {
+				imagenBanderaPaisEscogido = new ImageIcon(Gestor.retornarBanderaEquipo((String) equipos.getSelectedItem()));
+			} catch (Exception e1) {
+
+				e1.printStackTrace();
+			}
 			Icon iconoPaisEScogido = new ImageIcon(imagenBanderaPaisEscogido.getImage().getScaledInstance(
 					labelBanderaPaisEscogido.getWidth(), labelBanderaPaisEscogido.getHeight(), Image.SCALE_DEFAULT));
 			labelBanderaPaisEscogido.setIcon(iconoPaisEScogido);
@@ -1423,14 +1436,35 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 
 			if (this.tipoLiga == 0) {
 
-				Gestor.asignarEquipoLigaPublicaUsuario(this.miUsuario.getNombreUsuario(),
-						Gestor.retornarEquipo((String) equipos.getSelectedItem()));
-				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+				try {
+					Gestor.asignarEquipoLigaPublicaUsuario(this.miUsuario.getNombreUsuario(),
+							Gestor.retornarEquipo((String) equipos.getSelectedItem()));
+				} catch (Exception e2) {
+					
+					e2.printStackTrace();
+				}
+				try {
+					this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+				} catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}
 
-				mostrarinformacionpaisEscogido(0);
+				try {
+					mostrarinformacionpaisEscogido(0);
+				} catch (Exception e2) {
+					
+					e2.printStackTrace();
+				}
 
-				Partido[] tempPublica = Gestor.retornarPartidosEquipoLiga(this.miUsuario.getEquipoLigaPublica(),
-						this.miUsuario.getMiLigaPublica().getNombreLiga(), this.tipoLiga);
+				Partido[] tempPublica = null;
+				try {
+					tempPublica = Gestor.retornarPartidosEquipoLiga(this.miUsuario.getEquipoLigaPublica(),
+							this.miUsuario.getMiLigaPublica().getNombreLiga(), this.tipoLiga);
+				} catch (Exception e2) {
+					
+					e2.printStackTrace();
+				}
 				Apuesta[] apuestasPrimerCuadroPublica = new Apuesta[3];
 				apuestasPrimerCuadroPublica[0] = new Apuesta(tempPublica[0], this.miUsuario.getEquipoLigaPublica(),
 						this.miUsuario);
@@ -1442,7 +1476,12 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 				this.miUsuario.setPrimerCuadroPublica(apuestasPrimerCuadroPublica);
 				Gestor.actualizarJugador(this.miUsuario);
 
-				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+				try {
+					this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+				} catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}
 
 				imagenEquipoSeleccionado = new ImageIcon(
 						this.miUsuario.getPrimerCuadroPublica()[0].getPartidoApuesta().getEquipo1().getBandera());
@@ -1458,14 +1497,35 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 
 			} else if (this.tipoLiga == 1) {
 
-				Gestor.asignarEquipoLigaPrivadaUsuario(this.miUsuario.getNombreUsuario(),
-						Gestor.retornarEquipo((String) equipos.getSelectedItem()));
-				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+				try {
+					Gestor.asignarEquipoLigaPrivadaUsuario(this.miUsuario.getNombreUsuario(),
+							Gestor.retornarEquipo((String) equipos.getSelectedItem()));
+				} catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}
+				try {
+					this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+				} catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}
 
-				mostrarinformacionpaisEscogido(1);
+				try {
+					mostrarinformacionpaisEscogido(1);
+				} catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}
 
-				Partido[] tempPrivada = Gestor.retornarPartidosEquipoLiga(this.miUsuario.getEquipoLigaPrivada(),
-						this.miUsuario.getMiLigaPrivada().getNombreLiga(), this.tipoLiga);
+				Partido[] tempPrivada = null;
+				try {
+					tempPrivada = Gestor.retornarPartidosEquipoLiga(this.miUsuario.getEquipoLigaPrivada(),
+							this.miUsuario.getMiLigaPrivada().getNombreLiga(), this.tipoLiga);
+				} catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}
 				Apuesta[] apuestasPrimerCuadroPrivada = new Apuesta[3];
 				apuestasPrimerCuadroPrivada[0] = new Apuesta(tempPrivada[0], this.miUsuario.getEquipoLigaPrivada(),
 						this.miUsuario);
@@ -1510,7 +1570,12 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 		 */
 		if (e.getSource() == btnApostar) {
 
-			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+			try {
+				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 
 			if (marcadorEquipo1.getText().equals("") || marcadorEquipo2.getText().equals("")) {
 
@@ -1711,7 +1776,12 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 		if (e.getSource() == btnSegundaFase) {
 
 			Ventana test = new Ventana(this.miUsuario);
-			test.ventanaJuegoFase2(this.tipoLiga);
+			try {
+				test.ventanaJuegoFase2(this.tipoLiga);
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 
 		}
@@ -1789,8 +1859,10 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 	/**
 	 * Metodo que muestra la informacion de equipo escogido
 	 * @param tipoLiga
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public void mostrarinformacionpaisEscogido(int tipoLiga) {
+	public void mostrarinformacionpaisEscogido(int tipoLiga) throws SQLException, Exception {
 
 		Icon iconoPaisEScogido;
 

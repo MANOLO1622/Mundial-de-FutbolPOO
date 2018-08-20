@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.*;
 
@@ -180,8 +181,10 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	 * Este metodo tiene los componentes de la segunda fase del juego
 	 * @param miUsuario
 	 * @param tipoLiga
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public JuegoSegundaFase(Usuario miUsuario, int tipoLiga) {
+	public JuegoSegundaFase(Usuario miUsuario, int tipoLiga) throws SQLException, Exception {
 		
 		this.miUsuario = miUsuario;
 		this.tipoLiga = tipoLiga;
@@ -910,9 +913,11 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	 * Este boolean retorna los equipos que iran a la gran final
 	 * segun su marcador final
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
 	
-	public boolean verificarFinales(){
+	public boolean verificarFinales() throws SQLException, Exception{
 		
 		this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
 		

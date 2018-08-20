@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.*;
 import gestor.Gestor;
@@ -52,8 +53,10 @@ public class MenuJugador extends JPanel implements ActionListener{
 	/**
 	 * Este metodo muestra los botones principales de la pantalla del jugador
 	 * @param miUsuario
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public MenuJugador(Usuario miUsuario) {
+	public MenuJugador(Usuario miUsuario) throws SQLException, Exception {
 		
 		this.setLayout(null);
 		
@@ -136,23 +139,51 @@ public class MenuJugador extends JPanel implements ActionListener{
 		
 		if(e.getSource()==boton2) {
 			
-			Ventana ventJuegoLigaPublica = new Ventana(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
-			ventJuegoLigaPublica.ventanaJuego(0);
+			Ventana ventJuegoLigaPublica = null;
+			try {
+				ventJuegoLigaPublica = new Ventana(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
+			try {
+				ventJuegoLigaPublica.ventanaJuego(0);
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 			
 		}
 		
 		if(e.getSource()==boton3) {
 			
-			Ventana ventJuegoLigaPrivada = new Ventana(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
-			ventJuegoLigaPrivada.ventanaJuego(1);
+			Ventana ventJuegoLigaPrivada = null;
+			try {
+				ventJuegoLigaPrivada = new Ventana(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
+			try {
+				ventJuegoLigaPrivada.ventanaJuego(1);
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 		}	
 		
 		
 		if(e.getSource()==boton4) {
 			
-			Ventana ventLigasJugador = new Ventana(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
+			Ventana ventLigasJugador = null;
+			try {
+				ventLigasJugador = new Ventana(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
+			} catch (Exception e2) {
+				
+				e2.printStackTrace();
+			}
 			try {
 				ventLigasJugador.ventanaLigasJugador();
 			} catch (Exception e1) {
@@ -192,7 +223,12 @@ public class MenuJugador extends JPanel implements ActionListener{
 			this.add(btnCancelarRetiro);
 			btnCancelarRetiro.setBounds(1160, 90, 100, 30);
 			
-			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+			try {
+				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			
 			LigasPrivadas ligaPrivadaTemp = this.miUsuario.getMiLigaPrivada();
 			LigasPublicas ligaPublicaTemp = this.miUsuario.getMiLigaPublica();
@@ -239,7 +275,13 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			btnUnirseLiga.setEnabled(true);
 			
-			LigasPublicas ligaPublicaTemp = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());				
+			LigasPublicas ligaPublicaTemp = null;
+			try {
+				ligaPublicaTemp = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}				
 			
 			if(ligaPublicaTemp.getEstado() == true) {
 				
@@ -263,10 +305,21 @@ public class MenuJugador extends JPanel implements ActionListener{
 		//se ejecuta el boton unirse a la liga
 		if(e.getSource() == btnUnirseLiga) {
 			
-			LigasPublicas ligaPublicaTemporal = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());
+			LigasPublicas ligaPublicaTemporal = null;
+			try {
+				ligaPublicaTemporal = Gestor.retornarLigaPublica((String) ligasRegistradas.getSelectedItem());
+			} catch (Exception e2) {
+				
+				e2.printStackTrace();
+			}
 			
 			String opcionEscogida = (String) ligasRegistradas.getSelectedItem();
-			this.setMiUsuario(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
+			try {
+				this.setMiUsuario(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			
 			if(this.miUsuario.getMiLigaPublica() == null) {
 				
@@ -282,7 +335,12 @@ public class MenuJugador extends JPanel implements ActionListener{
 				
 			}
 			
-			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+			try {
+				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			removerMenus();
 	
 		}
@@ -343,14 +401,24 @@ public class MenuJugador extends JPanel implements ActionListener{
 				
 			}
 
-			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+			try {
+				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			removerMenus();
 			
 		}
 		
 		if(e.getSource() == ligasRegistradaUsuario) {
 			
-			this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+			try {
+				this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			
 			mostrarInformacionLiga();
 					

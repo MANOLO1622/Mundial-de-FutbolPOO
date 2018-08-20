@@ -202,10 +202,21 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 			
 
-			Usuario UsuarioTemporal = Gestor.retornarUsuario((String) usuariosRegistrados.getSelectedItem());
+			Usuario UsuarioTemporal = null;
+			try {
+				UsuarioTemporal = Gestor.retornarUsuario((String) usuariosRegistrados.getSelectedItem());
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 
 			String opcionEscogida = (String) usuariosRegistrados.getSelectedItem();
-			this.setMiUsuario(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
+			try {
+				this.setMiUsuario(Gestor.retornarUsuario(this.miUsuario.getNombreUsuario()));
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			
 			if(this.miUsuario.getNombre() == null) {
 				
@@ -378,8 +389,13 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 					Date fecha = new Date();
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-					controlador.registrarLigaPublicas(nombreLigaTXT.getText(), fechaRegistro, true, 1, 2,
-							Gestor.retornarMundial((String) MundialAnfitrion.getSelectedItem()));
+					try {
+						controlador.registrarLigaPublicas(nombreLigaTXT.getText(), fechaRegistro, true, 1, 2,
+								Gestor.retornarMundial((String) MundialAnfitrion.getSelectedItem()));
+					} catch (Exception e1) {
+						
+						e1.printStackTrace();
+					}
 					JOptionPane.showMessageDialog(null, "¡Liga Publica registrada Exitosamente!.");
 
 					removerMenus();
@@ -391,7 +407,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		if (e.getSource() == btnEliminarLigaPublica) {
 
-			ingresarLigasPublicas();
+			try {
+				ingresarLigasPublicas();
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			
 			this.add(labelTituloEliminarPublica);
 			labelTituloEliminarPublica.setForeground(Color.WHITE);
@@ -457,8 +478,13 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 					Date fecha = new Date();
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-					controlador.registrarLigaPrivadas(nombreLigaTXT.getText(), fechaRegistro, true, 1, 2,
-							Gestor.retornarMundial((String) MundialAnfitrion.getSelectedItem()));
+					try {
+						controlador.registrarLigaPrivadas(nombreLigaTXT.getText(), fechaRegistro, true, 1, 2,
+								Gestor.retornarMundial((String) MundialAnfitrion.getSelectedItem()));
+					} catch (Exception e1) {
+						
+						e1.printStackTrace();
+					}
 					JOptionPane.showMessageDialog(null, "¡Liga Privada registrada Exitosamente!.");
 					removerMenus();
 
@@ -509,14 +535,24 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		if (e.getSource() == botonRegistrarPrivadaRegistro) {
 
-			Gestor.asignarLigaPrivadaUsuario((String) usuariosRegistrados.getSelectedItem(),
-					Gestor.retornarLigaPrivada((String) LigasPrivadas.getSelectedItem()));
+			try {
+				Gestor.asignarLigaPrivadaUsuario((String) usuariosRegistrados.getSelectedItem(),
+						Gestor.retornarLigaPrivada((String) LigasPrivadas.getSelectedItem()));
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			removerMenus();
 		}
 
 		if (e.getSource() == btnEliminarLigaPrivada) {
 
-			ingresarLigasPrivadas();
+			try {
+				ingresarLigasPrivadas();
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			
 			this.add(labelTituloEliminarPrivada);
 			labelTituloEliminarPrivada.setForeground(Color.WHITE);
@@ -755,7 +791,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	}
 
-	public void ingresarPaises() {//ingreso de paises 
+	public void ingresarPaises() throws SQLException, Exception {//ingreso de paises 
 
 		ArrayList<Equipo> listaTemporal = Gestor.retornarEquiposRegistrados();
 
@@ -769,7 +805,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	}
 
-	public void ingresarUsuarios() {//Ingreso de usuarios
+	public void ingresarUsuarios() throws SQLException, Exception {//Ingreso de usuarios
 
 		ArrayList<Usuario> listaTemporal = Gestor.retornarUsuariosRegistrados();
 
@@ -801,7 +837,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	}
 
-	public void ingresarLigasPublicas() {//ingreso de las ligas publicas
+	public void ingresarLigasPublicas() throws SQLException, Exception {//ingreso de las ligas publicas
 
 		ArrayList<LigasPublicas> listaTemporal = Gestor.retornarLigasPublicasRegistrados();
 
@@ -815,7 +851,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	}
 
-	public void ingresarLigasPrivadas() {//ingreso de las ligas privadas
+	public void ingresarLigasPrivadas() throws SQLException, Exception {//ingreso de las ligas privadas
 
 		ArrayList<LigasPrivadas> listaTemporal = Gestor.retornarLigasPrivadasRegistrados();
 
