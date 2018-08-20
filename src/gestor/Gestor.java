@@ -554,8 +554,10 @@ public class Gestor {
 	 * @param nombreLiga
 	 * @param nombreEquipo
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static String retornarPartidosCuadro(String nombreLiga, String nombreEquipo) {
+	public static String retornarPartidosCuadro(String nombreLiga, String nombreEquipo) throws SQLException, Exception {
 
 		String partidos = CL.retornarPartidosCuadro(nombreLiga, nombreEquipo);
 
@@ -654,8 +656,10 @@ public class Gestor {
 	 * Metodo de asignacion de usuario a una liga publica
 	 * @param nombreUsuario
 	 * @param liga
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
+	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) throws SQLException, Exception {
 
 		CL.asignarLigaPublicaUsuario(nombreUsuario, liga);
 
@@ -664,8 +668,10 @@ public class Gestor {
 	 * Metodo de asignacion de usuario a una liga Privada
 	 * @param nombreUsuario
 	 * @param liga
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void asignarLigaPrivadaUsuario(String nombreUsuario, LigasPrivadas liga) {
+	public static void asignarLigaPrivadaUsuario(String nombreUsuario, LigasPrivadas liga) throws SQLException, Exception {
 
 		CL.asignarLigaPrivadaUsuario(nombreUsuario, liga);
 
@@ -675,8 +681,10 @@ public class Gestor {
 	 * Metodo de asignacion de una Liga Pubica a usuario con el Equipo escojido correspondiente
 	 * @param nombreUsuario
 	 * @param equipoSeleccionado
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void asignarEquipoLigaPublicaUsuario(String nombreUsuario, Equipo equipoSeleccionado) {
+	public static void asignarEquipoLigaPublicaUsuario(String nombreUsuario, Equipo equipoSeleccionado) throws SQLException, Exception {
 
 		CL.asignarEquipoLigaPublicaUsuario(nombreUsuario, equipoSeleccionado);
 
@@ -686,8 +694,10 @@ public class Gestor {
 	 *  Metodo de asignacion de una Liga Privada a usuario con el Equipo escojido correspondiente
 	 * @param nombreUsuario
 	 * @param equipoSeleccionado
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void asignarEquipoLigaPrivadaUsuario(String nombreUsuario, Equipo equipoSeleccionado) {
+	public static void asignarEquipoLigaPrivadaUsuario(String nombreUsuario, Equipo equipoSeleccionado) throws SQLException, Exception {
 
 		CL.asignarEquipoLigaPrivadaUsuario(nombreUsuario, equipoSeleccionado);
 
@@ -698,8 +708,10 @@ public class Gestor {
 	/**
 	 * Metodo que remueve la liga publica de usuario 
 	 * @param nombreUsuario
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void removerLigaPublicaUsuario(String nombreUsuario) {
+	public static void removerLigaPublicaUsuario(String nombreUsuario) throws SQLException, Exception {
 
 		CL.removerLigaPublicaUsuario(nombreUsuario);
 
@@ -708,8 +720,10 @@ public class Gestor {
 	/**
 	 * Metodo que remueve la liga publica de usuario
 	 * @param nombreUsuario
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void removerLigaPrivadaUsuario(String nombreUsuario) {
+	public static void removerLigaPrivadaUsuario(String nombreUsuario) throws SQLException, Exception {
 
 		CL.removerLigaPrivadaUsuario(nombreUsuario);
 
@@ -718,8 +732,10 @@ public class Gestor {
 	/**
 	 * Metodo que remueve el Equipo de liga publica del usuario 
 	 * @param nombreUsuario
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void removerEquipoLigaPublicaUsuario(String nombreUsuario) {
+	public static void removerEquipoLigaPublicaUsuario(String nombreUsuario) throws SQLException, Exception {
 
 		CL.removerEquipoLigaPublicaUsuario(nombreUsuario);
 
@@ -727,8 +743,10 @@ public class Gestor {
 	/**
 	 * Metodo que remueve el Equipor de liga privada del usuario
 	 * @param nombreUsuario
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void removerEquipoLigaPrivadaUsuario(String nombreUsuario) {
+	public static void removerEquipoLigaPrivadaUsuario(String nombreUsuario) throws SQLException, Exception {
 
 		CL.removerEquipoLigaPublicaUsuario(nombreUsuario);
 
@@ -739,8 +757,10 @@ public class Gestor {
 	/**
 	 * Metodo de eliminar una liga publica
 	 * @param nombreLiga
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void eliminarLigaPublica(String nombreLiga) {
+	public static void eliminarLigaPublica(String nombreLiga) throws SQLException, Exception {
 
 		CL.eliminarLigaPublica(nombreLiga);
 
@@ -749,8 +769,10 @@ public class Gestor {
 	/**
 	 * Metodo de eliminar una liga privada
 	 * @param nombreLiga
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void eliminarLigaPrivada(String nombreLiga) {
+	public static void eliminarLigaPrivada(String nombreLiga) throws SQLException, Exception {
 
 		CL.eliminarLigaPrivada(nombreLiga);
 
@@ -759,8 +781,10 @@ public class Gestor {
 	/**
 	 * Metodo que actualiza el usuario actual y el jugador 
 	 * @param usuarioActualizado
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void actualizarJugador(Usuario usuarioActualizado) {
+	public static void actualizarJugador(Usuario usuarioActualizado) throws SQLException, Exception {
 
 		CL.actualizarJugador(usuarioActualizado);
 

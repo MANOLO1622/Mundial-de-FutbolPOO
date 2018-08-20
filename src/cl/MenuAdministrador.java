@@ -284,14 +284,24 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		if (e.getSource() == botonEliminarPublicaRegistro) {
 
-			Gestor.eliminarLigaPublica((String) LigasPublicas.getSelectedItem());
+			try {
+				Gestor.eliminarLigaPublica((String) LigasPublicas.getSelectedItem());
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			removerMenus();
 
 		}
 
 		if (e.getSource() == botonEliminarPrivadaRegistro) {
 
-			Gestor.eliminarLigaPrivada((String) LigasPrivadas.getSelectedItem());
+			try {
+				Gestor.eliminarLigaPrivada((String) LigasPrivadas.getSelectedItem());
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			removerMenus();
 
 		}

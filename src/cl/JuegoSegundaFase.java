@@ -743,12 +743,27 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 						mostrarCuartosFinal();
 						Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 1);
 						mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
-						jugarApuesta(temp, equipoSeleccionado);
+						try {
+							jugarApuesta(temp, equipoSeleccionado);
+						} catch (Exception e2) {
+							
+							e2.printStackTrace();
+						}
 						
 						
 						this.miUsuario.sumarApuestaPublica();	
-						Gestor.actualizarJugador(this.miUsuario);
-						sumarPuntajes(4);
+						try {
+							Gestor.actualizarJugador(this.miUsuario);
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
+						try {
+							sumarPuntajes(4);
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 						
 						
 						
@@ -767,11 +782,26 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 						mostrarSemifinales();
 						Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 2);
 						mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
-						jugarApuesta(temp, equipoSeleccionado);
+						try {
+							jugarApuesta(temp, equipoSeleccionado);
+						} catch (Exception e2) {
+							
+							e2.printStackTrace();
+						}
 						
 						this.miUsuario.sumarApuestaPublica();	
-						Gestor.actualizarJugador(this.miUsuario);
-						sumarPuntajes(5);
+						try {
+							Gestor.actualizarJugador(this.miUsuario);
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
+						try {
+							sumarPuntajes(5);
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
 						
 					}else {
 						
@@ -788,11 +818,26 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 						mostrarFinales();
 						Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 3);
 						mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
-						jugarApuesta(temp, equipoSeleccionado);
+						try {
+							jugarApuesta(temp, equipoSeleccionado);
+						} catch (Exception e2) {
+							
+							e2.printStackTrace();
+						}
 						
 						this.miUsuario.sumarApuestaPublica();	
-						Gestor.actualizarJugador(this.miUsuario);
-						sumarPuntajes(6);
+						try {
+							Gestor.actualizarJugador(this.miUsuario);
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
+						try {
+							sumarPuntajes(6);
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
 						
 						
 					}else {
@@ -801,11 +846,26 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 						JOptionPane.showMessageDialog(null, "El equipo seleccionado luchara por el tercer o cuarto lugar.");
 						Partido temp = retornarSiguientePartido(this.equipoSeleccionado, 3);
 						mostrarPartidoCronograma(temp.getEquipo1(), temp.getEquipo2());
-						jugarApuesta(temp, equipoSeleccionado);
+						try {
+							jugarApuesta(temp, equipoSeleccionado);
+						} catch (Exception e2) {
+							
+							e2.printStackTrace();
+						}
 						
 						this.miUsuario.sumarApuestaPublica();	
-						Gestor.actualizarJugador(this.miUsuario);
-						sumarPuntajes(6);
+						try {
+							Gestor.actualizarJugador(this.miUsuario);
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
+						try {
+							sumarPuntajes(6);
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
 								
 					}
 					
@@ -1120,8 +1180,10 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	 * marcadores del partido apostado
 	 * @param temp
 	 * @param equipoSeleccionado
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public void jugarApuesta(Partido temp,Equipo equipoSeleccionado) {
+	public void jugarApuesta(Partido temp,Equipo equipoSeleccionado) throws SQLException, Exception {
 		
 		switch(tipoLiga) {
 		
@@ -1167,8 +1229,10 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 	 * Calcula la usma de los puntajes de los 
 	 * y ademas almacena en una variable tipo int la ronda final
 	 * @param ronda
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public void sumarPuntajes(int ronda) {
+	public void sumarPuntajes(int ronda) throws SQLException, Exception {
 			
 			switch(this.tipoLiga) {
 			

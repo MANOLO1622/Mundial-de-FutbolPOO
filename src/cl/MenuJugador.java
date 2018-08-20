@@ -324,7 +324,12 @@ public class MenuJugador extends JPanel implements ActionListener{
 			if(this.miUsuario.getMiLigaPublica() == null) {
 				
 				this.miUsuario.setMiLigaPublica(ligaPublicaTemporal);
-				Gestor.asignarLigaPublicaUsuario(this.miUsuario.getNombreUsuario(), ligaPublicaTemporal);
+				try {
+					Gestor.asignarLigaPublicaUsuario(this.miUsuario.getNombreUsuario(), ligaPublicaTemporal);
+				} catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}
 				JOptionPane.showMessageDialog(null,this.miUsuario.getAvatar() + " fue agregado a la liga Publica: " + this.miUsuario.getMiLigaPublica().getNombreLiga());
 				ligasRegistradas.removeAll();
 				
@@ -370,34 +375,64 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			if(seleccion.equals(this.miUsuario.getMiLigaPublica().getNombreLiga())) {
 				
-				Gestor.removerLigaPublicaUsuario(this.miUsuario.getNombreUsuario());
+				try {
+					Gestor.removerLigaPublicaUsuario(this.miUsuario.getNombreUsuario());
+				} catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}
 				JOptionPane.showMessageDialog(null, "Liga publica " + (String)ligasRegistradaUsuario.getSelectedItem() + " removida.");
 				ligasRegistradaUsuario.removeItem(ligasRegistradaUsuario.getSelectedItem());
 				
 				if(this.miUsuario.getEquipoLigaPublica() != null) {
 					
-					Gestor.removerEquipoLigaPublicaUsuario(this.miUsuario.getNombreUsuario());
+					try {
+						Gestor.removerEquipoLigaPublicaUsuario(this.miUsuario.getNombreUsuario());
+					} catch (Exception e1) {
+						
+						e1.printStackTrace();
+					}
 					removerValidacionesLigas(0);
 					
 				}
 				
-				Gestor.actualizarJugador(this.miUsuario);
+				try {
+					Gestor.actualizarJugador(this.miUsuario);
+				} catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}
 				
 			}else if(seleccion.equals(this.miUsuario.getMiLigaPrivada().getNombreLiga())) {
 				
-				Gestor.removerLigaPrivadaUsuario(this.miUsuario.getNombreUsuario());
+				try {
+					Gestor.removerLigaPrivadaUsuario(this.miUsuario.getNombreUsuario());
+				} catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}
 				JOptionPane.showMessageDialog(null, "Liga privada " + (String)ligasRegistradaUsuario.getSelectedItem() + " removida.");
 				ligasRegistradaUsuario.removeItem(ligasRegistradaUsuario.getSelectedItem());
 				
 				if(this.miUsuario.getEquipoLigaPrivada() != null) {
 					
-					Gestor.removerEquipoLigaPrivadaUsuario(this.miUsuario.getNombreUsuario());
+					try {
+						Gestor.removerEquipoLigaPrivadaUsuario(this.miUsuario.getNombreUsuario());
+					} catch (Exception e1) {
+						
+						e1.printStackTrace();
+					}
 					removerValidacionesLigas(1);
 					
 					
 				}
 				
-				Gestor.actualizarJugador(this.miUsuario);
+				try {
+					Gestor.actualizarJugador(this.miUsuario);
+				} catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}
 				
 			}
 

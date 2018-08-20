@@ -444,15 +444,6 @@ public class CL {
 				
 				mundialTemp = e;
 				
-				/*
-				mundialTemp = new Mundiales(e.getNombreMundial(),e.getAno(),e.getPaisOrganizador(),e.getEstado());
-				mundialTemp.setEquiposMundial(e.getEquiposMundial());
-				mundialTemp.setEquipoPrimerLugar(e.getEquipoPrimerLugar());
-				mundialTemp.setEquipoSegundoLugar(e.getEquipoSegundoLugar());
-				mundialTemp.setEquipoTercerLugar(e.getEquipoTercerLugar());
-				mundialTemp.setResultadosMundial(e.getResultadosMundial());
-				*/
-				
 			}
 			
 		}
@@ -507,30 +498,36 @@ public class CL {
 	 * @param nombreLiga
 	 * @param nombreEquipo
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static String retornarPartidosCuadro(String nombreLiga, String nombreEquipo) {
+	public static String retornarPartidosCuadro(String nombreLiga, String nombreEquipo) throws SQLException, Exception {
 		
 		int tipoLiga = -1;
 		int index = -1;
-		String partidos = "Agenda de Cuadro\n\n";
 		
-		for(LigasPublicas e: listaLigasPublicas) {
+		ArrayList<LigasPublicas> listaLigasPublicasTemp = new MultiLigasPublicas().retornarLigasPublicas();
+		ArrayList<LigasPrivadas> listaLigasPrivadasTemp = new MultiLigasPrivadas().retornarLigasPrivadas();
+		
+		String partidos = "  Agenda de Cuadro\n\n";
+		
+		for(LigasPublicas e: listaLigasPublicasTemp) {
 			
 			if(nombreLiga.equals(e.getNombreLiga())) {
 				
 				tipoLiga = 0;
-				index = listaLigasPublicas.indexOf(e);
+				index = listaLigasPublicasTemp.indexOf(e);
 				
 			}
 			
 		}
 		
-		for(LigasPrivadas e: listaLigasPrivadas) {
+		for(LigasPrivadas e: listaLigasPrivadasTemp) {
 			
 			if(nombreLiga.equals(e.getNombreLiga())) {
 				
 				tipoLiga = 1;
-				index = listaLigasPrivadas.indexOf(e);
+				index = listaLigasPrivadasTemp.indexOf(e);
 				
 			}
 			
@@ -543,7 +540,7 @@ public class CL {
 			
 			//--------------------------------------------------------------------------------------------------------Primer cuadro
 			
-			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosPrimerCuadro()) {
+			for(Partido e: listaLigasPublicasTemp.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosPrimerCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -555,7 +552,7 @@ public class CL {
 			
 			//--------------------------------------------------------------------------------------------------------Segundo cuadro
 			
-			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSegundoCuadro()) {
+			for(Partido e: listaLigasPublicasTemp.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSegundoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -567,7 +564,7 @@ public class CL {
 			
 			//--------------------------------------------------------------------------------------------------------Tercer cuadro
 			
-			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosTercerCuadro()) {
+			for(Partido e: listaLigasPublicasTemp.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosTercerCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -579,7 +576,7 @@ public class CL {
 			
 			//--------------------------------------------------------------------------------------------------------Cuarto cuadro
 			
-			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosCuartoCuadro()) {
+			for(Partido e: listaLigasPublicasTemp.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosCuartoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -592,7 +589,7 @@ public class CL {
 			//--------------------------------------------------------------------------------------------------------Quinto cuadro
 			
 			
-			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosQuintoCuadro()) {
+			for(Partido e: listaLigasPublicasTemp.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosQuintoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -605,7 +602,7 @@ public class CL {
 			//--------------------------------------------------------------------------------------------------------Sexto cuadro
 			
 			
-			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSextoCuadro()) {
+			for(Partido e: listaLigasPublicasTemp.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSextoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -618,7 +615,7 @@ public class CL {
 			//--------------------------------------------------------------------------------------------------------Septimo cuadro
 			
 			
-			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSeptimoCuadro()) {
+			for(Partido e: listaLigasPublicasTemp.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSeptimoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -631,7 +628,7 @@ public class CL {
 			//--------------------------------------------------------------------------------------------------------Octavo cuadro
 			
 			
-			for(Partido e: listaLigasPublicas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosOctavoCuadro()) {
+			for(Partido e: listaLigasPublicasTemp.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosOctavoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -650,7 +647,7 @@ public class CL {
 			
 			//--------------------------------------------------------------------------------------------------------Primer cuadro
 			
-			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosPrimerCuadro()) {
+			for(Partido e: listaLigasPrivadasTemp.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosPrimerCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -662,7 +659,7 @@ public class CL {
 			
 			//--------------------------------------------------------------------------------------------------------Segundo cuadro
 			
-			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSegundoCuadro()) {
+			for(Partido e: listaLigasPrivadasTemp.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSegundoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -674,7 +671,7 @@ public class CL {
 			
 			//--------------------------------------------------------------------------------------------------------Tercer cuadro
 			
-			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosTercerCuadro()) {
+			for(Partido e: listaLigasPrivadasTemp.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosTercerCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -686,7 +683,7 @@ public class CL {
 			
 			//--------------------------------------------------------------------------------------------------------Cuarto cuadro
 			
-			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosCuartoCuadro()) {
+			for(Partido e: listaLigasPrivadasTemp.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosCuartoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -699,7 +696,7 @@ public class CL {
 			//--------------------------------------------------------------------------------------------------------Quinto cuadro
 			
 			
-			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosQuintoCuadro()) {
+			for(Partido e: listaLigasPrivadasTemp.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosQuintoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -712,7 +709,7 @@ public class CL {
 			//--------------------------------------------------------------------------------------------------------Sexto cuadro
 			
 			
-			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSextoCuadro()) {
+			for(Partido e: listaLigasPrivadasTemp.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSextoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -725,7 +722,7 @@ public class CL {
 			//--------------------------------------------------------------------------------------------------------Septimo cuadro
 			
 			
-			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSeptimoCuadro()) {
+			for(Partido e: listaLigasPrivadasTemp.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosSeptimoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -738,7 +735,7 @@ public class CL {
 			//--------------------------------------------------------------------------------------------------------Octavo cuadro
 			
 			
-			for(Partido e: listaLigasPrivadas.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosOctavoCuadro()) {
+			for(Partido e: listaLigasPrivadasTemp.get(index).getMundialAnfitrion().getResultadosMundial().getPartidosOctavoCuadro()) {
 				
 				if(e.getEquipo1().getNombre().equals(nombreEquipo) || e.getEquipo2().getNombre().equals(nombreEquipo)) {
 					
@@ -782,11 +779,14 @@ public class CL {
 		LigasPublicas tempPublica = null;
 		LigasPrivadas tempPrivada = null;
 		
+		ArrayList<LigasPublicas> listaLigasPublicasTemp = new MultiLigasPublicas().retornarLigasPublicas();
+		ArrayList<LigasPrivadas> listaLigasPrivadasTemp = new MultiLigasPrivadas().retornarLigasPrivadas();
+		
 		switch(tipoLiga) {
 		
 		case 0: 
 			
-			for(LigasPublicas e: listaLigasPublicas) {
+			for(LigasPublicas e: listaLigasPublicasTemp) {
 				
 				if(nombreLiga.equals(e.getNombreLiga())) {
 					
@@ -801,7 +801,7 @@ public class CL {
 			
 		case 1:
 			
-			for(LigasPrivadas e: listaLigasPrivadas) {
+			for(LigasPrivadas e: listaLigasPrivadasTemp) {
 				
 				if(nombreLiga.equals(e.getNombreLiga())) {
 					
@@ -923,24 +923,28 @@ public class CL {
 	 * Metodo que asigna un usuario a una liga Publica
 	 * @param nombreUsuario
 	 * @param liga
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) {
+	public static void asignarLigaPublicaUsuario(String nombreUsuario, LigasPublicas liga) throws SQLException, Exception {
 				
 		int indice=0;
+		
+		ArrayList<Usuario> listaUsuariosTemp = new MultiUsuarios().retornarUsuarios();
 		
 			for(Usuario e: listaUsuarios) {
 				
 				if(nombreUsuario.equals(e.getNombreUsuario())) {
 					
-					indice = listaUsuarios.indexOf(e);
+					indice = listaUsuariosTemp.indexOf(e);
 					
 				}
 				
 			}
 			
-			Usuario miUsuario = listaUsuarios.get(indice);
+			Usuario miUsuario = listaUsuariosTemp.get(indice);
 			miUsuario.setMiLigaPublica(liga);
-			listaUsuarios.set(indice, miUsuario);
+			listaUsuariosTemp.set(indice, miUsuario);
 		
 	}
 	
@@ -948,24 +952,28 @@ public class CL {
 	 * Metodo que asigna un usuario a una liga Privada
 	 * @param nombreUsuario
 	 * @param liga
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void asignarLigaPrivadaUsuario(String nombreUsuario, LigasPrivadas liga) {
+	public static void asignarLigaPrivadaUsuario(String nombreUsuario, LigasPrivadas liga) throws SQLException, Exception {
+		
+		ArrayList<Usuario> listaUsuariosTemp = new MultiUsuarios().retornarUsuarios();
 		
 		int indice=0;
 		
-			for(Usuario e: listaUsuarios) {
+			for(Usuario e: listaUsuariosTemp) {
 				
 				if(nombreUsuario.equals(e.getNombreUsuario())) {
 					
-					indice = listaUsuarios.indexOf(e);
+					indice = listaUsuariosTemp.indexOf(e);
 					
 				}
 				
 			}
 			
-			Usuario miUsuario = listaUsuarios.get(indice);
+			Usuario miUsuario = listaUsuariosTemp.get(indice);
 			miUsuario.setMiLigaPrivada(liga);
-			listaUsuarios.set(indice, miUsuario);
+			listaUsuariosTemp.set(indice, miUsuario);
 		
 	}
 	
@@ -974,17 +982,21 @@ public class CL {
 	 * Metodo que asigna un equipo a una liga Publica
 	 * @param nombreUsuario
 	 * @param equipoSeleccionado
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void asignarEquipoLigaPublicaUsuario(String nombreUsuario, Equipo equipoSeleccionado) {
+	public static void asignarEquipoLigaPublicaUsuario(String nombreUsuario, Equipo equipoSeleccionado) throws SQLException, Exception {
+		
+		ArrayList<Usuario> listaUsuariosTemp = new MultiUsuarios().retornarUsuarios();
 		
 		int index = -1;
 		Usuario temp = null;
 		
-		for(Usuario e: listaUsuarios) {
+		for(Usuario e: listaUsuariosTemp) {
 			
 			if(nombreUsuario.equals(e.getNombreUsuario())) {
 				
-				index = listaUsuarios.indexOf(e);
+				index = listaUsuariosTemp.indexOf(e);
 				temp = e;
 				temp.setEquipoLigaPublica(equipoSeleccionado);
 				
@@ -993,7 +1005,7 @@ public class CL {
 		}
 		if(index != -1) {
 			
-			listaUsuarios.set(index, temp);
+			listaUsuariosTemp.set(index, temp);
 			
 		}
 		
@@ -1003,16 +1015,21 @@ public class CL {
 	 * Metodo que asigna un equipo a una liga Privada
 	 * @param nombreUsuario
 	 * @param equipoSeleccionado
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void asignarEquipoLigaPrivadaUsuario(String nombreUsuario, Equipo equipoSeleccionado) {
+	public static void asignarEquipoLigaPrivadaUsuario(String nombreUsuario, Equipo equipoSeleccionado) throws SQLException, Exception {
+		
+		ArrayList<Usuario> listaUsuariosTemp = new MultiUsuarios().retornarUsuarios();
+		
 		int index = -1;
 		Usuario temp = null;
 		
-		for(Usuario e: listaUsuarios) {
+		for(Usuario e: listaUsuariosTemp) {
 			
 			if(nombreUsuario.equals(e.getNombreUsuario())) {
 				
-				index = listaUsuarios.indexOf(e);
+				index = listaUsuariosTemp.indexOf(e);
 				temp = e;
 				temp.setEquipoLigaPrivada(equipoSeleccionado);
 
@@ -1023,7 +1040,7 @@ public class CL {
 		
 		if(index != -1) {
 			
-			listaUsuarios.set(index, temp);
+			listaUsuariosTemp.set(index, temp);
 
 		}
 		
@@ -1037,45 +1054,53 @@ public class CL {
 	/**
 	 * Metodo que remueve la publica del usuario en general. 
 	 * @param nombreUsuario
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void removerLigaPublicaUsuario(String nombreUsuario) {
+	public static void removerLigaPublicaUsuario(String nombreUsuario) throws SQLException, Exception {
+		
+		ArrayList<Usuario> listaUsuariosTemp = new MultiUsuarios().retornarUsuarios();
 		
 		int indice=0;
 		
-		for(Usuario e: listaUsuarios) {
+		for(Usuario e: listaUsuariosTemp) {
 			
 			if(nombreUsuario.equals(e.getNombreUsuario())) {
 				
-				indice = listaUsuarios.indexOf(e);
+				indice = listaUsuariosTemp.indexOf(e);
 				
 			}
 			
 		}
 		
-		Usuario miUsuario = listaUsuarios.get(indice);
+		Usuario miUsuario = listaUsuariosTemp.get(indice);
 		miUsuario.setMiLigaPublica(null);
-		listaUsuarios.set(indice, miUsuario);
+		listaUsuariosTemp.set(indice, miUsuario);
 		
 	}
 	/**
 	 *  Metodo que remueve la privada del usuario en general. 
 	 * @param nombreUsuario
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void removerLigaPrivadaUsuario(String nombreUsuario) {
+	public static void removerLigaPrivadaUsuario(String nombreUsuario) throws SQLException, Exception {
+		
+		ArrayList<Usuario> listaUsuariosTemp = new MultiUsuarios().retornarUsuarios();
 		
 		int indice=0;
 		
-		for(Usuario e: listaUsuarios) {
+		for(Usuario e: listaUsuariosTemp) {
 			
 			if(nombreUsuario.equals(e.getNombreUsuario())) {
 				
-				indice = listaUsuarios.indexOf(e);
+				indice = listaUsuariosTemp.indexOf(e);
 				
 			}
 			
 		}
 		
-		Usuario miUsuario = listaUsuarios.get(indice);
+		Usuario miUsuario = listaUsuariosTemp.get(indice);
 		miUsuario.setMiLigaPrivada(null);
 		listaUsuarios.set(indice, miUsuario);
 		
@@ -1084,48 +1109,56 @@ public class CL {
 	/**
 	 *  Metodo que remueve los equipos de la liga publica del usuario en general. 
 	 * @param nombreUsuario
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void removerEquipoLigaPublicaUsuario(String nombreUsuario) {
+	public static void removerEquipoLigaPublicaUsuario(String nombreUsuario) throws SQLException, Exception {
+		
+		ArrayList<Usuario> listaUsuariosTemp = new MultiUsuarios().retornarUsuarios();
 		
 		int indice=0;
 		
-		for(Usuario e: listaUsuarios) {
+		for(Usuario e: listaUsuariosTemp) {
 			
 			if(nombreUsuario.equals(e.getNombreUsuario())) {
 				
-				indice = listaUsuarios.indexOf(e);
+				indice = listaUsuariosTemp.indexOf(e);
 				
 			}
 			
 		}
 		
-		Usuario miUsuario = listaUsuarios.get(indice);
+		Usuario miUsuario = listaUsuariosTemp.get(indice);
 		miUsuario.setEquipoLigaPublica(null);
-		listaUsuarios.set(indice, miUsuario);
+		listaUsuariosTemp.set(indice, miUsuario);
 		
 	}
 	
 	/**
 	 * Metodo que remueve los equipos de la liga privada del usuario en general. 
 	 * @param nombreUsuario
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public static void removerEquipoLigaPrivadaUsuario(String nombreUsuario) {
+	public static void removerEquipoLigaPrivadaUsuario(String nombreUsuario) throws SQLException, Exception {
+		
+		ArrayList<Usuario> listaUsuariosTemp = new MultiUsuarios().retornarUsuarios();
 		
 		int indice=0;
 		
-		for(Usuario e: listaUsuarios) {
+		for(Usuario e: listaUsuariosTemp) {
 			
 			if(nombreUsuario.equals(e.getNombreUsuario())) {
 				
-				indice = listaUsuarios.indexOf(e);
+				indice = listaUsuariosTemp.indexOf(e);
 				
 			}
 			
 		}
 		
-		Usuario miUsuario = listaUsuarios.get(indice);
+		Usuario miUsuario = listaUsuariosTemp.get(indice);
 		miUsuario.setEquipoLigaPrivada(null);
-		listaUsuarios.set(indice, miUsuario);
+		listaUsuariosTemp.set(indice, miUsuario);
 		
 	}
 	
@@ -1136,11 +1169,17 @@ public class CL {
 	 * Meotodo que comprueba el tipo de liga
 	 * @param nombreLiga
 	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-		public static String comprobarTipoLiga(String nombreLiga) {
+		public static String comprobarTipoLiga(String nombreLiga) throws SQLException, Exception {
+			
+			ArrayList<LigasPrivadas> ligasPrivadasTemp = new MultiLigasPrivadas().retornarLigasPrivadas();
+			ArrayList<LigasPublicas> ligasPublicasTemp = new MultiLigasPublicas().retornarLigasPublicas();
+			
 			String comprobante="";
 			
-			for(LigasPrivadas e: listaLigasPrivadas) {
+			for(LigasPrivadas e: ligasPrivadasTemp) {
 				
 				if(nombreLiga.equals(e.getNombreLiga())) {
 					
@@ -1150,7 +1189,7 @@ public class CL {
 				
 			}
 			
-			for(LigasPublicas e: listaLigasPublicas) {
+			for(LigasPublicas e: ligasPublicasTemp) {
 				
 				if(nombreLiga.equals(e.getNombreLiga())) {
 					
@@ -1173,16 +1212,20 @@ public class CL {
 		/**
 		 * Metodo que elimina la liga publica
 		 * @param nombreLiga
+		 * @throws Exception 
+		 * @throws SQLException 
 		 */
-		public static void eliminarLigaPublica(String nombreLiga) {
+		public static void eliminarLigaPublica(String nombreLiga) throws SQLException, Exception {
+			
+			ArrayList<LigasPublicas> ligasPublicasTemp = new MultiLigasPublicas().retornarLigasPublicas();
 			
 			int index=-1;
 			
-			for(LigasPublicas e: listaLigasPublicas) {
+			for(LigasPublicas e: ligasPublicasTemp) {
 				
 				if(e.getNombreLiga().equals(nombreLiga)) {
 					
-					index = listaLigasPublicas.indexOf(e);
+					index = ligasPublicasTemp.indexOf(e);
 					
 				}
 				
@@ -1190,7 +1233,7 @@ public class CL {
 			
 			if(index != -1) {
 				
-				listaLigasPublicas.remove(index);
+				ligasPublicasTemp.remove(index);
 				//En este punto se realizara un ciclo for para analizar que usuarios tienen esta liga incluida y se les removera.
 				
 			}
@@ -1200,8 +1243,12 @@ public class CL {
 		/**
 		 * Elimina la Liga Privada 
 		 * @param nombreLiga
+		 * @throws Exception 
+		 * @throws SQLException 
 		 */
-		public static void eliminarLigaPrivada(String nombreLiga) {
+		public static void eliminarLigaPrivada(String nombreLiga) throws SQLException, Exception {
+			
+			ArrayList<LigasPrivadas> ligasPrivadasTemp = new MultiLigasPrivadas().retornarLigasPrivadas();
 			
 			int index=-1;
 			
@@ -1209,7 +1256,7 @@ public class CL {
 				
 				if(e.getNombreLiga().equals(nombreLiga)) {
 					
-					index = listaLigasPrivadas.indexOf(e);
+					index = ligasPrivadasTemp.indexOf(e);
 
 				}
 				
@@ -1217,7 +1264,7 @@ public class CL {
 			
 			if(index != -1) {
 
-				listaLigasPrivadas.remove(index);
+				ligasPrivadasTemp.remove(index);
 				//En este punto se realizara un ciclo for para analizar que usuarios tienen esta liga incluida y se les removera.
 				
 			}
@@ -1230,14 +1277,18 @@ public class CL {
 		/**
 		 * Actualiza el  nombre del usuario actual
 		 * @param usuarioActualizado
+		 * @throws Exception 
+		 * @throws SQLException 
 		 */
-		public static void actualizarJugador(Usuario usuarioActualizado) {
+		public static void actualizarJugador(Usuario usuarioActualizado) throws SQLException, Exception {
+			
+			ArrayList<Usuario> listaUsuariosTemp = new MultiUsuarios().retornarUsuarios();
 			
 			for(Usuario e: listaUsuarios) {
 				
 				if(e.getNombreUsuario().equals(usuarioActualizado.getNombreUsuario())) {
 					
-					listaUsuarios.set(listaUsuarios.indexOf(e), usuarioActualizado);
+					listaUsuariosTemp.set(listaUsuariosTemp.indexOf(e), usuarioActualizado);
 					
 				}
 				

@@ -1390,7 +1390,12 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 			}
 
 			partidosPaisEscogido.setEnabled(false);
-			partidosPaisEscogido.setText(Gestor.retornarPartidosCuadro(nombreLiga, (String) equipos.getSelectedItem()));
+			try {
+				partidosPaisEscogido.setText(Gestor.retornarPartidosCuadro(nombreLiga, (String) equipos.getSelectedItem()));
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 
 		}
 
@@ -1474,7 +1479,12 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 						this.miUsuario);
 
 				this.miUsuario.setPrimerCuadroPublica(apuestasPrimerCuadroPublica);
-				Gestor.actualizarJugador(this.miUsuario);
+				try {
+					Gestor.actualizarJugador(this.miUsuario);
+				} catch (Exception e2) {
+					
+					e2.printStackTrace();
+				}
 
 				try {
 					this.miUsuario = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
@@ -1535,7 +1545,12 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 						this.miUsuario);
 
 				this.miUsuario.setPrimerCuadroPrivada(apuestasPrimerCuadroPrivada);
-				Gestor.actualizarJugador(this.miUsuario);
+				try {
+					Gestor.actualizarJugador(this.miUsuario);
+				} catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}
 
 				imagenEquipoSeleccionado = new ImageIcon(
 						this.miUsuario.getPrimerCuadroPrivada()[0].getPartidoApuesta().getEquipo1().getBandera());
@@ -1603,11 +1618,21 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 						labelEquipoContrincante.setIcon(iconoEquipoContrincante);
 
 						this.miUsuario.sumarApuestaPublica();
-						Gestor.actualizarJugador(this.miUsuario);
+						try {
+							Gestor.actualizarJugador(this.miUsuario);
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
 
 						btnSegundaFase.setVisible(false);
 
-						sumarPuntajes(0, 0);
+						try {
+							sumarPuntajes(0, 0);
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
 
 						/**
 						 * Validacion de la primera fase del juego en una liga publica
@@ -1629,11 +1654,21 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 						labelEquipoContrincante.setIcon(iconoEquipoContrincante);
 
 						this.miUsuario.sumarApuestaPublica();
-						Gestor.actualizarJugador(this.miUsuario);
+						try {
+							Gestor.actualizarJugador(this.miUsuario);
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
 
 						btnSegundaFase.setVisible(false);
 
-						sumarPuntajes(0, 1);
+						try {
+							sumarPuntajes(0, 1);
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
 
 					} else if (this.miUsuario.getValidacionPrimeraFasePublica() >= 2) {
 
@@ -1646,9 +1681,19 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 						this.remove(btnApostar);
 
 						this.miUsuario.sumarApuestaPublica();
-						Gestor.actualizarJugador(this.miUsuario);
+						try {
+							Gestor.actualizarJugador(this.miUsuario);
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
 
-						sumarPuntajes(0, 2);
+						try {
+							sumarPuntajes(0, 2);
+						} catch (Exception e2) {
+							
+							e2.printStackTrace();
+						}
 
 						JOptionPane.showMessageDialog(null, "Ya haz completado todas la apuestas de la primera fase\n"
 								+ "si tu equipo clasifico, podras pasar a la segunda fase.");
@@ -1663,7 +1708,12 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 
 								btnSegundaFase.setVisible(true);
 								this.miUsuario.setValidacionOctavosPublica(true);
-								Gestor.actualizarJugador(this.miUsuario);
+								try {
+									Gestor.actualizarJugador(this.miUsuario);
+								} catch (Exception e1) {
+									
+									e1.printStackTrace();
+								}
 							}
 							index++;
 						}
@@ -1692,11 +1742,21 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 						labelEquipoContrincante.setIcon(iconoEquipoContrincante);
 
 						this.miUsuario.sumarApuestaPrivada();
-						Gestor.actualizarJugador(this.miUsuario);
+						try {
+							Gestor.actualizarJugador(this.miUsuario);
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
 
 						btnSegundaFase.setVisible(false);
 
-						sumarPuntajes(1, 0);
+						try {
+							sumarPuntajes(1, 0);
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
 
 					} else if (this.miUsuario.getValidacionPrimeraFasePrivada() == 1) {
 
@@ -1715,20 +1775,40 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 						labelEquipoContrincante.setIcon(iconoEquipoContrincante);
 
 						this.miUsuario.sumarApuestaPrivada();
-						Gestor.actualizarJugador(this.miUsuario);
+						try {
+							Gestor.actualizarJugador(this.miUsuario);
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
 
 						btnSegundaFase.setVisible(false);
 
-						sumarPuntajes(1, 1);
+						try {
+							sumarPuntajes(1, 1);
+						} catch (Exception e1) {
+							
+							e1.printStackTrace();
+						}
 
 					} else if (this.miUsuario.getValidacionPrimeraFasePrivada() >= 2) {
 
 						this.miUsuario.sumarApuestaPrivada();
-						Gestor.actualizarJugador(this.miUsuario);
+						try {
+							Gestor.actualizarJugador(this.miUsuario);
+						} catch (Exception e1) {
+						
+							e1.printStackTrace();
+						}
 
 						btnSegundaFase.setVisible(false);
 
-						sumarPuntajes(1, 2);
+						try {
+							sumarPuntajes(1, 2);
+						} catch (Exception e2) {
+							
+							e2.printStackTrace();
+						}
 
 						this.remove(labelEquipoSeleccionado);
 						this.remove(labelEquipoContrincante);
@@ -1751,7 +1831,12 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 
 								btnSegundaFase.setVisible(true);
 								this.miUsuario.setValidacionOctavosPrivada(true);
-								Gestor.actualizarJugador(this.miUsuario);
+								try {
+									Gestor.actualizarJugador(this.miUsuario);
+								} catch (Exception e1) {
+									
+									e1.printStackTrace();
+								}
 
 							}
 							index++;
@@ -1794,8 +1879,10 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 	 * 
 	 * @param tipoLiga
 	 * @param ronda
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public void sumarPuntajes(int tipoLiga, int ronda) {
+	public void sumarPuntajes(int tipoLiga, int ronda) throws SQLException, Exception {
 
 		switch (tipoLiga) {
 
