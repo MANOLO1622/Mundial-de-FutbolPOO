@@ -40,8 +40,6 @@ public class CL {
 		CL.ingresarLigasPublicasRegistrados();
 		CL.ingresarLigasPrivadasRegistrados();
 		
-		System.out.println();
-		
 	}
 	
 	
@@ -55,9 +53,6 @@ public class CL {
 		for(Usuario e: listaUsuarios) {
 			
 			try {
-				
-				System.out.println(new MultiUsuarios().buscarLigaPublica(e.getNombreUsuario()));
-				System.out.println(new MultiUsuarios().buscarLigaPrivada(e.getNombreUsuario()));
 				
 			e.setMiLigaPublica(new MultiLigasPublicas().buscar(new MultiUsuarios().buscarLigaPublica(e.getNombreUsuario())));
 			e.setMiLigaPrivada(new MultiLigasPrivadas().buscar(new MultiUsuarios().buscarLigaPrivada(e.getNombreUsuario())));
@@ -408,7 +403,6 @@ public class CL {
 				
 			}	
 		}
-		System.out.println("Recibe: " + temp.getMundialAnfitrion().getEquiposMundial().size());
 		return temp;
 	}
 	
@@ -558,8 +552,8 @@ public class CL {
 		int tipoLiga = -1;
 		int index = -1;
 		
-		ArrayList<LigasPublicas> listaLigasPublicasTemp = new MultiLigasPublicas().retornarLigasPublicas();
-		ArrayList<LigasPrivadas> listaLigasPrivadasTemp = new MultiLigasPrivadas().retornarLigasPrivadas();
+		ArrayList<LigasPublicas> listaLigasPublicasTemp = listaLigasPublicas;
+		ArrayList<LigasPrivadas> listaLigasPrivadasTemp = listaLigasPrivadas;
 		
 		String partidos = "  Agenda de Cuadro\n\n";
 		
@@ -807,10 +801,6 @@ public class CL {
 			
 		}
 		
-		
-		
-		
-		
 		return partidos;
 	}
 	
@@ -1041,25 +1031,25 @@ public class CL {
 	 */
 	public static void asignarEquipoLigaPublicaUsuario(String nombreUsuario, Equipo equipoSeleccionado) throws SQLException, Exception {
 		
-		ArrayList<Usuario> listaUsuariosTemp = new MultiUsuarios().retornarUsuarios();
-		
 		int index = -1;
 		Usuario temp = null;
 		
-		for(Usuario e: listaUsuariosTemp) {
+		for(Usuario e: listaUsuarios) {
 			
 			if(nombreUsuario.equals(e.getNombreUsuario())) {
 				
-				index = listaUsuariosTemp.indexOf(e);
+				index = listaUsuarios.indexOf(e);
 				temp = e;
 				temp.setEquipoLigaPublica(equipoSeleccionado);
+				new MultiUsuarios();
+				MultiUsuarios.actualizarUsuarioEquipoLigaPublica(nombreUsuario, equipoSeleccionado.getNombre());
 				
 			}
 			
 		}
 		if(index != -1) {
 			
-			listaUsuariosTemp.set(index, temp);
+			listaUsuarios.set(index, temp);
 			
 		}
 		
@@ -1074,19 +1064,17 @@ public class CL {
 	 */
 	public static void asignarEquipoLigaPrivadaUsuario(String nombreUsuario, Equipo equipoSeleccionado) throws SQLException, Exception {
 		
-		ArrayList<Usuario> listaUsuariosTemp = new MultiUsuarios().retornarUsuarios();
-		
 		int index = -1;
 		Usuario temp = null;
 		
-		for(Usuario e: listaUsuariosTemp) {
+		for(Usuario e: listaUsuarios) {
 			
 			if(nombreUsuario.equals(e.getNombreUsuario())) {
 				
-				index = listaUsuariosTemp.indexOf(e);
+				index = listaUsuarios.indexOf(e);
 				temp = e;
 				temp.setEquipoLigaPrivada(equipoSeleccionado);
-
+				MultiUsuarios.actualizarUsuarioEquipoLigaPrivada(nombreUsuario, equipoSeleccionado.getNombre());
 				
 			}
 			
@@ -1094,7 +1082,7 @@ public class CL {
 		
 		if(index != -1) {
 			
-			listaUsuariosTemp.set(index, temp);
+			listaUsuarios.set(index, temp);
 
 		}
 		
@@ -1341,23 +1329,24 @@ public class CL {
 		 * @throws SQLException 
 		 */
 		public static void actualizarJugador(Usuario usuarioActualizado) throws SQLException, Exception {
-			
-			ArrayList<Usuario> listaUsuariosTemp = new MultiUsuarios().retornarUsuarios();
-			
-			for(Usuario e: listaUsuariosTemp) {
+
+			for(Usuario e: listaUsuarios) {
 				
 				if(e.getNombreUsuario().equals(usuarioActualizado.getNombreUsuario())) {
 					
+					e = usuarioActualizado;
 					/*
-					e.setEquipoLigaPublica();
-					e.setEquipoLigaPrivada();
-					e.setMiLigaPublica();
-					e.setMiLigaPrivada();
-					e.setPrimerCuadroPrivada();
-					e.setPrimerCuadroPublica();
-					e.set
-					listaUsuariosTemp.set(listaUsuariosTemp.indexOf(e), usuarioActualizado);
+					MultiUsuarios.actualizarUsuarioEquipoLigaPublica(usuarioActualizado.getNombre(), usuarioActualizado.getEquipoLigaPublica().getNombre());
+					MultiUsuarios.actualizarUsuarioEquipoLigaPrivada(usuarioActualizado.getNombre(), usuarioActualizado.getEquipoLigaPrivada().getNombre());
+					MultiUsuarios.(usuarioActualizado.getMiLigaPublica());
+					e.setMiLigaPrivada(usuarioActualizado.getMiLigaPrivada());
+					MultiUsuarios.actualizarUsuarioPrimerCuadroPrivada(usuarioActualizado.getNombre(), usuarioActualizado.getPrimerCuadroPrivada());
+					MultiUsuarios.actualizarUsuarioPrimerCuadroPrivada(usuarioActualizado.getNombre(), usuarioActualizado.getPrimerCuadroPublica());
 					*/
+					
+					
+					listaUsuarios.set(listaUsuarios.indexOf(e), usuarioActualizado);
+					
 					
 				}
 				

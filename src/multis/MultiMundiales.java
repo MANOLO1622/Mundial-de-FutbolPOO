@@ -126,6 +126,11 @@ public class MultiMundiales {
 		resultadosTemp.setGanadoresOctavosFinal(new MultiSegundaFase().retornarGanadoresOctavosFinal(mundialTemp.getNombreMundial()));
 		resultadosTemp.setGanadoresCuartosFinal(new MultiSegundaFase().retornarGanadoresCuartosFinal(mundialTemp.getNombreMundial()));
 		
+		resultadosTemp.setPrimerLugar(resultadosTemp.getJuegosFinales()[0].getEquipoGanador());
+		resultadosTemp.setSegundoLugar(resultadosTemp.getJuegosFinales()[0].getEquipoPerdedor());
+		resultadosTemp.setTercerLugar(resultadosTemp.getJuegosFinales()[1].getEquipoGanador());
+		resultadosTemp.setCuartoLugar(resultadosTemp.getJuegosFinales()[1].getEquipoPerdedor());
+		
 		mundialTemp.guardarEquipos(resultadosTemp.getPrimerCuadro(), resultadosTemp.getSegundoCuadro(), resultadosTemp.getTercerCuadro(),
 				resultadosTemp.getCuartoCuadro(), resultadosTemp.getQuintoCuadro(), resultadosTemp.getSextoCuadro(), 
 				resultadosTemp.getSeptimoCuadro(), resultadosTemp.getOctavoCuadro());

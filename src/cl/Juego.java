@@ -1990,8 +1990,8 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 			this.add(partidosPaisEscogido);
 			partidosPaisEscogido.setEnabled(false);
 			partidosPaisEscogido.setBounds(1075, 190, 175, 150);
-			partidosPaisEscogido
-					.setText(Gestor.retornarPartidosCuadro(this.miUsuario.getMiLigaPrivada().getNombreLiga(),
+			
+			partidosPaisEscogido.setText(Gestor.retornarPartidosCuadro(this.miUsuario.getMiLigaPrivada().getNombreLiga(),
 							this.miUsuario.getEquipoLigaPrivada().getNombre()));
 
 			imagenBanderaPaisEscogido = new ImageIcon(

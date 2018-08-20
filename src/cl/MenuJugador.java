@@ -241,7 +241,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			
 			try {
-				ligaPrivadaTemp = new MultiLigasPrivadas().buscar(new MultiUsuarios().buscar(this.miUsuario.getNombreUsuario()).getMiLigaPrivada().getNombreLiga())/*this.miUsuario.getMiLigaPrivada()*/;
+				ligaPrivadaTemp = new MultiLigasPrivadas().buscar(this.miUsuario.getMiLigaPrivada().getNombreLiga());
 			} catch (Exception e1) {
 				
 				e1.printStackTrace();
@@ -250,7 +250,7 @@ public class MenuJugador extends JPanel implements ActionListener{
 			
 			
 			try {
-				ligaPublicaTemp = new MultiLigasPublicas().buscar(new MultiUsuarios().buscar(this.miUsuario.getNombreUsuario()).getMiLigaPublica().getNombreLiga())/*this.miUsuario.getMiLigaPublica()*/;
+				ligaPublicaTemp = new MultiLigasPublicas().buscar(this.miUsuario.getMiLigaPublica().getNombreLiga());
 			} catch (Exception e1) {
 				
 				e1.printStackTrace();

@@ -94,7 +94,7 @@ public class MultiUsuarios {
 		
 		String sql;
 		
-		sql = "UPDATE Usuarios " + "SET miLigaPublica= '" + miLigaPublica + "' " + " WHERE nombreUsuario='"
+		sql = "UPDATE Usuarios SET miLigaPublica = '" + miLigaPublica + "'  WHERE nombreUsuario='"
 				+ nombreUsuario + "';";
 		
 		try {
@@ -122,8 +122,6 @@ public class MultiUsuarios {
 		
 		sql = "UPDATE Usuarios " + " SET miLigaPrivada = '" + miLigaPrivada + "' " + " WHERE nombreUsuario='"
 				+ nombreUsuario + "';";
-		
-		System.out.println(sql);
 		
 		try {
 			
@@ -209,9 +207,7 @@ public class MultiUsuarios {
 		
 		sql = "UPDATE Usuarios " + " SET equipoLigaPublica = '" + equipoLigaPublica + "' " + 
 		" WHERE nombreUsuario='" + nombreUsuario + "';";
-		
-		System.out.println(sql);
-		
+
 		try {
 			
 			Conector.getConector().ejecutarSQL(sql,true);
@@ -233,9 +229,7 @@ public class MultiUsuarios {
 		
 		sql = "UPDATE Usuarios " + " SET equipoLigaPrivada = '" + equipoLigaPrivada + "' " + 
 		" WHERE nombreUsuario='" + nombreUsuario + "';";
-		
-		System.out.println(sql);
-		
+
 		try {
 			
 			Conector.getConector().ejecutarSQL(sql,true);
@@ -256,9 +250,7 @@ public class MultiUsuarios {
 		
 		sql = "UPDATE Usuarios " + " SET validacionPrimeraFasePublica = " + validacionPrimeraFasePublica + " " + 
 		" WHERE nombreUsuario= '" + nombreUsuario + "';";
-		
-		System.out.println(sql);
-		
+
 		try {
 			
 			Conector.getConector().ejecutarSQL(sql,true);
@@ -279,9 +271,7 @@ public class MultiUsuarios {
 		
 		sql = "UPDATE Usuarios " + " SET validacionPrimeraFasePrivada = " + validacionPrimeraFasePrivada + " " + 
 		" WHERE nombreUsuario= '" + nombreUsuario + "';";
-		
-		System.out.println(sql);
-		
+
 		try {
 			
 			Conector.getConector().ejecutarSQL(sql,true);
@@ -303,9 +293,7 @@ public class MultiUsuarios {
 		
 		sql = "UPDATE Usuarios " + " SET validacionPrimeraFasePublica = '" + validacionOctavosPublica + "' " + 
 		" WHERE nombreUsuario='" + nombreUsuario + "';";
-		
-		System.out.println(sql);
-		
+
 		try {
 			
 			Conector.getConector().ejecutarSQL(sql,true);
@@ -327,9 +315,7 @@ public class MultiUsuarios {
 		
 		sql = "UPDATE Usuarios " + " SET validacionOctavosPrivada = '" + validacionOctavosPrivada + "' " + 
 		" WHERE nombreUsuario='" + nombreUsuario + "';";
-		
-		System.out.println(sql);
-		
+
 		try {
 			
 			Conector.getConector().ejecutarSQL(sql,true);
@@ -351,9 +337,7 @@ public class MultiUsuarios {
 		
 		sql = "UPDATE Usuarios " + " SET validacioncuartosPublica = '" + validacionCuartosPublica + "' " + 
 		" WHERE nombreUsuario='" + nombreUsuario + "';";
-		
-		System.out.println(sql);
-		
+
 		try {
 			
 			Conector.getConector().ejecutarSQL(sql,true);
@@ -374,9 +358,7 @@ public class MultiUsuarios {
 		
 		sql = "UPDATE Usuarios " + " SET validacioncuartosPrivada = '" + validacionCuartosPrivada + "' " + 
 		" WHERE nombreUsuario='" + nombreUsuario + "';";
-		
-		System.out.println(sql);
-		
+
 		try {
 			
 			Conector.getConector().ejecutarSQL(sql,true);
@@ -397,9 +379,7 @@ public class MultiUsuarios {
 		
 		sql = "UPDATE Usuarios " + " SET validacionSemifinalesPublica = '" + validacionSemifinalesPublica + "' " + 
 		" WHERE nombreUsuario='" + nombreUsuario + "';";
-		
-		System.out.println(sql);
-		
+
 		try {
 			
 			Conector.getConector().ejecutarSQL(sql,true);
@@ -420,9 +400,7 @@ public class MultiUsuarios {
 		
 		sql = "UPDATE Usuarios " + " SET validacionSemifinalesPrivada = '" + validacionSemifinalesPrivada + "' " + 
 		" WHERE nombreUsuario='" + nombreUsuario + "';";
-		
-		System.out.println(sql);
-		
+
 		try {
 			
 			Conector.getConector().ejecutarSQL(sql,true);
@@ -443,9 +421,7 @@ public class MultiUsuarios {
 		
 		sql = "UPDATE Usuarios " + " SET validacionfinalPublica = '" + validacionFinalesPublica + "' " + 
 		" WHERE nombreUsuario='" + nombreUsuario + "';";
-		
-		System.out.println(sql);
-		
+
 		try {
 			
 			Conector.getConector().ejecutarSQL(sql,true);
@@ -466,9 +442,7 @@ public class MultiUsuarios {
 		
 		sql = "UPDATE Usuarios " + " SET validacionfinalPrivada = '" + validacionFinalesPrivada + "' " + 
 		" WHERE nombreUsuario='" + nombreUsuario + "';";
-		
-		System.out.println(sql);
-		
+
 		try {
 			
 			Conector.getConector().ejecutarSQL(sql,true);
@@ -491,9 +465,7 @@ public class MultiUsuarios {
 		
 		sql = "UPDATE Usuarios " + " SET primerCuadroPublica = '" + primerCuadroPublica + "' " + 
 		" WHERE nombreUsuario='" + nombreUsuario + "';";
-		
-		System.out.println(sql);
-		
+
 		try {
 			
 			Conector.getConector().ejecutarSQL(sql,true);
@@ -515,9 +487,7 @@ public class MultiUsuarios {
 		
 		sql = "UPDATE Usuarios " + " SET primerCuadroPrivada = '" + primerCuadroPrivada + "' " + 
 		" WHERE nombreUsuario='" + nombreUsuario + "';";
-		
-		System.out.println(sql);
-		
+
 		try {
 			
 			Conector.getConector().ejecutarSQL(sql,true);
@@ -555,7 +525,7 @@ public class MultiUsuarios {
 			nombreLiga = rs.getString("miLigaPublica");
 			
 		} else {
-			throw new Exception("El Usuario no está registrado");
+			System.out.println("El Usuario no está registrado");
 		}
 		rs.close();
 		return nombreLiga;
