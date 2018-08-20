@@ -1330,7 +1330,7 @@ public class CL {
 		 */
 		public static void actualizarJugador(Usuario usuarioActualizado) throws SQLException, Exception {
 
-			for(Usuario e: listaUsuarios) {
+			/*for(Usuario e: listaUsuarios) {
 				
 				if(e.getNombreUsuario().equals(usuarioActualizado.getNombreUsuario())) {
 					
@@ -1338,11 +1338,11 @@ public class CL {
 					
 					MultiUsuarios.actualizarUsuarioEquipoLigaPublica(usuarioActualizado.getNombre(), usuarioActualizado.getEquipoLigaPublica().getNombre());
 					MultiUsuarios.actualizarUsuarioEquipoLigaPrivada(usuarioActualizado.getNombre(), usuarioActualizado.getEquipoLigaPrivada().getNombre());
-					/*MultiUsuarios.(usuarioActualizado.getMiLigaPublica());
+					MultiUsuarios.(usuarioActualizado.getMiLigaPublica());
 					e.setMiLigaPrivada(usuarioActualizado.getMiLigaPrivada());
 					MultiUsuarios.actualizarUsuarioPrimerCuadroPrivada(usuarioActualizado.getNombre(), usuarioActualizado.getPrimerCuadroPrivada());
 					MultiUsuarios.actualizarUsuarioPrimerCuadroPrivada(usuarioActualizado.getNombre(), usuarioActualizado.getPrimerCuadroPublica());
-					*/
+					
 					
 					
 					listaUsuarios.set(listaUsuarios.indexOf(e), usuarioActualizado);
@@ -1350,7 +1350,7 @@ public class CL {
 					
 				}
 				
-			}
+			}*/
 			
 		}
 

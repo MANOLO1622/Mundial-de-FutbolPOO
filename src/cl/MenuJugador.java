@@ -64,10 +64,6 @@ public class MenuJugador extends JPanel implements ActionListener{
 		Usuario persona = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
 		this.miUsuario = persona;
 		
-		
-		
-		System.out.println(this.miUsuario.toString());
-		
 		evaluarCondicionJuego();
 		
 		this.add(boton2);
@@ -490,7 +486,12 @@ public class MenuJugador extends JPanel implements ActionListener{
 		if(e.getSource()==boton8) {
 			
 			Ventana ventLogin = new Ventana(null);
-			ventLogin.ventanaLogin();
+			try {
+				ventLogin.ventanaLogin();
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
 			SwingUtilities.getWindowAncestor(getRootPane()).dispose();
 			
 		}

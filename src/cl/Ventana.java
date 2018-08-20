@@ -55,8 +55,10 @@ public class Ventana extends JFrame{
 	//--------------------------------------------------------------------------
 	/**
 	 * este metodo cierra la ventana del login principal
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
-	public void ventanaLogin() {
+	public void ventanaLogin() throws SQLException, Exception {
 		
 		Login l = new Login();
 		this.add(l);

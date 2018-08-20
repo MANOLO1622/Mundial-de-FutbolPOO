@@ -2,6 +2,8 @@ package cl;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.SQLException;
+
 import javax.swing.*;
 import gestor.*;
 
@@ -29,10 +31,13 @@ public class Login extends JPanel implements ActionListener, KeyListener{
     
     /**
      * Aqui se muestra sus campos y sus labels respectivos para su posicion correcta.
+     * @throws Exception 
+     * @throws SQLException 
      */
-	public Login () {
+	public Login () throws SQLException, Exception {
 		
 		this.setLayout(null);
+		Gestor.inicializarArrayList();
 		
 		darEstilosComponentes();
 		

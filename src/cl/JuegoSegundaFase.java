@@ -771,6 +771,8 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 						
 						JOptionPane.showMessageDialog(null, "El equipo seleccionado no ha logrado pasar a los cuartos de final.");
 						
+						ocultarAreaApuestas();
+						
 					}
 					
 				}
@@ -806,6 +808,7 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 					}else {
 						
 						JOptionPane.showMessageDialog(null, "El equipo seleccionado no ha logrado pasar a las semifinales.");
+						ocultarAreaApuestas();
 						
 					}
 					
@@ -888,7 +891,22 @@ public class JuegoSegundaFase extends JPanel implements ActionListener{
 		
 		
 	}
-	
+	/**
+	 * Metodo utilizado para ocultar los componentes que se usan para las apuestas del juego.
+	 */
+	private void ocultarAreaApuestas() {
+
+		partidosPaisEscogido.setVisible(false);
+		labelEquipoSeleccionado.setVisible(false);
+		labelEquipoContrincante.setVisible(false);
+		equipo1.setVisible(false);
+		equipo2.setVisible(false);
+		marcadorEquipo1.setVisible(false);
+		marcadorEquipo2.setVisible(false);
+		btnApostar.setVisible(false);
+		
+	}
+
 	//---------------------------------------------------------------------------------------------------------------------
 	/**
 	 * Este boolean retorna los equipos que iran a los cuartos de final
