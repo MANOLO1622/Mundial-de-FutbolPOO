@@ -1335,10 +1335,10 @@ public class CL {
 				if(e.getNombreUsuario().equals(usuarioActualizado.getNombreUsuario())) {
 					
 					e = usuarioActualizado;
-					/*
+					
 					MultiUsuarios.actualizarUsuarioEquipoLigaPublica(usuarioActualizado.getNombre(), usuarioActualizado.getEquipoLigaPublica().getNombre());
 					MultiUsuarios.actualizarUsuarioEquipoLigaPrivada(usuarioActualizado.getNombre(), usuarioActualizado.getEquipoLigaPrivada().getNombre());
-					MultiUsuarios.(usuarioActualizado.getMiLigaPublica());
+					/*MultiUsuarios.(usuarioActualizado.getMiLigaPublica());
 					e.setMiLigaPrivada(usuarioActualizado.getMiLigaPrivada());
 					MultiUsuarios.actualizarUsuarioPrimerCuadroPrivada(usuarioActualizado.getNombre(), usuarioActualizado.getPrimerCuadroPrivada());
 					MultiUsuarios.actualizarUsuarioPrimerCuadroPrivada(usuarioActualizado.getNombre(), usuarioActualizado.getPrimerCuadroPublica());
