@@ -868,6 +868,7 @@ public class Juego extends JPanel implements ActionListener, MouseListener {
 			if (this.miUsuario.getEquipoLigaPrivada() == null) {
 
 				equipos.removeAllItems();
+				
 				this.add(equipos);
 				equipos.setBounds(1075, 25, 175, 30);
 

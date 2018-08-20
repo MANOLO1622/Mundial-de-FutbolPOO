@@ -60,6 +60,8 @@ public class MultiLigasPrivadas {
 	 */
 	public LigasPrivadas buscar(String nombreLiga) throws java.sql.SQLException, Exception {
 		
+		String mundial="";
+		
 		LigasPrivadas LigaPrivada = null;
 		java.sql.ResultSet rs = null;
 		String sql;
@@ -69,25 +71,27 @@ public class MultiLigasPrivadas {
 		rs = Conector.getConector().ejecutarSQL(sql,true);
 		if (rs.next() == true) {
 
-				int agno = Integer.parseInt(rs.getString("fechaCreacion").charAt(0) +"-"+ rs.getString("fechaCreacion").charAt(1) +"-"+ 
-						rs.getString("fechaCreacion").charAt(2) +"-"+ rs.getString("fechaCreacion").charAt(3));
-				int mes = Integer.parseInt(rs.getString("fechaCreacion").charAt(5) +"-"+ rs.getString("fechaCreacion").charAt(6));
-				int dia = Integer.parseInt(rs.getString("fechaCreacion").charAt(8) +"-"+ rs.getString("fechaCreacion").charAt(9));
+				int agno = Integer.parseInt(rs.getString("fechaCreacion").charAt(0) +""+ rs.getString("fechaCreacion").charAt(1) +""+ 
+						rs.getString("fechaCreacion").charAt(2) +""+ rs.getString("fechaCreacion").charAt(3));
+				int mes = Integer.parseInt(rs.getString("fechaCreacion").charAt(5) +""+ rs.getString("fechaCreacion").charAt(6));
+				int dia = Integer.parseInt(rs.getString("fechaCreacion").charAt(8) +""+ rs.getString("fechaCreacion").charAt(9));
 
 				LocalDate fecha = LocalDate.of(agno, mes, dia);
 
-				LigaPrivada = new LigasPrivadas (rs.getString(""),fecha, rs.getBoolean("estado"), rs.getInt("puntos"), 
+				LigaPrivada = new LigasPrivadas (rs.getString("nombreLiga"),fecha, rs.getBoolean("estado"), rs.getInt("puntos"), 
 						rs.getInt("bono"), null);
 
+				mundial = rs.getString("mundialAnfitrion");
 
 		} else {
 
 			System.out.println("No hay Usuarios registrados.");
 
 		}
-		
-		
 		rs.close();
+		
+		LigaPrivada.setMundialAnfitrion(new MultiMundiales().buscar(mundial));
+		
 		return LigaPrivada;
 	}
 	
@@ -142,7 +146,6 @@ public class MultiLigasPrivadas {
 		ArrayList<LigasPrivadas> listaLigas = new ArrayList<>();
 		ArrayList<String> listaMundiales = new ArrayList<>();
 		
-		
 		java.sql.ResultSet rs;
 		
 		String sql;
@@ -177,9 +180,14 @@ public class MultiLigasPrivadas {
 		
 		rs.close();
 		
+		int index = 0;
+		
 		for(LigasPrivadas e: listaLigas) {
 			
-			e.setMundialAnfitrion(new MultiMundiales().buscar(listaMundiales.get(listaLigas.indexOf(e))));;
+			index = listaLigas.indexOf(e);
+			
+			e.setMundialAnfitrion(new MultiMundiales().buscar(listaMundiales.get(listaLigas.indexOf(e))));
+			listaLigas.set(index, e);
 			
 		}
 		

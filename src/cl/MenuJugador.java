@@ -58,8 +58,16 @@ public class MenuJugador extends JPanel implements ActionListener{
 	public MenuJugador(Usuario miUsuario) throws SQLException, Exception {
 		
 		this.setLayout(null);
+		Gestor.inicializarArrayList();
 		
 		this.miUsuario = miUsuario;
+		Usuario persona = Gestor.retornarUsuario(this.miUsuario.getNombreUsuario());
+		this.miUsuario = persona;
+		
+		
+		
+		System.out.println(this.miUsuario.toString());
+		
 		evaluarCondicionJuego();
 		
 		this.add(boton2);

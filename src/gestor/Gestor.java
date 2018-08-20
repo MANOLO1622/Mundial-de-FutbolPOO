@@ -791,4 +791,10 @@ public class Gestor {
 
 	}
 
+	public static void inicializarArrayList() throws SQLException, Exception {
+
+		CL.inicializarArrayList();
+		
+	}
+
 }

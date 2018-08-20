@@ -131,6 +131,64 @@ public class Mundiales {
 	   this.resultadosMundial = new Resultados(this.equiposMundial, this.nombreMundial);
 	   
    }
+   
+   
+   
+   public void guardarEquipos(Equipo[] cuadro1, Equipo[] cuadro2, Equipo[] cuadro3, Equipo[] cuadro4, Equipo[] cuadro5, Equipo[] cuadro6,
+		   Equipo[] cuadro7,Equipo[] cuadro8 ){
+	   
+	   this.equiposMundial = new ArrayList<Equipo>();
+	   
+	   for(Equipo e: cuadro1) {
+		   
+		   equiposMundial.add(e);
+		   
+	   }
+	   
+	   for(Equipo e: cuadro2) {
+		   
+		   equiposMundial.add(e);
+		   
+	   }
+	   
+	   for(Equipo e: cuadro3) {
+		   
+		   equiposMundial.add(e);
+		   
+	   }
+	   
+	   for(Equipo e: cuadro4) {
+		   
+		   equiposMundial.add(e);
+		   
+	   }
+	   
+	   for(Equipo e: cuadro5) {
+		   
+		   equiposMundial.add(e);
+		   
+	   }
+	   
+	   for(Equipo e: cuadro6) {
+		   
+		   equiposMundial.add(e);
+		   
+	   }
+	   
+	   for(Equipo e: cuadro7) {
+		   
+		   equiposMundial.add(e);
+		   
+	   }
+	   
+	   for(Equipo e: cuadro8) {
+		   
+		   equiposMundial.add(e);
+		   
+	   }
+	   
+	   
+   }
     
     
     

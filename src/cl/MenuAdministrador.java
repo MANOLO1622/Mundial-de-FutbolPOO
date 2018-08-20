@@ -110,6 +110,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	public MenuAdministrador(Usuario miUsuario) throws SQLException, Exception {
 
 		this.miUsuario = miUsuario;
+		
+		inicializarArrayList();
+		
 		ingresarComboBox();
 		this.setLayout(null);
 		
@@ -897,6 +900,12 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 	public void setMiUsuario(Usuario miUsuario) {
 		this.miUsuario = miUsuario;
+	}
+	
+	public void inicializarArrayList() throws SQLException, Exception{
+		
+		Gestor.inicializarArrayList();
+		
 	}
 
 	

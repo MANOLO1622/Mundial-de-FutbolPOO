@@ -89,8 +89,48 @@ public class MultiMundiales {
 
 		rs.close();
 		
-//		Resultados resultadosTemp = null;
-//		resultadosTemp.setPrimerCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(mundialTemp.getNombreMundial(), 1));
+		Resultados resultadosTemp = new Resultados();
+		resultadosTemp.setPrimerCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(mundialTemp.getNombreMundial(), 1));
+		resultadosTemp.setSegundoCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(mundialTemp.getNombreMundial(), 2));
+		resultadosTemp.setTercerCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(mundialTemp.getNombreMundial(), 3));
+		resultadosTemp.setCuartoCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(mundialTemp.getNombreMundial(), 4));
+		resultadosTemp.setQuintoCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(mundialTemp.getNombreMundial(), 5));
+		resultadosTemp.setSextoCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(mundialTemp.getNombreMundial(), 6));
+		resultadosTemp.setSeptimoCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(mundialTemp.getNombreMundial(), 7));
+		resultadosTemp.setOctavoCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(mundialTemp.getNombreMundial(), 8));
+		 
+		resultadosTemp.setPartidosPrimerCuadro(new MultiPrimeraFase().retornarPartidosCuadroPrimeraFase(mundialTemp.getNombreMundial(), 1));
+		resultadosTemp.setPartidosSegundoCuadro(new MultiPrimeraFase().retornarPartidosCuadroPrimeraFase(mundialTemp.getNombreMundial(), 2));
+		resultadosTemp.setPartidosTercerCuadro(new MultiPrimeraFase().retornarPartidosCuadroPrimeraFase(mundialTemp.getNombreMundial(), 3));
+		resultadosTemp.setPartidosCuartoCuadro(new MultiPrimeraFase().retornarPartidosCuadroPrimeraFase(mundialTemp.getNombreMundial(), 4));
+		resultadosTemp.setPartidosQuintoCuadro(new MultiPrimeraFase().retornarPartidosCuadroPrimeraFase(mundialTemp.getNombreMundial(), 5));
+		resultadosTemp.setPartidosSextoCuadro(new MultiPrimeraFase().retornarPartidosCuadroPrimeraFase(mundialTemp.getNombreMundial(), 6));
+		resultadosTemp.setPartidosSeptimoCuadro(new MultiPrimeraFase().retornarPartidosCuadroPrimeraFase(mundialTemp.getNombreMundial(), 7));
+		resultadosTemp.setPartidosOctavoCuadro(new MultiPrimeraFase().retornarPartidosCuadroPrimeraFase(mundialTemp.getNombreMundial(), 8));
+		 
+		resultadosTemp.setGanadoresPrimerCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(mundialTemp.getNombreMundial(), 1));
+		resultadosTemp.setGanadoresSegundoCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(mundialTemp.getNombreMundial(), 2));
+		resultadosTemp.setGanadoresTercerCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(mundialTemp.getNombreMundial(), 3));
+		resultadosTemp.setGanadoresCuartoCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(mundialTemp.getNombreMundial(), 4));
+		resultadosTemp.setGanadoresQuintoCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(mundialTemp.getNombreMundial(), 5));
+		resultadosTemp.setGanadoresSextoCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(mundialTemp.getNombreMundial(), 6));
+		resultadosTemp.setGanadoresSeptimoCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(mundialTemp.getNombreMundial(), 7));
+		resultadosTemp.setGanadoresOctavoCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(mundialTemp.getNombreMundial(), 8));
+		
+		resultadosTemp.setPartidosOctavosFinal(new MultiSegundaFase().retornarPartidosOctavos(mundialTemp.getNombreMundial()));
+		resultadosTemp.setPartidosCuartosFinal(new MultiSegundaFase().retornarPartidosCuartos(mundialTemp.getNombreMundial()));
+		resultadosTemp.setPartidosSemiFinal(new MultiSegundaFase().retornarPartidosFinales(mundialTemp.getNombreMundial(), 2));
+		resultadosTemp.setJuegosFinales(new MultiSegundaFase().retornarPartidosFinales(mundialTemp.getNombreMundial(), 2));
+		 
+		resultadosTemp.setGanadoresPrimeraFase(new MultiPrimeraFase().retornarGanadoresPrimeraFase(mundialTemp.getNombreMundial()));
+		resultadosTemp.setGanadoresOctavosFinal(new MultiSegundaFase().retornarGanadoresOctavosFinal(mundialTemp.getNombreMundial()));
+		resultadosTemp.setGanadoresCuartosFinal(new MultiSegundaFase().retornarGanadoresCuartosFinal(mundialTemp.getNombreMundial()));
+		
+		mundialTemp.guardarEquipos(resultadosTemp.getPrimerCuadro(), resultadosTemp.getSegundoCuadro(), resultadosTemp.getTercerCuadro(),
+				resultadosTemp.getCuartoCuadro(), resultadosTemp.getQuintoCuadro(), resultadosTemp.getSextoCuadro(), 
+				resultadosTemp.getSeptimoCuadro(), resultadosTemp.getOctavoCuadro());
+		 
+		mundialTemp.setResultadosMundial(resultadosTemp);
 		
 		return mundialTemp;
 	}

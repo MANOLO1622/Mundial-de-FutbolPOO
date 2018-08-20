@@ -533,7 +533,62 @@ public class MultiUsuarios {
 	
 	//-------------------------------------------------------------------------------------------------
 	
-
+	/**
+	 * Este es el metodo retorna un valor en especifico del usuario.
+	 * @param pnombre
+	 * @return
+	 * @throws java.sql.SQLException
+	 * @throws Exception
+	 */
+	public String buscarLigaPublica(String nombreUsuario) throws java.sql.SQLException, Exception {
 		
+		String nombreLiga = "";
+		java.sql.ResultSet rs = null;
+		String sql;
+		
+		sql = "SELECT miLigaPublica FROM Usuarios " + " WHERE nombreUsuario = '" + nombreUsuario + "';";
+
+		rs = Conector.getConector().ejecutarSQL(sql,true);
+		
+		if (rs.next()) {
+			
+			nombreLiga = rs.getString("miLigaPublica");
+			
+		} else {
+			throw new Exception("El Usuario no está registrado");
+		}
+		rs.close();
+		return nombreLiga;
+	}
+	
+	//-------------------------------------------------------------------------------------------------
+	
+	/**
+	 * Este es el metodo retorna un valor en especifico del usuario.
+	 * @param pnombre
+	 * @return
+	 * @throws java.sql.SQLException
+	 * @throws Exception
+	 */
+	public String buscarLigaPrivada(String nombreUsuario) throws java.sql.SQLException, Exception {
+		
+		String nombreLiga = "";
+		java.sql.ResultSet rs = null;
+		String sql;
+		
+		sql = "SELECT miLigaPrivada FROM Usuarios " + " WHERE nombreUsuario = '" + nombreUsuario + "';";
+
+		rs = Conector.getConector().ejecutarSQL(sql,true);
+		
+		if (rs.next()) {
+			
+			nombreLiga = rs.getString("miLigaPrivada");
+			
+		} else {
+			throw new Exception("El Usuario no está registrado");
+		}
+		rs.close();
+		return nombreLiga;
+	}
 	
 }

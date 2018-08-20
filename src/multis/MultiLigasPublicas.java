@@ -57,35 +57,40 @@ public class MultiLigasPublicas {
 	 * @throws Exception
 	 */
 	public LigasPublicas buscar(String nombreLiga) throws java.sql.SQLException, Exception {
+
+		String mundial="";
 		
 		LigasPublicas LigaPublica = null;
 		java.sql.ResultSet rs = null;
 		String sql;
 		
-		sql = "SELECT * " + "FROM LigasPublicas " + "WHERE nombreLiga= '" + nombreLiga+ "' ;";
+		sql = "SELECT * FROM LigasPublicas " + " WHERE nombreLiga= '" + nombreLiga+ "' ;";
 
 		rs = Conector.getConector().ejecutarSQL(sql,true);
 		if (rs.next() == true) {
 
-				int agno = Integer.parseInt(rs.getString("fechaCreacion").charAt(0) +"-"+ rs.getString("fechaCreacion").charAt(1) +"-"+ 
-						rs.getString("fechaCreacion").charAt(2) +"-"+ rs.getString("fechaCreacion").charAt(3));
-				int mes = Integer.parseInt(rs.getString("fechaCreacion").charAt(5) +"-"+ rs.getString("fechaCreacion").charAt(6));
-				int dia = Integer.parseInt(rs.getString("fechaCreacion").charAt(8) +"-"+ rs.getString("fechaCreacion").charAt(9));
+				int agno = Integer.parseInt(rs.getString("fechaCreacion").charAt(0) +""+ rs.getString("fechaCreacion").charAt(1) +""+ 
+						rs.getString("fechaCreacion").charAt(2) +""+ rs.getString("fechaCreacion").charAt(3));
+				int mes = Integer.parseInt(rs.getString("fechaCreacion").charAt(5) +""+ rs.getString("fechaCreacion").charAt(6));
+				int dia = Integer.parseInt(rs.getString("fechaCreacion").charAt(8) +""+ rs.getString("fechaCreacion").charAt(9));
 
 				LocalDate fecha = LocalDate.of(agno, mes, dia);
 
-				LigaPublica = new LigasPublicas (rs.getString(""),fecha, rs.getBoolean("estado"), rs.getInt("puntos"), 
+				LigaPublica = new LigasPublicas (rs.getString("nombreLiga"),fecha, rs.getBoolean("estado"), rs.getInt("puntos"), 
 						rs.getInt("bono"), null);
 
+				mundial = rs.getString("mundialAnfitrion");
 
 		} else {
 
-			System.out.println("No hay ligas publica registradas.");
+			System.out.println("No hay ligas publicas registradas.");
 
 		}
 		
 		
 		rs.close();
+		LigaPublica.setMundialAnfitrion(new MultiMundiales().buscar(mundial));
+
 		return LigaPublica;
 	}
 	
@@ -155,13 +160,47 @@ public class MultiLigasPublicas {
 		
 		rs.close();
 		
+		int index = 0;
+		
 		for(LigasPublicas e: listaLigas) {
 			
-			e.setMundialAnfitrion(new MultiMundiales().buscar(listaMundiales.get(listaLigas.indexOf(e))));;
+			index = listaLigas.indexOf(e);
 			
+			e.setMundialAnfitrion(new MultiMundiales().buscar(listaMundiales.get(listaLigas.indexOf(e))));
+			listaLigas.set(index, e);
+			 
 		}
 		
-		
 		return listaLigas;
+	}
+	
+	//-------------------------------------------------------------------------------------------------
+	
+	/**
+	 * Este es el metodo retorna un valor en especifico del usuario.
+	 * @param pnombre
+	 * @return
+	 * @throws java.sql.SQLException
+	 * @throws Exception
+	 */
+	public String buscarMundialPublicas(String nombreLiga) throws java.sql.SQLException, Exception {
+		
+		String nombreMundial = "";
+		java.sql.ResultSet rs = null;
+		String sql;
+		
+		sql = "SELECT mundial FROM LigasPublicas " + " WHERE nombreLiga = '" + nombreLiga + "';";
+
+		rs = Conector.getConector().ejecutarSQL(sql,true);
+		
+		if (rs.next()) {
+			
+			nombreMundial = rs.getString("mundial");
+			
+		} else {
+			throw new Exception("El Usuario no está registrado");
+		}
+		rs.close();
+		return nombreMundial;
 	}
 }

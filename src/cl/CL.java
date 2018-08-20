@@ -31,23 +31,47 @@ public class CL {
 
 	//Inicializacion de los arrayList con la informacion de la base de datos.
 	
+	
+	public static void inicializarArrayList() throws SQLException, Exception {
+		
+		CL.ingresarUsuarioLista();
+		CL.ingresarEquiposLista();
+		CL.retornarMundialesRegistrados();
+		CL.ingresarLigasPublicasRegistrados();
+		CL.ingresarLigasPrivadasRegistrados();
+		
+		System.out.println();
+		
+	}
+	
+	
+	
+	
+	
 	public static void ingresarUsuarioLista() throws SQLException, Exception {
 		
 		listaUsuarios = new MultiUsuarios().retornarUsuarios();
 		
-		/*for(Usuario e: listaUsuarios) {
+		for(Usuario e: listaUsuarios) {
 			
 			try {
-			e.setMiLigaPublica(new MultiLigasPublicas().buscar(e.getMiLigaPublica().getNombreLiga()));
-			e.setMiLigaPrivada(new MultiLigasPrivadas().buscar(e.getMiLigaPrivada().getNombreLiga()));
+				
+				System.out.println(new MultiUsuarios().buscarLigaPublica(e.getNombreUsuario()));
+				System.out.println(new MultiUsuarios().buscarLigaPrivada(e.getNombreUsuario()));
+				
+			e.setMiLigaPublica(new MultiLigasPublicas().buscar(new MultiUsuarios().buscarLigaPublica(e.getNombreUsuario())));
+			e.setMiLigaPrivada(new MultiLigasPrivadas().buscar(new MultiUsuarios().buscarLigaPrivada(e.getNombreUsuario())));
 			e.setEquipoLigaPublica(new MultiEquipos().buscar(e.getEquipoLigaPublica().getNombre()));
 			e.setEquipoLigaPrivada(new MultiEquipos().buscar(e.getEquipoLigaPrivada().getNombre()));
+			
+			
+			listaUsuarios.set(listaUsuarios.indexOf(e), e);
 			}catch(Exception a) {
 				
 				System.out.println(a.getMessage());
 				
 			}
-			
+		/*	
 			e.setPrimerCuadroPublica();
 			e.setPrimerCuadroPrivada();
 			e.setValidacionPrimeraFasePublica();
@@ -85,8 +109,8 @@ public class CL {
 			
 			new MultiUsuarios().actualizarUsuarioValidacionFinalesPublica();
 			new MultiUsuarios().actualizarUsuarioValidacionFinalesPrivada();
-			 
-		}*/
+			*/
+		}
 
 	}
 	
@@ -99,15 +123,7 @@ public class CL {
 	 */
 	public static ArrayList<LigasPublicas> ingresarLigasPublicasRegistrados() throws SQLException, Exception{
 		
-		ArrayList<LigasPublicas> listaLigasPublicasTemp = new MultiLigasPublicas().retornarLigasPublicas();
-		
-		for(LigasPublicas e: listaLigasPublicasTemp) {
-			
-			e.setMundialAnfitrion(listaMundiales.get(listaLigasPublicasTemp.indexOf(e)));
-			
-		}
-		
-		listaLigasPublicas = listaLigasPublicasTemp;
+		listaLigasPublicas = new MultiLigasPublicas().retornarLigasPublicas();
 		
 		return listaLigasPublicas;
 		
@@ -121,15 +137,7 @@ public class CL {
 	 */
 	public static ArrayList<LigasPrivadas> ingresarLigasPrivadasRegistrados() throws SQLException, Exception{
 		
-		ArrayList<LigasPrivadas> listaLigasPrivadasTemp = new MultiLigasPrivadas().retornarLigasPrivadas();
-		
-		for(LigasPrivadas e: listaLigasPrivadasTemp) {
-			
-			e.setMundialAnfitrion(listaMundiales.get(listaLigasPrivadasTemp.indexOf(e)));
-			
-		}
-		
-		listaLigasPrivadas = listaLigasPrivadasTemp;
+		listaLigasPrivadas = new MultiLigasPrivadas().retornarLigasPrivadas();
 		
 		return listaLigasPrivadas;
 		
@@ -174,7 +182,6 @@ public class CL {
 		
 		
 		ingresarUsuarioLista();
-//		return new MultiUsuarios().retornarUsuarios();
 		return listaUsuarios;
 	}
 	
@@ -343,14 +350,14 @@ public class CL {
 	 */
 	public static Usuario retornarUsuario(String nombreUsuario) throws SQLException, Exception {
 		
-		Usuario temp = new Usuario("Generico", "Generico", "Generico", "Generico", "Generico", "Generico", 0);
-		ArrayList<Usuario> listaUsuarioTemp = new MultiUsuarios().retornarUsuarios();
+		Usuario temp = null;
 		
-		for(Usuario e: listaUsuarioTemp) {
+		for(Usuario e: listaUsuarios) {
 			
 			if(e.getNombreUsuario().equals(nombreUsuario)) {
 				
 				temp = e;
+				
 
 			}	
 		}
@@ -391,11 +398,9 @@ public class CL {
 	 */
 	public static LigasPrivadas retornarLigaPrivada(String nombreLiga) throws SQLException, Exception {
 		
-		LigasPrivadas temp = new LigasPrivadas("", null, false, 0, 0, null);
+		LigasPrivadas temp = null;
 		
-		ArrayList<LigasPrivadas> listaLigasPrivadasTemp = new MultiLigasPrivadas().retornarLigasPrivadas();
-		
-		for(LigasPrivadas e: listaLigasPrivadasTemp) {
+		for(LigasPrivadas e: listaLigasPrivadas) {
 			
 			if(e.getNombreLiga().equals(nombreLiga)) {
 				
@@ -403,7 +408,7 @@ public class CL {
 				
 			}	
 		}
-		
+		System.out.println("Recibe: " + temp.getMundialAnfitrion().getEquiposMundial().size());
 		return temp;
 	}
 	
@@ -414,54 +419,9 @@ public class CL {
 	 */
 	public static ArrayList<Mundiales> retornarMundialesRegistrados() throws SQLException, Exception{
 		
-		 ArrayList<Mundiales> listaMundialesTemp = new MultiMundiales().retornarMundiales();
+		listaMundiales = new MultiMundiales().retornarMundiales();
 		 
-		 for(Mundiales e : listaMundialesTemp) {
-			 
-			 Resultados resultadosTemp = new Resultados();
-			 resultadosTemp.setPrimerCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(e.getNombreMundial(), 1));
-			 resultadosTemp.setSegundoCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(e.getNombreMundial(), 2));
-			 resultadosTemp.setTercerCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(e.getNombreMundial(), 3));
-			 resultadosTemp.setCuartoCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(e.getNombreMundial(), 4));
-			 resultadosTemp.setQuintoCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(e.getNombreMundial(), 5));
-			 resultadosTemp.setSextoCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(e.getNombreMundial(), 6));
-			 resultadosTemp.setSeptimoCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(e.getNombreMundial(), 7));
-			 resultadosTemp.setOctavoCuadro(new MultiPrimeraFase().retornarCuadroPrimeraFase(e.getNombreMundial(), 8));
-			 
-			 resultadosTemp.setPartidosPrimerCuadro(new MultiPrimeraFase().retornarPartidosCuadroPrimeraFase(e.getNombreMundial(), 1));
-			 resultadosTemp.setPartidosSegundoCuadro(new MultiPrimeraFase().retornarPartidosCuadroPrimeraFase(e.getNombreMundial(), 2));
-			 resultadosTemp.setPartidosTercerCuadro(new MultiPrimeraFase().retornarPartidosCuadroPrimeraFase(e.getNombreMundial(), 3));
-			 resultadosTemp.setPartidosCuartoCuadro(new MultiPrimeraFase().retornarPartidosCuadroPrimeraFase(e.getNombreMundial(), 4));
-			 resultadosTemp.setPartidosQuintoCuadro(new MultiPrimeraFase().retornarPartidosCuadroPrimeraFase(e.getNombreMundial(), 5));
-			 resultadosTemp.setPartidosSextoCuadro(new MultiPrimeraFase().retornarPartidosCuadroPrimeraFase(e.getNombreMundial(), 6));
-			 resultadosTemp.setPartidosSeptimoCuadro(new MultiPrimeraFase().retornarPartidosCuadroPrimeraFase(e.getNombreMundial(), 7));
-			 resultadosTemp.setPartidosOctavoCuadro(new MultiPrimeraFase().retornarPartidosCuadroPrimeraFase(e.getNombreMundial(), 8));
-			 
-			 resultadosTemp.setGanadoresPrimerCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(e.getNombreMundial(), 1));
-			 resultadosTemp.setGanadoresSegundoCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(e.getNombreMundial(), 2));
-			 resultadosTemp.setGanadoresTercerCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(e.getNombreMundial(), 3));
-			 resultadosTemp.setGanadoresCuartoCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(e.getNombreMundial(), 4));
-			 resultadosTemp.setGanadoresQuintoCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(e.getNombreMundial(), 5));
-			 resultadosTemp.setGanadoresSextoCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(e.getNombreMundial(), 6));
-			 resultadosTemp.setGanadoresSeptimoCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(e.getNombreMundial(), 7));
-			 resultadosTemp.setGanadoresOctavoCuadro(new MultiPrimeraFase().retornarGanadoresCuadroPrimeraFase(e.getNombreMundial(), 8));
-			
-			 resultadosTemp.setPartidosOctavosFinal(new MultiSegundaFase().retornarPartidosOctavos(e.getNombreMundial()));
-			 resultadosTemp.setPartidosCuartosFinal(new MultiSegundaFase().retornarPartidosCuartos(e.getNombreMundial()));
-			 resultadosTemp.setPartidosSemiFinal(new MultiSegundaFase().retornarPartidosFinales(e.getNombreMundial(), 2));
-			 resultadosTemp.setJuegosFinales(new MultiSegundaFase().retornarPartidosFinales(e.getNombreMundial(), 2));
-			 
-			 resultadosTemp.setGanadoresPrimeraFase(new MultiPrimeraFase().retornarGanadoresPrimeraFase(e.getNombreMundial()));
-			 resultadosTemp.setGanadoresOctavosFinal(new MultiSegundaFase().retornarGanadoresOctavosFinal(e.getNombreMundial()));
-			 resultadosTemp.setGanadoresCuartosFinal(new MultiSegundaFase().retornarGanadoresCuartosFinal(e.getNombreMundial()));
-			 
-			 e.setResultadosMundial(resultadosTemp);
-			 listaMundialesTemp.set(listaMundialesTemp.indexOf(e), e);
-		 }
-		 
-		 listaMundiales = listaMundialesTemp;
-
-		return listaMundialesTemp;
+		return listaMundiales;
 		
 	}
 	
@@ -1404,15 +1364,6 @@ public class CL {
 			}
 			
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 
 }
