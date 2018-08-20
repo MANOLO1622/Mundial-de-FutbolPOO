@@ -95,14 +95,17 @@ public class MultiLigasPublicas {
 	 * @throws java.sql.SQLException
 	 * @throws Exception
 	 */
-	public void borrar(LigasPublicas pLigasPublicas) throws java.sql.SQLException, Exception {
+	public void borrar(String nombreLiga) throws java.sql.SQLException, Exception {
+		
 		String sql;
-		sql = "DELETE FROM LigasPublicas " + "WHERE nombreLiga='" + pLigasPublicas.getNombreLiga() + "';";
+		sql = "DELETE FROM LigasPublicas " + "WHERE nombreLiga='" + nombreLiga + "';";
+		
 		try {
 		
+			Conector.getConector().ejecutarSQL(sql,true);
 
 		} catch (Exception e) {
-			throw new Exception("La Liga tiene cuentas.");
+			System.out.println("No se ha podido eliminar la liga privada.");
 		}
 	}
 	/**
@@ -122,7 +125,7 @@ public class MultiLigasPublicas {
 		
 		String sql;
 		sql = "SELECT * "+
-		"FROM LigasPrivadas ;";
+		"FROM LigasPublicas ;";
 		
 		rs = Conector.getConector().ejecutarSQL(sql,true);
 		if (rs.next() == true) {

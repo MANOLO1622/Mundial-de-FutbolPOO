@@ -1,19 +1,18 @@
 package cl;
 
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.*;
 import gestor.Gestor;
+import multis.MultiLigasPrivadas;
+import multis.MultiLigasPublicas;
+import multis.MultiUsuarios;
 
 /**Esta clase tiene los componentes principales de la pantalla del jugador
  * ademas aqui es donde se muestra los botones principales de la pantalla
@@ -91,14 +90,13 @@ public class MenuJugador extends JPanel implements ActionListener{
 		boton8.setBounds(10, 470, 180, 50);
 		boton8.setFont(new Font(boton8.getFont().getFontName(), Font.BOLD, 13));
 		
+
+		ArrayList<LigasPublicas> listaLigasPublicasTemp = CL.retornarLigasPublicas();
 		
-		CL capaLogica = new CL();
-		ArrayList<LigasPublicas> listaLigasPublicas = capaLogica.retornarLigasPublicas();
-		int contadorLigasPublicas=listaLigasPublicas.size();
 		
 		ligasRegistradas.removeAllItems();
 		
-		for(LigasPublicas a: listaLigasPublicas) {
+		for(LigasPublicas a: listaLigasPublicasTemp) {
 		
 		ligasRegistradas.addItem(a.getNombreLiga());
 		
@@ -230,8 +228,27 @@ public class MenuJugador extends JPanel implements ActionListener{
 				e1.printStackTrace();
 			}
 			
-			LigasPrivadas ligaPrivadaTemp = this.miUsuario.getMiLigaPrivada();
-			LigasPublicas ligaPublicaTemp = this.miUsuario.getMiLigaPublica();
+			LigasPrivadas ligaPrivadaTemp = null;
+			LigasPublicas ligaPublicaTemp = null;
+			
+			
+			try {
+				ligaPrivadaTemp = new MultiLigasPrivadas().buscar(new MultiUsuarios().buscar(this.miUsuario.getNombreUsuario()).getMiLigaPrivada().getNombreLiga())/*this.miUsuario.getMiLigaPrivada()*/;
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
+			
+			
+			
+			try {
+				ligaPublicaTemp = new MultiLigasPublicas().buscar(new MultiUsuarios().buscar(this.miUsuario.getNombreUsuario()).getMiLigaPublica().getNombreLiga())/*this.miUsuario.getMiLigaPublica()*/;
+			} catch (Exception e1) {
+				
+				e1.printStackTrace();
+			}
+			
+			
 			
 			
 			if(ligaPrivadaTemp == null && ligaPublicaTemp == null) {

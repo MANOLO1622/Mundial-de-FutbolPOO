@@ -10,16 +10,8 @@ import rondasMundial.*;
  * que se almacena como string locaDate etc. Ademas contiene su constructor su sets sus gets
  * y su toStringcorrespondientes
  * @author DELL
- *
  */
-/**
- * @author DELL
- *
- */
-/**
- * @author DELL
- *
- */
+
 public class Usuario {
 	
 	private String nombre;

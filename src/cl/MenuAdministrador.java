@@ -200,8 +200,6 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		if (e.getSource() == usuariosRegistrados) {
 
-			
-
 			Usuario UsuarioTemporal = null;
 			try {
 				UsuarioTemporal = Gestor.retornarUsuario((String) usuariosRegistrados.getSelectedItem());
@@ -361,6 +359,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 			desabilitarMenu();
 			registrarLigaPublicas();
+			
 			try {
 				ingresarComboBox();
 			} catch (Exception e1) {
@@ -382,8 +381,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 				boolean b = false;
 				try {
-					b = controlador
-							.validarMundial(Gestor.retornarMundial((String) MundialAnfitrion.getSelectedItem()));
+					
+					b = controlador.validarMundial(Gestor.retornarMundial((String) MundialAnfitrion.getSelectedItem()));
+					
 				} catch (Exception e1) {
 					
 					e1.printStackTrace();
@@ -400,7 +400,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 					Date fecha = new Date();
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 					try {
-						controlador.registrarLigaPublicas(nombreLigaTXT.getText(), fechaRegistro, true, 1, 2,
+						Gestor.registrarLigaPublicas(nombreLigaTXT.getText(), fechaRegistro, true, 1, 2,
 								Gestor.retornarMundial((String) MundialAnfitrion.getSelectedItem()));
 					} catch (Exception e1) {
 						
@@ -471,8 +471,9 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 				boolean b = false;
 				try {
-					b = controlador
-							.validarMundial(Gestor.retornarMundial((String) MundialAnfitrion.getSelectedItem()));
+					
+					b = controlador.validarMundial(Gestor.retornarMundial((String) MundialAnfitrion.getSelectedItem()));
+					
 				} catch (Exception e1) {
 					
 					e1.printStackTrace();
@@ -489,7 +490,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 					Date fecha = new Date();
 					LocalDate fechaRegistro = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 					try {
-						controlador.registrarLigaPrivadas(nombreLigaTXT.getText(), fechaRegistro, true, 1, 2,
+						Gestor.registrarLigaPrivadas(nombreLigaTXT.getText(), fechaRegistro, true, 1, 2,
 								Gestor.retornarMundial((String) MundialAnfitrion.getSelectedItem()));
 					} catch (Exception e1) {
 						
@@ -876,28 +877,28 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 	}
 	
 	//--------------------------------------------------------------------------------------------------
-/**
- * Este metodo muestra la informacion al usuario una vez que se una a una liga en especial
- */
-public void mostrarInformacionUsuario() {
-		
+	/**
+	 * Este metodo muestra la informacion al usuario una vez que se una a una liga en especial
+	 */
+	public void mostrarInformacionUsuario() {
+
 		this.add(informacionUsuario1);
 		informacionUsuario1.setBounds(900,140, 600,40);
 		informacionUsuario1.setForeground(Color.ORANGE);
 		informacionUsuario1.setFont(new Font(informacionUsuario1.getFont().getFontName(), Font.PLAIN, 30));
-		
+
 
 		this.add(informacionUsuario2);
 		informacionUsuario2.setBounds(900,200, 600,40);
 		informacionUsuario2.setForeground(Color.ORANGE);
 		informacionUsuario2.setFont(new Font(informacionUsuario2.getFont().getFontName(), Font.PLAIN, 30));
 
-}
-	
-public void setMiUsuario(Usuario miUsuario) {
-	this.miUsuario = miUsuario;
-}
-	
+	}
+
+	public void setMiUsuario(Usuario miUsuario) {
+		this.miUsuario = miUsuario;
+	}
+
 	
 	// -------------------------------------------------------------------------------------------------
 

@@ -8,13 +8,8 @@ import java.util.*;
 import javax.swing.JOptionPane;
 
 import gestor.Gestor;
-import multis.MultiEquipos;
-import multis.MultiLigasPrivadas;
-import multis.MultiLigasPublicas;
-import multis.MultiMundiales;
-import multis.MultiPrimeraFase;
-import multis.MultiSegundaFase;
-import multis.MultiUsuarios;
+import multis.*;
+import rondasMundial.Apuesta;
 import rondasMundial.Partido;
 import rondasMundial.Resultados;
 
@@ -39,7 +34,105 @@ public class CL {
 	public static void ingresarUsuarioLista() throws SQLException, Exception {
 		
 		listaUsuarios = new MultiUsuarios().retornarUsuarios();
+		
+		/*for(Usuario e: listaUsuarios) {
+			
+			try {
+			e.setMiLigaPublica(new MultiLigasPublicas().buscar(e.getMiLigaPublica().getNombreLiga()));
+			e.setMiLigaPrivada(new MultiLigasPrivadas().buscar(e.getMiLigaPrivada().getNombreLiga()));
+			e.setEquipoLigaPublica(new MultiEquipos().buscar(e.getEquipoLigaPublica().getNombre()));
+			e.setEquipoLigaPrivada(new MultiEquipos().buscar(e.getEquipoLigaPrivada().getNombre()));
+			}catch(Exception a) {
+				
+				System.out.println(a.getMessage());
+				
+			}
+			
+			e.setPrimerCuadroPublica();
+			e.setPrimerCuadroPrivada();
+			e.setValidacionPrimeraFasePublica();
+			e.setValidacionPrimeraFasePrivada();
+			e.setValidacionOctavosPublica();
+			e.setValidacionOctavosPrivada();
+			e.setValidacioncuartosPublica();
+			e.setValidacionSemifinalesPublica();
+			e.setValidacionSemifinalesPrivada();
+			e.setValidacionfinalPublica();
+			e.setValidacionfinalPrivada();
+			
+			
+			
+			new MultiUsuarios().ingresarLigaPublicaUsuario();
+			new MultiUsuarios().ingresarLigaPrivadaUsuario();
+			
+			new MultiUsuarios().actualizarUsuarioEquipoLigaPublica();
+			new MultiUsuarios().actualizarUsuarioEquipoLigaPrivada();
+			
+			new MultiUsuarios().actualizarUsuarioPrimerCuadroPublica();
+			new MultiUsuarios().actualizarUsuarioPrimerCuadroPrivada();
+			
+			new MultiUsuarios().actualizarUsuarioValidacionPrimeraFasePublica();
+			new MultiUsuarios().actualizarUsuarioValidacionPrimeraFasePrivada();
+			
+			new MultiUsuarios().actualizarUsuarioValidacionOctavosPublica();
+			new MultiUsuarios().actualizarUsuarioValidacionOctavosPrivada();
+			
+			new MultiUsuarios().actualizarUsuarioValidacionCuartosPublica();
+			new MultiUsuarios().actualizarUsuarioValidacionCuartosPrivada();
+			
+			new MultiUsuarios().actualizarUsuarioValidacionSemifinalesPublica();
+			new MultiUsuarios().actualizarUsuarioValidacionSemifinalesPrivada();
+			
+			new MultiUsuarios().actualizarUsuarioValidacionFinalesPublica();
+			new MultiUsuarios().actualizarUsuarioValidacionFinalesPrivada();
+			 
+		}*/
 
+	}
+	
+	
+	/**
+	 * Ingresa la lista de las Ligas Publicas que son almacenados en un arraylist
+	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
+	 */
+	public static ArrayList<LigasPublicas> ingresarLigasPublicasRegistrados() throws SQLException, Exception{
+		
+		ArrayList<LigasPublicas> listaLigasPublicasTemp = new MultiLigasPublicas().retornarLigasPublicas();
+		
+		for(LigasPublicas e: listaLigasPublicasTemp) {
+			
+			e.setMundialAnfitrion(listaMundiales.get(listaLigasPublicasTemp.indexOf(e)));
+			
+		}
+		
+		listaLigasPublicas = listaLigasPublicasTemp;
+		
+		return listaLigasPublicas;
+		
+	}
+	
+	/**
+	 * Ingresa la lista de las Ligas Privadas que son almacenados en un arraylist
+	 * @return
+	 * @throws Exception 
+	 * @throws SQLException 
+	 */
+	public static ArrayList<LigasPrivadas> ingresarLigasPrivadasRegistrados() throws SQLException, Exception{
+		
+		ArrayList<LigasPrivadas> listaLigasPrivadasTemp = new MultiLigasPrivadas().retornarLigasPrivadas();
+		
+		for(LigasPrivadas e: listaLigasPrivadasTemp) {
+			
+			e.setMundialAnfitrion(listaMundiales.get(listaLigasPrivadasTemp.indexOf(e)));
+			
+		}
+		
+		listaLigasPrivadas = listaLigasPrivadasTemp;
+		
+		return listaLigasPrivadas;
+		
 	}
 	
 	/**
@@ -65,8 +158,7 @@ public class CL {
 	 */
 	public static void registrarUsuario(Usuario registro) throws SQLException, Exception {
 		
-//		listaUsuarios.add(registro);
-		
+
 		new MultiUsuarios().crear(registro.getNombre(), registro.getApellido(), registro.getNombreUsuario(), registro.getContrasena(), registro.getAvatar(),
 				registro.getCorreoElectronico(),registro.retornarTipoUsuario());
 		
@@ -82,8 +174,8 @@ public class CL {
 		
 		
 		ingresarUsuarioLista();
-		return new MultiUsuarios().retornarUsuarios();
-//		return listaUsuarios;
+//		return new MultiUsuarios().retornarUsuarios();
+		return listaUsuarios;
 	}
 	
 	//-------------------------------------------------------------------------------------------------------------
@@ -113,8 +205,7 @@ public class CL {
 	public static ArrayList<Equipo> listarEquiposFIFA() throws SQLException, Exception {
 		
 		ingresarEquiposLista();
-//		return listaEquiposFIFA;
-		return new MultiEquipos().retornarEquipos();
+		return listaEquiposFIFA;
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------
@@ -365,7 +456,7 @@ public class CL {
 			 resultadosTemp.setGanadoresCuartosFinal(new MultiSegundaFase().retornarGanadoresCuartosFinal(e.getNombreMundial()));
 			 
 			 e.setResultadosMundial(resultadosTemp);
-			 
+			 listaMundialesTemp.set(listaMundialesTemp.indexOf(e), e);
 		 }
 		 
 		 listaMundiales = listaMundialesTemp;
@@ -395,8 +486,9 @@ public class CL {
 	 */
 	public static ArrayList<LigasPublicas> retornarLigasPublicasRegistrados() throws SQLException, Exception{
 		
-//		return listaLigasPublicas;
-		return new MultiLigasPublicas().retornarLigasPublicas();
+		listaLigasPublicas = new MultiLigasPublicas().retornarLigasPublicas();
+		
+		return listaLigasPublicas;
 		
 	}
 	
@@ -407,9 +499,10 @@ public class CL {
 	 * @throws SQLException 
 	 */
 	public static ArrayList<LigasPrivadas> retornarLigasPrivadasRegistrados() throws SQLException, Exception{
+
+		listaLigasPrivadas = new MultiLigasPrivadas().retornarLigasPrivadas();
 		
-//		return listaLigasPrivadas;
-		return new MultiLigasPrivadas().retornarLigasPrivadas();
+		return listaLigasPrivadas;
 		
 	}
 	
@@ -421,8 +514,9 @@ public class CL {
 	 */
 	public static ArrayList<Usuario> retornarUsuariosRegistrados() throws SQLException, Exception{
 
-//		return listaUsuarios;
-		return new MultiUsuarios().retornarUsuarios();
+		listaUsuarios = new MultiUsuarios().retornarUsuarios();
+		
+		return listaUsuarios;
 		
 	}
 
@@ -434,11 +528,10 @@ public class CL {
 	 * @throws SQLException 
 	 */
 	public static Mundiales retornarMundial(String nombreMundial) throws SQLException, Exception {
+		
 		Mundiales mundialTemp=null;
-		
-		ArrayList<Mundiales> listaMundialesTemp = new MultiMundiales().retornarMundiales();
-		
-		for(Mundiales e: listaMundialesTemp) {
+
+		for(Mundiales e: listaMundiales) {
 			
 			if(nombreMundial.equals(e.getNombreMundial())) {
 				
@@ -487,7 +580,6 @@ public class CL {
 	 */
 	public static ArrayList<LigasPublicas> retornarLigasPublicas() throws SQLException, Exception {
 		
-//		return listaLigasPublicas;
 		return new MultiLigasPublicas().retornarLigasPublicas();
 		
 	}
@@ -932,7 +1024,7 @@ public class CL {
 		
 		ArrayList<Usuario> listaUsuariosTemp = new MultiUsuarios().retornarUsuarios();
 		
-			for(Usuario e: listaUsuarios) {
+			for(Usuario e: listaUsuariosTemp) {
 				
 				if(nombreUsuario.equals(e.getNombreUsuario())) {
 					
@@ -944,6 +1036,7 @@ public class CL {
 			
 			Usuario miUsuario = listaUsuariosTemp.get(indice);
 			miUsuario.setMiLigaPublica(liga);
+			new MultiUsuarios().ingresarLigaPublicaUsuario(miUsuario.getNombreUsuario(), liga.getNombreLiga());
 			listaUsuariosTemp.set(indice, miUsuario);
 		
 	}
@@ -973,8 +1066,9 @@ public class CL {
 			
 			Usuario miUsuario = listaUsuariosTemp.get(indice);
 			miUsuario.setMiLigaPrivada(liga);
+			new MultiUsuarios().ingresarLigaPrivadaUsuario(miUsuario.getNombreUsuario(), liga.getNombreLiga());
 			listaUsuariosTemp.set(indice, miUsuario);
-		
+		    
 	}
 	
 	
@@ -1217,9 +1311,11 @@ public class CL {
 		 */
 		public static void eliminarLigaPublica(String nombreLiga) throws SQLException, Exception {
 			
-			ArrayList<LigasPublicas> ligasPublicasTemp = new MultiLigasPublicas().retornarLigasPublicas();
+			new MultiLigasPublicas().borrar(nombreLiga);
 			
-			int index=-1;
+			listaLigasPublicas = new MultiLigasPublicas().retornarLigasPublicas();
+			
+			/*int index=-1;
 			
 			for(LigasPublicas e: ligasPublicasTemp) {
 				
@@ -1236,7 +1332,7 @@ public class CL {
 				ligasPublicasTemp.remove(index);
 				//En este punto se realizara un ciclo for para analizar que usuarios tienen esta liga incluida y se les removera.
 				
-			}
+			}*/
 			
 		}
 		
@@ -1250,6 +1346,10 @@ public class CL {
 			
 			ArrayList<LigasPrivadas> ligasPrivadasTemp = new MultiLigasPrivadas().retornarLigasPrivadas();
 			
+			new MultiLigasPrivadas().borrar(nombreLiga);
+			
+			listaLigasPrivadas = new MultiLigasPrivadas().retornarLigasPrivadas();
+			/*
 			int index=-1;
 			
 			for(LigasPrivadas e: listaLigasPrivadas) {
@@ -1267,7 +1367,7 @@ public class CL {
 				ligasPrivadasTemp.remove(index);
 				//En este punto se realizara un ciclo for para analizar que usuarios tienen esta liga incluida y se les removera.
 				
-			}
+			}*/
 	
 		}
 
@@ -1284,11 +1384,20 @@ public class CL {
 			
 			ArrayList<Usuario> listaUsuariosTemp = new MultiUsuarios().retornarUsuarios();
 			
-			for(Usuario e: listaUsuarios) {
+			for(Usuario e: listaUsuariosTemp) {
 				
 				if(e.getNombreUsuario().equals(usuarioActualizado.getNombreUsuario())) {
 					
+					/*
+					e.setEquipoLigaPublica();
+					e.setEquipoLigaPrivada();
+					e.setMiLigaPublica();
+					e.setMiLigaPrivada();
+					e.setPrimerCuadroPrivada();
+					e.setPrimerCuadroPublica();
+					e.set
 					listaUsuariosTemp.set(listaUsuariosTemp.indexOf(e), usuarioActualizado);
+					*/
 					
 				}
 				

@@ -639,6 +639,7 @@ public class Gestor {
 	public boolean validarMundial(Mundiales mundialAnfitrion) throws SQLException, Exception {
 
 		ArrayList<Mundiales> listaMundiales = CL.retornarMundialesRegistrados();
+		
 		boolean buscar = false;
 
 		for (Mundiales e : listaMundiales) {
