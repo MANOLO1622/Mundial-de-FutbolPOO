@@ -613,7 +613,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		this.add(labelTituloPublica);
 		labelTituloPublica.setForeground(Color.WHITE);
-		labelTituloPublica.setBounds(250, 190, 500, 260);
+		labelTituloPublica.setBounds(997, 250, 200, 30);
 		labelTituloPublica.setFont(new Font(labelTituloPublica.getFont().getFontName(), Font.BOLD, 30));
 
 		this.add(nombreLigaTXT);
@@ -621,7 +621,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		this.add(labelMundialAnfitrion);
 		labelMundialAnfitrion.setForeground(Color.WHITE);
-		labelMundialAnfitrion.setBounds(997, 250, 200, 30);
+		labelMundialAnfitrion.setBounds(250, 190, 500, 260);
 		labelMundialAnfitrion.setFont(new Font(labelMundialAnfitrion.getFont().getFontName(), Font.BOLD, 15));
 
 		this.add(MundialAnfitrion);
@@ -642,7 +642,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		this.add(labelNombreLiga);
 		labelNombreLiga.setForeground(Color.WHITE);
-		labelNombreLiga.setBounds(997, 290, 200, 30);
+		labelNombreLiga.setBounds(997, 250, 200, 30);
 		labelNombreLiga.setFont(new Font(labelNombreLiga.getFont().getFontName(), Font.BOLD, 15));
 
 		this.add(labelTituloPrivada);
@@ -655,7 +655,7 @@ public class MenuAdministrador extends JPanel implements ActionListener {
 
 		this.add(labelMundialAnfitrion);
 		labelMundialAnfitrion.setForeground(Color.WHITE);
-		labelMundialAnfitrion.setBounds(997, 250, 200, 30);
+		labelMundialAnfitrion.setBounds(997, 290, 200, 30);
 		labelMundialAnfitrion.setFont(new Font(labelMundialAnfitrion.getFont().getFontName(), Font.BOLD, 15));
 
 		this.add(MundialAnfitrion);
